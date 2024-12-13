@@ -7,25 +7,7 @@
 *Link* : [cours et td de mathématiques](https://bit.ly/antoine-gere-istom-maths)
 
 
-## Examen de mathématiques
-
-Jeudi 12 décembre 2024
-Promotion 115
-
-## Antoine Géré
-
-Document(s) autorisé(s) :Oui $\boxtimes$ Non
-
-Calculatrice autorisée : $\boxtimes$ Oui
-Non
-
-## Remarques:
-
-- Les exercices sont indépendants.
-- Il sera tenu compte de la propreté de votre copie, ainsi que de la clarté et de la qualité de la rédaction et du raisonement.
-- Ne pas écrire avec un crayon papier, sauf pour dessiner et/ou annoter des croquis, le cas échéant.
-- Utiliser les notations indiquées dans le texte et justifier toutes vos réponses.
-
+### Examen de mathématiques du jeudi 12 décembre 2024 
 
 ## Exercice 1
 
