@@ -14,7 +14,7 @@ Welcome to my personal webpage.
 
 ### Mathématiques : 
 - **Description**: ....
-- **Link**: [cours et td de mathématiques](https://bit.ly/antoine-gere-istom-maths)
+- **More Info**: [cours et td de mathématiques](./mATh.md)
 
 ---
 
