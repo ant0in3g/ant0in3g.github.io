@@ -9,8 +9,6 @@
 
 # Examen de mathématiques du jeudi 12 décembre 2024 
 
----
-
 ## Exercice 1
 
 On considère la suite $\left(u_{n}\right)_{n \in \mathbb{N}}$ définie par $u_{0}=0$ et par la relation de récurrence
@@ -23,8 +21,6 @@ $$
 2. Montrer que pour tout $n \in \mathbb{N}, u_{n}<3$.
 3. Montrer que la suite est croissante. En déduire si la suite $\left(u_{n}\right)$ est convergente ou non.
 4. Calculer la limite de la suite $\left(u_{n}\right)_{n \in \mathbb{N}}$.
-
----
 
 ## Exercice 2
 
@@ -55,8 +51,6 @@ Une revue spécialisée est diffusée uniquement par abonnement. Une étude stat
 (a) Justifier que pour tout entier $n, u_{n+1}=0,68 u_{n}+3560$
 (b) Montrer qu'il n'est possible d'envisager au bout d'un nombre d'années suffisamment grand, une diffusion supérieure à 12000 abonnés.
 (c) Déterminer l'année à partir de laquelle le nombre d'abonnés à la revue sera supérieur à 11000?
-
----
 
 ## Exercice 3
 
