@@ -7,8 +7,17 @@
 *Link* : [cours et td de mathématiques](https://bit.ly/antoine-gere-istom-maths)
 
 
+**Exercice :**
 
-This is an inline equation: $$V_{sphere} = \frac{4}{3}\pi r^3$$,<br>
-followed by a display style equation:
+On considère la suite $\left(u_{n}\right)_{n \in \mathbb{N}}$ définie par $u_{0}=0$ et par la relation de récurrence
 
-$$V_{sphere} = \frac{4}{3}\pi r^3$$
+$$
+u_{n+1}=\frac{1}{6} u_{n}^{2}+\frac{3}{2}
+$$
+
+\begin{enumerate}
+  \item Montrer que pour tout $n \in \mathbb{N}^{*}, u_{n}>0$.
+  \item Montrer que pour tout $n \in \mathbb{N}, u_{n}<3$.  
+  \item Montrer que la suite est croissante. En déduire si la suite $(u_n)$ est convergente ou non.
+  \item Calculer la limite de la suite $\left(u_{n}\right)_{n \in \mathbb{N}}$.
+\end{enumerate}
