@@ -24,7 +24,7 @@ $$
 
 ## Exercice 2
 
-## Partie A : Etude théorique.
+### Partie A : Etude théorique.
 
 Soit $\left(u_{n}\right)$ la suite numérique définie par $u_{0}=5500$ et pour tout entier naturel $n$,
 
@@ -43,7 +43,7 @@ $$
 
 (c) La suite $\left(u_{n}\right)$ est-elle convergente?
 
-## Partie B : Mise en pratique.
+### Partie B : Mise en pratique.
 
 Une revue spécialisée est diffusée uniquement par abonnement. Une étude statistique a permis de constater que d'une année sur l'autre, $32 \%$ des abonnés ne renouvellent pas leur abonnement et 3560 nouvelles personnes souscrivent un abonnement. En 2010, il y avait 5500 abonnés à cette revue.
 3. Donner une estimation du nombre d'abonnés à cette revue en 2012.
