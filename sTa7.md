@@ -2,6 +2,30 @@
 
 R est un langage de programmation et un environnement pour l'analyse de données et les statistiques. Il est largement utilisé en recherche, en sciences des données et en statistiques appliquées. Ce cours fournit une introduction aux bases de R, en mettant l'accent sur les applications statistiques.
 
+## Sommaire
+1. [Installation et prise en main de R et RStudio](#1-installation-et-prise-en-main-de-r-et-rstudio)
+   - [1.1 Installation](#11-installation)
+   - [1.2 Premiers pas dans RStudio](#12-premiers-pas-dans-rstudio)
+   - [1.3 Premiers calculs](#13-premiers-calculs)
+2. [Bases du langage R](#2-bases-du-langage-r)
+   - [2.1 Types de données](#21-types-de-données)
+   - [2.2 Objets principaux](#22-objets-principaux)
+3. [Importation et manipulation des données](#3-importation-et-manipulation-des-données)
+   - [3.1 Importation de fichiers](#31-importation-de-fichiers)
+   - [3.2 Exploration des données](#32-exploration-des-données)
+   - [3.3 Manipulation avec dplyr](#33-manipulation-avec-dplyr)
+4. [Statistiques descriptives](#4-statistiques-descriptives)
+   - [4.1 Moyennes et médianes](#41-moyennes-et-médianes)
+   - [4.2 Variance et écart-type](#42-variance-et-écart-type)
+   - [4.3 Tableaux de fréquences](#43-tableaux-de-fréquences)
+5. [Visualisation des données](#5-visualisation-des-données)
+   - [5.1 Graphiques de base](#51-graphiques-de-base)
+   - [5.2 Visualisation avancée avec ggplot2](#52-visualisation-avancée-avec-ggplot2)
+6. [Analyses statistiques de base](#6-analyses-statistiques-de-base)
+   - [6.1 Tests statistiques](#61-tests-statistiques)
+   - [6.2 Régression linéaire](#62-régression-linéaire)
+7. [Aller plus loin](#7-aller-plus-loin)
+
 ## Objectifs du cours
 - Comprendre l'environnement R et RStudio.
 - Apprendre les bases de la manipulation de données avec R.
