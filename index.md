@@ -16,6 +16,10 @@ Welcome to my personal webpage.
 - **Description**: ....
 - **More Info**: [cours et td de mathématiques](./mATh.md)
 
+### Statistiques : 
+- **Description**: ....
+- **More Info**: [cours et td de statistiques](./sTa7.md)
+
 ---
 
 ## Contact
