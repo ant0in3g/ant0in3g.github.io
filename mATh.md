@@ -1,10 +1,40 @@
-<script
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
-  type="text/javascript">
-</script>
-
-
 *Link* : [cours et td de mathématiques](https://bit.ly/antoine-gere-istom-maths)
+
+
+### Exercice sur les suites arithmético-géométriques
+
+#### Énoncé :
+Soit la suite \((u_n)\) définie pour tout \(n \geq 0\) par la relation de récurrence suivante :
+
+\[
+u_{n+1} = a u_n + b \quad \text{avec} \quad u_0 = u_0
+\]
+
+où \(a\), \(b\), et \(u_0\) sont des réels donnés.
+
+1. **Étude de la suite :**
+   a. Montrer que la suite \((u_n)\) est une suite arithmético-géométrique.  
+   b. Résoudre la relation de récurrence pour trouver une expression explicite de \(u_n\).  
+
+2. **Application numérique :**
+   Soit \(a = 0.5\), \(b = 2\), et \(u_0 = 4\).  
+   a. Calculer les 5 premiers termes de la suite \((u_n)\).  
+   b. Montrer que \((u_n)\) converge et déterminer sa limite.  
+
+3. **Généralisation :**
+   a. Déterminer la condition sur \(a\) pour que la suite \((u_n)\) converge lorsque \(n \to \infty\).  
+   b. Si \((u_n)\) converge, déterminer la limite \(L\) en fonction de \(a\) et \(b\).
+
+#### Indications :
+- Pour résoudre la relation de récurrence, vous pouvez séparer \((u_n)\) en deux parties : une partie géométrique et une partie constante.  
+- Pour analyser la convergence, il peut être utile d'étudier la somme d'une série géométrique et le comportement de \(a^n\) selon la valeur de \(a\).
+
+#### Objectifs pédagogiques :
+- Comprendre la définition et la structure d’une suite arithmético-géométrique.
+- Maîtriser les techniques de résolution d’une relation de récurrence.
+- Étudier la convergence et la limite d'une suite. 
+
+Si vous voulez des corrections détaillées ou d'autres variantes de l'exercice, faites-le-moi savoir ! 😊
 
 
 # Examen de mathématiques du jeudi 12 décembre 2024 
