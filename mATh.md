@@ -29,13 +29,6 @@ où \(a\), \(b\), et \(u_0\) sont des réels donnés.
 - Pour résoudre la relation de récurrence, vous pouvez séparer \((u_n)\) en deux parties : une partie géométrique et une partie constante.  
 - Pour analyser la convergence, il peut être utile d'étudier la somme d'une série géométrique et le comportement de \(a^n\) selon la valeur de \(a\).
 
-#### Objectifs pédagogiques :
-- Comprendre la définition et la structure d’une suite arithmético-géométrique.
-- Maîtriser les techniques de résolution d’une relation de récurrence.
-- Étudier la convergence et la limite d'une suite. 
-
-Si vous voulez des corrections détaillées ou d'autres variantes de l'exercice, faites-le-moi savoir ! 😊
-
 
 # Examen de mathématiques du jeudi 12 décembre 2024 
 
