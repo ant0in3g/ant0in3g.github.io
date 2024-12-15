@@ -16,7 +16,7 @@ Welcome to my personal webpage.
 
 - **Email** : a.gere@istom.fr
 - **GitHub** : [https://github.com/ant0in3g](https://github.com/ant0in3g)
-- **LinkedIn** : [linkedin.com/in/antoine-gere](http://linkedin.com/in/antoine-gere)
+- **LinkedIn** : [https://linkedin.com/in/antoine-gere](http://linkedin.com/in/antoine-gere)
 - **arXiv** : [https://arxiv.org/gere-antoine](https://arxiv.org/search/?searchtype=author&query=G%C3%A9r%C3%A9,+Antoine)
 
 ---
