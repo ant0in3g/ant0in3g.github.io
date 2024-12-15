@@ -20,4 +20,4 @@ Welcome to my personal webpage.
 
 ---
 
-*Thank you for visiting my webpage!*
+*Thank you for visiting my webpage !*
