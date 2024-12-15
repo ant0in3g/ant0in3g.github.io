@@ -6,9 +6,9 @@ Welcome to my personal webpage.
 
 ## Enseignements
 
-### [Mathématiques](./mATh.md)
+#### [Mathématiques](./mATh.md)
 
-### [Statistiques et analyses de données](./sTa7.md) 
+#### [Statistiques et analyses de données](./sTa7.md) 
 
 ---
 
