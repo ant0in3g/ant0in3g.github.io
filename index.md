@@ -4,15 +4,11 @@ Welcome to my personal webpage.
 
 ---
 
-## Enseignement
+## Enseignements
 
-### Mathématiques : 
-- **Description**: ....
-- **More Info**: [cours et td de mathématiques](./mATh.md)
+### [Mathématiques](./mATh.md)
 
-### Statistiques : 
-- **Description**: ....
-- **More Info**: [cours et td de statistiques](./sTa7.md)
+### [Statistiques et analyses de données](./sTa7.md) 
 
 ---
 
