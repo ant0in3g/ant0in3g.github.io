@@ -21,3 +21,9 @@
 1. [....](https://bit.ly/antoine-gere-istom-maths)
 2. [....](https://bit.ly/antoine-gere-istom-maths)
 3. [....](https://bit.ly/antoine-gere-istom-maths)
+
+### Examens et corrections
+
+- Examem ..
+- Examen 2A du 6 décembre 2024
+- Examen 1A du 12 décembre 2024
