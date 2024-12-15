@@ -4,12 +4,6 @@ Welcome to my personal webpage.
 
 ---
 
-## About Me
-
-....
-
----
-
 ## Enseignement
 
 ### Mathématiques : 
@@ -23,8 +17,6 @@ Welcome to my personal webpage.
 ---
 
 ## Contact
-
-You can reach me at:
 
 - **Email**: a.gere@istom.fr
 - **GitHub**: [github.com/example](https://github.com/example)
