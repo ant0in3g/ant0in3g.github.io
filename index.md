@@ -14,6 +14,12 @@ Vous retrouverez à ce lien le [syllabus](https://istom-my.sharepoint.com/:b:/g/
 
 #### Résistance des matériaux
 
+#### Thermodynamique
+
+#### Electromagnétisme
+
+#### Optique linéaire
+
 ## Recherche
 
 coming soon.
