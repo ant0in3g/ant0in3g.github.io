@@ -1,26 +1,29 @@
 ### Semestre 1
 
-1. [Nombres complexes](https://bit.ly/antoine-gere-istom-maths)
-2. [Pôlynomes](https://bit.ly/antoine-gere-istom-maths)
-3. [Suites numériques](https://bit.ly/antoine-gere-istom-maths)
-3. [Fonctions à une variable réelle](https://bit.ly/antoine-gere-istom-maths)
+1. [Nombres complexes](./mATh/chapter-s/nombres-complexes/chapter-s.pdf)
+2. [Pôlynomes](./mATh/chapter-s/polynomes/chapter-s.pdf)
+3. [Suites numériques](./mATh/chapter-s/suites/chapter-s.pdf)
+3. [Fonctions à une variable réelle](./mATh/chapter-s/limit-conti-deriv/chapter-s.pdf)
 
 ### Semestre 2
 
-1. [Fonctions ...](https://bit.ly/antoine-gere-istom-maths)
-2. [Intégrations](https://bit.ly/antoine-gere-istom-maths)
-3. [....](https://bit.ly/antoine-gere-istom-maths)
+1. [Fonctions à une variable réelle (suite)](./mATh/chapter-s/limit-conti-deriv/chapter-s.pdf)
+2. [Intégrations](./mATh/chapter-s/integration/chapter-s.pdf)
+3. [Développement limité](./mATh/chapter-s/developpement-limite/chapter-s.pdf)
+4. [Equations differentielles](./mATh/chapter-s/equa-diff/chapter-s.pdf)
 
 ### Semestre 3
 
-1. [Calcul matriciel](https://bit.ly/antoine-gere-istom-maths)
-2. [Déterminant](https://bit.ly/antoine-gere-istom-maths)
-3. [Diagonalisation](https://bit.ly/antoine-gere-istom-maths)
+1. [Calcul matriciel](./mATh/chapter-s/matrices/chapter-s.pdf)
+2. [Déterminant](./mATh/chapter-s/determinant/chapter-s.pdf)
+3. [Introduction aux espaces vectoriels](./mATh/chapter-s/intro-espace-vect/chapter-s.pdf)
+4. [Diagonalisation](./mATh/chapter-s/diagonalisation/chapter-s.pdf)
 
 ### Semestre 4
 
-1. [Fonctions à plusieurs variables réelles](https://bit.ly/antoine-gere-istom-maths)
-2. [Intégrales multiples](https://bit.ly/antoine-gere-istom-maths)
+1. [Fonctions à plusieurs variables réelles](./mATh/chapter-s/fonction-multi-variables/chapter-s.pdf)
+2. [Intégrales multiples](./mATh/chapter-s/integrales-multiples/chapter-s.pdf)
+3. [Géométrie dans le plan et l'espace](./mATh/chapter-s/geometry/chapter-s.pdf)
 
 ### Examens et corrections
 
