@@ -1,7 +1,7 @@
 ### Semestre 1
 
 1. [Nombres complexes](./mATh/chapter-s/nombres-complexes/chapter-s.pdf)
-2. [Pôlynomes](./mATh/chapter-s/polynomes/chapter-s.pdf)
+2. [Pôlynomes](./mATh/chapter-s/Polynomes/chapter-s.pdf)
 3. [Suites numériques](./mATh/chapter-s/suites/chapter-s.pdf) 
 3. [Fonctions à une variable réelle](./mATh/chapter-s/limit-conti-deriv/chapter-s.pdf) 
 
@@ -17,7 +17,7 @@
 1. [Calcul matriciel](./mATh/chapter-s/matrices/chapter-s.pdf)
 2. [Déterminant](./mATh/chapter-s/determinant/chapter-s.pdf)
 3. [Introduction aux espaces vectoriels](./mATh/chapter-s/intro-espace-vect/chapter-s.pdf)
-4. [Diagonalisation](./mATh/chapter-s/diagonalisation/chapter-s.pdf)
+4. [Diagonalisation](./mATh/chapter-s/Diagonalisation/chapter-s.pdf)
 
 ### Semestre 4
 
