@@ -4,6 +4,8 @@ En construction.
 
 ## Enseignements
 
+Vous retrouverez à ce lien le [syllabus](https://istom-my.sharepoint.com/:b:/g/personal/a_gere_istom_fr/EUfxXA2HiKBIoC5gP9S8cvsB950tp6BHuYqXtes2aGw-FA?e=w8ZcA5) complet de la formation.
+
 #### [Mathématiques](./mATh.md)
 
 #### [Statistiques et analyses de données](./sTa7.md) 
