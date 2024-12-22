@@ -33,4 +33,4 @@
 
 ### Corrections supplémentaires
 
-Vous pouvez retrouver dans ce [dossier](./mATh/chapter-s/integration/corrections/) les corrections manuscrites que je n'ai pas pris le temps de taper à la machine.
+Vous pouvez retrouver dans ce [dossier](./mATh/corrections/) les corrections manuscrites que je n'ai pas pris le temps de taper à la machine.
