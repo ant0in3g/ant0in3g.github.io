@@ -34,3 +34,4 @@
 ### Corrections supplémentaires
 
 Vous pouvez retrouver dans ce [dossier](./mATh/corrections/) les corrections manuscrites que je n'ai pas pris le temps de taper à la machine.
+- [02.0011](./mATh/corrections/02.0011.C.pdf)
