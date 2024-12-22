@@ -3,6 +3,7 @@
 1. [Nombres complexes](https://bit.ly/antoine-gere-istom-maths)
 2. [Pôlynomes](https://bit.ly/antoine-gere-istom-maths)
 3. [Suites numériques](https://bit.ly/antoine-gere-istom-maths)
+3. [Fonctions à une variable réelle](https://bit.ly/antoine-gere-istom-maths)
 
 ### Semestre 2
 
@@ -18,12 +19,16 @@
 
 ### Semestre 4
 
-1. [....](https://bit.ly/antoine-gere-istom-maths)
-2. [....](https://bit.ly/antoine-gere-istom-maths)
-3. [....](https://bit.ly/antoine-gere-istom-maths)
+1. [Fonctions à plusieurs variables réelles](https://bit.ly/antoine-gere-istom-maths)
+2. [Intégrales multiples](https://bit.ly/antoine-gere-istom-maths)
 
 ### Examens et corrections
 
-- Examem ..
-- Examen 2A du 6 décembre 2024
-- Examen 1A du 12 décembre 2024
+#### P115
+
+- [Examem 1A du 30 septembre 2024](./mATh/examens/exam-math-S1-2024.09.30.pdf)
+- [Examen 1A du 12 décembre 2024](./mATh/examens/exam-math-S1-2024.12.12.pdf)
+
+#### P114
+
+- [Examen 2A du 6 décembre 2024](./mATh/examens/exam-math-S2-2024.12.06.pdf)
