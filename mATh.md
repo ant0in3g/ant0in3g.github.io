@@ -2,13 +2,13 @@
 
 1. [Nombres complexes](./mATh/chapter-s/nombres-complexes/chapter-s.pdf)
 2. [Pôlynomes](./mATh/chapter-s/polynomes/chapter-s.pdf)
-3. [Suites numériques](./mATh/chapter-s/suites/chapter-s.pdf)
-3. [Fonctions à une variable réelle](./mATh/chapter-s/limit-conti-deriv/chapter-s.pdf)
+3. [Suites numériques](./mATh/chapter-s/suites/chapter-s.pdf) 
+3. [Fonctions à une variable réelle](./mATh/chapter-s/limit-conti-deriv/chapter-s.pdf) 
 
 ### Semestre 2
 
-1. [Fonctions à une variable réelle (suite)](./mATh/chapter-s/limit-conti-deriv/chapter-s.pdf)
-2. [Intégrations](./mATh/chapter-s/integration/chapter-s.pdf)
+1. [Fonctions à une variable réelle (suite)](./mATh/chapter-s/limit-conti-deriv/chapter-s.pdf) 
+2. [Intégrations](./mATh/chapter-s/integration/chapter-s.pdf) 
 3. [Développement limité](./mATh/chapter-s/developpement-limite/chapter-s.pdf)
 4. [Equations differentielles](./mATh/chapter-s/equa-diff/chapter-s.pdf)
 
@@ -30,3 +30,7 @@
 - [Examem 1A du 30 septembre 2024](./mATh/examens/exam-math-S1-2024.09.30.pdf)
 - [Examen 1A du 12 décembre 2024](./mATh/examens/exam-math-S1-2024.12.12.pdf)
 - [Examen 2A du 6 décembre 2024](./mATh/examens/exam-math-S2-2024.12.06.pdf)
+
+### Corrections supplémentaires
+
+Vous pouvez retrouver dans ce [dossier](./mATh/chapter-s/integration/corrections/) les corrections manuscrites que je n'ai pas pris le temps de taper à la machine.
