@@ -8,6 +8,10 @@ En construction.
 
 #### [Statistiques et analyses de données](./sTa7.md) 
 
+#### Mécanique des fluides
+
+#### Résistance des matériaux
+
 ## Recherche
 
 coming soon.
