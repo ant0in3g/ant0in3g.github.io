@@ -1,5 +1,3 @@
-## Mathématiques
-
 ### Semestre 1
 
 1. [Nombres complexes](./mATh/chapter-s/nombres-complexes/chapter-s.pdf)
