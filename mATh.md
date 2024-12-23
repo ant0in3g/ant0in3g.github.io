@@ -1,3 +1,5 @@
+Vous pouvez également vous exercer sur votre espace [jai20enmaths](https://www.jai20enmaths.com/connexion/istom), où vous y retrouverez des notions de cours ainsi que des exercices corrigés. Si vous remarquez une erreur ou avez une suggestion pour que cet espace de travail soit plus agréable à utiliser, ne surtout pas hésiter à me le signaler par mail à [a.gere@istom.fr](mailto:a.gere@istom.fr).
+
 ### Semestre 1
 
 1. [Nombres complexes](./mATh/chapter-s/nombres-complexes/chapter-s.pdf)
