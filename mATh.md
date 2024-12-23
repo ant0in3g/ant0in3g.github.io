@@ -31,9 +31,9 @@ Ces notes ci-dessous sont en cours d’élaboration. Si vous avez la moindre que
 
 ### Examens et corrections
 
-- [Examem 1A du 30 septembre 2024](./mATh/examens/exam-math-S1-2024.09.30.pdf)
-- [Examen 1A du 12 décembre 2024](./mATh/examens/exam-math-S1-2024.12.12.pdf)
-- [Examen 2A du 6 décembre 2024](./mATh/examens/exam-math-S2-2024.12.06.pdf)
+- [Examen 1A du jeudi 12 décembre 2024](./mATh/examens/exam-math-S1-2024.12.12.pdf)
+- [Examen 2A du vendredi 6 décembre 2024](./mATh/examens/exam-math-S2-2024.12.06.pdf)
+- [Examem 1A du lundi 30 septembre 2024](./mATh/examens/exam-math-S1-2024.09.30.pdf)
 
 ### Corrections supplémentaires
 
