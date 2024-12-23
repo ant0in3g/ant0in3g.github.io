@@ -1,3 +1,5 @@
+## Mathématiques
+
 ### Semestre 1
 
 1. [Nombres complexes](./mATh/chapter-s/nombres-complexes/chapter-s.pdf)
@@ -33,4 +35,4 @@
 
 ### Corrections supplémentaires
 
-Vous pouvez retrouver dans ce [dossier](./mATh/corrections.md/) les corrections manuscrites que je n'ai pas pris le temps de taper à la machine.
+Vous pouvez trouver dans ce [dossier](./mATh/corrections.md/) les corrections manuscrites que je n'ai pas encore pris le temps de taper.
