@@ -1,4 +1,4 @@
-Voici la liste des coours bienôt disponible.
+Voici la liste des cours bienôt disponible.
 
 #### Mécanique des fluides
 
