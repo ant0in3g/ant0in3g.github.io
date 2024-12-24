@@ -10,7 +10,7 @@ Vous retrouverez à ce lien le [syllabus](https://istom-my.sharepoint.com/:b:/g/
 
 #### [Statistiques et analyses de données](./sTa7.md) 
 
-Vous pourrez prochainement trouver un (ensemble de cours)(./lecture-s.md) que j'ai rédigé que j'ai soit déjà enseigné, soit suivi en tant qu'étudiant.
+Vous pourrez prochainement trouver un [ensemble de cours](./lecture-s.md) rédigé par moi-même que j'ai soit déjà enseigné, soit suivi en tant qu'étudiant.
 
 ## Recherche
 
