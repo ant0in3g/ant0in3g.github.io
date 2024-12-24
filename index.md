@@ -12,10 +12,6 @@ Vous retrouverez à ce lien le [syllabus](https://istom-my.sharepoint.com/:b:/g/
 
 Vous pourrez prochainement trouver un [ensemble de cours](./lecture-s.md) rédigé que j'ai soit déjà enseigné, soit suivi en tant qu'étudiant.
 
-![Etudiez en musique !](./images/logo_spotify.png)
-![Etudiez en musique !](./images/logo_deezer.png)
-![dd!](./images/logo_wolfram_alpha.png)
-
 ## Recherche
 
 coming soon.
