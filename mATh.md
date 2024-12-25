@@ -35,4 +35,4 @@ Les sujets d'examens donnés sont disponible sur cette [page](./mATh/examens.md/
 
 ### Corrections supplémentaires
 
-Vous pouvez trouver dans ce [dossier](./mATh/corrections.md/) les corrections manuscrites que je n'ai pas encore pris le temps de taper.
+Vous pouvez trouver via ce [lien](./mATh/corrections.md/) les corrections manuscrites que je n'ai pas encore pris le temps de taper.
