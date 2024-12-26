@@ -29,6 +29,12 @@ Ces notes ci-dessous sont en cours d’élaboration. Si vous avez la moindre que
 2. [Intégrales multiples](./mATh/chapter-s/integrales-multiples/chapter-s.pdf)
 3. [Géométrie dans le plan et l'espace](./mATh/chapter-s/geometry/chapter-s.pdf)
 
+### Pour aller plus loin
+
+1. [Serie numérique](./mATh/chapter-s/serie-numerique/chapter-s.pdf)
+2. [Série entière ](./mATh/chapter-s/serie-entiere/chapter-s.pdf)
+3. [Serie de Fourier](./mATh/chapter-s/serie-fourier/chapter-s.pdf)
+
 ### Examens et corrections
 
 Les sujets d'examens donnés sont disponible sur cette [page](./mATh/examens.md/).
