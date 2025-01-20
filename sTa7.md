@@ -1,15 +1,15 @@
-# Statistiques et analyse de données 
+## Statistiques et analyse de données 
 
-Référent enseignement : Antoine Géré
-
-Enseignant : Antoine Géré
+Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 
 |       | Semestre 2 | Semestre 3 | Semestre 4 |
 |:------|:-----------|:-----------|:-----------|
 | Cours | 16 séances | 10 séances | 8 séances  |
 | TD    | 8 séances  | 8 séances  | 7 séances  |
 
-## Séance 1 - Introduction et prise en main de R et RStudio
+### Séance 1 - Introduction et prise en main de R et RStudio
+
+
 
 1. Introduction
     1. Notions fondamentales

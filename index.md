@@ -10,9 +10,9 @@ Un outil très pratique [Wolfram Alpha](https://www.wolframalpha.com/). C'est un
 
 Etudiez en musique ! Vos playlists sur [Spotify](https://open.spotify.com/playlist/0KZGwpcrKkFicSRuAJ3CQ4?si=4670e9f1df6749e5) et [Deezer](https://deezer.page.link/TxLR2fALBsRhxWnY9).
 
-#### [Mathématiques](./mATh.md)
+### [Mathématiques](./mATh.md)
 
-#### [Statistiques et analyses de données](./sTa7.md) 
+### [Statistiques et analyses de données](./sTa7.md) 
 
 Vous pourrez prochainement trouver un [ensemble de cours](./lecture-s.md) rédigé que j'ai soit déjà enseigné, soit suivi en tant qu'étudiant.
 
