@@ -1,3 +1,9 @@
+
+
+
+### [Template PIDEx](https://nbviewer.org/github/ant0in3g/ant0in3g.github.io/blob/main/sTa7/pidex/template/template_pidex.ipynb?flush_cache=true)
+
+
 ## Statistiques et analyse de données 1 (semestre 2)
 
 Référent enseignement : Antoine Géré
