@@ -2,10 +2,10 @@
 
 Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 
-|       | Semestre 2 | Semestre 3 | Semestre 4 |
-|:------|:-----------|:-----------|:-----------|
-| Cours | 16 séances | 10 séances | 8 séances  |
-| TD    | 8 séances  | 8 séances  | 7 séances  |
+|       | Semestre 2 | Semestre 3 | Semestre 4 | Semestre 4 |
+|:------|:-----------|:-----------|:-----------|:-----------|
+| Cours | 16 séances | - séances  | 8 séances  | - séances  |
+| TD    | 8 séances  | - séances  | 7 séances  | - séances  |
 
 ### Séance 1 - Introduction et prise en main de R et RStudio
 
