@@ -9,11 +9,14 @@ Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 
 ### Ressources pour la promotion 115
 
-[Séance 1](./sTa7/intro_R.md) - Introduction et prise en main de R et RStudio
+- [Séance 1](./sTa7/intro_R.md) - Introduction et prise en main de R et RStudio
+- [Séance 2](./sTa7/intro_R.md) - coming
+- [Séance 3](./sTa7/intro_R.md) - coming
 
 ### Ressources pour la promotion 114
 
-[Séance 1](./sTa7/intro_R.md) - Introduction et prise en main de R et RStudio
+- [Séance 1](./sTa7/intro_R.md) - Introduction et prise en main de R et RStudio
+- [Séance 2](./sTa7/intro_R.md) - coming
 
 
 
