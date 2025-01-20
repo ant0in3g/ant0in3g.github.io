@@ -2,7 +2,7 @@
 
 Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 
-|       | Semestre 2 | Semestre 3 | Semestre 4 | Semestre 4 |
+|       | Semestre 2 | Semestre 3 | Semestre 4 | Semestre 5 |
 |:------|:-----------|:-----------|:-----------|:-----------|
 | Cours | 16 séances | - séances  | 8 séances  | - séances  |
 | TD    | 8 séances  | - séances  | 7 séances  | - séances  |
