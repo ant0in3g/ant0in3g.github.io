@@ -1,3 +1,64 @@
+
+
+
+
+1. Introduction
+    1. Notions fondamentales
+    2. Les tableaux et les représentations graphiques
+2. Les valeurs centrales
+    1. Les moyennes
+    2. Les autres paramètres de position
+3. Dispersion, concentration et forme
+    1. Les paramètres de dispersion et de forme
+    2. La concentration
+4. Distribution à deux dimensions
+    1. Les tableaux de contingence
+    2. Les caractéristiques des lois marginales
+    3. La covariance
+    4. Les courbes de régression
+5. Régression
+    1. L'ajustement affine
+    2. Le coefficient de corrélation
+    3. Les équations des droites de régression
+    4. L'analyse de la variance
+6. Analyse des séries temporelles
+    1. Les taux de croissance
+    2. Les représentations graphiques des séries chronologiques
+    3. La décomposition d'une série chronologique
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Introduction à R pour la statistique
 
 R est un langage de programmation et un environnement pour l'analyse de données et les statistiques. Il est largement utilisé en recherche, en sciences des données et en statistiques appliquées. Ce cours fournit une introduction aux bases de R, en mettant l'accent sur les applications statistiques.

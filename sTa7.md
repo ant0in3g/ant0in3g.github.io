@@ -7,30 +7,13 @@ Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 | Cours | 16 séances | - séances  | 8 séances  | - séances  |
 | TD    | 8 séances  | - séances  | 7 séances  | - séances  |
 
-### Séance 1 - Introduction et prise en main de R et RStudio
+### Ressources pour la promotion 115
+
+[Séance 1](./sTa7/intro_R.md) - Introduction et prise en main de R et RStudio
+
+### Ressources pour la promotion 114
+
+[Séance 1](./sTa7/intro_R.md) - Introduction et prise en main de R et RStudio
 
 
 
-1. Introduction
-    1. Notions fondamentales
-    2. Les tableaux et les représentations graphiques
-2. Les valeurs centrales
-    1. Les moyennes
-    2. Les autres paramètres de position
-3. Dispersion, concentration et forme
-    1. Les paramètres de dispersion et de forme
-    2. La concentration
-4. Distribution à deux dimensions
-    1. Les tableaux de contingence
-    2. Les caractéristiques des lois marginales
-    3. La covariance
-    4. Les courbes de régression
-5. Régression
-    1. L'ajustement affine
-    2. Le coefficient de corrélation
-    3. Les équations des droites de régression
-    4. L'analyse de la variance
-6. Analyse des séries temporelles
-    1. Les taux de croissance
-    2. Les représentations graphiques des séries chronologiques
-    3. La décomposition d'une série chronologique
