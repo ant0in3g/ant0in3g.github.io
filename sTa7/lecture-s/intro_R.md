@@ -9,7 +9,7 @@ R est un langage de programmation et un environnement pour l'analyse de données
    - [1.2 Installation de RStudio](#12-installation-de-rstudio)
    - [1.3 Configurationn de RStudio](#13-configuration-de-rstudio)
 
-### 1. Installez de R et RStudio
+### 1. Les outils R et RStudio
 
 ### 1.1 Installation de R
 
