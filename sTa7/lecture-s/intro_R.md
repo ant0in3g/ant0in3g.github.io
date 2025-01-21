@@ -50,7 +50,11 @@ Les versions de R et RStudio peuvent être legerement différentes, donc quelque
 
 L’organisation de ces parties est complètement modulable à votre guise dans :
 
-```Tools > Global options > Pane Layout``` 
+```Tools > Global options```
+
+Nous allons débuter par personaliser le _Pane Layout_.
+
+```Tools > Global options > Pane Layout```
 
 ![image](./img/rstudio-config1.png)
 
@@ -71,13 +75,47 @@ L’organisation de ces parties est complètement modulable à votre guise dans 
     - Viewer
     - Presentations
 
+> Ne pas oublier de cliquer sur **apply** !
+
+Nous allons à présent ajuster l’apparence de RStudio suivant nos propres préférences. Le chemin pour ces modification est toujours le même :
+
+```Tools > Global options```
+
+Nous commençons par **R General** :
+
+```Tools > Global options > R General```
+
 ![image](./img/rstudio-config2.png)
+
+- Vérifiez que la version utilisée est bien la dernière en date en cliquant sous R version sur **Change**.
+- Workspace : Décocher _Restore .RData into workspace at startup_, cette option n’est pas adaptée pour le moment. De la même manière, sélectionnez _Never_ pour _Save workspace to .RData on exit_.
+- History : Laissez décochés les deux paramètres.
+- Other : Laissez cochés les trois paramètres.
+
+Nous passons à **Code/Editing** :
+
+```Tools > Global options > Code > Editing```
 
 ![image](./img/rstudio-config3.png)
 
+
+blabla
+
+Nous passons à **Code/Display** :
+
+```Tools > Global options > Code > Display```
+
 ![image](./img/rstudio-config4.png)
 
+blabla
+
+Nous passons à **Appearance** :
+
+```Tools > Global options > Appearance```
+
 ![image](./img/rstudio-config5.png)
+
+blabla
 
 
 
