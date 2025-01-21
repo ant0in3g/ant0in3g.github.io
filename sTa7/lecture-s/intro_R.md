@@ -87,10 +87,10 @@ Nous commençons par **R General** :
 
 ![image](./img/rstudio-config2.png)
 
-- Vérifiez que la version utilisée est bien la dernière en date en cliquant sous R version sur **Change**.
-- Workspace : Décocher _Restore .RData into workspace at startup_, cette option n’est pas adaptée pour le moment. De la même manière, sélectionnez _Never_ pour _Save workspace to .RData on exit_.
+- Vérifiez si la version préente est la dernière en cliquant sous _R version_ sur **Change**.
+- Workspace : Décocher _Restore .RData into workspace at startup_, de même choisissez **Never** pour _Save workspace to .RData on exit_.
 - History : Laissez décochés les deux paramètres.
-- Other : Laissez cochés les trois paramètres.
+- Other : Laissez cochés les trois premiers paramètres.
 
 Nous passons à **Code/Editing** :
 
@@ -98,8 +98,7 @@ Nous passons à **Code/Editing** :
 
 ![image](./img/rstudio-config3.png)
 
-
-blabla
+Sélectionnez _Use native pipe operator, |> (requires R 4.1+)_
 
 Nous passons à **Code/Display** :
 
@@ -107,7 +106,7 @@ Nous passons à **Code/Display** :
 
 ![image](./img/rstudio-config4.png)
 
-blabla
+Sélectionnez _Use rainbow parentheses_
 
 Nous passons à **Appearance** :
 
@@ -115,17 +114,7 @@ Nous passons à **Appearance** :
 
 ![image](./img/rstudio-config5.png)
 
-blabla
-
-
-
-
-
-
-
-
-
-
+A vous de sélectionner les options qui vous conviennent le mieux !
 
 ### 2. Truc
 
