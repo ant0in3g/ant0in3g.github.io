@@ -30,8 +30,9 @@ R est un langage de programmation et un environnement pour l'analyse de données
 ### 1. Installation et prise en main de R et RStudio
 
 ### 1.1 Installation
-- **R** : Rendez-vous sur le site officiel [CRAN](https://cran.r-project.org/) pour télécharger et installer R.
-- **RStudio** : Une interface utilisateur graphique pour travailler avec R. Téléchargez-le depuis [RStudio](https://posit.co/download/rstudio-desktop/).
+
+- **R** : Rendez-vous sur le site officiel [CRAN](https://cran.r-project.org/) pour télécharger et installer **R**.
+- **RStudio** : Une interface utilisateur graphique pour travailler avec **R**. Téléchargez-le depuis [RStudio](https://posit.co/download/rstudio-desktop/).
 
 ### 1.2 Premiers pas dans RStudio
 1. **Console** : Pour exécuter des commandes interactives.
