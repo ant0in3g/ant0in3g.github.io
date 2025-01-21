@@ -11,6 +11,8 @@ R est un langage de programmation et un environnement pour l'analyse de données
 2. [Les projets sous R avec RStudio](#2-les-projets-sous-r-avec-rstudio)
 3. [Ecrire un script sur RStudio](#3-ecrire-un-script-sur-rstudio)
 
+---
+
 ### 1. Les outils R et RStudio
 
 ### 1.1 Installation de R
@@ -124,12 +126,17 @@ sessionInfo()
 ```
 ![image](./img/rstudio-check-version.png)
 
+---
+
 ### 2. Les projets sous R avec RStudio
 
+blabla
 
+---
 
 ### 3. Ecrire un script sur RStudio 
 
+blabla
 
 
 
