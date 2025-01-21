@@ -303,9 +303,8 @@ summary(modele)
 ### 4. Ressources
 - [Documentation officielle de R](https://cran.r-project.org/manuals.html)
 - [Introduction à R par RStudio](https://posit.co/resources/)
-- Tutoriels et forums comme [Stack Overflow](https://stackoverflow.com/).
 
 ---
 
-Avec ce cours, vous êtes prêts à commencer votre exploration statistique avec R. Bonne analyse !
+Avec ce premier cours, vous êtes prêts à débuter votre exploration statistique avec **R**. Bonne analyse !
 
