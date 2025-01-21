@@ -115,8 +115,6 @@ Nous passons à **Appearance** :
 
 A vous de sélectionner les options qui vous conviennent le mieux !
 
----
-
 > Ne pas oublier de cliquer sur **apply** !
 
 Afin de vérifier si vous avez la bonne version, vous pouvez rentrer dans la Console
