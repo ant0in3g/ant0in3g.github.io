@@ -40,7 +40,10 @@ Dans cette partie vous allez apprendre à installer **RStudio**, l’environneme
 
 ### 1.3 Configuration de RStudio
 
-blabla
+Dans cette partie nous allons apprendre à personnaliser RStudio de sorte à avoir un environnement de travail agréable à utiliser.​
+
+
+![image](./img/rstudio-1st-time.png)
 
 ### 2. Truc
 
