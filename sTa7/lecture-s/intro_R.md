@@ -9,6 +9,7 @@ R est un langage de programmation et un environnement pour l'analyse de données
    - [1.2 Installation de RStudio](#12-installation-de-rstudio)
    - [1.3 Configurationn de RStudio](#13-configuration-de-rstudio)
 2. [Les projets sous R avec RStudio](#2-les-projets-sous-r-avec-rstudio)
+3. [Ecrire un script sur RStudio](#3-ecrire-un-script-sur-rstudio)
 
 ### 1. Les outils R et RStudio
 
@@ -129,20 +130,16 @@ sessionInfo()
 
 
 
+### 3. Ecrire un script sur RStudio 
 
 
 
 
 
 
+---
 
 
-
-### 1.2 Premiers pas dans RStudio
-1. **Console** : Pour exécuter des commandes interactives.
-2. **Script** : Zone pour écrire et sauvegarder du code.
-3. **Environnement** : Liste des objets chargés en mémoire.
-4. **Plots** : Affichage des graphiques.
 
 ### 1.3 Premiers calculs
 Dans la console, essayez :
@@ -152,7 +149,7 @@ sqrt(16)
 log(10)
 ```
 
----
+
 
 ## 2. Bases du langage R
 
