@@ -10,6 +10,7 @@ R est un langage de programmation et un environnement pour l'analyse de données
    - [1.3 Configurationn de RStudio](#13-configuration-de-rstudio)
 2. [Les projets sous R avec RStudio](#2-les-projets-sous-r-avec-rstudio)
 3. [Ecrire un script sur RStudio](#3-ecrire-un-script-sur-rstudio)
+4. [Ressources](#4-ressources)
 
 ---
 
@@ -299,7 +300,7 @@ summary(modele)
   - `caret` pour l'apprentissage machine.
   - `shiny` pour créer des applications interactives.
 
-### Ressources
+### 4. Ressources
 - [Documentation officielle de R](https://cran.r-project.org/manuals.html)
 - [Introduction à R par RStudio](https://posit.co/resources/)
 - Tutoriels et forums comme [Stack Overflow](https://stackoverflow.com/).
