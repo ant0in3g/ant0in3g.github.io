@@ -13,7 +13,7 @@ R est un langage de programmation et un environnement pour l'analyse de données
 
 ### 1.1 Installation de R
 
-- **R** : Rendez-vous sur le site officiel [CRAN](https://cran.r-project.org/). pour télécharger et installer **R**.
+**R** : Rendez-vous sur le site officiel [CRAN](https://cran.r-project.org/). pour télécharger et installer **R**.
 
 - Pour toutes les personnes utilisant **Linux**, choisissez la bonne page entre parenthèses et suivez les consignes pour télécharger et installer R.
 - Pour les personnes utilisant **MacOS**, téléchargez l’installateur en fonction de votre système et lancez-le.
@@ -30,6 +30,12 @@ installr::install.Rtools()
 > En programmation informatique, un IDE (environnement de développement) est un ensemble d'outils qui permet d'augmenter la productivité des programmeurs qui développent des logiciels. 
 > Source : [Wikipédia](https://fr.wikipedia.org/wiki/Environnement_de_d%C3%A9veloppement)
 
+Dans cette partie vous allez apprendre à installer **RStudio**, l’environnement dans lequel vous allez coder en **R**.
+
+**RStudio** : L'interface utilisateur graphique que vous allez utiliser pour travailler avec **R**. Téléchargez-le depuis [RStudio](https://posit.co/download/rstudio-desktop/). Choisissez bien l’installateur associé à votre système d’exploitation et suivez les consignes.
+
+
+### 1.3 Configurationn de RStudio
 
 
 
@@ -40,10 +46,11 @@ installr::install.Rtools()
 
 
 
-### 1.1 Installation
 
-- **R** : Rendez-vous sur le site officiel [CRAN](https://cran.r-project.org/) pour télécharger et installer **R**.
-- **RStudio** : Une interface utilisateur graphique pour travailler avec **R**. Téléchargez-le depuis [RStudio](https://posit.co/download/rstudio-desktop/).
+
+
+
+
 
 ### 1.2 Premiers pas dans RStudio
 1. **Console** : Pour exécuter des commandes interactives.
