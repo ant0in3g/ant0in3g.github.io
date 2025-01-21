@@ -1,69 +1,9 @@
-
-
-
-
-1. Introduction
-    1. Notions fondamentales
-    2. Les tableaux et les représentations graphiques
-2. Les valeurs centrales
-    1. Les moyennes
-    2. Les autres paramètres de position
-3. Dispersion, concentration et forme
-    1. Les paramètres de dispersion et de forme
-    2. La concentration
-4. Distribution à deux dimensions
-    1. Les tableaux de contingence
-    2. Les caractéristiques des lois marginales
-    3. La covariance
-    4. Les courbes de régression
-5. Régression
-    1. L'ajustement affine
-    2. Le coefficient de corrélation
-    3. Les équations des droites de régression
-    4. L'analyse de la variance
-6. Analyse des séries temporelles
-    1. Les taux de croissance
-    2. Les représentations graphiques des séries chronologiques
-    3. La décomposition d'une série chronologique
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Introduction à R pour la statistique
+## Introduction et prise en main de R et RStudio
 
 R est un langage de programmation et un environnement pour l'analyse de données et les statistiques. Il est largement utilisé en recherche, en sciences des données et en statistiques appliquées. Ce cours fournit une introduction aux bases de R, en mettant l'accent sur les applications statistiques.
 
-## Sommaire
+### Sommaire
+
 1. [Installation et prise en main de R et RStudio](#1-installation-et-prise-en-main-de-r-et-rstudio)
    - [1.1 Installation](#11-installation)
    - [1.2 Premiers pas dans RStudio](#12-premiers-pas-dans-rstudio)
@@ -87,15 +27,7 @@ R est un langage de programmation et un environnement pour l'analyse de données
    - [6.2 Régression linéaire](#62-régression-linéaire)
 7. [Aller plus loin](#7-aller-plus-loin)
 
-## Objectifs du cours
-- Comprendre l'environnement R et RStudio.
-- Apprendre les bases de la manipulation de données avec R.
-- Réaliser des analyses statistiques simples.
-- Visualiser les données avec des graphiques.
-
----
-
-## 1. Installation et prise en main de R et RStudio
+### 1. Installation et prise en main de R et RStudio
 
 ### 1.1 Installation
 - **R** : Rendez-vous sur le site officiel [CRAN](https://cran.r-project.org/) pour télécharger et installer R.
