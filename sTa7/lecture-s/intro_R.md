@@ -1,5 +1,8 @@
 ## Introduction et prise en main de R et RStudio
 
+![image](./img/R_logo.png)
+![image](./img/RStudio_Logo.png)
+
 R est un langage de programmation et un environnement pour l'analyse de données et les statistiques. Il est largement utilisé en recherche, en sciences des données et en statistiques appliquées. Ce cours fournit une introduction aux bases de R, en mettant l'accent sur les applications statistiques.
 
 ### Sommaire
