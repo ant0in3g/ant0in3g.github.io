@@ -42,8 +42,17 @@ Dans cette partie vous allez apprendre à installer **RStudio**, l’environneme
 
 Dans cette partie nous allons apprendre à personnaliser RStudio de sorte à avoir un environnement de travail agréable à utiliser.​
 
+Lorsque que vous ouvrez RStudio pour la première fois, votre écran doit ressembler à ça. 
 
 ![image](./img/rstudio-1st-time.png)
+
+Les versions de R et RStudio peuvent être legerement différentes, donc quelques différences sont possibles entre ce que vous avez sur votre ordinateur et ce que vous pouvez observer sur cette capture d'écran.
+
+
+
+
+
+
 
 ### 2. Truc
 
