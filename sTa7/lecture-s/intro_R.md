@@ -13,6 +13,8 @@ R est un langage de programmation et un environnement pour l'analyse de données
    - [1.2 Installation de RStudio](#12-installation-de-rstudio)
    - [1.3 Configurationn de RStudio](#13-configuration-de-rstudio)
 2. [Les projets sous R avec RStudio](#2-les-projets-sous-r-avec-rstudio)
+    - [2.1 Création d'un projet](#21-création-dun-projet)
+    - [2.2 Script Quarto](#22-script-quarto)
 3. [Ecrire un script sur RStudio](#3-ecrire-un-script-sur-rstudio)
 4. [Bases du langage R](#4-bases-du-langage-r)
 5. [Importation et manipulation des données](#5-importation-et-manipulation-des-données)
@@ -137,7 +139,7 @@ sessionInfo()
 
 ### 2. Les projets avec RStudio
 
-### 2.1 Création d'un projet
+#### 2.1 Création d'un projet
 
 Un projet centralise les éléments de travail et facilite la compréhension et la réutilisation du code. Un projet, c’est une manière de travailler qui va vous permettre d’écrire du code, mais pas que. En effet, un projet RStudio est globalement un dossier informatique dans lequel se trouvent des données, des scripts mais aussi de la documentation, des images et tout ce qu’il vous faut pour travailler. Lorsqu’on travaille sous forme de projet, il n’y a pas d'interaction involontaire entre les codes de différents projets.
 
@@ -166,7 +168,7 @@ On peut alors observer dans le cadran en bas à droite :
 - ```doc```
 - ```img```
 
-# Script Quarto 
+#### 2.2 Script Quarto 
 
 **Quarto**, c’est la nouvelle génération de R markdown. De manière basique, vous pourrez générer des documents (qui intègrent ou pas du code R) dans les formats html, word ou pdf, mais avec plus de facilité pour gérer, par exemple, les images, les références croisées. Vous pourrez également réaliser des diapositives, des dashboards et des sites webs, des livres, comme R markdown mais nativement, c’est à dire sans faire appel à des packages complémentaires comme bookdown (livres), xaringan (slides), flexdasboard (dashboard).
 
