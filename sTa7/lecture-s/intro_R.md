@@ -222,7 +222,6 @@ data_selection <- select(data, Age, Sexe)
 data <- mutate(data, Age_en_annees = Age * 365)
 ```
 
----
 
 Visualisation des données
 
