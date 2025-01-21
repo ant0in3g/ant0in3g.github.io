@@ -97,7 +97,7 @@ Nous passons à **Code/Editing** :
 
 ![image](./img/rstudio-config3.png)
 
-Sélectionnez _Use native pipe operator_, |> (requires R 4.1+)
+Sélectionnez _Use native pipe operator_
 
 Nous passons à **Code/Display** :
 
