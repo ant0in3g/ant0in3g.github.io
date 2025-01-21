@@ -4,6 +4,8 @@ R est un langage de programmation et un environnement pour l'analyse de données
 
 ![image](./img/R_RStudio_LogoS.png)
 
+---
+
 ### Sommaire
 
 1. [Les outils R et RStudio](#1-les-outils-r-et-rstudio)
