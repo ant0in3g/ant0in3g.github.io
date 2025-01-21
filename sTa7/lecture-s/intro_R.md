@@ -48,6 +48,25 @@ Lorsque que vous ouvrez RStudio pour la première fois, votre écran doit ressem
 
 Les versions de R et RStudio peuvent être legerement différentes, donc quelques différences sont possibles entre ce que vous avez sur votre ordinateur et ce que vous pouvez observer sur cette capture d'écran.
 
+L’organisation de ces parties est complètement modulable à votre guise dans :
+
+```Tools > Global options > Pane Layout``` 
+
+
+![image](./img/rstudio-config1.png)
+
+![image](./img/rstudio-config2.png)
+
+![image](./img/rstudio-config3.png)
+
+![image](./img/rstudio-config4.png)
+
+![image](./img/rstudio-config5.png)
+
+
+
+
+
 
 
 
