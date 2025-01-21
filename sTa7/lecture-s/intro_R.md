@@ -17,7 +17,8 @@ R est un langage de programmation et un environnement pour l'analyse de données
 
 - Pour toutes les personnes utilisant **Linux**, choisissez la bonne page entre parenthèses et suivez les consignes pour télécharger et installer R.
 - Pour les personnes utilisant **MacOS**, téléchargez l’installateur en fonction de votre système et lancez-le.
-- Pour les personnes utilisant **Windows**, téléchargez l’installateur en cliquant sur `install R for the first time` puis lancez-le. Vous devez aussi installer **Rtools**  via le lien sur le CRAN **ou** en utilisant les lignes de code suivantes dans R : 
+- Pour les personnes utilisant **Windows**, téléchargez l’installateur en cliquant sur `install R for the first time` puis lancez-le. Vous devez aussi installer [**Rtools**](https://cran.r-project.org/)  via le lien sur le CRAN **ou** en utilisant les lignes de code suivantes dans **R** : 
+
 ```r
 install.packages("utils")
 install.packages("installr")
