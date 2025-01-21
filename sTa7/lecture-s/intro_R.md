@@ -143,7 +143,11 @@ Un projet centralise les éléments de travail et facilite la compréhension et 
 >
 > Les packages peuvent être mis à jour dans l'onglet Packages puis en cliquant sur Update ou dans le menu ````Tools > Check for Package Update````. **À faire au moins une fois par mois**.
 
-
+Lors de la création d’un projet, le dossier ne contient que le fichier  .Rproj  , c’est le projet. Il est très fortement conseillé de créer des sous-dossiers :
+- data_raw (qui regroupent toutes les données brutes)
+- data (qui regroupent les données retravaillées)
+- doc (de la documentation ou tout autre document utile)
+- img (les images utiles à notre projet)
 
 ---
 
