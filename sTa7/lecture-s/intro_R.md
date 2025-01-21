@@ -6,7 +6,7 @@ R est un langage de programmation et un environnement pour l'analyse de données
 
 1. [Les outils R et RStudio](#1-les-outils-r-et-rstudio)
    - [1.1 Installation de R](#11-installation-de-r)
-   - [1.2 Installation de RStudio](#12-installation-de-rstudio)
+   - [1.2 Installation de RStudio](#12-installation-de-rstudio-(ide))
    - [1.3 Configurationn de RStudio](#13-configuration-de-rstudio)
 2. [Truc](#2-truc)
 
@@ -26,7 +26,7 @@ install.packages("installr")
 installr::install.Rtools()
 ```
 
-### 1.2 Installez RStudio (IDE)
+### 1.2 Installation de RStudio (IDE)
 
 > En programmation informatique, un IDE (environnement de développement) est un ensemble d'outils qui permet d'augmenter la productivité des programmeurs qui développent des logiciels. 
 > Source : [Wikipédia](https://fr.wikipedia.org/wiki/Environnement_de_d%C3%A9veloppement)
