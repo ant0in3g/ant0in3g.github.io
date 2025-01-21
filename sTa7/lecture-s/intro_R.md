@@ -149,6 +149,12 @@ Lors de la création d’un projet, le dossier ne contient que le fichier  .Rpro
 - doc (de la documentation ou tout autre document utile)
 - img (les images utiles à notre projet)
 
+
+![image](./img/1st_project_1.png)
+
+![image](./img/1st_project_2.png)
+
+
 ---
 
 ### 3. Ecrire un script sur RStudio 
