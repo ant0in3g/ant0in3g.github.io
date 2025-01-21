@@ -36,7 +36,7 @@ Dans cette partie vous allez apprendre à installer **RStudio**, l’environneme
 **RStudio** : L'interface utilisateur graphique que vous allez utiliser pour travailler avec **R**. Téléchargez-le depuis [RStudio](https://posit.co/download/rstudio-desktop/). Choisissez bien l’installateur associé à votre système d’exploitation et suivez les consignes.
 
 
-### 1.3 Configurationn de RStudio
+### 1.3 Configuration de RStudio
 
 blabla
 
