@@ -143,15 +143,10 @@ blabla
 
 blabla
 
-
-
-
-
 ---
 
+### 4. Bases du langage R
 
-
-### 1.3 Premiers calculs
 Dans la console, essayez :
 ```r
 2 + 3
@@ -159,17 +154,15 @@ sqrt(16)
 log(10)
 ```
 
+2.1 Types de données
 
-
-## 2. Bases du langage R
-
-### 2.1 Types de données
 - **Numérique** : Ex. `2`, `3.5`
 - **Caractère** : Ex. `'texte'`, `"analyse"`
 - **Booléen** : Ex. `TRUE`, `FALSE`
 - **Facteurs** : Variables catégoriques (Ex. Sexe : `Homme`, `Femme`).
 
-### 2.2 Objets principaux
+2.2 Objets principaux
+
 - **Vecteurs** : Une séquence d'éléments du même type.
 ```r
 x <- c(1, 2, 3, 4)
@@ -188,9 +181,9 @@ df
 
 ---
 
-## 3. Importation et manipulation des données
+### 3. Importation et manipulation des données
 
-### 3.1 Importation de fichiers
+Importation de fichiers
 - Fichiers CSV :
 ```r
 data <- read.csv('chemin/vers/fichier.csv')
@@ -202,12 +195,12 @@ library(readxl)
 data <- read_excel('chemin/vers/fichier.xlsx')
 ```
 
-### 3.2 Exploration des données
+3.2 Exploration des données
 - Aperçu : `head(data)`, `tail(data)`
 - Structure : `str(data)`
 - Statistiques descriptives : `summary(data)`
 
-### 3.3 Manipulation avec `dplyr`
+3.3 Manipulation avec `dplyr`
 Installez le package :
 ```r
 install.packages('dplyr')
@@ -229,30 +222,9 @@ data <- mutate(data, Age_en_annees = Age * 365)
 
 ---
 
-## 4. Statistiques descriptives
+### 5. Visualisation des données
 
-### 4.1 Moyennes et médianes
-```r
-mean(data$Age)
-median(data$Age)
-```
-
-### 4.2 Variance et écart-type
-```r
-var(data$Age)
-sd(data$Age)
-```
-
-### 4.3 Tableaux de fréquences
-```r
-table(data$Sexe)
-```
-
----
-
-## 5. Visualisation des données
-
-### 5.1 Graphiques de base
+5.1 Graphiques de base
 - Histogramme :
 ```r
 hist(data$Age, main = 'Distribution des âges', xlab = 'Âge')
@@ -262,7 +234,7 @@ hist(data$Age, main = 'Distribution des âges', xlab = 'Âge')
 plot(data$Age, data$Revenu, main = 'Âge vs Revenu')
 ```
 
-### 5.2 Visualisation avancée avec `ggplot2`
+5.2 Visualisation avancée avec `ggplot2`
 Installez le package :
 ```r
 install.packages('ggplot2')
@@ -276,33 +248,6 @@ ggplot(data, aes(x = Age, y = Revenu, color = Sexe)) +
 ```
 
 ---
-
-## 6. Analyses statistiques de base
-
-### 6.1 Tests statistiques
-- **Test t de Student** :
-```r
-t.test(data$Variable1, data$Variable2)
-```
-- **Chi-2** :
-```r
-chisq.test(table(data$Variable1, data$Variable2))
-```
-
-### 6.2 Régression linéaire
-```r
-modele <- lm(Revenu ~ Age, data = data)
-summary(modele)
-```
-
----
-
-## 7. Aller plus loin
-- Consultez la documentation avec `?fonction` ou `help(fonction)`.
-- Explorez des packages populaires :
-  - `tidyr` pour la manipulation des données.
-  - `caret` pour l'apprentissage machine.
-  - `shiny` pour créer des applications interactives.
 
 ### 4. Ressources
 - [Documentation officielle de R](https://cran.r-project.org/manuals.html)
