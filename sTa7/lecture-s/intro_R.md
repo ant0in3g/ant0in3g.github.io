@@ -4,10 +4,11 @@ R est un langage de programmation et un environnement pour l'analyse de données
 
 ### Sommaire
 
-1. [Installez de R et RStudio](#1-installez-de-r-et-rstudio)
+1. [Les outils R et RStudio](#1-les-outils-r-et-rstudio)
    - [1.1 Installation de R](#11-installation-de-r)
    - [1.2 Installation de RStudio](#12-installation-de-rstudio)
    - [1.3 Configurationn de RStudio](#13-configuration-de-rstudio)
+2. [Truc](#2-truc)
 
 ### 1. Les outils R et RStudio
 
@@ -37,9 +38,9 @@ Dans cette partie vous allez apprendre à installer **RStudio**, l’environneme
 
 ### 1.3 Configurationn de RStudio
 
+blabla
 
-
-
+### 2. Truc
 
 
 
