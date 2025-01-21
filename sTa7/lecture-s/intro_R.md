@@ -157,8 +157,12 @@ Vous avec alors la possibilité de créer un projet à partir d'un dossier vide 
 
 ![image](./img/1st_project_2.png)
 
-On peut alors 
-
+On peut alors observer dans le cadran en bas à droite :
+- ```1st_project.Rproj```
+- ```data``` 
+- ```data_raw```
+- ```doc```
+- ```img```
 
 ---
 
