@@ -8,7 +8,7 @@ R est un langage de programmation et un environnement pour l'analyse de données
    - [1.1 Installation de R](#11-installation-de-r)
    - [1.2 Installation de RStudio](#12-installation-de-rstudio)
    - [1.3 Configurationn de RStudio](#13-configuration-de-rstudio)
-2. [Truc](#2-truc)
+2. [Les projets sous R avec RStudio](#2-les-projets-sous-r-avec-rstudio)
 
 ### 1. Les outils R et RStudio
 
@@ -75,8 +75,6 @@ Nous allons débuter par personaliser le _Pane Layout_.
     - Viewer
     - Presentations
 
-> Ne pas oublier de cliquer sur **apply** !
-
 Nous allons à présent ajuster l’apparence de RStudio suivant nos propres préférences. Le chemin pour ces modification est toujours le même :
 
 ```Tools > Global options```
@@ -116,7 +114,18 @@ Nous passons à **Appearance** :
 
 A vous de sélectionner les options qui vous conviennent le mieux !
 
-### 2. Truc
+---
+
+> Ne pas oublier de cliquer sur **apply** !
+
+Afin de vérifier si vous avez la bonne version, vous pouvez rentrer dans la Console
+
+```r
+sessionInfo()
+```
+![image](./img/rstudio-check-version.png)
+
+### 2. Les projets sous R avec RStudio
 
 
 
