@@ -52,8 +52,24 @@ L’organisation de ces parties est complètement modulable à votre guise dans 
 
 ```Tools > Global options > Pane Layout``` 
 
-
 ![image](./img/rstudio-config1.png)
+
+- En haut à gauche vous avez la fenêtre **Source**, là où les scripts s’ouvriront.
+- En haut à droite la fenêtre  **Environnement,  History,  Connections, VSC, Tutorial, Presentation**. Sélectionnez :
+    - Environnement
+    - History
+    - Connections 
+    - Build
+    - VCS
+    - Tutorial : Cet onglet va vous permettre d’accéder à un ensemble de tutoriels très pratique pour apprendre à coder en R. 
+- En bas à gauche la fenêtre **Console**, pour le moment avec Terminal et Background Jobs. Vide à chaque ouverture de RStudio, cette fenêtre est l’endroit où les codes vont être activés.
+- En bas à droite la fenêtre **Files, Plots, Packages, Help, Viewer, Presentations**. Sélectionnez :
+    - Files
+    - Plots
+    - Packages
+    - Help
+    - Viewer
+    - Presentations
 
 ![image](./img/rstudio-config2.png)
 
