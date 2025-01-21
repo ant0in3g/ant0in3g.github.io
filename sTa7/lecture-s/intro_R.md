@@ -14,6 +14,8 @@ R est un langage de programmation et un environnement pour l'analyse de données
    - [1.3 Configurationn de RStudio](#13-configuration-de-rstudio)
 2. [Les projets sous R avec RStudio](#2-les-projets-sous-r-avec-rstudio)
 3. [Ecrire un script sur RStudio](#3-ecrire-un-script-sur-rstudio)
+4. [Bases du langage R](#4-bases-du-langage-r)
+5. [Importation et manipulation des données](#5-importation-et-manipulation-des-données)
 4. [Ressources](#4-ressources)
 
 ---
@@ -181,7 +183,7 @@ df
 
 ---
 
-### 3. Importation et manipulation des données
+### 5. Importation et manipulation des données
 
 Importation de fichiers
 - Fichiers CSV :
@@ -222,7 +224,7 @@ data <- mutate(data, Age_en_annees = Age * 365)
 
 ---
 
-### 5. Visualisation des données
+Visualisation des données
 
 5.1 Graphiques de base
 - Histogramme :
@@ -249,7 +251,7 @@ ggplot(data, aes(x = Age, y = Revenu, color = Sexe)) +
 
 ---
 
-### 4. Ressources
+### 6. Ressources
 - [Documentation officielle de R](https://cran.r-project.org/manuals.html)
 - [Introduction à R par RStudio](https://posit.co/resources/)
 
