@@ -18,7 +18,7 @@ R est un langage de programmation et un environnement pour l'analyse de données
     - [3.2 Script R](#32-script-r)
 4. [Bases du langage R](#4-bases-du-langage-r)
 5. [Importation et manipulation des données](#5-importation-et-manipulation-des-données)
-4. [Ressources](#4-ressources)
+6. [Ressources](#6-ressources)
 
 ---
 
@@ -296,7 +296,7 @@ Vous récupérez dans le cadran en bas à droite la documentation de la fonction
 
 > **Il est cependant fréquent que les données ne soit pas regroupées dans un fichier CSV, mais directement dans un fichier Excel.**
 
-Il est nécessaire de charger le package ```readxl```. Deux possibilités s'offrent à nous, soit on procède comme précement pour le package ```rmarkdown", soit on écrit sur la ligne de code suivante :
+Il est nécessaire de charger le package ```readxl```. Deux possibilités s'offrent à nous, soit on procède comme précement pour le package ```rmarkdown```, soit on écrit sur la ligne de code suivante :
 ```r
 install.packages("readxl")
 ```
