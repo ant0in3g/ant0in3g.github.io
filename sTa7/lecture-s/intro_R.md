@@ -206,7 +206,6 @@ Si vous souhaitez modifier la le format de sortie, par exemple récupérer un pd
 
 Un [ensemble d'exemple](https://quarto.org/docs/gallery/) de ce qui est possible de faire avec **Qarto**.
 
-
 ---
 
 ### 4. Bases du langage R
