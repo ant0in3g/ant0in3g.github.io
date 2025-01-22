@@ -173,7 +173,19 @@ On peut alors observer dans le cadran en bas à droite :
 
 **Quarto**, c’est la nouvelle génération de R markdown. De manière basique, vous pourrez générer des documents (qui intègrent ou pas du code R) dans les formats html, word ou pdf, mais avec plus de facilité pour gérer, par exemple, les images, les références croisées. Vous pourrez également réaliser des diapositives, des dashboards et des sites webs, des livres, comme R markdown mais nativement, c’est à dire sans faire appel à des packages complémentaires comme bookdown (livres), xaringan (slides), flexdasboard (dashboard).
 
+Voici un rapide tour d’horizon de la syntaxe, pour plus d’informations :
 
+- Le saut de ligne est marqué par un double espace (en fin d’une ligne).
+- Les étoiles servent à marquer : 
+    - En italique :  ```r *italique* ```
+    - En gras :  ```r **gras** ```
+    - En gras et italique :  ```r ***gras et italique*** ```
+    - Pour raturer on utiliser les tildes :  ```r ~~raturé~~ ```
+- Pour la syntaxe code les impostropes : ```r `code` ```
+- Les titres sont précédés de#, autant que de niveaux : 
+    - Titre de premier niveau :  ```r # Titre de premier niveau ```
+    - Titre de deuxième niveau :  ```r ## Titre de deuxième niveau ```
+    - Titre de troisième niveau :  ```r ### Titre de troisième niveau ```
 
 ---
 
