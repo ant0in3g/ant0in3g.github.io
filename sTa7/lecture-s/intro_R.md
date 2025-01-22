@@ -209,30 +209,43 @@ Un [ensemble d'exemple](https://quarto.org/docs/gallery/) de ce qui est possible
 
 #### 3.2 Script R
 
+Nous allons créer notre premier script R.
 
-1. importation des données
-2. Manipulation des données
-3. Exportation des données
+- Créer un nouveau document Quarto ```File > New File > R Script```.
+- Enregistrer votre script.
 
----
+Vous pouvez alors essayer de taper :
 
-### 4. Bases du langage R
-
-Dans la console, essayez :
 ```r
 2 + 3
 sqrt(16)
 log(10)
 ```
 
-2.1 Types de données
+Dans la partie suivante nous allons voir les bases du language R.
+
+---
+
+### 4. Bases du langage R
+
+Nous allons travailler dans notre script  R.
+
+Il existe différents types de données :
 
 - **Numérique** : Ex. `2`, `3.5`
 - **Caractère** : Ex. `'texte'`, `"analyse"`
 - **Booléen** : Ex. `TRUE`, `FALSE`
 - **Facteurs** : Variables catégoriques (Ex. Sexe : `Homme`, `Femme`).
 
-2.2 Objets principaux
+
+On peut assigner une donnée à une variable, par exemple :
+```r
+name <- "Antoine"
+name #output "Antoine"
+```
+
+
+différents objets :
 
 - **Vecteurs** : Une séquence d'éléments du même type.
 ```r
@@ -249,6 +262,14 @@ mat
 df <- data.frame(Age = c(25, 30, 35), Sexe = c('Homme', 'Femme', 'Homme'))
 df
 ```
+
+Il est très utile de commenter son code pour colaborer ou même pour le comprendre même 6 mois plus tard. On ajoute des commentaires de cette façon :
+```r
+ # This is a comment
+df
+```
+
+
 
 ---
 
@@ -299,74 +320,6 @@ salaire <- read_excel("data_raw/mrsd_2022Wages_table4.xlsx", sheet = "T4", range
 ```
 
 
-
-- Importer des données dans RStudio en utilisant l’indexation.
-- Manipuler en fonction du type de données.
-- Exporter sous différents formats.
-
-
-Importation de fichiers
-- Fichiers CSV :
-```r
-data <- read.csv('chemin/vers/fichier.csv')
-head(data) # Affiche les premières lignes
-```
-- Fichiers Excel (utilisez le package `readxl`) :
-```r
-library(readxl)
-data <- read_excel('chemin/vers/fichier.xlsx')
-```
-
-3.2 Exploration des données
-- Aperçu : `head(data)`, `tail(data)`
-- Structure : `str(data)`
-- Statistiques descriptives : `summary(data)`
-
-3.3 Manipulation avec `dplyr`
-Installez le package :
-```r
-install.packages('dplyr')
-library(dplyr)
-```
-Quelques fonctions clés :
-- **Filtrer des lignes** :
-```r
-data_filtre <- filter(data, Age > 30)
-```
-- **Sélectionner des colonnes** :
-```r
-data_selection <- select(data, Age, Sexe)
-```
-- **Ajouter une colonne** :
-```r
-data <- mutate(data, Age_en_annees = Age * 365)
-```
-
-
-Visualisation des données
-
-5.1 Graphiques de base
-- Histogramme :
-```r
-hist(data$Age, main = 'Distribution des âges', xlab = 'Âge')
-```
-- Nuage de points :
-```r
-plot(data$Age, data$Revenu, main = 'Âge vs Revenu')
-```
-
-5.2 Visualisation avancée avec `ggplot2`
-Installez le package :
-```r
-install.packages('ggplot2')
-library(ggplot2)
-```
-Exemple de graphique :
-```r
-ggplot(data, aes(x = Age, y = Revenu, color = Sexe)) +
-  geom_point() +
-  labs(title = 'Relation entre Âge et Revenu', x = 'Âge', y = 'Revenu')
-```
 
 ---
 
