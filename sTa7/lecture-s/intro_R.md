@@ -15,6 +15,7 @@ R est un langage de programmation et un environnement pour l'analyse de données
 2. [Les projets sous R avec RStudio](#2-les-projets-sous-r-avec-rstudio)
 3. [Ecrire un script sur RStudio](#3-ecrire-un-script-sur-rstudio)
     - [3.1 Script Quarto](#31-script-quarto)
+    - [3.2 Script R](#32-script-r)
 4. [Bases du langage R](#4-bases-du-langage-r)
 5. [Importation et manipulation des données](#5-importation-et-manipulation-des-données)
 4. [Ressources](#4-ressources)
@@ -206,7 +207,7 @@ Si vous souhaitez modifier la le format de sortie, par exemple récupérer un pd
 
 Un [ensemble d'exemple](https://quarto.org/docs/gallery/) de ce qui est possible de faire avec **Quarto**.
 
-#### 3.1 Script R
+#### 3.2 Script R
 
 ---
 
