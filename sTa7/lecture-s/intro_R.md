@@ -209,6 +209,11 @@ Un [ensemble d'exemple](https://quarto.org/docs/gallery/) de ce qui est possible
 
 #### 3.2 Script R
 
+
+1. importation des données
+2. Manipulation des données
+3. Exportation des données
+
 ---
 
 ### 4. Bases du langage R
@@ -248,6 +253,57 @@ df
 ---
 
 ### 5. Importation et manipulation des données
+
+RStudio est l’environnement qui va vous permettre d’analyser vos données. Vous allez maintenant apprendre à charger des données dans RStudio, les modifier puis les ressortir de RStudio.
+
+Nous allons apprendre à ouvrir un fichier CSV consacré que voustéléchargerez sur le site [open data](https://www.data.gouv.fr/fr/datasets/) du gouvernement. Choisissez un jeu de donnée qui vous interesse. Vous enregistrer ce fichier dans le dossier ```data_raw``` de votre projet sous R. Ce fichier CSV est un fichier texte où les données sous formes de tables sont séparées par des virgules. C’est le format de table par excellence à privilégier car nativement pris en compte par R, sans limite de lignes, contrairement à Excel. Pour ma part j'ai choisi ce [jeu de données](https://www.data.gouv.fr/fr/datasets/mixite-dans-le-groupe-edf/).
+
+- Télécharger le jeu de données au format CSV
+- Enregistrer ce fichier CSV dans le dossier ```data_raw``` de votre projet sous R
+- Sous R, rentrer le code :  
+```r
+mixite_groupe_edf <- read.csv("data_raw/mixite-dans-le-groupe-edf.csv",sep = ";")
+```
+- Vous récupérer dans le cadran en haut à droite, dans Environment, l'ensemble des varaibles de votre fichier CSV
+
+
+> Pour éviter les erreurs : Lisez la page d’aide avant d’utiliser une fonction pour la première fois grâce à la ```fonctionhelp()```  ou l’onglet **Help**.
+
+Ecrivez sous R
+```r
+> help("read.csv")
+```
+Vous récupérez dans le cadran en bas à droite la documentation de la fonction ```read.csv```.
+
+> **Il est cependant fréquent que les données ne soit pas regroupées dans un fichier CSV, mais directement dans un fichier Excel.**
+
+Il est nécessaire de charger le package ```readxl```. Deux possibilités s'offrent à nous, soit on procède comme précement pour le package ```rmarkdown", soit on écrit sur la ligne de code suivante :
+```r
+install.packages("readxl")
+```
+Et maintenant nous allons charger les données d'un fichier excel récupérer sur [ce site](https://stats.mom.gov.sg/Pages/Occupational-Wages-Tables2022.aspx).
+```r
+library(readxl)
+salaire <- read_excel("data_raw/mrsd_2022Wages_Occ_Ind_List.xlsx")
+```
+Cela ne fonctionne malheuresement pas très bien. Il est nécessaire de péciser l'onglet sur lequel on va travailler et les celules qui nous intéressent.
+```{r}
+library(readxl)
+salaire <- read_excel("data_raw/mrsd_2022Wages_table4.xlsx", sheet = "T4", range = "B10:J352")
+```
+Enfin pour ajouter les titre de chacune des colonnes on écrit
+```{r}
+library(readxl)
+salaire <- read_excel("data_raw/mrsd_2022Wages_table4.xlsx", sheet = "T4", range = "B10:J352", col_names = {
+  c("SSOC 2020","Occupation","Number Covered","Basic Wage - 25th Percentile ($)", "Basic Wage - Median  ($)","Basic Wage - 75th Percentile ($)","Gross Wage - 25th Percentile ($)", "Gross Wage - Median  ($)","Gross Wage - 75th Percentile ($)")})
+```
+
+
+
+- Importer des données dans RStudio en utilisant l’indexation.
+- Manipuler en fonction du type de données.
+- Exporter sous différents formats.
+
 
 Importation de fichiers
 - Fichiers CSV :
