@@ -228,6 +228,16 @@ Nous allons créer notre premier script R.
 
 Nous allons travailler dans notre script  R.
 
+#### 4.1 Quelques premières notions
+
+#### 4.2 Les différents types de données
+
+#### 4.3 Conditions, boucles et fonctions
+
+#### 4.4 Les graphiques
+
+#### 4.5 Les outils de statistiques
+
 Il existe différents types de données :
 
 - **Numérique** : Ex. `2`, `3.5`
