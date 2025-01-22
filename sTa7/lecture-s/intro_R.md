@@ -211,18 +211,16 @@ Un [ensemble d'exemple](https://quarto.org/docs/gallery/) de ce qui est possible
 
 Nous allons créer notre premier script R.
 
-- Créer un nouveau document Quarto ```File > New File > R Script```.
-- Enregistrer votre script.
-
-Vous pouvez alors essayer de taper :
-
+- Créer un nouveau document Quarto ```File > New File > R Script```
+- Enregistrer votre script
+- Ecrivez votre première commande R :
 ```r
 2 + 3
-sqrt(16)
-log(10)
 ```
+- Enregistrez votre script
+- Cliquer sur Run, en haut à droite du cadran en haut à gauche.
 
-Dans la partie suivante nous allons voir les bases du language R.
+> Dans la partie suivante nous allons voir les bases du language R.
 
 ---
 
