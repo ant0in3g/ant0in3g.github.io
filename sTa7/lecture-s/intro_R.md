@@ -204,7 +204,9 @@ Cliquez sur **Install**, et enregistrez votre script. Le script Quarto apparrait
 
 Si vous souhaitez modifier la le format de sortie, par exemple récupérer un pdf à la place d'un html, il vous suffit d'crire **pdf** à la place de **html** dans le code : fenetre en haut à gauche puis Source.
 
-Un [ensemble d'exemple](https://quarto.org/docs/gallery/) de ce qui est possible de faire avec **Qarto**.
+Un [ensemble d'exemple](https://quarto.org/docs/gallery/) de ce qui est possible de faire avec **Quarto**.
+
+#### 3.1 Script R
 
 ---
 
