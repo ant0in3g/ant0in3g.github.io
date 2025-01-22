@@ -187,6 +187,8 @@ Voici un rapide tour d’horizon de la syntaxe, pour plus d’informations :
     - Titre de deuxième niveau :  ```r ## Titre de deuxième niveau ```
     - Titre de troisième niveau :  ```r ### Titre de troisième niveau ```
 
+Vous pouvez retrouver les principales syntaxes sur Markdown à cette [page](https://quarto.org/docs/authoring/markdown-basics). 
+
 ---
 
 ### 4. Bases du langage R
