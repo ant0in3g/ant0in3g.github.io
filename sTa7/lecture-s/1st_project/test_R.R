@@ -30,3 +30,46 @@ var3 <- "Angers"
 var1
 var2
 var3
+
+x <- 3+5i
+y <- 5i
+
+# Print values of x and y
+x
+y
+
+# Print the class name of x and y
+class(x)
+class(y) 
+
+
+x <- 1000L
+y <- 55L
+
+# Print values of x and y
+x
+y
+
+# Print the class name of x and y
+class(x)
+class(y) 
+
+
+x+y
+x
+
+
+str <- "Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt
+ut labore et dolore magna aliqua."
+
+str # print the value of str 
+
+str
+
+str <- "Hello World!"
+
+nchar(str) 
+
+grepl("c",ecole)

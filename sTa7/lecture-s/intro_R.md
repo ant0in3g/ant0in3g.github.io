@@ -318,7 +318,7 @@ var3
 
 Il existe différents types de données sur R, on peut citer :
 - ```numeric``` - (10.5, 55, 787)
-- ```integer``` - (1L, 55L, 100L)
+- ```integer``` - (1L, 55L, 100L, où le "L" informe R que c'est un integer)
 - ```complex``` - (9 + 3i)
 - ```character / string``` - ("k", "Les stat c'est cool", "FALSE", "11.5")
 - ```logical / boolean``` - (TRUE or FALSE)
@@ -347,6 +347,24 @@ x <- TRUE
 class(x) 
 ```
 
+Il y a trois types de nombres : ```numeric```, ```integer``` et ```complex```. On peut convertir un nombre d'un type à un autre en utilsant les fonctions :
+- ```as.numeric()```
+- ```as.integer()```
+- ```as.complex()```
+
+
+Plusieurs fonctions utiles pour les ```character / string``` :
+- Connaitre la longueur d'une string : ```nchar(ecole)```
+- Savoir si une string est contenue dans une autre string : ```grepl("I",ecole)```
+- Regrouper deux strings : paste("Cette ecole a été créée en",date_creation) 
+
+En ce qui concerne les vraiables ```logical / boolean``` on a simplement :
+```r
+10 > 9    # TRUE car 10 est plus grand que 9 !
+10 == 9   # FALSE car 10 n'est pas egale à 9 !
+10 < 9    # FALSE car 10 est plus grand que 9 ! 
+```r
+
 #### 4.3 Conditions, boucles et fonctions
 
 #### 4.4 Les graphiques
@@ -366,6 +384,25 @@ On peut assigner une donnée à une variable, par exemple :
 name <- "Antoine"
 name #output "Antoine"
 ```
+
+Quelques outils d'arithmétques :
+```r
+2 + 3 # Addition 	
+2 - 3 # Subtraction 	
+2 * 3 # Multiplication 	
+2 / 3 #	Division
+2^3 # Exponent
+```
+
+Quelques outils de comparaison 
+```r
+== 	Equal 	x == y 	
+!= 	Not equal 	x != y 	
+> 	Greater than 	x > y 	
+< 	Less than 	x < y 	
+>= 	Greater than or equal to 	x >= y 	
+<= 	Less than or equal to 	x <= y
+```r
 
 
 différents objets :
