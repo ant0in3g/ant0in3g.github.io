@@ -362,7 +362,7 @@ En ce qui concerne les vraiables ```logical / boolean``` on a simplement :
 10 > 9    # TRUE car 10 est plus grand que 9 !
 10 == 9   # FALSE car 10 n'est pas egale à 9 !
 10 < 9    # FALSE car 10 est plus grand que 9 ! 
-```r
+```
 
 Quelques outils d'arithmétques :
 ```r
@@ -381,7 +381,7 @@ Quelques outils de comparaison
 5 < 3 # Check if 5 is less than 3 
 5 >= 3 # Check if 5 is greater than or equal to 3
 5 <= 3 # Check if 5 is less than or equal to 3
-```r
+```
 
 #### 4.3 Conditions, boucles et fonctions
 
