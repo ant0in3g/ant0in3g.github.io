@@ -383,6 +383,60 @@ Quelques outils de comparaison
 5 <= 3 # Check if 5 is less than or equal to 3
 ```
 
+On peut ranger ces données dans différents objets :
+
+- **Vecteurs** : Une séquence d'éléments du même type.
+```r
+x <- c(55, 1, 2, 3, 4)
+x
+length(x)
+sort(x)
+x[3]
+x[c(1,3)]
+x[c(-1)]
+x[4] <- 100 
+x
+```
+-**Listes** : Une séquence d'éléments qui peuvent être différents.
+```r
+ma_liste <- list("apple", "banana", "cherry")
+ma_liste
+ma_liste[1]
+ma_liste[2] <- "pineapple"
+length(ma_liste)
+"apple" %in% ma_liste 
+append(ma_liste,"orange",after=3)
+```
+- **Matrices** : Tableau à deux dimensions.
+```r
+mat <- matrix(1:9, nrow = 3, ncol = 3)
+mat
+mat[1,2]
+mat[1,]
+mat[,2]
+mat[c(1,2),] 
+mat[,c(1,2)] 
+mat_add_column <- cbind(mat,c(50,8,47))
+mat_add_column
+mat_add_row <- rbind(mat,c(50,8,47))
+mat_add_row
+mat_remove_line_column_one <- mat[-c(1), -c(1)]  #Remove the first row and the first column
+mat_remove_line_column_one
+dim(mat)
+```
+- **Data frames** : Tableau avec colonnes pouvant contenir différents types de données.
+```r
+df <- data.frame(
+    Age = c(25, 30, 35), 
+    Sexe = c('Homme', 'Femme', 'Homme'))
+df
+summary(df)
+df[1]
+df[["Age"]]
+```
+- **Facteurs**
+
+
 #### 4.3 Conditions, boucles
 
 ##### 4.3.1 If ... Else
@@ -503,51 +557,40 @@ fruits <- list("apple", "banana", "cherry")
 
 #### 4.4 Les fonctions
 
+Pour créer une fonction on écrit :
+```r
+ my_function <- function() { # create a function with the name my_function
+  print("L'ISTOM c'est top!")
+} 
+
+my_function()
+```
+
+On peut créer des fonctions avec des arguments :
+```r
+ma_promo <- function(promo,groupe) {
+  paste("Promotion", promo, "groupe", groupe)
+}
+
+ma_promo(114,"A")
+ma_promo(115,"B") 
+```
+
+On a également :
+```r
+ma_multiplication <- function(x) {
+  return (5 * x)
+}
+
+print(ma_multiplication(3))
+print(ma_multiplication(5))
+print(ma_multiplication(9)) 
+```
 
 #### 4.4 Les graphiques
 
-#### 4.5 Les outils de statistiques
-
-Il existe différents types de données :
-
-- **Numérique** : Ex. `2`, `3.5`
-- **Caractère** : Ex. `'texte'`, `"analyse"`
-- **Booléen** : Ex. `TRUE`, `FALSE`
-- **Facteurs** : Variables catégoriques (Ex. Sexe : `Homme`, `Femme`).
 
 
-On peut assigner une donnée à une variable, par exemple :
-```r
-name <- "Antoine"
-name #output "Antoine"
-```
-
-
-
-
-différents objets :
-
-- **Vecteurs** : Une séquence d'éléments du même type.
-```r
-x <- c(1, 2, 3, 4)
-x
-```
-- **Matrices** : Tableau à deux dimensions.
-```r
-mat <- matrix(1:6, nrow = 2, ncol = 3)
-mat
-```
-- **Data frames** : Tableau avec colonnes pouvant contenir différents types de données.
-```r
-df <- data.frame(Age = c(25, 30, 35), Sexe = c('Homme', 'Femme', 'Homme'))
-df
-```
-
-Il est très utile de commenter son code pour colaborer ou même pour le comprendre même 6 mois plus tard. On ajoute des commentaires de cette façon :
-```r
- # This is a comment
-df
-```
 
 
 

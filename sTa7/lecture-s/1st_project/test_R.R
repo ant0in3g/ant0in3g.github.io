@@ -103,3 +103,37 @@ while (i < 6) {
   }
   print(i)
 } 
+
+
+ma_promo <- function(promo) {
+  paste("Promotion", promo)
+}
+
+ma_promo(114)
+ma_promo(115) 
+
+
+ma_promo <- function(promo,groupe) {
+  paste("Promotion", promo, "groupe", groupe)
+}
+
+ma_promo(114,"A")
+ma_promo(115,"B") 
+
+
+ma_multiplication <- function(x) {
+  return (5 * x)
+}
+
+print(ma_multiplication(3))
+print(ma_multiplication(5))
+print(ma_multiplication(9)) 
+
+
+mat <- matrix(1:9, nrow = 3, ncol = 3)
+mat
+mat[1,2]
+mat[1,]
+mat[,2]
+mat[c(1,2),] 
+mat[,c(1,2)] 
