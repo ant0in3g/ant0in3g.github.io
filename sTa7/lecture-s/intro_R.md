@@ -17,6 +17,16 @@ R est un langage de programmation et un environnement pour l'analyse de données
     - [3.1 Script Quarto](#31-script-quarto)
     - [3.2 Script R](#32-script-r)
 4. [Bases du langage R](#4-bases-du-langage-r)
+    - [4.1 Obtenir de l’aide sur R](#41-obtenir-de-laide-sur-r)
+    - [4.2 Quelques premières notions](#42-quelques-premières-notions)
+    - [4.3 Les différents types de données](#43-les-différents-types-de-données)
+    - [4.4 Conditions, boucles](#44-conditions-boucles)
+        - [4.4.1 If ... Else](#441-if--else)
+        - [4.4.2 Nested If](#442-nested-if)
+        - [4.4.3 AND, OR](#443-and-or)
+        - [4.4.4 Loops](#444-loops)
+    - [4.5 Les fonctions](#45-les-fonctions)
+    - [4.6 Les graphiques](#46-les-graphiques)
 5. [Importation et manipulation des données](#5-importation-et-manipulation-des-données)
 6. [Ressources](#6-ressources)
 
@@ -232,7 +242,7 @@ Nous allons travailler dans notre script  R.
 
 Le système d'aide en ligne fourni avec **R** est accessible via la commande ```help()```. Lorsque l'on connaît le nom de la commande **R**, par exemple, ```cmd```, on peut taper ```help(cmd)``` ou ```?cmd``` (sauf dans le cas de certains opérateurs). Sinon, on peut rechercher à partir de mots-clés en tapant ```help. search()```. Une alternative pour la recherche par motif consiste à utiliser ```apropos()```. Pour connaître toutes les commandes fournies par un package (e.g., ```pkg```), il suffit de taper ```help(package=pkg)```.
 
-#### 4.1 Quelques premières notions
+#### 4.2 Quelques premières notions
 
 Nous avons vu que R peut effectuer des opérations mathématiques. Par exemple :
 
@@ -314,7 +324,7 @@ var2
 var3
 ```
 
-#### 4.2 Les différents types de données
+#### 4.3 Les différents types de données
 
 Il existe différents types de données sur R, on peut citer :
 - ```numeric``` - (10.5, 55, 787)
@@ -445,9 +455,9 @@ music_genre[3] <- "Pop"
 music_genre
 ```
 
-#### 4.3 Conditions, boucles
+#### 4.4 Conditions, boucles
 
-##### 4.3.1 If ... Else
+##### 4.4.1 If ... Else
 
 Le mieux est d'illustrer ceci sur un exemple :
 ```r
@@ -463,7 +473,7 @@ if (b > a) {
 }  
 ```
 
-##### 4.3.2 Nested If 
+##### 4.4.2 Nested If 
 
 Sur un exemple :
 ```r
@@ -481,7 +491,7 @@ if (x > 10) {
 } 
 ```
 
-##### 4.3.3 AND, OR
+##### 4.4.3 AND, OR
 
 Un exemple pour **AND**
 ```r
@@ -505,7 +515,7 @@ if (a > b | a > c) {
 }
 ```
 
-##### 4.3.4 Loops
+##### 4.4.4 Loops
 
 **R** a deux commandes pour les boucles :
 - ```while``` loops
@@ -563,7 +573,7 @@ fruits <- list("apple", "banana", "cherry")
 } 
 ```
 
-#### 4.4 Les fonctions
+#### 4.5 Les fonctions
 
 Pour créer une fonction on écrit :
 ```r
@@ -595,7 +605,7 @@ print(ma_multiplication(5))
 print(ma_multiplication(9)) 
 ```
 
-#### 4.4 Les graphiques
+#### 4.6 Les graphiques
 
 Le mieux est d'encore de travailler sur des exemples. Pour tracer le point de coordonnées (1,3) on écrit :
 ```r
