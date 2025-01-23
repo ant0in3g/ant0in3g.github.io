@@ -262,6 +262,15 @@ En revanche pour récupérer des nombres en sortie, il suffit simplement de rent
 978364
 ```
 
+Afin d'ajouter des commentaires dans votre code (tres fortement conseillé), il suffit d'écrire :
+
+```r
+# L'école la plus cool ;-)
+"ISTOM, Ecole supérieure d'agro-développement international"
+```
+
+
+
 Sans les guillemets R retourne une erreur.
 
 #### 4.2 Les différents types de données
