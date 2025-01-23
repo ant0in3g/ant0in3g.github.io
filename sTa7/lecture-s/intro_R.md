@@ -228,6 +228,12 @@ Nous allons créer notre premier script R.
 
 Nous allons travailler dans notre script  R.
 
+#### 4.1 Obtenir de l’aide sur R
+
+Le système d'aide en ligne fourni avec **R** est accessible via la commande ```help()```. Lorsque l'on connaît le nom de la commande **R**, par exemple, ```cmd```, on peut taper ```help(cmd)``` ou ```?cmd``` (sauf dans le cas de certains opérateurs). Sinon, on peut rechercher à partir de mots-clés en tapant ```help. search()```. Une alternative pour la recherche par motif consiste à utiliser ```apropos()```. Pour connaître toutes les commandes fournies par un package (e.g., ```pkg```), il suffit de taper ```help(package=pkg)```.
+
+
+
 #### 4.1 Quelques premières notions
 
 #### 4.2 Les différents types de données
@@ -296,7 +302,7 @@ mixite_groupe_edf <- read.csv("data_raw/mixite-dans-le-groupe-edf.csv",sep = ";"
 - Vous récupérer dans le cadran en haut à droite, dans Environment, l'ensemble des varaibles de votre fichier CSV
 
 
-> Pour éviter les erreurs : Lisez la page d’aide avant d’utiliser une fonction pour la première fois grâce à la ```fonctionhelp()```  ou l’onglet **Help**.
+> Pour éviter les erreurs : Lisez la page d’aide avant d’utiliser une fonction pour la première fois grâce à la fonction ```help()```  ou l’onglet **Help**.
 
 Ecrivez sous R
 ```r
