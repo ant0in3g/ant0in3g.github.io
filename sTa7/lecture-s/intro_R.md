@@ -638,6 +638,7 @@ On peut affiner la présentation de notre graphique :
 ```r
 plot(1:10, main="My Graph", xlab="The x-axis", ylab="The y axis",col="green",cex=0.5,pch=11) 
 ```
+
 L'argument ```cex``` permet de réduire ou augementer a taille des points, sachant que 0.5 correspond à 50% et 2 à 200%. L'argument ```pch``` permet de changer le style des points tracés, de 0 à 25 : 
 ![image](./img/pch.png)
 
@@ -661,7 +662,7 @@ y2 <- c(100,105,84,105,90,99,90,95,94,100,79,112,91,80,85)
 
 plot(x1, y1, main="mon titre", xlab="l'axe x", ylab="l'axe y", col="red", cex=2)
 points(x2, y2, col="blue", cex=2)
-```r
+```
 
 **Pie Charts - Diagramme circulaire**
 
@@ -681,8 +682,6 @@ y <- c(2, 4, 6, 8)
 barplot(y, names.arg = x, col = "red",density = 10,width = c(1,2,3,4))
 barplot(y, names.arg = x, horiz = TRUE) 
 ```
-
-
 
 ---
 
