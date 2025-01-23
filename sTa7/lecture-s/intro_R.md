@@ -434,8 +434,16 @@ summary(df)
 df[1]
 df[["Age"]]
 ```
-- **Facteurs**
-
+- **Facteurs** : c'est un vecteur dont les éléments ne peuvent prendre que des modalités prédéfinies. Ce qui caractérise un facteur dans **R** est le fait qu’elle dispose de l’attribut Levels (niveaux). En pratique, un facteur est typiquement utilisé pour stocker les valeurs observées d’une variable catégorielle (couleur, sexe, jours de la semaine, religion, ...).
+```r
+music_genre <- factor(c("Jazz", "Rock", "Classic", "Classic", "Pop", "Jazz", "Rock", "Jazz"))
+music_genre
+levels(music_genre) 
+length(music_genre) 
+music_genre[3] 
+music_genre[3] <- "Pop"
+music_genre
+```
 
 #### 4.3 Conditions, boucles
 
