@@ -597,14 +597,17 @@ print(ma_multiplication(9))
 
 #### 4.4 Les graphiques
 
+Le mieux est d'encore de travailler sur des exemples. Pour tracer le point de coordonnées (1,3) on écrit :
 ```r
 plot(1, 3) 
 ```
 
+pour tracer les points de coordonnées (1,3) et (8,10) on écrit :
 ```r
  plot(c(1, 8), c(3, 10)) 
 ```
 
+de la même façon on a :
 ```r
 x <- c(1, 2, 3, 4, 5)
 y <- c(3, 7, 8, 9, 12)
@@ -612,19 +615,70 @@ y <- c(3, 7, 8, 9, 12)
 plot(x, y)
 ```
 
+pour tracer les points (1,1), (2,2), (3,3), ..., (10,10) on peut écrire
 ```r
 plot(1:10) 
 ```
 
+si on veut tracer une ligne qui passe par ces points on écrit
 ```r
-plot(1:10, type="l") 
+plot(1:10, type="l",lwd=2, lty=3) 
 ```
+L'argument ```lwd``` permet de modifier l'epaisseur de la ligne tracée, sachant que 0.5 correspond à 50% et 2 à 200%. L'arguement ```lty``` permet de modifier le style de la ligne :
+- 0 removes the line
+- 1 displays a solid line
+- 2 displays a dashed line
+- 3 displays a dotted line
+- 4 displays a "dot dashed" line
+- 5 displays a "long dashed" line
+- 6 displays a "two dashed" line
 
+
+On peut affiner la présentation de notre graphique : 
 ```r
 plot(1:10, main="My Graph", xlab="The x-axis", ylab="The y axis",col="green",cex=0.5,pch=11) 
 ```
-
+L'argument ```cex``` permet de réduire ou augementer a taille des points, sachant que 0.5 correspond à 50% et 2 à 200%. L'argument ```pch``` permet de changer le style des points tracés, de 0 à 25 : 
 ![image](./img/pch.png)
+
+ plot(1:10, type="l", lwd=2) 
+
+
+ Un autre exemple 
+```r
+line1 <- c(1,2,3,4,5,10)
+line2 <- c(2,5,7,8,9,10)
+
+plot(line1, type = "l", col = "blue")
+lines(line2, type="l", col = "red") 
+```
+
+Pour comparer des données sur un graphe :
+```r
+x1 <- c(5,7,8,7,2,2,9,4,11,12,9,6)
+y1 <- c(99,86,87,88,111,103,87,94,78,77,85,86)
+
+x2 <- c(2,2,8,1,15,8,12,9,7,3,11,4,7,14,12)
+y2 <- c(100,105,84,105,90,99,90,95,94,100,79,112,91,80,85)
+
+plot(x1, y1, main="mon titre", xlab="l'axe x", ylab="l'axe y", col="red", cex=2)
+points(x2, y2, col="blue", cex=2)
+```r
+
+**Pie Charts - Diagramme circulaire**
+
+```r
+x <- c(10,20,30,40)
+mylabel <- c("Apples", "Bananas", "Cherries", "Dates")
+colors <- c("blue", "yellow", "green", "black")
+pie(x,, label = mylabel, main = "Fruits",col = colors,init.angle = 90) 
+legend("bottomright", mylabel, fill = colors) 
+```
+
+**Bar Charts**
+
+
+
 
 
 
