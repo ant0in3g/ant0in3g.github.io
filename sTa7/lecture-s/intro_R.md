@@ -314,14 +314,38 @@ var2
 var3
 ```
 
-
-
-
-
-
-
-
 #### 4.2 Les différents types de données
+
+Il existe différents types de données sur R, on peut citer :
+- ```numeric``` - (10.5, 55, 787)
+- ```integer``` - (1L, 55L, 100L)
+- ```complex``` - (9 + 3i)
+- ```character / string``` - ("k", "Les stat c'est cool", "FALSE", "11.5")
+- ```logical / boolean``` - (TRUE or FALSE)
+
+On peut vérifier le type de donnée d'une variable en utilisant la fonction ```class()```.
+
+```r
+# numeric
+x <- 10.5
+class(x)
+
+# integer
+x <- 1000L
+class(x)
+
+# complex
+x <- 9i + 3
+class(x)
+
+# character/string
+x <- "R is exciting"
+class(x)
+
+# logical/boolean
+x <- TRUE
+class(x) 
+```
 
 #### 4.3 Conditions, boucles et fonctions
 
