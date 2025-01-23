@@ -28,6 +28,9 @@ R est un langage de programmation et un environnement pour l'analyse de données
     - [4.5 Les fonctions](#45-les-fonctions)
     - [4.6 Les graphiques](#46-les-graphiques)
 5. [Importation et manipulation des données](#5-importation-et-manipulation-des-données)
+    - [5.1 Importer des données dans RStudio](#51-importer-des-données-dans-rstudio)
+    - [5.2 Modifier des données importées dans RStudio](#52-modifier-des-données-importées-dans-rstudio)
+    - [5.3 Exporter des données depuis RStudio](#53-exporter-des-données-depuis-rstudio)
 6. [Ressources](#6-ressources)
 
 ---
@@ -697,6 +700,8 @@ barplot(y, names.arg = x, horiz = TRUE)
 
 ### 5. Importation et manipulation des données
 
+#### 5.1 Importer des données dans RStudio
+
 RStudio est l’environnement qui va vous permettre d’analyser vos données. Vous allez maintenant apprendre à charger des données dans RStudio, les modifier puis les ressortir de RStudio.
 
 Nous allons apprendre à ouvrir un fichier CSV consacré que voustéléchargerez sur le site [open data](https://www.data.gouv.fr/fr/datasets/) du gouvernement. Choisissez un jeu de donnée qui vous interesse. Vous enregistrer ce fichier dans le dossier ```data_raw``` de votre projet sous R. Ce fichier CSV est un fichier texte où les données sous formes de tables sont séparées par des virgules. C’est le format de table par excellence à privilégier car nativement pris en compte par R, sans limite de lignes, contrairement à Excel. Pour ma part j'ai choisi ce [jeu de données](https://www.data.gouv.fr/fr/datasets/mixite-dans-le-groupe-edf/).
@@ -741,7 +746,13 @@ salaire <- read_excel("data_raw/mrsd_2022Wages_table4.xlsx", sheet = "T4", range
   c("SSOC 2020","Occupation","Number Covered","Basic Wage - 25th Percentile ($)", "Basic Wage - Median  ($)","Basic Wage - 75th Percentile ($)","Gross Wage - 25th Percentile ($)", "Gross Wage - Median  ($)","Gross Wage - 75th Percentile ($)")})
 ```
 
+#### 5.2 Modifier des données importées dans RStudio
 
+coming.
+
+#### 5.3 Exporter des données depuis RStudio
+
+coming. 
 
 ---
 
