@@ -213,7 +213,7 @@ Nous allons créer notre premier script R.
 
 - Créer un nouveau document Quarto ```File > New File > R Script```
 - Enregistrer votre script
-- Ecrivez votre première commande R :
+- Ecrivez votre première ligne de code sur R :
 ```r
 2 + 3
 ```
