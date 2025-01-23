@@ -641,10 +641,8 @@ plot(1:10, main="My Graph", xlab="The x-axis", ylab="The y axis",col="green",cex
 L'argument ```cex``` permet de réduire ou augementer a taille des points, sachant que 0.5 correspond à 50% et 2 à 200%. L'argument ```pch``` permet de changer le style des points tracés, de 0 à 25 : 
 ![image](./img/pch.png)
 
- plot(1:10, type="l", lwd=2) 
 
-
- Un autre exemple 
+Un autre exemple 
 ```r
 line1 <- c(1,2,3,4,5,10)
 line2 <- c(2,5,7,8,9,10)
@@ -677,8 +675,12 @@ legend("bottomright", mylabel, fill = colors)
 
 **Bar Charts**
 
-
-
+```r
+x <- c("A", "B", "C", "D")
+y <- c(2, 4, 6, 8)
+barplot(y, names.arg = x, col = "red",density = 10,width = c(1,2,3,4))
+barplot(y, names.arg = x, horiz = TRUE) 
+```
 
 
 
