@@ -232,9 +232,37 @@ Nous allons travailler dans notre script  R.
 
 Le système d'aide en ligne fourni avec **R** est accessible via la commande ```help()```. Lorsque l'on connaît le nom de la commande **R**, par exemple, ```cmd```, on peut taper ```help(cmd)``` ou ```?cmd``` (sauf dans le cas de certains opérateurs). Sinon, on peut rechercher à partir de mots-clés en tapant ```help. search()```. Une alternative pour la recherche par motif consiste à utiliser ```apropos()```. Pour connaître toutes les commandes fournies par un package (e.g., ```pkg```), il suffit de taper ```help(package=pkg)```.
 
-
-
 #### 4.1 Quelques premières notions
+
+Nous avons vu que R peut effectuer des opérations mathématiques. Par exemple :
+
+```r
+2 + 3
+```
+
+ou encore
+
+```r
+2 * 3
+```
+
+Pour récupérer du texte en sortie, il est nécesaire de l'écrire de cette façon :
+
+```r
+"ISTOM, Ecole supérieure d'agro-développement international"
+```
+
+En revanche pour récupérer des nombres en sortie, il suffit simplement de rentrer ces nombres :
+
+```r
+105
+8
+89
+2576
+978364
+```
+
+Sans les guillemets R retourne une erreur.
 
 #### 4.2 Les différents types de données
 
