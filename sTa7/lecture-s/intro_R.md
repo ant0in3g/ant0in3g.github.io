@@ -252,6 +252,8 @@ Pour récupérer du texte en sortie, il est nécesaire de l'écrire de cette fa�
 "ISTOM, Ecole supérieure d'agro-développement international"
 ```
 
+Sans les guillemets R retourne une erreur.
+
 En revanche pour récupérer des nombres en sortie, il suffit simplement de rentrer ces nombres :
 
 ```r
@@ -269,9 +271,40 @@ Afin d'ajouter des commentaires dans votre code (tres fortement conseillé), il 
 "ISTOM, Ecole supérieure d'agro-développement international"
 ```
 
+Il est très souvent utile de créer des variables. Cela se fait de la manière suivante
+
+```r
+ecole <- "ISTOM"
+adresse <- "4 Rue Joseph Lakanal, 49000 Angers"
+date_creation <- 1908
+```
+
+De cette façon si ensuite vous rentrez 
+
+```r
+ecole
+```
+
+il vous sortira simplement **ISTOM**. 
+
+On peut également manipuler ces variables. Par exemple :
+
+```r
+paste("L'",ecole,"a été créée en",date_creation) 
+```
+
+ou encore
+
+```r
+date_creation <- 1908
+nombre_etudiant_promotion <- 60
+
+(2025-date_creation)*nombre_etudiant_promotion
+```
 
 
-Sans les guillemets R retourne une erreur.
+
+
 
 #### 4.2 Les différents types de données
 
