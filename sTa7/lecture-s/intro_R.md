@@ -383,7 +383,7 @@ Quelques outils de comparaison
 5 <= 3 # Check if 5 is less than or equal to 3
 ```
 
-#### 4.3 Conditions, boucles et fonctions
+#### 4.3 Conditions, boucles
 
 ##### 4.3.1 If ... Else
 
@@ -400,6 +400,109 @@ if (b > a) {
   print("a is greater than b")
 }  
 ```
+
+##### 4.3.2 Nested If 
+
+Sur un exemple :
+```r
+x <- 41
+
+if (x > 10) {
+  print("Above ten")
+  if (x > 20) {
+    print("and also above 20!")
+  } else {
+    print("but not above 20.")
+  }
+} else {
+  print("below 10.")
+} 
+```
+
+##### AND, OR
+
+Un exemple pour **AND**
+```r
+a <- 200
+b <- 33
+c <- 500
+
+if (a > b & c > a) {
+  print("Both conditions are true")
+} 
+```
+
+Un exemple pour **OR**
+```r
+a <- 200
+b <- 33
+c <- 500
+
+if (a > b | a > c) {
+  print("At least one of the conditions is true")
+}
+```
+
+##### Loops
+
+**R** a deux commandes pour les boucles :
+- ```while``` loops
+- ```for``` loops
+
+```r
+i <- 1
+while (i < 6) {
+  print(i)
+  i <- i + 1
+}
+```
+
+un autre exemple
+
+```r
+i <- 1
+while (i < 6) {
+  print(i)
+  i <- i + 1
+  if (i == 4) {
+    break
+  }
+} 
+```
+
+Un dernier exemple pour illsutrer la fonction **next**
+```r
+i <- 0
+while (i < 6) {
+  i <- i + 1
+  if (i == 3) {
+    next
+  }
+  print(i)
+} 
+```
+
+Un exemple pour une boucle ```for```
+```r
+fruits <- list("apple", "banana", "cherry")
+
+for (x in fruits) {
+  print(x)
+} 
+```
+ou encore
+```r
+adj <- list("red", "big", "tasty")
+fruits <- list("apple", "banana", "cherry")
+  for (x in adj) {
+    for (y in fruits) {
+      print(paste(x, y))
+  }
+} 
+```
+
+#### 4.4 Les fonctions
+
 
 #### 4.4 Les graphiques
 
