@@ -385,6 +385,22 @@ Quelques outils de comparaison
 
 #### 4.3 Conditions, boucles et fonctions
 
+##### 4.3.1 If ... Else
+
+Le mieux est d'illustrer ceci sur un exemple :
+```r
+a <- 200
+b <- 33
+
+if (b > a) {
+  print("b is greater than a")
+} else if (a == b) {
+  print("a and b are equal")
+} else {
+  print("a is greater than b")
+}  
+```
+
 #### 4.4 Les graphiques
 
 #### 4.5 Les outils de statistiques
