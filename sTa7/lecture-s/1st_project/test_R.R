@@ -72,4 +72,9 @@ str <- "Hello World!"
 
 nchar(str) 
 
-grepl("c",ecole)
+grepl("I",ecole)
+
+
+paste("Cette ecole a été créée en",date_creation)
+xxxxx <- 1:10
+xxxxx

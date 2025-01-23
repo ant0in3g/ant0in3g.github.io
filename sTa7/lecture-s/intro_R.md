@@ -352,7 +352,6 @@ Il y a trois types de nombres : ```numeric```, ```integer``` et ```complex```. O
 - ```as.integer()```
 - ```as.complex()```
 
-
 Plusieurs fonctions utiles pour les ```character / string``` :
 - Connaitre la longueur d'une string : ```nchar(ecole)```
 - Savoir si une string est contenue dans une autre string : ```grepl("I",ecole)```
@@ -363,6 +362,25 @@ En ce qui concerne les vraiables ```logical / boolean``` on a simplement :
 10 > 9    # TRUE car 10 est plus grand que 9 !
 10 == 9   # FALSE car 10 n'est pas egale à 9 !
 10 < 9    # FALSE car 10 est plus grand que 9 ! 
+```r
+
+Quelques outils d'arithmétques :
+```r
+2 + 3 # Addition 	
+2 - 3 # Subtraction 	
+2 * 3 # Multiplication 	
+2 / 3 #	Division
+2^3 # Exponent
+```
+
+Quelques outils de comparaison 
+```r
+3 == 3 # Check if equal 	
+5 != 3 # Check if not equal	
+5 > 3 # Check if 5 is greater than 3	
+5 < 3 # Check if 5 is less than 3 
+5 >= 3 # Check if 5 is greater than or equal to 3
+5 <= 3 # Check if 5 is less than or equal to 3
 ```r
 
 #### 4.3 Conditions, boucles et fonctions
@@ -385,24 +403,7 @@ name <- "Antoine"
 name #output "Antoine"
 ```
 
-Quelques outils d'arithmétques :
-```r
-2 + 3 # Addition 	
-2 - 3 # Subtraction 	
-2 * 3 # Multiplication 	
-2 / 3 #	Division
-2^3 # Exponent
-```
 
-Quelques outils de comparaison 
-```r
-== 	Equal 	x == y 	
-!= 	Not equal 	x != y 	
-> 	Greater than 	x > y 	
-< 	Less than 	x < y 	
->= 	Greater than or equal to 	x >= y 	
-<= 	Less than or equal to 	x <= y
-```r
 
 
 différents objets :
