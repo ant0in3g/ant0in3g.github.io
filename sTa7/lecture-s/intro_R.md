@@ -302,6 +302,21 @@ nombre_etudiant_promotion <- 60
 (2025-date_creation)*nombre_etudiant_promotion
 ```
 
+On peut attribuer la même valeur à plusieurs variables.
+
+```r
+var1 <- "Angers"
+var2 <- "Angers"
+var3 <- "Angers"
+
+var1
+var2
+var3
+```
+
+
+
+
 
 
 
