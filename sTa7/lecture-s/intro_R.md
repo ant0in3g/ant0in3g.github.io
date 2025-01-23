@@ -597,8 +597,34 @@ print(ma_multiplication(9))
 
 #### 4.4 Les graphiques
 
+```r
+plot(1, 3) 
+```
 
+```r
+ plot(c(1, 8), c(3, 10)) 
+```
 
+```r
+x <- c(1, 2, 3, 4, 5)
+y <- c(3, 7, 8, 9, 12)
+
+plot(x, y)
+```
+
+```r
+plot(1:10) 
+```
+
+```r
+plot(1:10, type="l") 
+```
+
+```r
+plot(1:10, main="My Graph", xlab="The x-axis", ylab="The y axis",col="green",cex=0.5,pch=11) 
+```
+
+![image](./img/pch.png)
 
 
 

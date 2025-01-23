@@ -137,3 +137,10 @@ mat[1,]
 mat[,2]
 mat[c(1,2),] 
 mat[,c(1,2)] 
+mat_add_column <- cbind(mat,c(50,8,47))
+mat_add_column
+
+plot(1, 3)
+plot(c(1, 8), c(3, 10)) 
+
+plot(1:10, main="My Graph", xlab="The x-axis", ylab="The y axis",col="green",cex=0.5) 
