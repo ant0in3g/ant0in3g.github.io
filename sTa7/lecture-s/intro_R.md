@@ -419,7 +419,7 @@ if (x > 10) {
 } 
 ```
 
-##### AND, OR
+##### 4.3.3 AND, OR
 
 Un exemple pour **AND**
 ```r
@@ -443,7 +443,7 @@ if (a > b | a > c) {
 }
 ```
 
-##### Loops
+##### 4.3.4 Loops
 
 **R** a deux commandes pour les boucles :
 - ```while``` loops
