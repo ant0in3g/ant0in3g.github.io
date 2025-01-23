@@ -637,7 +637,7 @@ si on veut tracer une ligne qui passe par ces points on écrit
 ```r
 plot(1:10, type="l",lwd=2, lty=3) 
 ```
-L'argument ```lwd``` permet de modifier l'epaisseur de la ligne tracée, sachant que 0.5 correspond à 50% et 2 à 200%. L'arguement ```lty``` permet de modifier le style de la ligne :
+L'argument ```lwd``` permet de modifier l'epaisseur de la ligne tracée, sachant que 0.5 correspond à 50% et 2 à 100%. L'arguement ```lty``` permet de modifier le style de la ligne :
 - 0 removes the line
 - 1 displays a solid line
 - 2 displays a dashed line
@@ -652,7 +652,7 @@ On peut affiner la présentation de notre graphique :
 plot(1:10, main="My Graph", xlab="The x-axis", ylab="The y axis",col="green",cex=0.5,pch=11) 
 ```
 
-L'argument ```cex``` permet de réduire ou augementer a taille des points, sachant que 0.5 correspond à 50% et 2 à 200%. L'argument ```pch``` permet de changer le style des points tracés, de 0 à 25 : 
+L'argument ```cex``` permet de réduire ou augementer a taille des points, sachant que 0.5 correspond à 50% et 2 à 100%. L'argument ```pch``` permet de changer le style des points tracés, de 0 à 25 : 
 ![image](./img/pch.png)
 
 
