@@ -784,7 +784,7 @@ write_xlsx(x = mixite_groupe_edf_fr, path = "data/presence_femme_edf.xlsx")
 
 ### 6 Exercices
 
-Ces exercices ont été rédigé et construit par Justine Guégan (j.guegan-ihu@icm-institute.org).
+Ces exercices ont été rédigé et construit par Justine Guégan (Paris Brain Institute).
 
 #### 6.1 Manipulation des objets sur R 
 
