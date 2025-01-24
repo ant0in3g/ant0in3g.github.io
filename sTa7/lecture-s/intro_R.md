@@ -31,6 +31,12 @@ R est un langage de programmation et un environnement pour l'analyse de données
     - [5.1 Importer des données dans RStudio](#51-importer-des-données-dans-rstudio)
     - [5.2 Modifier et exporter des données importées dans RStudio](#52-modifier-et-exporter-des-données-importées-dans-rstudio)
 6. [Exercices]
+    - [6.1 Manipulation des objets sur R](#61-manipulation-des-objets-sur-r)
+    - [6.2 Lire et sauvegarder des sonnées](#62-lire-et-sauvegarder-des-données)
+    - [6.3 Fonctions graphiques](#63-fonctions-graphiques)
+    - [6.4 Manipulation des boucles](#64-manipulation-des-boucles)
+    - [6.5 Créer et utiliser ses propres fonctions](#65-créer-et-utiliser-ses-propres-fonctions)
+    - [6.6 Exercices de niveau avancé](#66-exercices-de-niveau-avancé)
 6. [Ressources](#6-ressources)
 
 ---
@@ -776,11 +782,11 @@ write_xlsx(x = mixite_groupe_edf_fr, path = "data/presence_femme_edf.xlsx")
 
 ---
 
-### Exercices
+### 6 Exercices
 
 Ces exercices ont été rédigé et construit par Justine Guégan (j.guegan-ihu@icm-institute.org).
 
-#### Manipulation des objets R 
+#### 6.1 Manipulation des objets sur R 
 
 ##### Exercice 1
 
@@ -939,9 +945,9 @@ table(sleep2$s, sleep2$group)
 ```
 
 
-#### Lire et sauvegarder des données
+#### 6.2 Lire et sauvegarder des données
 
-##### Exercice 8 : Lire les données d'un fichier : fonction read.table
+##### Exercice 9 : Lire les données d'un fichier : fonction read.table
 
 Il est possible de lire les données stockées dans des fichiers sous format txt grÃcce, entre autres, aux fonctions suivantes: read.table(), read.csv(), read.csv2() et scan(). Par ailleurs, la fonction read.xls() (resp. write.xls()) du package gdata fournit les outils pour lire (resp. écrire) des fichiers au format Excel. Il existe aussi la fonction read.xlsx (resp. write. xlsx) du package xlsx.
 (Récupérez les fichiers demandés sur le site $\operatorname{xxxxxxx}$ ). Vous pouvez ouvrir au préalable ces différents fichiers dans un éditeur de texte afin d'identifier le séparateur de colonnes, le symbole de décimale, comment sont définies les valeurs manquantes etc...
@@ -970,7 +976,7 @@ class(E)
 ```
 
 
-##### Exercice 9 : Enregistrer des données
+##### Exercice 10 : Enregistrer des données
 
 Créer la matrice suivante :
 
@@ -1007,9 +1013,9 @@ save(list = ls(), "données.Rdata")
 ```
 
 
-#### Fonctions graphiques
+#### 6.3 Fonctions graphiques
 
-##### Exercice 10 : quelques graphiques de base en $R$
+##### Exercice 11 : quelques graphiques de base en $R$
 
 1. Chargez le jeu de données irisdéjà présent dans $R$.
 2. Pour chaque espèce de fleurs, indiquez le nombre de lignes.
@@ -1070,7 +1076,7 @@ dev.off()
 ```
 
 
-##### Exercice 11 : distribution et density plot
+##### Exercice 12 : distribution et density plot
 
 1. Charger le jeu de données airquality.
 2. Prendre connaissance des données (dimension, type).
@@ -1088,9 +1094,9 @@ lines(d)
 ```
 
 
-#### Manipulation des boucles et réalisations de tests
+#### 6.4 Manipulation des boucles
 
-##### Exercice 12: for
+##### Exercice 13: for
 
 1. Lisez l'aide sur la procédure permettant de réaliser des boucles indicées for (help("for")). Remarque : demander de l'aide sur cette procédure avec la syntaxe ?for ne fonctionnera pas! Pourquoi?
 2. Créer une boucle qui affiche l'indice i de l'itération en cours (10 itérations)
@@ -1108,7 +1114,7 @@ for (i in seq(2,100,2)) {
 somme
 ```
 
-##### Exercice 13 : for, if et else
+##### Exercice 14 : for, if et else
 
 1. Comme dans l'exercice précédent, lisez l'aide de la procédure conditionnelle if : (help("if")).
 2. Utilisez les structures if et else pour créer un programme qui prend en entrée un réel $x$ et qui lui associe $y=x^{2}$ si $x$ est strictement positif et $y=x^{3}$ si $x$ est négatif ou nul. Testez pour les valeurs $x=$ $25,-2,12$ et 0 .
@@ -1143,7 +1149,7 @@ for (i in -10:10){
 ```
 
 
-##### Exercice 15 : un moyen plus rapide de faire des boucles en $\mathbf{R}$ !
+##### Exercice 15 : un moyen plus rapide de faire des boucles !
 
 1. Créer une matrice matrice contenant des valeurs tirées aléatoirement de dimension 10 lignes x 10 colonnes et dont les éléments suivent une loi normale de moyenne nulle et de variance 2.32 .
 2. Afficher nombre d'éléments positifs et négatifs de la matrice. Remplacer les nombre négatifs par 0 .
@@ -1170,7 +1176,7 @@ rowMeans(matrice); colMeans(matrice)
 ```
 
 
-#### Créer et utiliser ses propres fonctions $\mathbf{R}$
+#### 6.5 Créer et utiliser ses propres fonctions
 
 ##### Exercice 16 : notre première fonction
 
@@ -1323,7 +1329,7 @@ res = lapply(twittos, twittos_to_df)
 ```
 
 
-#### Exercices de Niveau Avancé
+#### 6.6 Exercices de Niveau Avancé
 
 ##### Exercice 21 : Layout
 
