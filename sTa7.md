@@ -22,5 +22,5 @@ Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 - [Séance 3 (travaux dirigés)](./sTa7/lecture-s/stat_2.md) - coming - _Mercredi 12 février 2025_.
 
 
-![image](./sTa7/lecture-s/img/curve_fitting.png)
+![image](./sTa7/lecture-s/img/curve_fitting.png)  
 _Source : [https://imgs.xkcd.com/comics/curve_fitting.png](https://imgs.xkcd.com/comics/curve_fitting.png)_
