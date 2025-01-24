@@ -23,4 +23,4 @@ Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 
 
 ![image](./img/curve_fitting.png)
-_Source : [https://imgs.xkcd.com/comics/curve_fitting.png](https://imgs.xkcd.com/comics/curve_fitting.png)
+_Source : [https://imgs.xkcd.com/comics/curve_fitting.png](https://imgs.xkcd.com/comics/curve_fitting.png)_
