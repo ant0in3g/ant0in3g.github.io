@@ -29,8 +29,8 @@ R est un langage de programmation et un environnement pour l'analyse de données
     - [4.6 Les graphiques](#46-les-graphiques)
 5. [Importation et manipulation des données](#5-importation-et-manipulation-des-données)
     - [5.1 Importer des données dans RStudio](#51-importer-des-données-dans-rstudio)
-    - [5.2 Modifier des données importées dans RStudio](#52-modifier-des-données-importées-dans-rstudio)
-    - [5.3 Exporter des données depuis RStudio](#53-exporter-des-données-depuis-rstudio)
+    - [5.2 Modifier et exporter des données importées dans RStudio](#52-modifier-et-exporter-des-données-importées-dans-rstudio)
+6. [Exercices]
 6. [Ressources](#6-ressources)
 
 ---
@@ -746,72 +746,43 @@ salaire <- read_excel("data_raw/mrsd_2022Wages_table4.xlsx", sheet = "T4", range
   c("SSOC 2020","Occupation","Number Covered","Basic Wage - 25th Percentile ($)", "Basic Wage - Median  ($)","Basic Wage - 75th Percentile ($)","Gross Wage - 25th Percentile ($)", "Gross Wage - Median  ($)","Gross Wage - 75th Percentile ($)")})
 ```
 
-#### 5.2 Modifier des données importées dans RStudio
+#### 5.2 Modifier et exporter des données importées dans RStudio
 
-coming.
+- Reprenez les données que vous avez importé au paragraphe précédent. 
+- Ouvrez le tableau de données en cliquant dessus dans l’onglet Environment **ou** en utilisant le code :
+```{r}
+View(mixite_groupe_edf)
+```
 
-#### 5.3 Exporter des données depuis RStudio
+Afin de remplacer une valeur dans une cellule, il faut localiser cette cellule et lui donner sa valeur. Cela se fait de la manière suivante :
+```{r}
+mixite_groupe_edf <- read.csv2("data_raw/mixite-dans-le-groupe-edf.csv")
+mixite_groupe_edf[38, 5] <- "Mars" # cellule à la 28eme ligne et 1ere colonne
+```
 
-coming. 
+Les modifications réalisées dans l’environnement de RStudio n’impactent pas les données en dehors tant qu’elles ne sont pas enregistrées.
+
+Pour enregistrer une table sous format CSV, il suffit d’utiliser la fonction ```write.csv()``` :  
+```{r}
+write.csv(x = mixite_groupe_edf_fr, file = "data/presence_femme_edf.csv")  . 
+```
+
+Si vous souhaitez enregistrer votre fichier au format XLSX (Excel), il sufiit d'écrire :
+```{r}
+install.packages("writexl")
+library(writexl)
+write_xlsx(x = mixite_groupe_edf_fr, path = "data/presence_femme_edf.xlsx")
+```
 
 ---
 
-### 6. Ressources
-- [Documentation officielle de R](https://cran.r-project.org/manuals.html)
-- [Introduction à R par RStudio](https://posit.co/resources/)
+### Exercices
 
----
+Ces exercices ont été rédigé et construit par Justine Guégan (j.guegan-ihu@icm-institute.org).
 
-Avec ce premier cours, vous êtes prêts à débuter votre exploration statistique avec **R**. Bonne analyse !
+#### Manipulation des objets R 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# TP01: Découverte de R - Exercices 
-
-Justine Guégan - j.guegan-ihu@icm-institute.org
-
-31 mai 2017
-
-Ce polycopié rassemble différents exercices vous permettant d'apprendre à utiliser le langage de programmation R. Ces exercices sont de difficultés variables. Il est important de réaliser les exercices les plus simples avant de débuter les plus difficiles.
-
-## Manipulation des objets R (vecteurs, facteurs, listes, tableaux, et matrices)
-
-## Exercice 1
+##### Exercice 1
 
 Soit a=c("lannister", "targaryen", "baratheon", "starck", "greyjoy")
 
@@ -829,8 +800,7 @@ a [-1]
 sort(a)
 ```
 
-
-## Exercice 2
+##### Exercice 2
 
 1. Créez un vecteur a contenant tous les entiers de 1 à 100. Indice: ":".
 2. Ajoutez les valeurs 200, 201, 202 au vecteur a. Indice : c().
@@ -839,7 +809,7 @@ $\mathrm{a}=\mathrm{c}(1: 100)$
 c (a, 200, 201, 202)
 $b=\operatorname{seq}($ from $=2$, to $=100$, by $=2$ )
 
-## Exercice 3
+##### Exercice 3
 
 1. Créer le vecteur vec1 contenant tous les multiples de 2 compris entre 1 et 50 .
 2. Créer le vecteur vec 2 contenant 3 fois chacun des 10 chiffres (soit $0,0,0 ; 1,1,1 ; 2,2,2 ; 3,3,3$; etc.). Indice: $r e p()$
@@ -857,8 +827,7 @@ vec3 = rep(1:20, times = c(1:20))
 length(vec3)
 ```
 
-
-## Exercice 4
+##### Exercice 4
 
 La commande paste permet de concataner du texte.
 Essayez paste("chr", 1, sep="").
@@ -869,8 +838,7 @@ paste("chr", 1, sep="")
 vec4 = paste("chr", c(1:22,"X","Y"), sep="")
 ```
 
-
-## Exercice 5 : Facteurs
+##### Exercice 5 : Facteurs
 
 1. Définissez un facteur fac = factor (c("a", "b", "b", "b", "a", "b", "a", "a")).
 2. Calculez le nombre de "a" et de "b" dans fac en utilisant les fonctions which et length et des opérateurs binaires (==).
@@ -882,8 +850,7 @@ length(which(fac == "b"))
 table(fac)
 ```
 
-
-## Exercice 6 : Matrices
+##### Exercice 6 : Matrices
 
 1. Exécutez la commande $a=\operatorname{rep}(c(0,1), 50)$. Qu'a-t-on fait?
 2. Utilisez a pour construire une matrice A à 10 lignes et 10 colonnes. indice : matrix ().
@@ -911,8 +878,7 @@ line1 = A[seq(2,10,2),]
 col0 = B[,seq(1,10,2)]
 ```
 
-
-## Exercice 7 : liste et tableaux de données (data.frame)
+##### Exercice 7 : Liste et tableaux de données (data.frame)
 
 1. Créez une liste x contenant:
 
@@ -944,8 +910,7 @@ x$chiffre = 1:26
 as.data.frame(x)
 ```
 
-
-## Exercice final classe objet : Student's Sleep Data
+##### Exercice 8 : Student's Sleep Data
 
 1. Executez la commande data(sleep). Nous venons de charger en mémoire l'un des nombreux jeux de données distribués avec R ! Profitez de l'aide sur ce jeu de données pour en apprendre un peu plus (?sleep)! Tous les jeux de données disponibles avec l'installation de base de R sont accessibles en tapant data().
 2. Quel est le type de l'objet sleep ?
@@ -974,9 +939,9 @@ table(sleep2$s, sleep2$group)
 ```
 
 
-## Lire et sauvegarder des données
+#### Lire et sauvegarder des données
 
-## Exercice 8 : Lire les données d'un fichier : fonction read.table
+##### Exercice 8 : Lire les données d'un fichier : fonction read.table
 
 Il est possible de lire les données stockées dans des fichiers sous format txt grÃcce, entre autres, aux fonctions suivantes: read.table(), read.csv(), read.csv2() et scan(). Par ailleurs, la fonction read.xls() (resp. write.xls()) du package gdata fournit les outils pour lire (resp. écrire) des fichiers au format Excel. Il existe aussi la fonction read.xlsx (resp. write. xlsx) du package xlsx.
 (Récupérez les fichiers demandés sur le site $\operatorname{xxxxxxx}$ ). Vous pouvez ouvrir au préalable ces différents fichiers dans un éditeur de texte afin d'identifier le séparateur de colonnes, le symbole de décimale, comment sont définies les valeurs manquantes etc...
@@ -1005,7 +970,7 @@ class(E)
 ```
 
 
-## Exercice 9 : Enregistrer des données
+##### Exercice 9 : Enregistrer des données
 
 Créer la matrice suivante :
 
@@ -1042,9 +1007,9 @@ save(list = ls(), "données.Rdata")
 ```
 
 
-## Fonctions graphiques
+#### Fonctions graphiques
 
-## Exercice 10 : quelques graphiques de base en $R$
+##### Exercice 10 : quelques graphiques de base en $R$
 
 1. Chargez le jeu de données irisdéjà présent dans $R$.
 2. Pour chaque espèce de fleurs, indiquez le nombre de lignes.
@@ -1105,7 +1070,7 @@ dev.off()
 ```
 
 
-## Exercice 11 : distribution et density plot
+##### Exercice 11 : distribution et density plot
 
 1. Charger le jeu de données airquality.
 2. Prendre connaissance des données (dimension, type).
@@ -1123,9 +1088,9 @@ lines(d)
 ```
 
 
-## Manipulation des boucles et réalisations de tests
+#### Manipulation des boucles et réalisations de tests
 
-Exercice 12: for
+##### Exercice 12: for
 
 1. Lisez l'aide sur la procédure permettant de réaliser des boucles indicées for (help("for")). Remarque : demander de l'aide sur cette procédure avec la syntaxe ?for ne fonctionnera pas! Pourquoi?
 2. Créer une boucle qui affiche l'indice i de l'itération en cours (10 itérations)
@@ -1143,7 +1108,7 @@ for (i in seq(2,100,2)) {
 somme
 ```
 
-Exercice 13 : for, if et else
+##### Exercice 13 : for, if et else
 
 1. Comme dans l'exercice précédent, lisez l'aide de la procédure conditionnelle if : (help("if")).
 2. Utilisez les structures if et else pour créer un programme qui prend en entrée un réel $x$ et qui lui associe $y=x^{2}$ si $x$ est strictement positif et $y=x^{3}$ si $x$ est négatif ou nul. Testez pour les valeurs $x=$ $25,-2,12$ et 0 .
@@ -1178,7 +1143,7 @@ for (i in -10:10){
 ```
 
 
-## Exercice 15 : un moyen plus rapide de faire des boucles en $\mathbf{R}$ !
+##### Exercice 15 : un moyen plus rapide de faire des boucles en $\mathbf{R}$ !
 
 1. Créer une matrice matrice contenant des valeurs tirées aléatoirement de dimension 10 lignes x 10 colonnes et dont les éléments suivent une loi normale de moyenne nulle et de variance 2.32 .
 2. Afficher nombre d'éléments positifs et négatifs de la matrice. Remplacer les nombre négatifs par 0 .
@@ -1205,9 +1170,9 @@ rowMeans(matrice); colMeans(matrice)
 ```
 
 
-## Créer et utiliser ses propres fonctions $\mathbf{R}$
+#### Créer et utiliser ses propres fonctions $\mathbf{R}$
 
-## Exercice 16 : notre première fonction
+##### Exercice 16 : notre première fonction
 
 1. Exécutez les commandes data(iris) puis str (iris). Nous venons de charger en mémoire l'un des nombreux jeux de données distribués avec $R$ ! Profitez de l'aide sur ce jeu de données pour en apprendre un peu plus sur les fleurs (?iris)! Tous les jeux de données disponibles avec l'installation de base de $R$ sont accessibles en tapant data().
 2. Créez la fonction moyenneET suivante et décryptez la:
@@ -1238,7 +1203,7 @@ moyenneET(4)
 ```
 
 
-## Exercice 17 : une autre fonction toute simple
+##### Exercice 17 : une autre fonction toute simple
 
 Créer une fonction nommée somme qui calcule la somme de deux variables x et y passées en arguments.
 
@@ -1250,7 +1215,7 @@ somme = function(x, y){
 ```
 
 
-## Exercice 18 : Nombre mystère
+##### Exercice 18 : Nombre mystère
 
 1. Choisir un nombre mystère entre 1 et 100 , et le stocker dans un objet que l'on nommera nombre_mystere. Ensuite, créer une boucle qui à chaque itération effectue un tirage aléatoire d'un entier compris entre 1 et 100 . Tant que le nombre tiré est différent du nombre mystère, la boucle doit continuer. A la sortie de la boucle, une variable que l'on appellera nb_tirages contiendra le nombre de tirages réalisés pour obtenir le nombre mystère.
 2. Utiliser le code de la question précédente pour réaliser la fonction trouver_nombre, qui, lorsqu'on lui donne un nombre compris entre 1 et 100, retourne le nombre de tirages aléatoires d'entiers compris entre 1 et 100 nécessaires avant de tirer le nombre mystère.
@@ -1293,7 +1258,7 @@ mean(tmp)
 ```
 
 
-## Exercice 19 : Création d'une fonction, traitement de chaines de caractères
+##### Exercice 19 : Création d'une fonction, traitement de chaines de caractères
 
 Supposons que les adresses e-mails des étudiants de centralsupelec soient constituées de la manière suivante: le prénom et le nom de famille séparés par un point, le symbole arobase et enfin le nom de domaine. Supposons de plus que les étudiants ont un seul prénom, et aucune particule au nom de famille. La syntaxe des adresses e-mail est donc comme suit :
 nom.prenom@etudiant.centralsupelec.fr.
@@ -1326,7 +1291,7 @@ for (m in emails){
 ```
 
 
-## Exercice 20 : Fonctions appliquées aux éléments d'une liste
+##### Exercice 20 : Fonctions appliquées aux éléments d'une liste
 
 Soit une liste nommée twittos, disponible à l'adresse suivante : https://pf-bb.github.io/CentraleSupelec-R-genomics/
 Elle contient des informations fictives sur des utilisateurs de Twitter ; chaque élément de cette liste est une liste dont les éléments sont les suivants:
@@ -1358,9 +1323,9 @@ res = lapply(twittos, twittos_to_df)
 ```
 
 
-## Exercices de Niveau Avancé
+#### Exercices de Niveau Avancé
 
-## Exercice 21 : Layout
+##### Exercice 21 : Layout
 
 Les données old faithful geyser ont été collectées dans le cadre d'une étude du temps d'attente entre deux éruptions et la durée des éruptions au sein du parc National de Yellowstone (USA). Ce jeu de données est disponible sous $R$ et est nommé faithful (package datasets). Le seuil critique d'attente au delà duquel la probabilité que la prochaine éruption soit longue et forte est fixé à 63 .
 
@@ -1421,7 +1386,7 @@ barplot(yhist$density, axes=FALSE, space=0, horiz=TRUE)
 ```
 
 
-## Exercice 22: ah si j'étais riche !
+##### Exercice 22: ah si j'étais riche !
 
 Un ami vous propose le jeu suivant. On lance un dé. Si le résultat est 5 ou 6 , on gagne $3 €$, si le résultat est 4 on gagne $1 €$ et si c'est 3 ou moins on perd $2.5 €$. Avant d'accepter la partie, vous essayez de simuler ce jeu, pour voir si vous avez des chances de vous enrichir.
 
@@ -1450,7 +1415,7 @@ plot(gain)
 ```
 
 
-## Exercice 23 : James Bond autour du monde
+##### Exercice 23 : James Bond autour du monde
 
 R contient de nombreux packages nous permettant de faire des représentations graphiques de toutes sortes. Certains packages permettent de faire des représentations spatiales (rgdal, sp, rgeos,cartography). Connu comme une boite à outil dédiée à la cartographie thématique, le package cartography est développé au sein de l'UMS RIATE (CNRS, CGET, Université Paris Diderot) par Nicolas Lambert et Timothée Giraud.
 
@@ -1482,7 +1447,7 @@ choroLayer(spdf = WorldCountries, df = BondVisits2, var="n", legend.title.txt = 
 ```
 
 
-## Exercice 24 : Profil CGH
+##### Exercice 24 : Profil CGH
 
 Les technologies de génomique permettent de détecter des abérrations au niveau de notre génome (CNA - Copy Number Alteration) : duplication, remaniement, translocation, perte, etc ... En cancérologie, le génome des tumeurs est souvent anormal (voir la figure "Profil CGH").
 
@@ -1580,3 +1545,21 @@ text(x = cs$chromosomes$mid.chr[pair] + cs$chromosomes$chr.length.toadd[pair], y
 text(x = cs$chromosomes$mid.chr[impair] + cs$chromosomes$chr.length.toadd[impair], y = -1.7, labels = a
 ```
 
+
+
+
+
+
+
+
+
+
+
+
+### 6. Ressources
+- [Documentation officielle de R](https://cran.r-project.org/manuals.html)
+- [Introduction à R par RStudio](https://posit.co/resources/)
+
+---
+
+Avec ce premier cours, vous êtes prêts à débuter votre exploration statistique avec **R**. Bonne analyse !
