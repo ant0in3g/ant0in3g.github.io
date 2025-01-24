@@ -30,7 +30,7 @@ R est un langage de programmation et un environnement pour l'analyse de données
 5. [Importation et manipulation des données](#5-importation-et-manipulation-des-données)
     - [5.1 Importer des données dans RStudio](#51-importer-des-données-dans-rstudio)
     - [5.2 Modifier et exporter des données importées dans RStudio](#52-modifier-et-exporter-des-données-importées-dans-rstudio)
-6. [Exercices]
+6. [Exercices](#6-exercices)
     - [6.1 Manipulation des objets sur R](#61-manipulation-des-objets-sur-r)
     - [6.2 Lire et sauvegarder des sonnées](#62-lire-et-sauvegarder-des-données)
     - [6.3 Fonctions graphiques](#63-fonctions-graphiques)
