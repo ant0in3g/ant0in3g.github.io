@@ -4,6 +4,7 @@ Vous pouvez de nouveau retrouver via ce [lien](./corrections.md/) les correction
 
 ### Première année
 
+- [Examen 1A du lundi 27 janvier 2025](./examens/exam-math-S1-2025.01.27.pdf)
 - [Examen 1A du jeudi 12 décembre 2024](./examens/exam-math-S1-2024.12.12.pdf)
 - [Examem 1A du lundi 30 septembre 2024](./examens/exam-math-S1-2024.09.30.pdf)
 
@@ -11,4 +12,5 @@ Vous pouvez de nouveau retrouver via ce [lien](./corrections.md/) les correction
 
 ### Deuxième année
 
-- [Examen 2A du vendredi 6 décembre 2024](./examens/exam-math-S2-2024.12.06.pdf)
+- [Examen 2A du jeudi 9 janvier 2025](./examens/exam-math-S3-2025.01.09.pdf)
+- [Examen 2A du vendredi 6 décembre 2024](./examens/exam-math-S3-2024.12.06.pdf)
