@@ -2,10 +2,12 @@
 
 Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 
-|       | Semestre 2 | Semestre 3 | Semestre 4 | Semestre 5 |
-|:------|:-----------|:-----------|:-----------|:-----------|
-| Cours | 16 séances | - séances  | 8 séances  | - séances  |
-| Travaux dirigés    | 8 séances  | - séances  | 7 séances  | - séances  |
+|                   | Semestre 2 | Semestre 3 | Semestre 4 | Semestre 5 |
+|:------------------|:-----------|:-----------|:-----------|:-----------|
+| Cours             | 16 séances | - séances  | 8 séances  | - séances  |
+| Travaux dirigés   | 8 séances  | - séances  | 7 séances  | - séances  |
+|:------------------|:-----------|:-----------|:-----------|:-----------|
+| tot.              | 24 séances | - séances  | 15 séances | - séances  |
 
 ### Ressources pour la promotion 115
 
