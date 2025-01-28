@@ -6,6 +6,8 @@ Ces notes ci-dessous sont en cours d’élaboration. Si vous avez la moindre que
 
 ### Semestre 1
 
+<iframe src="https://www.desmos.com/calculator/yh8lx1qenk?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
+
 1. [Nombres complexes](./mATh/chapter-s/nombres-complexes/chapter-s.pdf)
 2. [Pôlynomes](./mATh/chapter-s/Polynomes/chapter-s.pdf)
 3. [Suites numériques](./mATh/chapter-s/suites/chapter-s.pdf) 
