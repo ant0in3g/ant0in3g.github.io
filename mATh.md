@@ -13,6 +13,7 @@ Ces notes ci-dessous sont en cours d’élaboration. Si vous avez la moindre que
 
 ### Semestre 2
 
+1. [Fonctions usuelles](./mATh/chapter-s/fonctions-usuelles/chapter-s.pdf)
 1. [Fonctions à une variable réelle (suite)](./mATh/chapter-s/limit-conti-deriv/chapter-s.pdf) 
 2. [Intégrations](./mATh/chapter-s/integration/chapter-s.pdf) 
 3. [Développement limité](./mATh/chapter-s/developpement-limite/chapter-s.pdf)
