@@ -8,6 +8,8 @@ Ces notes ci-dessous sont en cours d’élaboration. Si vous avez la moindre que
 
 <iframe src="https://www.desmos.com/calculator/yh8lx1qenk?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
 
+<script type="text/javascript" id="WolframAlphaScriptf62dd0a9097998e940a2230408d86611" src="//www.wolframalpha.com/widget/widget.jsp?id=f62dd0a9097998e940a2230408d86611"></script>
+
 1. [Nombres complexes](./mATh/chapter-s/nombres-complexes/chapter-s.pdf)
 2. [Pôlynomes](./mATh/chapter-s/Polynomes/chapter-s.pdf)
 3. [Suites numériques](./mATh/chapter-s/suites/chapter-s.pdf) 
