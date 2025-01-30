@@ -14,10 +14,9 @@ Ces notes ci-dessous sont en cours d’élaboration. Si vous avez la moindre que
 ### Semestre 2
 
 1. [Fonctions usuelles](./mATh/chapter-s/fonctions-usuelles/chapter-s.pdf)
-2. [Fonctions à une variable réelle (suite)](./mATh/chapter-s/limit-conti-deriv/chapter-s.pdf) 
-3. [Intégrations](./mATh/chapter-s/integration/chapter-s.pdf)
-4. [Equations differentielles](./mATh/chapter-s/equa-diff/chapter-s.pdf)
-5. [Développement limité](./mATh/chapter-s/developpement-limite/chapter-s.pdf)
+2. [Intégrations](./mATh/chapter-s/integration/chapter-s.pdf)
+3. [Equations differentielles](./mATh/chapter-s/equa-diff/chapter-s.pdf)
+4. [Développement limité](./mATh/chapter-s/developpement-limite/chapter-s.pdf)
 
 ### Semestre 3
 
