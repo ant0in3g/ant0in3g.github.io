@@ -4,9 +4,7 @@ En construction.
 
 ## Enseignements
 
-Vous retrouverez à ce lien le [syllabus](./book/index.html) complet de la formation à l'[ISTOM](https://www.istom.fr/).
-
-https://www.istom.fr/livret_etudiant
+Vous retrouverez à ce lien le [syllabus](https://www.istom.fr/livret_etudiant) complet de la formation à l'[ISTOM](https://www.istom.fr/).
 
 Un outil très pratique [Wolfram Alpha](https://www.wolframalpha.com/). C'est un "moteur de recherche scientifique", une superbe calculatrice à tout faire. Disponible sur le navigateur mais également sur mobile avec une application téléchargeable sur [Google Play](https://play.google.com/store/apps/details?id=com.wolfram.android.alphapro&hl=en&pli=1) et [l’App Store](https://apps.apple.com/us/app/wolframalpha/id548861535).
 
