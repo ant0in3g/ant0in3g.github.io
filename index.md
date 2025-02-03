@@ -4,7 +4,7 @@ En construction.
 
 ## Enseignements
 
-Vous retrouverez à ce lien le [syllabus](./_book/index.html) complet de la formation à l'[ISTOM](https://www.istom.fr/).
+Vous retrouverez à ce lien le [syllabus](./book/index.html) complet de la formation à l'[ISTOM](https://www.istom.fr/).
 
 https://www.istom.fr/livret_etudiant
 
