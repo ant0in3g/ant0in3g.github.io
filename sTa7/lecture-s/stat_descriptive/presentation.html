@@ -9,7 +9,7 @@
 <link href="presentation_files/libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.6.40">
 
-  <meta name="author" content="Antoine Géré.">
+  <meta name="author" content="Antoine Géré">
   <title>Statistique descriptive</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -28,8 +28,73 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="presentation_files/libs/revealjs/dist/theme/quarto-bbe7401fe57d4b791b917637bb662036.css">
+  <link rel="stylesheet" href="presentation_files/libs/revealjs/dist/theme/quarto-2a4c8bc07c7bed3f644724215556eb12.css">
   <link href="presentation_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="presentation_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="presentation_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -132,38 +197,233 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Antoine Géré. 
+Antoine Géré 
 </div>
 </div>
 </div>
 
 </section>
-<section id="quarto" class="slide level2">
-<h2>Quarto</h2>
-<p>Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <a href="https://quarto.org/docs/presentations/" class="uri">https://quarto.org/docs/presentations/</a>.</p>
-</section>
-<section id="bullets" class="slide level2">
-<h2>Bullets</h2>
-<p>When you click the <strong>Render</strong> button a document will be generated that includes:</p>
+<section>
+<section id="introduction" class="title-slide slide level1 center">
+<h1>Introduction</h1>
+<p><strong><em>Objectif</em></strong> : décrire de façon synthétique et parlante des données observées pour mieux les analyser.</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>La statistique descriptive</strong></p>
+</div>
+<div class="callout-content">
+<p>La <strong><em>statistique descriptive</em></strong> étudie certaines caractéristiques d’une population. Ces caractéristiques sont appelées caractères ou variables statistiques.</p>
+</div>
+</div>
+</div>
 <ul>
-<li>Content authored with markdown</li>
-<li>Output from executable code</li>
+<li>La statistique descriptive à une dimension ou univariée</li>
+<li>La statistique descriptive à deux dimensions ou bivariée</li>
 </ul>
 </section>
-<section id="code" class="slide level2">
-<h2>Code</h2>
-<p>When you click the <strong>Render</strong> button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:</p>
+<section id="vocabulaire" class="slide level2">
+<h2>Vocabulaire</h2>
+<ul>
+<li><strong><em>Population</em></strong> : ensemble d’éléments homogènes auxquels on s’intéresse.</li>
+<li><strong><em>Individus</em></strong> : éléments de la population</li>
+<li><strong><em>Echantillon</em></strong> : une partie de la population étudiée</li>
+</ul>
+</section></section>
+<section>
+<section id="la-statistique-descriptive-à-une-dimension" class="title-slide slide level1 center">
+<h1>La statistique descriptive à une dimension</h1>
+
+</section>
+<section id="coming" class="slide level2">
+<h2>coming</h2>
+<p>coming</p>
+</section></section>
+<section>
+<section id="statistiques-descriptives-avec-r" class="title-slide slide level1 center">
+<h1>Statistiques descriptives avec R</h1>
+
+</section>
+<section id="données" class="slide level2">
+<h2>Données</h2>
+<p>Pour illustrer, on utilise le jeu de données « iris » de R.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">data</span>(iris) <span class="co"># charger les donées</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Il contient 150 observations de 5 variables :</p>
+<div class="columns">
+<div class="column" style="width:70%;">
+<ul>
+<li><code>Sepal.Length</code> : longueur de la sépale</li>
+<li><code>Sepal.Width</code> : largeur de la sépale</li>
+<li><code>Petal.Length</code> : longueur du pétale</li>
+<li><code>Petal.Width</code> : largeur du pétale</li>
+<li><code>Species</code> : espèce de la fleur.</li>
+</ul>
+</div><div class="column" style="width:30%;">
+<p><img data-src="img/img_data_iris_r.png"></p>
+</div></div>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<p>La fonction <code>head(dataset)</code> permet d’avoir un aperçu des premières lignes du jeu de données :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">head</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1          5.1         3.5          1.4         0.2  setosa
+2          4.9         3.0          1.4         0.2  setosa
+3          4.7         3.2          1.3         0.2  setosa
+4          4.6         3.1          1.5         0.2  setosa
+5          5.0         3.6          1.4         0.2  setosa
+6          5.4         3.9          1.7         0.4  setosa</code></pre>
+</div>
+</div>
+<p>On a ainsi :</p>
+<ul>
+<li><p><strong><em>4</em></strong> variables de type <strong><em>quantitatif</em></strong>,</p></li>
+<li><p><strong><em>1</em></strong> de type <strong><em>qualitatif</em></strong> (<code>Species</code>).</p></li>
+</ul>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<p>La fonction <code>summary()</code> permet de visualiser des statistiques de base pour chaque variable.</p>
+<ul>
+<li><strong><em>Pour les variables quantitatives</em></strong> :
+<ul>
+<li>minimum, maximum, moyenne, médiane, 1er quartile, 3ème quartile.</li>
+</ul></li>
+<li><strong><em>Pour les variables qualitatives</em></strong> :
+<ul>
+<li>nombre d’observations par classe</li>
+</ul></li>
+</ul>
+</section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">summary</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
+ Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
+ 1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  
+ Median :5.800   Median :3.000   Median :4.350   Median :1.300  
+ Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199  
+ 3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800  
+ Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500  
+       Species  
+ setosa    :50  
+ versicolor:50  
+ virginica :50  
+                
+                
+                </code></pre>
+</div>
+</div>
+<p>On a aussi la fonction <code>describe</code> du package <code>Hmisc</code>.</p>
+</section>
+<section id="section-3" class="slide level2">
+<h2></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">library</span>(Hmisc)</span>
+<span id="cb6-2"><a href=""></a><span class="fu">describe</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>iris 
+
+ 5  Variables      150  Observations
+--------------------------------------------------------------------------------
+Sepal.Length 
+       n  missing distinct     Info     Mean  pMedian      Gmd      .05 
+     150        0       35    0.998    5.843      5.8   0.9462    4.600 
+     .10      .25      .50      .75      .90      .95 
+   4.800    5.100    5.800    6.400    6.900    7.255 
+
+lowest : 4.3 4.4 4.5 4.6 4.7, highest: 7.3 7.4 7.6 7.7 7.9
+--------------------------------------------------------------------------------
+Sepal.Width 
+       n  missing distinct     Info     Mean  pMedian      Gmd      .05 
+     150        0       23    0.992    3.057     3.05   0.4872    2.345 
+     .10      .25      .50      .75      .90      .95 
+   2.500    2.800    3.000    3.300    3.610    3.800 
+
+lowest : 2   2.2 2.3 2.4 2.5, highest: 3.9 4   4.1 4.2 4.4
+--------------------------------------------------------------------------------
+Petal.Length 
+       n  missing distinct     Info     Mean  pMedian      Gmd      .05 
+     150        0       43    0.998    3.758     3.65    1.979     1.30 
+     .10      .25      .50      .75      .90      .95 
+    1.40     1.60     4.35     5.10     5.80     6.10 
+
+lowest : 1   1.1 1.2 1.3 1.4, highest: 6.3 6.4 6.6 6.7 6.9
+--------------------------------------------------------------------------------
+Petal.Width 
+       n  missing distinct     Info     Mean  pMedian      Gmd      .05 
+     150        0       22     0.99    1.199      1.2   0.8676      0.2 
+     .10      .25      .50      .75      .90      .95 
+     0.2      0.3      1.3      1.8      2.2      2.3 
+
+lowest : 0.1 0.2 0.3 0.4 0.5, highest: 2.1 2.2 2.3 2.4 2.5
+--------------------------------------------------------------------------------
+Species 
+       n  missing distinct 
+     150        0        3 
+                                           
+Value          setosa versicolor  virginica
+Frequency          50         50         50
+Proportion      0.333      0.333      0.333
+--------------------------------------------------------------------------------</code></pre>
+</div>
+</div>
+</section>
+<section id="section-4" class="slide level2">
+<h2></h2>
+<p>Cette fonction permet d’obtenir pour chaque variable :</p>
+<ul>
+<li>le nombre d’observations,</li>
+<li>le nombre de valeurs manquantes,</li>
+<li>la moyenne,</li>
+<li>les quantiles à 5, 10, 25, 50, 75, 90, et 95%,</li>
+<li>les 5 plus basses valeurs,</li>
+<li>et les 5 plus hautes valeurs.</li>
+</ul>
+<p>Pour les variables qualitatives, describe() donne :</p>
+<ul>
+<li>le nombre d’observations,</li>
+<li>le nombre de valeurs manquantes,</li>
+<li>et le nombre de niveaux pour la variable ; ainsi que le nombre d’observations pour chaque niveau de la variable (et la proportion).</li>
+</ul>
+</section>
+<section id="variables-quantitatives" class="slide level2">
+<h2>Variables quantitatives</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="co">#boxplot </span></span>
+<span id="cb8-2"><a href=""></a><span class="fu">boxplot</span>(iris<span class="sc">$</span>Sepal.Length, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"yellow"</span>),<span class="at">main =</span> <span class="st">"Boxplot"</span>, <span class="at">ylab =</span> <span class="st">"Quantiles"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section></section>
+<section>
+<section id="la-statistique-descriptive-à-deux-dimensions" class="title-slide slide level1 center">
+<h1>La statistique descriptive à deux dimensions</h1>
+<p>coming.</p>
+</section>
+<section id="coming." class="slide level2">
+<h2>coming.</h2>
+<p>coming.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
 </div>
 </div>
 
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="./img/Logo_ISTOM_Couleurs_HD.jpg" class="slide-logo"></p>
 <div class="footer footer-default">
-
+<p>ISTOM, Ecole Supérieure d’agro-développement International</p>
 </div>
 </div></div>
 
@@ -321,7 +581,7 @@ Antoine Géré.
         previewLinks: false,
 
         // Transition style (none/fade/slide/convex/concave/zoom)
-        transition: 'none',
+        transition: 'slide',
 
         // Transition speed (default/fast/slow)
         transitionSpeed: 'default',

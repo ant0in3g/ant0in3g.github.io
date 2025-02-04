@@ -1,25 +1,151 @@
 ---
 title: "Statistique descriptive"
-author: "Antoine Géré."
-format: revealjs
+author: "Antoine Géré"
+format: 
+  revealjs:
+    footer: "ISTOM, Ecole Supérieure d'agro-développement International"
+    logo: ./img/Logo_ISTOM_Couleurs_HD.jpg
+    theme: solarized
+    transition: slide
 editor: visual
 ---
 
-## Quarto
+# Introduction
 
-Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
+***Objectif*** : décrire de façon synthétique et parlante des données observées pour mieux les analyser.
 
-## Bullets
+::: callout-tip
+## La statistique descriptive
 
-When you click the **Render** button a document will be generated that includes:
+La ***statistique descriptive*** étudie certaines caractéristiques d’une population. Ces caractéristiques sont appelées caractères ou variables statistiques.
+:::
 
--   Content authored with markdown
--   Output from executable code
+-   La statistique descriptive à une dimension ou univariée
+-   La statistique descriptive à deux dimensions ou bivariée
 
-## Code
+## Vocabulaire
 
-When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+-   ***Population*** : ensemble d’éléments homogènes auxquels on s’intéresse.
+-   ***Individus*** : éléments de la population
+-   ***Echantillon*** : une partie de la population étudiée
+
+# La statistique descriptive à une dimension
+
+## coming
+
+coming
+
+# Statistiques descriptives avec R
+
+## Données
+
+Pour illustrer, on utilise le jeu de données « iris » de R.
 
 ```{r}
+#| echo: true
+#| message: true
+data(iris) # charger les donées
+```
+
+Il contient 150 observations de 5 variables :
+
+::: columns
+::: {.column width="70%"}
+
+-   `Sepal.Length` : longueur de la sépale
+-   `Sepal.Width` : largeur de la sépale
+-   `Petal.Length` : longueur du pétale
+-   `Petal.Width` : largeur du pétale
+-   `Species` : espèce de la fleur.
+
+:::
+
+::: {.column width="30%"}
+
+![](img/img_data_iris_r.png)
+:::
+:::
+
+##
+
+La fonction `head(dataset)` permet d’avoir un aperçu des premières lignes du jeu de données : 
+
+```{r}
+#| echo: true
+#| message: true
+head(iris)
+```
+
+On a ainsi : 
+
+- ***4*** variables de type ***quantitatif***, 
+
+- ***1*** de type ***qualitatif*** (`Species`). 
+
+##
+
+La fonction `summary()` permet de visualiser des statistiques de base pour chaque variable.
+
+- ***Pour les variables quantitatives*** : 
+  - minimum, maximum, moyenne, médiane, 1er quartile, 3ème quartile. 
+- ***Pour les variables qualitatives*** : 
+  - nombre d’observations par classe
+  
+##
+  
+```{r}
+#| echo: true
+#| message: true
+summary(iris)
+```
+
+On a aussi la fonction `describe` du package `Hmisc`. 
+
+##
+
+```{r}
+#| echo: true
+library(Hmisc)
+describe(iris)
+```
+
+
+##
+
+Cette fonction permet d’obtenir pour chaque variable : 
+
+- le nombre d’observations, 
+- le nombre de valeurs manquantes, 
+- la moyenne, 
+- les quantiles à 5, 10, 25, 50, 75, 90, et 95%, 
+- les 5 plus basses valeurs, 
+- et les 5 plus hautes valeurs.
+
+Pour les variables qualitatives, describe() donne :
+
+- le nombre d’observations, 
+- le nombre de valeurs manquantes, 
+- et le nombre de niveaux pour la variable ; ainsi que le nombre d’observations pour chaque niveau de la variable (et la proportion).
+
+
+## Variables quantitatives
+
+```{r}
+#| echo: true
+#boxplot 
+boxplot(iris$Sepal.Length, col = c("yellow"),main = "Boxplot", ylab = "Quantiles")
+```
+
+
+# La statistique descriptive à deux dimensions
+
+coming.
+
+## coming.
+
+coming.
+
+```{r}
+
 1 + 1
 ```
