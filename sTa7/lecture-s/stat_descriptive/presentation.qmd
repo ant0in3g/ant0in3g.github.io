@@ -4,7 +4,7 @@ author: "Antoine Géré"
 format: 
   revealjs:
     footer: "ISTOM, Ecole Supérieure d'agro-développement International"
-    logo: ./img/Logo_ISTOM_Couleurs_HD.jpg
+    logo: ./img/Logo_ISTOM_Couleurs_HD-rbg.png
     theme: solarized
     transition: slide
 editor: visual
@@ -23,31 +23,43 @@ La ***statistique descriptive*** étudie certaines caractéristiques d’une pop
 -   La statistique descriptive à une dimension ou univariée
 -   La statistique descriptive à deux dimensions ou bivariée
 
+# La statistique descriptive à une dimension / univariée
+
 ## Vocabulaire
 
 -   ***Population*** : ensemble d’éléments homogènes auxquels on s’intéresse.
 -   ***Individus*** : éléments de la population
 -   ***Echantillon*** : une partie de la population étudiée
 
-# La statistique descriptive à une dimension
+::: {.callout-note}
+Les observations obtenues sur une population ou sur un échantillon forment un ensemble de données sur lesquelles s'appliquent méthodes de la statistique descriptive. Le ***choix de l'échantillon*** est donc ***important*** !
+:::
 
-## coming
+## 
 
-coming
+- Pour chaque individu → Une ou plusieurs variables  
 
-# Statistiques descriptives avec R
+  - Variable ***qualitative***
 
-## Données
+  - Variable ***quantitative*** (intrinsèquement numérique)
+  
+    - Variable discrète (dans $\mathbb{Z}$)
+    - Variable continue (dans $\mathbb{R}$)
+    
+    
+Un peu de ***R*** pour illustrer ces notions. 
 
-Pour illustrer, on utilise le jeu de données « iris » de R.
+## 
+
+On utilise le jeu de données « iris » de R.
 
 ```{r}
 #| echo: true
 #| message: true
-data(iris) # charger les donées
+data(iris) # charger les données
 ```
 
-Il contient 150 observations de 5 variables :
+Il contient 150 observations de 5 variables.
 
 ::: columns
 ::: {.column width="70%"}
@@ -57,18 +69,15 @@ Il contient 150 observations de 5 variables :
 -   `Petal.Length` : longueur du pétale
 -   `Petal.Width` : largeur du pétale
 -   `Species` : espèce de la fleur.
-
 :::
-
 ::: {.column width="30%"}
-
 ![](img/img_data_iris_r.png)
 :::
 :::
 
 ##
 
-La fonction `head(dataset)` permet d’avoir un aperçu des premières lignes du jeu de données : 
+La fonction `head()` permet d’avoir un aperçu des premières lignes du jeu de données : 
 
 ```{r}
 #| echo: true
@@ -78,9 +87,71 @@ head(iris)
 
 On a ainsi : 
 
-- ***4*** variables de type ***quantitatif***, 
+- ***1*** variable ***qualitative*** (`Species`)
 
-- ***1*** de type ***qualitatif*** (`Species`). 
+- ***4*** variables ***quantitatives*** (`Sepal.Length`, `Sepal.Width`, `Petal.Length` et `Petal.Width`)
+
+## Représentations graphiques
+
+Représensation graphique d'une population selon une variable qualitative, ici `Species`
+
+```{r}
+# #| echo: true
+library(plotly) # package for graph
+df<-data.frame(iris) # convert the dataset into a data frame
+library(dplyr) 
+Pie_Data<-count(iris,Species)
+# Plotting the piechart using plot_ly() function
+plotly::plot_ly(data=Pie_Data,values=~n,labels=~factor(Species), 
+                marker=list(colors=c("green","orange","blue")),
+                type="pie") %>% layout(title="Species Percentage of Iris Dataset")
+```
+
+##
+
+- Tableau des effectifs pour une variable (`Species`) dans une population donnée
+
+```{r}
+#| echo: true
+#| message: true
+table_Species<-table(iris$Species)
+table_Species
+```
+
+- Tableau des fréquences pour une variable (`Species`) dans une population donnée
+
+```{r}
+#| echo: true
+#| message: true
+prop.table(table_Species)
+```
+
+##
+
+- Diagramme en baton des effectifs
+
+```{r}
+#| echo: true
+#| message: true
+barplot(table_Species)
+```
+
+
+## Représensation graphique (II)
+
+Représensation graphique d'une population selon une variable quantitative, ici `Petal.Width`
+
+
+
+
+
+
+
+
+
+
+
+
 
 ##
 
@@ -91,8 +162,6 @@ La fonction `summary()` permet de visualiser des statistiques de base pour chaqu
 - ***Pour les variables qualitatives*** : 
   - nombre d’observations par classe
   
-##
-  
 ```{r}
 #| echo: true
 #| message: true
@@ -101,16 +170,12 @@ summary(iris)
 
 On a aussi la fonction `describe` du package `Hmisc`. 
 
-##
-
 ```{r}
 #| echo: true
 library(Hmisc)
 describe(iris)
 ```
 
-
-##
 
 Cette fonction permet d’obtenir pour chaque variable : 
 
@@ -128,7 +193,7 @@ Pour les variables qualitatives, describe() donne :
 - et le nombre de niveaux pour la variable ; ainsi que le nombre d’observations pour chaque niveau de la variable (et la proportion).
 
 
-## Variables quantitatives
+Variables quantitatives
 
 ```{r}
 #| echo: true
@@ -140,12 +205,3 @@ boxplot(iris$Sepal.Length, col = c("yellow"),main = "Boxplot", ylab = "Quantiles
 # La statistique descriptive à deux dimensions
 
 coming.
-
-## coming.
-
-coming.
-
-```{r}
-
-1 + 1
-```

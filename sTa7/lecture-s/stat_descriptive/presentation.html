@@ -186,6 +186,24 @@
       margin-right: 0; 
     }
   </style>
+  <link href="presentation_files/libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+
+  <script src="presentation_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+  <script src="presentation_files/libs/plotly-binding-4.10.4/plotly.js"></script>
+
+  <script src="presentation_files/libs/typedarray-0.1/typedarray.min.js"></script>
+
+  <script src="presentation_files/libs/jquery-3.5.1/jquery.min.js"></script>
+
+  <link href="presentation_files/libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+
+  <script src="presentation_files/libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+
+  <link href="presentation_files/libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+
+  <script src="presentation_files/libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -203,7 +221,6 @@ Antoine Géré
 </div>
 
 </section>
-<section>
 <section id="introduction" class="title-slide slide level1 center">
 <h1>Introduction</h1>
 <p><strong><em>Objectif</em></strong> : décrire de façon synthétique et parlante des données observées pour mieux les analyser.</p>
@@ -225,6 +242,12 @@ Antoine Géré
 <li>La statistique descriptive à deux dimensions ou bivariée</li>
 </ul>
 </section>
+
+<section>
+<section id="la-statistique-descriptive-à-une-dimension-univariée" class="title-slide slide level1 center">
+<h1>La statistique descriptive à une dimension / univariée</h1>
+
+</section>
 <section id="vocabulaire" class="slide level2">
 <h2>Vocabulaire</h2>
 <ul>
@@ -232,28 +255,42 @@ Antoine Géré
 <li><strong><em>Individus</em></strong> : éléments de la population</li>
 <li><strong><em>Echantillon</em></strong> : une partie de la population étudiée</li>
 </ul>
-</section></section>
-<section>
-<section id="la-statistique-descriptive-à-une-dimension" class="title-slide slide level1 center">
-<h1>La statistique descriptive à une dimension</h1>
-
-</section>
-<section id="coming" class="slide level2">
-<h2>coming</h2>
-<p>coming</p>
-</section></section>
-<section>
-<section id="statistiques-descriptives-avec-r" class="title-slide slide level1 center">
-<h1>Statistiques descriptives avec R</h1>
-
-</section>
-<section id="données" class="slide level2">
-<h2>Données</h2>
-<p>Pour illustrer, on utilise le jeu de données « iris » de R.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">data</span>(iris) <span class="co"># charger les donées</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p>Il contient 150 observations de 5 variables :</p>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>Les observations obtenues sur une population ou sur un échantillon forment un ensemble de données sur lesquelles s’appliquent méthodes de la statistique descriptive. Le <strong><em>choix de l’échantillon</em></strong> est donc <strong><em>important</em></strong> !</p>
+</div>
+</div>
+</div>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<ul>
+<li><p>Pour chaque individu → Une ou plusieurs variables</p>
+<ul>
+<li><p>Variable <strong><em>qualitative</em></strong></p></li>
+<li><p>Variable <strong><em>quantitative</em></strong> (intrinsèquement numérique)</p>
+<ul>
+<li>Variable discrète (dans <span class="math inline">\(\mathbb{Z}\)</span>)</li>
+<li>Variable continue (dans <span class="math inline">\(\mathbb{R}\)</span>)</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>Un peu de <strong><em>R</em></strong> pour illustrer ces notions.</p>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<p>On utilise le jeu de données « iris » de R.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">data</span>(iris) <span class="co"># charger les données</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Il contient 150 observations de 5 variables.</p>
 <div class="columns">
 <div class="column" style="width:70%;">
 <ul>
@@ -267,9 +304,9 @@ Antoine Géré
 <p><img data-src="img/img_data_iris_r.png"></p>
 </div></div>
 </section>
-<section id="section" class="slide level2">
+<section id="section-2" class="slide level2">
 <h2></h2>
-<p>La fonction <code>head(dataset)</code> permet d’avoir un aperçu des premières lignes du jeu de données :</p>
+<p>La fonction <code>head()</code> permet d’avoir un aperçu des premières lignes du jeu de données :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">head</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -284,11 +321,61 @@ Antoine Géré
 </div>
 <p>On a ainsi :</p>
 <ul>
-<li><p><strong><em>4</em></strong> variables de type <strong><em>quantitatif</em></strong>,</p></li>
-<li><p><strong><em>1</em></strong> de type <strong><em>qualitatif</em></strong> (<code>Species</code>).</p></li>
+<li><p><strong><em>1</em></strong> variable <strong><em>qualitative</em></strong> (<code>Species</code>)</p></li>
+<li><p><strong><em>4</em></strong> variables <strong><em>quantitatives</em></strong> (<code>Sepal.Length</code>, <code>Sepal.Width</code>, <code>Petal.Length</code> et <code>Petal.Width</code>)</p></li>
 </ul>
 </section>
-<section id="section-1" class="slide level2">
+<section id="représentations-graphiques" class="slide level2">
+<h2>Représentations graphiques</h2>
+<p>Représensation graphique d’une population selon une variable qualitative, ici <code>Species</code></p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-1c61d8fc3e36a709e792" style="width:960px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-1c61d8fc3e36a709e792">{"x":{"visdat":{"fa2c5c097b37":["function () ","plotlyVisDat"]},"cur_data":"fa2c5c097b37","attrs":{"fa2c5c097b37":{"values":{},"labels":{},"marker":{"colors":["green","orange","blue"]},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"pie"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Species Percentage of Iris Dataset","hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"values":[50,50,50],"labels":["setosa","versicolor","virginica"],"marker":{"color":"rgba(31,119,180,1)","colors":["green","orange","blue"],"line":{"color":"rgba(255,255,255,1)"}},"type":"pie","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="section-3" class="slide level2">
+<h2></h2>
+<ul>
+<li>Tableau des effectifs pour une variable (<code>Species</code>) dans une population donnée</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>table_Species<span class="ot">&lt;-</span><span class="fu">table</span>(iris<span class="sc">$</span>Species)</span>
+<span id="cb4-2"><a href=""></a>table_Species</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    setosa versicolor  virginica 
+        50         50         50 </code></pre>
+</div>
+</div>
+<ul>
+<li>Tableau des fréquences pour une variable (<code>Species</code>) dans une population donnée</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">prop.table</span>(table_Species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    setosa versicolor  virginica 
+ 0.3333333  0.3333333  0.3333333 </code></pre>
+</div>
+</div>
+</section>
+<section id="section-4" class="slide level2">
+<h2></h2>
+<ul>
+<li>Diagramme en baton des effectifs</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="fu">barplot</span>(table_Species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
+<section id="représensation-graphique-ii" class="slide level2">
+<h2>Représensation graphique (II)</h2>
+<p>Représensation graphique d’une population selon une variable quantitative, ici <code>Petal.Width</code></p>
+</section>
+<section id="section-5" class="slide level2">
 <h2></h2>
 <p>La fonction <code>summary()</code> permet de visualiser des statistiques de base pour chaque variable.</p>
 <ul>
@@ -301,11 +388,8 @@ Antoine Géré
 <li>nombre d’observations par classe</li>
 </ul></li>
 </ul>
-</section>
-<section id="section-2" class="slide level2">
-<h2></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">summary</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="fu">summary</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
  Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
@@ -324,12 +408,9 @@ Antoine Géré
 </div>
 </div>
 <p>On a aussi la fonction <code>describe</code> du package <code>Hmisc</code>.</p>
-</section>
-<section id="section-3" class="slide level2">
-<h2></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">library</span>(Hmisc)</span>
-<span id="cb6-2"><a href=""></a><span class="fu">describe</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="fu">library</span>(Hmisc)</span>
+<span id="cb11-2"><a href=""></a><span class="fu">describe</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>iris 
 
@@ -377,9 +458,6 @@ Proportion      0.333      0.333      0.333
 --------------------------------------------------------------------------------</code></pre>
 </div>
 </div>
-</section>
-<section id="section-4" class="slide level2">
-<h2></h2>
 <p>Cette fonction permet d’obtenir pour chaque variable :</p>
 <ul>
 <li>le nombre d’observations,</li>
@@ -395,33 +473,21 @@ Proportion      0.333      0.333      0.333
 <li>le nombre de valeurs manquantes,</li>
 <li>et le nombre de niveaux pour la variable ; ainsi que le nombre d’observations pour chaque niveau de la variable (et la proportion).</li>
 </ul>
-</section>
-<section id="variables-quantitatives" class="slide level2">
-<h2>Variables quantitatives</h2>
+<p>Variables quantitatives</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="co">#boxplot </span></span>
-<span id="cb8-2"><a href=""></a><span class="fu">boxplot</span>(iris<span class="sc">$</span>Sepal.Length, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"yellow"</span>),<span class="at">main =</span> <span class="st">"Boxplot"</span>, <span class="at">ylab =</span> <span class="st">"Quantiles"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="co">#boxplot </span></span>
+<span id="cb13-2"><a href=""></a><span class="fu">boxplot</span>(iris<span class="sc">$</span>Sepal.Length, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"yellow"</span>),<span class="at">main =</span> <span class="st">"Boxplot"</span>, <span class="at">ylab =</span> <span class="st">"Quantiles"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="presentation_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section></section>
-<section>
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"></section></section>
 <section id="la-statistique-descriptive-à-deux-dimensions" class="title-slide slide level1 center">
 <h1>La statistique descriptive à deux dimensions</h1>
 <p>coming.</p>
-</section>
-<section id="coming." class="slide level2">
-<h2>coming.</h2>
-<p>coming.</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
 
-</section></section>
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
-<p><img src="./img/Logo_ISTOM_Couleurs_HD.jpg" class="slide-logo"></p>
+<p><img src="./img/Logo_ISTOM_Couleurs_HD-rbg.png" class="slide-logo"></p>
 <div class="footer footer-default">
 <p>ISTOM, Ecole Supérieure d’agro-développement International</p>
 </div>
