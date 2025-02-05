@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="fr"><head>
 <script src="presentation_files/libs/clipboard/clipboard.min.js"></script>
 <script src="presentation_files/libs/quarto-html/tabby.min.js"></script>
 <script src="presentation_files/libs/quarto-html/popper.min.js"></script>
@@ -95,6 +95,7 @@
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="presentation_files/libs/revealjs/dist/theme/quarto-2a4c8bc07c7bed3f644724215556eb12.css">
+  <link rel="stylesheet" href="assets/style.css">
   <link href="presentation_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="presentation_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="presentation_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -186,24 +187,7 @@
       margin-right: 0; 
     }
   </style>
-  <link href="presentation_files/libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
-
-  <script src="presentation_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-
-  <script src="presentation_files/libs/plotly-binding-4.10.4/plotly.js"></script>
-
-  <script src="presentation_files/libs/typedarray-0.1/typedarray.min.js"></script>
-
-  <script src="presentation_files/libs/jquery-3.5.1/jquery.min.js"></script>
-
-  <link href="presentation_files/libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
-
-  <script src="presentation_files/libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
-
-  <link href="presentation_files/libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
-
-  <script src="presentation_files/libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
-
+  <script src="assets/custom.js" type="application/javascript"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -274,7 +258,7 @@ Antoine Géré
 <ul>
 <li><p>Pour chaque individu → Une ou plusieurs variables</p>
 <ul>
-<li><p>Variable <strong><em>qualitative</em></strong></p></li>
+<li><p>Variable <strong><em>qualitative</em></strong> (nominale / ordinale)</p></li>
 <li><p>Variable <strong><em>quantitative</em></strong> (intrinsèquement numérique)</p>
 <ul>
 <li>Variable discrète (dans <span class="math inline">\(\mathbb{Z}\)</span>)</li>
@@ -283,12 +267,13 @@ Antoine Géré
 </ul></li>
 </ul>
 <p>Un peu de <strong><em>R</em></strong> pour illustrer ces notions.</p>
+<img data-src="img/R_RStudio_LogoS-rbg.png" class="r-stretch">
 </section>
 <section id="section-1" class="slide level2">
 <h2></h2>
 <p>On utilise le jeu de données « iris » de R.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">data</span>(iris) <span class="co"># charger les données</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">data</span>(iris) <span class="co"># charger les données</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Il contient 150 observations de 5 variables.</p>
 <div class="columns">
@@ -308,7 +293,7 @@ Antoine Géré
 <h2></h2>
 <p>La fonction <code>head()</code> permet d’avoir un aperçu des premières lignes du jeu de données :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">head</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">head</span>(iris)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 1          5.1         3.5          1.4         0.2  setosa
@@ -321,28 +306,32 @@ Antoine Géré
 </div>
 <p>On a ainsi :</p>
 <ul>
-<li><p><strong><em>1</em></strong> variable <strong><em>qualitative</em></strong> (<code>Species</code>)</p></li>
-<li><p><strong><em>4</em></strong> variables <strong><em>quantitatives</em></strong> (<code>Sepal.Length</code>, <code>Sepal.Width</code>, <code>Petal.Length</code> et <code>Petal.Width</code>)</p></li>
+<li><p><strong><em>1</em></strong> variable <strong><em>qualitative</em></strong> nominale (<code>Species</code>)</p></li>
+<li><p><strong><em>4</em></strong> variables <strong><em>quantitatives</em></strong> continues (<code>Sepal.Length</code>, <code>Sepal.Width</code>, <code>Petal.Length</code> et <code>Petal.Width</code>)</p></li>
 </ul>
 </section>
 <section id="représentations-graphiques" class="slide level2">
 <h2>Représentations graphiques</h2>
-<p>Représensation graphique d’une population selon une variable qualitative, ici <code>Species</code></p>
+<p>Représensation graphique d’une population selon une variable <strong><em>qualitative</em></strong>, ici <code>Species</code></p>
 <div class="cell">
-<div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-1c61d8fc3e36a709e792" style="width:960px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-1c61d8fc3e36a709e792">{"x":{"visdat":{"fa2c5c097b37":["function () ","plotlyVisDat"]},"cur_data":"fa2c5c097b37","attrs":{"fa2c5c097b37":{"values":{},"labels":{},"marker":{"colors":["green","orange","blue"]},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"pie"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Species Percentage of Iris Dataset","hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"values":[50,50,50],"labels":["setosa","versicolor","virginica"],"marker":{"color":"rgba(31,119,180,1)","colors":["green","orange","blue"],"line":{"color":"rgba(255,255,255,1)"}},"type":"pie","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="co">#iris$Species</span></span>
+<span id="cb4-2"><a href=""></a>mytable <span class="ot">&lt;-</span> <span class="fu">table</span>(iris<span class="sc">$</span>Sepal.Length)</span>
+<span id="cb4-3"><a href=""></a><span class="co">#mytable</span></span>
+<span id="cb4-4"><a href=""></a>mylabels <span class="ot">&lt;-</span> <span class="fu">names</span>(mytable)</span>
+<span id="cb4-5"><a href=""></a><span class="co">#mylabels</span></span>
+<span id="cb4-6"><a href=""></a><span class="co">#pie(mytable, labels = mylabels, main="Pie Chart of Species", radius=1.08)</span></span>
+<span id="cb4-7"><a href=""></a><span class="fu">pie</span>(mytable, <span class="at">radius=</span><span class="fl">1.08</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
 </div>
-</div>
-</section>
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-3-1.svg" width="960" class="r-stretch"></section>
 <section id="section-3" class="slide level2">
 <h2></h2>
 <ul>
 <li>Tableau des effectifs pour une variable (<code>Species</code>) dans une population donnée</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>table_Species<span class="ot">&lt;-</span><span class="fu">table</span>(iris<span class="sc">$</span>Species)</span>
-<span id="cb4-2"><a href=""></a>table_Species</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>table_Species<span class="ot">&lt;-</span><span class="fu">table</span>(iris<span class="sc">$</span>Species)</span>
+<span id="cb5-2"><a href=""></a>table_Species</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     setosa versicolor  virginica 
@@ -353,7 +342,7 @@ Antoine Géré
 <li>Tableau des fréquences pour une variable (<code>Species</code>) dans une population donnée</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">prop.table</span>(table_Species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="fu">prop.table</span>(table_Species)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     setosa versicolor  virginica 
@@ -367,15 +356,129 @@ Antoine Géré
 <li>Diagramme en baton des effectifs</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="fu">barplot</span>(table_Species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="fu">barplot</span>(table_Species)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="presentation_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
-<section id="représensation-graphique-ii" class="slide level2">
-<h2>Représensation graphique (II)</h2>
-<p>Représensation graphique d’une population selon une variable quantitative, ici <code>Petal.Width</code></p>
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-6-1.svg" width="960" class="r-stretch"><div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>Même choses pour les variables <strong><em>quantitatives discrètes</em></strong>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="les-indicateurs-statistiques" class="slide level2">
+<h2>Les indicateurs statistiques</h2>
+<p>Graphiques : indicateurs pour appréhender la base de donnée étudiée.</p>
+<p>Pour aller plus loin :</p>
+<ul>
+<li><p>la valeur de la variable située au “centre” de la distribution → la <strong><em>tendance centrale</em></strong></p></li>
+<li><p>ou plus généralement → indicateur de postion</p></li>
+<li><p>variations des valeurs → dispersion</p></li>
+<li><p>forme de la distribution</p></li>
+<li><p>aspects particuliers → valeurs extrèmes, …</p></li>
+</ul>
 </section>
 <section id="section-5" class="slide level2">
+<h2></h2>
+<h3 id="indicateur-de-tendance-centrale-et-de-position">Indicateur de tendance centrale et de position</h3>
+<p>mesures de tendances centrales → “moyennes”</p>
+<p>Serie statistique brutes : <span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span>, <span class="math inline">\(x_3\)</span>, …, <span class="math inline">\(x_n\)</span>.</p>
+<ul>
+<li>La <strong><em>moyenne arithmétique</em></strong> <span class="math display">\[\bar{x} = \frac{1}{n} \sum_{i=1}^n x_i\]</span> Exemple : votre moyenne du module de sciences fondamentales !</li>
+</ul>
+</section>
+<section id="section-6" class="slide level2">
+<h2></h2>
+<ul>
+<li>La <strong><em>moyenne géométrique</em></strong></li>
+</ul>
+<p>→ lorsque la croissance est géométrique ou exponentielle</p>
+<p><span class="math display">\[G = \sqrt[n]{\prod_{i=1}^n x_i} \quad \Longrightarrow \quad \ln(G) = \frac{1}{n} \sum_{i=1}^n \ln(x_i)\]</span> Exemple :</p>
+</section>
+<section id="le-mode" class="slide level2">
+<h2>Le mode</h2>
+<ul>
+<li>variable quantitative discrète
+<ul>
+<li>valeur la plus fréquemment observée</li>
+<li>sur diagramme en baton → somment de la distribution</li>
+</ul></li>
+<li>variable quantitative continue
+<ul>
+<li>fréquent que l’on observe jamais 2 fois la même valeur</li>
+<li>besoin de définir les classes : <span class="math inline">\(\mbox{i-ème classe } \quad \to \quad [x_i,x_{_i+1}[\)</span></li>
+<li>ensuite même logique que pour une variable quantitative discrète</li>
+</ul></li>
+</ul>
+</section>
+<section id="exemple-avec-la-variable-petal_length" class="slide level2">
+<h2>Exemple avec la variable : <code>Petal_Length</code></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a>table_Petal_Length <span class="ot">&lt;-</span> <span class="fu">table</span>(iris<span class="sc">$</span>Petal.Length)</span>
+<span id="cb10-2"><a href=""></a><span class="co">#table_Petal_Length</span></span>
+<span id="cb10-3"><a href=""></a><span class="co">#pie(table_Petal_Length)</span></span>
+<span id="cb10-4"><a href=""></a><span class="co">#(table_Petal_Length)</span></span>
+<span id="cb10-5"><a href=""></a>prop_table_Petal_Length <span class="ot">&lt;-</span> <span class="fu">prop.table</span>(table_Petal_Length)</span>
+<span id="cb10-6"><a href=""></a><span class="co">#prop_table_Petal_Length</span></span>
+<span id="cb10-7"><a href=""></a><span class="fu">barplot</span>(prop_table_Petal_Length)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-7-1.svg" width="960" class="r-stretch"></section>
+<section id="la-mediane" class="slide level2">
+<h2>La mediane</h2>
+<p>On considère une rue droite, avec 5 maisons <span class="math inline">\(M_i\)</span> repérées par des abscisses <span class="math inline">\(x_i\)</span>, où <span class="math inline">\(i=1,...,5\)</span>.</p>
+<p><strong><em>Objectif</em></strong> : déposer une benne à ordure <span class="math inline">\(B\)</span> (d’absisse <span class="math inline">\(c\)</span>) à l’endroit le plus judicieux possible !</p>
+<ul>
+<li>Milieu des valeurs exrêmes : <span class="math display">\[c = \frac12 \left(x_{min}+x_{max}\right)\]</span> Peu fiable, dépendance trop forte des valeurs extrêmes</li>
+</ul>
+</section>
+<section id="la-mediane-1" class="slide level2">
+<h2>La mediane</h2>
+<ul>
+<li>La mediane d’un point de vue intuitif</li>
+</ul>
+<p>idée : minimiser la distance totale entre les <span class="math inline">\(M_i\)</span> et <span class="math inline">\(B\)</span></p>
+<p>La distance totale est <span class="math display">\[D(x) = \sum_{i=1}^5 |c-x_i|\]</span> Pour quelle(s) valeur(s) de <span class="math inline">\(x\)</span> la quantité <span class="math inline">\(D(x)\)</span> est minimale ?</p>
+</section>
+<section id="la-mediane---détermination-pratique" class="slide level2">
+<h2>La mediane - Détermination pratique</h2>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<ol type="1">
+<li>cc</li>
+<li>cc</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="létendue" class="slide level2">
+<h2>L’étendue</h2>
+</section>
+<section id="lécart-moyen-absolu" class="slide level2">
+<h2>L’écart moyen absolu</h2>
+</section>
+<section id="lécart-type-et-la-variance" class="slide level2">
+<h2>L’écart type et la variance</h2>
+</section>
+<section id="lécart-interquartiles" class="slide level2">
+<h2>L’écart interquartiles</h2>
+</section>
+<section id="section-7" class="slide level2">
 <h2></h2>
 <p>La fonction <code>summary()</code> permet de visualiser des statistiques de base pour chaque variable.</p>
 <ul>
@@ -389,7 +492,7 @@ Antoine Géré
 </ul></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="fu">summary</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="fu">summary</span>(iris)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
  Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
@@ -409,8 +512,8 @@ Antoine Géré
 </div>
 <p>On a aussi la fonction <code>describe</code> du package <code>Hmisc</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="fu">library</span>(Hmisc)</span>
-<span id="cb11-2"><a href=""></a><span class="fu">describe</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="fu">library</span>(Hmisc)</span>
+<span id="cb13-2"><a href=""></a><span class="fu">describe</span>(iris)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>iris 
 
@@ -475,14 +578,14 @@ Proportion      0.333      0.333      0.333
 </ul>
 <p>Variables quantitatives</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="co">#boxplot </span></span>
-<span id="cb13-2"><a href=""></a><span class="fu">boxplot</span>(iris<span class="sc">$</span>Sepal.Length, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"yellow"</span>),<span class="at">main =</span> <span class="st">"Boxplot"</span>, <span class="at">ylab =</span> <span class="st">"Quantiles"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="co">#boxplot </span></span>
+<span id="cb15-2"><a href=""></a><span class="fu">boxplot</span>(iris<span class="sc">$</span>Sepal.Length, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"yellow"</span>),<span class="at">main =</span> <span class="st">"Boxplot"</span>, <span class="at">ylab =</span> <span class="st">"Quantiles"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="presentation_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"></section></section>
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-10-1.svg" width="960" class="r-stretch"></section></section>
 <section id="la-statistique-descriptive-à-deux-dimensions" class="title-slide slide level1 center">
 <h1>La statistique descriptive à deux dimensions</h1>
-<p>coming.</p>
+<p>coming soon.</p>
 
 </section>
     </div>
@@ -817,12 +920,12 @@ Proportion      0.333      0.333      0.333
         // flash "checked"
         button.classList.add('code-copy-button-checked');
         var currentTitle = button.getAttribute("title");
-        button.setAttribute("title", "Copied!");
+        button.setAttribute("title", "Copié");
         let tooltip;
         if (window.bootstrap) {
           button.setAttribute("data-bs-toggle", "tooltip");
           button.setAttribute("data-bs-placement", "left");
-          button.setAttribute("data-bs-title", "Copied!");
+          button.setAttribute("data-bs-title", "Copié");
           tooltip = new bootstrap.Tooltip(button, 
             { trigger: "manual", 
               customClass: "code-copy-button-tooltip",

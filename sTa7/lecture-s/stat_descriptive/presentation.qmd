@@ -1,12 +1,21 @@
 ---
 title: "Statistique descriptive"
 author: "Antoine Géré"
+#date: last-modified
+lang: "fr"
 format: 
   revealjs:
     footer: "ISTOM, Ecole Supérieure d'agro-développement International"
     logo: ./img/Logo_ISTOM_Couleurs_HD-rbg.png
     theme: solarized
     transition: slide
+    css: assets/style.css
+    header-includes: |
+      <script src="assets/custom.js" type="application/javascript"></script>
+knitr:
+  opts_chunk:
+    dev: svg
+    dev.args: { bg: "transparent" }
 editor: visual
 ---
 
@@ -39,7 +48,7 @@ Les observations obtenues sur une population ou sur un échantillon forment un e
 
 - Pour chaque individu → Une ou plusieurs variables  
 
-  - Variable ***qualitative***
+  - Variable ***qualitative*** (nominale / ordinale)
 
   - Variable ***quantitative*** (intrinsèquement numérique)
   
@@ -48,6 +57,8 @@ Les observations obtenues sur une population ou sur un échantillon forment un e
     
     
 Un peu de ***R*** pour illustrer ces notions. 
+
+![](img/R_RStudio_LogoS-rbg.png){.r-stretch}
 
 ## 
 
@@ -81,31 +92,32 @@ La fonction `head()` permet d’avoir un aperçu des premières lignes du jeu de
 
 ```{r}
 #| echo: true
-#| message: true
 head(iris)
 ```
 
 On a ainsi : 
 
-- ***1*** variable ***qualitative*** (`Species`)
+- ***1*** variable ***qualitative*** nominale (`Species`)
 
-- ***4*** variables ***quantitatives*** (`Sepal.Length`, `Sepal.Width`, `Petal.Length` et `Petal.Width`)
+- ***4*** variables ***quantitatives*** continues (`Sepal.Length`, `Sepal.Width`, `Petal.Length` et `Petal.Width`)
 
 ## Représentations graphiques
 
-Représensation graphique d'une population selon une variable qualitative, ici `Species`
+Représensation graphique d'une population selon une variable ***qualitative***, ici `Species`
+
 
 ```{r}
-# #| echo: true
-library(plotly) # package for graph
-df<-data.frame(iris) # convert the dataset into a data frame
-library(dplyr) 
-Pie_Data<-count(iris,Species)
-# Plotting the piechart using plot_ly() function
-plotly::plot_ly(data=Pie_Data,values=~n,labels=~factor(Species), 
-                marker=list(colors=c("green","orange","blue")),
-                type="pie") %>% layout(title="Species Percentage of Iris Dataset")
+#| echo: true
+#| message: true
+#iris$Species
+mytable <- table(iris$Sepal.Length)
+#mytable
+mylabels <- names(mytable)
+#mylabels
+#pie(mytable, labels = mylabels, main="Pie Chart of Species", radius=1.08)
+pie(mytable, radius=1.08)
 ```
+
 
 ##
 
@@ -136,18 +148,123 @@ prop.table(table_Species)
 barplot(table_Species)
 ```
 
-
-## Représensation graphique (II)
-
-Représensation graphique d'une population selon une variable quantitative, ici `Petal.Width`
-
+::: {.callout-important}
+Même choses pour les variables ***quantitatives discrètes***.
+:::
 
 
+[]: # Représensation graphique d'une population selon une variable ***quantitative continue***, ici `Petal.Width`
+
+[]: # Domaine de variation d'une telle variable : partagée en $k$ parties.
+
+[]: # $$[x_{i-1},x_i[ \quad \to \quad \mbox{i-eme classe}$$
+
+[]: #```{r}
+[]: #table_Sepal.Length<-table(iris$Sepal.Length)
+[]: #table_Sepal.Length
+[]: #```
+
+## Les indicateurs statistiques
+
+Graphiques : indicateurs pour appréhender la base de donnée étudiée.
+
+Pour aller plus loin :
+
+- la valeur de la variable située au "centre" de la distribution → la ***tendance centrale*** 
+
+- ou plus généralement → indicateur de postion
+
+- variations des valeurs → dispersion
+
+- forme de la distribution 
+
+- aspects particuliers → valeurs extrèmes, ...
+
+##
+
+### Indicateur de tendance centrale et de position 
+
+mesures de tendances centrales → "moyennes"
+
+Serie statistique brutes : $x_1$, $x_2$, $x_3$, ..., $x_n$.
+
+- La ***moyenne arithmétique***
+$$\bar{x} = \frac{1}{n} \sum_{i=1}^n x_i$$
+Exemple : votre moyenne du module de sciences fondamentales !
+
+##
+
+- La ***moyenne géométrique***
+
+→ lorsque la croissance est géométrique ou exponentielle
+
+$$G = \sqrt[n]{\prod_{i=1}^n x_i} \quad \Longrightarrow \quad \ln(G) = \frac{1}{n} \sum_{i=1}^n \ln(x_i)$$
+Exemple : 
+
+## Le mode
+
+- variable quantitative discrète 
+  - valeur la plus fréquemment observée 
+  - sur diagramme en baton  → somment de la distribution
+
+- variable quantitative continue
+  - fréquent que l'on observe jamais 2 fois la même valeur 
+  - besoin de définir les classes : $\mbox{i-ème classe } \quad \to \quad [x_i,x_{_i+1}[$
+  - ensuite même logique que pour une variable quantitative discrète
+  
+## Exemple avec la variable : `Petal_Length`
+  
+```{r}
+#| echo: true
+table_Petal_Length <- table(iris$Petal.Length)
+#table_Petal_Length
+#pie(table_Petal_Length)
+#(table_Petal_Length)
+prop_table_Petal_Length <- prop.table(table_Petal_Length)
+#prop_table_Petal_Length
+barplot(prop_table_Petal_Length)
+```
+
+
+## La mediane
+
+On considère une rue droite, avec 5 maisons $M_i$ repérées par des abscisses $x_i$, où $i=1,...,5$.
+
+***Objectif*** : déposer une benne à ordure $B$ (d'absisse $c$) à l'endroit le plus judicieux possible !
+
+- Milieu des valeurs exrêmes : 
+$$c = \frac12 \left(x_{min}+x_{max}\right)$$
+Peu fiable, dépendance trop forte des valeurs extrêmes
+
+## La mediane 
+
+- La mediane d'un point de vue intuitif
+
+idée : minimiser la distance totale entre les $M_i$ et $B$
+
+La distance totale est
+$$D(x) = \sum_{i=1}^5 |c-x_i|$$
+Pour quelle(s) valeur(s) de $x$ la quantité $D(x)$ est minimale ?
+
+## La mediane - Détermination pratique
+
+::: {.callout-important}
+1. cc
+2. cc
+:::
 
 
 
+## L'étendue
 
 
+## L'écart moyen absolu
+
+
+## L'écart type et la variance
+
+
+## L'écart interquartiles
 
 
 
@@ -204,4 +321,4 @@ boxplot(iris$Sepal.Length, col = c("yellow"),main = "Boxplot", ylab = "Quantiles
 
 # La statistique descriptive à deux dimensions
 
-coming.
+coming soon.
