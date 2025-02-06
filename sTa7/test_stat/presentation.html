@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.6.40">
 
   <meta name="author" content="Antoine Géré">
-  <title>Tests statistiques paramétriques</title>
+  <title>Tests statistiques</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -127,7 +127,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Tests statistiques paramétriques</h1>
+  <h1 class="title">Tests statistiques</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -138,26 +138,10 @@ Antoine Géré
 </div>
 
 </section>
-<section id="quarto" class="slide level2">
-<h2>Quarto</h2>
-<p>Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <a href="https://quarto.org/docs/presentations/" class="uri">https://quarto.org/docs/presentations/</a>.</p>
-</section>
-<section id="bullets" class="slide level2">
-<h2>Bullets</h2>
-<p>When you click the <strong>Render</strong> button a document will be generated that includes:</p>
-<ul>
-<li>Content authored with markdown</li>
-<li>Output from executable code</li>
-</ul>
-</section>
-<section id="code" class="slide level2">
-<h2>Code</h2>
-<p>When you click the <strong>Render</strong> button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
+<section id="introduction" class="slide level2">
+<h2>Introduction</h2>
+<p>On considère un <strong><em>phénomène aléatoire</em></strong> modélisé par une variable aléatoire <span class="math inline">\(X\)</span>, dont la loi de probabilité <span class="math inline">\(P_\theta\)</span> est connue à un paramètre <span class="math inline">\(\theta \in \Theta\)</span> (inconnu) prés.</p>
+<p>On dispose d’une observation <span class="math inline">\(x\)</span> de cette variable <span class="math inline">\(X\)</span>. Souvent, <span class="math inline">\(X\)</span> est un <span class="math inline">\(n\)</span>-échantillon : <span class="math display">\[\left(X_1, \ldots, X_n\right)\]</span> d’une variable aléatoire parente et <span class="math display">\[x=\left(x_1, \ldots, x_n\right)\]</span> est l’observation de cet échantillon, ou bien <span class="math inline">\(X=(Y, Z)\)</span>, où <span class="math inline">\(Y=\left(Y_1, \ldots, Y_{n_1}\right)\)</span> et <span class="math inline">\(Z=\left(Z_1, \ldots, Z_{n_2}\right)\)</span> sont deux échantillons indépendants et <span class="math inline">\(x=(y, z)\)</span> est l’observation de ces échantillons). Dans le cadre d’un problème de test qui nous intéresse ici, on dispose en outre d’informations laissant penser a priori que le paramètre <span class="math inline">\(\theta\)</span> appartient à un sous-ensemble <span class="math inline">\(\Theta_0\)</span> de <span class="math inline">\(\Theta\)</span>, et on cherche à valider ou invalider cette hypothèse sur la base de l’observation <span class="math inline">\(x\)</span>.</p>
 
 </section>
     </div>
@@ -375,82 +359,6 @@ Antoine Géré
         ]
       });
     </script>
-    
-
-    <script>
-
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-
-      // slide changes (different for each slide format).
-
-      (function () {
-
-        // dispatch for htmlwidgets
-
-        function fireSlideEnter() {
-
-          const event = window.document.createEvent("Event");
-
-          event.initEvent("slideenter", true, true);
-
-          window.document.dispatchEvent(event);
-
-        }
-
-    
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-
-          fireSlideEnter();
-
-    
-
-          // dispatch for shiny
-
-          if (window.jQuery) {
-
-            if (previousSlide) {
-
-              window.jQuery(previousSlide).trigger("hidden");
-
-            }
-
-            if (currentSlide) {
-
-              window.jQuery(currentSlide).trigger("shown");
-
-            }
-
-          }
-
-        }
-
-    
-
-        // hookup for slidy
-
-        if (window.w3c_slidy) {
-
-          window.w3c_slidy.add_observer(function (slide_num) {
-
-            // slide_num starts at position 1
-
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-
-          });
-
-        }
-
-    
-
-      })();
-
-    </script>
-
-    
-
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

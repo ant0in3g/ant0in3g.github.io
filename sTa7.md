@@ -15,7 +15,6 @@ Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 - [Séance 2 (cours)](./sTa7/stat_descriptive/presentation.html) - Premiers éléments de statistique descriptive - _Mercredi 5 février 2025_.
 - [Séance 3 (travaux dirigés)](./sTa7/tuto_R_RStudio/Book_Last_Version/index.html) - Introduction et prise en main de R et RStudio (2/2) - _Mercredi 5 février 2025_.
 - [Séance 4 (cours)](./sTa7/stat_coming.md) - coming - _Mercredi 12 février 2025_.
-- [Séance 5 (cours)](./sTa7/stat_coming.md) - coming - _Vendredi 14 février 2025_.
 
 ### Ressources pour la promotion 114
 
