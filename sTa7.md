@@ -11,17 +11,17 @@ Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 
 ### Ressources pour la promotion 115
 
-- [Séance 1 (cours)](./sTa7/tuto_R_RStudio/Book_Last_Version/index.html) - Introduction et prise en main de R et RStudio 1/2 - _Vendredi 31 janvier 2025_.
+- [Séance 1 (cours)](./sTa7/tuto_R_RStudio/Book_Last_Version/index.html) - Introduction et prise en main de R et RStudio (1/2) - _Vendredi 31 janvier 2025_.
 - [Séance 2 (cours)](./sTa7/stat_descriptive/presentation.html) - Premiers éléments de statistique descriptive - _Mercredi 5 février 2025_.
-- [Séance 3 (travaux dirigés)](./sTa7/tuto_R_RStudio/Book_Last_Version/index.html) - Introduction et prise en main de R et RStudio 2/2 - _Mercredi 5 février 2025_.
+- [Séance 3 (travaux dirigés)](./sTa7/tuto_R_RStudio/Book_Last_Version/index.html) - Introduction et prise en main de R et RStudio (2/2) - _Mercredi 5 février 2025_.
 - [Séance 4 (cours)](./sTa7/stat_coming.md) - coming - _Mercredi 12 février 2025_.
 - [Séance 5 (cours)](./sTa7/stat_coming.md) - coming - _Vendredi 14 février 2025_.
 
 ### Ressources pour la promotion 114
 
-- [Séance 1 (travaux dirigés)](./sTa7/tuto_R_RStudio/Book_Last_Version/index.html) - Introduction et prise en main de R et RStudio 1/2 - _Mercredi 29 janvier 2025_.
+- [Séance 1 (travaux dirigés)](./sTa7/tuto_R_RStudio/Book_Last_Version/index.html) - Introduction et prise en main de R et RStudio (1/2) - _Mercredi 29 janvier 2025_.
 - [Séance 2 (cours)](./sTa7/test_stat/presentation.html) - Tests statistiques paramétriques - _Vendredi 7 février 2025_.
-- [Séance 3 (travaux dirigés)](./sTa7/tuto_R_RStudio/Book_Last_Version/index.html) - Introduction et prise en main de R et RStudio 1/2 - _Mercredi 12 février 2025_.
+- [Séance 3 (travaux dirigés)](./sTa7/tuto_R_RStudio/Book_Last_Version/index.html) - Introduction et prise en main de R et RStudio (2/2) - _Mercredi 12 février 2025_.
 
 
 ![image](./img/curve_fitting.png)  
