@@ -20,7 +20,7 @@ Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 ### Ressources pour la promotion 114
 
 - [Séance 1 (travaux dirigés)](./sTa7/tuto_R_RStudio/index.qmd) - Introduction et prise en main de R et RStudio - _Mercredi 29 janvier 2025_.
-- [Séance 2 (cours)](./sTa7/test_stat/presntation.html) - Tests statistiques paramétriques - Vendredi 7 février 2025_.
+- [Séance 2 (cours)](./sTa7/test_stat/presntation.html) - Tests statistiques paramétriques - _Vendredi 7 février 2025_.
 - [Séance 3 (travaux dirigés)](./sTa7/stat_coming.md) - coming - _Mercredi 12 février 2025_.
 
 
