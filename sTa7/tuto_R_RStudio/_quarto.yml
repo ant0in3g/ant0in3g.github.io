@@ -1,0 +1,61 @@
+project:
+  type: book
+  
+lang: fr
+
+number-depth: 3
+
+book:
+  title: "Prise en main de R et RStudio"
+  author: "Antoine Géré"
+  date: last-modified
+  sidebar:
+    collapse-level: 1
+  search: true
+  cover-image: ./img/Logo_ISTOM_Couleurs_HD-rbg.png
+  chapters:
+    - index.qmd
+    - part: R_RStudio.qmd
+      chapters:
+        - install_R.qmd
+        - install_RStudio.qmd
+        - custom_RStudio.qmd
+    - intro_projets.qmd
+    - part: intro_script.qmd
+      chapters: 
+        - intro_scriptQuarto.qmd
+        - intro_scriptR.qmd
+    - part: bases_R.qmd
+      chapters:
+        - help.qmd
+        - startR.qmd
+        - types_data.qmd
+        - Loops.qmd
+        - fonctions.qmd
+        - graph.qmd
+    - analysis_dataset.qmd
+    - part: exos.qmd
+      chapters: 
+        - exos/manip_objets_R.qmd
+        - exos/read_save_dataset.qmd
+        - exos/fonctions_graph.qmd
+        - exos/loops.qmd
+        - exos/fonctions_perso.qmd
+        - exos/togofurther.qmd
+    - references.qmd
+
+language:
+  title-block-published: "Dernière modification"
+
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+

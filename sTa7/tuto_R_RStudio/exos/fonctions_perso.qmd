@@ -1,0 +1,145 @@
+## Créer et utiliser ses propres fonctions {.unnumbered}
+
+### Exercice 16 : notre première fonction {.unnumbered}
+
+1.  Exécutez les commandes data(iris) puis str (iris). Nous venons de charger en mémoire l'un des nombreux jeux de données distribués avec $R$ ! Profitez de l'aide sur ce jeu de données pour en apprendre un peu plus sur les fleurs (?iris)! Tous les jeux de données disponibles avec l'installation de base de $R$ sont accessibles en tapant data().
+2.  Créez la fonction moyenneET suivante et décryptez la: moyenneET $=$ function(i) $c(m o y=m e a n(i r i s[, i]), ~ e t=s d(i r i s[, i]))$
+3.  Afficher l'aide de la fonction apply. En utilisant cette fonction, calculez la moyenne et l'écart type des colonnes numériques du dataset iris. Comparer le résultat avec celui obtenu par la foncion moyenneET.
+
+Remarque : pour exécuter plusieurs commandes au sein d'une même fonction, il faut utiliser des accolades {...}.
+
+```         
+#1
+data(iris)
+str(iris)
+moyenneET(2)
+#2
+moyenneET <- function(i) {
+    moy = mean(iris[,i])
+    et = sd(iris[,i])
+    return( c(moy = moy, et = et) )
+}
+#3
+?apply
+moy = apply(iris[,c(1,2,3,4)], 2, mean)
+et = apply(iris[,c(1,2,3,4)], 2, sd)
+moyenneET(1)
+moyenneET(2)
+moyenneET(3)
+moyenneET(4)
+```
+
+### Exercice 17 : une autre fonction toute simple {.unnumbered}
+
+Créer une fonction nommée somme qui calcule la somme de deux variables x et y passées en arguments.
+
+```         
+somme = function(x, y){
+    resultat = x+y
+    return(resultat)
+}
+```
+
+### Exercice 18 : Nombre mystère {.unnumbered}
+
+1.  Choisir un nombre mystère entre 1 et 100 , et le stocker dans un objet que l'on nommera nombre_mystere. Ensuite, créer une boucle qui à chaque itération effectue un tirage aléatoire d'un entier compris entre 1 et 100 . Tant que le nombre tiré est différent du nombre mystère, la boucle doit continuer. A la sortie de la boucle, une variable que l'on appellera nb_tirages contiendra le nombre de tirages réalisés pour obtenir le nombre mystère.
+2.  Utiliser le code de la question précédente pour réaliser la fonction trouver_nombre, qui, lorsqu'on lui donne un nombre compris entre 1 et 100, retourne le nombre de tirages aléatoires d'entiers compris entre 1 et 100 nécessaires avant de tirer le nombre mystère.
+3.  En utilisant une boucle for, faire appel 1000 fois à la fonction trouver_nombre() qui vient d'être créée. A chaque itération, stocker le résultat dans un élément d'un vecteur que l'on appellera nb_essais_rep. Enfin, afficher la moyenne du nombre de tirages nécessaires pour retrouver le nombre magique.
+
+Indice: sample, while
+
+```         
+# 1
+nombre_mystere = 59
+s = 0
+nb_tirages = 0
+while (s != nombre_mystere){
+    s = sample(1:100, 1)
+    nb_tirages = nb_tirages + 1
+}
+nb_tirages
+# 2
+trouver_nombre = function(nombre_mystere){
+    if (nombre_mystere >=1 & nombre_mystere <=100){
+        s = 0
+        nb_tirages = 0
+        while (s != nombre_mystere){
+            s = sample(1:100, 1)
+            nb_tirages = nb_tirages + 1
+        }
+        nb_tirages
+    }
+    else{
+        warning("Votre nombre doit être compris entre 1 et 100")
+    }
+}
+#3
+nb_essais_rep = c()
+for (i in seq(1000)){
+    tmp = trouver_nombre(39)
+    nb_essais_rep = c(nb_essais_rep, tmp)
+}
+mean(tmp)
+```
+
+### Exercice 19 : Création d'une fonction, traitement de chaines de caractères {.unnumbered}
+
+Supposons que les adresses e-mails des étudiants de centralsupelec soient constituées de la manière suivante: le prénom et le nom de famille séparés par un point, le symbole arobase et enfin le nom de domaine. Supposons de plus que les étudiants ont un seul prénom, et aucune particule au nom de famille. La syntaxe des adresses e-mail est donc comme suit : nom.prenom\@etudiant.centralsupelec.fr.
+
+1.  Créer une fonction parseMail, qui à partir d'une adresse e-mail d'un étudiant, retourne un data.frame contenant trois variables : le prénom, le nom et l'adresse e-mail de cet étudiant.
+2.  Utiliser cete fonction pour créer un data.frame emails.df à partir du vecteur emails, contenant tous les prénoms, noms et adresses e-mail des étudiants indice : strsplit
+
+```         
+emails = c( "john.snow@etudiant.centralsupelec.fr",
+"patti.smith@etudiant.centralsupelec.fr",
+    "rick.grimes@etudiant.centralsupelec.fr",
+    "mere.theresa@etudiant.centralsupelec.fr")
+```
+
+```         
+#1
+parseMail = function(email){
+    nom_prenom = unlist(strsplit(email, "@"))[1]
+    nom_prenom = unlist(strsplit(nom_prenom, "\\."))
+    prenom = nom_prenom[1]
+    nom = nom_prenom[2]
+    data.frame(prenom = prenom, nom = nom, email = email)
+}
+#2
+emails.df = c()
+for (m in emails){
+    df = parseMail(m)
+    emails.df = rbind(emails.df,df)
+}
+```
+
+### Exercice 20 : Fonctions appliquées aux éléments d'une liste {.unnumbered}
+
+Soit une liste nommée twittos, disponible à l'adresse suivante : https://pf-bb.github.io/CentraleSupelec-R-genomics/ Elle contient des informations fictives sur des utilisateurs de Twitter ; chaque élément de cette liste est une liste dont les éléments sont les suivants:
+
+-   screen_name: nom d'utilisateur
+-   nb_tweets: nombre de tweets
+-   nb_followers: nombre de followers
+-   nb_friends: nombre de followings
+-   created_at: date de création du compte
+-   location: ville renseignée
+
+1.  Importer le contenu du fichier dans la session $R$
+2.  Utiliser la fonction lapply() sur twittos pour récupérer une liste contenant uniquement les noms d'utilisateurs. Faire de même pour le nombre de followers, puis appliquer unlist() au résultat.
+3.  Créer une fonction qui, quand on lui fournit un élément de la liste twittos, c'est-à-dire les informations sous forme de liste d'un seul utilisateur, retourne ces informations sous forme de tableau de données. Nommer cette fonction twittos_to_df.
+4.  Appliquer la fonction twittos_to_df() au premier élément de la liste twittos, puis utiliser la fonction lapply() pour appliquer la fonction twittos_to_df() à tous les éléments de la liste. Stocker ce dernier résultat dans un objet appelé res
+5.  Quelle est la structure de l'objet res obtenu à la question précédente ?
+
+```         
+#1
+load("twittos.rda")
+#2
+lapply(twittos, function(twit){twit$screen_name})
+#3
+twittos_to_df = function(twit){
+    return(data.frame(twit))
+}
+#4
+twittos_to_df(twittos[1])
+res = lapply(twittos, twittos_to_df)
+```

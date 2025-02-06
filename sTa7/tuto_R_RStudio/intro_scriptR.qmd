@@ -1,0 +1,16 @@
+## Script R  {.unnumbered}
+
+Nous allons créer notre premier script R.
+
+-   Créer un nouveau document Quarto `File > New File > R Script`
+-   Enregistrer votre script
+-   Ecrivez votre première ligne de code sur R :
+
+``` r
+2 + 3
+```
+
+-   Enregistrez votre script
+-   Cliquer sur Run, en haut à droite du cadran en haut à gauche.
+
+> Dans la partie suivante nous allons voir les bases du language R.

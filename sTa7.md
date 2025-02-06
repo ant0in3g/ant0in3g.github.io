@@ -11,17 +11,17 @@ Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 
 ### Ressources pour la promotion 115
 
-- [Séance 1 (cours)](./sTa7/lecture-s/intro_R.md) - Introduction et prise en main de R et RStudio - _Vendredi 31 janvier 2025_.
-- [Séance 2 (cours)](./sTa7/lecture-s/stat_descriptive/presentation.html) - Premiers éléments de statistique descriptive - _Mercredi 5 février 2025_.
-- [Séance 3 (travaux dirigés)](./sTa7/lecture-s/intro_R.md) - Introduction et prise en main de R et RStudio - _Mercredi 5 février 2025_.
-- [Séance 4 (cours)](./sTa7/lecture-s/stat_1.md) - coming - Mercredi 12 février 2025_.
-- [Séance 5 (cours)](./sTa7/lecture-s/stat_1.md) - coming - _Vendredi 14 février 2025_.
+- [Séance 1 (cours)](./sTa7/tuto_R_RStudio/index.qmd) - Introduction et prise en main de R et RStudio - _Vendredi 31 janvier 2025_.
+- [Séance 2 (cours)](./sTa7/stat_descriptive/presentation.html) - Premiers éléments de statistique descriptive - _Mercredi 5 février 2025_.
+- [Séance 3 (travaux dirigés)](./sTa7/tuto_R_RStudio/index.qmd) - Introduction et prise en main de R et RStudio - _Mercredi 5 février 2025_.
+- [Séance 4 (cours)](./sTa7/stat_coming.md) - coming - Mercredi 12 février 2025_.
+- [Séance 5 (cours)](./sTa7/stat_coming.md) - coming - _Vendredi 14 février 2025_.
 
 ### Ressources pour la promotion 114
 
-- [Séance 1 (travaux dirigés)](./sTa7/lecture-s/intro_R.md) - Introduction et prise en main de R et RStudio - _Mercredi 29 janvier 2025_.
-- [Séance 2 (cours)](./sTa7/lecture-s/stat_2.md) - coming - _Mardi 4 février 2025_.
-- [Séance 3 (travaux dirigés)](./sTa7/lecture-s/stat_2.md) - coming - _Mercredi 12 février 2025_.
+- [Séance 1 (travaux dirigés)](./sTa7/tuto_R_RStudio/index.qmd) - Introduction et prise en main de R et RStudio - _Mercredi 29 janvier 2025_.
+- [Séance 2 (cours)](./sTa7/test_stat/presntation.html) - Tests statistiques paramétriques - Vendredi 7 février 2025_.
+- [Séance 3 (travaux dirigés)](./sTa7/stat_coming.md) - coming - _Mercredi 12 février 2025_.
 
 
 ![image](./sTa7/lecture-s/img/curve_fitting.png)  

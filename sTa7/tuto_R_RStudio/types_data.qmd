@@ -1,0 +1,131 @@
+## Les différents types de données  {.unnumbered}
+
+Il existe différents types de données sur R, on peut citer : - `numeric` - (10.5, 55, 787) - `integer` - (1L, 55L, 100L, où le "L" informe R que c'est un integer) - `complex` - (9 + 3i) - `character / string` - ("k", "Les stat c'est cool", "FALSE", "11.5") - `logical / boolean` - (TRUE or FALSE)
+
+On peut vérifier le type de donnée d'une variable en utilisant la fonction `class()`.
+
+``` r
+# numeric
+x <- 10.5
+class(x)
+
+# integer
+x <- 1000L
+class(x)
+
+# complex
+x <- 9i + 3
+class(x)
+
+# character/string
+x <- "R is exciting"
+class(x)
+
+# logical/boolean
+x <- TRUE
+class(x) 
+```
+
+Il y a trois types de nombres : `numeric`, `integer` et `complex`. On peut convertir un nombre d'un type à un autre en utilsant les fonctions : - `as.numeric()` - `as.integer()` - `as.complex()`
+
+Plusieurs fonctions utiles pour les `character / string` : - Connaitre la longueur d'une string : `nchar(ecole)` - Savoir si une string est contenue dans une autre string : `grepl("I",ecole)` - Regrouper deux strings : paste("Cette ecole a été créée en",date_creation)
+
+En ce qui concerne les vraiables `logical / boolean` on a simplement :
+
+``` r
+10 > 9    # TRUE car 10 est plus grand que 9 !
+10 == 9   # FALSE car 10 n'est pas egale à 9 !
+10 < 9    # FALSE car 10 est plus grand que 9 ! 
+```
+
+Quelques outils d'arithmétques :
+
+``` r
+2 + 3 # Addition    
+2 - 3 # Subtraction     
+2 * 3 # Multiplication  
+2 / 3 # Division
+2^3 # Exponent
+```
+
+Quelques outils de comparaison
+
+``` r
+3 == 3 # Check if equal     
+5 != 3 # Check if not equal 
+5 > 3 # Check if 5 is greater than 3    
+5 < 3 # Check if 5 is less than 3 
+5 >= 3 # Check if 5 is greater than or equal to 3
+5 <= 3 # Check if 5 is less than or equal to 3
+```
+
+On peut ranger ces données dans différents objets :
+
+-   **Vecteurs** : Une séquence d'éléments du même type.
+
+``` r
+x <- c(55, 1, 2, 3, 4)
+x
+length(x)
+sort(x)
+x[3]
+x[c(1,3)]
+x[c(-1)]
+x[4] <- 100 
+x
+```
+
+\-**Listes** : Une séquence d'éléments qui peuvent être différents.
+
+``` r
+ma_liste <- list("apple", "banana", "cherry")
+ma_liste
+ma_liste[1]
+ma_liste[2] <- "pineapple"
+length(ma_liste)
+"apple" %in% ma_liste 
+append(ma_liste,"orange",after=3)
+```
+
+-   **Matrices** : Tableau à deux dimensions.
+
+``` r
+mat <- matrix(1:9, nrow = 3, ncol = 3)
+mat
+mat[1,2]
+mat[1,]
+mat[,2]
+mat[c(1,2),] 
+mat[,c(1,2)] 
+mat_add_column <- cbind(mat,c(50,8,47))
+mat_add_column
+mat_add_row <- rbind(mat,c(50,8,47))
+mat_add_row
+mat_remove_line_column_one <- mat[-c(1), -c(1)]  #Remove the first row and the first column
+mat_remove_line_column_one
+dim(mat)
+```
+
+-   **Data frames** : Tableau avec colonnes pouvant contenir différents types de données.
+
+``` r
+df <- data.frame(
+    Age = c(25, 30, 35), 
+    Sexe = c('Homme', 'Femme', 'Homme'))
+df
+summary(df)
+df[1]
+df[["Age"]]
+```
+
+-   **Facteurs** : c'est un vecteur dont les éléments ne peuvent prendre que des modalités prédéfinies. Ce qui caractérise un facteur dans **R** est le fait qu’elle dispose de l’attribut Levels (niveaux). En pratique, un facteur est typiquement utilisé pour stocker les valeurs observées d’une variable catégorielle (couleur, sexe, jours de la semaine, religion, ...).
+
+``` r
+music_genre <- factor(c("Jazz", "Rock", "Classic", "Classic", "Pop", "Jazz", "Rock", "Jazz"))
+music_genre
+levels(music_genre) 
+length(music_genre) 
+music_genre[3] 
+music_genre[3] <- "Pop"
+music_genre
+```
