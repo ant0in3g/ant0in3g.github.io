@@ -5,14 +5,10 @@ format: revealjs
 editor: visual
 ---
 
-## Introduction
+## Test d'hypothèse
 
-On considère un ***phénomène aléatoire*** modélisé par une variable aléatoire $X$, dont la loi de probabilité $P_\theta$ est connue à un paramètre $\theta \in \Theta$ (inconnu) prés.
+Poser une ***hypothèse statistique*** c'est poser un énnoncé ou une affirmation sur une ou plusieurs caractéristiques d'une poulation.
 
 
-On dispose d'une observation $x$ de cette variable $X$. Souvent, $X$ est un $n$-échantillon :
-$$\left(X_1, \ldots, X_n\right)$$ 
-d'une variable aléatoire parente et 
-$$x=\left(x_1, \ldots, x_n\right)$$ 
-est l'observation de cet échantillon, ou bien $X=(Y, Z)$, où $Y=\left(Y_1, \ldots, Y_{n_1}\right)$ et $Z=\left(Z_1, \ldots, Z_{n_2}\right)$ sont deux échantillons indépendants et $x=(y, z)$ est l'observation de ces échantillons).
-Dans le cadre d'un problème de test qui nous intéresse ici, on dispose en outre d'informations laissant penser a priori que le paramètre $\theta$ appartient à un sous-ensemble $\Theta_0$ de $\Theta$, et on cherche à valider ou invalider cette hypothèse sur la base de l'observation $x$.
+
+Etablir un ***test d'hypothèse***, c'est décrire une méthode précisant une règle de décision permettant 
