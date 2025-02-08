@@ -1,0 +1,66 @@
+## Lire et sauvegarder des données {.unnumbered}
+
+### Exercice 9 : Lire les données d'un fichier : fonction read.table {.unnumbered}
+
+Il est possible de lire les données stockées dans des fichiers sous format txt grÃcce, entre autres, aux fonctions suivantes: read.table(), read.csv(), read.csv2() et scan(). Par ailleurs, la fonction read.xls() (resp. write.xls()) du package gdata fournit les outils pour lire (resp. écrire) des fichiers au format Excel. Il existe aussi la fonction read.xlsx (resp. write. xlsx) du package xlsx. (Récupérez les fichiers demandés sur le site $\operatorname{xxxxxxx}$ ). Vous pouvez ouvrir au préalable ces différents fichiers dans un éditeur de texte afin d'identifier le séparateur de colonnes, le symbole de décimale, comment sont définies les valeurs manquantes etc...
+
+1.  Importez dans une variable nommée A le jeu de données nommé auto2004_original.txt. ${ }^{* *}$ Indice : le séparateur de colonne 'tabulation' correspond à "en informatique\*
+2.  Importez dans une variable nommée B le jeu de données auto2004_sans_nom.txt.
+3.  Importez dans une variable nommée $C$ le jeu de données auto2004_virgule.txt.
+4.  Importez dans une variable nommée D le jeu de données auto2004_don_manquante.txt. Combien de valeurs manquantes sont contenues dans le fichier?
+5.  Importez dans une variable nommée E le jeu de données auto2004_don_manquante (99999).txt.
+6.  Quel est le mode des objets créés par la fonction read.table() ?
+
+```         
+Indice: help("read.table"),help("is.na")
+#1
+A = read.table(file="auto2004_original.txt", sep="\t", header = TRUE)
+#2
+B = read.table(file="auto2004_sans_nom.txt", sep="\t", header = FALSE)
+#3
+C = read.table(file="auto2004_virgule.txt", sep="\t", header = TRUE, dec = ",")
+#4
+D = read.table(file="auto2004_don_manquante.txt", header = TRUE, sep="\t", na.strings = "")
+nb = length(which(is.na(D) == TRUE))
+#5
+E = read.table(file="auto2004_don_manquante(99999).txt", header = TRUE, sep="\t", na.strings = "99999")
+#6
+class(E)
+```
+
+### Exercice 10 : Enregistrer des données {.unnumbered}
+
+Créer la matrice suivante :
+
+$$
+A=\left[\begin{array}{cccc}
+1 & 2 & 3 & 4 \\
+5 & 6 & 7 & 8 \\
+9 & 10 & 11 & 12
+\end{array}\right]
+$$
+
+1.  Ecrire la matrice A dans un fichier nommé matrice.txt. Que remarquez-vous?
+2.  Ajouter des arguments à la commande précédente pour retirer des noms aux lignes et aux colonnes du fichier créé.
+3.  Sauver la matrice $A$ au format . Rdata dans le fichier matriceA. Rdata grâce à la fonction save.
+4.  Que donne la commande C = load("matriceA.Rdata") ?
+5.  Sauver toutes les variables dans un fichier nommé "données.Rdata"
+
+```         
+A = matrix(seq(12), ncol = 4, byrow = TRUE)
+#1
+write.table(A, file = "matrice.txt")
+#2
+write.table(A, file = "matrice.txt", row.names = FALSE, col.names = FALSE)
+#3
+save(A, file="matriceA.Rdata")
+#4
+C = load("matriceA.Rdata")
+### la matrice A est rechargée.
+```
+
+```         
+### la variable C vaut "A"
+#5
+save(list = ls(), "données.Rdata")
+```

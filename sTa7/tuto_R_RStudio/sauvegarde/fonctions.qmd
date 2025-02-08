@@ -1,0 +1,34 @@
+## Les fonctions  {.unnumbered}
+
+Pour créer une fonction on écrit :
+
+``` r
+ my_function <- function() { # create a function with the name my_function
+  print("L'ISTOM c'est top!")
+} 
+
+my_function()
+```
+
+On peut créer des fonctions avec des arguments :
+
+``` r
+ma_promo <- function(promo,groupe) {
+  paste("Promotion", promo, "groupe", groupe)
+}
+
+ma_promo(114,"A")
+ma_promo(115,"B") 
+```
+
+On a également :
+
+``` r
+ma_multiplication <- function(x) {
+  return (5 * x)
+}
+
+print(ma_multiplication(3))
+print(ma_multiplication(5))
+print(ma_multiplication(9))
+```

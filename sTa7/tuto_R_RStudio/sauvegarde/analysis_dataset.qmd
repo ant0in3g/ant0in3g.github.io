@@ -1,0 +1,100 @@
+# Inroduction à l'analyse de données {.unnumbered}
+
+## Importer des données dans RStudio {.unnumbered}
+
+RStudio est l’environnement qui va vous permettre d’analyser vos données. Vous allez maintenant apprendre à charger des données dans RStudio, les modifier puis les ressortir de RStudio.
+
+Nous allons apprendre à ouvrir un fichier CSV consacré que voustéléchargerez sur le site [open data](https://www.data.gouv.fr/fr/datasets/) du gouvernement. Choisissez un jeu de donnée qui vous interesse. Vous enregistrer ce fichier dans le dossier `data_raw` de votre projet sous R. Ce fichier CSV est un fichier texte où les données sous formes de tables sont séparées par des virgules. C’est le format de table par excellence à privilégier car nativement pris en compte par R, sans limite de lignes, contrairement à Excel. Pour ma part j'ai choisi ce [jeu de données](https://www.data.gouv.fr/fr/datasets/mixite-dans-le-groupe-edf/).
+
+-   Télécharger le jeu de données au format CSV
+-   Enregistrer ce fichier CSV dans le dossier `data_raw` de votre projet sous R
+-   Sous R, rentrer le code :\
+
+``` r
+mixite_groupe_edf <- read.csv("data_raw/mixite-dans-le-groupe-edf.csv",sep = ";")
+```
+
+-   Vous récupérer dans le cadran en haut à droite, dans Environment, l'ensemble des varaibles de votre fichier CSV
+
+> Pour éviter les erreurs : Lisez la page d’aide avant d’utiliser une fonction pour la première fois grâce à la fonction `help()` ou l’onglet **Help**.
+
+Ecrivez sous R
+
+``` r
+> help("read.csv")
+```
+
+Vous récupérez dans le cadran en bas à droite la documentation de la fonction `read.csv`.
+
+> **Il est cependant fréquent que les données ne soit pas regroupées dans un fichier CSV, mais directement dans un fichier Excel.**
+
+Il est nécessaire de charger le package `readxl`. Deux possibilités s'offrent à nous, soit on procède comme précement pour le package `rmarkdown`, soit on écrit sur la ligne de code suivante :
+
+``` r
+install.packages("readxl")
+```
+
+Et maintenant nous allons charger les données d'un fichier excel récupérer sur [ce site](https://stats.mom.gov.sg/Pages/Occupational-Wages-Tables2022.aspx).
+
+``` r
+library(readxl)
+salaire <- read_excel("data_raw/mrsd_2022Wages_Occ_Ind_List.xlsx")
+```
+
+Cela ne fonctionne malheuresement pas très bien. Il est nécessaire de péciser l'onglet sur lequel on va travailler et les celules qui nous intéressent.
+
+``` r
+library(readxl)
+salaire <- read_excel("data_raw/mrsd_2022Wages_table4.xlsx", sheet = "T4", range = "B10:J352")
+```
+
+Enfin pour ajouter les titre de chacune des colonnes on écrit
+
+``` r
+library(readxl)
+salaire <- read_excel("data_raw/mrsd_2022Wages_table4.xlsx", sheet = "T4", range = "B10:J352", col_names = {
+  c("SSOC 2020","Occupation","Number Covered","Basic Wage - 25th Percentile ($)", "Basic Wage - Median  ($)","Basic Wage - 75th Percentile ($)","Gross Wage - 25th Percentile ($)", "Gross Wage - Median  ($)","Gross Wage - 75th Percentile ($)")})
+```
+
+## Modifier et exporter des données importées dans RStudio {.unnumbered}
+
+-   Reprenez les données que vous avez importé au paragraphe précédent.
+-   Ouvrez le tableau de données en cliquant dessus dans l’onglet Environment **ou** en utilisant le code :
+
+``` r
+mixite_groupe_edf <- read.csv("data_raw/mixite-dans-le-groupe-edf.csv",sep = ";")
+View(mixite_groupe_edf)
+```
+
+Afin de remplacer une valeur dans une cellule, il faut localiser cette cellule et lui donner sa valeur. Cela se fait de la manière suivante :
+
+``` r
+mixite_groupe_edf <- read.csv("data_raw/mixite-dans-le-groupe-edf.csv",sep = ";")
+mixite_groupe_edf[38, 5] <- "Mars" # cellule à la 28eme ligne et 1ere colonne
+```
+
+De la même manière, vous allez pouvoir sélectionner toutes les lignes de plusieurs colonnes en ne mettant rien avant la virgule, et les colonnes d’intérêt listées après.
+
+``` r
+mixite_groupe_edf <- read.csv("data_raw/mixite-dans-le-groupe-edf.csv",sep = ";")
+
+# avec le nom des colonnes
+mixite_groupe_edf_fr <- mixite_groupe_edf[, c("tri", "annee", "perimetre_juridique", "perimetre_spatial", "indicateur", "valeur_de_l_indicateur", "unite", "methode_de_consolidation")]
+
+# ou la position des colonnes
+mixite_groupe_edf_fr <- mixite_groupe_edf[, c(1:3, 5, 7, 9, 10, 12)]
+```
+
+Vous remarquerez qu’un nouveau tableau a été créé, associé au nom `mixite_groupe_edf_fr`. Il est possible de réutiliser le même nom, ce qui permet de gagner en mémoire mais élimine les données de base.
+
+Les modifications réalisées dans l’environnement de RStudio n’impactent pas les données en dehors tant qu’elles ne sont pas enregistrées.
+
+Pour enregistrer une table sous format CSV, il suffit d’utiliser la fonction `write.csv()` :
+
+``` r
+mixite_groupe_edf <- read.csv("data_raw/mixite-dans-le-groupe-edf.csv",sep = ";")
+mixite_groupe_edf_fr <- mixite_groupe_edf[, c(1:3, 5, 7, 9, 10, 12)]
+write.csv(x = mixite_groupe_edf_fr, file = "data/presence_femme_edf.csv")  . 
+```
+
+Si vous souhaitez enregistrer votre fichier au format XLSX (Excel), il sufiit d'écrire : \`\`\`{r} install.packages("writexl") library(writexl) write_xlsx(x = mixite_groupe_edf_fr, path = "data/presence_femme_edf.xlsx")

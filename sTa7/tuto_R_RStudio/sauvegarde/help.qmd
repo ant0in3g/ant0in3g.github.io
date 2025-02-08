@@ -1,0 +1,3 @@
+## Obtenir de l’aide sur R  {.unnumbered}
+
+Le système d'aide en ligne fourni avec **R** est accessible via la commande `help()`. Lorsque l'on connaît le nom de la commande **R**, par exemple, `cmd`, on peut taper `help(cmd)` ou `?cmd` (sauf dans le cas de certains opérateurs). Sinon, on peut rechercher à partir de mots-clés en tapant `help. search()`. Une alternative pour la recherche par motif consiste à utiliser `apropos()`. Pour connaître toutes les commandes fournies par un package (e.g., `pkg`), il suffit de taper `help(package=pkg)`.

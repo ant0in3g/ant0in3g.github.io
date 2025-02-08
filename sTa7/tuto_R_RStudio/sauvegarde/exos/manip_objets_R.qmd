@@ -1,0 +1,158 @@
+## Manipulation des objets sur R {.unnumbered}
+
+### Exercice 1 {.unnumbered}
+
+Soit a=c("lannister", "targaryen", "baratheon", "starck", "greyjoy")
+
+1.  Quelle est la longueur du vecteur ? indice : length
+2.  Essayez de faire a\[1:3\]. Qu'obtenez-vous ?
+3.  Créez un nouveau vecteur b ne contenant que lannister et starck.
+4.  Essayez de faire a\[-1\]. Qu'obtenez-vous ?
+5.  Triez par ordre alphabetique. indice : sort ?
+
+```         
+a=c("lannister", "targaryen", "baratheon", "starck", "greyjoy")
+length(a)
+a[1:3]
+b = a[c(1,4)]
+a [-1]
+sort(a)
+```
+
+### Exercice 2 {.unnumbered}
+
+1.  Créez un vecteur a contenant tous les entiers de 1 à 100. Indice: ":".
+2.  Ajoutez les valeurs 200, 201, 202 au vecteur a. Indice : c().
+3.  Créez un vecteur b contenant tous les entiers pairs de 2 à 100. Indice: seq.
+
+$\mathrm{a}=\mathrm{c}(1: 100)$ c (a, 200, 201, 202) $b=\operatorname{seq}($ from $=2$, to $=100$, by $=2$ )
+
+### Exercice 3 {.unnumbered}
+
+1.  Créer le vecteur vec1 contenant tous les multiples de 2 compris entre 1 et 50 .
+2.  Créer le vecteur vec 2 contenant 3 fois chacun des 10 chiffres (soit $0,0,0 ; 1,1,1 ; 2,2,2 ; 3,3,3$; etc.). Indice: $r e p()$
+3.  Créer le vecteur vec3 contenant une fois le chiffre 1, deux fois le chiffre 2 , trois fois le chiffre $3 \ldots$ et 20 fois le chiffre 20. Quelle est la longueur de cette suite? Indice: length()
+
+Pensez à bien regarder l'aide des fonctions. Par exemple, pour la fonction rep regardez bien la différence entre les paramètres each et times ; vous pouvez copier-coller les lignes d'exemple pour bien comprendre chaque paramètre.
+
+```         
+#1
+vec1 = seq(from=2, to=50, by=2 )
+#2
+vec2 = rep(c(0:9), each=3)
+#3
+vec3 = rep(1:20, times = c(1:20))
+length(vec3)
+```
+
+### Exercice 4 {.unnumbered}
+
+La commande paste permet de concataner du texte. Essayez paste("chr", 1, sep=""). Créez, en une seule ligne de commande, le vecteur vec4 contenant les noms suivants : chr1, chr2,... , chr22, chrX, chrY. Indice : paste()
+
+```         
+paste("chr", 1, sep="")
+vec4 = paste("chr", c(1:22,"X","Y"), sep="")
+```
+
+### Exercice 5 : Facteurs {.unnumbered}
+
+1.  Définissez un facteur fac = factor (c("a", "b", "b", "b", "a", "b", "a", "a")).
+2.  Calculez le nombre de "a" et de "b" dans fac en utilisant les fonctions which et length et des opérateurs binaires (==).
+3.  Que permet de faire la fonction table? Appliquez la à fac. Retenez bien la fonction table très très utile!
+
+```         
+fac = factor(c("a","b","b","b","a","b","a","a"))
+length(which(fac == "a"))
+length(which(fac == "b"))
+table(fac)
+```
+
+### Exercice 6 : Matrices {.unnumbered}
+
+1.  Exécutez la commande $a=\operatorname{rep}(c(0,1), 50)$. Qu'a-t-on fait?
+2.  Utilisez a pour construire une matrice A à 10 lignes et 10 colonnes. indice : matrix ().
+3.  Affichez les dimensions de cette matrice. Indices : dim, ncol, nrow
+4.  Utilisez la fonction $t$ sur cette matrice pour créer une matrice B. Que s'est-il passé ?
+
+5 . Les commandes $\mathrm{A}[1: 5$, \] et $\mathrm{B}[, 1: 5]$ permettent de récuperer respectivement les 5 premières lignes de A et les 5 premières colonnes de B. Inspirez-vous de ces commandes pour récupérez dans A les lignes ne contenant que des 1 et dans $B$ les colonnes ne contenant que des 0 .
+
+```         
+#1
+a = rep(c(0,1), 50)
+```
+
+```         
+#2
+A = matrix(a, ncol = 10, nrow = 10)
+#3
+dim(A)
+ncol(A)
+nrow(A)
+#4
+B = t(A)
+#5
+line1 = A[seq(2,10,2),]
+col0 = B[,seq(1,10,2)]
+```
+
+### Exercice 7 : Liste et tableaux de données (data.frame) {.unnumbered}
+
+1.  Créez une liste x contenant:
+
+-   une variable aléatoire gaussienne de taille 10 appelée a
+-   un vecteur contenant uniquement des 1 de taille 10 également, appelé b. On peut accéder aux deux éléments de cette liste avec les commandes $\mathrm{x}[\mathrm{i}]$ \] ou x\$nom_de_la_variable. Indices : list, rnorm.
+
+2.  Créez un objet y qui est la transformation de cette liste en data.frame. On peut maintenant parcourir les éléments de chaque objet comme pour une matrice avec la commande y $[i, j]!$ indice $=$ as. data.frame
+3.  Créez deux objets z1 et z2 contenant respectivement les 3 premières et les 3 dernières lignes de y. Quelle est la classe de ces deux objets ?
+4.  Rajoutez à la liste x un vecteur chiffre contenant les entiers de 1 à 26 .
+5.  Essayez de transformer de nouveau $x$ en data.frame. Que se passe-t-il?
+
+```         
+#1
+x = list(
+    a = rnorm(10),
+    b = rep(1, 10)
+)
+x[["a"]]
+x$a
+#2
+y = as.data.frame(x)
+#3
+z1 = y[c(1:3) ,]
+z2 = y[c(8:10),]
+class(z1)
+class(z2)
+#4
+x$chiffre = 1:26
+#5
+as.data.frame(x)
+```
+
+### Exercice 8 : Student's Sleep Data {.unnumbered}
+
+1.  Executez la commande data(sleep). Nous venons de charger en mémoire l'un des nombreux jeux de données distribués avec R ! Profitez de l'aide sur ce jeu de données pour en apprendre un peu plus (?sleep)! Tous les jeux de données disponibles avec l'installation de base de R sont accessibles en tapant data().
+2.  Quel est le type de l'objet sleep ?
+3.  Quelle fonction vous permet d'obtenir rapidement le nombre d'individus par groupe? Executez la.
+4.  Combien y-a-t-il de valeurs négatives dans le groupe 1 ? Indice : which()
+5.  Soit s un vecteur représentant le sexe des individus: s = rep(c("f","m","m","f","m","f","m","m","f","m"),2). Combinez l'objet sleep et le vecteur s dans une nouvelle matrice sleep2. Indice : cbind()
+6.  Quelles sont les noms des colonnes de la matrice sleep2? Renommez la dernière colonne en 'sex'. Indice: colnames ()
+7.  Combien $y$-a-t-il de femmes et d'hommes dans chacun des groupes ?
+
+```         
+#1
+data(sleep)
+#2
+typeof(sleep); class(sleep)
+#3
+table(sleep$group)
+#4
+length(which(sleep$extra < 0))
+#5
+s = rep(c("f","m","m","f","m","f","m","m","f","m"),2)
+sleep2 = cbind(sleep, s)
+#6
+colnames(sleep2)
+colnames(sleep2)[4] = "sex"
+#7
+table(sleep2$s, sleep2$group)
+```

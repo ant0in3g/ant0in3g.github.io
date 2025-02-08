@@ -1,0 +1,81 @@
+## Quelques premières notions  {.unnumbered}
+
+Nous avons vu que R peut effectuer des opérations mathématiques. Par exemple :
+
+``` r
+2 + 3
+```
+
+ou encore
+
+``` r
+2 * 3
+```
+
+Pour récupérer du texte en sortie, il est nécesaire de l'écrire de cette façon :
+
+``` r
+"ISTOM, Ecole supérieure d'agro-développement international"
+```
+
+Sans les guillemets R retourne une erreur.
+
+En revanche pour récupérer des nombres en sortie, il suffit simplement de rentrer ces nombres :
+
+``` r
+105
+8
+89
+2576
+978364
+```
+
+Afin d'ajouter des commentaires dans votre code (tres fortement conseillé), il suffit d'écrire :
+
+``` r
+# L'école la plus cool ;-)
+"ISTOM, Ecole supérieure d'agro-développement international"
+```
+
+Il est très souvent utile de créer des variables. Cela se fait de la manière suivante
+
+``` r
+ecole <- "ISTOM"
+adresse <- "4 Rue Joseph Lakanal, 49000 Angers"
+date_creation <- 1908
+```
+
+De cette façon si ensuite vous rentrez
+
+``` r
+ecole
+```
+
+il vous sortira simplement **ISTOM**.
+
+On peut également manipuler ces variables. Par exemple :
+
+``` r
+paste("L'",ecole,"a été créée en",date_creation) 
+```
+
+ou encore
+
+``` r
+date_creation <- 1908
+nombre_etudiant_promotion <- 60
+
+(2025-date_creation)*nombre_etudiant_promotion
+```
+
+On peut attribuer la même valeur à plusieurs variables.
+
+``` r
+var1 <- "Angers"
+var2 <- "Angers"
+var3 <- "Angers"
+
+var1
+var2
+var3
+```

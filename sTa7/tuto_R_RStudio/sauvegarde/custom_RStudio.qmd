@@ -1,0 +1,85 @@
+## Configuration de RStudio  {.unnumbered}
+
+Dans cette partie nous allons apprendre à personnaliser RStudio de sorte à avoir un environnement de travail agréable à utiliser.​
+
+Lorsque que vous ouvrez RStudio pour la première fois, votre écran doit ressembler à ça.
+
+![image](./img/rstudio-1st-time.png)
+
+Les versions de R et RStudio peuvent être legerement différentes, donc quelques différences sont possibles entre ce que vous avez sur votre ordinateur et ce que vous pouvez observer sur cette capture d'écran.
+
+L’organisation de ces parties est complètement modulable à votre guise dans :
+
+`Tools > Global options`
+
+Nous allons débuter par personaliser le *Pane Layout*.
+
+`Tools > Global options > Pane Layout`
+
+![image](./img/rstudio-config1.png)
+
+-   En haut à gauche vous avez la fenêtre **Source**, là où les scripts s’ouvriront.
+-   En haut à droite la fenêtre **Environnement, History, Connections, VSC, Tutorial, Presentation**. Sélectionnez :
+    -   Environnement
+    -   History
+    -   Connections
+    -   Build
+    -   VCS
+    -   Tutorial : Cet onglet va vous permettre d’accéder à un ensemble de tutoriels très pratique pour apprendre à coder en R.
+-   En bas à gauche la fenêtre **Console**, pour le moment avec Terminal et Background Jobs. Vide à chaque ouverture de RStudio, cette fenêtre est l’endroit où les codes vont être activés.
+-   En bas à droite la fenêtre **Files, Plots, Packages, Help, Viewer, Presentations**. Sélectionnez :
+    -   Files
+    -   Plots
+    -   Packages
+    -   Help
+    -   Viewer
+    -   Presentations
+
+Nous allons à présent ajuster l’apparence de RStudio suivant nos propres préférences. Le chemin pour ces modification est toujours le même :
+
+`Tools > Global options`
+
+Nous commençons par **R General** :
+
+`Tools > Global options > R General`
+
+![image](./img/rstudio-config2.png)
+
+-   Vérifiez si la version préente est la dernière en cliquant sous *R version* sur **Change**.
+-   Workspace : Décocher *Restore .RData into workspace at startup*, de même choisissez **Never** pour *Save workspace to .RData on exit*.
+-   History : Laissez décochés les deux paramètres.
+-   Other : Laissez cochés les trois premiers paramètres.
+
+Nous passons à **Code/Editing** :
+
+`Tools > Global options > Code > Editing`
+
+![image](./img/rstudio-config3.png)
+
+Sélectionnez *Use native pipe operator*
+
+Nous passons à **Code/Display** :
+
+`Tools > Global options > Code > Display`
+
+![image](./img/rstudio-config4.png)
+
+Sélectionnez *Use rainbow parentheses*
+
+Nous passons à **Appearance** :
+
+`Tools > Global options > Appearance`
+
+![image](./img/rstudio-config5.png)
+
+A vous de sélectionner les options qui vous conviennent le mieux !
+
+> Ne pas oublier de cliquer sur **apply** !
+
+Afin de vérifier si vous avez la bonne version, vous pouvez rentrer dans la Console
+
+``` r
+sessionInfo()
+```
+
+![image](./img/rstudio-check-version.png)

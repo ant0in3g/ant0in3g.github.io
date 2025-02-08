@@ -12,3 +12,5 @@ Poser une ***hypothèse statistique*** c'est poser un énnoncé ou une affirmati
 
 
 Etablir un ***test d'hypothèse***, c'est décrire une méthode précisant une règle de décision permettant 
+
+sdf

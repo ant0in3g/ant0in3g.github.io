@@ -340,7 +340,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Il existe différents types de données sur R, on peut citer : - <code>numeric</code> - (10.5, 55, 787) - <code>integer</code> - (1L, 55L, 100L, où le “L” informe R que c’est un integer) - <code>complex</code> - (9 + 3i) - <code>character / string</code> - (“k”, “Les stat c’est cool”, “FALSE”, “11.5”) - <code>logical / boolean</code> - (TRUE or FALSE)</p>
+<p>Il existe différents types de données sur R, on peut citer :</p>
+<ul>
+<li><p><code>numeric</code> (10.5, 55, 787)</p></li>
+<li><p><code>integer</code> (1L, 55L, 100L, où le “L” informe R que c’est un integer)</p></li>
+<li><p><code>complex</code> (9 + 3i)</p></li>
+<li><p><code>character / string</code> (“k”, “Les stat c’est cool”, “FALSE”, “11.5”)</p></li>
+<li><p><code>logical / boolean</code> - (TRUE or FALSE)</p></li>
+</ul>
 <p>On peut vérifier le type de donnée d’une variable en utilisant la fonction <code>class()</code>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># numeric</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fl">10.5</span></span>
@@ -361,8 +368,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># logical/boolean</span></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(x) </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Il y a trois types de nombres : <code>numeric</code>, <code>integer</code> et <code>complex</code>. On peut convertir un nombre d’un type à un autre en utilsant les fonctions : - <code>as.numeric()</code> - <code>as.integer()</code> - <code>as.complex()</code></p>
-<p>Plusieurs fonctions utiles pour les <code>character / string</code> : - Connaitre la longueur d’une string : <code>nchar(ecole)</code> - Savoir si une string est contenue dans une autre string : <code>grepl("I",ecole)</code> - Regrouper deux strings : paste(“Cette ecole a été créée en”,date_creation)</p>
+<p>Il y a trois types de nombres : <code>numeric</code>, <code>integer</code> et <code>complex</code>. On peut convertir un nombre d’un type à un autre en utilsant les fonctions :</p>
+<ul>
+<li><p><code>as.numeric()</code></p></li>
+<li><p><code>as.integer()</code></p></li>
+<li><p><code>as.complex()</code></p></li>
+</ul>
+<p>Plusieurs fonctions utiles pour les <code>character / string</code> :</p>
+<ul>
+<li><p>Connaitre la longueur d’une string : <code>nchar(ecole)</code></p></li>
+<li><p>Savoir si une string est contenue dans une autre string : <code>grepl("I",ecole)</code></p></li>
+<li><p>Regrouper deux strings : <code>paste("Cette ecole a été créée en",date_creation)</code></p></li>
+</ul>
 <p>En ce qui concerne les vraiables <code>logical / boolean</code> on a simplement :</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">&gt;</span> <span class="dv">9</span>    <span class="co"># TRUE car 10 est plus grand que 9 !</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">==</span> <span class="dv">9</span>   <span class="co"># FALSE car 10 n'est pas egale à 9 !</span></span>

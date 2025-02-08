@@ -1,0 +1,17 @@
+# Introduction {.unnumbered}
+
+R est un langage de programmation et un environnement statistique open-source, largement utilisé pour l'analyse de données, les statistiques et la science des données. Créé dans les années 1990 par Ross Ihaka et Robert Gentleman, il est particulièrement apprécié pour sa puissance dans le traitement des données, la modélisation statistique et la visualisation graphique. Grâce à une vaste communauté de développeurs, R bénéficie d'un large écosystème de packages (via CRAN) qui étendent ses fonctionnalités dans divers domaines, comme l’apprentissage automatique, la bioinformatique et l’économétrie.  
+
+RStudio est un environnement de développement intégré (IDE) conçu pour faciliter l’utilisation de R. Il offre une interface conviviale avec un éditeur de code avancé, une console interactive, des outils de visualisation et un gestionnaire de projets. Disponible en version gratuite et professionnelle, RStudio améliore l’expérience utilisateur grâce à des fonctionnalités telles que l’auto-complétion du code, l’intégration avec Git, la gestion des environnements et la possibilité de générer des rapports dynamiques avec R Markdown et Quarto.  
+
+Sur RStudio il est possible d'utiliser R Markdown et Quarto: 
+
+- R Markdown est un format de document qui permet d’intégrer du code R dans un fichier texte et de générer des rapports dynamiques sous divers formats (HTML, PDF, Word, etc.). Il est très utilisé pour la documentation, les rapports d’analyse et les présentations interactives.
+
+- Quarto est une évolution de R Markdown, plus flexible et multi-langage, permettant d’intégrer du code non seulement en R, mais aussi en Python, Julia et d'autres langages. Il est conçu pour produire des documents scientifiques, des articles, des tableaux de bord et des sites web interactifs avec un meilleur support pour la reproductibilité des analyses.  
+
+![](./img/R_RStudio_LogoS.png)
+
+Ensemble, R, RStudio, R Markdown et Quarto forment un écosystème puissant pour l’analyse de données, la visualisation et la communication scientifique, largement utilisé dans les milieux académiques et professionnels.
+
+Ce cours fournit une introduction aux bases de R, en mettant l'accent sur les applications statistiques.
