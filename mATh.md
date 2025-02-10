@@ -20,14 +20,9 @@ Vous pouvez également vous exercer sur votre espace [jai20enmaths](https://www.
 3. [Suites numériques](./mATh/chapter-s/suites/chapter-s.pdf) 
 4. [Fonctions à une variable réelle](./mATh/chapter-s/limit-conti-deriv/chapter-s.pdf) 
 
-> .callout_info Modalités d'évaluations
+> 📘 Modalités d'évaluations
 >
 > coming.
-
-> 👍 Success
->
-> Vitae reprehenderit at aliquid error voluptates eum dignissimos.
-
 
 ### Semestre 2
 
@@ -36,7 +31,7 @@ Vous pouvez également vous exercer sur votre espace [jai20enmaths](https://www.
 3. [Equations differentielles](./mATh/chapter-s/equa-diff/chapter-s.pdf)
 4. [Développement limité](./mATh/chapter-s/developpement-limite/chapter-s.pdf)
 
-> .callout_info Modalités d'évaluations
+> 📘 Modalités d'évaluations
 >
 > coming.
 
@@ -47,7 +42,7 @@ Vous pouvez également vous exercer sur votre espace [jai20enmaths](https://www.
 3. [Introduction aux espaces vectoriels](./mATh/chapter-s/intro-espace-vect/chapter-s.pdf)
 4. [Diagonalisation](./mATh/chapter-s/Diagonalisation/chapter-s.pdf)
 
-> .callout_info Modalités d'évaluations
+> 📘 Modalités d'évaluations
 >
 > coming.
 
@@ -57,7 +52,7 @@ Vous pouvez également vous exercer sur votre espace [jai20enmaths](https://www.
 2. [Intégrales multiples](./mATh/chapter-s/integrales-multiples/chapter-s.pdf)
 3. [Géométrie dans le plan et l'espace](./mATh/chapter-s/geometry/chapter-s.pdf)
 
-> .callout_info Modalités d'évaluations
+> 📘 Modalités d'évaluations
 >
 > coming.
 
