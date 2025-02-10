@@ -22,7 +22,7 @@ Vous pouvez également vous exercer sur votre espace [jai20enmaths](https://www.
 
 > 📘 Modalités d'évaluations
 >
-> coming.
+> -
 
 ### Semestre 2
 
@@ -33,7 +33,7 @@ Vous pouvez également vous exercer sur votre espace [jai20enmaths](https://www.
 
 > 📘 Modalités d'évaluations
 >
-> coming.
+> 1 exmanen pour chaque chapitre (1 semaine après la fin du chapitre) + 1 partiel de fin de semestre.
 
 ### Semestre 3
 
@@ -44,7 +44,7 @@ Vous pouvez également vous exercer sur votre espace [jai20enmaths](https://www.
 
 > 📘 Modalités d'évaluations
 >
-> coming.
+> -
 
 ### Semestre 4
 
@@ -54,7 +54,7 @@ Vous pouvez également vous exercer sur votre espace [jai20enmaths](https://www.
 
 > 📘 Modalités d'évaluations
 >
-> coming.
+> 1 exmanen pour chaque chapitre (1 semaine après la fin du chapitre) + 1 partiel de fin de semestre.
 
 ### Examens et corrections
 
