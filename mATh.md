@@ -66,4 +66,4 @@ Vous pouvez trouver via ce [lien](./mATh/corrections.md/) les corrections manusc
 
 ### Pour aller plus loin
 
-Vous trouverez [ici des chapitres en plus pour les curieux](./mATh/plus_loin.md) des chapitres en plus pour les curieux
+Vous trouverez [ici des chapitres en plus pour les curieux](./mATh/plus_loin.md).
