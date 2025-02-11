@@ -95,7 +95,6 @@
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="presentation_files/libs/revealjs/dist/theme/quarto-2a4c8bc07c7bed3f644724215556eb12.css">
-  <link rel="stylesheet" href="assets/style.css">
   <link href="presentation_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="presentation_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="presentation_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -187,7 +186,6 @@
       margin-right: 0; 
     }
   </style>
-  <script src="assets/custom.js" type="application/javascript"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -230,7 +228,7 @@ Antoine Géré
 <section>
 <section id="la-statistique-descriptive-à-une-dimension-univariée" class="title-slide slide level1 center">
 <h1>La statistique descriptive à une dimension / univariée</h1>
-
+<p>L’étude d’une seule variable (quantitative ou qualitative)</p>
 </section>
 <section id="vocabulaire" class="slide level2">
 <h2>Vocabulaire</h2>
@@ -248,7 +246,7 @@ Antoine Géré
 <p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<p>Les observations obtenues sur une population ou sur un échantillon forment un ensemble de données sur lesquelles s’appliquent méthodes de la statistique descriptive. Le <strong><em>choix de l’échantillon</em></strong> est donc <strong><em>important</em></strong> !</p>
+<p>Les observations obtenues sur une population ou sur un échantillon forment un ensemble de données sur lesquelles s’appliquent les méthodes de la statistique descriptive. Le <strong><em>choix de l’échantillon</em></strong> est donc <strong><em>important</em></strong> !</p>
 </div>
 </div>
 </div>
@@ -266,328 +264,209 @@ Antoine Géré
 </ul></li>
 </ul></li>
 </ul>
-<p>Un peu de <strong><em>R</em></strong> pour illustrer ces notions.</p>
+<p>De nombreux exemples avec <strong><em>R</em></strong></p>
 <img data-src="img/R_RStudio_LogoS-rbg.png" class="r-stretch">
+</section>
+<section id="étude-dune-variable-qualitative" class="slide level2">
+<h2>Étude d’une variable qualitative</h2>
+<p>coming.</p>
+</section>
+<section id="étude-dune-variable-quantitative-discrète" class="slide level2">
+<h2>Étude d’une variable quantitative discrète</h2>
+<h3 id="effectif-partiel">Effectif partiel</h3>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Définition - Effectif partiel</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>L’effectif partiel</strong> est le <strong>nombre d’individu</strong> <span class="math inline">\(n_i\)</span> qui ont la <strong>même valeur</strong> pour la variable étudiée.</p>
+</div>
+</div>
+</div>
+<p>On répertorie les familles istomiennes avec leur nombre d’enfants</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>fam_ISTOM <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">8</span>,<span class="dv">6</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">8</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">4</span>,<span class="dv">8</span>,<span class="dv">6</span>,<span class="dv">1</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">8</span>,<span class="dv">1</span>,<span class="dv">6</span>,<span class="dv">4</span>)</span>
+<span id="cb1-2"><a href=""></a>fam_ISTOM</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 4 8 6 2 3 8 4 6 8 4 8 6 1 6 8 1 2 8 1 6 4</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>eff_partiel <span class="ot">&lt;-</span> <span class="fu">table</span>(fam_ISTOM)</span>
+<span id="cb3-2"><a href=""></a>eff_partiel</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>fam_ISTOM
+1 2 3 4 6 8 
+3 2 1 4 5 6 </code></pre>
+</div>
+</div>
 </section>
 <section id="section-1" class="slide level2">
 <h2></h2>
-<p>On utilise le jeu de données « iris » de R.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">data</span>(iris) <span class="co"># charger les données</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<h3 id="effectif-cumulé">Effectif cumulé</h3>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p>Il contient 150 observations de 5 variables.</p>
-<div class="columns">
-<div class="column" style="width:70%;">
-<ul>
-<li><code>Sepal.Length</code> : longueur de la sépale</li>
-<li><code>Sepal.Width</code> : largeur de la sépale</li>
-<li><code>Petal.Length</code> : longueur du pétale</li>
-<li><code>Petal.Width</code> : largeur du pétale</li>
-<li><code>Species</code> : espèce de la fleur.</li>
-</ul>
-</div><div class="column" style="width:30%;">
-<p><img data-src="img/img_data_iris_r.png"></p>
-</div></div>
+<p><strong>Définition - Effectif cumulé</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>L’effectif cumulé</strong> d’une valeur est la somme de l’<strong>effectif de cette valeur</strong> et de tous les <strong>effectifs des valeurs qui précèdent</strong>.</p>
+</div>
+</div>
+</div>
+<p>On regarde toujours nos familles istomiennes</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>eff_partiel</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>fam_ISTOM
+1 2 3 4 6 8 
+3 2 1 4 5 6 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>eff_cumul <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(eff_partiel)</span>
+<span id="cb7-2"><a href=""></a>eff_cumul</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> 1  2  3  4  6  8 
+ 3  5  6 10 15 21 </code></pre>
+</div>
+</div>
 </section>
 <section id="section-2" class="slide level2">
 <h2></h2>
-<p>La fonction <code>head()</code> permet d’avoir un aperçu des premières lignes du jeu de données :</p>
+<h3 id="effectif-total">Effectif total</h3>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>L’effectif total <span class="math inline">\(N\)</span> est donné par <span class="math display">\[N= \sum_i n_i\]</span></p>
+</div>
+</div>
+</div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">head</span>(iris)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>eff_tot_enfants_istom <span class="ot">&lt;-</span> <span class="fu">sum</span>(fam_ISTOM)</span>
+<span id="cb9-2"><a href=""></a>eff_tot_enfants_istom</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
-1          5.1         3.5          1.4         0.2  setosa
-2          4.9         3.0          1.4         0.2  setosa
-3          4.7         3.2          1.3         0.2  setosa
-4          4.6         3.1          1.5         0.2  setosa
-5          5.0         3.6          1.4         0.2  setosa
-6          5.4         3.9          1.7         0.4  setosa</code></pre>
+<pre><code>[1] 104</code></pre>
 </div>
 </div>
-<p>On a ainsi :</p>
-<ul>
-<li><p><strong><em>1</em></strong> variable <strong><em>qualitative</em></strong> nominale (<code>Species</code>)</p></li>
-<li><p><strong><em>4</em></strong> variables <strong><em>quantitatives</em></strong> continues (<code>Sepal.Length</code>, <code>Sepal.Width</code>, <code>Petal.Length</code> et <code>Petal.Width</code>)</p></li>
-</ul>
 </section>
-<section id="représentations-graphiques" class="slide level2">
-<h2>Représentations graphiques</h2>
-<p>Représensation graphique d’une population selon une variable <strong><em>qualitative</em></strong>, ici <code>Species</code></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="co">#iris$Species</span></span>
-<span id="cb4-2"><a href=""></a>mytable <span class="ot">&lt;-</span> <span class="fu">table</span>(iris<span class="sc">$</span>Sepal.Length)</span>
-<span id="cb4-3"><a href=""></a><span class="co">#mytable</span></span>
-<span id="cb4-4"><a href=""></a>mylabels <span class="ot">&lt;-</span> <span class="fu">names</span>(mytable)</span>
-<span id="cb4-5"><a href=""></a><span class="co">#mylabels</span></span>
-<span id="cb4-6"><a href=""></a><span class="co">#pie(mytable, labels = mylabels, main="Pie Chart of Species", radius=1.08)</span></span>
-<span id="cb4-7"><a href=""></a><span class="fu">pie</span>(mytable, <span class="at">radius=</span><span class="fl">1.08</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="presentation_files/figure-revealjs/unnamed-chunk-3-1.svg" width="960" class="r-stretch"></section>
 <section id="section-3" class="slide level2">
 <h2></h2>
-<ul>
-<li>Tableau des effectifs pour une variable (<code>Species</code>) dans une population donnée</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>table_Species<span class="ot">&lt;-</span><span class="fu">table</span>(iris<span class="sc">$</span>Species)</span>
-<span id="cb5-2"><a href=""></a>table_Species</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    setosa versicolor  virginica 
-        50         50         50 </code></pre>
+<h3 id="fréquence-partielle-relative">Fréquence partielle / relative</h3>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Définition - Fréquence partielle</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>La fréquence partielle</strong> d’une valeur est le rapport de l’effectif partiel de cette valeur par l’effectif total.</p>
 </div>
 </div>
-<ul>
-<li>Tableau des fréquences pour une variable (<code>Species</code>) dans une population donnée</li>
-</ul>
+</div>
+<p>ici pour la variable <code>Species</code> on a donc</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="fu">prop.table</span>(table_Species)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>freq_part_methode_1 <span class="ot">&lt;-</span> <span class="fu">prop.table</span>(eff_partiel)</span>
+<span id="cb11-2"><a href=""></a>freq_part_methode_1</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>
-    setosa versicolor  virginica 
- 0.3333333  0.3333333  0.3333333 </code></pre>
+<pre><code>fam_ISTOM
+         1          2          3          4          6          8 
+0.14285714 0.09523810 0.04761905 0.19047619 0.23809524 0.28571429 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>freq_part_methode_2 <span class="ot">&lt;-</span> eff_partiel<span class="sc">/</span><span class="fu">sum</span>(eff_partiel)</span>
+<span id="cb13-2"><a href=""></a>freq_part_methode_2</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>fam_ISTOM
+         1          2          3          4          6          8 
+0.14285714 0.09523810 0.04761905 0.19047619 0.23809524 0.28571429 </code></pre>
 </div>
 </div>
 </section>
 <section id="section-4" class="slide level2">
 <h2></h2>
-<ul>
-<li>Diagramme en baton des effectifs</li>
-</ul>
+<p>en pourcentage :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="fu">barplot</span>(table_Species)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="presentation_files/figure-revealjs/unnamed-chunk-6-1.svg" width="960" class="r-stretch"><div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Important</strong></p>
-</div>
-<div class="callout-content">
-<p>Même choses pour les variables <strong><em>quantitatives discrètes</em></strong>.</p>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a>freq_part_methode_2_pct <span class="ot">&lt;-</span> (eff_partiel<span class="sc">/</span><span class="fu">sum</span>(eff_partiel))<span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb15-2"><a href=""></a>freq_part_methode_2_pct</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>fam_ISTOM
+        1         2         3         4         6         8 
+14.285714  9.523810  4.761905 19.047619 23.809524 28.571429 </code></pre>
 </div>
 </div>
+<p>on peut également arrondir nos résultats :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a>freq_part_methode_2_pct_arrondi <span class="ot">&lt;-</span> <span class="fu">round</span>((eff_partiel<span class="sc">/</span><span class="fu">sum</span>(eff_partiel))<span class="sc">*</span><span class="dv">100</span>,<span class="dv">2</span>)</span>
+<span id="cb17-2"><a href=""></a>freq_part_methode_2_pct_arrondi</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>fam_ISTOM
+    1     2     3     4     6     8 
+14.29  9.52  4.76 19.05 23.81 28.57 </code></pre>
 </div>
-</section>
-<section id="les-indicateurs-statistiques" class="slide level2">
-<h2>Les indicateurs statistiques</h2>
-<p>Graphiques : indicateurs pour appréhender la base de donnée étudiée.</p>
-<p>Pour aller plus loin :</p>
-<ul>
-<li><p>la valeur de la variable située au “centre” de la distribution → la <strong><em>tendance centrale</em></strong></p></li>
-<li><p>ou plus généralement → indicateur de postion</p></li>
-<li><p>variations des valeurs → dispersion</p></li>
-<li><p>forme de la distribution</p></li>
-<li><p>aspects particuliers → valeurs extrèmes, …</p></li>
-</ul>
+</div>
+<p>la somme des fréquence partielle est égale à <span class="math inline">\(1\)</span> ou <span class="math inline">\(100 \%\)</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="fu">sum</span>(freq_part_methode_1)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a><span class="fu">sum</span>(freq_part_methode_2)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a><span class="fu">sum</span>(freq_part_methode_2_pct)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 100</code></pre>
+</div>
+</div>
 </section>
 <section id="section-5" class="slide level2">
 <h2></h2>
-<h3 id="indicateur-de-tendance-centrale-et-de-position">Indicateur de tendance centrale et de position</h3>
-<p>mesures de tendances centrales → “moyennes”</p>
-<p>Serie statistique brutes : <span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span>, <span class="math inline">\(x_3\)</span>, …, <span class="math inline">\(x_n\)</span>.</p>
-<ul>
-<li>La <strong><em>moyenne arithmétique</em></strong> <span class="math display">\[\bar{x} = \frac{1}{n} \sum_{i=1}^n x_i\]</span> Exemple : votre moyenne du module de sciences fondamentales !</li>
-</ul>
-</section>
-<section id="section-6" class="slide level2">
-<h2></h2>
-<ul>
-<li>La <strong><em>moyenne géométrique</em></strong></li>
-</ul>
-<p>→ lorsque la croissance est géométrique ou exponentielle</p>
-<p><span class="math display">\[G = \sqrt[n]{\prod_{i=1}^n x_i} \quad \Longrightarrow \quad \ln(G) = \frac{1}{n} \sum_{i=1}^n \ln(x_i)\]</span> Exemple :</p>
-</section>
-<section id="le-mode" class="slide level2">
-<h2>Le mode</h2>
-<ul>
-<li>variable quantitative discrète
-<ul>
-<li>valeur la plus fréquemment observée</li>
-<li>sur diagramme en baton → somment de la distribution</li>
-</ul></li>
-<li>variable quantitative continue
-<ul>
-<li>fréquent que l’on observe jamais 2 fois la même valeur</li>
-<li>besoin de définir les classes : <span class="math inline">\(\mbox{i-ème classe } \quad \to \quad [x_i,x_{_i+1}[\)</span></li>
-<li>ensuite même logique que pour une variable quantitative discrète</li>
-</ul></li>
-</ul>
-</section>
-<section id="exemple-avec-la-variable-petal_length" class="slide level2">
-<h2>Exemple avec la variable : <code>Petal_Length</code></h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a>table_Petal_Length <span class="ot">&lt;-</span> <span class="fu">table</span>(iris<span class="sc">$</span>Petal.Length)</span>
-<span id="cb10-2"><a href=""></a><span class="co">#table_Petal_Length</span></span>
-<span id="cb10-3"><a href=""></a><span class="co">#pie(table_Petal_Length)</span></span>
-<span id="cb10-4"><a href=""></a><span class="co">#(table_Petal_Length)</span></span>
-<span id="cb10-5"><a href=""></a>prop_table_Petal_Length <span class="ot">&lt;-</span> <span class="fu">prop.table</span>(table_Petal_Length)</span>
-<span id="cb10-6"><a href=""></a><span class="co">#prop_table_Petal_Length</span></span>
-<span id="cb10-7"><a href=""></a><span class="fu">barplot</span>(prop_table_Petal_Length)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="presentation_files/figure-revealjs/unnamed-chunk-7-1.svg" width="960" class="r-stretch"></section>
-<section id="la-mediane" class="slide level2">
-<h2>La mediane</h2>
-<p>On considère une rue droite, avec 5 maisons <span class="math inline">\(M_i\)</span> repérées par des abscisses <span class="math inline">\(x_i\)</span>, où <span class="math inline">\(i=1,...,5\)</span>.</p>
-<p><strong><em>Objectif</em></strong> : déposer une benne à ordure <span class="math inline">\(B\)</span> (d’absisse <span class="math inline">\(c\)</span>) à l’endroit le plus judicieux possible !</p>
-<ul>
-<li>Milieu des valeurs exrêmes : <span class="math display">\[c = \frac12 \left(x_{min}+x_{max}\right)\]</span> Peu fiable, dépendance trop forte des valeurs extrêmes</li>
-</ul>
-</section>
-<section id="la-mediane-1" class="slide level2">
-<h2>La mediane</h2>
-<ul>
-<li>La mediane d’un point de vue intuitif</li>
-</ul>
-<p>idée : minimiser la distance totale entre les <span class="math inline">\(M_i\)</span> et <span class="math inline">\(B\)</span></p>
-<p>La distance totale est <span class="math display">\[D(x) = \sum_{i=1}^5 |c-x_i|\]</span> Pour quelle(s) valeur(s) de <span class="math inline">\(x\)</span> la quantité <span class="math inline">\(D(x)\)</span> est minimale ?</p>
-</section>
-<section id="la-mediane---détermination-pratique" class="slide level2">
-<h2>La mediane - Détermination pratique</h2>
-<div class="callout callout-important callout-titled callout-style-default">
+<h3 id="fréquence-cumulée">Fréquence cumulée</h3>
+<div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Important</strong></p>
+<p><strong>Définition - Fréquence cumulée</strong></p>
 </div>
 <div class="callout-content">
-<ol type="1">
-<li>cc</li>
-<li>cc</li>
-</ol>
+<p><strong>La fréquence cumulée</strong> d’une valeur est la somme de la <strong>fréquence partiel de cette valeur</strong> et de toutes les <strong>fréquences des valeurs qui précèdent</strong>.</p>
 </div>
 </div>
 </div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a>freq_cumul_methode_1 <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(freq_part_methode_1)</span>
+<span id="cb25-2"><a href=""></a>freq_cumul_methode_2 <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(freq_part_methode_2)</span>
+<span id="cb25-3"><a href=""></a><span class="fu">round</span>(freq_cumul_methode_1,<span class="dv">2</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   1    2    3    4    6    8 
+0.14 0.24 0.29 0.48 0.71 1.00 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a><span class="fu">round</span>(freq_cumul_methode_2,<span class="dv">2</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   1    2    3    4    6    8 
+0.14 0.24 0.29 0.48 0.71 1.00 </code></pre>
+</div>
+</div>
 </section>
-<section id="létendue" class="slide level2">
-<h2>L’étendue</h2>
-</section>
-<section id="lécart-moyen-absolu" class="slide level2">
-<h2>L’écart moyen absolu</h2>
-</section>
-<section id="lécart-type-et-la-variance" class="slide level2">
-<h2>L’écart type et la variance</h2>
-</section>
-<section id="lécart-interquartiles" class="slide level2">
-<h2>L’écart interquartiles</h2>
-</section>
-<section id="section-7" class="slide level2">
+<section id="section-6" class="slide level2">
 <h2></h2>
-<p>La fonction <code>summary()</code> permet de visualiser des statistiques de base pour chaque variable.</p>
-<ul>
-<li><strong><em>Pour les variables quantitatives</em></strong> :
-<ul>
-<li>minimum, maximum, moyenne, médiane, 1er quartile, 3ème quartile.</li>
-</ul></li>
-<li><strong><em>Pour les variables qualitatives</em></strong> :
-<ul>
-<li>nombre d’observations par classe</li>
-</ul></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="fu">summary</span>(iris)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
- Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
- 1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  
- Median :5.800   Median :3.000   Median :4.350   Median :1.300  
- Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199  
- 3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800  
- Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500  
-       Species  
- setosa    :50  
- versicolor:50  
- virginica :50  
-                
-                
-                </code></pre>
-</div>
-</div>
-<p>On a aussi la fonction <code>describe</code> du package <code>Hmisc</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="fu">library</span>(Hmisc)</span>
-<span id="cb13-2"><a href=""></a><span class="fu">describe</span>(iris)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>iris 
+<h3 id="représentation-graphique">Représentation graphique</h3>
 
- 5  Variables      150  Observations
---------------------------------------------------------------------------------
-Sepal.Length 
-       n  missing distinct     Info     Mean  pMedian      Gmd      .05 
-     150        0       35    0.998    5.843      5.8   0.9462    4.600 
-     .10      .25      .50      .75      .90      .95 
-   4.800    5.100    5.800    6.400    6.900    7.255 
-
-lowest : 4.3 4.4 4.5 4.6 4.7, highest: 7.3 7.4 7.6 7.7 7.9
---------------------------------------------------------------------------------
-Sepal.Width 
-       n  missing distinct     Info     Mean  pMedian      Gmd      .05 
-     150        0       23    0.992    3.057     3.05   0.4872    2.345 
-     .10      .25      .50      .75      .90      .95 
-   2.500    2.800    3.000    3.300    3.610    3.800 
-
-lowest : 2   2.2 2.3 2.4 2.5, highest: 3.9 4   4.1 4.2 4.4
---------------------------------------------------------------------------------
-Petal.Length 
-       n  missing distinct     Info     Mean  pMedian      Gmd      .05 
-     150        0       43    0.998    3.758     3.65    1.979     1.30 
-     .10      .25      .50      .75      .90      .95 
-    1.40     1.60     4.35     5.10     5.80     6.10 
-
-lowest : 1   1.1 1.2 1.3 1.4, highest: 6.3 6.4 6.6 6.7 6.9
---------------------------------------------------------------------------------
-Petal.Width 
-       n  missing distinct     Info     Mean  pMedian      Gmd      .05 
-     150        0       22     0.99    1.199      1.2   0.8676      0.2 
-     .10      .25      .50      .75      .90      .95 
-     0.2      0.3      1.3      1.8      2.2      2.3 
-
-lowest : 0.1 0.2 0.3 0.4 0.5, highest: 2.1 2.2 2.3 2.4 2.5
---------------------------------------------------------------------------------
-Species 
-       n  missing distinct 
-     150        0        3 
-                                           
-Value          setosa versicolor  virginica
-Frequency          50         50         50
-Proportion      0.333      0.333      0.333
---------------------------------------------------------------------------------</code></pre>
-</div>
-</div>
-<p>Cette fonction permet d’obtenir pour chaque variable :</p>
-<ul>
-<li>le nombre d’observations,</li>
-<li>le nombre de valeurs manquantes,</li>
-<li>la moyenne,</li>
-<li>les quantiles à 5, 10, 25, 50, 75, 90, et 95%,</li>
-<li>les 5 plus basses valeurs,</li>
-<li>et les 5 plus hautes valeurs.</li>
-</ul>
-<p>Pour les variables qualitatives, describe() donne :</p>
-<ul>
-<li>le nombre d’observations,</li>
-<li>le nombre de valeurs manquantes,</li>
-<li>et le nombre de niveaux pour la variable ; ainsi que le nombre d’observations pour chaque niveau de la variable (et la proportion).</li>
-</ul>
-<p>Variables quantitatives</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="co">#boxplot </span></span>
-<span id="cb15-2"><a href=""></a><span class="fu">boxplot</span>(iris<span class="sc">$</span>Sepal.Length, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"yellow"</span>),<span class="at">main =</span> <span class="st">"Boxplot"</span>, <span class="at">ylab =</span> <span class="st">"Quantiles"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="presentation_files/figure-revealjs/unnamed-chunk-10-1.svg" width="960" class="r-stretch"></section></section>
-<section id="la-statistique-descriptive-à-deux-dimensions" class="title-slide slide level1 center">
-<h1>La statistique descriptive à deux dimensions</h1>
-<p>coming soon.</p>
-
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="./img/Logo_ISTOM_Couleurs_HD-rbg.png" class="slide-logo"></p>
@@ -645,10 +524,10 @@ Proportion      0.333      0.333      0.333
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: false,
+        slideNumber: 'c/t',
 
         // 'all', 'print', or 'speaker'
-        showSlideNumber: 'all',
+        showSlideNumber: 'print',
 
         // Add the current slide number to the URL hash so that reloading the
         // page/copying the URL will return you to the same slide

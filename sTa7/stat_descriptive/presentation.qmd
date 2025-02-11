@@ -9,9 +9,11 @@ format:
     logo: ./img/Logo_ISTOM_Couleurs_HD-rbg.png
     theme: solarized
     transition: slide
-    css: assets/style.css
-    header-includes: |
-      <script src="assets/custom.js" type="application/javascript"></script>
+    #css: assets/style.css
+    #header-includes: |
+      #<script src="assets/custom.js" type="application/javascript"></script>
+    slide-number: true
+    show-slide-number: print
 knitr:
   opts_chunk:
     dev: svg
@@ -34,6 +36,8 @@ La ***statistique descriptive*** étudie certaines caractéristiques d’une pop
 
 # La statistique descriptive à une dimension / univariée
 
+L'étude d'une seule variable (quantitative ou qualitative)
+
 ## Vocabulaire
 
 -   ***Population*** : ensemble d’éléments homogènes auxquels on s’intéresse.
@@ -41,7 +45,7 @@ La ***statistique descriptive*** étudie certaines caractéristiques d’une pop
 -   ***Echantillon*** : une partie de la population étudiée
 
 ::: {.callout-note}
-Les observations obtenues sur une population ou sur un échantillon forment un ensemble de données sur lesquelles s'appliquent méthodes de la statistique descriptive. Le ***choix de l'échantillon*** est donc ***important*** !
+Les observations obtenues sur une population ou sur un échantillon forment un ensemble de données sur lesquelles s'appliquent les méthodes de la statistique descriptive. Le ***choix de l'échantillon*** est donc ***important*** !
 :::
 
 ## 
@@ -56,269 +60,132 @@ Les observations obtenues sur une population ou sur un échantillon forment un e
     - Variable continue (dans $\mathbb{R}$)
     
     
-Un peu de ***R*** pour illustrer ces notions. 
+De nombreux exemples avec ***R***
 
 ![](img/R_RStudio_LogoS-rbg.png){.r-stretch}
 
-## 
+## Étude d’une variable qualitative
 
-On utilise le jeu de données « iris » de R.
+coming.
 
-```{r}
-#| echo: true
-#| message: true
-data(iris) # charger les données
-```
+## Étude d’une variable quantitative discrète
 
-Il contient 150 observations de 5 variables.
+### Effectif partiel
 
-::: columns
-::: {.column width="70%"}
-
--   `Sepal.Length` : longueur de la sépale
--   `Sepal.Width` : largeur de la sépale
--   `Petal.Length` : longueur du pétale
--   `Petal.Width` : largeur du pétale
--   `Species` : espèce de la fleur.
-:::
-::: {.column width="30%"}
-![](img/img_data_iris_r.png)
-:::
+::: {.callout-tip}
+## Définition - Effectif partiel
+**L'effectif partiel** est le **nombre d'individu** $n_i$ qui ont la **même valeur** pour la variable étudiée.
 :::
 
-##
-
-La fonction `head()` permet d’avoir un aperçu des premières lignes du jeu de données : 
+On répertorie les familles istomiennes avec leur nombre d'enfants
 
 ```{r}
 #| echo: true
-head(iris)
-```
-
-On a ainsi : 
-
-- ***1*** variable ***qualitative*** nominale (`Species`)
-
-- ***4*** variables ***quantitatives*** continues (`Sepal.Length`, `Sepal.Width`, `Petal.Length` et `Petal.Width`)
-
-## Représentations graphiques
-
-Représensation graphique d'une population selon une variable ***qualitative***, ici `Species`
-
-
-```{r}
-#| echo: true
-#| message: true
-#iris$Species
-mytable <- table(iris$Sepal.Length)
-#mytable
-mylabels <- names(mytable)
-#mylabels
-#pie(mytable, labels = mylabels, main="Pie Chart of Species", radius=1.08)
-pie(mytable, radius=1.08)
-```
-
-
-##
-
-- Tableau des effectifs pour une variable (`Species`) dans une population donnée
-
-```{r}
-#| echo: true
-#| message: true
-table_Species<-table(iris$Species)
-table_Species
-```
-
-- Tableau des fréquences pour une variable (`Species`) dans une population donnée
-
-```{r}
-#| echo: true
-#| message: true
-prop.table(table_Species)
+fam_ISTOM <- c(4,8,6,2,3,8,4,6,8,4,8,6,1,6,8,1,2,8,1,6,4)
+fam_ISTOM
+eff_partiel <- table(fam_ISTOM)
+eff_partiel
 ```
 
 ##
 
-- Diagramme en baton des effectifs
+### Effectif cumulé
 
-```{r}
-#| echo: true
-#| message: true
-barplot(table_Species)
-```
-
-::: {.callout-important}
-Même choses pour les variables ***quantitatives discrètes***.
+::: {.callout-tip}
+## Définition - Effectif cumulé
+**L'effectif cumulé** d'une valeur est la somme de l'**effectif de cette valeur** et de tous les **effectifs des valeurs qui précèdent**.
 :::
 
+On regarde toujours nos familles istomiennes 
 
-[]: # Représensation graphique d'une population selon une variable ***quantitative continue***, ici `Petal.Width`
-
-[]: # Domaine de variation d'une telle variable : partagée en $k$ parties.
-
-[]: # $$[x_{i-1},x_i[ \quad \to \quad \mbox{i-eme classe}$$
-
-[]: #```{r}
-[]: #table_Sepal.Length<-table(iris$Sepal.Length)
-[]: #table_Sepal.Length
-[]: #```
-
-## Les indicateurs statistiques
-
-Graphiques : indicateurs pour appréhender la base de donnée étudiée.
-
-Pour aller plus loin :
-
-- la valeur de la variable située au "centre" de la distribution → la ***tendance centrale*** 
-
-- ou plus généralement → indicateur de postion
-
-- variations des valeurs → dispersion
-
-- forme de la distribution 
-
-- aspects particuliers → valeurs extrèmes, ...
-
-##
-
-### Indicateur de tendance centrale et de position 
-
-mesures de tendances centrales → "moyennes"
-
-Serie statistique brutes : $x_1$, $x_2$, $x_3$, ..., $x_n$.
-
-- La ***moyenne arithmétique***
-$$\bar{x} = \frac{1}{n} \sum_{i=1}^n x_i$$
-Exemple : votre moyenne du module de sciences fondamentales !
-
-##
-
-- La ***moyenne géométrique***
-
-→ lorsque la croissance est géométrique ou exponentielle
-
-$$G = \sqrt[n]{\prod_{i=1}^n x_i} \quad \Longrightarrow \quad \ln(G) = \frac{1}{n} \sum_{i=1}^n \ln(x_i)$$
-Exemple : 
-
-## Le mode
-
-- variable quantitative discrète 
-  - valeur la plus fréquemment observée 
-  - sur diagramme en baton  → somment de la distribution
-
-- variable quantitative continue
-  - fréquent que l'on observe jamais 2 fois la même valeur 
-  - besoin de définir les classes : $\mbox{i-ème classe } \quad \to \quad [x_i,x_{_i+1}[$
-  - ensuite même logique que pour une variable quantitative discrète
-  
-## Exemple avec la variable : `Petal_Length`
-  
 ```{r}
 #| echo: true
-table_Petal_Length <- table(iris$Petal.Length)
-#table_Petal_Length
-#pie(table_Petal_Length)
-#(table_Petal_Length)
-prop_table_Petal_Length <- prop.table(table_Petal_Length)
-#prop_table_Petal_Length
-barplot(prop_table_Petal_Length)
+eff_partiel
+eff_cumul <- cumsum(eff_partiel)
+eff_cumul
 ```
 
+##
 
-## La mediane
+### Effectif total
 
-On considère une rue droite, avec 5 maisons $M_i$ repérées par des abscisses $x_i$, où $i=1,...,5$.
-
-***Objectif*** : déposer une benne à ordure $B$ (d'absisse $c$) à l'endroit le plus judicieux possible !
-
-- Milieu des valeurs exrêmes : 
-$$c = \frac12 \left(x_{min}+x_{max}\right)$$
-Peu fiable, dépendance trop forte des valeurs extrêmes
-
-## La mediane 
-
-- La mediane d'un point de vue intuitif
-
-idée : minimiser la distance totale entre les $M_i$ et $B$
-
-La distance totale est
-$$D(x) = \sum_{i=1}^5 |c-x_i|$$
-Pour quelle(s) valeur(s) de $x$ la quantité $D(x)$ est minimale ?
-
-## La mediane - Détermination pratique
-
-::: {.callout-important}
-1. cc
-2. cc
+::: {.callout-note}
+L'effectif total $N$ est donné par 
+$$N= \sum_i n_i$$
 :::
 
-
-
-## L'étendue
-
-
-## L'écart moyen absolu
-
-
-## L'écart type et la variance
-
-
-## L'écart interquartiles
-
-
-
+```{r}
+#| echo: true
+eff_tot_enfants_istom <- sum(fam_ISTOM)
+eff_tot_enfants_istom
+```
 
 
 ##
 
-La fonction `summary()` permet de visualiser des statistiques de base pour chaque variable.
+### Fréquence partielle / relative
 
-- ***Pour les variables quantitatives*** : 
-  - minimum, maximum, moyenne, médiane, 1er quartile, 3ème quartile. 
-- ***Pour les variables qualitatives*** : 
-  - nombre d’observations par classe
-  
-```{r}
-#| echo: true
-#| message: true
-summary(iris)
-```
+::: {.callout-tip}
+## Définition - Fréquence partielle
+**La fréquence partielle** d'une valeur est le rapport de l'effectif partiel de cette valeur par l'effectif total.
+:::
 
-On a aussi la fonction `describe` du package `Hmisc`. 
+ici pour la variable `Species` on a donc
 
 ```{r}
 #| echo: true
-library(Hmisc)
-describe(iris)
+freq_part_methode_1 <- prop.table(eff_partiel)
+freq_part_methode_1
+freq_part_methode_2 <- eff_partiel/sum(eff_partiel)
+freq_part_methode_2
 ```
 
+##
 
-Cette fonction permet d’obtenir pour chaque variable : 
-
-- le nombre d’observations, 
-- le nombre de valeurs manquantes, 
-- la moyenne, 
-- les quantiles à 5, 10, 25, 50, 75, 90, et 95%, 
-- les 5 plus basses valeurs, 
-- et les 5 plus hautes valeurs.
-
-Pour les variables qualitatives, describe() donne :
-
-- le nombre d’observations, 
-- le nombre de valeurs manquantes, 
-- et le nombre de niveaux pour la variable ; ainsi que le nombre d’observations pour chaque niveau de la variable (et la proportion).
-
-
-Variables quantitatives
+en pourcentage :
 
 ```{r}
 #| echo: true
-#boxplot 
-boxplot(iris$Sepal.Length, col = c("yellow"),main = "Boxplot", ylab = "Quantiles")
+freq_part_methode_2_pct <- (eff_partiel/sum(eff_partiel))*100
+freq_part_methode_2_pct
 ```
 
+on peut également arrondir nos résultats :
 
-# La statistique descriptive à deux dimensions
 
-coming soon.
+```{r}
+#| echo: true
+freq_part_methode_2_pct_arrondi <- round((eff_partiel/sum(eff_partiel))*100,2)
+freq_part_methode_2_pct_arrondi
+```
+
+la somme des fréquence partielle est égale à $1$ ou $100 \%$
+
+```{r}
+#| echo: true
+sum(freq_part_methode_1)
+sum(freq_part_methode_2)
+sum(freq_part_methode_2_pct)
+```
+
+##
+
+### Fréquence cumulée
+
+::: {.callout-tip}
+## Définition - Fréquence cumulée
+**La fréquence cumulée** d'une valeur est la somme de la **fréquence partiel de cette valeur** et de toutes les **fréquences des valeurs qui précèdent**.
+:::
+
+```{r}
+#| echo: true
+freq_cumul_methode_1 <- cumsum(freq_part_methode_1)
+freq_cumul_methode_2 <- cumsum(freq_part_methode_2)
+round(freq_cumul_methode_1,2)
+round(freq_cumul_methode_2,2)
+```
+
+##
+
+### Représentation graphique
+
