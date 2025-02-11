@@ -36,7 +36,7 @@ La ***statistique descriptive*** étudie certaines caractéristiques d’une pop
 
 # La statistique descriptive à une dimension / univariée
 
-L'étude d'une seule variable (quantitative ou qualitative)
+L'étude d'une seule variable (qualitative ou quantitative)
 
 ## Vocabulaire
 
@@ -116,6 +116,7 @@ $$N= \sum_i n_i$$
 
 ```{r}
 #| echo: true
+fam_ISTOM
 eff_tot_enfants_istom <- sum(fam_ISTOM)
 eff_tot_enfants_istom
 ```
@@ -159,6 +160,8 @@ freq_part_methode_2_pct_arrondi <- round((eff_partiel/sum(eff_partiel))*100,2)
 freq_part_methode_2_pct_arrondi
 ```
 
+##
+
 la somme des fréquence partielle est égale à $1$ ou $100 \%$
 
 ```{r}
@@ -187,5 +190,184 @@ round(freq_cumul_methode_2,2)
 
 ##
 
-### Représentation graphique
+### Paramètre de position
+
+Paramètres de position fréquents :
+
+- Le maximum, le minimum
+
+- Le mode
+
+- La médiane
+
+- La moyenne
+
+- Le 1er quartile
+
+- Le 3eme quartile
+
+##
+
+- Le maximum
+
+```{r}
+#| echo: true
+max(fam_ISTOM)
+```
+
+
+- Le minimum
+
+```{r}
+#| echo: true
+min(fam_ISTOM)
+```
+
+##
+
+::: {.callout-tip}
+## Définition - Le mode
+**Le mode** d'une variable est la valeur qui a le plus grand effectif partiel (ou plus grande fréquence partielle). On le note $M_0$.
+:::
+
+<br>
+
+Avec **R**, le calcul du mode d'une série statistique n'est pas direct. Cependant, il est possible de créer une fonction pour le calculer.
+
+```{r}
+#| echo: true
+calcul_mode <- function(x) {
+  freq <- table(x)
+  mode <- as.numeric(names(freq[freq == max(freq)]))
+  return(mode)
+}
+calcul_mode(fam_ISTOM)
+```
+
+##
+
+- La fonction `table(x)` compte combien de fois chaque valeur apparaît dans le vecteur `x`
+
+- La fonction `max(freq)` permet d'extraire la valeur qui a la fréquence maximale
+
+- Ensuite on filtre `freq` afin d'avoir les valeurs ayant cette fréquence maximale avec `freq[freq == max(freq)]`
+
+- On récupère le nom de la valeur qui a été filtrée avec `names()`
+
+- `names()` renvoie du texte, on doit donc convertir le résultat en nombre avec `as.numeric()`
+
+##
+
+```{r}
+#| echo: true
+fam_ISTOM
+calcul_mode <- function(x) {
+  freq <- table(x)
+  mode <- as.numeric(names(freq[freq == max(freq)]))
+  return(mode)
+}
+calcul_mode(fam_ISTOM)
+```
+
+##
+
+::: {.callout-tip}
+## Définition - La médiane
+**La médiane**  partage la série statistique en groupe de même effectif. On la note $M_e$
+:::
+
+<br>
+
+```{r}
+#| echo: true
+fam_ISTOM
+median(fam_ISTOM)
+```
+
+##
+
+::: {.callout-tip}
+## Définition - la moyenne arithmétique
+On note moyenne de $X$, la quantité
+$$\bar{x} = \frac{1}{N} \sum_{i=1}^{n} n_i x_i = \sum_{i=1}^{n} f_i x_i$$
+:::
+
+<br>
+
+```{r}
+#| echo: true
+mean(fam_ISTOM)
+```
+
+##
+
+::: {.callout-tip}
+## Définition - 1er et 3eme quartile
+- Le 1er quartile, noté **Q1**, est la valeur qui sépare le premier quart du reste de la distribution.
+
+- Le 3eme quartile, noté Q3, est la valeur qui sépare le dernier quart du reste de la distribution.
+:::
+
+
+```{r}
+#| echo: true
+fam_ISTOM
+quantile(fam_ISTOM, 0.25)  # Premier quartile (25%)
+quantile(fam_ISTOM, 0.75)  # Troisième quartile (75%)
+```
+
+##
+
+En résumé on a :
+
+```{r}
+#| echo: true
+summary(fam_ISTOM)
+```
+
+
+##
+
+### Paramètre de dispersion
+
+Les indicateurs de dispersion usuels sont :
+
+- L'étendue / L'intervalle des valeurs possibles
+
+```{r}
+#| echo: true
+range(fam_ISTOM)
+```
+
+
+- La variance 
+
+- L'écart type
+
+##
+
+::: {.callout-tip}
+## Définition - L'étendue
+**La médiane**  partage la série statistique e, groupe de même effectif. On la note $M_e$
+:::
+
+##
+
+::: {.callout-tip}
+## Définition - La variance
+**La médiane**  partage la série statistique e, groupe de même effectif. On la note $M_e$
+:::
+
+##
+
+::: {.callout-tip}
+## Définition - L'écart type
+**La médiane**  partage la série statistique e, groupe de même effectif. On la note $M_e$
+:::
+
+##
+
+### Exercices
+
+Tous les exercices doivent être maitrisés **avec** et **sans** R.
 

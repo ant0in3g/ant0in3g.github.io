@@ -228,7 +228,7 @@ Antoine Géré
 <section>
 <section id="la-statistique-descriptive-à-une-dimension-univariée" class="title-slide slide level1 center">
 <h1>La statistique descriptive à une dimension / univariée</h1>
-<p>L’étude d’une seule variable (quantitative ou qualitative)</p>
+<p>L’étude d’une seule variable (qualitative ou quantitative)</p>
 </section>
 <section id="vocabulaire" class="slide level2">
 <h2>Vocabulaire</h2>
@@ -352,8 +352,12 @@ Antoine Géré
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>eff_tot_enfants_istom <span class="ot">&lt;-</span> <span class="fu">sum</span>(fam_ISTOM)</span>
-<span id="cb9-2"><a href=""></a>eff_tot_enfants_istom</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>fam_ISTOM</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 4 8 6 2 3 8 4 6 8 4 8 6 1 6 8 1 2 8 1 6 4</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>eff_tot_enfants_istom <span class="ot">&lt;-</span> <span class="fu">sum</span>(fam_ISTOM)</span>
+<span id="cb11-2"><a href=""></a>eff_tot_enfants_istom</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 104</code></pre>
 </div>
@@ -377,15 +381,15 @@ Antoine Géré
 </div>
 <p>ici pour la variable <code>Species</code> on a donc</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>freq_part_methode_1 <span class="ot">&lt;-</span> <span class="fu">prop.table</span>(eff_partiel)</span>
-<span id="cb11-2"><a href=""></a>freq_part_methode_1</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>freq_part_methode_1 <span class="ot">&lt;-</span> <span class="fu">prop.table</span>(eff_partiel)</span>
+<span id="cb13-2"><a href=""></a>freq_part_methode_1</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>fam_ISTOM
          1          2          3          4          6          8 
 0.14285714 0.09523810 0.04761905 0.19047619 0.23809524 0.28571429 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>freq_part_methode_2 <span class="ot">&lt;-</span> eff_partiel<span class="sc">/</span><span class="fu">sum</span>(eff_partiel)</span>
-<span id="cb13-2"><a href=""></a>freq_part_methode_2</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a>freq_part_methode_2 <span class="ot">&lt;-</span> eff_partiel<span class="sc">/</span><span class="fu">sum</span>(eff_partiel)</span>
+<span id="cb15-2"><a href=""></a>freq_part_methode_2</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>fam_ISTOM
          1          2          3          4          6          8 
@@ -397,8 +401,8 @@ Antoine Géré
 <h2></h2>
 <p>en pourcentage :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a>freq_part_methode_2_pct <span class="ot">&lt;-</span> (eff_partiel<span class="sc">/</span><span class="fu">sum</span>(eff_partiel))<span class="sc">*</span><span class="dv">100</span></span>
-<span id="cb15-2"><a href=""></a>freq_part_methode_2_pct</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a>freq_part_methode_2_pct <span class="ot">&lt;-</span> (eff_partiel<span class="sc">/</span><span class="fu">sum</span>(eff_partiel))<span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb17-2"><a href=""></a>freq_part_methode_2_pct</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>fam_ISTOM
         1         2         3         4         6         8 
@@ -407,31 +411,34 @@ Antoine Géré
 </div>
 <p>on peut également arrondir nos résultats :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a>freq_part_methode_2_pct_arrondi <span class="ot">&lt;-</span> <span class="fu">round</span>((eff_partiel<span class="sc">/</span><span class="fu">sum</span>(eff_partiel))<span class="sc">*</span><span class="dv">100</span>,<span class="dv">2</span>)</span>
-<span id="cb17-2"><a href=""></a>freq_part_methode_2_pct_arrondi</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a>freq_part_methode_2_pct_arrondi <span class="ot">&lt;-</span> <span class="fu">round</span>((eff_partiel<span class="sc">/</span><span class="fu">sum</span>(eff_partiel))<span class="sc">*</span><span class="dv">100</span>,<span class="dv">2</span>)</span>
+<span id="cb19-2"><a href=""></a>freq_part_methode_2_pct_arrondi</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>fam_ISTOM
     1     2     3     4     6     8 
 14.29  9.52  4.76 19.05 23.81 28.57 </code></pre>
 </div>
 </div>
+</section>
+<section id="section-5" class="slide level2">
+<h2></h2>
 <p>la somme des fréquence partielle est égale à <span class="math inline">\(1\)</span> ou <span class="math inline">\(100 \%\)</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="fu">sum</span>(freq_part_methode_1)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a><span class="fu">sum</span>(freq_part_methode_1)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a><span class="fu">sum</span>(freq_part_methode_2)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a><span class="fu">sum</span>(freq_part_methode_2)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a><span class="fu">sum</span>(freq_part_methode_2_pct)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a><span class="fu">sum</span>(freq_part_methode_2_pct)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 100</code></pre>
 </div>
 </div>
 </section>
-<section id="section-5" class="slide level2">
+<section id="section-6" class="slide level2">
 <h2></h2>
 <h3 id="fréquence-cumulée">Fréquence cumulée</h3>
 <div class="callout callout-tip callout-titled callout-style-default">
@@ -448,23 +455,277 @@ Antoine Géré
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a>freq_cumul_methode_1 <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(freq_part_methode_1)</span>
-<span id="cb25-2"><a href=""></a>freq_cumul_methode_2 <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(freq_part_methode_2)</span>
-<span id="cb25-3"><a href=""></a><span class="fu">round</span>(freq_cumul_methode_1,<span class="dv">2</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a>freq_cumul_methode_1 <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(freq_part_methode_1)</span>
+<span id="cb27-2"><a href=""></a>freq_cumul_methode_2 <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(freq_part_methode_2)</span>
+<span id="cb27-3"><a href=""></a><span class="fu">round</span>(freq_cumul_methode_1,<span class="dv">2</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   1    2    3    4    6    8 
 0.14 0.24 0.29 0.48 0.71 1.00 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a><span class="fu">round</span>(freq_cumul_methode_2,<span class="dv">2</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a><span class="fu">round</span>(freq_cumul_methode_2,<span class="dv">2</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   1    2    3    4    6    8 
 0.14 0.24 0.29 0.48 0.71 1.00 </code></pre>
 </div>
 </div>
 </section>
-<section id="section-6" class="slide level2">
+<section id="section-7" class="slide level2">
 <h2></h2>
-<h3 id="représentation-graphique">Représentation graphique</h3>
+<h3 id="paramètre-de-position">Paramètre de position</h3>
+<p>Paramètres de position fréquents :</p>
+<ul>
+<li><p>Le maximum, le minimum</p></li>
+<li><p>Le mode</p></li>
+<li><p>La médiane</p></li>
+<li><p>La moyenne</p></li>
+<li><p>Le 1er quartile</p></li>
+<li><p>Le 3eme quartile</p></li>
+</ul>
+</section>
+<section id="section-8" class="slide level2">
+<h2></h2>
+<ul>
+<li>Le maximum</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href=""></a><span class="fu">max</span>(fam_ISTOM)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 8</code></pre>
+</div>
+</div>
+<ul>
+<li>Le minimum</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href=""></a><span class="fu">min</span>(fam_ISTOM)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
+</section>
+<section id="section-9" class="slide level2">
+<h2></h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Définition - Le mode</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Le mode</strong> d’une variable est la valeur qui a le plus grand effectif partiel (ou plus grande fréquence partielle). On le note <span class="math inline">\(M_0\)</span>.</p>
+</div>
+</div>
+</div>
+<p><br></p>
+<p>Avec <strong>R</strong>, le calcul du mode d’une série statistique n’est pas direct. Cependant, il est possible de créer une fonction pour le calculer.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href=""></a>calcul_mode <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb35-2"><a href=""></a>  freq <span class="ot">&lt;-</span> <span class="fu">table</span>(x)</span>
+<span id="cb35-3"><a href=""></a>  mode <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">names</span>(freq[freq <span class="sc">==</span> <span class="fu">max</span>(freq)]))</span>
+<span id="cb35-4"><a href=""></a>  <span class="fu">return</span>(mode)</span>
+<span id="cb35-5"><a href=""></a>}</span>
+<span id="cb35-6"><a href=""></a><span class="fu">calcul_mode</span>(fam_ISTOM)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 8</code></pre>
+</div>
+</div>
+</section>
+<section id="section-10" class="slide level2">
+<h2></h2>
+<ul>
+<li><p>La fonction <code>table(x)</code> compte combien de fois chaque valeur apparaît dans le vecteur <code>x</code></p></li>
+<li><p>La fonction <code>max(freq)</code> permet d’extraire la valeur qui a la fréquence maximale</p></li>
+<li><p>Ensuite on filtre <code>freq</code> afin d’avoir les valeurs ayant cette fréquence maximale avec <code>freq[freq == max(freq)]</code></p></li>
+<li><p>On récupère le nom de la valeur qui a été filtrée avec <code>names()</code></p></li>
+<li><p><code>names()</code> renvoie du texte, on doit donc convertir le résultat en nombre avec <code>as.numeric()</code></p></li>
+</ul>
+</section>
+<section id="section-11" class="slide level2">
+<h2></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href=""></a>fam_ISTOM</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 4 8 6 2 3 8 4 6 8 4 8 6 1 6 8 1 2 8 1 6 4</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a>calcul_mode <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb39-2"><a href=""></a>  freq <span class="ot">&lt;-</span> <span class="fu">table</span>(x)</span>
+<span id="cb39-3"><a href=""></a>  mode <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">names</span>(freq[freq <span class="sc">==</span> <span class="fu">max</span>(freq)]))</span>
+<span id="cb39-4"><a href=""></a>  <span class="fu">return</span>(mode)</span>
+<span id="cb39-5"><a href=""></a>}</span>
+<span id="cb39-6"><a href=""></a><span class="fu">calcul_mode</span>(fam_ISTOM)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 8</code></pre>
+</div>
+</div>
+</section>
+<section id="section-12" class="slide level2">
+<h2></h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Définition - La médiane</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>La médiane</strong> partage la série statistique en groupe de même effectif. On la note <span class="math inline">\(M_e\)</span></p>
+</div>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href=""></a>fam_ISTOM</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 4 8 6 2 3 8 4 6 8 4 8 6 1 6 8 1 2 8 1 6 4</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href=""></a><span class="fu">median</span>(fam_ISTOM)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6</code></pre>
+</div>
+</div>
+</section>
+<section id="section-13" class="slide level2">
+<h2></h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Définition - la moyenne arithmétique</strong></p>
+</div>
+<div class="callout-content">
+<p>On note moyenne de <span class="math inline">\(X\)</span>, la quantité <span class="math display">\[\bar{x} = \frac{1}{N} \sum_{i=1}^{n} n_i x_i = \sum_{i=1}^{n} f_i x_i\]</span></p>
+</div>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href=""></a><span class="fu">mean</span>(fam_ISTOM)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.952381</code></pre>
+</div>
+</div>
+</section>
+<section id="section-14" class="slide level2">
+<h2></h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Définition - 1er et 3eme quartile</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>Le 1er quartile, noté <strong>Q1</strong>, est la valeur qui sépare le premier quart du reste de la distribution.</p></li>
+<li><p>Le 3eme quartile, noté Q3, est la valeur qui sépare le dernier quart du reste de la distribution.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href=""></a>fam_ISTOM</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 4 8 6 2 3 8 4 6 8 4 8 6 1 6 8 1 2 8 1 6 4</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href=""></a><span class="fu">quantile</span>(fam_ISTOM, <span class="fl">0.25</span>)  <span class="co"># Premier quartile (25%)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>25% 
+  3 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href=""></a><span class="fu">quantile</span>(fam_ISTOM, <span class="fl">0.75</span>)  <span class="co"># Troisième quartile (75%)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>75% 
+  8 </code></pre>
+</div>
+</div>
+</section>
+<section id="section-15" class="slide level2">
+<h2></h2>
+<p>En résumé on a :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href=""></a><span class="fu">summary</span>(fam_ISTOM)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   3.000   6.000   4.952   8.000   8.000 </code></pre>
+</div>
+</div>
+</section>
+<section id="section-16" class="slide level2">
+<h2></h2>
+<h3 id="paramètre-de-dispersion">Paramètre de dispersion</h3>
+<p>Les indicateurs de dispersion usuels sont :</p>
+<ul>
+<li>L’étendue / L’intervalle des valeurs possibles</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href=""></a><span class="fu">range</span>(fam_ISTOM)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 8</code></pre>
+</div>
+</div>
+<ul>
+<li><p>La variance</p></li>
+<li><p>L’écart type</p></li>
+</ul>
+</section>
+<section id="section-17" class="slide level2">
+<h2></h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Définition - L’étendue</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>La médiane</strong> partage la série statistique e, groupe de même effectif. On la note <span class="math inline">\(M_e\)</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="section-18" class="slide level2">
+<h2></h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Définition - La variance</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>La médiane</strong> partage la série statistique e, groupe de même effectif. On la note <span class="math inline">\(M_e\)</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="section-19" class="slide level2">
+<h2></h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Définition - L’écart type</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>La médiane</strong> partage la série statistique e, groupe de même effectif. On la note <span class="math inline">\(M_e\)</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="section-20" class="slide level2">
+<h2></h2>
+<h3 id="exercices">Exercices</h3>
+<p>Tous les exercices doivent être maitrisés <strong>avec</strong> et <strong>sans</strong> R.</p>
 
 </section></section>
     </div>
