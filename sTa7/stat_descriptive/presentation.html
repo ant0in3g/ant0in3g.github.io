@@ -549,14 +549,29 @@ Antoine Géré
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 4 8 6 2 3 8 4 6 8 4 8 6 1 6 8 1 2 8 1 6 4</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a>calcul_mode <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb39-2"><a href=""></a>  freq <span class="ot">&lt;-</span> <span class="fu">table</span>(x)</span>
-<span id="cb39-3"><a href=""></a>  mode <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">names</span>(freq[freq <span class="sc">==</span> <span class="fu">max</span>(freq)]))</span>
-<span id="cb39-4"><a href=""></a>  <span class="fu">return</span>(mode)</span>
-<span id="cb39-5"><a href=""></a>}</span>
-<span id="cb39-6"><a href=""></a><span class="fu">calcul_mode</span>(fam_ISTOM)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a><span class="fu">table</span>(fam_ISTOM)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>fam_ISTOM
+1 2 3 4 6 8 
+3 2 1 4 5 6 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href=""></a><span class="fu">max</span>(<span class="fu">table</span>(fam_ISTOM))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href=""></a>calcul_mode <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb43-2"><a href=""></a>  freq <span class="ot">&lt;-</span> <span class="fu">table</span>(x)</span>
+<span id="cb43-3"><a href=""></a>  mode <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">names</span>(freq[freq <span class="sc">==</span> <span class="fu">max</span>(freq)]))</span>
+<span id="cb43-4"><a href=""></a>  <span class="co">#mode &lt;- names(freq[freq == max(freq)])</span></span>
+<span id="cb43-5"><a href=""></a>  <span class="fu">return</span>(mode)</span>
+<span id="cb43-6"><a href=""></a>}</span>
+<span id="cb43-7"><a href=""></a><span class="fu">calcul_mode</span>(fam_ISTOM)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 8</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href=""></a><span class="fu">calcul_mode</span>(fam_ISTOM)<span class="sc">+</span><span class="dv">1</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 9</code></pre>
 </div>
 </div>
 </section>
@@ -577,11 +592,11 @@ Antoine Géré
 </div>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href=""></a>fam_ISTOM</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href=""></a>fam_ISTOM</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 4 8 6 2 3 8 4 6 8 4 8 6 1 6 8 1 2 8 1 6 4</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href=""></a><span class="fu">median</span>(fam_ISTOM)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href=""></a><span class="fu">median</span>(fam_ISTOM)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 6</code></pre>
 </div>
@@ -604,7 +619,7 @@ Antoine Géré
 </div>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href=""></a><span class="fu">mean</span>(fam_ISTOM)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href=""></a><span class="fu">mean</span>(fam_ISTOM)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4.952381</code></pre>
 </div>
@@ -629,16 +644,16 @@ Antoine Géré
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href=""></a>fam_ISTOM</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href=""></a>fam_ISTOM</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 4 8 6 2 3 8 4 6 8 4 8 6 1 6 8 1 2 8 1 6 4</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href=""></a><span class="fu">quantile</span>(fam_ISTOM, <span class="fl">0.25</span>)  <span class="co"># Premier quartile (25%)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href=""></a><span class="fu">quantile</span>(fam_ISTOM, <span class="fl">0.25</span>)  <span class="co"># Premier quartile (25%)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>25% 
   3 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href=""></a><span class="fu">quantile</span>(fam_ISTOM, <span class="fl">0.75</span>)  <span class="co"># Troisième quartile (75%)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href=""></a><span class="fu">quantile</span>(fam_ISTOM, <span class="fl">0.75</span>)  <span class="co"># Troisième quartile (75%)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>75% 
   8 </code></pre>
@@ -649,7 +664,7 @@ Antoine Géré
 <h2></h2>
 <p>En résumé on a :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href=""></a><span class="fu">summary</span>(fam_ISTOM)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href=""></a><span class="fu">summary</span>(fam_ISTOM)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
   1.000   3.000   6.000   4.952   8.000   8.000 </code></pre>
@@ -658,13 +673,24 @@ Antoine Géré
 </section>
 <section id="section-16" class="slide level2">
 <h2></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href=""></a><span class="fu">data</span>(iris)</span>
+<span id="cb61-2"><a href=""></a><span class="fu">summary</span>(iris<span class="sc">$</span>Species)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    setosa versicolor  virginica 
+        50         50         50 </code></pre>
+</div>
+</div>
+</section>
+<section id="section-17" class="slide level2">
+<h2></h2>
 <h3 id="paramètre-de-dispersion">Paramètre de dispersion</h3>
 <p>Les indicateurs de dispersion usuels sont :</p>
 <ul>
 <li>L’étendue / L’intervalle des valeurs possibles</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href=""></a><span class="fu">range</span>(fam_ISTOM)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href=""></a><span class="fu">range</span>(fam_ISTOM)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 8</code></pre>
 </div>
@@ -674,7 +700,7 @@ Antoine Géré
 <li><p>L’écart type</p></li>
 </ul>
 </section>
-<section id="section-17" class="slide level2">
+<section id="section-18" class="slide level2">
 <h2></h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -690,7 +716,7 @@ Antoine Géré
 </div>
 </div>
 </section>
-<section id="section-18" class="slide level2">
+<section id="section-19" class="slide level2">
 <h2></h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -706,7 +732,7 @@ Antoine Géré
 </div>
 </div>
 </section>
-<section id="section-19" class="slide level2">
+<section id="section-20" class="slide level2">
 <h2></h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -722,7 +748,7 @@ Antoine Géré
 </div>
 </div>
 </section>
-<section id="section-20" class="slide level2">
+<section id="section-21" class="slide level2">
 <h2></h2>
 <h3 id="exercices">Exercices</h3>
 <p>Tous les exercices doivent être maitrisés <strong>avec</strong> et <strong>sans</strong> R.</p>

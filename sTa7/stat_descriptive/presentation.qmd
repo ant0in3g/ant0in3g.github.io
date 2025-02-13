@@ -261,12 +261,17 @@ calcul_mode(fam_ISTOM)
 ```{r}
 #| echo: true
 fam_ISTOM
+table(fam_ISTOM)
+max(table(fam_ISTOM))
 calcul_mode <- function(x) {
   freq <- table(x)
   mode <- as.numeric(names(freq[freq == max(freq)]))
+  #mode <- names(freq[freq == max(freq)])
   return(mode)
 }
 calcul_mode(fam_ISTOM)
+
+calcul_mode(fam_ISTOM)+1
 ```
 
 ##
@@ -324,6 +329,15 @@ En résumé on a :
 #| echo: true
 summary(fam_ISTOM)
 ```
+
+##
+
+```{r}
+#| echo: true
+data(iris)
+summary(iris$Species$)
+```
+
 
 
 ##

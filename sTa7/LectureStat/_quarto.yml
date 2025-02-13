@@ -1,0 +1,36 @@
+project:
+  type: book
+  
+lang: fr
+
+number-depth: 3
+
+book:
+  title: "Statistiques et analyse de données"
+  author: "Antoine Géré"
+  date: last-modified
+  sidebar:
+    collapse-level: 1
+  search: true
+  cover-image: ./img/Logo_ISTOM_Couleurs_HD-rbg.png
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - summary.qmd
+    - references.qmd
+
+language:
+  title-block-published: "Dernière modification"
+
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+
