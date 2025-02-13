@@ -10,6 +10,12 @@ Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 | tot.              | 24 séances | - séances  | 15 séances | - séances  |
 
 
+> [!NOTE]
+> This is how you write a note.
+>
+> It can have multiple lines.
+
+
 NOTE: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
 nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
 massa, nec semper lorem quam in massa.
