@@ -9,6 +9,13 @@ Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 |:------------------|:-----------|:-----------|:-----------|:-----------|
 | tot.              | 24 séances | - séances  | 15 séances | - séances  |
 
+
+- [Tutorial condensé de prise en main de R et RStudio](./sTa7/tuto_R_RStudio/Book_Last_Version/index.html)
+
+- [Cours complet de Statistiques et analyse de données à l'ISTOM](./sTa7/LectureStat/Book/index.html)
+
+<br>
+
 ### Ressources pour la promotion 115
 
 - [Séance 1 (cours)](./sTa7/tuto_R_RStudio/Book_Last_Version/index.html) - Introduction et prise en main de R et RStudio (1/2) - _Vendredi 31 janvier 2025_.
