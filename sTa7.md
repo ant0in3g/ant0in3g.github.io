@@ -10,19 +10,9 @@ Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 | tot.              | 24 séances | - séances  | 15 séances | - séances  |
 
 
-> [!NOTE]
-> This is how you write a note.
+> [**Tutorial condensé de prise en main de R et RStudio**](./sTa7/tuto_R_RStudio/Book_Last_Version/index.html)
 >
-> It can have multiple lines.
-
-
-NOTE: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
-nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
-massa, nec semper lorem quam in massa.
-
-- [**Tutorial condensé de prise en main de R et RStudio**](./sTa7/tuto_R_RStudio/Book_Last_Version/index.html)
-
-- [**Cours complet de Statistiques et analyse de données à l'ISTOM**](./sTa7/LectureStat/Book/index.html)
+> [**Cours complet de Statistiques et analyse de données à l'ISTOM**](./sTa7/LectureStat/Book/index.html)
 
 ### Ressources pour la promotion 115
 
