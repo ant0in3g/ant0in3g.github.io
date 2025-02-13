@@ -10,7 +10,7 @@ Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 | tot.              | 24 séances | - séances  | 15 séances | - séances  |
 
 
-> [**Tutorial condensé de prise en main de R et RStudio**](./sTa7/tuto_R_RStudio/Book_Last_Version/index.html)
+> [**Tutorial condensé sur la prise en main de R et RStudio**](./sTa7/tuto_R_RStudio/Book_Last_Version/index.html)
 >
 > [**Cours complet de Statistiques et analyse de données à l'ISTOM**](./sTa7/LectureStat/Book/index.html)
 
