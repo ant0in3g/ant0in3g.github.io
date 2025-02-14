@@ -383,7 +383,7 @@
     "href": "R_RStudio.html",
     "title": "R et RStudio",
     "section": "",
-    "text": "coming.",
+    "text": "Il est nécessaire d’avoir :\n\nsoit un pc windows\nsoit un ordinateur avec une distribution linux, par exemple Ubuntu\nsoit un mac\n\nIl est aujourd’hui possible de trouver des ordinateurs de qualité à moindre prix, en reconditionné, par exemple sur ce site https://www.backmarket.fr/fr-fr.",
     "crumbs": [
       "R et RStudio"
     ]
