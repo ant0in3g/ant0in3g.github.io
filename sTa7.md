@@ -9,7 +9,6 @@ Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 |:------------------|:-----------|:-----------|:-----------|:-----------|
 | tot.              | 24 séances | - séances  | 15 séances | - séances  |
 
-<br>
 
 > [**Tutorial condensé sur la prise en main de R et RStudio**](./sTa7/tuto_R_RStudio/Book_Last_Version/index.html)
 >
