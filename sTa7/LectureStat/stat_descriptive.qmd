@@ -1,0 +1,12 @@
+# Statistiques descriptives {.unnumbered}
+
+***Objectif*** : décrire de façon synthétique et parlante des données observées pour mieux les analyser.
+
+::: callout-tip
+## La statistique descriptive
+
+La ***statistique descriptive*** étudie certaines caractéristiques d’une population. Ces caractéristiques sont appelées caractères ou variables statistiques.
+:::
+
+-   La statistique descriptive à une dimension ou univariée
+-   La statistique descriptive à deux dimensions ou bivariée

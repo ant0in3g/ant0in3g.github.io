@@ -1,0 +1,89 @@
+# Variables qualitatives {.unnumbered}
+
+On utilise le jeu de données « iris » de R.
+
+```{r}
+#| echo: true
+#| message: true
+data(iris) # charger les données
+```
+
+::::: columns
+::: {.column width="70%"}
+Il contient 150 observations de 5 variables.
+
+-   `Sepal.Length` : longueur de la sépale
+-   `Sepal.Width` : largeur de la sépale
+-   `Petal.Length` : longueur du pétale
+-   `Petal.Width` : largeur du pétale
+-   `Species` : espèce de la fleur.
+:::
+
+::: {.column width="30%"}
+![](../img/img_data_iris_r.png)
+:::
+:::::
+
+La fonction `head()` permet d’avoir un aperçu des premières lignes du jeu de données :
+
+```{r}
+#| echo: true
+head(iris)
+```
+
+On a ainsi :
+
+-   ***1*** variable ***qualitative*** nominale (`Species`)
+
+-   ***4*** variables ***quantitatives*** continues (`Sepal.Length`, `Sepal.Width`, `Petal.Length` et `Petal.Width`)
+
+## Représentations graphiques
+
+Représensation graphique d'une population selon une variable ***qualitative***, ici `Species`
+
+### Pie chart
+
+```{r}
+#| echo: true
+#| message: true
+mytable <- table(iris$Species)
+mylabels <- names(mytable)
+pct <- round(mytable/sum(mytable)*100)
+lbls <- paste(mylabels,"(",pct,"%)")
+pie(mytable, labels = lbls, main="Pie Chart of Species")
+```
+
+### Tableau des effectifs
+
+Tableau des effectifs $\left(n_e\right)$ pour une variable (`Species`) dans une population donnée
+
+```{r}
+#| echo: true
+#| message: true
+table_Species<-table(iris$Species)
+table_Species
+```
+
+### Tableau des fréquences
+
+Tableau des fréquences $\left(f_e\right)$ pour une variable (`Species`) dans une population donnée
+
+```{r}
+#| echo: true
+#| message: true
+prop.table(table_Species)
+```
+
+$$f_e = \frac{n_e}{\sum_e n_e} = \frac{50}{150}$$
+
+### Diagramme en baton des effectifs
+
+```{r}
+#| echo: true
+#| message: true
+barplot(table_Species)
+```
+
+::: callout-important
+Même choses pour les variables ***quantitatives discrètes***.
+:::

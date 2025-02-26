@@ -31,8 +31,8 @@ editor: visual
 La ***statistique descriptive*** étudie certaines caractéristiques d’une population. Ces caractéristiques sont appelées caractères ou variables statistiques.
 :::
 
-- La statistique descriptive à une dimension ou univariée
-- La statistique descriptive à deux dimensions ou bivariée
+-   La statistique descriptive à une dimension ou univariée
+-   La statistique descriptive à deux dimensions ou bivariée
 
 ## Vocabulaire
 
@@ -40,22 +40,21 @@ La ***statistique descriptive*** étudie certaines caractéristiques d’une pop
 -   ***Individus*** : éléments de la population
 -   ***Echantillon*** : une partie de la population étudiée
 
-::: {.callout-note}
+::: callout-note
 Les observations obtenues sur une population ou sur un échantillon forment un ensemble de données sur lesquelles s'appliquent les méthodes de la statistique descriptive. Le ***choix de l'échantillon*** est donc ***important*** !
 :::
 
 ## 
 
-- Pour chaque individu → Une ou plusieurs variables  
+-   Pour chaque individu → Une ou plusieurs variables
 
-  - Variable ***qualitative*** (nominale / ordinale)
+    -   Variable ***qualitative*** (nominale / ordinale)
 
-  - Variable ***quantitative*** (intrinsèquement numérique)
-  
-    - Variable discrète (dans $\mathbb{Z}$)
-    - Variable continue (dans $\mathbb{R}$)
-    
-    
+    -   Variable ***quantitative*** (intrinsèquement numérique)
+
+        -   Variable discrète (dans $\mathbb{Z}$)
+        -   Variable continue (dans $\mathbb{R}$)
+
 De nombreux exemples avec ***R***
 
 ![](img/R_RStudio_LogoS-rbg.png){.r-stretch}
@@ -72,35 +71,34 @@ data(iris) # charger les données
 
 Il contient 150 observations de 5 variables.
 
-::: columns
+::::: columns
 ::: {.column width="70%"}
-
 -   `Sepal.Length` : longueur de la sépale
 -   `Sepal.Width` : largeur de la sépale
 -   `Petal.Length` : longueur du pétale
 -   `Petal.Width` : largeur du pétale
 -   `Species` : espèce de la fleur.
 :::
+
 ::: {.column width="30%"}
 ![](img/img_data_iris_r.png)
 :::
-:::
+:::::
 
-##
+## 
 
-La fonction `head()` permet d’avoir un aperçu des premières lignes du jeu de données : 
+La fonction `head()` permet d’avoir un aperçu des premières lignes du jeu de données :
 
 ```{r}
 #| echo: true
 head(iris)
 ```
 
-On a ainsi : 
+On a ainsi :
 
-- ***1*** variable ***qualitative*** nominale (`Species`)
+-   ***1*** variable ***qualitative*** nominale (`Species`)
 
-- ***4*** variables ***quantitatives*** continues (`Sepal.Length`, `Sepal.Width`, `Petal.Length` et `Petal.Width`)
-
+-   ***4*** variables ***quantitatives*** continues (`Sepal.Length`, `Sepal.Width`, `Petal.Length` et `Petal.Width`)
 
 ## Représentations graphiques
 
@@ -108,7 +106,7 @@ On a ainsi :
 
 Représensation graphique d'une population selon une variable ***qualitative***, ici `Species`
 
-##
+## 
 
 ### Pie chart
 
@@ -122,9 +120,9 @@ lbls <- paste(mylabels,"(",pct,"%)")
 pie(mytable, labels = lbls, main="Pie Chart of Species")
 ```
 
-##
+## 
 
-### Tableau des effectifs 
+### Tableau des effectifs
 
 <br>
 
@@ -139,9 +137,9 @@ table_Species<-table(iris$Species)
 table_Species
 ```
 
-##
+## 
 
-### Tableau des fréquences 
+### Tableau des fréquences
 
 <br>
 
@@ -157,9 +155,9 @@ prop.table(table_Species)
 
 $$f_e = \frac{n_e}{\sum_e n_e} = \frac{50}{150}$$
 
-##
+## 
 
-- Diagramme en baton des effectifs
+-   Diagramme en baton des effectifs
 
 ```{r}
 #| echo: true
@@ -167,7 +165,7 @@ $$f_e = \frac{n_e}{\sum_e n_e} = \frac{50}{150}$$
 barplot(table_Species)
 ```
 
-::: {.callout-important}
+::: callout-important
 Même choses pour les variables ***quantitatives discrètes***.
 :::
 
@@ -175,8 +173,9 @@ Même choses pour les variables ***quantitatives discrètes***.
 
 ### Effectif partiel
 
-::: {.callout-tip}
+::: callout-tip
 ## Définition - Effectif partiel
+
 **L'effectif partiel** est le **nombre d'individu** $n_i$ qui ont la **même valeur** pour la variable étudiée.
 :::
 
@@ -189,30 +188,31 @@ eff_partiel <- table(fam_ISTOM)
 eff_partiel
 ```
 
-##
+## 
 
 ```{r}
 #| echo: true
 eff_partiel
 ```
 
-- 3 familles ont 1 enfant
-- 2 familles ont 2 enfants
-- 1 familles ont 3 enfants
-- 4 familles ont 4 enfants
-- 5 familles ont 6 enfants
-- 6 familles ont 8 enfants
+-   3 familles ont 1 enfant
+-   2 familles ont 2 enfants
+-   1 familles ont 3 enfants
+-   4 familles ont 4 enfants
+-   5 familles ont 6 enfants
+-   6 familles ont 8 enfants
 
-##
+## 
 
 ### Effectif cumulé
 
-::: {.callout-tip}
+::: callout-tip
 ## Définition - Effectif cumulé
+
 **L'effectif cumulé** d'une valeur est la somme de l'**effectif de cette valeur** et de tous les **effectifs des valeurs qui précèdent**.
 :::
 
-On regarde toujours nos familles istomiennes 
+On regarde toujours nos familles istomiennes
 
 ```{r}
 #| echo: true
@@ -221,28 +221,26 @@ eff_cumul <- cumsum(eff_partiel)
 eff_cumul
 ```
 
-##
+## 
 
 ```{r}
 #| echo: true
 eff_cumul
 ```
 
-- 3 familles ont 1 enfant ou moins
-- 5 familles ont 2 enfants ou moins
-- 6 familles ont 3 enfants ou moins
-- 10 familles ont 4 enfants ou moins
-- 15 familles ont 6 enfants ou moins
-- 21 familles ont 8 enfants ou moins
+-   3 familles ont 1 enfant ou moins
+-   5 familles ont 2 enfants ou moins
+-   6 familles ont 3 enfants ou moins
+-   10 familles ont 4 enfants ou moins
+-   15 familles ont 6 enfants ou moins
+-   21 familles ont 8 enfants ou moins
 
-##
+## 
 
 ### Effectif total
 
-::: {.callout-note}
-Soit un ensemnle de $p$ famille. L'effectif total $N$ est donné par 
-$$N= \sum_i^p n_i$$
-où $n_i$ est l'effectif de la famille $i$.
+::: callout-note
+Soit un ensemnle de $p$ famille. L'effectif total $N$ est donné par $$N= \sum_i^p n_i$$ où $n_i$ est l'effectif de la famille $i$.
 :::
 
 ```{r}
@@ -252,12 +250,13 @@ eff_tot_enfants_istom <- sum(fam_ISTOM)
 eff_tot_enfants_istom
 ```
 
-##
+## 
 
 ### Fréquence partielle / relative
 
-::: {.callout-tip}
+::: callout-tip
 ## Définition - Fréquence partielle
+
 **La fréquence partielle** d'une valeur est le rapport de l'effectif partiel de cette valeur par l'effectif total.
 :::
 
@@ -271,7 +270,7 @@ freq_part_methode_2 <- eff_partiel/sum(eff_partiel)
 freq_part_methode_2
 ```
 
-##
+## 
 
 en pourcentage :
 
@@ -291,7 +290,7 @@ freq_part_methode_2_pct_arrondi <- round((eff_partiel/sum(eff_partiel))*100,2)
 freq_part_methode_2_pct_arrondi
 ```
 
-##
+## 
 
 la somme des fréquences partielles est égale à $1$ ou $100 \%$
 
@@ -302,12 +301,13 @@ sum(freq_part_methode_2)
 sum(freq_part_methode_2_pct)
 ```
 
-##
+## 
 
 ### Fréquence cumulée
 
-::: {.callout-tip}
+::: callout-tip
 ## Définition - Fréquence cumulée
+
 **La fréquence cumulée** d'une valeur est la somme de la **fréquence partiel de cette valeur** et de toutes les **fréquences des valeurs qui précèdent**.
 :::
 
@@ -321,35 +321,38 @@ freq_cumul_methode_2 <- cumsum(freq_part_methode_2)
 round(freq_cumul_methode_2,2)
 ```
 
-##
+## 
 
 ### Représentation graphique
 
-- Méthode de **représentation** : dépend de la **nature de variable** (qualitative ou quantitative)
+-   Méthode de **représentation** : dépend de la **nature de variable** (qualitative ou quantitative)
 
 <br>
 
-- Le graphique permet de :
-  - de synthétiser les principales caractéristiques de la série stat.
-  - de mettre de évidence les tendances / les anomalies
-  
-##
+-   Le graphique permet de :
+    -   de synthétiser les principales caractéristiques de la série stat.
+    -   de mettre de évidence les tendances / les anomalies
 
-- Diagramme en baton
+## 
+
+-   Diagramme en baton
 
 ```{r}
 #| echo: true
 barplot(eff_partiel)
 ```
 
-##
+## 
 
-- Diagramme cummulatif
+-   Diagramme cummulatif
 
-::: {.callout-tip}
+::: callout-tip
 ## Définition - Fonction de répartition
-Soit la fonction $$F : \mathbb{R} \to [0,1]$$
-$F(x)$ : pourcentage d'individus dont la valeur du caractère $\leq x$.\par
+
+Soit la fonction $$F : \mathbb{R} \to [0,1]$$ $F(x)$ : pourcentage d'individus dont la valeur du caractère $\leq x$.
+
+\par
+
 C'est la **fonction de répartition** du caractère $X$
 :::
 
@@ -357,7 +360,7 @@ C'est la **fonction de répartition** du caractère $X$
 
 On choisit de s'interesser au caractère **fréquence cumulée**.
 
-##
+## 
 
 ```{r}
 #| echo: true
@@ -366,27 +369,27 @@ freq_cumul_methode_1_rd
 plot(freq_cumul_methode_1_rd, type="s", main="Diagramme cummulatif", xlab="x (nbre d'enfants)", ylab="F(x) (fréquence cumulée)")
 ```
 
-##
+## 
 
 ### Paramètre de position
 
 Paramètres de position fréquents :
 
-- Le maximum, le minimum
+-   Le maximum, le minimum
 
-- Le mode
+-   Le mode
 
-- La médiane
+-   La médiane
 
-- La moyenne
+-   La moyenne
 
-- Le 1er quartile
+-   Le 1er quartile
 
-- Le 3eme quartile
+-   Le 3eme quartile
 
-##
+## 
 
-- Le maximum
+-   Le maximum
 
 ```{r}
 #| echo: true
@@ -395,17 +398,18 @@ max(fam_ISTOM)
 
 <br>
 
-- Le minimum
+-   Le minimum
 
 ```{r}
 #| echo: true
 min(fam_ISTOM)
 ```
 
-##
+## 
 
-::: {.callout-tip}
+::: callout-tip
 ## Définition - Le mode
+
 **Le mode** d'une variable est la valeur qui a le plus grand effectif partiel (ou plus grande fréquence partielle). On le note $M_0$.
 :::
 
@@ -423,19 +427,19 @@ calcul_mode <- function(x) {
 calcul_mode(fam_ISTOM)
 ```
 
-##
+## 
 
-- La fonction `table(x)` compte combien de fois chaque valeur apparaît dans le vecteur `x`
+-   La fonction `table(x)` compte combien de fois chaque valeur apparaît dans le vecteur `x`
 
-- La fonction `max(eff)` permet d'extraire la valeur qui a l'effectif max
+-   La fonction `max(eff)` permet d'extraire la valeur qui a l'effectif max
 
-- Ensuite on filtre `eff` afin d'avoir les valeurs ayant cette effectif max avec `eff[eff == max(eff)]`
+-   Ensuite on filtre `eff` afin d'avoir les valeurs ayant cette effectif max avec `eff[eff == max(eff)]`
 
-- On récupère le nom de la valeur qui a été filtrée avec `names()`
+-   On récupère le nom de la valeur qui a été filtrée avec `names()`
 
-- `names()` renvoie du texte, on doit donc convertir le résultat en nombre avec `as.numeric()`
+-   `names()` renvoie du texte, on doit donc convertir le résultat en nombre avec `as.numeric()`
 
-##
+## 
 
 ```{r}
 #| echo: true
@@ -447,7 +451,7 @@ names(table(fam_ISTOM)[table(fam_ISTOM) == max(table(fam_ISTOM))])
 as.numeric(names(table(fam_ISTOM)[table(fam_ISTOM) == max(table(fam_ISTOM))]))
 ```
 
-##
+## 
 
 ```{r}
 #| echo: true
@@ -466,11 +470,12 @@ ce que l'on observait bien directement sur le diagramme en baton :
 barplot(eff_partiel)
 ```
 
-##
+## 
 
-::: {.callout-tip}
+::: callout-tip
 ## Définition - La médiane
-**La médiane**  partage la série statistique en deux groupes de même effectif. On la note $M_e$
+
+**La médiane** partage la série statistique en deux groupes de même effectif. On la note $M_e$
 :::
 
 ```{r}
@@ -479,13 +484,11 @@ fam_ISTOM
 median(fam_ISTOM)
 ```
 
-Il y a autant de famille avec plus de 6 enfants que de famille avec moins de 6 enfants. 
+Il y a autant de famille avec plus de 6 enfants que de famille avec moins de 6 enfants.
 
+Avec la fonction de répartition précedemment présentée : $$F(M_e^-) < 0.5 < F(M_e^+)$$
 
-Avec la fonction de répartition précedemment présentée :
-$$F(M_e^-) < 0.5 < F(M_e^+)$$
-
-##
+## 
 
 ```{r}
 #| echo: true
@@ -496,37 +499,36 @@ abline(h=0.5,col="red")
 
 On retrouve la valeur de la médiane $M_e = 6$
 
-##
+## 
 
-::: {.callout-tip}
+::: callout-tip
 ## Définition - la moyenne arithmétique
-On note moyenne de $X$, la quantité
-$$\bar{x} = \frac{1}{N} \sum_{i=1}^{n} n_i x_i = \sum_{i=1}^{n} f_i x_i$$
 
-- $N$ : l'effectif total 
+On note moyenne de $X$, la quantité $$\bar{x} = \frac{1}{N} \sum_{i=1}^{n} n_i x_i = \sum_{i=1}^{n} f_i x_i$$
 
-- $n_i$ : l'effectif partiel 
+-   $N$ : l'effectif total
 
-- $f_i$ : la fréquence partiel 
+-   $n_i$ : l'effectif partiel
 
-- $x_i$ : le nombre d'enfant de la famille $i$
+-   $f_i$ : la fréquence partiel
+
+-   $x_i$ : le nombre d'enfant de la famille $i$
 :::
-
 
 ```{r}
 #| echo: true
 mean(fam_ISTOM)
 ```
 
-##
+## 
 
-::: {.callout-tip}
+::: callout-tip
 ## Définition - 1er et 3eme quartile
-- Le 1er quartile, noté **Q1**, est la valeur qui sépare le premier quart du reste de la distribution.
 
-- Le 3eme quartile, noté **Q3**, est la valeur qui sépare le dernier quart du reste de la distribution.
+-   Le 1er quartile, noté **Q1**, est la valeur qui sépare le premier quart du reste de la distribution.
+
+-   Le 3eme quartile, noté **Q3**, est la valeur qui sépare le dernier quart du reste de la distribution.
 :::
-
 
 ```{r}
 #| echo: true
@@ -535,7 +537,7 @@ quantile(fam_ISTOM, 0.25)  # Premier quartile (25%)
 quantile(fam_ISTOM, 0.75)  # Troisième quartile (75%)
 ```
 
-##
+## 
 
 ```{r}
 #| echo: true
@@ -548,16 +550,14 @@ quantile(fam_ISTOM, 0.75)
 max(fam_ISTOM)
 ```
 
-##
+## 
 
 ### Exemple : Tramway Ligne C - Roseraie → Belle-Beille Campus
 
 Données :
 
-::: {.columns}
-
+::::: columns
 ::: {.column width="50%"}
-
 ```{r}
 LigneC_arret <- c('Roseraie',
 'Jean Vilar',
@@ -612,23 +612,19 @@ LigneC_kms <- c(
 #| echo: true
 LigneC_kms
 ```
-
 :::
 
 ::: {.column width="50%"}
-
 ```{r}
 #| echo: true
 data.frame(LigneC_arret, LigneC_kms)
 ```
-
 :::
+:::::
 
-:::
+## 
 
-##
-
-::: {.callout-warning}
+::: callout-warning
 **Objectif** : trouver un lieu de RDV le long de la ligne C qui minimise le trajet de tous !
 :::
 
@@ -636,19 +632,20 @@ data.frame(LigneC_arret, LigneC_kms)
 
 Notations :
 
-- $A_i$ : arret $i$ (l'arret $A_4$ est `Bamako`)
+-   $A_i$ : arret $i$ (l'arret $A_4$ est `Bamako`)
 
-- $x_i$ : distance de l'arrêt $i$ au terminus ($x_4 = 7.6$)
-  
-- $P$ : point de RDV 
-  
-- $p$ : distance entre le point de RDV et le terminus
-  
-##
+-   $x_i$ : distance de l'arrêt $i$ au terminus ($x_4 = 7.6$)
 
-- **Première idée** : Placer le point de RDV au milieu de ligne C
+-   $P$ : point de RDV
+
+-   $p$ : distance entre le point de RDV et le terminus
+
+## 
+
+-   **Première idée** : Placer le point de RDV au milieu de ligne C
 
 $$p=\frac12 \left(x_{min} + x_{max}\right)$$
+
 ```{r}
 #| echo: true
 p1 <- 0.5*(max(LigneC_kms)+min(LigneC_kms))
@@ -657,14 +654,14 @@ p1
 
 Si la répartitions est à peu près symétrique, pourquoi pas, autrement ...
 
-**Trouver $D$ revient à trouver la mediane !**
+**Trouver** $D$ revient à trouver la mediane !
 
-##
+## 
 
-- **Deuxième idée** : On choisi de placer le point de RDV sur l'arret du milieu, au `Ralliement` ($x_{10}$). Donc
+-   **Deuxième idée** : On choisi de placer le point de RDV sur l'arret du milieu, au `Ralliement` ($x_{10}$). Donc
 
-  - $9$ arrets avant `Ralliement` 
-  - $9$ arrets apres `Ralliement` 
+    -   $9$ arrets avant `Ralliement`
+    -   $9$ arrets apres `Ralliement`
 
 La distance totale parcourue pour rejoindre $P$ est :
 
@@ -674,9 +671,9 @@ D
 =& \sum_{i=1}^{9} \ |p-x_i| + |p-x_{10}| + \sum_{i=11}^{19} \ |p-x_i|
 \end{align*}
 
-##
+## 
 
-D'où 
+D'où
 
 \begin{align*}
 D =& \sum_{i=1}^{9} \ |x_{10}-x_i| + \sum_{i=11}^{19} \ |x_{10}-x_i| \\
@@ -685,9 +682,9 @@ D =& \sum_{i=1}^{9} \ |x_{10}-x_i| + \sum_{i=11}^{19} \ |x_{10}-x_i| \\
 &+ |x_{9}-x_{11}|  
 \end{align*}
 
-##
+## 
 
-On choisi de placer $P$ entre `Foch-Maison Bleue` ($x_{9}$) et `Ralliement` ($x_{10}$). On a 
+On choisi de placer $P$ entre `Foch-Maison Bleue` ($x_{9}$) et `Ralliement` ($x_{10}$). On a
 
 \begin{align*}
 D 
@@ -700,34 +697,33 @@ Un terme en plus $|p-x_{10}|$
 
 Même observation si on place $P$ entre `Ralliement` ($x_{10}$) et `Molière` ($x_{11}$)
 
-##
+## 
 
-::: {.callout-important}
+::: callout-important
 Chercher la valeur de $p$ afin de minimiser $D$ revient à chercher la **médiane** de cette série statistique.
 :::
 
 <br>
 
-::: {.callout-important}
-**La moyenne** quant à elle est la valeur de $p$ qui permet de minimiser 
-$$\sum_{i=1}^{19} \left(p-x_i\right)^2$$
+::: callout-important
+**La moyenne** quant à elle est la valeur de $p$ qui permet de minimiser $$\sum_{i=1}^{19} \left(p-x_i\right)^2$$
 :::
 
-##
+## 
 
 ### Paramètre de dispersion
 
 Les indicateurs de dispersion usuels sont :
 
-- L'étendue / L'intervalle des valeurs possibles
+-   L'étendue / L'intervalle des valeurs possibles
 
-- L'écaart moyen absolu
+-   L'écaart moyen absolu
 
-- La variance et l'écart type
+-   La variance et l'écart type
 
-- L'écart inter-quartiles 
+-   L'écart inter-quartiles
 
-##
+## 
 
 ```{r}
 #| echo: true
@@ -735,32 +731,32 @@ library(palmerpenguins) #charge un jeu de données nommé 'penguins'
 head(penguins) 
 ```
 
+## 
 
-##
-
-::: {.callout-tip}
+::: callout-tip
 ## Définition - L'étendue
-**La médiane**  partage la série statistique e, groupe de même effectif. On la note $M_e$
+
+**La médiane** partage la série statistique e, groupe de même effectif. On la note $M_e$
 :::
 
-##
+## 
 
-::: {.callout-tip}
+::: callout-tip
 ## Définition - La variance
-**La médiane**  partage la série statistique e, groupe de même effectif. On la note $M_e$
+
+**La médiane** partage la série statistique e, groupe de même effectif. On la note $M_e$
 :::
 
-##
+## 
 
-::: {.callout-tip}
+::: callout-tip
 ## Définition - L'écart type
-**La médiane**  partage la série statistique e, groupe de même effectif. On la note $M_e$
+
+**La médiane** partage la série statistique e, groupe de même effectif. On la note $M_e$
 :::
 
-##
+## 
 
 ### Exercices
 
 Tous les exercices doivent être maitrisés **avec** et **sans** R.
-
-

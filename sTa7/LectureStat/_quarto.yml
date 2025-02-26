@@ -1,6 +1,6 @@
 project:
   type: book
-  
+
 lang: fr
 
 number-depth: 3
@@ -12,14 +12,32 @@ book:
   sidebar:
     collapse-level: 1
   search: true
-  cover-image: ./img/Logo_ISTOM_Couleurs_HD-rbg.png
+  cover-image: img/Logo_ISTOM_Couleurs_HD-rbg.png
   chapters:
     - index.qmd
-    - vocab.qmd
-    - stat_descriptive_1.qmd
-    - stat_descriptive_1.qmd
+    - part: stat_descriptive.qmd
+      chapters:
+        - stat_descriptive/vocab.qmd
+        - stat_descriptive/variable_quali.qmd
+        - stat_descriptive/variable_quanti_discrete.qmd
+        - stat_descriptive/variable_quanti_continue.qmd
+    - part: proba.qmd
+      chapters:
+        - proba/espace_proba.qmd
+        - proba/proba_condi.qmd
+        - proba/independance.qmd
+        - proba/variable_aleatoire.qmd
+        - proba/lois_normales.qmd
+        - proba/lois_binomiales.qmd
+        - proba/lois_de_poisson.qmd
+    - part: stat_inf.qmd
+      chapters:
+        - stat_inf/echantillonnage.qmd
+    - part: analyse_factorielle.qmd
+      chapters:
+        - analyse_factorielle/acp.qmd
     - references.qmd
-
+    
 language:
   title-block-published: "Dernière modification"
 
