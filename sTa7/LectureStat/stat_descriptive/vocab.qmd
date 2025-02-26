@@ -21,8 +21,3 @@ De nombreux exemples avec ***R***
 
 ![](../img/R_RStudio_LogoS-rbg.png)
 
-## 
-
-### Exercices
-
-Tous les exercices doivent être maitrisés **avec** et **sans** R.

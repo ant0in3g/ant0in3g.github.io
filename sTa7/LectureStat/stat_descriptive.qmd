@@ -10,3 +10,18 @@ La ***statistique descriptive*** étudie certaines caractéristiques d’une pop
 
 -   La statistique descriptive à une dimension ou univariée
 -   La statistique descriptive à deux dimensions ou bivariée
+
+
+
+
+La statistique descriptive est la première étape de toute analyse de données. Elle permet d’organiser, de résumer et de présenter les informations issues d’observations ou d’expériences de manière compréhensible. En agronomie, où les données sont omniprésentes – que ce soit pour l’étude des rendements agricoles, l’évolution des conditions climatiques, ou la qualité des sols et des cultures – la statistique descriptive joue un rôle essentiel pour dégager des tendances et faciliter l’interprétation des résultats.
+
+L’objectif principal de la statistique descriptive est de transformer des données brutes en informations exploitables. Pour cela, elle repose sur deux grandes approches :
+
+  Les mesures de tendance centrale : Elles permettent de caractériser la valeur "typique" d’un ensemble de données à travers des indicateurs comme la moyenne, la médiane et le mode.
+  Les mesures de dispersion : Elles décrivent la variabilité des données à l’aide d’outils tels que l’étendue, la variance, l’écart-type ou encore les quartiles.
+
+En complément, la représentation graphique des données (histogrammes, diagrammes de dispersion, boxplots, etc.) est un outil puissant pour identifier visuellement les tendances et anomalies.
+
+En agronomie, la statistique descriptive est utilisée pour analyser la croissance des cultures, comprendre la distribution des précipitations, comparer des variétés de plantes ou encore évaluer la fertilité des sols. Elle constitue une base solide avant d’appliquer des méthodes plus avancées comme l’inférence statistique ou l’analyse factorielle.
+

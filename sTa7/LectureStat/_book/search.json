@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Statistiques et analyse de données",
     "section": "",
-    "text": "Introduction\ncoming.",
+    "text": "Introduction\nDans le domaine de l’agronomie, la prise de décision repose sur l’analyse rigoureuse de données issues d’expériences, d’observations de terrain et de mesures variées. Que ce soit pour optimiser les rendements agricoles, analyser l’impact des changements climatiques, améliorer la gestion des ressources naturelles ou évaluer la qualité des sols et des cultures, la statistique joue un rôle central.\nCe cours propose une introduction approfondie aux outils statistiques fondamentaux nécessaires aux ingénieurs agronomes. Il est structuré autour de quatre grandes thématiques :\n\nStatistique descriptive : Cette première partie vise à organiser, résumer et représenter efficacement les données issues des études agronomiques à travers des indicateurs clés (moyenne, médiane, variance, etc.) et des outils graphiques adaptés.\nProbabilités : L’incertitude est inhérente aux systèmes biologiques et environnementaux. Nous aborderons les bases du calcul des probabilités, les lois de distribution les plus courantes et leur application en agronomie (modélisation des rendements, prévision climatique, gestion des risques phytosanitaires, etc.).\nStatistique inférentielle : À partir d’un échantillon limité, il est crucial de pouvoir généraliser les résultats à l’ensemble d’une population. Cette section traitera des tests d’hypothèses, des intervalles de confiance et des méthodes d’estimation pour appuyer les décisions agronomiques sur des bases solides.\nAnalyse factorielle : Dans un contexte où les données multidimensionnelles sont omniprésentes (analyses de sols, caractéristiques des cultures, facteurs environnementaux), les méthodes d’analyse factorielle (ACP, AFC, etc.) permettent d’extraire les informations essentielles et d’interpréter les relations entre variables.\n\nTout au long de ce cours, des exemples concrets et des études de cas spécifiques aux enjeux de l’hémisphère sud seront abordés : adaptation aux conditions climatiques locales, gestion durable des ressources et amélioration des pratiques agricoles. L’objectif est de fournir aux ingénieurs agronomes les compétences nécessaires pour interpréter des données complexes et appuyer des décisions fondées sur des analyses rigoureuses.",
     "crumbs": [
       "Introduction"
     ]
@@ -44,7 +44,7 @@
     "href": "stat_descriptive.html",
     "title": "Statistiques descriptives",
     "section": "",
-    "text": "Objectif : décrire de façon synthétique et parlante des données observées pour mieux les analyser.\n\n\n\n\n\n\nLa statistique descriptive\n\n\n\nLa statistique descriptive étudie certaines caractéristiques d’une population. Ces caractéristiques sont appelées caractères ou variables statistiques.\n\n\n\nLa statistique descriptive à une dimension ou univariée\nLa statistique descriptive à deux dimensions ou bivariée",
+    "text": "Objectif : décrire de façon synthétique et parlante des données observées pour mieux les analyser.\n\n\n\n\n\n\nLa statistique descriptive\n\n\n\nLa statistique descriptive étudie certaines caractéristiques d’une population. Ces caractéristiques sont appelées caractères ou variables statistiques.\n\n\n\nLa statistique descriptive à une dimension ou univariée\nLa statistique descriptive à deux dimensions ou bivariée\n\nLa statistique descriptive est la première étape de toute analyse de données. Elle permet d’organiser, de résumer et de présenter les informations issues d’observations ou d’expériences de manière compréhensible. En agronomie, où les données sont omniprésentes – que ce soit pour l’étude des rendements agricoles, l’évolution des conditions climatiques, ou la qualité des sols et des cultures – la statistique descriptive joue un rôle essentiel pour dégager des tendances et faciliter l’interprétation des résultats.\nL’objectif principal de la statistique descriptive est de transformer des données brutes en informations exploitables. Pour cela, elle repose sur deux grandes approches :\nLes mesures de tendance centrale : Elles permettent de caractériser la valeur “typique” d’un ensemble de données à travers des indicateurs comme la moyenne, la médiane et le mode. Les mesures de dispersion : Elles décrivent la variabilité des données à l’aide d’outils tels que l’étendue, la variance, l’écart-type ou encore les quartiles.\nEn complément, la représentation graphique des données (histogrammes, diagrammes de dispersion, boxplots, etc.) est un outil puissant pour identifier visuellement les tendances et anomalies.\nEn agronomie, la statistique descriptive est utilisée pour analyser la croissance des cultures, comprendre la distribution des précipitations, comparer des variétés de plantes ou encore évaluer la fertilité des sols. Elle constitue une base solide avant d’appliquer des méthodes plus avancées comme l’inférence statistique ou l’analyse factorielle.",
     "crumbs": [
       "Statistiques descriptives"
     ]
@@ -54,7 +54,7 @@
     "href": "stat_descriptive/vocab.html",
     "title": "Vocabulaire",
     "section": "",
-    "text": "De nombreux exemples avec R",
+    "text": "Population : ensemble d’éléments homogènes auxquels on s’intéresse.\nIndividus : éléments de la population\nEchantillon : une partie de la population étudiée\n\n\n\n\n\n\n\nNote\n\n\n\nLes observations obtenues sur une population ou sur un échantillon forment un ensemble de données sur lesquelles s’appliquent les méthodes de la statistique descriptive. Le choix de l’échantillon est donc important !\n\n\n\nPour chaque individu → Une ou plusieurs variables\n\nVariable qualitative (nominale / ordinale)\nVariable quantitative (intrinsèquement numérique)\n\nVariable discrète (dans \\(\\mathbb{Z}\\))\nVariable continue (dans \\(\\mathbb{R}\\))\n\n\n\nDe nombreux exemples avec R",
     "crumbs": [
       "Statistiques descriptives",
       "Vocabulaire"
@@ -1057,6 +1057,61 @@
     "crumbs": [
       "Statistiques descriptives",
       "Variables quantitatives discrètes"
+    ]
+  },
+  {
+    "objectID": "stat_descriptive/exos.html",
+    "href": "stat_descriptive/exos.html",
+    "title": "Exercices",
+    "section": "",
+    "text": "Important\n\n\n\nTous les exercices doivent être maitrisés avec et sans R.",
+    "crumbs": [
+      "Statistiques descriptives",
+      "Exercices"
+    ]
+  },
+  {
+    "objectID": "proba/exos.html",
+    "href": "proba/exos.html",
+    "title": "Exercices",
+    "section": "",
+    "text": "Important\n\n\n\nTous les exercices doivent être maitrisés avec et sans R.",
+    "crumbs": [
+      "Probabilités",
+      "Exercices"
+    ]
+  },
+  {
+    "objectID": "stat_inf/exos.html",
+    "href": "stat_inf/exos.html",
+    "title": "Exercices",
+    "section": "",
+    "text": "Important\n\n\n\nTous les exercices doivent être maitrisés avec et sans R.",
+    "crumbs": [
+      "Statistiques inférentielles",
+      "Exercices"
+    ]
+  },
+  {
+    "objectID": "analyse_factorielle/acp.html",
+    "href": "analyse_factorielle/acp.html",
+    "title": "ACP",
+    "section": "",
+    "text": "Techniques de l’analyse en composantes principales",
+    "crumbs": [
+      "Analyse factorielle",
+      "ACP"
+    ]
+  },
+  {
+    "objectID": "analyse_factorielle/exos.html",
+    "href": "analyse_factorielle/exos.html",
+    "title": "Exercices",
+    "section": "",
+    "text": "Important\n\n\n\nTous les exercices doivent être maitrisés avec et sans R.",
+    "crumbs": [
+      "Analyse factorielle",
+      "Exercices"
     ]
   }
 ]
