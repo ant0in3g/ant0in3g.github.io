@@ -1,9 +1,3 @@
-
-
-
-### [Template PIDEx](https://nbviewer.org/github/ant0in3g/ant0in3g.github.io/blob/main/sTa7/pidex/template/template_pidex.ipynb?flush_cache=true)
-
-
 ## Statistiques et analyse de données 1 (semestre 2)
 
 Référent enseignement : Antoine Géré
@@ -135,7 +129,7 @@ Enseignant : Antoine Géré
     3. Pratique (data, R-traitement, interprétation) de l’analyse de la variance.
 4. Régression linéaire multiple (avec tests des coefficients)
 5. Tests non- paramétriques essentiels
-    1. Test de Dixon (valeurs aberrantes)
+    1. Test de Dixon (valeurs aberrantes)P
     2. Test de Grubbs
     3. Test de Shapiro-Wilk (Normalité)
     4. Test de Wilcoxon (symétrie)
@@ -154,7 +148,7 @@ Enseignant : Antoine Géré
 
 Référent enseignement : Antoine Géré
 
-Enseignant : ??
+Enseignant : PAntoine Géré
 
 - Cours : 12 heures (8 séances)
 - TD : 12 heures (8 séances)
@@ -201,71 +195,6 @@ Enseignant : ??
 
 ## Statistiques et analyse de données 5 (semestre 8)
 
-### EMOA 1 : TECHNIQUES D'ENQUETES - CONSTRUCTION ET ANALYSE STATISTIQUE
-
-Référent enseignement : Antoine Géré
-
-Enseignant : ??
-
-- Cours : 15 heures (10 séances)
-- TD : 18 heures (12 séances)
-- TP : 0 heure (0 séance)
-
-#### Objectifs pédagogiques
-
-L’art de l’entretien : Introduction
-
-- Comprendre l’intérêt potentiel et les conditions de pertinence de différentes techniques d’enquête (questionnaire, semi-directif, non directif), de leur conception à l’interprétation de leurs résultats
-- Être capable de choisir une technique en fonction des objectifs visés et des contraintes du contexte
-- Commencer à saisir l’importance de :
-  - la posture, à l’attitude de l’enquêteur, notamment dans la qualité de l’écoute
-  - la formulation des questions et la conception d’un guide d’enquête
-  - l’art de la relation
-- Acquérir quelques réflexions ou réflexes pratiques et tactiques variés : comment tisser la confiance, confidentialité, comment obtenir un rendez-vous, comment faire face aux difficultés de rencontrer les enquêtés, etc.
-
-DATA-MINING - Traitement des données d’enquête
-
-L’objectif principal de ce cours est de savoir utiliser des outils, mobiliser des méthodes de la statistique pour extraire, valoriser les données de natures diverses (qualitatives, quantitatives, mixtes, textuelles) provenant des travaux d’enquêtes, et ce, dans le but de classer, regrouper, comparer les individus ou groupe d’individus  d’une population statistique ciblée ou de faire des prédictions.
-
-Signalons que les données peuvent provenir de R-data, de sites internet, d’expérimentations, des réseaux sociaux, etc.
-
-Outils mobilisés : R et packages (ade4, adegraphics, car, Rcmdr- FactoMineR, factoextra, Rtemis, MASS, Tserie).
-
-#### Programme de l’enseignement
-
-- Demi-journée 1 : 2h conduire un entretien / repro (guide d’observation)
-- Demi-journée 2 : 1h formuler des questions / 30min pratique de questionnaire en ligne
-- Demi-journée 3 : 3h concevoir un dispositif d’enquête
-- Demi-journée 4 : ?
-
-#### Modalités d’évaluations
-
-- 1 TD noté (100% de la note finale)
-
-### EMOA 2 : Analyse de données et économétrie appliquée au développement
-
-Référent enseignement : Antoine Géré**
-
-Enseignant : ??
-
-- Cours : - heures (- séances)
-- TD : - heures (- séances)
-- TP : - heure (- séance)
-
-#### Objectifs pédagogiques
-
-??
-
-#### Programme de l’enseignement
-
-??
-
 ## Statistiques et analyse de données 7 (semestre 9 ou 10)
 
-Cours dispensés en 5A dans les différentes options/DA.
-
-## [Introduction à R pour la statistique et l'analyse de données](./sTa7/intro_R.md) 
-
-### [Prise en main de R](https://nbviewer.org/github/ant0in3g/ant0in3g.github.io/blob/main/sTa7/test.ipynb?flush_cache=true)
-<!-- https://nbviewer.org/ -->
 

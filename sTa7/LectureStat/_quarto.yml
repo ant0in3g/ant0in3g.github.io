@@ -15,8 +15,9 @@ book:
   cover-image: ./img/Logo_ISTOM_Couleurs_HD-rbg.png
   chapters:
     - index.qmd
-    - intro.qmd
-    - summary.qmd
+    - vocab.qmd
+    - stat_descriptive_1.qmd
+    - stat_descriptive_1.qmd
     - references.qmd
 
 language:

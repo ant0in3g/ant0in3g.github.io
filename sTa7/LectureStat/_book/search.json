@@ -4,9 +4,9 @@
     "href": "index.html",
     "title": "Statistiques et analyse de données",
     "section": "",
-    "text": "Preface\ncoming.",
+    "text": "Introduction\ncoming.",
     "crumbs": [
-      "Preface"
+      "Introduction"
     ]
   },
   {
@@ -27,6 +27,66 @@
     "text": "coming.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Summary</span>"
+    ]
+  },
+  {
+    "objectID": "stat_descriptive_1.html",
+    "href": "stat_descriptive_1.html",
+    "title": "Statistiques descriptive univariée",
+    "section": "",
+    "text": "coming.",
+    "crumbs": [
+      "Statistiques descriptive univariée"
+    ]
+  },
+  {
+    "objectID": "vocab.html",
+    "href": "vocab.html",
+    "title": "Vocabulaire",
+    "section": "",
+    "text": "4 Vera Angelova\nOn peut observer le temps qu’il fait, le nombre de personnes qui monte à un arrêt le bus, la couleur des yeux du voisin. Exemple 1.0.1 /Feuille \\(1 /\\) : Le principal d’un Université étudie les notes du dernier examen de mathématiques de 20 étudiants d’un groupe. Voici la liste des notes obtenues par les étudiants : 10759131116171413168610811101279.\nExemple 1.0.2 [Groupes ethniques] /Feuille 1/: La répartition des groupes ethniques dans une classe de 30 élèves donne le tableau suivant:\nExemple 1.0.3 [Taille] /Feuille 1/: Voici les tailles (en cm) des 25 élèves d’une classe de 3ème : 165145150150166165160158162165158165162154158160162154165160160158154 158160.\nPopulation : L’ensemble soumis à observation est appelé population. Cet ensemble doit être bien défini. Le nombre d’individus dans la population est la taille de la population.\nExemple 1.0.1: Les étudiants du groupe consistent la population. 1.0.2: Les 30 élèves de la classe consistent la population. 1.0.3 : Les 25 élèves de la classe de 3ème consistent la population.\nIndividu : Tout élément de la population est appelé individu ou élément statistique.\nExemple 1.0.1 : Chaque étudiant du groupe est un individu. 1.0.2 et 1.0.3 Chaque élève de la classe est un individus.\nLes individus peuvent être de nature fort différents :\nLes éléments (individus) d’une population donnée peuvent être caractérisés de nombreuses façons. Par exemple chaque individu de la population d’un pays peut être caractérisé par son sexe, son état civil, son poids, sa taille, le nombre d’enfants à charge, le nombre de diplômes,… Ces caractéristiques sont appelées caractères statistiques.\nCaractère : C’est la propriété, la caractéristique ou l’aspect singulier que l’on se propose d’observer dans la population ou l’échantillon. Un caractère qui fait le sujet d’une étude porte aussi le nom de variable statistique.\nExemple : 1.0.1 : Les notes des étudiants constituent le caractère (ou variable statistique). 1.0.2 Les groupes ethniques constituent le caractère. 1.0.3 La taille des élèves constitue le caractère.\nIl existe 2 types de variables :\nLes variables qualitatives : sont des variables dont les résultats possibles sont des qualités. Ces résultats sont appelés modalités.\nExemple: Le sexe, le programme d’études ou l’état civil sont des exemples de variables qualitatives.\nLes variables quantitatives : sont des variables dont les résultats possibles sont des valeurs numériques. Ces résultats sont appelés modalités ou valeurs.\nExemple : L’âge, le poids et la taille sont des exemples de variables quantitatives.\nLes variables qualitatives peuvent être séparées en deux catégories.\nLes variables qualitatives nominales : sont des variables qualitatives dont les modalités ne possèdent aucun ordre naturel.\nExemple: Le caractère considéré en Exemple ethnique [Groupe ethnique] et l’Exercice 3 /Feuille 1/.\nLes variables qualitatives ordinales : sont des variables qualitatives dont les modalités peuvent être ordonnées.\nExemple : Le caractère considéré en Exercices 4 et 5 /Feuille \\(1 /\\). Les modalités des caractères qualitatifs nominales sont exprimables par des noms et ne sont pas hiérarchisées - dans les tables des fréquences ne figurent pas les effectifs et fréquences cumulées.\nUn caractère nominal peut être dichotomique s’il ne peut prendre que deux modalités. \\(\\underline{\\text { Exemple : Sexe - Exercice } 1 / \\text { Feuille 1/, la présence ou l'absence d'un caractère, etc. }}\\) Les modalités des caractères qualitatifs ordinales traduisent le degré d’un état caractérisant un individu sans que ce degré ne puisse être défini par un nombre qui résulte d’une mesure. Les modalités sont alors hiérarchisées - les tables de fréquences se construisent de manière analogue à celle d’une variable quantitative discrète. \\(\\underline{\\text { Exemple : le stade d'une maladie }}\\)\nLes variables quantitatives peuvent être également séparées en deux catégories. Un caractère quantitatif est discret si les modalités (valeurs) possibles sont isolées, souvent entières. En général il résulte d’un comptage ou dénombrement.\nExemple : Notes des étudiants - Exemple 1.0.1 /Feuille 1/, nombre d’enfants d’une famille - Exercice 1 /Feuille 1/.\nUn caractère quantitatif est continue, lorsqu’il peut prendre n’importe quelles valeurs d’un intervalle.\nExemple : Poids, taille, diamètre de pièces, salaires…\nRemarque 2: En réalité le nombre de valeurs possibles pour un caractère donné dépend de la précision de la mesure. On peut considérer comme continu un caractère discret qui peut prendre un grand nombre de valeurs.\nLe diagramme 1.1 résume bien le tout Les échelles de mesure. L’étude des variables doit se faire avec des outils de mesure. Il n’est pas possible de mesurer le degré de satisfaction de la même façon qu’on peut mesurer la taille d’un individu. Voilà pourquoi, on utilise différentes échelles de mesures.\nFigure 1.1 : Diagramme des différents types de variables\nIl existe 4 types d’échelles de mesure. Le mot clé pour les retenir est NOIR. (1) L’échelle de mesure est dite Nominale si les résultats sont des modalités ne possédant pas d’ordre naturel. (2) L’échelle de mesure est dite Ordinale si les résultats possèdent un ordre naturel. (3) L’échelle de mesure est dite d’Intervalles si les résultats sont des valeurs ayant un zéro arbitraire. (4) L’échelle de mesure est dite de Rapports si les résultats sont des valeurs ayant un zéro absolu.\nExemple (Échelle d’intervalles). Lorsque la température augmente de 10 degrés Celsius à 20 degrés Celsius, on ne peut pas dire qu’il fait 2 fois plus chaud, parce que 10 degrés Celsius correspond à 50 degrés Farenheit et 20 degrés Celsius correspond à 68 degrés Farenheit, ce qui ne correspond pas au double de la température. Alors on peut seulement dire qu’il fait 10 degrés de plus. Exemple (Échelle de rapports). Par contre, dans le cas d’une variable mesurée à l’aide d’une échelle de rapports, on peut affirmer qu’un élève qui a 2 emplois a deux fois plus d’emplois qu’un élève qui n’a qu’un seul emploi. Les quatre échelles de mesure possédant des propriétés fort différentes permettent différents niveaux de mesure d’un phénomène exprimée par un caractère. Le niveau (l’échelle) de mesure utilisé détermine le type d’analyses statistiques qu’il est permis de faire sur des données. Le tableau suivant reflète ce point de vue:\n6 Vera Angelova\nFigure 1.2 : Diagramme des différentes échelles de mesure",
+    "crumbs": [
+      "Vocabulaire"
+    ]
+  },
+  {
+    "objectID": "vocab.html#vera-angelova",
+    "href": "vocab.html#vera-angelova",
+    "title": "Vocabulaire",
+    "section": "",
+    "text": "TYPE D’ÉCHELLES",
+    "crumbs": [
+      "Vocabulaire"
+    ]
+  },
+  {
+    "objectID": "vocab.html#beginarrayllltext-nominale-text-ordinale-text-intervalles-text-égaux-text-de-proportions-endarray",
+    "href": "vocab.html#beginarrayllltext-nominale-text-ordinale-text-intervalles-text-égaux-text-de-proportions-endarray",
+    "title": "Vocabulaire",
+    "section": "\\(\\begin{array}{lll}\\text { NOMINALE } & \\text { ORDINALE } & \\text { INTERVALLES } \\\\ \\text { ÉGAUX } & \\text { DE PROPORTIONS }\\end{array}\\)",
+    "text": "\\(\\begin{array}{lll}\\text { NOMINALE } & \\text { ORDINALE } & \\text { INTERVALLES } \\\\ \\text { ÉGAUX } & \\text { DE PROPORTIONS }\\end{array}\\)\n\n\n\n\n\n\n\n\n\n\nVérifications permises\nDéterminer si deux valeurs sont égales\nDéterminer Si  une valeur  plus est  plus petite  plus grande  qu’une autre\nDéterminer si des intervalles sont égaux\nDéterminer si des proportions sont égales\n\n\n\n\nOpérations empiriques permises\nIdentifier et classer\nMettre en rang\nÉvaluer les différences entre les distances des scores individuels\nDéterminer des proportions, des fractions ou des multiples\n\n\nExemples de variables\nSexe, pro-  gramme  d’études\nOrdre de remise des examens\nScores aux tests et échelles standardisés “zéro” arbitraire\nLongueur, poids, température en degrés kelvin “zéro” absolu\n\n\nAnalyses statistiques permises\nTableau de fréquences; mode; coefficient de contingence\n+ médiane ; cen-  tiles ; Khi carré\n\n\\(+\\quad\\) moyenne géométrique ; coefficient de variation\n\n\n\nParamètre: Quantité numérique qui résume un aspect de la population. (valeur moyenne d’ une variable).\nPour recueillir des informations sur une population statistique, l’on dispose de deux méthodes :\n\nla méthode exhaustive ou recensement où chaque individu de la population est étudié selon le ou les caractères étudiés.\nla méthode des sondages ou échantillonnage qui conduit à n’examiner qu’une fraction de la population, un échantillon.\n\nL’échantillonnage représente l’ensemble des opérations qui ont pour objet de prélever un certain nombre d’individus dans une population donnée.\nEchantillon : C’est un sous ensemble de la population considérée. Le nombre d’individus dans l’échantillon est la taille de l’échantillon.\nStatistique : Quantité numérique qui résume un aspect d’un échantillon. (valeur moyenne observée sur un échantillon).",
+    "crumbs": [
+      "Vocabulaire"
+    ]
+  },
+  {
+    "objectID": "vocab.html#données-statistiques",
+    "href": "vocab.html#données-statistiques",
+    "title": "Vocabulaire",
+    "section": "Données statistiques",
+    "text": "Données statistiques\nIl existe deux sortes de données statistiques :\n\ncelles qui concernent une population et précisent comment les éléments de cette population se répartissent en classes - les séries statistiques. Il y a déplacement dans l’espace.\n\nL’ordre dans lequel les observations se présent dans la série statistique - autrement dit l’ordre dans lequel des individus se présentent dans le tableau individus x caractères - est souvent arbitraire (ordre de prise en considération, ordre alphabétique ; …) Modifier cet ordre n’a généralement aucune influence sur le traitement de la série statistique. /Exemple : Exercice 2 de Feuille 1/\n\ncelles qui concernent une mesure ou une quantité et précisent comment cette mesure ou cette quantité évolue dans le temps. Ce sont les séries chronologiques ou chronique. Il y a déplacement dans le temps.\n\nL’ordre dans lequel les observations se présentent dans la série chronologique est fixé par le contexte. Généralement on désigne les série chronologiques par \\(\\left(x_{t} ; t=1 ; \\ldots, n\\right)\\) où le choix de la lettre \\(t\\) pour l’indice fait référence au “temps” - Exemple : Exercice 4 de Feuille 1. Dans ce cas l’ordre des observations successives est toujours déterminé par l’écoulement naturel du temps.\nExemple 1.0.4 On considère les 14 étudiants en Bases de la statistique 2 en 2015. On s’intéresse au nombre d’absences aux cours et au nombre de participation au tableau pendant les cours.",
+    "crumbs": [
+      "Vocabulaire"
+    ]
+  },
+  {
+    "objectID": "vocab.html#vera-angelova-1",
+    "href": "vocab.html#vera-angelova-1",
+    "title": "Vocabulaire",
+    "section": "8 Vera Angelova",
+    "text": "8 Vera Angelova\nOn choisit au hasard 5 étudiants parmi les 14 et analyse leurs résultats. Analyse : Population : les étudiants en Base de statistique 2 en 2015. Taille de la population : \\(N=14\\). Individu ou élément statistique : un étudiant du groupe en Gestion ou du groupe en Économie. Caractères: a/ nombre d’absences aux cours, b/ nombre de participations au tableau pendant les cours Paramètres : moyenne \\(\\mu\\), écart-type \\(\\sigma\\). Échantillon : 5 étudiants pris des 14 au hasard. Taille de l’échantillon : \\(n=5\\). Caractères : a/ nombre d’absences aux cours et b/ nombre de participations au tableau pendant les cours. Statistiques : moyenne \\(\\bar{x}\\), écart-type \\(s\\). Supposons que l’on étudie \\(p\\) caractères sur une population de \\(N\\) individus. Si les individus et les caractères sont représentés respectivement par les identificateurs \\(1,2, \\ldots, i, \\ldots, N\\) et \\(1,2, \\ldots, j, \\ldots, p\\) on obtient le tableau suivant :\n\n\n\n\n\n\n\n\n\n\n\n\nIndividus\nVariables (caractères)\n\n\n\n\n\n\n\n\n\n\n1\n2\n\n\\(j\\)\n\n\\(p\\)\n\n\n1\n\\(x_{11}\\)\n\\(x_{12}\\)\n\\(\\ldots\\)\n\\(x_{1 j}\\)\n\\(\\ldots\\)\n\\(x_{1 p}\\)\n\n\n\\(\\vdots\\)\n\\(\\vdots\\)\n\\(\\vdots\\)\n\n\\(\\vdots\\)\n\n\\(\\vdots\\)\n\n\n\\(i\\)\n\\(x_{i 1}\\)\n\\(x_{i 2}\\)\n\\(\\ldots\\)\n\\(x_{i j}\\)\n\\(\\ldots\\)\n\\(x_{i p}\\)\n\n\n\\(\\vdots\\)\n\\(\\vdots\\)\n\\(\\vdots\\)\n\n\\(\\vdots\\)\n\n\\(\\vdots\\)\n\n\n\\(N\\)\n\\(x_{N 1}\\)\n\\(x_{N 2}\\)\n\\(\\ldots\\)\n\\(x_{N j}\\)\n\\(\\ldots\\)\n\\(x_{N p}\\)\n\n\n\nChaque ligne de ce tableau correspond à un individu pour lequel on dispose de \\(p\\) valeurs observées. Chaque colonne correspond à une variable dont on effectue \\(N\\) mesures. La valeur \\(x_{i j}\\) indique le résultat de la mesure du caractère \\(j\\) observée pour l’individu \\(i\\). L’ensemble des lignes d’un tableau I x C à \\(p\\) colonnes définit une série statistique p-variée.\nSi \\(p=1\\), la série est dite univariée et dans ce cas on utilise une notation simplifiée :\n\\[\n\\begin{array}{c|ccccccc}\ni & 1 & 2 & 3 & \\ldots & i & \\ldots & N \\\\\n\\hline x & x_{1} & x_{2} & x_{3} & \\ldots & x_{i} & \\ldots & x_{n}\n\\end{array}\n\\]",
+    "crumbs": [
+      "Vocabulaire"
     ]
   }
 ]
