@@ -70,7 +70,5 @@ Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 - [Séance 14 (travaux dirigés)](./sTa7/stat_coming.md) - coming - _Mercredi 21 mai 2025_.
 - [Séance 15 (travaux dirigés)](./sTa7/stat_coming.md) - coming - _Mercredi 27 mai 2025_.
 
-
-
 ![image](./img/curve_fitting.png)  
 _Source : [https://imgs.xkcd.com/comics/curve_fitting.png](https://imgs.xkcd.com/comics/curve_fitting.png)_
