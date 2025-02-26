@@ -2,17 +2,16 @@
 
 Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 
+> [**Tutorial condensé sur la prise en main de R et RStudio**](./sTa7/tuto_R_RStudio/Book_Last_Version/index.html)
+>
+> [**Cours complet de Statistiques et analyse de données à l'ISTOM**](./sTa7/LectureStat/Book/index.html)
+
 |                   | Semestre 2 | Semestre 3 | Semestre 4 | Semestre 5 |
 |:------------------|:-----------|:-----------|:-----------|:-----------|
 | Cours             | 16 séances | - séances  | 8 séances  | - séances  |
 | Travaux dirigés   | 8 séances  | - séances  | 7 séances  | - séances  |
 |:------------------|:-----------|:-----------|:-----------|:-----------|
 | tot.              | 24 séances | - séances  | 15 séances | - séances  |
-
-
-> [**Tutorial condensé sur la prise en main de R et RStudio**](./sTa7/tuto_R_RStudio/Book_Last_Version/index.html)
->
-> [**Cours complet de Statistiques et analyse de données à l'ISTOM**](./sTa7/LectureStat/Book/index.html)
 
 ### Ressources pour la promotion 115
 
