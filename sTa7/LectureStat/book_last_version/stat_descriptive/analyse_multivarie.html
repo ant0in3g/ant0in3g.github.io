@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Vocabulaire – Statistiques et analyse de données</title>
+<title>Analyse multivariée – Statistiques et analyse de données</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../stat_descriptive/variable_quali.html" rel="next">
-<link href="../stat_descriptive.html" rel="prev">
+<link href="../stat_descriptive/exos.html" rel="next">
+<link href="../stat_descriptive/analyse_bivarie.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -69,35 +69,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -110,7 +81,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../stat_descriptive.html">Statistiques descriptives</a></li><li class="breadcrumb-item"><a href="../stat_descriptive/vocab.html">Vocabulaire</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../stat_descriptive.html">Statistiques descriptives</a></li><li class="breadcrumb-item"><a href="../stat_descriptive/analyse_multivarie.html">Analyse multivariée</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
@@ -152,7 +123,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../stat_descriptive/vocab.html" class="sidebar-item-text sidebar-link active">
+  <a href="../stat_descriptive/vocab.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vocabulaire</span></a>
   </div>
 </li>
@@ -182,20 +153,8 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../stat_descriptive/analyse_multivarie.html" class="sidebar-item-text sidebar-link">
+  <a href="../stat_descriptive/analyse_multivarie.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Analyse multivariée</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../stat_descriptive/regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Régression</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../stat_descriptive/series_temporelles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Séries temporelles</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -322,25 +281,15 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table des matières</h2>
-   
-  <ul>
-  <li><a href="#types-de-données" id="toc-types-de-données" class="nav-link active" data-scroll-target="#types-de-données">Types de données</a></li>
-  <li><a href="#indicateurs-de-tendance-centrale" id="toc-indicateurs-de-tendance-centrale" class="nav-link" data-scroll-target="#indicateurs-de-tendance-centrale">Indicateurs de tendance centrale</a></li>
-  <li><a href="#indicateurs-de-dispersion" id="toc-indicateurs-de-dispersion" class="nav-link" data-scroll-target="#indicateurs-de-dispersion">Indicateurs de dispersion</a></li>
-  <li><a href="#représentations-graphiques" id="toc-représentations-graphiques" class="nav-link" data-scroll-target="#représentations-graphiques">Représentations graphiques</a></li>
-  <li><a href="#analyse-multivariée" id="toc-analyse-multivariée" class="nav-link" data-scroll-target="#analyse-multivariée">Analyse multivariée</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../stat_descriptive.html">Statistiques descriptives</a></li><li class="breadcrumb-item"><a href="../stat_descriptive/vocab.html">Vocabulaire</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../stat_descriptive.html">Statistiques descriptives</a></li><li class="breadcrumb-item"><a href="../stat_descriptive/analyse_multivarie.html">Analyse multivariée</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Vocabulaire</h1>
+<h1 class="title">Analyse multivariée</h1>
 </div>
 
 
@@ -357,86 +306,8 @@ window.Quarto = {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>L’objectif ici est de présenter le plus de termes, notions possibles dans le but de maitriser le vocabulaire de la statistique descriptive.</p>
-</div>
-</div>
-<section id="types-de-données" class="level2">
-<h2 class="anchored" data-anchor-id="types-de-données">Types de données</h2>
-<ul>
-<li><strong>Donnée</strong> : Information collectée lors d’une observation ou d’une expérience.</li>
-<li><strong>Population</strong> : Ensemble d’éléments homogènes auxquels on s’intéresse</li>
-<li><strong>Individu</strong> : Elément de la population</li>
-<li><strong>Échantillon</strong> : Sous-ensemble représentatif de la population.</li>
-<li><strong>Variable</strong> : Caractéristique mesurée sur un individu ou un objet.
-<ul>
-<li><strong>Variable qualitative</strong> : Prend des valeurs non numériques (ex. : type de sol, couleur d’un fruit).
-<ul>
-<li><em>Nominale</em> : Sans ordre particulier (ex. : variété de plante).</li>
-<li><em>Ordinale</em> : Avec un ordre (ex. : stade de croissance : jeune, adulte, etc).</li>
-</ul></li>
-<li><strong>Variable quantitative</strong> : Prend des valeurs numériques.
-<ul>
-<li><em>Discrète</em> : Nombre fini ou dénombrable de valeurs (ex. : nombre de feuilles sur une plante).</li>
-<li><em>Continue</em> : Peut prendre une infinité de valeurs dans un intervalle (ex. : poids d’un fruit, température).</li>
-</ul></li>
-</ul></li>
-</ul>
-</section>
-<section id="indicateurs-de-tendance-centrale" class="level2">
-<h2 class="anchored" data-anchor-id="indicateurs-de-tendance-centrale">Indicateurs de tendance centrale</h2>
-<ul>
-<li><strong>Moyenne</strong> (arithmétique) : Somme des valeurs divisée par leur nombre total.</li>
-<li><strong>Médiane</strong> : Valeur qui divise l’échantillon en deux parties égales.</li>
-<li><strong>Mode</strong> : Valeur la plus fréquente dans un jeu de données.</li>
-</ul>
-</section>
-<section id="indicateurs-de-dispersion" class="level2">
-<h2 class="anchored" data-anchor-id="indicateurs-de-dispersion">Indicateurs de dispersion</h2>
-<ul>
-<li><strong>Étendue</strong> : Différence entre la plus grande et la plus petite valeur.</li>
-<li><strong>Variance</strong> (<span class="math inline">\(\sigma^2\)</span>) : Mesure de la dispersion des valeurs autour de la moyenne.</li>
-<li><strong>Écart-type</strong> (<span class="math inline">\(\sigma\)</span>) : Racine carrée de la variance, exprimée dans la même unité que les données.</li>
-<li><strong>Coefficient de variation</strong> : Rapport entre l’écart-type et la moyenne, exprimé en pourcentage.</li>
-<li><strong>Quantiles</strong> : Valeurs qui divisent un jeu de données en intervalles égaux.</li>
-<li><strong>Quartiles</strong> (Q1, Q2, Q3) : Valeurs qui divisent les données en 4 parties.</li>
-<li><strong>Déciles, centiles</strong> : Division en 10 ou 100 parties.</li>
-<li><strong>Écart interquartile</strong> (IQR) : Différence entre le 3ᵉ quartile (Q3) et le 1ᵉʳ quartile (Q1).</li>
-</ul>
-</section>
-<section id="représentations-graphiques" class="level2">
-<h2 class="anchored" data-anchor-id="représentations-graphiques">Représentations graphiques</h2>
-<ul>
-<li><strong>Pie chart</strong> (ou diagramme circulaire) : Diagramme qui permet de présenter des sujets comme des parties contenues dans un tout.</li>
-<li><strong>Histogramme</strong> : Graphique montrant la distribution d’une variable quantitative.</li>
-<li><strong>Boxplot</strong> (boîte à moustaches) : Graphique résumant la dispersion, les quartiles et les valeurs extrêmes.</li>
-<li><strong>Diagramme en bâtons</strong> : Pour les variables qualitatives ou quantitatives discrètes.</li>
-<li><strong>Nuage de points</strong> (scatter plot) : Pour représenter la relation entre deux variables quantitatives.</li>
-</ul>
-</section>
-<section id="analyse-multivariée" class="level2">
-<h2 class="anchored" data-anchor-id="analyse-multivariée">Analyse multivariée</h2>
-<ul>
-<li><strong>Variable explicative</strong> (indépendante) : Variable utilisée pour expliquer ou prédire une autre.</li>
-<li><strong>Variable dépendante</strong> : Variable influencée par d’autres.</li>
-<li><strong>Tableau de données</strong> : Matrice contenant les individus en lignes et les variables en colonnes.</li>
-<li><strong>Centrage</strong> : Soustraction de la moyenne à chaque valeur d’une variable.</li>
-<li><strong>Réduction</strong> : Division des valeurs centrées par l’écart-type, utilisée pour mettre les variables à la même échelle.</li>
-<li><strong>Tableau de contingence</strong> : Tableau croisant deux variables qualitatives.</li>
-<li><strong>Covariance</strong> : Mesure de la variation conjointe de deux variables.</li>
-</ul>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -858,13 +729,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../stat_descriptive.html" class="pagination-link" aria-label="Statistiques descriptives">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Statistiques descriptives</span>
+      <a href="../stat_descriptive/analyse_bivarie.html" class="pagination-link" aria-label="Analyse bivariée">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Analyse bivariée</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../stat_descriptive/variable_quali.html" class="pagination-link" aria-label="Variables qualitatives">
-        <span class="nav-page-text">Variables qualitatives</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../stat_descriptive/exos.html" class="pagination-link" aria-label="Exercices">
+        <span class="nav-page-text">Exercices</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

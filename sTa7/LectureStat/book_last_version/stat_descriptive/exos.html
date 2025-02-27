@@ -31,7 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../proba.html" rel="next">
-<link href="../stat_descriptive/variable_quanti_continue.html" rel="prev">
+<link href="../stat_descriptive/series_temporelles.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -40,7 +40,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-8da5b4427184b79ecddefad3d342027e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-c6df2e0f16dc2815737ba3d55a6a0ab4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -143,6 +143,30 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../stat_descriptive/variable_quanti_continue.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Variables quantitatives continue</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../stat_descriptive/analyse_bivarie.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Analyse bivariée</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../stat_descriptive/analyse_multivarie.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Analyse multivariée</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../stat_descriptive/regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Régression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../stat_descriptive/series_temporelles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Séries temporelles</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -269,8 +293,16 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table des matières</h2>
+   
+  <ul>
+  <li><a href="#le-vocabulaire-de-la-statistique-descriptive" id="toc-le-vocabulaire-de-la-statistique-descriptive" class="nav-link active" data-scroll-target="#le-vocabulaire-de-la-statistique-descriptive">Le vocabulaire de la statistique descriptive</a></li>
+  <li><a href="#variables-qualitatives" id="toc-variables-qualitatives" class="nav-link" data-scroll-target="#variables-qualitatives">Variables qualitatives</a></li>
+  <li><a href="#variables-quantatives" id="toc-variables-quantatives" class="nav-link" data-scroll-target="#variables-quantatives">Variables quantatives</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -307,8 +339,177 @@ Important
 <p>Tous les exercices doivent être maitrisés <strong>avec</strong> et <strong>sans</strong> R.</p>
 </div>
 </div>
+<section id="le-vocabulaire-de-la-statistique-descriptive" class="level2">
+<h2 class="anchored" data-anchor-id="le-vocabulaire-de-la-statistique-descriptive">Le vocabulaire de la statistique descriptive</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercice 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Donner la définition d’une population ainsi que trois exemples.</li>
+<li>Définir la notion d’unité statistique ou individu et donner trois exemples.</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution Exercice 1
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>coming.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="variables-qualitatives" class="level2">
+<h2 class="anchored" data-anchor-id="variables-qualitatives">Variables qualitatives</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercice 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Donner la définition d’une population ainsi que trois exemples.</li>
+<li>Définir la notion d’unité statistique ou individu et donner trois exemples.</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution Exercice 2
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>coming.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercice 3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Donner la définition d’une population ainsi que trois exemples.</li>
+<li>Définir la notion d’unité statistique ou individu et donner trois exemples.</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution Exercice 3
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>coming.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="variables-quantatives" class="level2">
+<h2 class="anchored" data-anchor-id="variables-quantatives">Variables quantatives</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercice 4
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Donner la définition d’une population ainsi que trois exemples.</li>
+<li>Définir la notion d’unité statistique ou individu et donner trois exemples.</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution Exercice 4
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>coming.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercice 5
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Donner la définition d’une population ainsi que trois exemples.</li>
+<li>Définir la notion d’unité statistique ou individu et donner trois exemples.</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution Exercice 5
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>coming.</p>
+</div>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -730,8 +931,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../stat_descriptive/variable_quanti_continue.html" class="pagination-link" aria-label="Variables quantitatives continue">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Variables quantitatives continue</span>
+      <a href="../stat_descriptive/series_temporelles.html" class="pagination-link" aria-label="Séries temporelles">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Séries temporelles</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
