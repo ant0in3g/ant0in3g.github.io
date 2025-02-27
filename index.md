@@ -14,6 +14,10 @@ Etudiez en musique ! Vos playlists sur [Spotify](https://open.spotify.com/playli
 
 ### [Statistiques et analyses de données](./sTa7.md) 
 
+### [Physique](./phys.md)
+
+### [Chimie](./chimie.md)
+
 Vous pourrez prochainement trouver un [ensemble de cours](./lecture-s.md) rédigé que j'ai soit déjà enseigné, soit suivi en tant qu'étudiant.
 
 ## Recherche
