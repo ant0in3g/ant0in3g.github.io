@@ -159,6 +159,18 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../stat_descriptive/regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Régression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../stat_descriptive/series_temporelles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Séries temporelles</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../stat_descriptive/exos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercices</span></a>
   </div>
@@ -281,8 +293,21 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table des matières</h2>
+   
+  <ul>
+  <li><a href="#exemples-danalyse-bivariée-en-biodiversité" id="toc-exemples-danalyse-bivariée-en-biodiversité" class="nav-link active" data-scroll-target="#exemples-danalyse-bivariée-en-biodiversité">Exemples d’analyse bivariée en Biodiversité</a>
+  <ul class="collapse">
+  <li><a href="#corrélation-entre-la-richesse-spécifique-et-la-surface-dun-habitat" id="toc-corrélation-entre-la-richesse-spécifique-et-la-surface-dun-habitat" class="nav-link" data-scroll-target="#corrélation-entre-la-richesse-spécifique-et-la-surface-dun-habitat">Corrélation entre la richesse spécifique et la surface d’un habitat</a></li>
+  <li><a href="#relation-entre-la-pollution-de-leau-et-la-diversité-des-macroinvertébrés-aquatiques" id="toc-relation-entre-la-pollution-de-leau-et-la-diversité-des-macroinvertébrés-aquatiques" class="nav-link" data-scroll-target="#relation-entre-la-pollution-de-leau-et-la-diversité-des-macroinvertébrés-aquatiques">2. Relation entre la pollution de l’eau et la diversité des macroinvertébrés aquatiques</a></li>
+  <li><a href="#influence-de-la-température-sur-labondance-dune-espèce-animale" id="toc-influence-de-la-température-sur-labondance-dune-espèce-animale" class="nav-link" data-scroll-target="#influence-de-la-température-sur-labondance-dune-espèce-animale">3. Influence de la température sur l’abondance d’une espèce animale</a></li>
+  <li><a href="#relation-entre-la-diversité-floristique-et-la-présence-dherbivores" id="toc-relation-entre-la-diversité-floristique-et-la-présence-dherbivores" class="nav-link" data-scroll-target="#relation-entre-la-diversité-floristique-et-la-présence-dherbivores">4. Relation entre la diversité floristique et la présence d’herbivores</a></li>
+  <li><a href="#effet-de-la-fragmentation-des-habitats-sur-la-diversité-génétique-dune-espèce" id="toc-effet-de-la-fragmentation-des-habitats-sur-la-diversité-génétique-dune-espèce" class="nav-link" data-scroll-target="#effet-de-la-fragmentation-des-habitats-sur-la-diversité-génétique-dune-espèce">5. Effet de la fragmentation des habitats sur la diversité génétique d’une espèce</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -306,8 +331,91 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>L’analyse bivariée se propose d’analyser le ou les liens eventuels entre deux variables.</p>
+<section id="exemples-danalyse-bivariée-en-biodiversité" class="level2">
+<h2 class="anchored" data-anchor-id="exemples-danalyse-bivariée-en-biodiversité">Exemples d’analyse bivariée en Biodiversité</h2>
+<ul>
+<li><p>Corrélation entre la richesse spécifique (nombres d’espèces observée) et la surface d’un habitat</p></li>
+<li><p>Relation entre la pollution de l’eau et la diversité des macroinvertébrés aquatiques</p></li>
+<li><p>Influence de la température sur l’abondance d’une espèce animale</p></li>
+<li><p>Relation entre la diversité floristique et la présence d’herbivores</p></li>
+<li><p>Effet de la fragmentation des habitats sur la diversité génétique d’une espèce</p></li>
+</ul>
+<p><br> <br> <br> <br> <br> <br></p>
+<section id="corrélation-entre-la-richesse-spécifique-et-la-surface-dun-habitat" class="level3">
+<h3 class="anchored" data-anchor-id="corrélation-entre-la-richesse-spécifique-et-la-surface-dun-habitat">Corrélation entre la richesse spécifique et la surface d’un habitat</h3>
+<p><strong>Variables :</strong></p>
+<ul>
+<li><strong>Variable indépendante (X)</strong> : Surface de l’habitat (ex. : taille d’une forêt, d’un récif corallien).<br>
+</li>
+<li><strong>Variable dépendante (Y)</strong> : Nombre d’espèces observées (richesse spécifique).</li>
+</ul>
+<p><strong>Analyse :</strong></p>
+<ul>
+<li>Diagramme de dispersion.<br>
+</li>
+<li>Coefficient de corrélation de Pearson (r).<br>
+</li>
+<li>Régression linéaire simple.</li>
+</ul>
+<p><strong>Exemple concret :</strong><br>
+- Étudier si les îles plus grandes ont une biodiversité plus élevée (théorie de la biogéographie insulaire).</p>
+<hr>
+</section>
+<section id="relation-entre-la-pollution-de-leau-et-la-diversité-des-macroinvertébrés-aquatiques" class="level3">
+<h3 class="anchored" data-anchor-id="relation-entre-la-pollution-de-leau-et-la-diversité-des-macroinvertébrés-aquatiques">2. Relation entre la pollution de l’eau et la diversité des macroinvertébrés aquatiques</h3>
+<p><strong>Variables :</strong><br>
+- <strong>Variable indépendante (X)</strong> : Concentration de polluants (ex. : nitrates, phosphates).<br>
+- <strong>Variable dépendante (Y)</strong> : Indice de diversité des macroinvertébrés (ex. : indice de Shannon).</p>
+<p><strong>Analyse :</strong><br>
+- Nuage de points pour visualiser la relation.<br>
+- Coefficient de corrélation de Spearman si la relation est non linéaire.<br>
+- Régression logistique pour prédire une catégorie de pollution.</p>
+<p><strong>Exemple concret :</strong><br>
+- Étudier l’impact des effluents agricoles sur les rivières et les écosystèmes aquatiques.</p>
+<hr>
+</section>
+<section id="influence-de-la-température-sur-labondance-dune-espèce-animale" class="level3">
+<h3 class="anchored" data-anchor-id="influence-de-la-température-sur-labondance-dune-espèce-animale">3. Influence de la température sur l’abondance d’une espèce animale</h3>
+<p><strong>Variables :</strong><br>
+- <strong>Variable indépendante (X)</strong> : Température moyenne annuelle (°C).<br>
+- <strong>Variable dépendante (Y)</strong> : Densité d’une population animale (ex. : nombre d’individus/km²).</p>
+<p><strong>Analyse :</strong><br>
+- Corrélation de Pearson.<br>
+- Régression quadratique si la relation est en cloche.</p>
+<p><strong>Exemple concret :</strong><br>
+- Étudier comment le changement climatique influence la distribution des papillons ou des amphibiens.</p>
+<hr>
+</section>
+<section id="relation-entre-la-diversité-floristique-et-la-présence-dherbivores" class="level3">
+<h3 class="anchored" data-anchor-id="relation-entre-la-diversité-floristique-et-la-présence-dherbivores">4. Relation entre la diversité floristique et la présence d’herbivores</h3>
+<p><strong>Variables :</strong><br>
+- <strong>Variable indépendante (X)</strong> : Présence/absence ou densité d’herbivores (ex. : bovins, cervidés).<br>
+- <strong>Variable dépendante (Y)</strong> : Nombre d’espèces végétales présentes.</p>
+<p><strong>Analyse :</strong><br>
+- Test de Student si comparaison entre deux groupes (pâturage vs.&nbsp;non pâturage).<br>
+- Analyse de variance (ANOVA) si plusieurs niveaux d’herbivorie sont testés.</p>
+<p><strong>Exemple concret :</strong><br>
+- Étudier si le pâturage modéré favorise la diversité des plantes, contrairement au surpâturage.</p>
+<hr>
+</section>
+<section id="effet-de-la-fragmentation-des-habitats-sur-la-diversité-génétique-dune-espèce" class="level3">
+<h3 class="anchored" data-anchor-id="effet-de-la-fragmentation-des-habitats-sur-la-diversité-génétique-dune-espèce">5. Effet de la fragmentation des habitats sur la diversité génétique d’une espèce</h3>
+<p><strong>Variables :</strong><br>
+- <strong>Variable indépendante (X)</strong> : Distance entre les fragments d’habitat.<br>
+- <strong>Variable dépendante (Y)</strong> : Diversité génétique d’une population.</p>
+<p><strong>Analyse :</strong><br>
+- Corrélation de Pearson ou de Spearman.<br>
+- Régression linéaire.<br>
+- Test de Student pour comparer populations fragmentées et non fragmentées.</p>
+<p><strong>Exemple concret :</strong><br>
+- Étudier comment la déforestation impacte la diversité génétique des jaguars ou des grenouilles tropicales.</p>
+<hr>
+<p>Ces analyses bivariées permettent de mieux comprendre les interactions écologiques et d’orienter les politiques de conservation.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

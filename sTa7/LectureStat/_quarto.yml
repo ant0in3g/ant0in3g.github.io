@@ -56,7 +56,6 @@ format:
     theme:
       - cosmo
       - brand
-      #- custom.scss
       
   pdf:
     documentclass: scrreprt

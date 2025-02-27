@@ -134,12 +134,12 @@ round(freq_cumul_methode_2,2)
 
 ### Représentation graphique
 
--   Méthode de **représentation** : dépend de la **nature de variable** (qualitative ou quantitative)
+- Méthode de **représentation** : dépend de la **nature de variable** (qualitative ou quantitative)
 
--   Le graphique permet de :
+- Le graphique permet :
 
-    -   de synthétiser les principales caractéristiques de la série stat.
-    -   de mettre de évidence les tendances / les anomalies
+  - de synthétiser les principales caractéristiques de la série stat.
+  - de mettre de évidence les tendances / les anomalies
 
 -   Diagramme en baton
 
@@ -148,7 +148,15 @@ round(freq_cumul_methode_2,2)
 barplot(eff_partiel)
 ```
 
--   Diagramme cummulatif
+
+- Pie chart ou diagramme circulaire
+
+```{r}
+pie(eff_partiel, labels = names(eff_partiel), main="Familles istomiennes")
+```
+
+
+- Diagramme cummulatif
 
 ::: callout-tip
 ## Définition - Fonction de répartition

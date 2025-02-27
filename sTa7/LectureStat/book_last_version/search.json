@@ -14,7 +14,7 @@
     "href": "stat_descriptive.html",
     "title": "Statistiques descriptives",
     "section": "",
-    "text": "La statistique descriptive est la première étape de toute analyse de données. Elle permet d’organiser, de résumer et de présenter les informations issues d’observations ou d’expériences de manière compréhensible.\nEn agronomie, où les données sont omniprésentes, la statistique descriptive joue un rôle essentiel pour dégager des tendances et faciliter l’interprétation des résultats.\nL’objectif principal de la statistique descriptive est de transformer des données brutes en informations exploitables et conpréhensibles. Pour cela, elle repose sur deux grandes approches :\n\nLes mesures de tendance centrale : Elles permettent de caractériser la valeur “typique” d’un ensemble de données à travers des indicateurs comme la moyenne, la médiane et le mode.\nLes mesures de dispersion : Elles décrivent la variabilité des données à l’aide d’outils tels que l’étendue, la variance, l’écart-type ou encore les quartiles.\nEn complément, la représentation graphique des données (histogrammes, diagrammes de dispersion, boxplots, etc.) est un outil puissant pour identifier visuellement les tendances et anomalies.\n\nEn agronomie, la statistique descriptive est utilisée pour analyser la croissance des cultures, comprendre la distribution des précipitations, comparer des variétés de plantes ou encore évaluer la fertilité des sols. Elle constitue une base solide avant d’appliquer des méthodes plus avancées comme l’inférence statistique ou l’analyse factorielle.",
+    "text": "La statistique descriptive est la première étape de toute analyse de données. Elle permet d’organiser, de résumer et de présenter les informations issues d’observations ou d’expériences de manière compréhensible.\nEn agronomie, où les données sont omniprésentes, la statistique descriptive joue un rôle essentiel pour dégager des tendances et faciliter l’interprétation des résultats.\nL’objectif principal de la statistique descriptive est de transformer des données brutes en informations exploitables et conpréhensibles. Pour cela, elle repose sur deux grandes approches :\n\nLes mesures de tendance centrale : Elles permettent de caractériser la valeur «typique» d’un ensemble de données à travers des indicateurs comme par exemple la moyenne, la médiane et le mode.\nLes mesures de dispersion : Elles décrivent la variabilité des données à l’aide d’outils tels que l’étendue, la variance, l’écart-type ou encore les quartiles.\nEn complément, la représentation graphique des données (histogrammes, diagrammes de dispersion, boxplots, etc.) est un outil puissant pour identifier visuellement les tendances et anomalies.\n\nEn agronomie, la statistique descriptive est utilisée pour analyser la croissance des cultures, comprendre la distribution des précipitations, comparer des variétés de plantes ou encore évaluer la fertilité des sols. Elle constitue une base solide avant d’appliquer des méthodes plus avancées comme l’inférence statistique ou l’analyse factorielle.",
     "crumbs": [
       "Statistiques descriptives"
     ]
@@ -237,6 +237,28 @@
     "crumbs": [
       "Statistiques descriptives",
       "Vocabulaire"
+    ]
+  },
+  {
+    "objectID": "stat_descriptive/analyse_bivarie.html",
+    "href": "stat_descriptive/analyse_bivarie.html",
+    "title": "Analyse bivariée",
+    "section": "",
+    "text": "Exemples d’analyse bivariée en Biodiversité\nL’analyse bivariée se propose d’analyser le ou les liens eventuels entre deux variables.",
+    "crumbs": [
+      "Statistiques descriptives",
+      "Analyse bivariée"
+    ]
+  },
+  {
+    "objectID": "stat_descriptive/analyse_bivarie.html#exemples-danalyse-bivariée-en-biodiversité",
+    "href": "stat_descriptive/analyse_bivarie.html#exemples-danalyse-bivariée-en-biodiversité",
+    "title": "Analyse bivariée",
+    "section": "",
+    "text": "Corrélation entre la richesse spécifique (nombres d’espèces observée) et la surface d’un habitat\nRelation entre la pollution de l’eau et la diversité des macroinvertébrés aquatiques\nInfluence de la température sur l’abondance d’une espèce animale\nRelation entre la diversité floristique et la présence d’herbivores\nEffet de la fragmentation des habitats sur la diversité génétique d’une espèce\n\n\n\nCorrélation entre la richesse spécifique et la surface d’un habitat\nVariables :\n\nVariable indépendante (X) : Surface de l’habitat (ex. : taille d’une forêt, d’un récif corallien).\n\nVariable dépendante (Y) : Nombre d’espèces observées (richesse spécifique).\n\nAnalyse :\n\nDiagramme de dispersion.\n\nCoefficient de corrélation de Pearson (r).\n\nRégression linéaire simple.\n\nExemple concret :\n- Étudier si les îles plus grandes ont une biodiversité plus élevée (théorie de la biogéographie insulaire).\n\n\n\n2. Relation entre la pollution de l’eau et la diversité des macroinvertébrés aquatiques\nVariables :\n- Variable indépendante (X) : Concentration de polluants (ex. : nitrates, phosphates).\n- Variable dépendante (Y) : Indice de diversité des macroinvertébrés (ex. : indice de Shannon).\nAnalyse :\n- Nuage de points pour visualiser la relation.\n- Coefficient de corrélation de Spearman si la relation est non linéaire.\n- Régression logistique pour prédire une catégorie de pollution.\nExemple concret :\n- Étudier l’impact des effluents agricoles sur les rivières et les écosystèmes aquatiques.\n\n\n\n3. Influence de la température sur l’abondance d’une espèce animale\nVariables :\n- Variable indépendante (X) : Température moyenne annuelle (°C).\n- Variable dépendante (Y) : Densité d’une population animale (ex. : nombre d’individus/km²).\nAnalyse :\n- Corrélation de Pearson.\n- Régression quadratique si la relation est en cloche.\nExemple concret :\n- Étudier comment le changement climatique influence la distribution des papillons ou des amphibiens.\n\n\n\n4. Relation entre la diversité floristique et la présence d’herbivores\nVariables :\n- Variable indépendante (X) : Présence/absence ou densité d’herbivores (ex. : bovins, cervidés).\n- Variable dépendante (Y) : Nombre d’espèces végétales présentes.\nAnalyse :\n- Test de Student si comparaison entre deux groupes (pâturage vs. non pâturage).\n- Analyse de variance (ANOVA) si plusieurs niveaux d’herbivorie sont testés.\nExemple concret :\n- Étudier si le pâturage modéré favorise la diversité des plantes, contrairement au surpâturage.\n\n\n\n5. Effet de la fragmentation des habitats sur la diversité génétique d’une espèce\nVariables :\n- Variable indépendante (X) : Distance entre les fragments d’habitat.\n- Variable dépendante (Y) : Diversité génétique d’une population.\nAnalyse :\n- Corrélation de Pearson ou de Spearman.\n- Régression linéaire.\n- Test de Student pour comparer populations fragmentées et non fragmentées.\nExemple concret :\n- Étudier comment la déforestation impacte la diversité génétique des jaguars ou des grenouilles tropicales.\n\nCes analyses bivariées permettent de mieux comprendre les interactions écologiques et d’orienter les politiques de conservation.",
+    "crumbs": [
+      "Statistiques descriptives",
+      "Analyse bivariée"
     ]
   }
 ]
