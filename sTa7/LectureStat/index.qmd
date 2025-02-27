@@ -1,15 +1,17 @@
 # Introduction {.unnumbered}
 
-Dans le domaine de l’agronomie, la prise de décision repose sur l’analyse rigoureuse de données issues d’expériences, d’observations de terrain et de mesures variées. Que ce soit pour optimiser les rendements agricoles, analyser l’impact des changements climatiques, améliorer la gestion des ressources naturelles ou évaluer la qualité des sols et des cultures, la statistique joue un rôle central.
+Dans le **domaine de l’agronomie**, la **prise de décision** repose sur l’**analyse rigoureuse de données** issues d’expériences, d’observations de terrain et de mesures variées. Que ce soit pour optimiser les rendements agricoles, analyser l’impact des changements climatiques, améliorer la gestion des ressources naturelles ou évaluer la qualité des sols et des cultures, la statistique joue un rôle central.
 
 Ce cours propose une introduction approfondie aux outils statistiques fondamentaux nécessaires aux ingénieurs agronomes. Il est structuré autour de quatre grandes thématiques :
 
--   Statistique descriptive : Cette première partie vise à organiser, résumer et représenter efficacement les données issues des études agronomiques à travers des indicateurs clés (moyenne, médiane, variance, etc.) et des outils graphiques adaptés.
+-   **Statistique descriptive** : Cette première partie vise à organiser, résumer et représenter efficacement les données issues des études agronomiques à travers des indicateurs clés (moyenne, médiane, variance, etc.) et des outils graphiques adaptés.
 
--   Probabilités : L’incertitude est inhérente aux systèmes biologiques et environnementaux. Nous aborderons les bases du calcul des probabilités, les lois de distribution les plus courantes et leur application en agronomie (modélisation des rendements, prévision climatique, gestion des risques phytosanitaires, etc.).
+-   **Probabilités** : L’incertitude est inhérente aux systèmes biologiques et environnementaux. Nous aborderons les bases du calcul des probabilités, les lois de distribution les plus courantes et leur application en agronomie (modélisation des rendements, prévision climatique, gestion des risques phytosanitaires, etc.).
 
--   Statistique inférentielle : À partir d’un échantillon limité, il est crucial de pouvoir généraliser les résultats à l’ensemble d’une population. Cette section traitera des tests d’hypothèses, des intervalles de confiance et des méthodes d’estimation pour appuyer les décisions agronomiques sur des bases solides.
+-   **Statistique inférentielle** : À partir d’un échantillon limité, il est crucial de pouvoir généraliser les résultats à l’ensemble d’une population. Cette section traitera des tests d’hypothèses, des intervalles de confiance et des méthodes d’estimation pour appuyer les décisions agronomiques sur des bases solides.
 
--   Analyse factorielle : Dans un contexte où les données multidimensionnelles sont omniprésentes (analyses de sols, caractéristiques des cultures, facteurs environnementaux), les méthodes d’analyse factorielle (ACP, AFC, etc.) permettent d’extraire les informations essentielles et d’interpréter les relations entre variables.
+-   **Analyse factorielle** : Dans un contexte où les données multidimensionnelles sont omniprésentes (analyses de sols, caractéristiques des cultures, facteurs environnementaux), les méthodes d’analyse factorielle (ACP, AFC, etc.) permettent d’extraire les informations essentielles et d’interpréter les relations entre variables.
 
-Tout au long de ce cours, des exemples concrets et des études de cas spécifiques aux enjeux de l’hémisphère sud seront abordés : adaptation aux conditions climatiques locales, gestion durable des ressources et amélioration des pratiques agricoles. L’objectif est de fournir aux ingénieurs agronomes les compétences nécessaires pour interpréter des données complexes et appuyer des décisions fondées sur des analyses rigoureuses.
+Tout au long de ce cours, nous apprendrons à utiliser les concepts des statistiques et de l'analyse de données avec le language de programmation **R** et le logiciel **RStudio**, sur des exemples concrets et des études de cas spécifiques aux enjeux propres des pays du sud : adaptation aux conditions climatiques locales, gestion durable des ressources et amélioration des pratiques agricoles. L’objectif est de fournir aux ingénieurs agronomes les compétences nécessaires pour interpréter des données complexes et appuyer des décisions fondées sur des analyses rigoureuses.
+
+
