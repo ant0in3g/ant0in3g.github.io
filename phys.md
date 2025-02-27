@@ -2,7 +2,7 @@
 
 Référent : [Antoine Géré](mailto:a.gere@istom.fr)
 
-Enseignants : [Frédéric Koch](mailto:f.koch-ext@istom.fr) et [Benjamin Condon@istom.fr](mailto:b.condon@istom.fr)
+Enseignants : [Frédéric Koch](mailto:f.koch-ext@istom.fr) et [Benjamin Condon](mailto:b.condon@istom.fr)
 
 > [**Ressource pour le cours de Physique disponible sur moodle**](https://moodle.istom.fr/login/index.php)
 

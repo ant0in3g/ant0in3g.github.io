@@ -2,7 +2,7 @@
 
 Référent : [Antoine Géré](mailto:a.gere@istom.fr)
 
-Enseignant : [Benjamin Condon@istom.fr](mailto:b.condon@istom.fr)
+Enseignant : [Benjamin Condon](mailto:b.condon@istom.fr)
 
 > [**Ressource pour le cours de Chimie disponible sur moodle**](https://moodle.istom.fr/login/index.php)
 
