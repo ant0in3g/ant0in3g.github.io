@@ -176,6 +176,30 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../stat_descriptive/analyse_bivarie.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Analyse bivariée</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../stat_descriptive/analyse_multivarie.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Analyse multivariée</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../stat_descriptive/regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Régression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../stat_descriptive/series_temporelles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Séries temporelles</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../stat_descriptive/exos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercices</span></a>
   </div>
@@ -298,8 +322,18 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table des matières</h2>
+   
+  <ul>
+  <li><a href="#types-de-données" id="toc-types-de-données" class="nav-link active" data-scroll-target="#types-de-données">Types de données</a></li>
+  <li><a href="#indicateurs-de-tendance-centrale" id="toc-indicateurs-de-tendance-centrale" class="nav-link" data-scroll-target="#indicateurs-de-tendance-centrale">Indicateurs de tendance centrale</a></li>
+  <li><a href="#indicateurs-de-dispersion" id="toc-indicateurs-de-dispersion" class="nav-link" data-scroll-target="#indicateurs-de-dispersion">Indicateurs de dispersion</a></li>
+  <li><a href="#représentations-graphiques" id="toc-représentations-graphiques" class="nav-link" data-scroll-target="#représentations-graphiques">Représentations graphiques</a></li>
+  <li><a href="#analyse-multivariée" id="toc-analyse-multivariée" class="nav-link" data-scroll-target="#analyse-multivariée">Analyse multivariée</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -323,11 +357,6 @@ window.Quarto = {
 </header>
 
 
-<ul>
-<li><strong><em>Population</em></strong> : ensemble d’éléments homogènes auxquels on s’intéresse.</li>
-<li><strong><em>Individus</em></strong> : éléments de la population</li>
-<li><strong><em>Echantillon</em></strong> : une partie de la population étudiée</li>
-</ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -338,24 +367,76 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Les observations obtenues sur une population ou sur un échantillon forment un ensemble de données sur lesquelles s’appliquent les méthodes de la statistique descriptive. Le <strong><em>choix de l’échantillon</em></strong> est donc <strong><em>important</em></strong> !</p>
+<p>L’objectif ici est de présenter le plus de termes, notions possibles dans le but de maitriser le vocabulaire de la statistique descriptive.</p>
 </div>
 </div>
+<section id="types-de-données" class="level2">
+<h2 class="anchored" data-anchor-id="types-de-données">Types de données</h2>
 <ul>
-<li><p>Pour chaque individu → Une ou plusieurs variables</p>
+<li><strong>Donnée</strong> : Information collectée lors d’une observation ou d’une expérience.</li>
+<li><strong>Population</strong> : Ensemble d’éléments homogènes auxquels on s’intéresse</li>
+<li><strong>Individu</strong> : Elément de la population</li>
+<li><strong>Échantillon</strong> : Sous-ensemble représentatif de la population.</li>
+<li><strong>Variable</strong> : Caractéristique mesurée sur un individu ou un objet.
 <ul>
-<li><p>Variable <strong><em>qualitative</em></strong> (nominale / ordinale)</p></li>
-<li><p>Variable <strong><em>quantitative</em></strong> (intrinsèquement numérique)</p>
+<li><strong>Variable qualitative</strong> : Prend des valeurs non numériques (ex. : type de sol, couleur d’un fruit).
 <ul>
-<li>Variable discrète (dans <span class="math inline">\(\mathbb{Z}\)</span>)</li>
-<li>Variable continue (dans <span class="math inline">\(\mathbb{R}\)</span>)</li>
+<li><em>Nominale</em> : Sans ordre particulier (ex. : variété de plante).</li>
+<li><em>Ordinale</em> : Avec un ordre (ex. : stade de croissance : jeune, adulte, etc).</li>
+</ul></li>
+<li><strong>Variable quantitative</strong> : Prend des valeurs numériques.
+<ul>
+<li><em>Discrète</em> : Nombre fini ou dénombrable de valeurs (ex. : nombre de feuilles sur une plante).</li>
+<li><em>Continue</em> : Peut prendre une infinité de valeurs dans un intervalle (ex. : poids d’un fruit, température).</li>
 </ul></li>
 </ul></li>
 </ul>
-<p>De nombreux exemples avec <strong><em>R</em></strong></p>
-<p><img src="../img/R_RStudio_LogoS-rbg.png" class="img-fluid"></p>
+</section>
+<section id="indicateurs-de-tendance-centrale" class="level2">
+<h2 class="anchored" data-anchor-id="indicateurs-de-tendance-centrale">Indicateurs de tendance centrale</h2>
+<ul>
+<li><strong>Moyenne</strong> (arithmétique) : Somme des valeurs divisée par leur nombre total.</li>
+<li><strong>Médiane</strong> : Valeur qui divise l’échantillon en deux parties égales.</li>
+<li><strong>Mode</strong> : Valeur la plus fréquente dans un jeu de données.</li>
+</ul>
+</section>
+<section id="indicateurs-de-dispersion" class="level2">
+<h2 class="anchored" data-anchor-id="indicateurs-de-dispersion">Indicateurs de dispersion</h2>
+<ul>
+<li><strong>Étendue</strong> : Différence entre la plus grande et la plus petite valeur.</li>
+<li><strong>Variance</strong> (<span class="math inline">\(\sigma^2\)</span>) : Mesure de la dispersion des valeurs autour de la moyenne.</li>
+<li><strong>Écart-type</strong> (<span class="math inline">\(\sigma\)</span>) : Racine carrée de la variance, exprimée dans la même unité que les données.</li>
+<li><strong>Coefficient de variation</strong> : Rapport entre l’écart-type et la moyenne, exprimé en pourcentage.</li>
+<li><strong>Quantiles</strong> : Valeurs qui divisent un jeu de données en intervalles égaux.</li>
+<li><strong>Quartiles</strong> (Q1, Q2, Q3) : Valeurs qui divisent les données en 4 parties.</li>
+<li><strong>Déciles, centiles</strong> : Division en 10 ou 100 parties.</li>
+<li><strong>Écart interquartile</strong> (IQR) : Différence entre le 3ᵉ quartile (Q3) et le 1ᵉʳ quartile (Q1).</li>
+</ul>
+</section>
+<section id="représentations-graphiques" class="level2">
+<h2 class="anchored" data-anchor-id="représentations-graphiques">Représentations graphiques</h2>
+<ul>
+<li><strong>Pie chart</strong> (ou diagramme circulaire) : Diagramme qui permet de présenter des sujets comme des parties contenues dans un tout.</li>
+<li><strong>Histogramme</strong> : Graphique montrant la distribution d’une variable quantitative.</li>
+<li><strong>Boxplot</strong> (boîte à moustaches) : Graphique résumant la dispersion, les quartiles et les valeurs extrêmes.</li>
+<li><strong>Diagramme en bâtons</strong> : Pour les variables qualitatives ou quantitatives discrètes.</li>
+<li><strong>Nuage de points</strong> (scatter plot) : Pour représenter la relation entre deux variables quantitatives.</li>
+</ul>
+</section>
+<section id="analyse-multivariée" class="level2">
+<h2 class="anchored" data-anchor-id="analyse-multivariée">Analyse multivariée</h2>
+<ul>
+<li><strong>Variable explicative</strong> (indépendante) : Variable utilisée pour expliquer ou prédire une autre.</li>
+<li><strong>Variable dépendante</strong> : Variable influencée par d’autres.</li>
+<li><strong>Tableau de données</strong> : Matrice contenant les individus en lignes et les variables en colonnes.</li>
+<li><strong>Centrage</strong> : Soustraction de la moyenne à chaque valeur d’une variable.</li>
+<li><strong>Réduction</strong> : Division des valeurs centrées par l’écart-type, utilisée pour mettre les variables à la même échelle.</li>
+<li><strong>Tableau de contingence</strong> : Tableau croisant deux variables qualitatives.</li>
+<li><strong>Covariance</strong> : Mesure de la variation conjointe de deux variables.</li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

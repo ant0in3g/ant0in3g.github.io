@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Statistiques et analyse de données",
     "section": "",
-    "text": "Introduction\nDans le domaine de l’agronomie, la prise de décision repose sur l’analyse rigoureuse de données issues d’expériences, d’observations de terrain et de mesures variées. Que ce soit pour optimiser les rendements agricoles, analyser l’impact des changements climatiques, améliorer la gestion des ressources naturelles ou évaluer la qualité des sols et des cultures, la statistique joue un rôle central.\nCe cours propose une introduction approfondie aux outils statistiques fondamentaux nécessaires aux ingénieurs agronomes. Il est structuré autour de quatre grandes thématiques :\n\nStatistique descriptive : Cette première partie vise à organiser, résumer et représenter efficacement les données issues des études agronomiques à travers des indicateurs clés (moyenne, médiane, variance, etc.) et des outils graphiques adaptés.\nProbabilités : L’incertitude est inhérente aux systèmes biologiques et environnementaux. Nous aborderons les bases du calcul des probabilités, les lois de distribution les plus courantes et leur application en agronomie (modélisation des rendements, prévision climatique, gestion des risques phytosanitaires, etc.).\nStatistique inférentielle : À partir d’un échantillon limité, il est crucial de pouvoir généraliser les résultats à l’ensemble d’une population. Cette section traitera des tests d’hypothèses, des intervalles de confiance et des méthodes d’estimation pour appuyer les décisions agronomiques sur des bases solides.\nAnalyse factorielle : Dans un contexte où les données multidimensionnelles sont omniprésentes (analyses de sols, caractéristiques des cultures, facteurs environnementaux), les méthodes d’analyse factorielle (ACP, AFC, etc.) permettent d’extraire les informations essentielles et d’interpréter les relations entre variables.\n\nTout au long de ce cours, nous apprendrons à utiliser les concepts des statistiques et de l’analyse de données avec le language de programmation R et le logiciel RStudio, sur des exemples concrets et des études de cas spécifiques aux enjeux propres des pays du sud : adaptation aux conditions climatiques locales, gestion durable des ressources et amélioration des pratiques agricoles. L’objectif est de fournir aux ingénieurs agronomes les compétences nécessaires pour interpréter des données complexes et appuyer des décisions fondées sur des analyses rigoureuses.",
+    "text": "Introduction\nDans le domaine de l’agronomie, la prise de décision repose sur l’analyse rigoureuse de données issues d’expériences, d’observations de terrain et de mesures variées. Que ce soit pour optimiser les rendements agricoles, analyser l’impact des changements climatiques, améliorer la gestion des ressources naturelles ou évaluer la qualité des sols et des cultures, la statistique joue un rôle central.\nCe cours propose une introduction approfondie aux outils statistiques fondamentaux nécessaires aux ingénieurs agronomes. Il est structuré autour de quatre grandes thématiques :\n\nStatistique descriptive : Cette première partie vise à organiser, résumer et représenter efficacement les données issues des études agronomiques à travers des indicateurs clés (moyenne, médiane, variance, etc.) et des outils graphiques adaptés.\nProbabilités : L’incertitude est inhérente aux systèmes biologiques et environnementaux. Nous aborderons les bases du calcul des probabilités, les lois de distribution les plus courantes et leur application en agronomie (modélisation des rendements, prévision climatique, etc.).\nStatistique inférentielle : À partir d’un échantillon limité, il est crucial de pouvoir généraliser les résultats à l’ensemble d’une population. Cette section traitera des tests d’hypothèses, des intervalles de confiance et des méthodes d’estimation pour appuyer les décisions agronomiques sur des bases solides.\nAnalyse factorielle : Dans un contexte où les données multidimensionnelles sont omniprésentes (analyses de sols, caractéristiques des cultures, facteurs environnementaux), les méthodes d’analyse factorielle (ACP, AFC, etc.) permettent d’extraire les informations essentielles et d’interpréter les relations entre variables.\n\nTout au long de ce cours nous apprendrons à utiliser les concepts des statistiques et de l’analyse de données avec le language de programmation R et le logiciel RStudio (cf ce lien pour un tutorial sur la prise en main de R et RStudio).\n\nCet apprentissage s’effectera sur des exemples concrets et des études de cas spécifiques aux enjeux propres des pays du sud : adaptation aux conditions climatiques locales, gestion durable des ressources et amélioration des pratiques agricoles.\nL’objectif est de vous fournir, futurs ingénieurs agronomes, les compétences nécessaires pour interpréter des données complexes et appuyer des décisions fondées sur des analyses rigoureuses.",
     "crumbs": [
       "Introduction"
     ]
@@ -14,7 +14,7 @@
     "href": "stat_descriptive.html",
     "title": "Statistiques descriptives",
     "section": "",
-    "text": "Objectif : décrire de façon synthétique et parlante des données observées pour mieux les analyser.\n\n\n\n\n\n\nLa statistique descriptive\n\n\n\nLa statistique descriptive étudie certaines caractéristiques d’une population. Ces caractéristiques sont appelées caractères ou variables statistiques.\n\n\n\nLa statistique descriptive à une dimension ou univariée\nLa statistique descriptive à deux dimensions ou bivariée\n\nLa statistique descriptive est la première étape de toute analyse de données. Elle permet d’organiser, de résumer et de présenter les informations issues d’observations ou d’expériences de manière compréhensible. En agronomie, où les données sont omniprésentes – que ce soit pour l’étude des rendements agricoles, l’évolution des conditions climatiques, ou la qualité des sols et des cultures – la statistique descriptive joue un rôle essentiel pour dégager des tendances et faciliter l’interprétation des résultats.\nL’objectif principal de la statistique descriptive est de transformer des données brutes en informations exploitables. Pour cela, elle repose sur deux grandes approches :\nLes mesures de tendance centrale : Elles permettent de caractériser la valeur “typique” d’un ensemble de données à travers des indicateurs comme la moyenne, la médiane et le mode. Les mesures de dispersion : Elles décrivent la variabilité des données à l’aide d’outils tels que l’étendue, la variance, l’écart-type ou encore les quartiles.\nEn complément, la représentation graphique des données (histogrammes, diagrammes de dispersion, boxplots, etc.) est un outil puissant pour identifier visuellement les tendances et anomalies.\nEn agronomie, la statistique descriptive est utilisée pour analyser la croissance des cultures, comprendre la distribution des précipitations, comparer des variétés de plantes ou encore évaluer la fertilité des sols. Elle constitue une base solide avant d’appliquer des méthodes plus avancées comme l’inférence statistique ou l’analyse factorielle.",
+    "text": "La statistique descriptive est la première étape de toute analyse de données. Elle permet d’organiser, de résumer et de présenter les informations issues d’observations ou d’expériences de manière compréhensible.\nEn agronomie, où les données sont omniprésentes, la statistique descriptive joue un rôle essentiel pour dégager des tendances et faciliter l’interprétation des résultats.\nL’objectif principal de la statistique descriptive est de transformer des données brutes en informations exploitables et conpréhensibles. Pour cela, elle repose sur deux grandes approches :\n\nLes mesures de tendance centrale : Elles permettent de caractériser la valeur “typique” d’un ensemble de données à travers des indicateurs comme la moyenne, la médiane et le mode.\nLes mesures de dispersion : Elles décrivent la variabilité des données à l’aide d’outils tels que l’étendue, la variance, l’écart-type ou encore les quartiles.\nEn complément, la représentation graphique des données (histogrammes, diagrammes de dispersion, boxplots, etc.) est un outil puissant pour identifier visuellement les tendances et anomalies.\n\nEn agronomie, la statistique descriptive est utilisée pour analyser la croissance des cultures, comprendre la distribution des précipitations, comparer des variétés de plantes ou encore évaluer la fertilité des sols. Elle constitue une base solide avant d’appliquer des méthodes plus avancées comme l’inférence statistique ou l’analyse factorielle.",
     "crumbs": [
       "Statistiques descriptives"
     ]
@@ -24,7 +24,7 @@
     "href": "stat_descriptive/vocab.html",
     "title": "Vocabulaire",
     "section": "",
-    "text": "Population : ensemble d’éléments homogènes auxquels on s’intéresse.\nIndividus : éléments de la population\nEchantillon : une partie de la population étudiée\n\n\n\n\n\n\n\nNote\n\n\n\nLes observations obtenues sur une population ou sur un échantillon forment un ensemble de données sur lesquelles s’appliquent les méthodes de la statistique descriptive. Le choix de l’échantillon est donc important !\n\n\n\nPour chaque individu → Une ou plusieurs variables\n\nVariable qualitative (nominale / ordinale)\nVariable quantitative (intrinsèquement numérique)\n\nVariable discrète (dans \\(\\mathbb{Z}\\))\nVariable continue (dans \\(\\mathbb{R}\\))\n\n\n\nDe nombreux exemples avec R",
+    "text": "Types de données",
     "crumbs": [
       "Statistiques descriptives",
       "Vocabulaire"
@@ -68,7 +68,7 @@
     "href": "stat_descriptive/exos.html",
     "title": "Exercices",
     "section": "",
-    "text": "Important\n\n\n\nTous les exercices doivent être maitrisés avec et sans R.",
+    "text": "Le vocabulaire de la statistique descriptive",
     "crumbs": [
       "Statistiques descriptives",
       "Exercices"
@@ -116,6 +116,127 @@
     "crumbs": [
       "Analyse factorielle",
       "Exercices"
+    ]
+  },
+  {
+    "objectID": "stat_descriptive/vocab.html#types-de-données",
+    "href": "stat_descriptive/vocab.html#types-de-données",
+    "title": "Vocabulaire",
+    "section": "",
+    "text": "Donnée : Information collectée lors d’une observation ou d’une expérience.\nPopulation : Ensemble d’éléments homogènes auxquels on s’intéresse\nIndividu : Elément de la population\nÉchantillon : Sous-ensemble représentatif de la population.\nVariable : Caractéristique mesurée sur un individu ou un objet.\n\nVariable qualitative : Prend des valeurs non numériques (ex. : type de sol, couleur d’un fruit).\n\nNominale : Sans ordre particulier (ex. : variété de plante).\nOrdinale : Avec un ordre (ex. : stade de croissance : jeune, adulte, etc).\n\nVariable quantitative : Prend des valeurs numériques.\n\nDiscrète : Nombre fini ou dénombrable de valeurs (ex. : nombre de feuilles sur une plante).\nContinue : Peut prendre une infinité de valeurs dans un intervalle (ex. : poids d’un fruit, température).",
+    "crumbs": [
+      "Statistiques descriptives",
+      "Vocabulaire"
+    ]
+  },
+  {
+    "objectID": "stat_descriptive/vocab.html#indicateurs-de-tendance-centrale",
+    "href": "stat_descriptive/vocab.html#indicateurs-de-tendance-centrale",
+    "title": "Vocabulaire",
+    "section": "Indicateurs de tendance centrale",
+    "text": "Indicateurs de tendance centrale\n\nMoyenne (arithmétique) : Somme des valeurs divisée par leur nombre total.\nMédiane : Valeur qui divise l’échantillon en deux parties égales.\nMode : Valeur la plus fréquente dans un jeu de données.",
+    "crumbs": [
+      "Statistiques descriptives",
+      "Vocabulaire"
+    ]
+  },
+  {
+    "objectID": "stat_descriptive/vocab.html#indicateurs-de-dispersion",
+    "href": "stat_descriptive/vocab.html#indicateurs-de-dispersion",
+    "title": "Vocabulaire",
+    "section": "Indicateurs de dispersion",
+    "text": "Indicateurs de dispersion\n\nÉtendue : Différence entre la plus grande et la plus petite valeur.\nVariance (\\(\\sigma^2\\)) : Mesure de la dispersion des valeurs autour de la moyenne.\nÉcart-type (\\(\\sigma\\)) : Racine carrée de la variance, exprimée dans la même unité que les données.\nCoefficient de variation : Rapport entre l’écart-type et la moyenne, exprimé en pourcentage.\nQuantiles : Valeurs qui divisent un jeu de données en intervalles égaux.\nQuartiles (Q1, Q2, Q3) : Valeurs qui divisent les données en 4 parties.\nDéciles, centiles : Division en 10 ou 100 parties.\nÉcart interquartile (IQR) : Différence entre le 3ᵉ quartile (Q3) et le 1ᵉʳ quartile (Q1).",
+    "crumbs": [
+      "Statistiques descriptives",
+      "Vocabulaire"
+    ]
+  },
+  {
+    "objectID": "stat_descriptive/vocab.html#représentations-graphiques",
+    "href": "stat_descriptive/vocab.html#représentations-graphiques",
+    "title": "Vocabulaire",
+    "section": "Représentations graphiques",
+    "text": "Représentations graphiques\n\nPie chart (ou diagramme circulaire) : Diagramme qui permet de présenter des sujets comme des parties contenues dans un tout.\nHistogramme : Graphique montrant la distribution d’une variable quantitative.\nBoxplot (boîte à moustaches) : Graphique résumant la dispersion, les quartiles et les valeurs extrêmes.\nDiagramme en bâtons : Pour les variables qualitatives ou quantitatives discrètes.\nNuage de points (scatter plot) : Pour représenter la relation entre deux variables quantitatives.",
+    "crumbs": [
+      "Statistiques descriptives",
+      "Vocabulaire"
+    ]
+  },
+  {
+    "objectID": "stat_descriptive/vocab.html#statistique-bivariée",
+    "href": "stat_descriptive/vocab.html#statistique-bivariée",
+    "title": "Vocabulaire",
+    "section": "Statistique bivariée",
+    "text": "Statistique bivariée\n\nTableau de contingence : Tableau croisant deux variables qualitatives.\nCovariance : Mesure de la variation conjointe de deux variables.\nCorrélation (coefficient de Pearson r) : Mesure de la force et de la direction de la relation linéaire entre deux variables (−1≤r≤1−1≤r≤1).\nRégression linéaire simple : Modèle prédictif exprimé par Y=aX+bY=aX+b.",
+    "crumbs": [
+      "Statistiques descriptives",
+      "Vocabulaire"
+    ]
+  },
+  {
+    "objectID": "stat_descriptive/vocab.html#statistique-descriptive-et-inférentielle-lien",
+    "href": "stat_descriptive/vocab.html#statistique-descriptive-et-inférentielle-lien",
+    "title": "Vocabulaire",
+    "section": "Statistique descriptive et inférentielle (lien)",
+    "text": "Statistique descriptive et inférentielle (lien)\nBien que la statistique descriptive ne cherche qu’à résumer et organiser les données, elle sert de base à la statistique inférentielle, qui permet de généraliser les résultats d’un échantillon à une population plus large à l’aide de tests et d’intervalles de confiance.",
+    "crumbs": [
+      "Statistiques descriptives",
+      "Vocabulaire"
+    ]
+  },
+  {
+    "objectID": "stat_descriptive/vocab.html#statistique-multivariée",
+    "href": "stat_descriptive/vocab.html#statistique-multivariée",
+    "title": "Vocabulaire",
+    "section": "Statistique Multivariée",
+    "text": "Statistique Multivariée\n\nVariable explicative (indépendante) : Variable utilisée pour expliquer ou prédire une autre.\nVariable dépendante : Variable influencée par d’autres.\nTableau de données : Matrice contenant les individus en lignes et les variables en colonnes.\nCentrage : Soustraction de la moyenne à chaque valeur d’une variable.\nRéduction : Division des valeurs centrées par l’écart-type, utilisée pour mettre les variables à la même échelle.\nTableau de contingence : Tableau croisant deux variables qualitatives.\nCovariance : Mesure de la variation conjointe de deux variables.",
+    "crumbs": [
+      "Statistiques descriptives",
+      "Vocabulaire"
+    ]
+  },
+  {
+    "objectID": "stat_descriptive/exos.html#le-vocabulaire-de-la-statistique-descriptive",
+    "href": "stat_descriptive/exos.html#le-vocabulaire-de-la-statistique-descriptive",
+    "title": "Exercices",
+    "section": "",
+    "text": "Exercice 1\n\n\n\n\nDonner la définition d’une population ainsi que trois exemples.\nDéfinir la notion d’unité statistique ou individu et donner trois exemples.\n\n\n\n\n\n\n\n\n\nSolution Exercice 1\n\n\n\n\n\ncoming.",
+    "crumbs": [
+      "Statistiques descriptives",
+      "Exercices"
+    ]
+  },
+  {
+    "objectID": "stat_descriptive/exos.html#variables-qualitatives",
+    "href": "stat_descriptive/exos.html#variables-qualitatives",
+    "title": "Exercices",
+    "section": "Variables qualitatives",
+    "text": "Variables qualitatives\n\n\n\n\n\n\nExercice 2\n\n\n\n\nDonner la définition d’une population ainsi que trois exemples.\nDéfinir la notion d’unité statistique ou individu et donner trois exemples.\n\n\n\n\n\n\n\n\n\nSolution Exercice 2\n\n\n\n\n\ncoming.\n\n\n\n\n\n\n\n\n\nExercice 3\n\n\n\n\nDonner la définition d’une population ainsi que trois exemples.\nDéfinir la notion d’unité statistique ou individu et donner trois exemples.\n\n\n\n\n\n\n\n\n\nSolution Exercice 3\n\n\n\n\n\ncoming.",
+    "crumbs": [
+      "Statistiques descriptives",
+      "Exercices"
+    ]
+  },
+  {
+    "objectID": "stat_descriptive/exos.html#variables-quantatives",
+    "href": "stat_descriptive/exos.html#variables-quantatives",
+    "title": "Exercices",
+    "section": "Variables quantatives",
+    "text": "Variables quantatives\n\n\n\n\n\n\nExercice 4\n\n\n\n\nDonner la définition d’une population ainsi que trois exemples.\nDéfinir la notion d’unité statistique ou individu et donner trois exemples.\n\n\n\n\n\n\n\n\n\nSolution Exercice 4\n\n\n\n\n\ncoming.\n\n\n\n\n\n\n\n\n\nExercice 5\n\n\n\n\nDonner la définition d’une population ainsi que trois exemples.\nDéfinir la notion d’unité statistique ou individu et donner trois exemples.\n\n\n\n\n\n\n\n\n\nSolution Exercice 5\n\n\n\n\n\ncoming.",
+    "crumbs": [
+      "Statistiques descriptives",
+      "Exercices"
+    ]
+  },
+  {
+    "objectID": "stat_descriptive/vocab.html#analyse-multivariée",
+    "href": "stat_descriptive/vocab.html#analyse-multivariée",
+    "title": "Vocabulaire",
+    "section": "Analyse multivariée",
+    "text": "Analyse multivariée\n\nVariable explicative (indépendante) : Variable utilisée pour expliquer ou prédire une autre.\nVariable dépendante : Variable influencée par d’autres.\nTableau de données : Matrice contenant les individus en lignes et les variables en colonnes.\nCentrage : Soustraction de la moyenne à chaque valeur d’une variable.\nRéduction : Division des valeurs centrées par l’écart-type, utilisée pour mettre les variables à la même échelle.\nTableau de contingence : Tableau croisant deux variables qualitatives.\nCovariance : Mesure de la variation conjointe de deux variables.",
+    "crumbs": [
+      "Statistiques descriptives",
+      "Vocabulaire"
     ]
   }
 ]

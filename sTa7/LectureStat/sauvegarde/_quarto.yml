@@ -1,0 +1,63 @@
+project:
+  type: book
+
+lang: fr
+
+number-depth: 3
+
+book:
+  title: "Statistiques et analyse de données"
+  author: "Antoine Géré"
+  date: last-modified
+  sidebar:
+    collapse-level: 1
+  search: true
+  cover-image: img/Logo_ISTOM_Couleurs_HD-rbg.png
+  chapters:
+    - index.qmd
+    - part: stat_descriptive.qmd
+      chapters:
+        - stat_descriptive/vocab.qmd
+        - stat_descriptive/variable_quali.qmd
+        - stat_descriptive/variable_quanti_discrete.qmd
+        - stat_descriptive/variable_quanti_continue.qmd
+        - stat_descriptive/analyse_bivarie.qmd
+        - stat_descriptive/analyse_multivarie.qmd
+        - stat_descriptive/regression.qmd
+        - stat_descriptive/series_temporelles.qmd
+        - stat_descriptive/exos.qmd
+    - part: proba.qmd
+      chapters:
+        - proba/espace_proba.qmd
+        - proba/proba_condi.qmd
+        - proba/independance.qmd
+        - proba/variable_aleatoire.qmd
+        - proba/lois_normales.qmd
+        - proba/lois_binomiales.qmd
+        - proba/lois_de_poisson.qmd
+        - proba/exos.qmd
+    - part: stat_inf.qmd
+      chapters:
+        - stat_inf/echantillonnage.qmd
+        - stat_inf/exos.qmd
+    - part: analyse_factorielle.qmd
+      chapters:
+        - analyse_factorielle/acp.qmd
+        - analyse_factorielle/exos.qmd
+    - references.qmd
+    
+language:
+  title-block-published: "Dernière modification"
+
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+

@@ -1,4 +1,4 @@
-## Installation de R  {.unnumbered}
+## Installation de R {.unnumbered}
 
 **R** : Rendez-vous sur le site officiel [CRAN](https://cran.r-project.org/). pour télécharger et installer **R**.
 

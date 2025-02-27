@@ -1,0 +1,56 @@
+# Vocabulaire {.unnumbered}
+
+::: callout-note
+L'objectif ici est de présenter le plus de termes, notions possibles dans le but de maitriser le vocabulaire de la statistique descriptive.
+:::
+
+## Types de données
+
+- **Donnée** : Information collectée lors d’une observation ou d’une expérience.
+- **Population** : Ensemble d’éléments homogènes auxquels on s’intéresse
+- **Individu** : Elément de la population
+- **Échantillon** : Sous-ensemble représentatif de la population.
+
+- **Variable** : Caractéristique mesurée sur un individu ou un objet.
+  - **Variable qualitative** : Prend des valeurs non numériques (ex. : type de sol, couleur d’un fruit).
+    - _Nominale_ : Sans ordre particulier (ex. : variété de plante).
+    - _Ordinale_ : Avec un ordre (ex. : stade de croissance : jeune, adulte, etc).
+  - **Variable quantitative** : Prend des valeurs numériques.
+    - _Discrète_ : Nombre fini ou dénombrable de valeurs (ex. : nombre de feuilles sur une plante).
+    - _Continue_ : Peut prendre une infinité de valeurs dans un intervalle (ex. : poids d’un fruit, température).
+
+## Indicateurs de tendance centrale
+
+- **Moyenne** (arithmétique) : Somme des valeurs divisée par leur nombre total.
+- **Médiane** : Valeur qui divise l’échantillon en deux parties égales.
+- **Mode** : Valeur la plus fréquente dans un jeu de données.
+
+## Indicateurs de dispersion
+
+- **Étendue** : Différence entre la plus grande et la plus petite valeur.
+- **Variance** ($\sigma^2$) : Mesure de la dispersion des valeurs autour de la moyenne.
+- **Écart-type** ($\sigma$) : Racine carrée de la variance, exprimée dans la même unité que les données.
+- **Coefficient de variation** : Rapport entre l’écart-type et la moyenne, exprimé en pourcentage.
+- **Quantiles** : Valeurs qui divisent un jeu de données en intervalles égaux.
+- **Quartiles** (Q1, Q2, Q3) : Valeurs qui divisent les données en 4 parties.
+- **Déciles, centiles** : Division en 10 ou 100 parties.
+- **Écart interquartile** (IQR) : Différence entre le 3ᵉ quartile (Q3) et le 1ᵉʳ quartile (Q1).
+
+## Représentations graphiques
+
+- **Pie chart** (ou diagramme circulaire) : Diagramme qui permet de présenter des sujets comme des parties contenues dans un tout.
+- **Histogramme** : Graphique montrant la distribution d’une variable quantitative.
+- **Boxplot** (boîte à moustaches) : Graphique résumant la dispersion, les quartiles et les valeurs extrêmes.
+- **Diagramme en bâtons** : Pour les variables qualitatives ou quantitatives discrètes.
+- **Nuage de points** (scatter plot) : Pour représenter la relation entre deux variables quantitatives.
+
+## Statistique Multivariée
+
+- **Variable explicative** (indépendante) : Variable utilisée pour expliquer ou prédire une autre.
+- **Variable dépendante** : Variable influencée par d’autres.
+- **Tableau de données** : Matrice contenant les individus en lignes et les variables en colonnes.
+- **Centrage** : Soustraction de la moyenne à chaque valeur d’une variable.
+- **Réduction** : Division des valeurs centrées par l’écart-type, utilisée pour mettre les variables à la même échelle.
+- **Tableau de contingence** : Tableau croisant deux variables qualitatives.
+- **Covariance** : Mesure de la variation conjointe de deux variables.
+

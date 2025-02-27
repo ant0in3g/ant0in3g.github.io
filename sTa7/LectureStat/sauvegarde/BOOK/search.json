@@ -1,0 +1,121 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Statistiques et analyse de données",
+    "section": "",
+    "text": "Introduction\nDans le domaine de l’agronomie, la prise de décision repose sur l’analyse rigoureuse de données issues d’expériences, d’observations de terrain et de mesures variées. Que ce soit pour optimiser les rendements agricoles, analyser l’impact des changements climatiques, améliorer la gestion des ressources naturelles ou évaluer la qualité des sols et des cultures, la statistique joue un rôle central.\nCe cours propose une introduction approfondie aux outils statistiques fondamentaux nécessaires aux ingénieurs agronomes. Il est structuré autour de quatre grandes thématiques :\n\nStatistique descriptive : Cette première partie vise à organiser, résumer et représenter efficacement les données issues des études agronomiques à travers des indicateurs clés (moyenne, médiane, variance, etc.) et des outils graphiques adaptés.\nProbabilités : L’incertitude est inhérente aux systèmes biologiques et environnementaux. Nous aborderons les bases du calcul des probabilités, les lois de distribution les plus courantes et leur application en agronomie (modélisation des rendements, prévision climatique, gestion des risques phytosanitaires, etc.).\nStatistique inférentielle : À partir d’un échantillon limité, il est crucial de pouvoir généraliser les résultats à l’ensemble d’une population. Cette section traitera des tests d’hypothèses, des intervalles de confiance et des méthodes d’estimation pour appuyer les décisions agronomiques sur des bases solides.\nAnalyse factorielle : Dans un contexte où les données multidimensionnelles sont omniprésentes (analyses de sols, caractéristiques des cultures, facteurs environnementaux), les méthodes d’analyse factorielle (ACP, AFC, etc.) permettent d’extraire les informations essentielles et d’interpréter les relations entre variables.\n\nTout au long de ce cours, nous apprendrons à utiliser les concepts des statistiques et de l’analyse de données avec le language de programmation R et le logiciel RStudio, sur des exemples concrets et des études de cas spécifiques aux enjeux propres des pays du sud : adaptation aux conditions climatiques locales, gestion durable des ressources et amélioration des pratiques agricoles. L’objectif est de fournir aux ingénieurs agronomes les compétences nécessaires pour interpréter des données complexes et appuyer des décisions fondées sur des analyses rigoureuses.",
+    "crumbs": [
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "stat_descriptive.html",
+    "href": "stat_descriptive.html",
+    "title": "Statistiques descriptives",
+    "section": "",
+    "text": "Objectif : décrire de façon synthétique et parlante des données observées pour mieux les analyser.\n\n\n\n\n\n\nLa statistique descriptive\n\n\n\nLa statistique descriptive étudie certaines caractéristiques d’une population. Ces caractéristiques sont appelées caractères ou variables statistiques.\n\n\n\nLa statistique descriptive à une dimension ou univariée\nLa statistique descriptive à deux dimensions ou bivariée\n\nLa statistique descriptive est la première étape de toute analyse de données. Elle permet d’organiser, de résumer et de présenter les informations issues d’observations ou d’expériences de manière compréhensible. En agronomie, où les données sont omniprésentes – que ce soit pour l’étude des rendements agricoles, l’évolution des conditions climatiques, ou la qualité des sols et des cultures – la statistique descriptive joue un rôle essentiel pour dégager des tendances et faciliter l’interprétation des résultats.\nL’objectif principal de la statistique descriptive est de transformer des données brutes en informations exploitables. Pour cela, elle repose sur deux grandes approches :\nLes mesures de tendance centrale : Elles permettent de caractériser la valeur “typique” d’un ensemble de données à travers des indicateurs comme la moyenne, la médiane et le mode. Les mesures de dispersion : Elles décrivent la variabilité des données à l’aide d’outils tels que l’étendue, la variance, l’écart-type ou encore les quartiles.\nEn complément, la représentation graphique des données (histogrammes, diagrammes de dispersion, boxplots, etc.) est un outil puissant pour identifier visuellement les tendances et anomalies.\nEn agronomie, la statistique descriptive est utilisée pour analyser la croissance des cultures, comprendre la distribution des précipitations, comparer des variétés de plantes ou encore évaluer la fertilité des sols. Elle constitue une base solide avant d’appliquer des méthodes plus avancées comme l’inférence statistique ou l’analyse factorielle.",
+    "crumbs": [
+      "Statistiques descriptives"
+    ]
+  },
+  {
+    "objectID": "stat_descriptive/vocab.html",
+    "href": "stat_descriptive/vocab.html",
+    "title": "Vocabulaire",
+    "section": "",
+    "text": "Population : ensemble d’éléments homogènes auxquels on s’intéresse.\nIndividus : éléments de la population\nEchantillon : une partie de la population étudiée\n\n\n\n\n\n\n\nNote\n\n\n\nLes observations obtenues sur une population ou sur un échantillon forment un ensemble de données sur lesquelles s’appliquent les méthodes de la statistique descriptive. Le choix de l’échantillon est donc important !\n\n\n\nPour chaque individu → Une ou plusieurs variables\n\nVariable qualitative (nominale / ordinale)\nVariable quantitative (intrinsèquement numérique)\n\nVariable discrète (dans \\(\\mathbb{Z}\\))\nVariable continue (dans \\(\\mathbb{R}\\))\n\n\n\nDe nombreux exemples avec R",
+    "crumbs": [
+      "Statistiques descriptives",
+      "Vocabulaire"
+    ]
+  },
+  {
+    "objectID": "stat_descriptive/variable_quali.html",
+    "href": "stat_descriptive/variable_quali.html",
+    "title": "Variables qualitatives",
+    "section": "",
+    "text": "Représentations graphiques\nOn utilise le jeu de données « iris » de R.\nLa fonction head() permet d’avoir un aperçu des premières lignes du jeu de données :\nOn a ainsi :\nReprésensation graphique d’une population selon une variable qualitative, ici Species",
+    "crumbs": [
+      "Statistiques descriptives",
+      "Variables qualitatives"
+    ]
+  },
+  {
+    "objectID": "stat_descriptive/variable_quali.html#représentations-graphiques",
+    "href": "stat_descriptive/variable_quali.html#représentations-graphiques",
+    "title": "Variables qualitatives",
+    "section": "",
+    "text": "Pie chart\n\nmytable &lt;- table(iris$Species)\nmylabels &lt;- names(mytable)\npct &lt;- round(mytable/sum(mytable)*100)\nlbls &lt;- paste(mylabels,\"(\",pct,\"%)\")\npie(mytable, labels = lbls, main=\"Pie Chart of Species\")\n\n\n\n\n\n\n\n\n\n\nTableau des effectifs\nTableau des effectifs \\(\\left(n_e\\right)\\) pour une variable (Species) dans une population donnée\n\ntable_Species&lt;-table(iris$Species)\ntable_Species\n\n\n    setosa versicolor  virginica \n        50         50         50 \n\n\n\n\nTableau des fréquences\nTableau des fréquences \\(\\left(f_e\\right)\\) pour une variable (Species) dans une population donnée\n\nprop.table(table_Species)\n\n\n    setosa versicolor  virginica \n 0.3333333  0.3333333  0.3333333 \n\n\n\\[f_e = \\frac{n_e}{\\sum_e n_e} = \\frac{50}{150}\\]\n\n\nDiagramme en baton des effectifs\n\nbarplot(table_Species)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nImportant\n\n\n\nMême choses pour les variables quantitatives discrètes.",
+    "crumbs": [
+      "Statistiques descriptives",
+      "Variables qualitatives"
+    ]
+  },
+  {
+    "objectID": "stat_descriptive/variable_quanti_discrete.html",
+    "href": "stat_descriptive/variable_quanti_discrete.html",
+    "title": "Variables quantitatives discrètes",
+    "section": "",
+    "text": "Effectif partiel\n\n\n\n\n\n\nDéfinition - Effectif partiel\n\n\n\nL’effectif partiel est le nombre d’individu \\(n_i\\) qui ont la même valeur pour la variable étudiée.\n\n\nOn répertorie les familles istomiennes avec leur nombre d’enfants\n\nfam_ISTOM &lt;- c(4,8,6,2,3,8,4,6,8,4,8,6,1,6,8,1,2,8,1,6,4)\neff_partiel &lt;- table(fam_ISTOM)\neff_partiel\n\nfam_ISTOM\n1 2 3 4 6 8 \n3 2 1 4 5 6 \n\n\n\neff_partiel\n\nfam_ISTOM\n1 2 3 4 6 8 \n3 2 1 4 5 6 \n\n\n\n3 familles ont 1 enfant\n2 familles ont 2 enfants\n1 familles ont 3 enfants\n4 familles ont 4 enfants\n5 familles ont 6 enfants\n6 familles ont 8 enfants\n\n\n\nEffectif cumulé\n\n\n\n\n\n\nDéfinition - Effectif cumulé\n\n\n\nL’effectif cumulé d’une valeur est la somme de l’effectif de cette valeur et de tous les effectifs des valeurs qui précèdent.\n\n\nOn regarde toujours nos familles istomiennes\n\neff_partiel\n\nfam_ISTOM\n1 2 3 4 6 8 \n3 2 1 4 5 6 \n\neff_cumul &lt;- cumsum(eff_partiel)\neff_cumul\n\n 1  2  3  4  6  8 \n 3  5  6 10 15 21 \n\n\n\neff_cumul\n\n 1  2  3  4  6  8 \n 3  5  6 10 15 21 \n\n\n\n3 familles ont 1 enfant ou moins\n5 familles ont 2 enfants ou moins\n6 familles ont 3 enfants ou moins\n10 familles ont 4 enfants ou moins\n15 familles ont 6 enfants ou moins\n21 familles ont 8 enfants ou moins\n\n\n\nEffectif total\n\n\n\n\n\n\nNote\n\n\n\nSoit un ensemnle de \\(p\\) famille. L’effectif total \\(N\\) est donné par \\[N= \\sum_i^p n_i\\] où \\(n_i\\) est l’effectif de la famille \\(i\\).\n\n\n\nfam_ISTOM\n\n [1] 4 8 6 2 3 8 4 6 8 4 8 6 1 6 8 1 2 8 1 6 4\n\neff_tot_enfants_istom &lt;- sum(fam_ISTOM)\neff_tot_enfants_istom\n\n[1] 104\n\n\n\n\nFréquence partielle / relative\n\n\n\n\n\n\nDéfinition - Fréquence partielle\n\n\n\nLa fréquence partielle d’une valeur est le rapport de l’effectif partiel de cette valeur par l’effectif total.\n\n\nici pour l’exemple des familles istomiennes\n\nfreq_part_methode_1 &lt;- prop.table(eff_partiel)\nfreq_part_methode_1\n\nfam_ISTOM\n         1          2          3          4          6          8 \n0.14285714 0.09523810 0.04761905 0.19047619 0.23809524 0.28571429 \n\nfreq_part_methode_2 &lt;- eff_partiel/sum(eff_partiel)\nfreq_part_methode_2\n\nfam_ISTOM\n         1          2          3          4          6          8 \n0.14285714 0.09523810 0.04761905 0.19047619 0.23809524 0.28571429 \n\n\nen pourcentage :\n\nfreq_part_methode_2_pct &lt;- (eff_partiel/sum(eff_partiel))*100\nfreq_part_methode_2_pct\n\nfam_ISTOM\n        1         2         3         4         6         8 \n14.285714  9.523810  4.761905 19.047619 23.809524 28.571429 \n\n\n\non peut également arrondir nos résultats :\n\nfreq_part_methode_2_pct_arrondi &lt;- round((eff_partiel/sum(eff_partiel))*100,2)\nfreq_part_methode_2_pct_arrondi\n\nfam_ISTOM\n    1     2     3     4     6     8 \n14.29  9.52  4.76 19.05 23.81 28.57 \n\n\nla somme des fréquences partielles est égale à \\(1\\) ou \\(100 \\%\\)\n\nsum(freq_part_methode_1)\n\n[1] 1\n\nsum(freq_part_methode_2)\n\n[1] 1\n\nsum(freq_part_methode_2_pct)\n\n[1] 100\n\n\n\n\nFréquence cumulée\n\n\n\n\n\n\nDéfinition - Fréquence cumulée\n\n\n\nLa fréquence cumulée d’une valeur est la somme de la fréquence partiel de cette valeur et de toutes les fréquences des valeurs qui précèdent.\n\n\n\nfreq_cumul_methode_1 &lt;- cumsum(freq_part_methode_1)\nround(freq_cumul_methode_1,2)\n\n   1    2    3    4    6    8 \n0.14 0.24 0.29 0.48 0.71 1.00 \n\nfreq_cumul_methode_2 &lt;- cumsum(freq_part_methode_2)\nround(freq_cumul_methode_2,2)\n\n   1    2    3    4    6    8 \n0.14 0.24 0.29 0.48 0.71 1.00 \n\n\n\n\nReprésentation graphique\n\nMéthode de représentation : dépend de la nature de variable (qualitative ou quantitative)\nLe graphique permet de :\n\nde synthétiser les principales caractéristiques de la série stat.\nde mettre de évidence les tendances / les anomalies\n\nDiagramme en baton\n\n\nbarplot(eff_partiel)\n\n\n\n\n\n\n\n\n\nDiagramme cummulatif\n\n\n\n\n\n\n\nDéfinition - Fonction de répartition\n\n\n\nSoit la fonction \\[F : \\mathbb{R} \\to [0,1]\\] \\(F(x)\\) : pourcentage d’individus dont la valeur du caractère \\(\\leq x\\).\nC’est la fonction de répartition du caractère \\(X\\)\n\n\nOn choisit de s’interesser au caractère fréquence cumulée.\n\nfreq_cumul_methode_1_rd &lt;- round(freq_cumul_methode_1,3)\nfreq_cumul_methode_1_rd\n\n    1     2     3     4     6     8 \n0.143 0.238 0.286 0.476 0.714 1.000 \n\nplot(freq_cumul_methode_1_rd, type=\"s\", main=\"Diagramme cummulatif\", xlab=\"x (nbre d'enfants)\", ylab=\"F(x) (fréquence cumulée)\")\n\n\n\n\n\n\n\n\n\n\nParamètre de position\nParamètres de position fréquents :\n\nLe maximum, le minimum\nLe mode\nLa médiane\nLa moyenne\nLe 1er quartile\nLe 3eme quartile\nLe maximum\n\n\nmax(fam_ISTOM)\n\n[1] 8\n\n\n\nLe minimum\n\n\nmin(fam_ISTOM)\n\n[1] 1\n\n\n\n\n\n\n\n\nDéfinition - Le mode\n\n\n\nLe mode d’une variable est la valeur qui a le plus grand effectif partiel (ou plus grande fréquence partielle). On le note \\(M_0\\).\n\n\nAvec R, le calcul du mode d’une série statistique n’est pas direct. Cependant, il est possible de créer une fonction pour le calculer.\n\ncalcul_mode &lt;- function(x) {\n  eff &lt;- table(x)\n  mode &lt;- as.numeric(names(eff[eff == max(eff)]))\n  return(mode)\n}\ncalcul_mode(fam_ISTOM)\n\n[1] 8\n\n\n\nLa fonction table(x) compte combien de fois chaque valeur apparaît dans le vecteur x\nLa fonction max(eff) permet d’extraire la valeur qui a l’effectif max\nEnsuite on filtre eff afin d’avoir les valeurs ayant cette effectif max avec eff[eff == max(eff)]\nOn récupère le nom de la valeur qui a été filtrée avec names()\nnames() renvoie du texte, on doit donc convertir le résultat en nombre avec as.numeric()\n\n\nfam_ISTOM\n\n [1] 4 8 6 2 3 8 4 6 8 4 8 6 1 6 8 1 2 8 1 6 4\n\ntable(fam_ISTOM)\n\nfam_ISTOM\n1 2 3 4 6 8 \n3 2 1 4 5 6 \n\nmax(table(fam_ISTOM))\n\n[1] 6\n\ntable(fam_ISTOM)[table(fam_ISTOM) == max(table(fam_ISTOM))]\n\n8 \n6 \n\nnames(table(fam_ISTOM)[table(fam_ISTOM) == max(table(fam_ISTOM))])\n\n[1] \"8\"\n\nas.numeric(names(table(fam_ISTOM)[table(fam_ISTOM) == max(table(fam_ISTOM))]))\n\n[1] 8\n\n\n\ncalcul_mode &lt;- function(x) {\n  freq &lt;- table(x)\n  mode &lt;- as.numeric(names(freq[freq == max(freq)]))\n  return(mode)\n}\ncalcul_mode(fam_ISTOM)\n\n[1] 8\n\n\nce que l’on observait bien directement sur le diagramme en baton :\n\nbarplot(eff_partiel)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDéfinition - La médiane\n\n\n\nLa médiane partage la série statistique en deux groupes de même effectif. On la note \\(M_e\\)\n\n\n\nfam_ISTOM\n\n [1] 4 8 6 2 3 8 4 6 8 4 8 6 1 6 8 1 2 8 1 6 4\n\nmedian(fam_ISTOM)\n\n[1] 6\n\n\nIl y a autant de famille avec plus de 6 enfants que de famille avec moins de 6 enfants.\nAvec la fonction de répartition précedemment présentée : \\[F(M_e^-) &lt; 0.5 &lt; F(M_e^+)\\]\n\nfreq_cumul_methode_1_rd\n\n    1     2     3     4     6     8 \n0.143 0.238 0.286 0.476 0.714 1.000 \n\nplot(freq_cumul_methode_1_rd, type=\"s\", main=\"Diagramme cummulatif\", xlab=\"x (nbre d'enfants)\", ylab=\"F(x) (fréquence cumulée)\")\nabline(h=0.5,col=\"red\")\n\n\n\n\n\n\n\n\nOn retrouve la valeur de la médiane \\(M_e = 6\\)\n\n\n\n\n\n\nDéfinition - la moyenne arithmétique\n\n\n\nOn note moyenne de \\(X\\), la quantité \\[\\bar{x} = \\frac{1}{N} \\sum_{i=1}^{n} n_i x_i = \\sum_{i=1}^{n} f_i x_i\\]\n\n\\(N\\) : l’effectif total\n\\(n_i\\) : l’effectif partiel\n\\(f_i\\) : la fréquence partiel\n\\(x_i\\) : le nombre d’enfant de la famille \\(i\\)\n\n\n\n\nmean(fam_ISTOM)\n\n[1] 4.952381\n\n\n\n\n\n\n\n\nDéfinition - 1er et 3eme quartile\n\n\n\n\nLe 1er quartile, noté Q1, est la valeur qui sépare le premier quart du reste de la distribution.\nLe 3eme quartile, noté Q3, est la valeur qui sépare le dernier quart du reste de la distribution.\n\n\n\n\nfam_ISTOM\n\n [1] 4 8 6 2 3 8 4 6 8 4 8 6 1 6 8 1 2 8 1 6 4\n\nquantile(fam_ISTOM, 0.25)  # Premier quartile (25%)\n\n25% \n  3 \n\nquantile(fam_ISTOM, 0.75)  # Troisième quartile (75%)\n\n75% \n  8 \n\n\n\nsummary(fam_ISTOM)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  1.000   3.000   6.000   4.952   8.000   8.000 \n\nmin(fam_ISTOM)\n\n[1] 1\n\nquantile(fam_ISTOM, 0.25) \n\n25% \n  3 \n\nmedian(fam_ISTOM)\n\n[1] 6\n\nmean(fam_ISTOM)\n\n[1] 4.952381\n\nquantile(fam_ISTOM, 0.75)\n\n75% \n  8 \n\nmax(fam_ISTOM)\n\n[1] 8\n\n\n\n\nExemple\nTramway Ligne C - Roseraie → Belle-Beille Campus\nDonnées :\n\nLigneC_arret &lt;- c('Roseraie','Jean Vilar','Jean XXIII','Bamako','Strasbourg','La Fayette','Les Gares','Foch-Haras','Foch-Maison Bleue','Ralliement','Molière','Doutre','Le Quai','Farcy','Élysée','Patton','La Barre','Beaussier','Belle-Beille Campus')\nLigneC_arret\n\n [1] \"Roseraie\"            \"Jean Vilar\"          \"Jean XXIII\"         \n [4] \"Bamako\"              \"Strasbourg\"          \"La Fayette\"         \n [7] \"Les Gares\"           \"Foch-Haras\"          \"Foch-Maison Bleue\"  \n[10] \"Ralliement\"          \"Molière\"             \"Doutre\"             \n[13] \"Le Quai\"             \"Farcy\"               \"Élysée\"             \n[16] \"Patton\"              \"La Barre\"            \"Beaussier\"          \n[19] \"Belle-Beille Campus\"\n\n\n\nLigneC_kms &lt;- c(9,8.6,8.1,7.6,7.0,6.5,6.1,5.6,5.0,4.3,3.7,2.8,2,1.6,1.1,0.7,0.5,0.1,0)\nLigneC_kms\n\n [1] 9.0 8.6 8.1 7.6 7.0 6.5 6.1 5.6 5.0 4.3 3.7 2.8 2.0 1.6 1.1 0.7 0.5 0.1 0.0\n\n\n\ndata.frame(LigneC_arret, LigneC_kms)\n\n          LigneC_arret LigneC_kms\n1             Roseraie        9.0\n2           Jean Vilar        8.6\n3           Jean XXIII        8.1\n4               Bamako        7.6\n5           Strasbourg        7.0\n6           La Fayette        6.5\n7            Les Gares        6.1\n8           Foch-Haras        5.6\n9    Foch-Maison Bleue        5.0\n10          Ralliement        4.3\n11             Molière        3.7\n12              Doutre        2.8\n13             Le Quai        2.0\n14               Farcy        1.6\n15              Élysée        1.1\n16              Patton        0.7\n17            La Barre        0.5\n18           Beaussier        0.1\n19 Belle-Beille Campus        0.0\n\n\n\n\n\n\n\n\nAvertissement\n\n\n\nObjectif : trouver un lieu de RDV le long de la ligne C qui minimise le trajet de tous !\n\n\nNotations :\n\n\\(A_i\\) : arret \\(i\\) (l’arret \\(A_4\\) est Bamako)\n\\(x_i\\) : distance de l’arrêt \\(i\\) au terminus (\\(x_4 = 7.6\\))\n\\(P\\) : point de RDV\n\\(p\\) : distance entre le point de RDV et le terminus\nPremière idée : Placer le point de RDV au milieu de ligne C\n\n\\[p=\\frac12 \\left(x_{min} + x_{max}\\right)\\]\n\np1 &lt;- 0.5*(max(LigneC_kms)+min(LigneC_kms))\np1\n\n[1] 4.5\n\n\nSi la répartitions est à peu près symétrique, pourquoi pas, autrement …\nTrouver \\(D\\) revient à trouver la mediane !\n\nDeuxième idée : On choisi de placer le point de RDV sur l’arret du milieu, au Ralliement (\\(x_{10}\\)). Donc\n\n\\(9\\) arrets avant Ralliement\n\\(9\\) arrets apres Ralliement\n\n\nLa distance totale parcourue pour rejoindre \\(P\\) est :\n\\[\\begin{align*}\nD\n=& \\sum_{i=1}^{19} \\ |p-x_i| \\\\\n=& \\sum_{i=1}^{9} \\ |p-x_i| + |p-x_{10}| + \\sum_{i=11}^{19} \\ |p-x_i|\n\\end{align*}\\]\nD’où\n\\[\\begin{align*}\nD =& \\sum_{i=1}^{9} \\ |x_{10}-x_i| + \\sum_{i=11}^{19} \\ |x_{10}-x_i| \\\\\n=& |x_{1}-x_{19}| + |x_{2}-x_{18}| + |x_{3}-x_{17}| + |x_{4}-x_{16}| \\\\\n&+ |x_{5}-x_{15}| + |x_{6}-x_{14}| + |x_{7}-x_{13}| + |x_{8}-x_{12}| \\\\\n&+ |x_{9}-x_{11}|  \n\\end{align*}\\]\nOn choisi de placer \\(P\\) entre Foch-Maison Bleue (\\(x_{9}\\)) et Ralliement (\\(x_{10}\\)). On a\n\\[\\begin{align*}\nD\n=& |x_{1}-x_{19}| + |x_{2}-x_{18}| + |x_{3}-x_{17}| + |x_{4}-x_{16}| \\\\\n&+ |x_{5}-x_{15}| + |x_{6}-x_{14}| + |x_{7}-x_{13}| + |x_{8}-x_{12}| \\\\\n&+ |x_{9}-x_{11}| + |c-x_{10}|\n\\end{align*}\\]\nUn terme en plus \\(|p-x_{10}|\\)\nMême observation si on place \\(P\\) entre Ralliement (\\(x_{10}\\)) et Molière (\\(x_{11}\\))\n\n\n\n\n\n\nImportant\n\n\n\nChercher la valeur de \\(p\\) afin de minimiser \\(D\\) revient à chercher la médiane de cette série statistique.\n\n\n\n\n\n\n\n\nImportant\n\n\n\nLa moyenne quant à elle est la valeur de \\(p\\) qui permet de minimiser \\[\\sum_{i=1}^{19} \\left(p-x_i\\right)^2\\]\n\n\n\n\nParamètre de dispersion\nLes indicateurs de dispersion usuels sont :\n\nL’étendue / L’intervalle des valeurs possibles\nL’écaart moyen absolu\nLa variance et l’écart type\nL’écart inter-quartiles\n\n\nlibrary(palmerpenguins) #charge un jeu de données nommé 'penguins'\n\nWarning: package 'palmerpenguins' was built under R version 4.4.2\n\nhead(penguins) \n\n# A tibble: 6 × 8\n  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n1 Adelie  Torgersen           39.1          18.7               181        3750\n2 Adelie  Torgersen           39.5          17.4               186        3800\n3 Adelie  Torgersen           40.3          18                 195        3250\n4 Adelie  Torgersen           NA            NA                  NA          NA\n5 Adelie  Torgersen           36.7          19.3               193        3450\n6 Adelie  Torgersen           39.3          20.6               190        3650\n# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;\n\n\n\n\n\n\n\n\nDéfinition - L’étendue\n\n\n\nLa médiane partage la série statistique e, groupe de même effectif. On la note \\(M_e\\)\n\n\n\n\n\n\n\n\nDéfinition - La variance\n\n\n\nLa médiane partage la série statistique e, groupe de même effectif. On la note \\(M_e\\)\n\n\n\n\n\n\n\n\nDéfinition - L’écart type\n\n\n\nLa médiane partage la série statistique e, groupe de même effectif. On la note \\(M_e\\)",
+    "crumbs": [
+      "Statistiques descriptives",
+      "Variables quantitatives discrètes"
+    ]
+  },
+  {
+    "objectID": "stat_descriptive/exos.html",
+    "href": "stat_descriptive/exos.html",
+    "title": "Exercices",
+    "section": "",
+    "text": "Important\n\n\n\nTous les exercices doivent être maitrisés avec et sans R.",
+    "crumbs": [
+      "Statistiques descriptives",
+      "Exercices"
+    ]
+  },
+  {
+    "objectID": "proba/exos.html",
+    "href": "proba/exos.html",
+    "title": "Exercices",
+    "section": "",
+    "text": "Important\n\n\n\nTous les exercices doivent être maitrisés avec et sans R.",
+    "crumbs": [
+      "Probabilités",
+      "Exercices"
+    ]
+  },
+  {
+    "objectID": "stat_inf/exos.html",
+    "href": "stat_inf/exos.html",
+    "title": "Exercices",
+    "section": "",
+    "text": "Important\n\n\n\nTous les exercices doivent être maitrisés avec et sans R.",
+    "crumbs": [
+      "Statistiques inférentielles",
+      "Exercices"
+    ]
+  },
+  {
+    "objectID": "analyse_factorielle/acp.html",
+    "href": "analyse_factorielle/acp.html",
+    "title": "ACP",
+    "section": "",
+    "text": "Techniques de l’analyse en composantes principales",
+    "crumbs": [
+      "Analyse factorielle",
+      "ACP"
+    ]
+  },
+  {
+    "objectID": "analyse_factorielle/exos.html",
+    "href": "analyse_factorielle/exos.html",
+    "title": "Exercices",
+    "section": "",
+    "text": "Important\n\n\n\nTous les exercices doivent être maitrisés avec et sans R.",
+    "crumbs": [
+      "Analyse factorielle",
+      "Exercices"
+    ]
+  }
+]
