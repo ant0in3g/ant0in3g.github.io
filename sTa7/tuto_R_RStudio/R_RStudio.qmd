@@ -1,9 +1,0 @@
-# R et RStudio {.unnumbered}
-
-Il est nécessaire d'avoir :
-
-- soit un pc windows
-- soit un ordinateur avec une distribution linux, par exemple Ubuntu
-- soit un mac
-
-Il est aujourd'hui possible de trouver des ordinateurs de qualité à moindre prix, en reconditionné, par exemple sur ce site [https://www.backmarket.fr/fr-fr](https://www.backmarket.fr/fr-fr).

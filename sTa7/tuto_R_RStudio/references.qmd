@@ -1,4 +1,0 @@
-# References {.unnumbered} 
-
--   [Documentation officielle de R](https://cran.r-project.org/manuals.html)
--   [Introduction à R par RStudio](https://posit.co/resources/)

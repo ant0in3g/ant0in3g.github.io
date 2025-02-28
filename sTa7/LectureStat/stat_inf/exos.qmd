@@ -1,5 +1,0 @@
-# Exercices {.unnumbered}
-
-::: callout-important
-Tous les exercices doivent être maitrisés **avec** et **sans** R.
-:::

@@ -1,5 +1,0 @@
-# R et RStudio {.unnumbered}
-
-coming.
-
-

@@ -1,3 +1,0 @@
-# ACP {.unnumbered}
-
-**Techniques de l’analyse en composantes principales**
