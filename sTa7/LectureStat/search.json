@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Statistiques et analyse de données",
     "section": "",
-    "text": "Introduction\nDans le domaine de l’agronomie, la prise de décision repose sur l’analyse rigoureuse de données issues d’expériences, d’observations de terrain et de mesures variées. Que ce soit pour optimiser les rendements agricoles, analyser l’impact des changements climatiques, améliorer la gestion des ressources naturelles ou évaluer la qualité des sols et des cultures, la statistique joue un rôle central.\nCe cours propose une introduction approfondie aux outils statistiques fondamentaux nécessaires aux ingénieurs agronomes. Il est structuré autour de quatre grandes thématiques :\n\nStatistique descriptive : Cette première partie vise à organiser, résumer et représenter efficacement les données issues des études agronomiques à travers des indicateurs clés (moyenne, médiane, variance, etc.) et des outils graphiques adaptés.\nProbabilités : L’incertitude est inhérente aux systèmes biologiques et environnementaux. Nous aborderons les bases du calcul des probabilités, les lois de distribution les plus courantes et leur application en agronomie (modélisation des rendements, prévision climatique, etc.).\nStatistique inférentielle : À partir d’un échantillon limité, il est crucial de pouvoir généraliser les résultats à l’ensemble d’une population. Cette section traitera des tests d’hypothèses, des intervalles de confiance et des méthodes d’estimation pour appuyer les décisions agronomiques sur des bases solides.\nAnalyse factorielle : Dans un contexte où les données multidimensionnelles sont omniprésentes (analyses de sols, caractéristiques des cultures, facteurs environnementaux), les méthodes d’analyse factorielle (ACP, AFC, etc.) permettent d’extraire les informations essentielles et d’interpréter les relations entre variables.\n\nTout au long de ce cours nous apprendrons à utiliser les concepts des statistiques et de l’analyse de données avec le language de programmation R et le logiciel RStudio (cf ce lien pour un tutorial sur la prise en main de R et RStudio).\n\nCet apprentissage s’effectera sur des exemples concrets et des études de cas spécifiques aux enjeux propres des pays du sud : adaptation aux conditions climatiques locales, gestion durable des ressources et amélioration des pratiques agricoles.\nL’objectif est de vous fournir, futurs ingénieurs agronomes, les compétences nécessaires pour interpréter des données complexes et appuyer des décisions fondées sur des analyses rigoureuses.\n\n\n\n\n\n\nImportant\n\n\n\nCes notes sont en cours d’élaboration. Si vous avez la moindre question ou remarque ne pas hésiter à me contacter par email a.gere@istom.fr",
+    "text": "Introduction\nDans le domaine de l’agronomie, la prise de décision repose sur l’analyse rigoureuse de données issues d’expériences, d’observations de terrain et de mesures variées. Que ce soit pour optimiser les rendements agricoles, analyser l’impact des changements climatiques, améliorer la gestion des ressources naturelles ou évaluer la qualité des sols et des cultures, la statistique joue un rôle central.\nCe cours propose une introduction approfondie aux outils statistiques fondamentaux nécessaires aux ingénieurs agronomes. Il est structuré autour de quatre grandes thématiques :\nTout au long de ce cours nous apprendrons à utiliser les concepts des statistiques et de l’analyse de données avec le language de programmation R et le logiciel RStudio (cf ce lien pour un tutorial sur la prise en main de R et RStudio).\nCet apprentissage s’effectera sur des exemples concrets et des études de cas spécifiques aux enjeux propres des pays du sud : adaptation aux conditions climatiques locales, gestion durable des ressources et amélioration des pratiques agricoles.\nL’objectif est de vous fournir, futurs ingénieurs agronomes, les compétences nécessaires pour interpréter des données complexes et appuyer des décisions fondées sur des analyses rigoureuses.",
     "crumbs": [
       "Introduction"
     ]
@@ -259,6 +259,455 @@
     "crumbs": [
       "Statistiques descriptives",
       "Analyse bivariée"
+    ]
+  },
+  {
+    "objectID": "proba.html",
+    "href": "proba.html",
+    "title": "Probabilités",
+    "section": "",
+    "text": "Les probabilités sont une branche des mathématiques qui permet de mesurer et de quantifier l’incertitude. Que ce soit en jouant à un jeu de cartes, en prévoyant la météo ou en analysant des résultats sportifs, nous faisons constamment face à des situations incertaines. Les probabilités nous aident à mieux comprendre ces situations en attribuant des valeurs numériques aux chances qu’un événement se produise.\nL’objectif est de vous donner les outils nécessaires pour analyser et anticiper des événements incertains, une compétence précieuse en mathématiques mais aussi dans de nombreux domaines comme l’économie, l’agronomie ou les sciences général.",
+    "crumbs": [
+      "Probabilités"
+    ]
+  },
+  {
+    "objectID": "proba/espace_proba.html",
+    "href": "proba/espace_proba.html",
+    "title": "Espace probabilisé",
+    "section": "",
+    "text": "Univers \\(\\Omega\\)\nUn espace probabilisé est une structure mathématique permettant de modéliser une expérience aléatoire. Il est défini par un triplet \\[\\left(\\Omega, \\mathcal{A}, \\mathbb{P}\\right)\\]\nL’univers \\(\\Omega\\) est l’ensemble des événements élémentaires \\(\\omega\\), c’est à dire l’ensemble de tous les résultats possibles d’une expérience aléatoire.\nExemples",
+    "crumbs": [
+      "Probabilités",
+      "Espace probabilisé"
+    ]
+  },
+  {
+    "objectID": "proba/espace_proba.html#lespace-des-événements-élémentaires-univers",
+    "href": "proba/espace_proba.html#lespace-des-événements-élémentaires-univers",
+    "title": "Espace probabilisé",
+    "section": "1. () : L’espace des événements élémentaires (Univers)",
+    "text": "1. () : L’espace des événements élémentaires (Univers)\nC’est l’ensemble de tous les résultats possibles d’une expérience aléatoire.\n\nExemple : Lors du lancer d’un dé à six faces, l’univers des possibles est : [ = {1, 2, 3, 4, 5, 6} ]",
+    "crumbs": [
+      "Probabilités",
+      "Espace probabilisé"
+    ]
+  },
+  {
+    "objectID": "proba/espace_proba.html#la-tribu-des-événements",
+    "href": "proba/espace_proba.html#la-tribu-des-événements",
+    "title": "Espace probabilisé",
+    "section": "2. () : La tribu des événements",
+    "text": "2. () : La tribu des événements\nUn événement est un sous-ensemble de (). L’ensemble () regroupe les événements pour lesquels on peut attribuer une probabilité.\n\nExemple : Si on s’intéresse aux événements “obtenir un nombre pair” et “obtenir un nombre impair”, on peut définir : [ = { , {2,4,6}, {1,3,5}, } ]",
+    "crumbs": [
+      "Probabilités",
+      "Espace probabilisé"
+    ]
+  },
+  {
+    "objectID": "proba/espace_proba.html#p-la-mesure-de-probabilité",
+    "href": "proba/espace_proba.html#p-la-mesure-de-probabilité",
+    "title": "Espace probabilisé",
+    "section": "\\(P\\) : La mesure de probabilité",
+    "text": "\\(P\\) : La mesure de probabilité\nC’est une fonction qui associe à chaque événement ( A ) un nombre réel entre \\(0\\) et \\(1\\), respectant les règles suivantes : - ( P() = 1 ) (l’événement certain a une probabilité de 1). - ( P() = 0 ) (l’événement impossible a une probabilité de 0). - Pour des événements disjoints ( A_1, A_2, A_3, ), la probabilité de leur union est la somme des probabilités individuelles : [ P(A_1 A_2 A_3 ) = P(A_1) + P(A_2) + P(A_3) + ]",
+    "crumbs": [
+      "Probabilités",
+      "Espace probabilisé"
+    ]
+  },
+  {
+    "objectID": "proba/espace_proba.html#exemple-dun-lancer-de-dé-équilibré",
+    "href": "proba/espace_proba.html#exemple-dun-lancer-de-dé-équilibré",
+    "title": "Espace probabilisé",
+    "section": "Exemple d’un lancer de dé équilibré",
+    "text": "Exemple d’un lancer de dé équilibré\nSi on lance un dé à six faces : - (= {1, 2, 3, 4, 5, 6}) - Un événement : “obtenir un nombre pair” ( A = {2, 4, 6} ) - La probabilité associée est : [ P(A) = = 0.5 ]\nCe cadre mathématique permet d’analyser et de calculer des probabilités de manière rigoureuse. 🎲",
+    "crumbs": [
+      "Probabilités",
+      "Espace probabilisé"
+    ]
+  },
+  {
+    "objectID": "proba/espace_proba.html#omega-lespace-des-événements-élémentaires-univers",
+    "href": "proba/espace_proba.html#omega-lespace-des-événements-élémentaires-univers",
+    "title": "Espace probabilisé",
+    "section": "",
+    "text": "Exemple : Lors du lancer d’un dé à six faces, l’univers des possibles est : [ = {1, 2, 3, 4, 5, 6} ]",
+    "crumbs": [
+      "Probabilités",
+      "Espace probabilisé"
+    ]
+  },
+  {
+    "objectID": "proba/espace_proba.html#mathcala-la-tribu-des-événements",
+    "href": "proba/espace_proba.html#mathcala-la-tribu-des-événements",
+    "title": "Espace probabilisé",
+    "section": "\\(\\mathcal{A}\\) : La tribu des événements",
+    "text": "\\(\\mathcal{A}\\) : La tribu des événements\nUn événement est un sous-ensemble de (). L’ensemble () regroupe les événements pour lesquels on peut attribuer une probabilité.\n\nExemple : Si on s’intéresse aux événements “obtenir un nombre pair” et “obtenir un nombre impair”, on peut définir : [ = { , {2,4,6}, {1,3,5}, } ]",
+    "crumbs": [
+      "Probabilités",
+      "Espace probabilisé"
+    ]
+  },
+  {
+    "objectID": "proba/espace_proba.html#exemple",
+    "href": "proba/espace_proba.html#exemple",
+    "title": "Espace probabilisé",
+    "section": "Exemple",
+    "text": "Exemple\nExemple d’un lancer de dé équilibré Si on lance un dé à six faces : - (= {1, 2, 3, 4, 5, 6}) - Un événement : “obtenir un nombre pair” ( A = {2, 4, 6} ) - La probabilité associée est : [ P(A) = = 0.5 ]\nCe cadre mathématique permet d’analyser et de calculer des probabilités de manière rigoureuse.",
+    "crumbs": [
+      "Probabilités",
+      "Espace probabilisé"
+    ]
+  },
+  {
+    "objectID": "proba/espace_proba.html#omega-est-lespace-des-événements-élémentaires-univers",
+    "href": "proba/espace_proba.html#omega-est-lespace-des-événements-élémentaires-univers",
+    "title": "Espace probabilisé",
+    "section": "",
+    "text": "Exemple : Lors du lancer d’un dé à six faces, l’univers des possibles est : [ = {1, 2, 3, 4, 5, 6} ]",
+    "crumbs": [
+      "Probabilités",
+      "Espace probabilisé"
+    ]
+  },
+  {
+    "objectID": "proba/espace_proba.html#mathcala-est-la-tribu-des-événements",
+    "href": "proba/espace_proba.html#mathcala-est-la-tribu-des-événements",
+    "title": "Espace probabilisé",
+    "section": "\\(\\mathcal{A}\\) est la tribu des événements",
+    "text": "\\(\\mathcal{A}\\) est la tribu des événements\nUn événement est un sous-ensemble de (). L’ensemble () regroupe les événements pour lesquels on peut attribuer une probabilité.\n\nExemple : Si on s’intéresse aux événements “obtenir un nombre pair” et “obtenir un nombre impair”, on peut définir : [ = { , {2,4,6}, {1,3,5}, } ]",
+    "crumbs": [
+      "Probabilités",
+      "Espace probabilisé"
+    ]
+  },
+  {
+    "objectID": "proba/espace_proba.html#p-est-la-mesure-de-probabilité",
+    "href": "proba/espace_proba.html#p-est-la-mesure-de-probabilité",
+    "title": "Espace probabilisé",
+    "section": "\\(P\\) est la mesure de probabilité",
+    "text": "\\(P\\) est la mesure de probabilité\nC’est une fonction qui associe à chaque événement ( A ) un nombre réel entre \\(0\\) et \\(1\\), respectant les règles suivantes : - ( P() = 1 ) (l’événement certain a une probabilité de 1). - ( P() = 0 ) (l’événement impossible a une probabilité de 0). - Pour des événements disjoints ( A_1, A_2, A_3, ), la probabilité de leur union est la somme des probabilités individuelles : [ P(A_1 A_2 A_3 ) = P(A_1) + P(A_2) + P(A_3) + ]",
+    "crumbs": [
+      "Probabilités",
+      "Espace probabilisé"
+    ]
+  },
+  {
+    "objectID": "proba/espace_proba.html#définition",
+    "href": "proba/espace_proba.html#définition",
+    "title": "Espace probabilisé",
+    "section": "1 Définition",
+    "text": "1 Définition\nPour définir un espace probabilisé, on a besoin d’un ensemble \\(\\Omega\\) appelé univers, qui peut représenter l’ensemble des résultats possibles de l’expérience considérée.",
+    "crumbs": [
+      "Probabilités",
+      "Espace probabilisé"
+    ]
+  },
+  {
+    "objectID": "proba/espace_proba.html#exemples",
+    "href": "proba/espace_proba.html#exemples",
+    "title": "Espace probabilisé",
+    "section": "Exemples",
+    "text": "Exemples\n\nLancer d’une pièce équilibrée : on souhaite modéliser le résultat du lancer d’une pièce sans tricherie. Pour cela, on choisit \\(\\Omega_{1}=\\{\\) pile, face \\(\\}\\). L’ensemble des parties de \\(\\Omega_{1}\\) comporte quatre éléments et on définit la mesure de probabilité \\(\\mathbb{P}\\) par \\(\\mathbb{P}(\\) pile \\()=\\mathbb{P}(\\) face \\()=1 / 2\\) puisque les deux événements sont équiprobables (i.e. de même probabilité).\nLancer de \\(k\\) pièces, \\(k \\geq 2\\) : on prend cette fois-ci \\(\\Omega_{k}=\\Omega_{1}^{k}\\), c’est-à-dire l’ensemble des \\(k\\)-uplets de pile ou face. On a \\(\\operatorname{Card}\\left(\\Omega_{k}\\right)=2^{k}\\). Les différents \\(k\\)-uplets sont tous équiprobables donc \\(\\mathbb{P}(\\omega)=2^{-k}\\), pour tout \\(\\omega \\in \\Omega_{k}\\). On aboutit ainsi naturellement à la Définition 5 Supposons que \\(\\Omega\\) soit un ensemble fini. On dit qu’on se trouve dans un cas équiprobable si tous les événements élémentaires ont même valeur \\(\\overline{d e}\\) probablité. On dit aussi que la probabilité est uniforme discrète.\n\nDans le cas équiprobable, on a donc \\(\\mathbb{P}(\\omega)=p\\) pour tout \\(\\omega \\in \\Omega\\), où \\(p=1 / \\operatorname{Card}(\\Omega)\\). On peut alors écrire :\n\\[\n\\mathbb{P}(A)=\\sum_{\\omega \\in A} \\mathbb{P}(\\omega)=\\sum_{\\omega \\in A} \\frac{1}{\\operatorname{Card}(\\Omega)}=\\frac{\\operatorname{Card}(A)}{\\operatorname{Card}(\\Omega)}\n\\]\nsoit encore :\n\\[\n\\mathbb{P}(A)=\\frac{\\text { nombre de cas favorables }}{\\text { nombre de cas possibles }} .\n\\]\nATTENTION, cette formule n’est valable que pour les cas équiprobables. Elle fonctionne dans l’exemple du dé normal, mais pas dans celui du dé truqué. Il ne peut bien sûr pas y avoir de probabilité uniforme sur \\(\\mathbb{N}\\). Exemples Mesure de probabilité sur \\(\\mathbb{N}^{*}\\). On lance un dé de façon répétée jusqu’à obtenir un 6 , et on note le numéro du tirage du premier 6 . On a évidemment \\(\\mathbb{P}(1)=1 / 6\\). On a également\n\\[\n\\mathbb{P}(2)=\\mathbb{P}(\\text { au premier tirage, on n'a pas eu de } 6 \\text {; au deuxième tirage, on a eu un } 6)=\\frac{5}{36}\n\\]\ncar sur les 36 tirages possibles équiprobables, seuls 5 permettent d’obtenir le premier 6 au deuxième tirage. De même, pour tout \\(k \\geq 2\\),\n\\[\n\\mathbb{P}(k)=\\mathbb{P}(k-1 \\text { echecs, puis une réussite })=\\left(\\frac{5}{6}\\right)^{k-1} \\frac{1}{6} .\n\\]\nCela constitue bien une mesure de probabilité discrète sur \\(\\mathbb{N}^{*}\\) puisque \\(\\sum_{k \\geq 1} \\mathbb{P}(k)=1\\).",
+    "crumbs": [
+      "Probabilités",
+      "Espace probabilisé"
+    ]
+  },
+  {
+    "objectID": "proba/espace_proba.html#exemples-1",
+    "href": "proba/espace_proba.html#exemples-1",
+    "title": "Espace probabilisé",
+    "section": "Exemples",
+    "text": "Exemples\n\nLa mesure uniforme sur l’intervalle \\([a, b]\\), où \\(a&lt;b:\\) On définit\n\n\\[\n\\mathbb{P}(A)=\\int_{A \\cap[a, b]} \\frac{1}{b-a} d x\n\\]\n\nLa probabilité de Gauss sur \\(\\mathbb{R}\\). On utilise ici la fonction\n\n\\[\nf(x)=\\frac{1}{\\sqrt{2 \\pi} \\sigma} \\exp \\left(\\frac{(x-m)^{2}}{2 \\sigma^{2}}\\right)\n\\]\noù \\(m \\in \\mathbb{R}\\) et \\(\\sigma \\in \\mathbb{R}^{+*}\\) sont deux paramètres fixés.",
+    "crumbs": [
+      "Probabilités",
+      "Espace probabilisé"
+    ]
+  },
+  {
+    "objectID": "proba/espace_proba.html#propriétés-élémentaires-des-probabilités",
+    "href": "proba/espace_proba.html#propriétés-élémentaires-des-probabilités",
+    "title": "Espace probabilisé",
+    "section": "Propriétés élémentaires des probabilités",
+    "text": "Propriétés élémentaires des probabilités\nProposition 3 Soit \\(A\\) et \\(B\\) deux événements quelconques (i.e. \\(A, B \\in S\\) ). Alors\n\n\\(\\mathbb{P}(\\bar{A})=1-\\mathbb{P}(A)\\),\n\\(\\mathbb{P}(\\emptyset)=0\\),\n\\(\\mathbb{P}(B)=\\mathbb{P}(A \\cap B)+\\mathbb{P}(\\bar{A} \\cap B)\\),\n\\(\\mathbb{P}(A \\cup B)=\\mathbb{P}(A)+\\mathbb{P}(B)-\\mathbb{P}(A \\cap B)\\).\n\nProposition 4 Soit \\(\\left(A_{i}\\right)_{1 \\leq i \\leq n} n\\) évènements quelconques de \\(\\Omega\\), on a\n\\[\n\\mathbb{P}\\left(\\bigcup_{i=1}^{n} A_{i}\\right)=\\sum_{i=1}^{n} \\mathbb{P}\\left(A_{i}\\right)-\\sum_{1 \\leq i&lt;j \\leq n} \\mathbb{P}\\left(A_{i} \\cap A_{j}\\right)+\\sum_{1 \\leq i&lt;j&lt;k \\leq n} \\mathbb{P}\\left(A_{i} \\cap A_{j} \\cap A_{k}\\right)+\\cdots+(-1)^{n} \\mathbb{P}\\left(\\bigcap_{i=1}^{n} A_{i}\\right)\n\\]",
+    "crumbs": [
+      "Probabilités",
+      "Espace probabilisé"
+    ]
+  },
+  {
+    "objectID": "proba/espace_proba.html#preuve.",
+    "href": "proba/espace_proba.html#preuve.",
+    "title": "Espace probabilisé",
+    "section": "Preuve.",
+    "text": "Preuve.\n\nOn a vu (prop 1.3.2) que:\n\n\\[\n\\mathbb{P}(B)=\\sum_{i \\in I} \\mathbb{P}\\left(B \\cap A_{i}\\right) .\n\\]\nPuisque \\(\\mathbb{P}\\left(B / A_{i}\\right)=\\frac{\\mathbb{P}\\left(B \\cap A_{i}\\right)}{\\mathbb{P}\\left(A_{i}\\right)}\\), on a bien :\n\\[\n\\mathbb{P}(B)=\\sum_{i \\in I} \\mathbb{P}\\left(B / A_{i}\\right) \\mathbb{P}\\left(A_{i}\\right) .\n\\]\n\nPar définition des probabilités conditionnelles, \\(\\mathbb{P}\\left(A_{k} / B\\right)=\\frac{\\mathbb{P}\\left(A_{k} \\cap B\\right)}{\\mathbb{P}(B)}\\). On peut donc écrire, en utilisant le même raisonnement que ci-dessus :\n\n\\[\n\\mathbb{P}\\left(A_{k} / B\\right)=\\frac{\\mathbb{P}\\left(B / A_{k}\\right) \\mathbb{P}\\left(A_{k}\\right)}{\\mathbb{P}(B)}\n\\]\nEn utilisant le résultat du 1 . et en remplaçant \\(\\mathbb{P}(B)\\), on obtient bien :\n\\[\n\\mathbb{P}\\left(A_{k} / B\\right)=\\frac{\\mathbb{P}\\left(A_{k}\\right) \\mathbb{P}\\left(B / A_{k}\\right)}{\\sum_{i \\in I} \\mathbb{P}\\left(A_{i}\\right) \\mathbb{P}\\left(B / A_{i}\\right)}\n\\]",
+    "crumbs": [
+      "Probabilités",
+      "Espace probabilisé"
+    ]
+  },
+  {
+    "objectID": "proba/espace_proba.html#probabilités-discrètes",
+    "href": "proba/espace_proba.html#probabilités-discrètes",
+    "title": "Espace probabilisé",
+    "section": "Probabilités discrètes",
+    "text": "Probabilités discrètes\nLa probabilité \\(\\mathbb{P}\\) est dite discrète dès que l’espace \\(\\Omega\\) est fini ou dénombrable. La tribu associée est alors généralement \\(P(\\Omega)\\), l’ensemble des parties de \\(\\Omega\\). Une probabilité sur un ensemble dénombrable est complètement déterminée par les \\(\\mathbb{P}(\\{\\omega\\})\\) pour tout \\(\\omega \\in \\Omega\\). En effet, pour \\(A \\subset \\Omega\\), on a\n\\[\n\\mathbb{P}(A)=\\sum_{\\omega \\in A} \\mathbb{P}(\\omega)\n\\]\nEn particulier, \\(1=\\mathbb{P}(\\Omega)=\\sum_{\\omega \\in \\Omega} \\mathbb{P}(\\omega)\\).\nExemples\n\nLancer d’une pièce équilibrée : on souhaite modéliser le résultat du lancer d’une pièce sans tricherie. Pour cela, on choisit \\(\\Omega_{1}=\\{\\) pile, face \\(\\}\\). L’ensemble des parties de \\(\\Omega_{1}\\) comporte quatre éléments et on définit la mesure de probabilité \\(\\mathbb{P}\\) par \\(\\mathbb{P}(\\) pile \\()=\\mathbb{P}(\\) face \\()=1 / 2\\) puisque les deux événements sont équiprobables (i.e. de même probabilité).\nLancer de \\(k\\) pièces, \\(k \\geq 2\\) : on prend cette fois-ci \\(\\Omega_{k}=\\Omega_{1}^{k}\\), c’est-à-dire l’ensemble des \\(k\\)-uplets de pile ou face. On a \\(\\operatorname{Card}\\left(\\Omega_{k}\\right)=2^{k}\\). Les différents \\(k\\)-uplets sont tous équiprobables donc \\(\\mathbb{P}(\\omega)=2^{-k}\\), pour tout \\(\\omega \\in \\Omega_{k}\\). On aboutit ainsi naturellement à la Définition 5 Supposons que \\(\\Omega\\) soit un ensemble fini. On dit qu’on se trouve dans un cas équiprobable si tous les événements élémentaires ont même valeur \\(\\overline{d e}\\) probablité. On dit aussi que la probabilité est uniforme discrète.\n\nDans le cas équiprobable, on a donc \\(\\mathbb{P}(\\omega)=p\\) pour tout \\(\\omega \\in \\Omega\\), où \\(p=1 / \\operatorname{Card}(\\Omega)\\). On peut alors écrire :\n\\[\n\\mathbb{P}(A)=\\sum_{\\omega \\in A} \\mathbb{P}(\\omega)=\\sum_{\\omega \\in A} \\frac{1}{\\operatorname{Card}(\\Omega)}=\\frac{\\operatorname{Card}(A)}{\\operatorname{Card}(\\Omega)}\n\\]\nsoit encore :\n\\[\n\\mathbb{P}(A)=\\frac{\\text { nombre de cas favorables }}{\\text { nombre de cas possibles }} .\n\\]\nATTENTION, cette formule n’est valable que pour les cas équiprobables. Elle fonctionne dans l’exemple du dé normal, mais pas dans celui du dé truqué. Il ne peut bien sûr pas y avoir de probabilité uniforme sur \\(\\mathbb{N}\\). Exemples Mesure de probabilité sur \\(\\mathbb{N}^{*}\\). On lance un dé de façon répétée jusqu’à obtenir un 6 , et on note le numéro du tirage du premier 6 . On a évidemment \\(\\mathbb{P}(1)=1 / 6\\). On a également\n\\[\n\\mathbb{P}(2)=\\mathbb{P}(\\text { au premier tirage, on n'a pas eu de } 6 \\text {; au deuxième tirage, on a eu un } 6)=\\frac{5}{36}\n\\]\ncar sur les 36 tirages possibles équiprobables, seuls 5 permettent d’obtenir le premier 6 au deuxième tirage. De même, pour tout \\(k \\geq 2\\),\n\\[\n\\mathbb{P}(k)=\\mathbb{P}(k-1 \\text { echecs, puis une réussite })=\\left(\\frac{5}{6}\\right)^{k-1} \\frac{1}{6} .\n\\]\nCela constitue bien une mesure de probabilité discrète sur \\(\\mathbb{N}^{*}\\) puisque \\(\\sum_{k \\geq 1} \\mathbb{P}(k)=1\\).",
+    "crumbs": [
+      "Probabilités",
+      "Espace probabilisé"
+    ]
+  },
+  {
+    "objectID": "proba/espace_proba.html#exemples-2",
+    "href": "proba/espace_proba.html#exemples-2",
+    "title": "Espace probabilisé",
+    "section": "Exemples",
+    "text": "Exemples\n\nLancer d’une pièce équilibrée : on souhaite modéliser le résultat du lancer d’une pièce sans tricherie. Pour cela, on choisit \\(\\Omega_{1}=\\{\\) pile, face \\(\\}\\). L’ensemble des parties de \\(\\Omega_{1}\\) comporte quatre éléments et on définit la mesure de probabilité \\(\\mathbb{P}\\) par \\(\\mathbb{P}(\\) pile \\()=\\mathbb{P}(\\) face \\()=1 / 2\\) puisque les deux événements sont équiprobables (i.e. de même probabilité).\nLancer de \\(k\\) pièces, \\(k \\geq 2\\) : on prend cette fois-ci \\(\\Omega_{k}=\\Omega_{1}^{k}\\), c’est-à-dire l’ensemble des \\(k\\)-uplets de pile ou face. On a \\(\\operatorname{Card}\\left(\\Omega_{k}\\right)=2^{k}\\). Les différents \\(k\\)-uplets sont tous équiprobables donc \\(\\mathbb{P}(\\omega)=2^{-k}\\), pour tout \\(\\omega \\in \\Omega_{k}\\). On aboutit ainsi naturellement à la Définition 5 Supposons que \\(\\Omega\\) soit un ensemble fini. On dit qu’on se trouve dans un cas équiprobable si tous les événements élémentaires ont même valeur \\(\\overline{d e}\\) probablité. On dit aussi que la probabilité est uniforme discrète.\n\nDans le cas équiprobable, on a donc \\(\\mathbb{P}(\\omega)=p\\) pour tout \\(\\omega \\in \\Omega\\), où \\(p=1 / \\operatorname{Card}(\\Omega)\\). On peut alors écrire :\n\\[\n\\mathbb{P}(A)=\\sum_{\\omega \\in A} \\mathbb{P}(\\omega)=\\sum_{\\omega \\in A} \\frac{1}{\\operatorname{Card}(\\Omega)}=\\frac{\\operatorname{Card}(A)}{\\operatorname{Card}(\\Omega)}\n\\]\nsoit encore :\n\\[\n\\mathbb{P}(A)=\\frac{\\text { nombre de cas favorables }}{\\text { nombre de cas possibles }} .\n\\]\nATTENTION, cette formule n’est valable que pour les cas équiprobables. Elle fonctionne dans l’exemple du dé normal, mais pas dans celui du dé truqué. Il ne peut bien sûr pas y avoir de probabilité uniforme sur \\(\\mathbb{N}\\). Exemples Mesure de probabilité sur \\(\\mathbb{N}^{*}\\). On lance un dé de façon répétée jusqu’à obtenir un 6 , et on note le numéro du tirage du premier 6 . On a évidemment \\(\\mathbb{P}(1)=1 / 6\\). On a également\n\\[\n\\mathbb{P}(2)=\\mathbb{P}(\\text { au premier tirage, on n'a pas eu de } 6 \\text {; au deuxième tirage, on a eu un } 6)=\\frac{5}{36}\n\\]\ncar sur les 36 tirages possibles équiprobables, seuls 5 permettent d’obtenir le premier 6 au deuxième tirage. De même, pour tout \\(k \\geq 2\\),\n\\[\n\\mathbb{P}(k)=\\mathbb{P}(k-1 \\text { echecs, puis une réussite })=\\left(\\frac{5}{6}\\right)^{k-1} \\frac{1}{6} .\n\\]\nCela constitue bien une mesure de probabilité discrète sur \\(\\mathbb{N}^{*}\\) puisque \\(\\sum_{k \\geq 1} \\mathbb{P}(k)=1\\).",
+    "crumbs": [
+      "Probabilités",
+      "Espace probabilisé"
+    ]
+  },
+  {
+    "objectID": "proba/espace_proba.html#probabilités-à-densité",
+    "href": "proba/espace_proba.html#probabilités-à-densité",
+    "title": "Espace probabilisé",
+    "section": "Probabilités à densité",
+    "text": "Probabilités à densité\nSoit \\(f: \\mathbb{R} \\rightarrow \\mathbb{R}\\) une fonction positive, continue par morceaux (ou plus généralement mesurable, i.e. \\(\\{x, f(x) \\leq\\) \\(y\\} \\in \\mathcal{B}(\\mathbb{R})\\) pour tout \\(y \\in \\mathbb{R}\\) ) et d’intégrale sur \\(\\mathbb{R}\\) égale à 1 . Il est facile de vérifier que l’on définit une probabilité en posant, pour tout \\(A \\subset \\mathbb{R}\\) :\n\\[\n\\mathbb{P}(A)=\\int_{A} f(x) d x\n\\]\nUne telle probabilité est dite à densité. On dit également que c’est une probabilité continue.\nExemples\n\nLa mesure uniforme sur l’intervalle \\([a, b]\\), où \\(a&lt;b:\\) On définit\n\n\\[\n\\mathbb{P}(A)=\\int_{A \\cap[a, b]} \\frac{1}{b-a} d x\n\\]\n\nLa probabilité de Gauss sur \\(\\mathbb{R}\\). On utilise ici la fonction\n\n\\[\nf(x)=\\frac{1}{\\sqrt{2 \\pi} \\sigma} \\exp \\left(\\frac{(x-m)^{2}}{2 \\sigma^{2}}\\right)\n\\]\noù \\(m \\in \\mathbb{R}\\) et \\(\\sigma \\in \\mathbb{R}^{+*}\\) sont deux paramètres fixés.",
+    "crumbs": [
+      "Probabilités",
+      "Espace probabilisé"
+    ]
+  },
+  {
+    "objectID": "proba/espace_proba.html#exemples-3",
+    "href": "proba/espace_proba.html#exemples-3",
+    "title": "Espace probabilisé",
+    "section": "Exemples",
+    "text": "Exemples\n\nLa mesure uniforme sur l’intervalle \\([a, b]\\), où \\(a&lt;b:\\) On définit\n\n\\[\n\\mathbb{P}(A)=\\int_{A \\cap[a, b]} \\frac{1}{b-a} d x\n\\]\n\nLa probabilité de Gauss sur \\(\\mathbb{R}\\). On utilise ici la fonction\n\n\\[\nf(x)=\\frac{1}{\\sqrt{2 \\pi} \\sigma} \\exp \\left(\\frac{(x-m)^{2}}{2 \\sigma^{2}}\\right)\n\\]\noù \\(m \\in \\mathbb{R}\\) et \\(\\sigma \\in \\mathbb{R}^{+*}\\) sont deux paramètres fixés.",
+    "crumbs": [
+      "Probabilités",
+      "Espace probabilisé"
+    ]
+  },
+  {
+    "objectID": "proba/espace_proba.html#probabilités-conditionnelles",
+    "href": "proba/espace_proba.html#probabilités-conditionnelles",
+    "title": "Espace probabilisé",
+    "section": "5 Probabilités conditionnelles",
+    "text": "5 Probabilités conditionnelles\nReprenons l’exemple du dé. Notons \\(A\\) l’événement “on obtient un 2” et \\(B\\) l’événement “on n’obtient pas 1”. L’événement \\(A \\cap B\\) est égal à \\(A\\) car si on obtient 2 et pas 1 , c’est qu’on a obtenu 2 tout court. Donc \\(\\mathbb{P}(A \\cap B)=1 / 6\\). De plus, \\(\\mathbb{P}(B)=5 / 6\\) car il y a 5 résultats favorables sur 6 si on n’obtient pas 1 .\nSupposons maintenant qu’on sache que \\(B\\) est vérifié, c’est-à-dire qu’on n’a pas obtenu 1 . Dans ce cas, la probabilité d’obtenir 2 est de \\(1 / 5\\), car il n’y a plus que 5 résultats possibles (et on est toujours dans un cas équiprobable). On remarque que cette probabilité vaut exactement \\(\\mathbb{P}(A \\cap B) / \\mathbb{P}(B)\\). C’est ce qu’on appelle une probabilité conditionnelle.\nDéfinition 6 Soit \\(A\\) et \\(B\\) deux événements tels que \\(\\mathbb{P}(B) \\neq 0\\). On appelle probabilité conditionnelle de \\(A\\) sachant \\(B\\) (c’est-à-dire sachant que \\(B\\) est réalisé), notée \\(\\mathbb{P}(A / B)\\) le quotient :\n\\[\n\\mathbb{P}(A / B)=\\frac{\\mathbb{P}(A \\cap B)}{\\mathbb{P}(B)}\n\\]\nProposition 7 Soit \\(B\\) un événement de probabilité \\(\\mathbb{P}(B)\\) non nulle. Alors \\(\\mathbb{Q}(A)=\\mathbb{P}(A / B)\\) est une probabilité sur \\(S\\).\nPreuve. Il suffit de montrer que \\(\\mathbb{Q}\\) vérifie bien les propriétés de la définition d’une probabilité.\n\nSoit \\(A \\in S\\); on a alors\n\n\\[\n0 \\leq \\mathbb{Q}(A)=\\mathbb{P}(A / B) \\leq 1\n\\]\ncar \\(\\mathbb{P}(B)=\\mathbb{P}(A \\cap B)+\\mathbb{P}(\\bar{A} \\cap B) \\geq \\mathbb{P}(A \\cap B)\\).\n\nOn a\n\n\\[\n\\mathbb{Q}(\\Omega)=\\mathbb{P}(\\Omega / B)=\\frac{\\mathbb{P}(\\Omega \\cap B)}{\\mathbb{P}(B)}=\\frac{\\mathbb{P}(B)}{\\mathbb{P}(B)}=1\n\\]\n\nSoit \\(\\left(A_{n}\\right)_{n}\\) une famille d’événements deux à deux incompatibles.\n\n\\[\n\\mathbb{Q}\\left(\\bigcup_{n} A_{n}\\right)=\\mathbb{P}\\left(\\left(\\bigcup_{n} A_{n}\\right) / B\\right)=\\frac{\\mathbb{P}\\left(\\left(\\bigcup_{n} A_{n}\\right) \\cap B\\right)}{\\mathbb{P}(B)}=\\frac{\\mathbb{P}\\left(\\bigcup_{n}\\left(A_{n} \\cap B\\right)\\right)}{\\mathbb{P}(B)}=\\sum_{n} \\frac{\\mathbb{P}\\left(A_{n} \\cap B\\right)}{\\mathbb{P}(B)}=\\sum_{n} \\mathbb{P}\\left(A_{n} / B\\right)\n\\]\nOn a bien vérifié toutes les propriétés, donc \\(\\mathbb{Q}\\) est une probabilité sur \\(S\\). Définition 8 Soit \\(\\left(A_{i}\\right)_{i \\in I}\\) une famille (finie) d’événements (en général non impossibles, i.e. \\(\\mathbb{P}\\left(A_{i}\\right)&gt;0\\) pour tout \\(i\\) ). On dira que c’est un système complet d’événements si :\n\\[\n\\bigcup_{i \\in I} A_{i}=\\Omega \\quad \\text { et } \\quad A_{i} \\cap A_{j}=\\emptyset, \\quad \\forall i \\neq j .\n\\]\nProposition 9 Soit \\(\\left(A_{i}\\right)_{i \\in I}\\) un système complet d’événements et soit \\(B\\) un événement quelconque. Alors :\n\\[\n\\mathbb{P}(B)=\\sum_{i \\in I} \\mathbb{P}\\left(B \\cap A_{i}\\right)\n\\]\nPreuve. Puisque \\(\\left(A_{i}\\right)_{i \\in I}\\) est un système complet d’événements, \\(\\bigcup_{i \\in I} A_{i}=\\Omega\\). On peut écrire :\n\\[\n\\mathbb{P}(B)=\\mathbb{P}(B \\cap \\Omega)=\\mathbb{P}\\left(B \\cap\\left(\\bigcup_{i \\in I} A_{i}\\right)\\right)=\\mathbb{P}\\left(\\bigcup_{i \\in I}\\left(B \\cap A_{i}\\right)\\right)\n\\]\nOr, par définition d’un système complet, les \\(A_{i}\\) sont deux à deux incompatibles. Les \\(B \\cap A_{i}\\) le sont donc aussi, et on a bien finalement :\n\\[\n\\mathbb{P}(B)=\\sum_{i \\in I} \\mathbb{P}\\left(B \\cap A_{i}\\right)\n\\]\nProposition 10 Soit \\(\\left(A_{i}\\right)_{i \\in I}\\) un système complet d’événements et \\(B\\) un événement vérifiant \\(\\mathbb{P}(B) \\neq 0\\) et \\(\\mathbb{P}\\left(A_{i}\\right) \\neq 0 \\forall i \\in I\\). Alors,\n1 .\n\\[\n\\mathbb{P}(B)=\\sum_{i \\in I} \\mathbb{P}\\left(B / A_{i}\\right) \\mathbb{P}\\left(A_{i}\\right)\n\\]\n\nFormule de Bayes :\n\n\\[\n\\mathbb{P}\\left(A_{k} / B\\right)=\\frac{\\mathbb{P}\\left(A_{k}\\right) \\mathbb{P}\\left(B / A_{k}\\right)}{\\sum_{i \\in I} \\mathbb{P}\\left(A_{i}\\right) \\mathbb{P}\\left(B / A_{i}\\right)} \\quad \\forall k \\in I\n\\]\nOn a un corollaire immédiat : Corollaire 11 Soit \\(A\\) et \\(B\\) deux événements vérifiant \\(\\mathbb{P}(B) \\neq 0\\) et \\(0&lt;\\mathbb{P}(A)&lt;1\\). Alors :\n\\[\n\\mathbb{P}(A / B)=\\frac{\\mathbb{P}(B / A) \\mathbb{P}(A)}{\\mathbb{P}(A) \\mathbb{P}(B / A)+\\mathbb{P}(\\bar{A}) \\mathbb{P}(B / \\bar{A})}\n\\]\nDémontrons la proposition précédente.",
+    "crumbs": [
+      "Probabilités",
+      "Espace probabilisé"
+    ]
+  },
+  {
+    "objectID": "proba/espace_proba.html#preuve.-1",
+    "href": "proba/espace_proba.html#preuve.-1",
+    "title": "Espace probabilisé",
+    "section": "Preuve.",
+    "text": "Preuve.\n\n\\(A \\coprod A \\Longleftrightarrow \\mathbb{P}(A \\cap A)=\\mathbb{P}^{2}(A) \\Longleftrightarrow \\mathbb{P}(A)(1-\\mathbb{P}(A))=0 \\Longleftrightarrow \\mathbb{P}(A)=0\\) ou \\(\\mathbb{P}(A)=1\\).\nIl suffit de montrer la première équivalence, les autres sont alors automatiques.\n\n\\[\n\\left.\\begin{array}{rl}\nA \\amalg B & \\Longleftrightarrow \\mathbb{P}(A \\cap B)=\\mathbb{P}(A) \\mathbb{P}(B) \\\\\n& \\Longleftrightarrow \\mathbb{P}(A \\cap B)=\\mathbb{P}(A)(1-\\mathbb{P}(\\bar{B}) \\\\\n& \\Longleftrightarrow \\mathbb{P}(A) \\mathbb{P}(\\bar{B})=\\mathbb{P}(A)-\\mathbb{P}(A \\cap B)\n\\end{array} \\Longleftrightarrow \\mathbb{P}(A) \\mathbb{P}(\\bar{B})=\\mathbb{P}(A \\cap B)+\\mathbb{P}(A \\cap \\bar{B})-\\mathbb{P}(A \\cap B), \\vec{B}\\right)=\\mathbb{P}(A \\cap \\bar{B}) \\quad \\Longleftrightarrow A \\coprod \\bar{B} .\n\\]\nOn peut étendre cette notion d’événements indépendants à une famille : Définition 15 Une famille d’événements \\(\\left(A_{i}\\right)_{i \\in I}\\) est dite indépendante si pour toute sous-famille finie \\(\\left(A_{i_{1}}, A_{i_{2}}, \\ldots, A_{i_{n}}\\right)\\) de cette famille, on a :\n\\[\n\\mathbb{P}\\left(\\bigcap_{j=1}^{n} A_{i_{j}}\\right)=\\prod_{j=1}^{n} \\mathbb{P}\\left(A_{i_{j}}\\right) .\n\\]\nOn retrouve les mêmes propriétés que pour deux événements indépendants. ATTENTION, le fait que les événements \\(\\left(A_{i}\\right)_{i \\in I}\\) sont indépendants entraîne qu’ils sont indépendants deux à deux, mais la réciproque est fausse. Exercice On lance une pièce deux fois de suite. Soit \\(A\\) l’événement “obtenir face au premier jet”, \\(B\\) l’événement “obtenir face au deuxième jet”, et \\(C\\) l’événement “obtenir deux résultats différents”. Montrer que les événements \\(A, B, C\\) sont deux à deux indépendants, mais que la famille \\((A, B, C)\\) n’est pas indépendante.",
+    "crumbs": [
+      "Probabilités",
+      "Espace probabilisé"
+    ]
+  },
+  {
+    "objectID": "proba/espace_proba.html#evénements-indépendants",
+    "href": "proba/espace_proba.html#evénements-indépendants",
+    "title": "Espace probabilisé",
+    "section": "6 Evénements indépendants",
+    "text": "6 Evénements indépendants\nPrenons une urne contenant des jetons numérotés de 1 à \\(N\\). Considérons les événements \\(A=\\) “obtenir le jeton 1 au premier tirage” et \\(B=\\) “obtenir le jeton 1 au deuxième tirage”. Si les tirages se font sans remise et que l’événement \\(A\\) est réalisé, l’événement \\(B\\) ne peut pas être réalisé. Par contre, si les tirages se font avec remise, le fait que l’événement \\(A\\) soit réalisé ou non n’influe pas sur la probabilité que \\(B\\) soit réalisé et vice-versa. C’est ce qu’on appelle des événements indépendants.\nProposition 12 Soit \\(A\\) et \\(B\\) deux événements de probabilité non nulle. Alors les trois énoncés suivants sont équivalents :\n\n\\(\\mathbb{P}(A / B)=\\mathbb{P}(A)\\)\n\\(\\mathbb{P}(B / A)=\\mathbb{P}(B)\\)\n\\(\\mathbb{P}(A \\cap B)=\\mathbb{P}(A) \\mathbb{P}(B)\\).\n\nPreuve. Elle se fait facilement par succession d’équivalence :\n\\[\n\\begin{aligned}\n\\mathbb{P}(A / B)=\\mathbb{P}(A) & \\Longleftrightarrow \\frac{\\mathbb{P}(A \\cap B)}{\\mathbb{P}(B)}=\\mathbb{P}(A) \\\\\n& \\Longleftrightarrow \\mathbb{P}(A \\cap B)=\\mathbb{P}(A) \\mathbb{P}(B) \\\\\n& \\Longleftrightarrow \\frac{\\mathbb{P}(B \\cap A)}{\\mathbb{P}(A)}=\\mathbb{P}(B) \\\\\n& \\Longleftrightarrow \\mathbb{P}(B / A)=\\mathbb{P}(B)\n\\end{aligned}\n\\]\nDéfinition 13 Deux événements \\(A\\) et \\(B\\) sont dits indépendants (noté \\(A \\amalg B\\) ) si et seulement si :\n\\[\n\\mathbb{P}(A \\cap B)=\\mathbb{P}(A) \\mathbb{P}(B)\n\\]\nProposition 14 Soit \\(A\\) et \\(B\\) deux événements. Alors on \\(a\\) :\n\n\\(A \\coprod A \\Longleftrightarrow \\mathbb{P}(A)=0\\) ou \\(\\mathbb{P}(A)=1\\).\n\\(A \\coprod B \\Longleftrightarrow A \\coprod \\bar{B} \\Longleftrightarrow \\bar{A} \\coprod B \\Longleftrightarrow \\bar{A} \\coprod \\bar{B}\\).",
+    "crumbs": [
+      "Probabilités",
+      "Espace probabilisé"
+    ]
+  },
+  {
+    "objectID": "proba/espace_proba.html#preuve.-2",
+    "href": "proba/espace_proba.html#preuve.-2",
+    "title": "Espace probabilisé",
+    "section": "Preuve.",
+    "text": "Preuve.\n\n\\(A \\coprod A \\Longleftrightarrow \\mathbb{P}(A \\cap A)=\\mathbb{P}^{2}(A) \\Longleftrightarrow \\mathbb{P}(A)(1-\\mathbb{P}(A))=0 \\Longleftrightarrow \\mathbb{P}(A)=0\\) ou \\(\\mathbb{P}(A)=1\\).\nIl suffit de montrer la première équivalence, les autres sont alors automatiques.\n\n\\[\n\\left.\\begin{array}{rl}\nA \\amalg B & \\Longleftrightarrow \\mathbb{P}(A \\cap B)=\\mathbb{P}(A) \\mathbb{P}(B) \\\\\n& \\Longleftrightarrow \\mathbb{P}(A \\cap B)=\\mathbb{P}(A)(1-\\mathbb{P}(\\bar{B}) \\\\\n& \\Longleftrightarrow \\mathbb{P}(A) \\mathbb{P}(\\bar{B})=\\mathbb{P}(A)-\\mathbb{P}(A \\cap B)\n\\end{array} \\Longleftrightarrow \\mathbb{P}(A) \\mathbb{P}(\\bar{B})=\\mathbb{P}(A \\cap B)+\\mathbb{P}(A \\cap \\bar{B})-\\mathbb{P}(A \\cap B), \\vec{B}\\right)=\\mathbb{P}(A \\cap \\bar{B}) \\quad \\Longleftrightarrow A \\coprod \\bar{B} .\n\\]\nOn peut étendre cette notion d’événements indépendants à une famille : Définition 15 Une famille d’événements \\(\\left(A_{i}\\right)_{i \\in I}\\) est dite indépendante si pour toute sous-famille finie \\(\\left(A_{i_{1}}, A_{i_{2}}, \\ldots, A_{i_{n}}\\right)\\) de cette famille, on a :\n\\[\n\\mathbb{P}\\left(\\bigcap_{j=1}^{n} A_{i_{j}}\\right)=\\prod_{j=1}^{n} \\mathbb{P}\\left(A_{i_{j}}\\right) .\n\\]\nOn retrouve les mêmes propriétés que pour deux événements indépendants. ATTENTION, le fait que les événements \\(\\left(A_{i}\\right)_{i \\in I}\\) sont indépendants entraîne qu’ils sont indépendants deux à deux, mais la réciproque est fausse. Exercice On lance une pièce deux fois de suite. Soit \\(A\\) l’événement “obtenir face au premier jet”, \\(B\\) l’événement “obtenir face au deuxième jet”, et \\(C\\) l’événement “obtenir deux résultats différents”. Montrer que les événements \\(A, B, C\\) sont deux à deux indépendants, mais que la famille \\((A, B, C)\\) n’est pas indépendante.",
+    "crumbs": [
+      "Probabilités",
+      "Espace probabilisé"
+    ]
+  },
+  {
+    "objectID": "proba/espace_proba.html#mathcala-tribu-des-événements-sur-omega",
+    "href": "proba/espace_proba.html#mathcala-tribu-des-événements-sur-omega",
+    "title": "Espace probabilisé",
+    "section": "\\(\\mathcal{A}\\) : Tribu des événements sur \\(\\Omega\\)",
+    "text": "\\(\\mathcal{A}\\) : Tribu des événements sur \\(\\Omega\\)\nUne famille \\(\\mathcal{A}\\) de partie de \\(\\Omega\\) est appelée tribu si elle vérifie les propriétés suivantes : - \\(\\matcal{A}\\) est non vide - Si \\(B\\) est un élément de \\(\\matcal{A}\\), alors \\(\\bar{B} \\in \\mathcal{A}\\). - Si \\(\\displaystyle\\bigcup_{n} A_{n} \\in \\mathcal{A}\\).\nUn événement est un sous-ensemble de (). L’ensemble () regroupe les événements pour lesquels on peut attribuer une probabilité.\n\nExemple : Si on s’intéresse aux événements “obtenir un nombre pair” et “obtenir un nombre impair”, on peut définir : [ = { , {2,4,6}, {1,3,5}, } ]",
+    "crumbs": [
+      "Probabilités",
+      "Espace probabilisé"
+    ]
+  },
+  {
+    "objectID": "proba/espace_proba.html#tribu-mathcala-des-événements-sur-omega",
+    "href": "proba/espace_proba.html#tribu-mathcala-des-événements-sur-omega",
+    "title": "Espace probabilisé",
+    "section": "Tribu \\(\\mathcal{A}\\) des événements sur \\(\\Omega\\)",
+    "text": "Tribu \\(\\mathcal{A}\\) des événements sur \\(\\Omega\\)\nUne famille \\(\\mathcal{A}\\) de parties de \\(\\Omega\\) est appelée tribu si elle vérifie les propriétés suivantes :\n\n\\(\\mathcal{A}\\) est non vide\nSi \\(B\\) est un élément de \\(\\mathcal{A}\\), alors \\(\\overline{B} \\in \\mathcal{A}\\), où \\(\\overline{B}\\) désigne le complémentaire de \\(B\\) dans \\(\\Omega\\)\nSi pour tout \\(n\\in\\mathbb{N}\\) on a \\(B_n\\in\\mathcal{A}\\), alors \\[\\displaystyle\\bigcup_{n} B_{n} \\in \\mathcal{A}\\]\n\nLes éléments de \\(\\mathcal{A}\\) sont appelés événements, et \\(\\Omega\\) est l’événement certain.",
+    "crumbs": [
+      "Probabilités",
+      "Espace probabilisé"
+    ]
+  },
+  {
+    "objectID": "proba/espace_proba.html#probabilité",
+    "href": "proba/espace_proba.html#probabilité",
+    "title": "Espace probabilisé",
+    "section": "Probabilité ",
+    "text": "Probabilité \nC’est une fonction qui associe à chaque événement ( A ) un nombre réel entre \\(0\\) et \\(1\\), respectant les règles suivantes :\n\n( P() = 1 ) (l’événement certain a une probabilité de 1).\n( P() = 0 ) (l’événement impossible a une probabilité de 0).\nPour des événements disjoints ( A_1, A_2, A_3, ), la probabilité de leur union est la somme des probabilités individuelles : [ P(A_1 A_2 A_3 ) = P(A_1) + P(A_2) + P(A_3) + ]",
+    "crumbs": [
+      "Probabilités",
+      "Espace probabilisé"
+    ]
+  },
+  {
+    "objectID": "proba/espace_proba.html#probabilité-mathbbp",
+    "href": "proba/espace_proba.html#probabilité-mathbbp",
+    "title": "Espace probabilisé",
+    "section": "Probabilité \\(\\mathbb{P}\\)",
+    "text": "Probabilité \\(\\mathbb{P}\\)\nUne probabilité \\(\\mathbb{P}\\) est une application de \\(\\mathcal{A}\\) dans \\([0,1]\\), c’est à dire \\[ \\mathbb{P} : \\mathcal{A} \\mapsto [0,1]\\] vérifiant les propriétés :\n\n\\(\\mathbb{P}(\\Omega)=1\\), l’événement certain a une probabilité de \\(1\\)\n\\(\\mathbb{P}(\\emptyset)=0\\), l’événement impossible a une probabilité de \\(0\\)\nSi \\(\\left(B_n\\right)_n\\) est une suite (éventuellement finie) d’éléments de \\(\\mathcal{A}\\) deux à deux incompatibles, c’est à dire \\(A_i \\cap A_j=\\emptyset\\) si \\(i \\neq j\\) , alors \\[\\mathbb{P}\\left(\\bigcup_n A_n\\right)=\\sum_n \\ \\mathbb{P}\\left(A_n\\right)\\] autrement dit pour des événements disjoints \\(A_1, A_2, A_3, \\dots\\), la probabilité de leur union est la somme de leurs probabilités individuelles \\[P\\left(A_1 \\cup A_2 \\cup A_3 \\cup \\dots\\right) = P(A_1) + P(A_2) + P(A_3) + \\dots\\]",
+    "crumbs": [
+      "Probabilités",
+      "Espace probabilisé"
+    ]
+  },
+  {
+    "objectID": "proba/espace_proba.html#univers-omega",
+    "href": "proba/espace_proba.html#univers-omega",
+    "title": "Espace probabilisé",
+    "section": "",
+    "text": "Pour le jet d’une pièce de monnaie, \\(\\Omega=\\{0,1\\}\\) convient, où 0 représente pile et 1 représente face.\nPour le lancé d’une fléchette sur une cible, \\(\\Omega=\\) un disque du plan euclidien convient.\nPour la durée de vie d’une ampoule électrique, \\(\\Omega=\\mathbb{R}^{+}\\).\nPour le lancé d’un dé, \\(\\Omega=\\{1,2,3,4,5,6\\}\\).",
+    "crumbs": [
+      "Probabilités",
+      "Espace probabilisé"
+    ]
+  },
+  {
+    "objectID": "proba/espace_proba.html#propriété",
+    "href": "proba/espace_proba.html#propriété",
+    "title": "Espace probabilisé",
+    "section": "Propriété",
+    "text": "Propriété\nSoit \\(A\\) et \\(B\\) deux événements quelconques (i.e. \\(A, B \\in S\\) ). Alors\n\n\\(\\mathbb{P}(\\bar{A})=1-\\mathbb{P}(A)\\),\n\\(\\mathbb{P}(\\emptyset)=0\\),\n\\(\\mathbb{P}(B)=\\mathbb{P}(A \\cap B)+\\mathbb{P}(\\bar{A} \\cap B)\\),\n\\(\\mathbb{P}(A \\cup B)=\\mathbb{P}(A)+\\mathbb{P}(B)-\\mathbb{P}(A \\cap B)\\).",
+    "crumbs": [
+      "Probabilités",
+      "Espace probabilisé"
+    ]
+  },
+  {
+    "objectID": "proba/proba_condi.html",
+    "href": "proba/proba_condi.html",
+    "title": "Probabilité conditionnelle",
+    "section": "",
+    "text": "Preuve.\nProbabilités conditionnelles\nReprenons l’exemple du dé. Notons \\(A\\) l’événement “on obtient un 2” et \\(B\\) l’événement “on n’obtient pas 1”. L’événement \\(A \\cap B\\) est égal à \\(A\\) car si on obtient 2 et pas 1 , c’est qu’on a obtenu 2 tout court. Donc \\(\\mathbb{P}(A \\cap B)=1 / 6\\). De plus, \\(\\mathbb{P}(B)=5 / 6\\) car il y a 5 résultats favorables sur 6 si on n’obtient pas 1 .\nSupposons maintenant qu’on sache que \\(B\\) est vérifié, c’est-à-dire qu’on n’a pas obtenu 1 . Dans ce cas, la probabilité d’obtenir 2 est de \\(1 / 5\\), car il n’y a plus que 5 résultats possibles (et on est toujours dans un cas équiprobable). On remarque que cette probabilité vaut exactement \\(\\mathbb{P}(A \\cap B) / \\mathbb{P}(B)\\). C’est ce qu’on appelle une probabilité conditionnelle.\nDéfinition 6 Soit \\(A\\) et \\(B\\) deux événements tels que \\(\\mathbb{P}(B) \\neq 0\\). On appelle probabilité conditionnelle de \\(A\\) sachant \\(B\\) (c’est-à-dire sachant que \\(B\\) est réalisé), notée \\(\\mathbb{P}(A / B)\\) le quotient :\n\\[\n\\mathbb{P}(A / B)=\\frac{\\mathbb{P}(A \\cap B)}{\\mathbb{P}(B)}\n\\]\nProposition 7 Soit \\(B\\) un événement de probabilité \\(\\mathbb{P}(B)\\) non nulle. Alors \\(\\mathbb{Q}(A)=\\mathbb{P}(A / B)\\) est une probabilité sur \\(S\\).\nPreuve. Il suffit de montrer que \\(\\mathbb{Q}\\) vérifie bien les propriétés de la définition d’une probabilité.\n\\[\n0 \\leq \\mathbb{Q}(A)=\\mathbb{P}(A / B) \\leq 1\n\\]\ncar \\(\\mathbb{P}(B)=\\mathbb{P}(A \\cap B)+\\mathbb{P}(\\bar{A} \\cap B) \\geq \\mathbb{P}(A \\cap B)\\).\n\\[\n\\mathbb{Q}(\\Omega)=\\mathbb{P}(\\Omega / B)=\\frac{\\mathbb{P}(\\Omega \\cap B)}{\\mathbb{P}(B)}=\\frac{\\mathbb{P}(B)}{\\mathbb{P}(B)}=1\n\\]\n\\[\n\\mathbb{Q}\\left(\\bigcup_{n} A_{n}\\right)=\\mathbb{P}\\left(\\left(\\bigcup_{n} A_{n}\\right) / B\\right)=\\frac{\\mathbb{P}\\left(\\left(\\bigcup_{n} A_{n}\\right) \\cap B\\right)}{\\mathbb{P}(B)}=\\frac{\\mathbb{P}\\left(\\bigcup_{n}\\left(A_{n} \\cap B\\right)\\right)}{\\mathbb{P}(B)}=\\sum_{n} \\frac{\\mathbb{P}\\left(A_{n} \\cap B\\right)}{\\mathbb{P}(B)}=\\sum_{n} \\mathbb{P}\\left(A_{n} / B\\right)\n\\]\nOn a bien vérifié toutes les propriétés, donc \\(\\mathbb{Q}\\) est une probabilité sur \\(S\\). Définition 8 Soit \\(\\left(A_{i}\\right)_{i \\in I}\\) une famille (finie) d’événements (en général non impossibles, i.e. \\(\\mathbb{P}\\left(A_{i}\\right)&gt;0\\) pour tout \\(i\\) ). On dira que c’est un système complet d’événements si :\n\\[\n\\bigcup_{i \\in I} A_{i}=\\Omega \\quad \\text { et } \\quad A_{i} \\cap A_{j}=\\emptyset, \\quad \\forall i \\neq j .\n\\]\nProposition 9 Soit \\(\\left(A_{i}\\right)_{i \\in I}\\) un système complet d’événements et soit \\(B\\) un événement quelconque. Alors :\n\\[\n\\mathbb{P}(B)=\\sum_{i \\in I} \\mathbb{P}\\left(B \\cap A_{i}\\right)\n\\]\nPreuve. Puisque \\(\\left(A_{i}\\right)_{i \\in I}\\) est un système complet d’événements, \\(\\bigcup_{i \\in I} A_{i}=\\Omega\\). On peut écrire :\n\\[\n\\mathbb{P}(B)=\\mathbb{P}(B \\cap \\Omega)=\\mathbb{P}\\left(B \\cap\\left(\\bigcup_{i \\in I} A_{i}\\right)\\right)=\\mathbb{P}\\left(\\bigcup_{i \\in I}\\left(B \\cap A_{i}\\right)\\right)\n\\]\nOr, par définition d’un système complet, les \\(A_{i}\\) sont deux à deux incompatibles. Les \\(B \\cap A_{i}\\) le sont donc aussi, et on a bien finalement :\n\\[\n\\mathbb{P}(B)=\\sum_{i \\in I} \\mathbb{P}\\left(B \\cap A_{i}\\right)\n\\]\nProposition 10 Soit \\(\\left(A_{i}\\right)_{i \\in I}\\) un système complet d’événements et \\(B\\) un événement vérifiant \\(\\mathbb{P}(B) \\neq 0\\) et \\(\\mathbb{P}\\left(A_{i}\\right) \\neq 0 \\forall i \\in I\\). Alors,\n1 .\n\\[\n\\mathbb{P}(B)=\\sum_{i \\in I} \\mathbb{P}\\left(B / A_{i}\\right) \\mathbb{P}\\left(A_{i}\\right)\n\\]\n\\[\n\\mathbb{P}\\left(A_{k} / B\\right)=\\frac{\\mathbb{P}\\left(A_{k}\\right) \\mathbb{P}\\left(B / A_{k}\\right)}{\\sum_{i \\in I} \\mathbb{P}\\left(A_{i}\\right) \\mathbb{P}\\left(B / A_{i}\\right)} \\quad \\forall k \\in I\n\\]\nOn a un corollaire immédiat : Corollaire 11 Soit \\(A\\) et \\(B\\) deux événements vérifiant \\(\\mathbb{P}(B) \\neq 0\\) et \\(0&lt;\\mathbb{P}(A)&lt;1\\). Alors :\n\\[\n\\mathbb{P}(A / B)=\\frac{\\mathbb{P}(B / A) \\mathbb{P}(A)}{\\mathbb{P}(A) \\mathbb{P}(B / A)+\\mathbb{P}(\\bar{A}) \\mathbb{P}(B / \\bar{A})}\n\\]\nDémontrons la proposition précédente.\n\\[\n\\mathbb{P}(B)=\\sum_{i \\in I} \\mathbb{P}\\left(B \\cap A_{i}\\right) .\n\\]\nPuisque \\(\\mathbb{P}\\left(B / A_{i}\\right)=\\frac{\\mathbb{P}\\left(B \\cap A_{i}\\right)}{\\mathbb{P}\\left(A_{i}\\right)}\\), on a bien :\n\\[\n\\mathbb{P}(B)=\\sum_{i \\in I} \\mathbb{P}\\left(B / A_{i}\\right) \\mathbb{P}\\left(A_{i}\\right) .\n\\]\n\\[\n\\mathbb{P}\\left(A_{k} / B\\right)=\\frac{\\mathbb{P}\\left(B / A_{k}\\right) \\mathbb{P}\\left(A_{k}\\right)}{\\mathbb{P}(B)}\n\\]\nEn utilisant le résultat du 1 . et en remplaçant \\(\\mathbb{P}(B)\\), on obtient bien :\n\\[\n\\mathbb{P}\\left(A_{k} / B\\right)=\\frac{\\mathbb{P}\\left(A_{k}\\right) \\mathbb{P}\\left(B / A_{k}\\right)}{\\sum_{i \\in I} \\mathbb{P}\\left(A_{i}\\right) \\mathbb{P}\\left(B / A_{i}\\right)}\n\\]",
+    "crumbs": [
+      "Probabilités",
+      "Probabilité conditionnelle"
+    ]
+  },
+  {
+    "objectID": "proba/proba_condi.html#preuve.",
+    "href": "proba/proba_condi.html#preuve.",
+    "title": "Probabilité conditionnelle",
+    "section": "",
+    "text": "On a vu (prop 1.3.2) que:\n\n\n\n\n\nPar définition des probabilités conditionnelles, \\(\\mathbb{P}\\left(A_{k} / B\\right)=\\frac{\\mathbb{P}\\left(A_{k} \\cap B\\right)}{\\mathbb{P}(B)}\\). On peut donc écrire, en utilisant le même raisonnement que ci-dessus :",
+    "crumbs": [
+      "Probabilités",
+      "Probabilité conditionnelle"
+    ]
+  },
+  {
+    "objectID": "proba/proba_condi.html#evénements-indépendants",
+    "href": "proba/proba_condi.html#evénements-indépendants",
+    "title": "Probabilité conditionnelle",
+    "section": "6 Evénements indépendants",
+    "text": "6 Evénements indépendants\nPrenons une urne contenant des jetons numérotés de 1 à \\(N\\). Considérons les événements \\(A=\\) “obtenir le jeton 1 au premier tirage” et \\(B=\\) “obtenir le jeton 1 au deuxième tirage”. Si les tirages se font sans remise et que l’événement \\(A\\) est réalisé, l’événement \\(B\\) ne peut pas être réalisé. Par contre, si les tirages se font avec remise, le fait que l’événement \\(A\\) soit réalisé ou non n’influe pas sur la probabilité que \\(B\\) soit réalisé et vice-versa. C’est ce qu’on appelle des événements indépendants.\nProposition 12 Soit \\(A\\) et \\(B\\) deux événements de probabilité non nulle. Alors les trois énoncés suivants sont équivalents :\n\n\\(\\mathbb{P}(A / B)=\\mathbb{P}(A)\\)\n\\(\\mathbb{P}(B / A)=\\mathbb{P}(B)\\)\n\\(\\mathbb{P}(A \\cap B)=\\mathbb{P}(A) \\mathbb{P}(B)\\).\n\nPreuve. Elle se fait facilement par succession d’équivalence :\n\\[\n\\begin{aligned}\n\\mathbb{P}(A / B)=\\mathbb{P}(A) & \\Longleftrightarrow \\frac{\\mathbb{P}(A \\cap B)}{\\mathbb{P}(B)}=\\mathbb{P}(A) \\\\\n& \\Longleftrightarrow \\mathbb{P}(A \\cap B)=\\mathbb{P}(A) \\mathbb{P}(B) \\\\\n& \\Longleftrightarrow \\frac{\\mathbb{P}(B \\cap A)}{\\mathbb{P}(A)}=\\mathbb{P}(B) \\\\\n& \\Longleftrightarrow \\mathbb{P}(B / A)=\\mathbb{P}(B)\n\\end{aligned}\n\\]\nDéfinition 13 Deux événements \\(A\\) et \\(B\\) sont dits indépendants (noté \\(A \\amalg B\\) ) si et seulement si :\n\\[\n\\mathbb{P}(A \\cap B)=\\mathbb{P}(A) \\mathbb{P}(B)\n\\]\nProposition 14 Soit \\(A\\) et \\(B\\) deux événements. Alors on \\(a\\) :\n\n\\(A \\coprod A \\Longleftrightarrow \\mathbb{P}(A)=0\\) ou \\(\\mathbb{P}(A)=1\\).\n\\(A \\coprod B \\Longleftrightarrow A \\coprod \\bar{B} \\Longleftrightarrow \\bar{A} \\coprod B \\Longleftrightarrow \\bar{A} \\coprod \\bar{B}\\).",
+    "crumbs": [
+      "Probabilités",
+      "Probabilité conditionnelle"
+    ]
+  },
+  {
+    "objectID": "proba/proba_condi.html#preuve.-1",
+    "href": "proba/proba_condi.html#preuve.-1",
+    "title": "Probabilité conditionnelle",
+    "section": "Preuve.",
+    "text": "Preuve.\n\n\\(A \\coprod A \\Longleftrightarrow \\mathbb{P}(A \\cap A)=\\mathbb{P}^{2}(A) \\Longleftrightarrow \\mathbb{P}(A)(1-\\mathbb{P}(A))=0 \\Longleftrightarrow \\mathbb{P}(A)=0\\) ou \\(\\mathbb{P}(A)=1\\).\nIl suffit de montrer la première équivalence, les autres sont alors automatiques.\n\n\\[\n\\left.\\begin{array}{rl}\nA \\amalg B & \\Longleftrightarrow \\mathbb{P}(A \\cap B)=\\mathbb{P}(A) \\mathbb{P}(B) \\\\\n& \\Longleftrightarrow \\mathbb{P}(A \\cap B)=\\mathbb{P}(A)(1-\\mathbb{P}(\\bar{B}) \\\\\n& \\Longleftrightarrow \\mathbb{P}(A) \\mathbb{P}(\\bar{B})=\\mathbb{P}(A)-\\mathbb{P}(A \\cap B)\n\\end{array} \\Longleftrightarrow \\mathbb{P}(A) \\mathbb{P}(\\bar{B})=\\mathbb{P}(A \\cap B)+\\mathbb{P}(A \\cap \\bar{B})-\\mathbb{P}(A \\cap B), \\vec{B}\\right)=\\mathbb{P}(A \\cap \\bar{B}) \\quad \\Longleftrightarrow A \\coprod \\bar{B} .\n\\]\nOn peut étendre cette notion d’événements indépendants à une famille : Définition 15 Une famille d’événements \\(\\left(A_{i}\\right)_{i \\in I}\\) est dite indépendante si pour toute sous-famille finie \\(\\left(A_{i_{1}}, A_{i_{2}}, \\ldots, A_{i_{n}}\\right)\\) de cette famille, on a :\n\\[\n\\mathbb{P}\\left(\\bigcap_{j=1}^{n} A_{i_{j}}\\right)=\\prod_{j=1}^{n} \\mathbb{P}\\left(A_{i_{j}}\\right) .\n\\]\nOn retrouve les mêmes propriétés que pour deux événements indépendants. ATTENTION, le fait que les événements \\(\\left(A_{i}\\right)_{i \\in I}\\) sont indépendants entraîne qu’ils sont indépendants deux à deux, mais la réciproque est fausse. Exercice On lance une pièce deux fois de suite. Soit \\(A\\) l’événement “obtenir face au premier jet”, \\(B\\) l’événement “obtenir face au deuxième jet”, et \\(C\\) l’événement “obtenir deux résultats différents”. Montrer que les événements \\(A, B, C\\) sont deux à deux indépendants, mais que la famille \\((A, B, C)\\) n’est pas indépendante.",
+    "crumbs": [
+      "Probabilités",
+      "Probabilité conditionnelle"
+    ]
+  },
+  {
+    "objectID": "proba/chaines_de_markov.html",
+    "href": "proba/chaines_de_markov.html",
+    "title": "Chaines de Markov",
+    "section": "",
+    "text": "Bonus.\ncf cours de Jean-François Delmas, Ecole des Ponts ParisTech",
+    "crumbs": [
+      "Probabilités",
+      "Chaines de Markov"
+    ]
+  },
+  {
+    "objectID": "index.html#licence",
+    "href": "index.html#licence",
+    "title": "Statistiques et analyse de données",
+    "section": "Licence",
+    "text": "Licence\nà définir…",
+    "crumbs": [
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "stat_descriptive/analyse_univarie.html",
+    "href": "stat_descriptive/analyse_univarie.html",
+    "title": "Analyse univariée",
+    "section": "",
+    "text": "Variable quantitative discrète\nLa méthode utlisé est la suisvante :\nLes méthodes à employer pour effectuer cette analyse vont dépendre du type de variable :",
+    "crumbs": [
+      "Statistiques descriptives",
+      "Analyse univariée"
+    ]
+  },
+  {
+    "objectID": "stat_descriptive/analyse_univarie.html#variable-quantitative-discrète",
+    "href": "stat_descriptive/analyse_univarie.html#variable-quantitative-discrète",
+    "title": "Analyse univariée",
+    "section": "",
+    "text": "Données brutes\nOn demande à l’ensemble des étudiants d’une promotion combien ils ont de plantes chez eux. L’effectif total de la promotion est de 50 étudiants.\nLes données brutes sont :\n1, 4, 10, 5, 14, 13, 14, 2, 13, 2, 2, 4, 7, 5, 5, 5, 11, 8, 15, 10, 2, 7, 10, 15, 2, 4, 6, 6, 4, 3, 5, 11, 13, 3, 10, 10, 12, 13, 14, 6, 16, 4, 15, 15, 16, 5, 5, 3, 15, 8\n\n\nTableau Statistiques\nOn présente ces données dans le tableau statistique suivant, où\n\n\\(x_i\\)\n\\(n_i\\) est le nombre d’occurences de \\(x_i\\), ou encore l’effectif de \\(x_i\\)\n\\(N_i\\) est l’effectif cumulé de \\(x_i\\)\n\\(f_i\\) est la fréquence de \\(x_i\\) (comprise entre \\(0\\) et \\(1\\))\n\\(F_i\\) est la fréquence cumulée de \\(x_i\\) (comprise entre \\(0\\) et \\(1\\))\n\\(p_i\\) est la proportion de \\(x_i\\), correspond simplement à \\(f_i\\) exprimé en pourcentage\n\\(P_i\\) est la proportion cumulée de \\(x_i\\), correspond simplement à \\(F_i\\) exprimé en pourcentage\n\n\n\n\n\n\n\nTableau statistique\n\n\n\n\n\n\n\n\n\\(x_i\\)\n\\(n_i\\)\n\\(N_i\\)\n\\(f_i\\)\n\\(F_i\\)\n\\(p_i\\)\n\\(P_i\\)\n\n\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n1\n\n\n\n\n\n\nce que l’on peut également faire avec R de la façon suivante :\n\nnb_plantes &lt;- c(1, 4, 10, 5, 14, 13, 14, 2, 13, 2, 2, 4, 7, 5, 5, 5, 11, 8, 15, 10, 2, 7, 10, 15, 2, 4, 6, 6, 4, 3, 5, 11, 13, 3, 10, 10, 12, 13, 14, 6, 16, 4, 15, 15, 16, 5, 5, 3, 15, 8)\ntable(nb_plantes)\n\nnb_plantes\n 1  2  3  4  5  6  7  8 10 11 12 13 14 15 16 \n 1  5  3  5  7  3  2  2  5  2  1  4  3  5  2 \n\n\n\n\nReprésentation graphique\n\nDiagramme en batons\nDiagramme cumulatif\n\n\n\nTendance centrale et dispersion\nUne série numérique peut être résumée par deux paramètres statistiques :\n\nle centre d’une distribution des valeurs, représentant leur tendance d’ensemble\nLa dispersion des valeurs, représentant leur variabilité\n\n\nMoyenne arithmétique (mean)\nLa moyenne arithmétique est le paramètre de tendance centrale le plus utilisé. La moyenne est très sensible aux valeurs extrèmes, c’est un paramètre peu robuste. On le note \\(\\overline{x}\\) et est définie par \\[\\overline{x} = \\sum_{i=1}^n f_i x_i = f_1 x_1 + f_2 x_2 + f_3 x_3 + \\dots + f_4 x_4\\] Avec R on a\n\nmean(nb_plantes)\n\n[1] 8.16\n\n\n\n\nLe mode\nLe mode d’une série statistique est la valeur avec l’effectif le plus élévé, ou la fréquence la plus élevée.\n\n\nQuantiles\n\n\n\n\n\n\nAvertissement\n\n\n\nPour déterminer un quantile, il faut toujours travailler avec une serie statistique ordonnée.\n\n\nDe façon empirique, on peut dire que le quantile d’ordre \\(\\alpha\\), noté \\(x_\\alpha\\), est une valeur qui partage la serie statistique en deux sous ensemble qui contiennent respectivement un nombre d’observations égale à \\(n\\alpha\\) et \\(n\\left(1-\\alpha\\right)\\), où \\(n\\) est l’effectif total de la serie statistique et \\(\\alpha\\) une proportion comprise entre \\(0\\) et \\(1\\).\n\n\n\n\n\n\nQuantile d’ordre \\(\\alpha\\)\n\n\n\nSoit la série statistique brute \\[\\{x_i\\}_{1 \\leq i \\leq n}\\] donnant la lieu à la série statistique ordonnée \\[\\{x_{(i)}\\}_{1 \\leq i \\leq n}.\\] On considère la proportion \\(\\alpha\\) où \\(0 \\leq \\alpha \\leq 1\\).\n\nSi \\(n\\alpha\\) n’est pas un entier, alors le quantile d’ordre \\(\\alpha\\), noté \\(x_\\alpha\\) est égale à \\(x_{([n\\alpha])}\\).\nSi \\(n\\alpha\\) est un entier, alors\n\n1ère convention (lorsque l’effectif est impaire) : le quantile d’ordre \\(\\alpha\\), noté \\(x_\\alpha\\), est égale à \\[x_{(n\\alpha)}\\]\n2ème convention (lorsque l’effectif est paire) : le quantile d’ordre \\(\\alpha\\), noté \\(x_\\alpha\\), est égale à \\[\\frac{x_{(n\\alpha)}+x_{(n\\alpha+1)}}{2}\\]\n\n\n\n\n\n\nLa médiane\nLe quantile d’ordre \\(\\displaystyle\\frac12\\) correspond à la mediane.\nLa mediane est insensible aux variations des valeurs extrèmes.\n\n\nLes quartiles\nLe quantile d’ordre \\(\\frac14\\) correspond au premier quartile \\(Q_1\\).\nLe quantile d’ordre \\(\\frac34\\) correspond au troisième quartile \\(Q_3\\).\n\n\nLes déciles\nblabla\n\n\nLes centiles\nblablabla\n\nEtendue ou intervalle de variation \\[\\left|x_{max} - x_{min}\\right|\\] dependance des valeurs extrèmes, donc instable\nintervalle interquartile \\[\\left|Q_3 - Q_1\\right|\\]\nVariance \\[\\sigma^2 = \\frac{1}{n} \\sum_{i=1}^n \\left( x_i - \\overline{x} \\right)^2\\]\nEcart type : \\(\\sigma\\)\n\n\n\n\nRésumé numérique\nBoxplot\n\nboxplot(nb_plantes)",
+    "crumbs": [
+      "Statistiques descriptives",
+      "Analyse univariée"
+    ]
+  },
+  {
+    "objectID": "stat_descriptive/analyse_univarie.html#variable-quantitative-continue",
+    "href": "stat_descriptive/analyse_univarie.html#variable-quantitative-continue",
+    "title": "Analyse univariée",
+    "section": "Variable quantitative continue",
+    "text": "Variable quantitative continue\ncoming",
+    "crumbs": [
+      "Statistiques descriptives",
+      "Analyse univariée"
+    ]
+  },
+  {
+    "objectID": "stat_descriptive/analyse_univarie.html#variable-qualitative",
+    "href": "stat_descriptive/analyse_univarie.html#variable-qualitative",
+    "title": "Analyse univariée",
+    "section": "Variable qualitative",
+    "text": "Variable qualitative",
+    "crumbs": [
+      "Statistiques descriptives",
+      "Analyse univariée"
     ]
   }
 ]

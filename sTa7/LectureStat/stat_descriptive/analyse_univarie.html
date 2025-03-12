@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Probabilité conditionnelle – Statistiques et analyse de données</title>
+<title>Analyse univariée – Statistiques et analyse de données</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../proba/independance.html" rel="next">
-<link href="../proba/espace_proba.html" rel="prev">
+<link href="../stat_descriptive/analyse_bivarie.html" rel="next">
+<link href="../stat_descriptive/vocab.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -110,7 +144,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../proba.html">Probabilités</a></li><li class="breadcrumb-item"><a href="../proba/proba_condi.html">Probabilité conditionnelle</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../stat_descriptive.html">Statistiques descriptives</a></li><li class="breadcrumb-item"><a href="../stat_descriptive/analyse_univarie.html">Analyse univariée</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
@@ -145,11 +179,11 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../stat_descriptive.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Statistiques descriptives</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../stat_descriptive/vocab.html" class="sidebar-item-text sidebar-link">
@@ -158,20 +192,8 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../stat_descriptive/variable_quali.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Variables qualitatives</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../stat_descriptive/variable_quanti_discrete.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Variables quantitatives discrètes</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../stat_descriptive/variable_quanti_continue.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Variables quantitatives continue</span></a>
+  <a href="../stat_descriptive/analyse_univarie.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Analyse univariée</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -210,11 +232,11 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../proba.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Probabilités</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../proba/espace_proba.html" class="sidebar-item-text sidebar-link">
@@ -223,7 +245,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../proba/proba_condi.html" class="sidebar-item-text sidebar-link active">
+  <a href="../proba/proba_condi.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Probabilité conditionnelle</span></a>
   </div>
 </li>
@@ -255,6 +277,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../proba/lois_de_poisson.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Loi de Poisson</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../proba/chaines_de_markov.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chaines de Markov</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -327,18 +355,25 @@ window.Quarto = {
     <h2 id="toc-title">Table des matières</h2>
    
   <ul>
-  <li><a href="#preuve." id="toc-preuve." class="nav-link active" data-scroll-target="#preuve.">Preuve.</a></li>
-  <li><a href="#evénements-indépendants" id="toc-evénements-indépendants" class="nav-link" data-scroll-target="#evénements-indépendants">6 Evénements indépendants</a></li>
-  <li><a href="#preuve.-1" id="toc-preuve.-1" class="nav-link" data-scroll-target="#preuve.-1">Preuve.</a></li>
+  <li><a href="#variable-quantitative-discrète" id="toc-variable-quantitative-discrète" class="nav-link active" data-scroll-target="#variable-quantitative-discrète">Variable quantitative discrète</a>
+  <ul class="collapse">
+  <li><a href="#données-brutes" id="toc-données-brutes" class="nav-link" data-scroll-target="#données-brutes">Données brutes</a></li>
+  <li><a href="#tableau-statistiques" id="toc-tableau-statistiques" class="nav-link" data-scroll-target="#tableau-statistiques">Tableau Statistiques</a></li>
+  <li><a href="#représentation-graphique" id="toc-représentation-graphique" class="nav-link" data-scroll-target="#représentation-graphique">Représentation graphique</a></li>
+  <li><a href="#tendance-centrale-et-dispersion" id="toc-tendance-centrale-et-dispersion" class="nav-link" data-scroll-target="#tendance-centrale-et-dispersion">Tendance centrale et dispersion</a></li>
+  <li><a href="#résumé-numérique" id="toc-résumé-numérique" class="nav-link" data-scroll-target="#résumé-numérique">Résumé numérique</a></li>
+  </ul></li>
+  <li><a href="#variable-quantitative-continue" id="toc-variable-quantitative-continue" class="nav-link" data-scroll-target="#variable-quantitative-continue">Variable quantitative continue</a></li>
+  <li><a href="#variable-qualitative" id="toc-variable-qualitative" class="nav-link" data-scroll-target="#variable-qualitative">Variable qualitative</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../proba.html">Probabilités</a></li><li class="breadcrumb-item"><a href="../proba/proba_condi.html">Probabilité conditionnelle</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../stat_descriptive.html">Statistiques descriptives</a></li><li class="breadcrumb-item"><a href="../stat_descriptive/analyse_univarie.html">Analyse univariée</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Probabilité conditionnelle</h1>
+<h1 class="title">Analyse univariée</h1>
 </div>
 
 
@@ -355,135 +390,624 @@ window.Quarto = {
 </header>
 
 
-<p>Probabilités conditionnelles</p>
-<p>Reprenons l’exemple du dé. Notons <span class="math inline">\(A\)</span> l’événement “on obtient un 2” et <span class="math inline">\(B\)</span> l’événement “on n’obtient pas 1”. L’événement <span class="math inline">\(A \cap B\)</span> est égal à <span class="math inline">\(A\)</span> car si on obtient 2 et pas 1 , c’est qu’on a obtenu 2 tout court. Donc <span class="math inline">\(\mathbb{P}(A \cap B)=1 / 6\)</span>. De plus, <span class="math inline">\(\mathbb{P}(B)=5 / 6\)</span> car il y a 5 résultats favorables sur 6 si on n’obtient pas 1 .</p>
-<p>Supposons maintenant qu’on sache que <span class="math inline">\(B\)</span> est vérifié, c’est-à-dire qu’on n’a pas obtenu 1 . Dans ce cas, la probabilité d’obtenir 2 est de <span class="math inline">\(1 / 5\)</span>, car il n’y a plus que 5 résultats possibles (et on est toujours dans un cas équiprobable). On remarque que cette probabilité vaut exactement <span class="math inline">\(\mathbb{P}(A \cap B) / \mathbb{P}(B)\)</span>. C’est ce qu’on appelle une probabilité conditionnelle.</p>
-<p>Définition 6 Soit <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> deux événements tels que <span class="math inline">\(\mathbb{P}(B) \neq 0\)</span>. On appelle probabilité conditionnelle de <span class="math inline">\(A\)</span> sachant <span class="math inline">\(B\)</span> (c’est-à-dire sachant que <span class="math inline">\(B\)</span> est réalisé), notée <span class="math inline">\(\mathbb{P}(A / B)\)</span> le quotient :</p>
-<p><span class="math display">\[
-\mathbb{P}(A / B)=\frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)}
-\]</span></p>
-<p>Proposition 7 Soit <span class="math inline">\(B\)</span> un événement de probabilité <span class="math inline">\(\mathbb{P}(B)\)</span> non nulle. Alors <span class="math inline">\(\mathbb{Q}(A)=\mathbb{P}(A / B)\)</span> est une probabilité sur <span class="math inline">\(S\)</span>.</p>
-<p>Preuve. Il suffit de montrer que <span class="math inline">\(\mathbb{Q}\)</span> vérifie bien les propriétés de la définition d’une probabilité.</p>
-<ul>
-<li>Soit <span class="math inline">\(A \in S\)</span>; on a alors</li>
-</ul>
-<p><span class="math display">\[
-0 \leq \mathbb{Q}(A)=\mathbb{P}(A / B) \leq 1
-\]</span></p>
-<p>car <span class="math inline">\(\mathbb{P}(B)=\mathbb{P}(A \cap B)+\mathbb{P}(\bar{A} \cap B) \geq \mathbb{P}(A \cap B)\)</span>.</p>
-<ul>
-<li>On a</li>
-</ul>
-<p><span class="math display">\[
-\mathbb{Q}(\Omega)=\mathbb{P}(\Omega / B)=\frac{\mathbb{P}(\Omega \cap B)}{\mathbb{P}(B)}=\frac{\mathbb{P}(B)}{\mathbb{P}(B)}=1
-\]</span></p>
-<ul>
-<li>Soit <span class="math inline">\(\left(A_{n}\right)_{n}\)</span> une famille d’événements deux à deux incompatibles.</li>
-</ul>
-<p><span class="math display">\[
-\mathbb{Q}\left(\bigcup_{n} A_{n}\right)=\mathbb{P}\left(\left(\bigcup_{n} A_{n}\right) / B\right)=\frac{\mathbb{P}\left(\left(\bigcup_{n} A_{n}\right) \cap B\right)}{\mathbb{P}(B)}=\frac{\mathbb{P}\left(\bigcup_{n}\left(A_{n} \cap B\right)\right)}{\mathbb{P}(B)}=\sum_{n} \frac{\mathbb{P}\left(A_{n} \cap B\right)}{\mathbb{P}(B)}=\sum_{n} \mathbb{P}\left(A_{n} / B\right)
-\]</span></p>
-<p>On a bien vérifié toutes les propriétés, donc <span class="math inline">\(\mathbb{Q}\)</span> est une probabilité sur <span class="math inline">\(S\)</span>. Définition 8 Soit <span class="math inline">\(\left(A_{i}\right)_{i \in I}\)</span> une famille (finie) d’événements (en général non impossibles, i.e.&nbsp;<span class="math inline">\(\mathbb{P}\left(A_{i}\right)&gt;0\)</span> pour tout <span class="math inline">\(i\)</span> ). On dira que c’est un système complet d’événements si :</p>
-<p><span class="math display">\[
-\bigcup_{i \in I} A_{i}=\Omega \quad \text { et } \quad A_{i} \cap A_{j}=\emptyset, \quad \forall i \neq j .
-\]</span></p>
-<p>Proposition 9 Soit <span class="math inline">\(\left(A_{i}\right)_{i \in I}\)</span> un système complet d’événements et soit <span class="math inline">\(B\)</span> un événement quelconque. Alors :</p>
-<p><span class="math display">\[
-\mathbb{P}(B)=\sum_{i \in I} \mathbb{P}\left(B \cap A_{i}\right)
-\]</span></p>
-<p>Preuve. Puisque <span class="math inline">\(\left(A_{i}\right)_{i \in I}\)</span> est un système complet d’événements, <span class="math inline">\(\bigcup_{i \in I} A_{i}=\Omega\)</span>. On peut écrire :</p>
-<p><span class="math display">\[
-\mathbb{P}(B)=\mathbb{P}(B \cap \Omega)=\mathbb{P}\left(B \cap\left(\bigcup_{i \in I} A_{i}\right)\right)=\mathbb{P}\left(\bigcup_{i \in I}\left(B \cap A_{i}\right)\right)
-\]</span></p>
-<p>Or, par définition d’un système complet, les <span class="math inline">\(A_{i}\)</span> sont deux à deux incompatibles. Les <span class="math inline">\(B \cap A_{i}\)</span> le sont donc aussi, et on a bien finalement :</p>
-<p><span class="math display">\[
-\mathbb{P}(B)=\sum_{i \in I} \mathbb{P}\left(B \cap A_{i}\right)
-\]</span></p>
-<p>Proposition 10 Soit <span class="math inline">\(\left(A_{i}\right)_{i \in I}\)</span> un système complet d’événements et <span class="math inline">\(B\)</span> un événement vérifiant <span class="math inline">\(\mathbb{P}(B) \neq 0\)</span> et <span class="math inline">\(\mathbb{P}\left(A_{i}\right) \neq 0 \forall i \in I\)</span>. Alors,</p>
-<p>1 .</p>
-<p><span class="math display">\[
-\mathbb{P}(B)=\sum_{i \in I} \mathbb{P}\left(B / A_{i}\right) \mathbb{P}\left(A_{i}\right)
-\]</span></p>
-<ol start="2" type="1">
-<li>Formule de Bayes :</li>
-</ol>
-<p><span class="math display">\[
-\mathbb{P}\left(A_{k} / B\right)=\frac{\mathbb{P}\left(A_{k}\right) \mathbb{P}\left(B / A_{k}\right)}{\sum_{i \in I} \mathbb{P}\left(A_{i}\right) \mathbb{P}\left(B / A_{i}\right)} \quad \forall k \in I
-\]</span></p>
-<p>On a un corollaire immédiat : Corollaire 11 Soit <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> deux événements vérifiant <span class="math inline">\(\mathbb{P}(B) \neq 0\)</span> et <span class="math inline">\(0&lt;\mathbb{P}(A)&lt;1\)</span>. Alors :</p>
-<p><span class="math display">\[
-\mathbb{P}(A / B)=\frac{\mathbb{P}(B / A) \mathbb{P}(A)}{\mathbb{P}(A) \mathbb{P}(B / A)+\mathbb{P}(\bar{A}) \mathbb{P}(B / \bar{A})}
-\]</span></p>
-<p>Démontrons la proposition précédente.</p>
-<section id="preuve." class="level2">
-<h2 class="anchored" data-anchor-id="preuve.">Preuve.</h2>
+<p>La méthode utlisé est la suisvante :</p>
 <ol type="1">
-<li>On a vu (prop 1.3.2) que:</li>
+<li><p>On récupère des <strong>données brutes</strong>, suites à des mesures, sondages, etc.</p></li>
+<li><p>On présente ensuite nos données dans un <strong>tableau statistique</strong></p></li>
+<li><p>On visulaise nos résultat avec des <strong>représentations graphiques</strong> adaptées</p></li>
+<li><p>Enfin on réalise un <strong>résumé numérique</strong> de notre analyse.</p></li>
 </ol>
-<p><span class="math display">\[
-\mathbb{P}(B)=\sum_{i \in I} \mathbb{P}\left(B \cap A_{i}\right) .
-\]</span></p>
-<p>Puisque <span class="math inline">\(\mathbb{P}\left(B / A_{i}\right)=\frac{\mathbb{P}\left(B \cap A_{i}\right)}{\mathbb{P}\left(A_{i}\right)}\)</span>, on a bien :</p>
-<p><span class="math display">\[
-\mathbb{P}(B)=\sum_{i \in I} \mathbb{P}\left(B / A_{i}\right) \mathbb{P}\left(A_{i}\right) .
-\]</span></p>
-<ol start="2" type="1">
-<li>Par définition des probabilités conditionnelles, <span class="math inline">\(\mathbb{P}\left(A_{k} / B\right)=\frac{\mathbb{P}\left(A_{k} \cap B\right)}{\mathbb{P}(B)}\)</span>. On peut donc écrire, en utilisant le même raisonnement que ci-dessus :</li>
-</ol>
-<p><span class="math display">\[
-\mathbb{P}\left(A_{k} / B\right)=\frac{\mathbb{P}\left(B / A_{k}\right) \mathbb{P}\left(A_{k}\right)}{\mathbb{P}(B)}
-\]</span></p>
-<p>En utilisant le résultat du 1 . et en remplaçant <span class="math inline">\(\mathbb{P}(B)\)</span>, on obtient bien :</p>
-<p><span class="math display">\[
-\mathbb{P}\left(A_{k} / B\right)=\frac{\mathbb{P}\left(A_{k}\right) \mathbb{P}\left(B / A_{k}\right)}{\sum_{i \in I} \mathbb{P}\left(A_{i}\right) \mathbb{P}\left(B / A_{i}\right)}
-\]</span></p>
+<p>Les méthodes à employer pour effectuer cette analyse vont <strong>dépendre du type de variable</strong> :</p>
+<ul>
+<li><p>Variable <strong>quantitative discrète</strong></p></li>
+<li><p>Variable <strong>quantitative continue</strong></p></li>
+<li><p>Variable <strong>qualitative</strong></p></li>
+</ul>
+<section id="variable-quantitative-discrète" class="level2">
+<h2 class="anchored" data-anchor-id="variable-quantitative-discrète">Variable quantitative discrète</h2>
+<section id="données-brutes" class="level3">
+<h3 class="anchored" data-anchor-id="données-brutes">Données brutes</h3>
+<p>On demande à l’ensemble des étudiants d’une promotion combien ils ont de plantes chez eux. <strong>L’effectif total</strong> de la promotion est de 50 étudiants.</p>
+<p>Les données brutes sont :</p>
+<p><code>1, 4, 10, 5, 14, 13, 14, 2, 13, 2, 2, 4, 7, 5, 5, 5, 11, 8, 15, 10, 2, 7, 10, 15, 2, 4, 6, 6, 4, 3, 5, 11, 13, 3, 10, 10, 12, 13, 14, 6, 16, 4, 15, 15, 16, 5, 5, 3, 15, 8</code></p>
 </section>
-<section id="evénements-indépendants" class="level2">
-<h2 class="anchored" data-anchor-id="evénements-indépendants">6 Evénements indépendants</h2>
-<p>Prenons une urne contenant des jetons numérotés de 1 à <span class="math inline">\(N\)</span>. Considérons les événements <span class="math inline">\(A=\)</span> “obtenir le jeton 1 au premier tirage” et <span class="math inline">\(B=\)</span> “obtenir le jeton 1 au deuxième tirage”. Si les tirages se font sans remise et que l’événement <span class="math inline">\(A\)</span> est réalisé, l’événement <span class="math inline">\(B\)</span> ne peut pas être réalisé. Par contre, si les tirages se font avec remise, le fait que l’événement <span class="math inline">\(A\)</span> soit réalisé ou non n’influe pas sur la probabilité que <span class="math inline">\(B\)</span> soit réalisé et vice-versa. C’est ce qu’on appelle des événements indépendants.</p>
-<p>Proposition 12 Soit <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> deux événements de probabilité non nulle. Alors les trois énoncés suivants sont équivalents :</p>
-<ol type="1">
-<li><span class="math inline">\(\mathbb{P}(A / B)=\mathbb{P}(A)\)</span></li>
-<li><span class="math inline">\(\mathbb{P}(B / A)=\mathbb{P}(B)\)</span></li>
-<li><span class="math inline">\(\mathbb{P}(A \cap B)=\mathbb{P}(A) \mathbb{P}(B)\)</span>.</li>
-</ol>
-<p>Preuve. Elle se fait facilement par succession d’équivalence :</p>
-<p><span class="math display">\[
-\begin{aligned}
-\mathbb{P}(A / B)=\mathbb{P}(A) &amp; \Longleftrightarrow \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)}=\mathbb{P}(A) \\
-&amp; \Longleftrightarrow \mathbb{P}(A \cap B)=\mathbb{P}(A) \mathbb{P}(B) \\
-&amp; \Longleftrightarrow \frac{\mathbb{P}(B \cap A)}{\mathbb{P}(A)}=\mathbb{P}(B) \\
-&amp; \Longleftrightarrow \mathbb{P}(B / A)=\mathbb{P}(B)
-\end{aligned}
-\]</span></p>
-<p>Définition 13 Deux événements <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> sont dits indépendants (noté <span class="math inline">\(A \amalg B\)</span> ) si et seulement si :</p>
-<p><span class="math display">\[
-\mathbb{P}(A \cap B)=\mathbb{P}(A) \mathbb{P}(B)
-\]</span></p>
-<p>Proposition 14 Soit <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> deux événements. Alors on <span class="math inline">\(a\)</span> :</p>
-<ol type="1">
-<li><span class="math inline">\(A \coprod A \Longleftrightarrow \mathbb{P}(A)=0\)</span> ou <span class="math inline">\(\mathbb{P}(A)=1\)</span>.</li>
-<li><span class="math inline">\(A \coprod B \Longleftrightarrow A \coprod \bar{B} \Longleftrightarrow \bar{A} \coprod B \Longleftrightarrow \bar{A} \coprod \bar{B}\)</span>.</li>
-</ol>
+<section id="tableau-statistiques" class="level3">
+<h3 class="anchored" data-anchor-id="tableau-statistiques">Tableau Statistiques</h3>
+<p>On présente ces données dans le tableau statistique suivant, où</p>
+<ul>
+<li><span class="math inline">\(x_i\)</span></li>
+<li><span class="math inline">\(n_i\)</span> est le nombre d’occurences de <span class="math inline">\(x_i\)</span>, ou encore l’effectif de <span class="math inline">\(x_i\)</span></li>
+<li><span class="math inline">\(N_i\)</span> est l’effectif cumulé de <span class="math inline">\(x_i\)</span></li>
+<li><span class="math inline">\(f_i\)</span> est la fréquence de <span class="math inline">\(x_i\)</span> (comprise entre <span class="math inline">\(0\)</span> et <span class="math inline">\(1\)</span>)</li>
+<li><span class="math inline">\(F_i\)</span> est la fréquence cumulée de <span class="math inline">\(x_i\)</span> (comprise entre <span class="math inline">\(0\)</span> et <span class="math inline">\(1\)</span>)</li>
+<li><span class="math inline">\(p_i\)</span> est la proportion de <span class="math inline">\(x_i\)</span>, correspond simplement à <span class="math inline">\(f_i\)</span> exprimé en pourcentage</li>
+<li><span class="math inline">\(P_i\)</span> est la proportion cumulée de <span class="math inline">\(x_i\)</span>, correspond simplement à <span class="math inline">\(F_i\)</span> exprimé en pourcentage</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tableau statistique
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(x_i\)</span></th>
+<th><span class="math inline">\(n_i\)</span></th>
+<th><span class="math inline">\(N_i\)</span></th>
+<th><span class="math inline">\(f_i\)</span></th>
+<th><span class="math inline">\(F_i\)</span></th>
+<th><span class="math inline">\(p_i\)</span></th>
+<th><span class="math inline">\(P_i\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>ce que l’on peut également faire avec <strong>R</strong> de la façon suivante :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>nb_plantes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">14</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="dv">2</span>, <span class="dv">13</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">11</span>, <span class="dv">8</span>, <span class="dv">15</span>, <span class="dv">10</span>, <span class="dv">2</span>, <span class="dv">7</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">11</span>, <span class="dv">13</span>, <span class="dv">3</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="dv">6</span>, <span class="dv">16</span>, <span class="dv">4</span>, <span class="dv">15</span>, <span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">15</span>, <span class="dv">8</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(nb_plantes)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>nb_plantes
+ 1  2  3  4  5  6  7  8 10 11 12 13 14 15 16 
+ 1  5  3  5  7  3  2  2  5  2  1  4  3  5  2 </code></pre>
+</div>
+</div>
 </section>
-<section id="preuve.-1" class="level2">
-<h2 class="anchored" data-anchor-id="preuve.-1">Preuve.</h2>
-<ol type="1">
-<li><span class="math inline">\(A \coprod A \Longleftrightarrow \mathbb{P}(A \cap A)=\mathbb{P}^{2}(A) \Longleftrightarrow \mathbb{P}(A)(1-\mathbb{P}(A))=0 \Longleftrightarrow \mathbb{P}(A)=0\)</span> ou <span class="math inline">\(\mathbb{P}(A)=1\)</span>.</li>
-<li>Il suffit de montrer la première équivalence, les autres sont alors automatiques.</li>
-</ol>
-<p><span class="math display">\[
-\left.\begin{array}{rl}
-A \amalg B &amp; \Longleftrightarrow \mathbb{P}(A \cap B)=\mathbb{P}(A) \mathbb{P}(B) \\
-&amp; \Longleftrightarrow \mathbb{P}(A \cap B)=\mathbb{P}(A)(1-\mathbb{P}(\bar{B}) \\
-&amp; \Longleftrightarrow \mathbb{P}(A) \mathbb{P}(\bar{B})=\mathbb{P}(A)-\mathbb{P}(A \cap B)
-\end{array} \Longleftrightarrow \mathbb{P}(A) \mathbb{P}(\bar{B})=\mathbb{P}(A \cap B)+\mathbb{P}(A \cap \bar{B})-\mathbb{P}(A \cap B), \vec{B}\right)=\mathbb{P}(A \cap \bar{B}) \quad \Longleftrightarrow A \coprod \bar{B} .
-\]</span></p>
-<p>On peut étendre cette notion d’événements indépendants à une famille : Définition 15 Une famille d’événements <span class="math inline">\(\left(A_{i}\right)_{i \in I}\)</span> est dite indépendante si pour toute sous-famille finie <span class="math inline">\(\left(A_{i_{1}}, A_{i_{2}}, \ldots, A_{i_{n}}\right)\)</span> de cette famille, on a :</p>
-<p><span class="math display">\[
-\mathbb{P}\left(\bigcap_{j=1}^{n} A_{i_{j}}\right)=\prod_{j=1}^{n} \mathbb{P}\left(A_{i_{j}}\right) .
-\]</span></p>
-<p>On retrouve les mêmes propriétés que pour deux événements indépendants. ATTENTION, le fait que les événements <span class="math inline">\(\left(A_{i}\right)_{i \in I}\)</span> sont indépendants entraîne qu’ils sont indépendants deux à deux, mais la réciproque est fausse. Exercice On lance une pièce deux fois de suite. Soit <span class="math inline">\(A\)</span> l’événement “obtenir face au premier jet”, <span class="math inline">\(B\)</span> l’événement “obtenir face au deuxième jet”, et <span class="math inline">\(C\)</span> l’événement “obtenir deux résultats différents”. Montrer que les événements <span class="math inline">\(A, B, C\)</span> sont deux à deux indépendants, mais que la famille <span class="math inline">\((A, B, C)\)</span> n’est pas indépendante.</p>
+<section id="représentation-graphique" class="level3">
+<h3 class="anchored" data-anchor-id="représentation-graphique">Représentation graphique</h3>
+<ul>
+<li><p>Diagramme en batons</p></li>
+<li><p>Diagramme cumulatif</p></li>
+</ul>
+</section>
+<section id="tendance-centrale-et-dispersion" class="level3">
+<h3 class="anchored" data-anchor-id="tendance-centrale-et-dispersion">Tendance centrale et dispersion</h3>
+<p>Une série numérique peut être résumée par deux paramètres statistiques :</p>
+<ul>
+<li><p>le centre d’une distribution des valeurs, représentant leur tendance d’ensemble</p></li>
+<li><p>La dispersion des valeurs, représentant leur variabilité</p></li>
+</ul>
+<section id="moyenne-arithmétique-mean" class="level4">
+<h4 class="anchored" data-anchor-id="moyenne-arithmétique-mean">Moyenne arithmétique (mean)</h4>
+<p>La <strong>moyenne arithmétique</strong> est le paramètre de tendance centrale le plus utilisé. La moyenne est très sensible aux valeurs extrèmes, c’est un paramètre peu robuste. On le note <span class="math inline">\(\overline{x}\)</span> et est définie par <span class="math display">\[\overline{x} = \sum_{i=1}^n f_i x_i = f_1 x_1 + f_2 x_2 + f_3 x_3 + \dots + f_4 x_4\]</span> Avec <strong>R</strong> on a</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(nb_plantes)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 8.16</code></pre>
+</div>
+</div>
+</section>
+<section id="le-mode" class="level4">
+<h4 class="anchored" data-anchor-id="le-mode">Le mode</h4>
+<p>Le mode d’une série statistique est la valeur avec l’effectif le plus élévé, ou la fréquence la plus élevée.</p>
+</section>
+<section id="quantiles" class="level4">
+<h4 class="anchored" data-anchor-id="quantiles">Quantiles</h4>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Avertissement
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pour déterminer un quantile, il faut toujours travailler avec une serie statistique ordonnée.</p>
+</div>
+</div>
+<p>De façon empirique, on peut dire que le quantile d’ordre <span class="math inline">\(\alpha\)</span>, noté <span class="math inline">\(x_\alpha\)</span>, est une valeur qui partage la serie statistique en deux sous ensemble qui contiennent respectivement un nombre d’observations égale à <span class="math inline">\(n\alpha\)</span> et <span class="math inline">\(n\left(1-\alpha\right)\)</span>, où <span class="math inline">\(n\)</span> est l’effectif total de la serie statistique et <span class="math inline">\(\alpha\)</span> une proportion comprise entre <span class="math inline">\(0\)</span> et <span class="math inline">\(1\)</span>.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quantile d’ordre <span class="math inline">\(\alpha\)</span>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Soit la série statistique brute <span class="math display">\[\{x_i\}_{1 \leq i \leq n}\]</span> donnant la lieu à la série statistique ordonnée <span class="math display">\[\{x_{(i)}\}_{1 \leq i \leq n}.\]</span> On considère la proportion <span class="math inline">\(\alpha\)</span> où <span class="math inline">\(0 \leq \alpha \leq 1\)</span>.</p>
+<ul>
+<li><p><strong>Si</strong> <span class="math inline">\(n\alpha\)</span> n’est pas un entier, <strong>alors</strong> le quantile d’ordre <span class="math inline">\(\alpha\)</span>, noté <span class="math inline">\(x_\alpha\)</span> est égale à <span class="math inline">\(x_{([n\alpha])}\)</span>.</p></li>
+<li><p><strong>Si</strong> <span class="math inline">\(n\alpha\)</span> est un entier, <strong>alors</strong></p>
+<ul>
+<li>1ère convention (lorsque <strong>l’effectif est impaire</strong>) : le quantile d’ordre <span class="math inline">\(\alpha\)</span>, noté <span class="math inline">\(x_\alpha\)</span>, est égale à <span class="math display">\[x_{(n\alpha)}\]</span></li>
+<li>2ème convention (lorsque <strong>l’effectif est paire</strong>) : le quantile d’ordre <span class="math inline">\(\alpha\)</span>, noté <span class="math inline">\(x_\alpha\)</span>, est égale à <span class="math display">\[\frac{x_{(n\alpha)}+x_{(n\alpha+1)}}{2}\]</span></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="la-médiane" class="level4">
+<h4 class="anchored" data-anchor-id="la-médiane">La médiane</h4>
+<p>Le quantile d’ordre <span class="math inline">\(\displaystyle\frac12\)</span> correspond à la mediane.</p>
+<p>La mediane est insensible aux variations des valeurs extrèmes.</p>
+</section>
+<section id="les-quartiles" class="level4">
+<h4 class="anchored" data-anchor-id="les-quartiles">Les quartiles</h4>
+<p>Le quantile d’ordre <span class="math inline">\(\frac14\)</span> correspond au premier quartile <span class="math inline">\(Q_1\)</span>.</p>
+<p>Le quantile d’ordre <span class="math inline">\(\frac34\)</span> correspond au troisième quartile <span class="math inline">\(Q_3\)</span>.</p>
+</section>
+<section id="les-déciles" class="level4">
+<h4 class="anchored" data-anchor-id="les-déciles">Les déciles</h4>
+<p>blabla</p>
+</section>
+<section id="les-centiles" class="level4">
+<h4 class="anchored" data-anchor-id="les-centiles">Les centiles</h4>
+<p>blablabla</p>
+<ul>
+<li><p>Etendue ou intervalle de variation <span class="math display">\[\left|x_{max} - x_{min}\right|\]</span> dependance des valeurs extrèmes, donc instable</p></li>
+<li><p>intervalle interquartile <span class="math display">\[\left|Q_3 - Q_1\right|\]</span></p></li>
+<li><p>Variance <span class="math display">\[\sigma^2 = \frac{1}{n} \sum_{i=1}^n \left( x_i - \overline{x} \right)^2\]</span></p></li>
+<li><p>Ecart type : <span class="math inline">\(\sigma\)</span></p></li>
+</ul>
+</section>
+</section>
+<section id="résumé-numérique" class="level3">
+<h3 class="anchored" data-anchor-id="résumé-numérique">Résumé numérique</h3>
+<p>Boxplot</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(nb_plantes)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analyse_univarie_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="variable-quantitative-continue" class="level2">
+<h2 class="anchored" data-anchor-id="variable-quantitative-continue">Variable quantitative continue</h2>
+<p>coming</p>
+</section>
+<section id="variable-qualitative" class="level2">
+<h2 class="anchored" data-anchor-id="variable-qualitative">Variable qualitative</h2>
 
 
 </section>
@@ -908,13 +1432,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../proba/espace_proba.html" class="pagination-link" aria-label="Espace probabilisé">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Espace probabilisé</span>
+      <a href="../stat_descriptive/vocab.html" class="pagination-link" aria-label="Vocabulaire">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Vocabulaire</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../proba/independance.html" class="pagination-link" aria-label="Indépendance">
-        <span class="nav-page-text">Indépendance</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../stat_descriptive/analyse_bivarie.html" class="pagination-link" aria-label="Analyse bivariée">
+        <span class="nav-page-text">Analyse bivariée</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

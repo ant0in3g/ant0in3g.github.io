@@ -69,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -293,8 +322,19 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table des matières</h2>
+   
+  <ul>
+  <li><a href="#univers-omega" id="toc-univers-omega" class="nav-link active" data-scroll-target="#univers-omega">Univers <span class="math inline">\(\Omega\)</span></a></li>
+  <li><a href="#tribu-mathcala-des-événements-sur-omega" id="toc-tribu-mathcala-des-événements-sur-omega" class="nav-link" data-scroll-target="#tribu-mathcala-des-événements-sur-omega">Tribu <span class="math inline">\(\mathcal{A}\)</span> des événements sur <span class="math inline">\(\Omega\)</span></a></li>
+  <li><a href="#probabilité-mathbbp" id="toc-probabilité-mathbbp" class="nav-link" data-scroll-target="#probabilité-mathbbp">Probabilité <span class="math inline">\(\mathbb{P}\)</span></a></li>
+  <li><a href="#propriété" id="toc-propriété" class="nav-link" data-scroll-target="#propriété">Propriété</a></li>
+  <li><a href="#probabilités-discrètes" id="toc-probabilités-discrètes" class="nav-link" data-scroll-target="#probabilités-discrètes">Probabilités discrètes</a></li>
+  <li><a href="#probabilités-à-densité" id="toc-probabilités-à-densité" class="nav-link" data-scroll-target="#probabilités-à-densité">Probabilités à densité</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -318,8 +358,101 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>Un <strong>espace probabilisé</strong> est une structure mathématique permettant de modéliser une expérience aléatoire. Il est défini par un <strong>triplet</strong> <span class="math display">\[\left(\Omega, \mathcal{A}, \mathbb{P}\right)\]</span></p>
+<section id="univers-omega" class="level2">
+<h2 class="anchored" data-anchor-id="univers-omega">Univers <span class="math inline">\(\Omega\)</span></h2>
+<p><strong>L’univers</strong> <span class="math inline">\(\Omega\)</span> est l’ensemble des événements élémentaires <span class="math inline">\(\omega\)</span>, c’est à dire l’ensemble de tous les résultats possibles d’une expérience aléatoire.</p>
+<p><strong>Exemples</strong></p>
+<ul>
+<li>Pour le jet d’une pièce de monnaie, <span class="math inline">\(\Omega=\{0,1\}\)</span> convient, où 0 représente pile et 1 représente face.</li>
+<li>Pour le lancé d’une fléchette sur une cible, <span class="math inline">\(\Omega=\)</span> un disque du plan euclidien convient.</li>
+<li>Pour la durée de vie d’une ampoule électrique, <span class="math inline">\(\Omega=\mathbb{R}^{+}\)</span>.</li>
+<li>Pour le lancé d’un dé, <span class="math inline">\(\Omega=\{1,2,3,4,5,6\}\)</span>.</li>
+</ul>
+</section>
+<section id="tribu-mathcala-des-événements-sur-omega" class="level2">
+<h2 class="anchored" data-anchor-id="tribu-mathcala-des-événements-sur-omega">Tribu <span class="math inline">\(\mathcal{A}\)</span> des événements sur <span class="math inline">\(\Omega\)</span></h2>
+<p>Une famille <span class="math inline">\(\mathcal{A}\)</span> de parties de <span class="math inline">\(\Omega\)</span> est appelée <strong>tribu</strong> si elle vérifie les propriétés suivantes :</p>
+<ul>
+<li><p><span class="math inline">\(\mathcal{A}\)</span> est non vide</p></li>
+<li><p>Si <span class="math inline">\(B\)</span> est un élément de <span class="math inline">\(\mathcal{A}\)</span>, alors <span class="math inline">\(\overline{B} \in \mathcal{A}\)</span>, où <span class="math inline">\(\overline{B}\)</span> désigne le complémentaire de <span class="math inline">\(B\)</span> dans <span class="math inline">\(\Omega\)</span></p></li>
+<li><p>Si pour tout <span class="math inline">\(n\in\mathbb{N}\)</span> on a <span class="math inline">\(B_n\in\mathcal{A}\)</span>, alors <span class="math display">\[\displaystyle\bigcup_{n} B_{n} \in \mathcal{A}\]</span></p></li>
+</ul>
+<p>Les éléments de <span class="math inline">\(\mathcal{A}\)</span> sont appelés événements, et <span class="math inline">\(\Omega\)</span> est l’événement certain.</p>
+</section>
+<section id="probabilité-mathbbp" class="level2">
+<h2 class="anchored" data-anchor-id="probabilité-mathbbp">Probabilité <span class="math inline">\(\mathbb{P}\)</span></h2>
+<p>Une probabilité <span class="math inline">\(\mathbb{P}\)</span> est une application de <span class="math inline">\(\mathcal{A}\)</span> dans <span class="math inline">\([0,1]\)</span>, c’est à dire <span class="math display">\[ \mathbb{P} : \mathcal{A} \mapsto [0,1]\]</span> vérifiant les propriétés :</p>
+<ul>
+<li><p><span class="math inline">\(\mathbb{P}(\Omega)=1\)</span>, l’événement certain a une probabilité de <span class="math inline">\(1\)</span></p></li>
+<li><p><span class="math inline">\(\mathbb{P}(\emptyset)=0\)</span>, l’événement impossible a une probabilité de <span class="math inline">\(0\)</span></p></li>
+<li><p>Si <span class="math inline">\(\left(B_n\right)_n\)</span> est une suite (éventuellement finie) d’éléments de <span class="math inline">\(\mathcal{A}\)</span> deux à deux incompatibles, c’est à dire <span class="math inline">\(A_i \cap A_j=\emptyset\)</span> si <span class="math inline">\(i \neq j\)</span> , alors <span class="math display">\[\mathbb{P}\left(\bigcup_n A_n\right)=\sum_n \ \mathbb{P}\left(A_n\right)\]</span> autrement dit pour des événements disjoints <span class="math inline">\(A_1, A_2, A_3, \dots\)</span>, la probabilité de leur union est la somme de leurs probabilités individuelles <span class="math display">\[P\left(A_1 \cup A_2 \cup A_3 \cup \dots\right) = P(A_1) + P(A_2) + P(A_3) + \dots\]</span></p></li>
+</ul>
+</section>
+<section id="propriété" class="level2">
+<h2 class="anchored" data-anchor-id="propriété">Propriété</h2>
+<p>Soit <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> deux événements quelconques (i.e.&nbsp;<span class="math inline">\(A, B \in S\)</span> ). Alors</p>
+<ul>
+<li><span class="math inline">\(\mathbb{P}(\bar{A})=1-\mathbb{P}(A)\)</span>,</li>
+<li><span class="math inline">\(\mathbb{P}(\emptyset)=0\)</span>,</li>
+<li><span class="math inline">\(\mathbb{P}(B)=\mathbb{P}(A \cap B)+\mathbb{P}(\bar{A} \cap B)\)</span>,</li>
+<li><span class="math inline">\(\mathbb{P}(A \cup B)=\mathbb{P}(A)+\mathbb{P}(B)-\mathbb{P}(A \cap B)\)</span>.</li>
+</ul>
+</section>
+<section id="probabilités-discrètes" class="level2">
+<h2 class="anchored" data-anchor-id="probabilités-discrètes">Probabilités discrètes</h2>
+<p>La probabilité <span class="math inline">\(\mathbb{P}\)</span> est dite discrète dès que l’espace <span class="math inline">\(\Omega\)</span> est fini ou dénombrable. La tribu associée est alors généralement <span class="math inline">\(P(\Omega)\)</span>, l’ensemble des parties de <span class="math inline">\(\Omega\)</span>. Une probabilité sur un ensemble dénombrable est complètement déterminée par les <span class="math inline">\(\mathbb{P}(\{\omega\})\)</span> pour tout <span class="math inline">\(\omega \in \Omega\)</span>. En effet, pour <span class="math inline">\(A \subset \Omega\)</span>, on a</p>
+<p><span class="math display">\[
+\mathbb{P}(A)=\sum_{\omega \in A} \mathbb{P}(\omega)
+\]</span></p>
+<p>En particulier, <span class="math inline">\(1=\mathbb{P}(\Omega)=\sum_{\omega \in \Omega} \mathbb{P}(\omega)\)</span>.</p>
+<p>Exemples</p>
+<ul>
+<li>Lancer d’une pièce équilibrée : on souhaite modéliser le résultat du lancer d’une pièce sans tricherie. Pour cela, on choisit <span class="math inline">\(\Omega_{1}=\{\)</span> pile, face <span class="math inline">\(\}\)</span>. L’ensemble des parties de <span class="math inline">\(\Omega_{1}\)</span> comporte quatre éléments et on définit la mesure de probabilité <span class="math inline">\(\mathbb{P}\)</span> par <span class="math inline">\(\mathbb{P}(\)</span> pile <span class="math inline">\()=\mathbb{P}(\)</span> face <span class="math inline">\()=1 / 2\)</span> puisque les deux événements sont équiprobables (i.e.&nbsp;de même probabilité).</li>
+<li>Lancer de <span class="math inline">\(k\)</span> pièces, <span class="math inline">\(k \geq 2\)</span> : on prend cette fois-ci <span class="math inline">\(\Omega_{k}=\Omega_{1}^{k}\)</span>, c’est-à-dire l’ensemble des <span class="math inline">\(k\)</span>-uplets de pile ou face. On a <span class="math inline">\(\operatorname{Card}\left(\Omega_{k}\right)=2^{k}\)</span>. Les différents <span class="math inline">\(k\)</span>-uplets sont tous équiprobables donc <span class="math inline">\(\mathbb{P}(\omega)=2^{-k}\)</span>, pour tout <span class="math inline">\(\omega \in \Omega_{k}\)</span>. On aboutit ainsi naturellement à la Définition 5 Supposons que <span class="math inline">\(\Omega\)</span> soit un ensemble fini. On dit qu’on se trouve dans un cas équiprobable si tous les événements élémentaires ont même valeur <span class="math inline">\(\overline{d e}\)</span> probablité. On dit aussi que la probabilité est uniforme discrète.</li>
+</ul>
+<p>Dans le cas équiprobable, on a donc <span class="math inline">\(\mathbb{P}(\omega)=p\)</span> pour tout <span class="math inline">\(\omega \in \Omega\)</span>, où <span class="math inline">\(p=1 / \operatorname{Card}(\Omega)\)</span>. On peut alors écrire :</p>
+<p><span class="math display">\[
+\mathbb{P}(A)=\sum_{\omega \in A} \mathbb{P}(\omega)=\sum_{\omega \in A} \frac{1}{\operatorname{Card}(\Omega)}=\frac{\operatorname{Card}(A)}{\operatorname{Card}(\Omega)}
+\]</span></p>
+<p>soit encore :</p>
+<p><span class="math display">\[
+\mathbb{P}(A)=\frac{\text { nombre de cas favorables }}{\text { nombre de cas possibles }} .
+\]</span></p>
+<p>ATTENTION, cette formule n’est valable que pour les cas équiprobables. Elle fonctionne dans l’exemple du dé normal, mais pas dans celui du dé truqué. Il ne peut bien sûr pas y avoir de probabilité uniforme sur <span class="math inline">\(\mathbb{N}\)</span>. Exemples Mesure de probabilité sur <span class="math inline">\(\mathbb{N}^{*}\)</span>. On lance un dé de façon répétée jusqu’à obtenir un 6 , et on note le numéro du tirage du premier 6 . On a évidemment <span class="math inline">\(\mathbb{P}(1)=1 / 6\)</span>. On a également</p>
+<p><span class="math display">\[
+\mathbb{P}(2)=\mathbb{P}(\text { au premier tirage, on n'a pas eu de } 6 \text {; au deuxième tirage, on a eu un } 6)=\frac{5}{36}
+\]</span></p>
+<p>car sur les 36 tirages possibles équiprobables, seuls 5 permettent d’obtenir le premier 6 au deuxième tirage. De même, pour tout <span class="math inline">\(k \geq 2\)</span>,</p>
+<p><span class="math display">\[
+\mathbb{P}(k)=\mathbb{P}(k-1 \text { echecs, puis une réussite })=\left(\frac{5}{6}\right)^{k-1} \frac{1}{6} .
+\]</span></p>
+<p>Cela constitue bien une mesure de probabilité discrète sur <span class="math inline">\(\mathbb{N}^{*}\)</span> puisque <span class="math inline">\(\sum_{k \geq 1} \mathbb{P}(k)=1\)</span>.</p>
+</section>
+<section id="probabilités-à-densité" class="level2">
+<h2 class="anchored" data-anchor-id="probabilités-à-densité">Probabilités à densité</h2>
+<p>Soit <span class="math inline">\(f: \mathbb{R} \rightarrow \mathbb{R}\)</span> une fonction positive, continue par morceaux (ou plus généralement mesurable, i.e.&nbsp;<span class="math inline">\(\{x, f(x) \leq\)</span> <span class="math inline">\(y\} \in \mathcal{B}(\mathbb{R})\)</span> pour tout <span class="math inline">\(y \in \mathbb{R}\)</span> ) et d’intégrale sur <span class="math inline">\(\mathbb{R}\)</span> égale à 1 . Il est facile de vérifier que l’on définit une probabilité en posant, pour tout <span class="math inline">\(A \subset \mathbb{R}\)</span> :</p>
+<p><span class="math display">\[
+\mathbb{P}(A)=\int_{A} f(x) d x
+\]</span></p>
+<p>Une telle probabilité est dite à densité. On dit également que c’est une probabilité continue.</p>
+<p>Exemples</p>
+<ul>
+<li>La mesure uniforme sur l’intervalle <span class="math inline">\([a, b]\)</span>, où <span class="math inline">\(a&lt;b:\)</span> On définit</li>
+</ul>
+<p><span class="math display">\[
+\mathbb{P}(A)=\int_{A \cap[a, b]} \frac{1}{b-a} d x
+\]</span></p>
+<ul>
+<li>La probabilité de Gauss sur <span class="math inline">\(\mathbb{R}\)</span>. On utilise ici la fonction</li>
+</ul>
+<p><span class="math display">\[
+f(x)=\frac{1}{\sqrt{2 \pi} \sigma} \exp \left(\frac{(x-m)^{2}}{2 \sigma^{2}}\right)
+\]</span></p>
+<p>où <span class="math inline">\(m \in \mathbb{R}\)</span> et <span class="math inline">\(\sigma \in \mathbb{R}^{+*}\)</span> sont deux paramètres fixés.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
