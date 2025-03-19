@@ -362,6 +362,7 @@ window.Quarto = {
   <li><a href="#tableau-statistiques" id="toc-tableau-statistiques" class="nav-link" data-scroll-target="#tableau-statistiques">Tableau Statistiques</a></li>
   <li><a href="#représentation-graphique" id="toc-représentation-graphique" class="nav-link" data-scroll-target="#représentation-graphique">Représentation graphique</a></li>
   <li><a href="#fonction-de-répartition" id="toc-fonction-de-répartition" class="nav-link" data-scroll-target="#fonction-de-répartition">Fonction de répartition</a></li>
+  <li><a href="#quantiles" id="toc-quantiles" class="nav-link" data-scroll-target="#quantiles">Quantiles</a></li>
   <li><a href="#les-valeurs-centrales" id="toc-les-valeurs-centrales" class="nav-link" data-scroll-target="#les-valeurs-centrales">Les valeurs centrales</a></li>
   <li><a href="#les-paramètres-de-dispersion" id="toc-les-paramètres-de-dispersion" class="nav-link" data-scroll-target="#les-paramètres-de-dispersion">Les paramètres de dispersion</a></li>
   <li><a href="#résumé-numérique" id="toc-résumé-numérique" class="nav-link" data-scroll-target="#résumé-numérique">Résumé numérique</a></li>
@@ -431,14 +432,14 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="tableau-statistiques">Tableau Statistiques</h3>
 <p>On présente ces données dans un tableau statistique, où</p>
 <ul>
-<li><span class="math inline">\(x_i\)</span> est une des valuers que peut prendre la variable étduidi <span class="math inline">\(X\)</span>, ici <span class="math inline">\(X\)</span> est le nombre de plantes dans un appartement</li>
+<li><span class="math inline">\(x_i\)</span> est une des valeurs que peut prendre la variable étduidée <span class="math inline">\(X\)</span>, où <span class="math inline">\(X\)</span> est ici le nombre de plantes dans un appartement</li>
 <li><span class="math inline">\(n_i\)</span> est le nombre d’occurences de <span class="math inline">\(x_i\)</span>, ou encore l’effectif de <span class="math inline">\(x_i\)</span></li>
 <li><span class="math inline">\(N_i\)</span> est l’effectif cumulé de <span class="math inline">\(x_i\)</span> <span class="math display">\[N_i = \sum_{k=1}^i n_k\]</span></li>
-<li><span class="math inline">\(N\)</span> est l’effectif total, ici <span class="math inline">\(N=50\)</span></li>
-<li><span class="math inline">\(f_i\)</span> est la fréquence de <span class="math inline">\(x_i\)</span> (comprise entre <span class="math inline">\(0\)</span> et <span class="math inline">\(1\)</span>) <span class="math display">\[f_i = \frac{n_i}{N}\]</span></li>
-<li><span class="math inline">\(F_i\)</span> est la fréquence cumulée de <span class="math inline">\(x_i\)</span> (comprise entre <span class="math inline">\(0\)</span> et <span class="math inline">\(1\)</span>) <span class="math display">\[F_i = \frac{N_i}{N}\]</span></li>
-<li><span class="math inline">\(p_i\)</span> est la proportion de <span class="math inline">\(x_i\)</span>, correspond simplement à <span class="math inline">\(f_i\)</span> exprimé en pourcentage <span class="math display">\[p_i = f_i \times 100\]</span></li>
-<li><span class="math inline">\(P_i\)</span> est la proportion cumulée de <span class="math inline">\(x_i\)</span>, correspond simplement à <span class="math inline">\(F_i\)</span> exprimé en pourcentage <span class="math display">\[P_i = F_i \times 100\]</span></li>
+<li><span class="math inline">\(n\)</span> est l’effectif total, ici <span class="math inline">\(n=50\)</span></li>
+<li><span class="math inline">\(f_i\)</span> est la fréquence de <span class="math inline">\(x_i\)</span> (comprise entre <span class="math inline">\(0\)</span> et <span class="math inline">\(1\)</span>) <span class="math display">\[f_i = \frac{n_i}{n}\]</span></li>
+<li><span class="math inline">\(F_i\)</span> est la fréquence cumulée de <span class="math inline">\(x_i\)</span> (comprise entre <span class="math inline">\(0\)</span> et <span class="math inline">\(1\)</span>) <span class="math display">\[F_i = \frac{N_i}{n}\]</span></li>
+<li><span class="math inline">\(p_i\)</span> est la proportion de <span class="math inline">\(x_i\)</span>, elle correspond simplement à <span class="math inline">\(f_i\)</span> exprimée en pourcentage <span class="math display">\[p_i = f_i \times 100\]</span></li>
+<li><span class="math inline">\(P_i\)</span> est la proportion cumulée de <span class="math inline">\(x_i\)</span>, elle correspond simplement à <span class="math inline">\(F_i\)</span> exprimée en pourcentage <span class="math display">\[P_i = F_i \times 100\]</span></li>
 </ul>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -624,131 +625,256 @@ Tableau statistique
 </div>
 </div>
 <p>ce que l’on peut également faire avec <strong>R</strong> de la façon suivante :</p>
+<ul>
+<li>On déclare notre vecteur avec l’ensemble des réponses des étudiant-es</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>nb_plantes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">14</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="dv">2</span>, <span class="dv">13</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">11</span>, <span class="dv">8</span>, <span class="dv">15</span>, <span class="dv">10</span>, <span class="dv">2</span>, <span class="dv">7</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">11</span>, <span class="dv">13</span>, <span class="dv">3</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="dv">6</span>, <span class="dv">16</span>, <span class="dv">4</span>, <span class="dv">15</span>, <span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">15</span>, <span class="dv">8</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>nb_plantes</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1]  1  4 10  5 14 13 14  2 13  2  2  4  7  5  5  5 11  8 15 10  2  7 10 15  2
-[26]  4  6  6  4  3  5 11 13  3 10 10 12 13 14  6 16  4 15 15 16  5  5  3 15  8</code></pre>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>nb_plantes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">14</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="dv">2</span>, <span class="dv">13</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">11</span>, <span class="dv">8</span>, <span class="dv">15</span>, <span class="dv">10</span>, <span class="dv">2</span>, <span class="dv">7</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">11</span>, <span class="dv">13</span>, <span class="dv">3</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="dv">6</span>, <span class="dv">16</span>, <span class="dv">4</span>, <span class="dv">15</span>, <span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">15</span>, <span class="dv">8</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>eff_partiel <span class="ot">&lt;-</span> <span class="fu">table</span>(nb_plantes)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>eff_partiel</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>On calcule ensuite les <span class="math inline">\(n_i\)</span></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>eff_partiel <span class="ot">&lt;-</span> <span class="fu">table</span>(nb_plantes)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>eff_partiel</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>nb_plantes
  1  2  3  4  5  6  7  8 10 11 12 13 14 15 16 
  1  5  3  5  7  3  2  2  5  2  1  4  3  5  2 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>eff_cumul <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(eff_partiel)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>eff_cumul</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Puis les <span class="math inline">\(N_i\)</span></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>eff_cumul <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(eff_partiel)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>eff_cumul</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> 1  2  3  4  5  6  7  8 10 11 12 13 14 15 16 
  1  6  9 14 21 24 26 28 33 35 36 40 43 48 50 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>eff_tot <span class="ot">&lt;-</span> <span class="fu">sum</span>(eff_partiel)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>eff_tot</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>L’effectif total</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>eff_tot <span class="ot">&lt;-</span> <span class="fu">sum</span>(eff_partiel)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>eff_tot</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 50</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>freq_partiel_methode_1 <span class="ot">&lt;-</span> <span class="fu">prop.table</span>(eff_partiel)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>freq_partiel_methode_1</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>La fréquence <span class="math inline">\(f_i\)</span> des <span class="math inline">\(x_i\)</span> par deux méthodes</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>freq_partiel_methode_1 <span class="ot">&lt;-</span> <span class="fu">prop.table</span>(eff_partiel)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>freq_partiel_methode_1</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>nb_plantes
    1    2    3    4    5    6    7    8   10   11   12   13   14   15   16 
 0.02 0.10 0.06 0.10 0.14 0.06 0.04 0.04 0.10 0.04 0.02 0.08 0.06 0.10 0.04 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>freq_partiel_methode_2 <span class="ot">&lt;-</span> eff_partiel<span class="sc">/</span>eff_tot</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>freq_partiel_methode_2</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>freq_partiel_methode_2 <span class="ot">&lt;-</span> eff_partiel<span class="sc">/</span>eff_tot</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>freq_partiel_methode_2</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>nb_plantes
    1    2    3    4    5    6    7    8   10   11   12   13   14   15   16 
 0.02 0.10 0.06 0.10 0.14 0.06 0.04 0.04 0.10 0.04 0.02 0.08 0.06 0.10 0.04 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>freq_partiel_methode_1_pct <span class="ot">&lt;-</span> <span class="fu">prop.table</span>(eff_partiel)<span class="sc">*</span><span class="dv">100</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>freq_partiel_methode_1_pct</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>nb_plantes
- 1  2  3  4  5  6  7  8 10 11 12 13 14 15 16 
- 2 10  6 10 14  6  4  4 10  4  2  8  6 10  4 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>freq_partiel_methode_2_pct <span class="ot">&lt;-</span> (eff_partiel<span class="sc">/</span>eff_tot)<span class="sc">*</span><span class="dv">100</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>freq_partiel_methode_2_pct</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>nb_plantes
- 1  2  3  4  5  6  7  8 10 11 12 13 14 15 16 
- 2 10  6 10 14  6  4  4 10  4  2  8  6 10  4 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>freq_partiel_methode_1_pct_arrondi <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">prop.table</span>(eff_partiel)<span class="sc">*</span><span class="dv">100</span>,<span class="dv">2</span>)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>freq_partiel_methode_1_pct_arrondi</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>nb_plantes
- 1  2  3  4  5  6  7  8 10 11 12 13 14 15 16 
- 2 10  6 10 14  6  4  4 10  4  2  8  6 10  4 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>freq_partiel_methode_2_pct_arrondi <span class="ot">&lt;-</span> <span class="fu">round</span>((eff_partiel<span class="sc">/</span>eff_tot)<span class="sc">*</span><span class="dv">100</span>,<span class="dv">2</span>)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>freq_partiel_methode_2_pct_arrondi</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>nb_plantes
- 1  2  3  4  5  6  7  8 10 11 12 13 14 15 16 
- 2 10  6 10 14  6  4  4 10  4  2  8  6 10  4 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(freq_partiel_methode_1)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(freq_partiel_methode_1_pct)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 100</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(freq_partiel_methode_2)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(freq_partiel_methode_2_pct)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 100</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>freq_cumul_methode_1 <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(freq_partiel_methode_1)</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(freq_cumul_methode_1,<span class="dv">2</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>La frequence cumulée <span class="math inline">\(F_i\)</span> correspondante</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>freq_cumul_methode_1 <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(freq_partiel_methode_1)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>freq_cumul_methode_1</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   1    2    3    4    5    6    7    8   10   11   12   13   14   15   16 
 0.02 0.12 0.18 0.28 0.42 0.48 0.52 0.56 0.66 0.70 0.72 0.80 0.86 0.96 1.00 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>freq_cumul_methode_2 <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(freq_partiel_methode_2)</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(freq_cumul_methode_2,<span class="dv">2</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>freq_cumul_methode_2 <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(freq_partiel_methode_2)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>freq_cumul_methode_2</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   1    2    3    4    5    6    7    8   10   11   12   13   14   15   16 
 0.02 0.12 0.18 0.28 0.42 0.48 0.52 0.56 0.66 0.70 0.72 0.80 0.86 0.96 1.00 </code></pre>
+</div>
+</div>
+<ul>
+<li>La proportion <span class="math inline">\(p_i\)</span></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>freq_partiel_methode_1_pct <span class="ot">&lt;-</span> <span class="fu">prop.table</span>(eff_partiel)<span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>freq_partiel_methode_1_pct</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>nb_plantes
+ 1  2  3  4  5  6  7  8 10 11 12 13 14 15 16 
+ 2 10  6 10 14  6  4  4 10  4  2  8  6 10  4 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>freq_partiel_methode_2_pct <span class="ot">&lt;-</span> (eff_partiel<span class="sc">/</span>eff_tot)<span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>freq_partiel_methode_2_pct</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>nb_plantes
+ 1  2  3  4  5  6  7  8 10 11 12 13 14 15 16 
+ 2 10  6 10 14  6  4  4 10  4  2  8  6 10  4 </code></pre>
+</div>
+</div>
+<ul>
+<li>La poportion cumulée <span class="math inline">\(P_i\)</span></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>freq_cumul_methode_1_pct <span class="ot">&lt;-</span> freq_cumul_methode_1<span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>freq_cumul_methode_1_pct</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  1   2   3   4   5   6   7   8  10  11  12  13  14  15  16 
+  2  12  18  28  42  48  52  56  66  70  72  80  86  96 100 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>freq_cumul_methode_2_pct <span class="ot">&lt;-</span> freq_cumul_methode_2<span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>freq_cumul_methode_2_pct</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  1   2   3   4   5   6   7   8  10  11  12  13  14  15  16 
+  2  12  18  28  42  48  52  56  66  70  72  80  86  96 100 </code></pre>
 </div>
 </div>
 </section>
 <section id="représentation-graphique" class="level3">
 <h3 class="anchored" data-anchor-id="représentation-graphique">Représentation graphique</h3>
 <ul>
-<li><p>Représentation tige feuille (stem and leaf)</p></li>
-<li><p>Diagramme en batons</p></li>
-<li><p>Diagramme cumulatif</p></li>
+<li>Représentation tige feuille (stem and leaf)</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stem</span>(nb_plantes)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  The decimal point is at the |
+
+   0 | 0
+   2 | 00000000
+   4 | 000000000000
+   6 | 00000
+   8 | 00
+  10 | 0000000
+  12 | 00000
+  14 | 00000000
+  16 | 00</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+ERROR
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Problème en sortie pour <code>stem(nb_plantes)</code>. Je m’occupe de fixer ce petit problème au plus vite.</p>
+</div>
+</div>
+<ul>
+<li>Diagramme en batons</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(eff_partiel,<span class="at">main =</span> <span class="st">"Diagranne en bâtons des effectifs partiels"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analyse_univarie_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(freq_partiel_methode_1,<span class="at">main =</span> <span class="st">"Diagranne en bâtons des fréquence partiels"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analyse_univarie_files/figure-html/unnamed-chunk-10-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Diagramme cumulatif</li>
 </ul>
 <p>Le diagramme cumulatif peut être tracé pour <span class="math inline">\(N_i\)</span> et <span class="math inline">\(F_i\)</span>. Lorsqu’il est tracé à l’aide des fréquences cumulés <span class="math inline">\(F_i\)</span>, alors on dit qu’il représente la <strong>fonction de répartition</strong>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(eff_cumul, <span class="at">type=</span><span class="st">"s"</span>, <span class="at">main=</span><span class="st">"Diagramme cummulatif en effectif"</span>, <span class="at">xlab=</span><span class="st">"x (nbre de plantes)"</span>, <span class="at">ylab=</span><span class="st">"Effectif cumulé"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analyse_univarie_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(freq_cumul_methode_1, <span class="at">type=</span><span class="st">"s"</span>, <span class="at">main=</span><span class="st">"Diagramme cummulatif en frequence"</span>, <span class="at">xlab=</span><span class="st">"x (nbre de plantes)"</span>, <span class="at">ylab=</span><span class="st">"F(x) (fréquence cumulée)"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analyse_univarie_files/figure-html/unnamed-chunk-11-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Cette dernière courbe correspond à la courbe de la fonction de répartition <span class="math inline">\(F(x)\)</span> que nous allons définir dans la suite.</p>
 </section>
 <section id="fonction-de-répartition" class="level3">
 <h3 class="anchored" data-anchor-id="fonction-de-répartition">Fonction de répartition</h3>
 <p>On appelle fonction de répartition d’une variable statistique quantitative toute application définie par : <span class="math display">\[ F(x) = \left|
-\begin{aligned}
-0 \ &amp;\mbox{ si } \ x &lt; x_i \\
-F_i \ &amp;\mbox{ si } \ x_i \leq x &lt; x_{i+1} \\
-1 \ &amp;\mbox{ si } \ x \geq x_r
-\end{aligned}
+\begin{array}{cl}
+0 &amp;\mbox{ si } \ x &lt; x_i \\
+F_i &amp;\mbox{ si } \ x_i \leq x &lt; x_{i+1} \\
+1 &amp;\mbox{ si } \ x \geq x_r
+\end{array}
 \right.\]</span></p>
 <p>où <span class="math inline">\(r\)</span> désigne l’odre de la dernière valeur (modalité).</p>
 <p>La fonction de répartition <span class="math inline">\(F\)</span> est une fonction en escalier.</p>
+</section>
+<section id="quantiles" class="level3">
+<h3 class="anchored" data-anchor-id="quantiles">Quantiles</h3>
+<p>Un objet utile pour la suite.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Avertissement
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pour déterminer un quantile, il faut toujours travailler avec une serie statistique ordonnée.</p>
+</div>
+</div>
+<p>De façon empirique, on peut dire que le quantile d’ordre <span class="math inline">\(\alpha\)</span>, noté <span class="math inline">\(x_\alpha\)</span>, est une valeur qui partage la serie statistique en deux sous ensemble qui contiennent respectivement un nombre d’observations égale à <span class="math inline">\(n\alpha\)</span> et <span class="math inline">\(n\left(1-\alpha\right)\)</span>, où <span class="math inline">\(n\)</span> est l’effectif total de la serie statistique et <span class="math inline">\(\alpha\)</span> une proportion comprise entre <span class="math inline">\(0\)</span> et <span class="math inline">\(1\)</span>.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quantile d’ordre <span class="math inline">\(\alpha\)</span>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Soit la série statistique brute <span class="math display">\[\{x_i\}_{1 \leq i \leq n}\]</span> donnant la lieu à la série statistique ordonnée <span class="math display">\[\{x_{(i)}\}_{1 \leq i \leq n}.\]</span> On considère la proportion <span class="math inline">\(\alpha\)</span> où <span class="math inline">\(0 \leq \alpha \leq 1\)</span>.</p>
+<ul>
+<li><p><strong>Si</strong> <span class="math inline">\(n\alpha\)</span> n’est pas un entier, <strong>alors</strong> le quantile d’ordre <span class="math inline">\(\alpha\)</span>, noté <span class="math inline">\(x_\alpha\)</span> est égale à <span class="math inline">\(x_{([n\alpha])}\)</span>.</p></li>
+<li><p><strong>Si</strong> <span class="math inline">\(n\alpha\)</span> est un entier, <strong>alors</strong></p>
+<ul>
+<li>1ère convention (lorsque <strong>l’effectif est impaire</strong>) : le quantile d’ordre <span class="math inline">\(\alpha\)</span>, noté <span class="math inline">\(x_\alpha\)</span>, est égale à <span class="math display">\[x_{(n\alpha)}\]</span></li>
+<li>2ème convention (lorsque <strong>l’effectif est paire</strong>) : le quantile d’ordre <span class="math inline">\(\alpha\)</span>, noté <span class="math inline">\(x_\alpha\)</span>, est égale à <span class="math display">\[\frac{x_{(n\alpha)}+x_{(n\alpha+1)}}{2}\]</span></li>
+</ul></li>
+</ul>
+</div>
+</div>
 </section>
 <section id="les-valeurs-centrales" class="level3">
 <h3 class="anchored" data-anchor-id="les-valeurs-centrales">Les valeurs centrales</h3>
 <p>Il existe trois valeurs centrales :</p>
 <ul>
-<li><p>le mode</p></li>
-<li><p>la médiane</p></li>
-<li><p>la moyenne</p></li>
+<li><p><strong>Le mode</strong></p></li>
+<li><p><strong>La médiane</strong></p></li>
+<li><p><strong>La moyenne</strong></p></li>
 </ul>
 <p>Après avoir appris à les calculer on étudiera leurs propriétés puis on verra comment la comparaison des trois valeurs centrales permet de rendre compte de la forme d’une distribution et quelles sont les valeurs centrales qui presentent les propriétés les plus intéressantes.</p>
 <section id="le-mode" class="level4">
@@ -758,14 +884,31 @@ F_i \ &amp;\mbox{ si } \ x_i \leq x &lt; x_{i+1} \\
 <section id="la-médiane" class="level4">
 <h4 class="anchored" data-anchor-id="la-médiane">La médiane</h4>
 <p>Le quantile d’ordre <span class="math inline">\(\displaystyle\frac12\)</span> correspond à la mediane.</p>
+<p>Dans notre exemple, <span class="math inline">\(n=50\)</span>, donc <span class="math inline">\(n\)</span> est paire, d’où <span class="math display">\[x_{(n\alpha)} = x_{\frac{1}{2}} = \frac{x_{(25)}+x_{(26)}}{2} = 7\]</span></p>
 <p>La mediane est insensible aux variations des valeurs extrèmes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>tri_nb_plantes <span class="ot">&lt;-</span> <span class="fu">sort</span>(nb_plantes)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>tri_nb_plantes</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  1  2  2  2  2  2  3  3  3  4  4  4  4  4  5  5  5  5  5  5  5  6  6  6  7
+[26]  7  8  8 10 10 10 10 10 11 11 12 13 13 13 13 14 14 14 15 15 15 15 15 16 16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>(tri_nb_plantes[<span class="dv">25</span>]<span class="sc">+</span>tri_nb_plantes[<span class="dv">26</span>])<span class="sc">/</span><span class="dv">2</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 7</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(nb_plantes)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 7</code></pre>
+</div>
+</div>
 </section>
 <section id="la-moyenne-arithmétique" class="level4">
 <h4 class="anchored" data-anchor-id="la-moyenne-arithmétique">La moyenne arithmétique</h4>
 <p>La <strong>moyenne arithmétique</strong> est le paramètre de tendance centrale le plus utilisé. La moyenne est très sensible aux valeurs extrèmes, c’est un paramètre peu robuste. On le note <span class="math inline">\(\overline{x}\)</span> et est définie par <span class="math display">\[\overline{x} = \sum_{i=1}^n f_i x_i = f_1 x_1 + f_2 x_2 + f_3 x_3 + \dots + f_4 x_4\]</span></p>
 <p>Avec <strong>R</strong> on a</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(nb_plantes)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(nb_plantes)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 8.16</code></pre>
 </div>
@@ -852,44 +995,6 @@ F_i \ &amp;\mbox{ si } \ x_i \leq x &lt; x_{i+1} \\
 <li><p>le centre d’une distribution des valeurs, représentant leur tendance d’ensemble</p></li>
 <li><p>La dispersion des valeurs, représentant leur variabilité</p></li>
 </ul>
-<section id="quantiles" class="level4">
-<h4 class="anchored" data-anchor-id="quantiles">Quantiles</h4>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Avertissement
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Pour déterminer un quantile, il faut toujours travailler avec une serie statistique ordonnée.</p>
-</div>
-</div>
-<p>De façon empirique, on peut dire que le quantile d’ordre <span class="math inline">\(\alpha\)</span>, noté <span class="math inline">\(x_\alpha\)</span>, est une valeur qui partage la serie statistique en deux sous ensemble qui contiennent respectivement un nombre d’observations égale à <span class="math inline">\(n\alpha\)</span> et <span class="math inline">\(n\left(1-\alpha\right)\)</span>, où <span class="math inline">\(n\)</span> est l’effectif total de la serie statistique et <span class="math inline">\(\alpha\)</span> une proportion comprise entre <span class="math inline">\(0\)</span> et <span class="math inline">\(1\)</span>.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Quantile d’ordre <span class="math inline">\(\alpha\)</span>
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Soit la série statistique brute <span class="math display">\[\{x_i\}_{1 \leq i \leq n}\]</span> donnant la lieu à la série statistique ordonnée <span class="math display">\[\{x_{(i)}\}_{1 \leq i \leq n}.\]</span> On considère la proportion <span class="math inline">\(\alpha\)</span> où <span class="math inline">\(0 \leq \alpha \leq 1\)</span>.</p>
-<ul>
-<li><p><strong>Si</strong> <span class="math inline">\(n\alpha\)</span> n’est pas un entier, <strong>alors</strong> le quantile d’ordre <span class="math inline">\(\alpha\)</span>, noté <span class="math inline">\(x_\alpha\)</span> est égale à <span class="math inline">\(x_{([n\alpha])}\)</span>.</p></li>
-<li><p><strong>Si</strong> <span class="math inline">\(n\alpha\)</span> est un entier, <strong>alors</strong></p>
-<ul>
-<li>1ère convention (lorsque <strong>l’effectif est impaire</strong>) : le quantile d’ordre <span class="math inline">\(\alpha\)</span>, noté <span class="math inline">\(x_\alpha\)</span>, est égale à <span class="math display">\[x_{(n\alpha)}\]</span></li>
-<li>2ème convention (lorsque <strong>l’effectif est paire</strong>) : le quantile d’ordre <span class="math inline">\(\alpha\)</span>, noté <span class="math inline">\(x_\alpha\)</span>, est égale à <span class="math display">\[\frac{x_{(n\alpha)}+x_{(n\alpha+1)}}{2}\]</span></li>
-</ul></li>
-</ul>
-</div>
-</div>
-</section>
 <section id="les-quartiles" class="level4">
 <h4 class="anchored" data-anchor-id="les-quartiles">Les quartiles</h4>
 <p>Le quantile d’ordre <span class="math inline">\(\frac14\)</span> correspond au premier quartile <span class="math inline">\(Q_1\)</span>.</p>
@@ -914,11 +1019,11 @@ Quantile d’ordre <span class="math inline">\(\alpha\)</span>
 <h3 class="anchored" data-anchor-id="résumé-numérique">Résumé numérique</h3>
 <p>Boxplot</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(nb_plantes)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(nb_plantes)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="analyse_univarie_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="analyse_univarie_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>

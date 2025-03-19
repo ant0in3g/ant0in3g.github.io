@@ -69,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -129,20 +158,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../stat_descriptive/variable_quali.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Variables qualitatives</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../stat_descriptive/variable_quanti_discrete.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Variables quantitatives discrètes</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../stat_descriptive/variable_quanti_continue.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Variables quantitatives continue</span></a>
+  <a href="../stat_descriptive/analyse_univarie.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Analyse univariée</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -230,6 +247,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../proba/chaines_de_markov.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chaines de Markov</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../proba/exos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercices</span></a>
   </div>
@@ -298,9 +321,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table des matières</h2>
    
   <ul>
-  <li><a href="#le-vocabulaire-de-la-statistique-descriptive" id="toc-le-vocabulaire-de-la-statistique-descriptive" class="nav-link active" data-scroll-target="#le-vocabulaire-de-la-statistique-descriptive">Le vocabulaire de la statistique descriptive</a></li>
-  <li><a href="#variables-qualitatives" id="toc-variables-qualitatives" class="nav-link" data-scroll-target="#variables-qualitatives">Variables qualitatives</a></li>
-  <li><a href="#variables-quantatives" id="toc-variables-quantatives" class="nav-link" data-scroll-target="#variables-quantatives">Variables quantatives</a></li>
+  <li><a href="#variables-qualitatives" id="toc-variables-qualitatives" class="nav-link active" data-scroll-target="#variables-qualitatives">Variables Qualitatives</a>
+  <ul class="collapse">
+  <li><a href="#exercice" id="toc-exercice" class="nav-link" data-scroll-target="#exercice">Exercice</a></li>
+  </ul></li>
+  <li><a href="#variable-quantitative-discrètes" id="toc-variable-quantitative-discrètes" class="nav-link" data-scroll-target="#variable-quantitative-discrètes">Variable Quantitative Discrètes</a>
+  <ul class="collapse">
+  <li><a href="#exercice-1" id="toc-exercice-1" class="nav-link" data-scroll-target="#exercice-1">Exercice</a></li>
+  </ul></li>
+  <li><a href="#variable-quantitatives-continues" id="toc-variable-quantitatives-continues" class="nav-link" data-scroll-target="#variable-quantitatives-continues">Variable Quantitatives Continues</a>
+  <ul class="collapse">
+  <li><a href="#exercice-variable-continue" id="toc-exercice-variable-continue" class="nav-link" data-scroll-target="#exercice-variable-continue">Exercice (Variable continue)</a></li>
+  <li><a href="#exercice-boxplot-et-intervalles-de-variations" id="toc-exercice-boxplot-et-intervalles-de-variations" class="nav-link" data-scroll-target="#exercice-boxplot-et-intervalles-de-variations">Exercice (Boxplot et intervalles de variations)</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -326,189 +359,448 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
+<section id="variables-qualitatives" class="level2">
+<h2 class="anchored" data-anchor-id="variables-qualitatives">Variables Qualitatives</h2>
+<section id="exercice" class="level3">
+<h3 class="anchored" data-anchor-id="exercice">Exercice</h3>
+<p>Le nombre de visites classé par le navigateur internet utilisé pour accéder au site internet de l’ISTOM le moi dernier est donné dans le tableau suivant.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Important
+Tableau statistique
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Tous les exercices doivent être maitrisés <strong>avec</strong> et <strong>sans</strong> R.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 32%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Navigateur (<span class="math inline">\(x_i\)</span>)</th>
+<th>Nombre de visites (<span class="math inline">\(n_i\)</span>)</th>
+<th><span class="math inline">\(N_i\)</span></th>
+<th><span class="math inline">\(f_i\)</span></th>
+<th><span class="math inline">\(F_i\)</span></th>
+<th><span class="math inline">\(p_i\)</span></th>
+<th><span class="math inline">\(P_i\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Chrome</td>
+<td>880491</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Firefox</td>
+<td>2022764</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Internet Explorer</td>
+<td>576655</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Opera</td>
+<td>160303</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Safari</td>
+<td>315613</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Autres</td>
+<td>41367</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
-<section id="le-vocabulaire-de-la-statistique-descriptive" class="level2">
-<h2 class="anchored" data-anchor-id="le-vocabulaire-de-la-statistique-descriptive">Le vocabulaire de la statistique descriptive</h2>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
+</div>
+<ol type="1">
+<li><p>Déterminer la population (en précisant sa taille et les individus qui la compose), les variables étudiées, leur type et les modalités qu’elles prennent.</p></li>
+<li><p>Déterminer la distribution des proportions de la variable «navigateur utilisé».</p></li>
+<li><p>Quel est le mode de la variable ?</p></li>
+<li><p>Représenter graphiquement la distribution des proportions.</p></li>
+</ol>
+</section>
+</section>
+<section id="variable-quantitative-discrètes" class="level2">
+<h2 class="anchored" data-anchor-id="variable-quantitative-discrètes">Variable Quantitative Discrètes</h2>
+<section id="exercice-1" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-1">Exercice</h3>
+<p>Pour un exerice de PIDEx, un groupe d’étudiant-es releve le nombre de piments sur chaque planche de culture d’une exploitation agricole. Les donnée brutes sont les suivantes : <code>12,6,8,3,15,4,8,9,10,5,6,12,8,10</code></p>
+<ol type="1">
+<li><p>Déterminer la population (en précisant sa taille et les individus qui la compose), les variables étudiées, leur type et les modalités qu’elles prennent.</p></li>
+<li><p>Déterminer la distribution des proportions de la variable «nombre de piments».</p></li>
+<li><p>Représenter graphiquement la distribution des proportions.</p></li>
+<li><p>Déterminer le mode de la variable.</p></li>
+<li><p>Déterminer la moyenne de la variable.</p></li>
+<li><p>Déterminer l’écart-type de la variable.</p></li>
+<li><p>Déterminer la médiane de la variable à partir des données individuelles.</p></li>
+</ol>
+</section>
+</section>
+<section id="variable-quantitatives-continues" class="level2">
+<h2 class="anchored" data-anchor-id="variable-quantitatives-continues">Variable Quantitatives Continues</h2>
+<section id="exercice-variable-continue" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-variable-continue">Exercice (Variable continue)</h3>
+<p>La répartition des étudiant-es cette année selon la durée de trajet (en minute) pour se rendre à l’ISTOM est donné par le tableau statistique ci-dessous.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Exercice 1
+Tableau statistique
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\([e_i,e_{i+1}]\)</span></th>
+<th><span class="math inline">\(f_i\)</span></th>
+<th><span class="math inline">\(F_i\)</span></th>
+<th><span class="math inline">\(p_i\)</span></th>
+<th><span class="math inline">\(P_i\)</span></th>
+<th><span class="math inline">\(a_i\)</span></th>
+<th><span class="math inline">\(c_i\)</span></th>
+<th><span class="math inline">\(d_i\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>[0,5[</td>
+<td>0.0285</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>[5,10[</td>
+<td>0.0996</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[10,15[</td>
+<td>0.1358</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>[15,20[</td>
+<td>0.1286</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[20,25[</td>
+<td>0.1141</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>[25,30[</td>
+<td>0.0947</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[30,40[</td>
+<td>0.1361</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>[40,50[</td>
+<td>0.0815</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[50,70[</td>
+<td>0.0796</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>[70,120[</td>
+<td>0.1015</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>avec <span class="math inline">\(d_i\)</span> la fréquence relative. La durée de trajet maximale a été arbitrairement choisie à 120 min pour les besoins de l’exercice.</p>
 <ol type="1">
-<li>Donner la définition d’une population ainsi que trois exemples.</li>
-<li>Définir la notion d’unité statistique ou individu et donner trois exemples.</li>
+<li><p>Déterminer la population et la variables étudiée (en précisant son type).</p></li>
+<li><p>Représenter graphiquement la distribution des proportions.</p></li>
+<li><p>Déterminer la classe modale de la variable.</p></li>
+<li><p>Représenter graphiquement la proportion des étudiant-es ayant un trajet compris entre 7 et 22 minutes. Calculer cette proportion.</p></li>
+<li><p>Calculer, à l’aide de la fonction de répartition, la proportion d’étudiant-es mettant moins de 35 minutes pour venir à l’école. Même question pour un temps de trajet compris entre 17 et 35 minutes.</p></li>
+<li><p>Déterminer la moyenne et l’écart-type de la variable.</p></li>
+<li><p>Déterminer la médiane, les quartiles ainsi que les premier et neuvièmes déciles.</p></li>
+<li><p>Représenter graphiquement la fonction de répartition.</p></li>
 </ol>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
+</section>
+<section id="exercice-boxplot-et-intervalles-de-variations" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-boxplot-et-intervalles-de-variations">Exercice (Boxplot et intervalles de variations)</h3>
+<p>Le temps de trajet domicile - lieu de la pratique sportive (en minutes) déclaré par les étudiant-es istomiens a été récolté. On a commencé à remplir le tableau statistique suivant.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution Exercice 1
+Tableau statistique
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>coming.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 10%">
+<col style="width: 13%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\([e_i,e_{i+1}]\)</span></th>
+<th><span class="math inline">\(f_i\)</span></th>
+<th><span class="math inline">\(F_i\)</span></th>
+<th><span class="math inline">\(p_i\)</span></th>
+<th><span class="math inline">\(P_i\)</span></th>
+<th><span class="math inline">\(a_i\)</span></th>
+<th><span class="math inline">\(c_i\)</span></th>
+<th><span class="math inline">\(d_i\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>[0,5[</td>
+<td></td>
+<td>0.0337</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>[5,10[</td>
+<td></td>
+<td>0.144</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[10,15[</td>
+<td></td>
+<td>0.294</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>[15,20[</td>
+<td></td>
+<td>0.4522</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[20,25[</td>
+<td></td>
+<td>0.5971</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>[25,30[</td>
+<td></td>
+<td>0.655</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[30,35[</td>
+<td></td>
+<td>0.7869</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>[35,45[</td>
+<td></td>
+<td>0.846</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[45,60[</td>
+<td></td>
+<td>0.9201</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>[60,90[</td>
+<td></td>
+<td>0.9722</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[90,150[</td>
+<td></td>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
-</section>
-<section id="variables-qualitatives" class="level2">
-<h2 class="anchored" data-anchor-id="variables-qualitatives">Variables qualitatives</h2>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Exercice 2
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <ol type="1">
-<li>Donner la définition d’une population ainsi que trois exemples.</li>
-<li>Définir la notion d’unité statistique ou individu et donner trois exemples.</li>
+<li><p>Représenter la boîte à moustache.</p></li>
+<li><p>Déterminer l’intervalle de variation à <span class="math inline">\(75 \%\)</span>.</p></li>
+<li><p>Déterminer l’intervalle de variation à <span class="math inline">\(95 \%\)</span>.</p></li>
 </ol>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution Exercice 2
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>coming.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Exercice 3
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li>Donner la définition d’une population ainsi que trois exemples.</li>
-<li>Définir la notion d’unité statistique ou individu et donner trois exemples.</li>
-</ol>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution Exercice 3
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>coming.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="variables-quantatives" class="level2">
-<h2 class="anchored" data-anchor-id="variables-quantatives">Variables quantatives</h2>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Exercice 4
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li>Donner la définition d’une population ainsi que trois exemples.</li>
-<li>Définir la notion d’unité statistique ou individu et donner trois exemples.</li>
-</ol>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution Exercice 4
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>coming.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Exercice 5
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li>Donner la définition d’une population ainsi que trois exemples.</li>
-<li>Définir la notion d’unité statistique ou individu et donner trois exemples.</li>
-</ol>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution Exercice 5
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>coming.</p>
-</div>
-</div>
-</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
