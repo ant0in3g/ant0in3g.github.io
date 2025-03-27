@@ -1,0 +1,117 @@
+---
+title: "Première Expérience en Analyse de Données"
+author: "Inès Shili-Touzi et Antoine Géré"
+format: pdf
+editor: visual
+---
+
+## Présentation
+
+L'exercice PEAD (Première Expérience en Analyse de Données) a été introduit en 2021-2022 pour les étudiants de 2A.
+
+Cet exercice a pour objectifs de :
+
+-   vous initier à la recherche de données à travers la manipulation de base de données open source
+
+-   mobiliser la démarche scientifique à travers l'identification de question liée à vos recherche de base de données
+
+-   mobiliser les tests statistiques et réaliser des analyses sur **R**
+
+-   Interpréter vos résultats afin de dégager des conclusions et une vision critique.
+
+## Thématique 2024-2025
+
+::: {.callout-tip}
+## Thématique 2024-2025
+Pour cette année, nous avons choisi de travailler avec vous sur la culture du **coton** dans le contexte agricole du Benin.
+:::
+
+## Progression 2024-2025
+
+### Step 1 - 25 Mars 2025 - Motiver votre travailler sur le coton
+
+Travail à faire :
+
+- effectuer une recherche bibliographique sur la thématique du coton
+
+- identifier 2 variables (au maximum) à travers des base de données open source, ce afin de comprendre le contexte de cette culture à travers des chiffres.
+
+
+
+::: {.callout-important}
+## Travail pour le 4 avril.
+Nous vous demandons de vous organiser en groupes de travail en respectant vos groupes de TD. Pour chaque groupe de TD, nous devrons avoir 5 groupes de 4 étudiants et 1 groupe de 3 étudiants.
+
+Merci aux délégués de nous envoyer le tableau définitif avec nom et prénom des étudiants par sous groupes.
+
+Ce travail doit être fait pour au plus tard le 04 avril
+:::
+
+
+### Step 2 - coming soon !
+
+
+## Ressources 
+
+Voici quelques sites qui porposent des base de données open source :
+
+- [Food and Agriculture Organization](http://www.fao.org/faostat/en/)
+
+- [UN Comtrade](https://comtrade.un.org/data/)
+
+- [UN trade & development](https://unctadstat.unctad.org/wds/ReportFolders/reportFolders.aspx?sCS_ChosenLang=en)
+
+- [International Monetary Fund](https://www.imf.org/en/Data)
+
+- [World Bank Open Data](https://data.worldbank.org/)
+
+- [eurostat](https://ec.europa.eu/eurostat/data/database)
+
+## Groupes
+
+### Groupe 1
+
+| Nom | Prénom |
+| ---- | ---- |
+| ADAM | Louis |
+| AISSOU -- LAURENT | Lili |
+| AHMED-BLAHA | Mohamed |
+| AMEYOU | Thomas |
+| BACHET | Quentin |
+| BALLET-CARIMENTRAND | Ambroise |
+| BAUZAC | Antoine |
+| BENOIT | Daphné |
+| BERTRAND | Diane |
+| BOISSON | Aurélien |
+| BRUN | Alix |
+| CARSIN | Madeleine |
+| CHU | Lea |
+| CRUCHET -- VITRAC | Lola |
+| DE LA BROSSE | Priscille |
+| DOLIGEZ | Emile |
+| DRAPIER | Agathe |
+| DUCHEMIN | Julie |
+| FILLATRE | Ethan |
+| FONTAINE | Gabriel |
+| FORTIN | Jade |
+| FOULON | Mathieu |
+| FRANCE | Ewan |
+| GENNETAY | Salomé |
+| GERARDIN | Paul |
+| GOUDIN | Ahna |
+| HAVENEL | Raphaël |
+| KOUDOU | Wéërie |
+| LAI SAN LAILLE | Manutahi |
+| LAILLOU | Hugo Minh |
+| LANDIER | Axel |
+| LARDÉ | Elisa |
+| LE BORGNE | Elisa |
+| LE GUERN | Oscar |
+| LION | Jeanne |
+| MASSIN | Adrien |
+| PATY | Romane |
+| PERRAUDIN | Liantsoa |
+| REIG | Julien |
+| SARR | Sirandou |
+| SIDATT | El Moustapha |
+| TOUBLANC | Léonie |
