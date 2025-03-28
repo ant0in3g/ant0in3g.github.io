@@ -6,7 +6,7 @@ Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 >
 > [**Cours complet de Statistiques et analyse de données à l'ISTOM**](sTa7/LectureStat/index.html)
 >
-> [**P**remière **E**xpérience en **A**nalyse de **D**onnées (PEAD)](./sTa7/PEAD/PEAD.html)
+> [**P**remière **E**xpérience en **A**nalyse de **D**onnées (PEAD)](./sTa7/PEAD/orga_PEAD.html)
 >
 > Les sujets d'examens donnés sont disponible sur cette [page](./sTa7/examens.md/).
 >
