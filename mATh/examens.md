@@ -4,6 +4,7 @@ Vous pouvez de nouveau retrouver via ce [lien](./corrections.md/) les correction
 
 ### Première année
 
+- [Examen 1A du lundi 31 mars 2025](./examens/exam-math-S2-2025.03.31.pdf)
 - [Examen 1A du lundi 24 février 2025](./examens/exam-math-S1-2025.02.24.pdf)
 - [Examen 1A du lundi 27 janvier 2025](./examens/exam-math-S1-2025.01.27.pdf)
 - [Examen 1A du jeudi 12 décembre 2024](./examens/exam-math-S1-2024.12.12.pdf)
