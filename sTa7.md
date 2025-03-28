@@ -52,7 +52,7 @@ Les sujets d'examens donnés sont disponible sur cette [page](./mATh/examens.md/
 <blockquote class="callout callout_default" theme="⚠️">
   <h3>⚠️ TD noté</h3>
   <p>
-    TD noté le **28 avril**.
+    TD noté le lundi 28 avril.
   </p>
 </blockquote>
 
@@ -63,6 +63,14 @@ Les sujets d'examens donnés sont disponible sur cette [page](./mATh/examens.md/
 - [Séance 22 (cours)](sTa7/LectureStat/index.html) - coming - _Lundi 19 mai 2025_.
 - [Séance 23 (travaux dirigés)](sTa7/LectureStat/index.html) - coming - _Mardi 20 mai 2025_.
 - [Séance 24 (travaux dirigés)](sTa7/LectureStat/index.html) - coming - _Mercredi 28 mai 2025_.
+
+<!-- condensed for clarity! -->
+<blockquote class="callout callout_default" theme="⚠️">
+  <h3>⚠️ Examen</h3>
+  <p>
+    Examen début juin.
+  </p>
+</blockquote>
 
 ### Ressources pour la promotion 114
 
@@ -83,10 +91,27 @@ Les sujets d'examens donnés sont disponible sur cette [page](./mATh/examens.md/
 
 - [Séance 10 (travaux dirigés)](sTa7/LectureStat/index.html) - coming - _Mardi 22 avril 2025_.
 - [Séance 11 (cours)](sTa7/LectureStat/index.html) - coming - _Mardi 29 avril 2025_.
+
+<!-- condensed for clarity! -->
+<blockquote class="callout callout_default" theme="⚠️">
+  <h3>⚠️ TD noté</h3>
+  <p>
+    TD noté le mercredi 30 avril.
+  </p>
+</blockquote>
+
 - [Séance 12 (cours)](sTa7/LectureStat/index.html) - coming - _Mercredi 7 mai 2025_.
 - [Séance 13 (cours)](sTa7/LectureStat/index.html) - coming - _Mercredi 14 mai 2025_.
 - [Séance 14 (travaux dirigés)](sTa7/LectureStat/index.html) - coming - _Mercredi 21 mai 2025_.
 - [Séance 15 (travaux dirigés)](sTa7/LectureStat/index.html) - coming - _Mercredi 27 mai 2025_.
+
+<!-- condensed for clarity! -->
+<blockquote class="callout callout_default" theme="⚠️">
+  <h3>⚠️ Examen</h3>
+  <p>
+    Examen début juin.
+  </p>
+</blockquote>
 
 ![image](./img/curve_fitting.png)  
 _Source : [https://imgs.xkcd.com/comics/curve_fitting.png](https://imgs.xkcd.com/comics/curve_fitting.png)_
