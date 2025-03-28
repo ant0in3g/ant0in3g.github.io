@@ -31,16 +31,16 @@ Les sujets d'examens donnés sont disponible sur cette [page](./mATh/examens.md/
 
 > Vacances.
 
-- [Séance 5 (cours)](sTa7/LectureStat/index.html) - coming - _Lundi 10 mars 2025_.
-- [Séance 6 (travaux dirigés)](sTa7/LectureStat/index.html) - coming - _Mardi 11 mars 2025_.
-- [Séance 7 (cours)](sTa7/LectureStat/index.html) - coming - _Vendredi 14 mars 2025_.
-- [Séance 8 (cours)](sTa7/LectureStat/index.html) - coming - _Lundi 17 mars 2025_.
-- [Séance 9 (travaux dirigés)](sTa7/LectureStat/index.html) - coming - _Mercredi 19 mars 2025_.
-- [Séance 10 (cours)](sTa7/LectureStat/index.html) - coming - _Lundi 24 mars 2025_.
-- [Séance 11 (cours)](sTa7/LectureStat/index.html) - coming - _Mercredi 26 mars 2025_.
-- [Séance 12 (cours)](sTa7/LectureStat/index.html) - coming - _Lundi 31 mars 2025_.
-- [Séance 13 (cours)](sTa7/LectureStat/index.html) - coming - _Lundi 7 avril 2025_.
-- [Séance 14 (travaux dirigés)](sTa7/LectureStat/index.html) - coming - _Mardi 8 avril 2025_.
+- [Séance 5 (cours)](sTa7/LectureStat/index.html) - Statistique descriptive univariée - _Lundi 10 mars 2025_.
+- [Séance 6 (travaux dirigés)](sTa7/LectureStat/index.html) - Statistique descriptive univariée - _Mardi 11 mars 2025_.
+- [Séance 7 (cours)](sTa7/LectureStat/index.html) - Statistique descriptive univariée - _Vendredi 14 mars 2025_.
+- [Séance 8 (cours)](sTa7/LectureStat/index.html) - Statistique descriptive univariée - _Lundi 17 mars 2025_.
+- [Séance 9 (travaux dirigés)](sTa7/LectureStat/index.html) - Statistique descriptive bivariée - _Mercredi 19 mars 2025_.
+- [Séance 10 (cours)](sTa7/LectureStat/index.html) - Statistique descriptive bivariée - _Lundi 24 mars 2025_.
+- [Séance 11 (cours)](sTa7/LectureStat/index.html) - Statistique descriptive bivariée - _Mercredi 26 mars 2025_.
+- [Séance 12 (cours)](sTa7/LectureStat/index.html) - Statistique descriptive multivariée - _Lundi 31 mars 2025_.
+- [Séance 13 (cours)](sTa7/LectureStat/index.html) - Statistique descriptive multivariée - _Lundi 7 avril 2025_.
+- [Séance 14 (travaux dirigés)](sTa7/LectureStat/index.html) - Statistique descriptive multivariée - _Mardi 8 avril 2025_.
 
 > Vacances.
 
@@ -80,12 +80,12 @@ Les sujets d'examens donnés sont disponible sur cette [page](./mATh/examens.md/
 
 > Vacances.
 
-- [Séance 4 (cours)](sTa7/LectureStat/index.html) - coming - _Mardi 4 mars 2025_.
-- [Séance 5 (cours)](sTa7/LectureStat/index.html) - coming - _Vendredi 14 mars 2025_.
-- [Séance 6 (cours)](sTa7/LectureStat/index.html) - coming - _Lundi 17 mars 2025_.
-- [Séance 7 (cours)](sTa7/LectureStat/index.html) - coming - _Mercredi 26 mars 2025_.
-- [Séance 8 (travaux dirigés)](sTa7/LectureStat/index.html) - coming - _Jeudi 27 mars 2025_.
-- [Séance 9 (travaux dirigés)](sTa7/LectureStat/index.html) - coming - _Jeudi 3 avril 2025_.
+- [Séance 4 (cours)](sTa7/LectureStat/index.html) - Rappels de probabilité - _Mardi 4 mars 2025_.
+- [Séance 5 (cours)](sTa7/LectureStat/index.html) - Rappels de probabilité - _Vendredi 14 mars 2025_.
+- [Séance 6 (cours)](sTa7/LectureStat/index.html) - Rappels de probabilité - _Lundi 17 mars 2025_.
+- [Séance 7 (cours)](sTa7/LectureStat/index.html) - Tests statistiques - _Mercredi 26 mars 2025_.
+- [Séance 8 (travaux dirigés)](sTa7/LectureStat/index.html) - Tests statistiques - _Jeudi 27 mars 2025_.
+- [Séance 9 (travaux dirigés)](sTa7/LectureStat/index.html) - Tests statistiques - _Jeudi 3 avril 2025_.
 
 > Vacances.
 
