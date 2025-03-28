@@ -49,12 +49,10 @@ Les sujets d'examens donnés sont disponible sur cette [page](./mATh/examens.md/
 - [Séance 17 (cours)](sTa7/LectureStat/index.html) - coming - _Lundi 28 avril 2025_.
 
 <!-- condensed for clarity! -->
-<blockquote class="callout callout_default" theme="🎅">
-  <h3>🎅 Old Saint Nick</h3>
+<blockquote class="callout callout_default" theme="⚠️">
+  <h3>⚠️ TD noté</h3>
   <p>
-    'Twas the night before Christmas, when all through the house not a creature was stirring, not even a mouse. The
-    stockings were hung by the chimney with care, in hopes that St. Nicholas soon would be there. The children were
-    nestled all snug in their beds, while visions of sugar plums danced in their heads.
+    TD noté le **28 avril**.
   </p>
 </blockquote>
 
