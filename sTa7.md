@@ -11,10 +11,6 @@ Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 > Les sujets d'examens donnés sont disponible sur cette [page](./sTa7/examens.md/).
 >
 
-### Examens et corrections
-
-Les sujets d'examens donnés sont disponible sur cette [page](./mATh/examens.md/).
-
 |                   | Semestre 2 | Semestre 3 | Semestre 4 | Semestre 5 |
 |:------------------|:-----------|:-----------|:-----------|:-----------|
 | Cours             | 16 séances | - séances  | 8 séances  | - séances  |
