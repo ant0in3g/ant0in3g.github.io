@@ -28,6 +28,18 @@ Cet exercice a pour objectifs de :
 Pour cette année, nous avons choisi de travailler avec vous sur la culture du **coton** dans le contexte agricole du Benin.
 :::
 
+::: {layout-ncol=3}
+::: {#first-column}
+![](coton.png)
+:::
+::: {#second-column}
+![](benin.png)
+:::
+::: {#third-column}
+![](flag)
+:::
+:::
+
 ## Progression
 
 ### Step 1 - Motiver votre travail
@@ -71,3 +83,5 @@ Voici quelques sites qui porposent des base de données open source :
 -   [eurostat](https://ec.europa.eu/eurostat/data/database)
 
 ## Groupes
+
+Vous pouvez retrouver vos groupes via ce [lien](https://istom-my.sharepoint.com/:x:/g/personal/a_gere_istom_fr/ES7to-Pvfp1KnpK509fZnm8BAMg9stX2lXaqDeiK-SFQUA?e=OxcbIq).
