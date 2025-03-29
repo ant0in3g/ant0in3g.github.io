@@ -9,7 +9,7 @@ editor: visual
 
 ## Présentation
 
-L'exercice PEAD (Première Expérience en Analyse de Données) a été introduit en 2021-2022 pour les étudiants de 2A.
+L'exercice **PEAD** (**P**remière **E**xpérience en **A**nalyse de **D**onnées) a été introduit en 2021-2022 pour les étudiants de 2A.
 
 Cet exercice a pour objectifs de :
 
@@ -17,7 +17,14 @@ Cet exercice a pour objectifs de :
 
 -   mobiliser la démarche scientifique à travers l'identification de question liée à vos recherche de base de données
 
+::: {layout-ncol=2}
+::: {#first-column}
 -   mobiliser les tests statistiques et réaliser des analyses sur **R**
+:::
+::: {#second-column}
+[![](R_RStudio_LogoS-rbg.png)](https://ant0in3g.github.io/sTa7/tuto_R_RStudio/index.html)
+:::
+:::
 
 -   Interpréter vos résultats afin de dégager des conclusions et une vision critique.
 
@@ -53,7 +60,7 @@ Travail à faire :
 -   identifier 2 variables (au maximum) à travers des base de données open source, ce afin de comprendre le contexte de cette culture à travers des chiffres.
 
 ::: callout-important
-#### Travail pour le 4 avril.
+#### Travail pour le vendredi 4 avril.
 
 Nous vous demandons de vous organiser en groupes de travail en respectant vos groupes de TD. Pour chaque groupe de TD, nous devrons avoir 5 groupes de 4 étudiants et 1 groupe de 3 étudiants.
 
@@ -80,6 +87,8 @@ Voici quelques sites qui porposent des base de données open source :
 
 -   [eurostat](https://ec.europa.eu/eurostat/data/database)
 
-## Groupes
+## Groupes et Bases de données
 
 Vous pouvez retrouver vos groupes via ce [lien](https://istom-my.sharepoint.com/:x:/g/personal/a_gere_istom_fr/EfDC-anXaN5GrmSWTYKLv2kBMCqk5JEZPhNnL7TDfUxjWg?e=NJLtnA).
+
+Les bases de données seront bientôt disponibles.
