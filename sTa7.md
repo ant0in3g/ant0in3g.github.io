@@ -10,6 +10,9 @@ Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 >
 > Les sujets d'examens donnés sont disponible sur cette [page](./sTa7/examens.md/).
 >
+> Un [cours (en anglais) de l'université de Standford](https://www.statlearning.com/) sur tout notre programme de statistiques analyse de données et bien au delà. Une [playliste YouTube](https://youtube.com/playlist?list=PLoROMvodv4rOzrYsAxzQyHb8n_RWNuS1e&feature=shared) des chapitres de ce cours est disponible.
+>
+
 
 |                   | Semestre 2 | Semestre 3 | Semestre 4 | Semestre 5 |
 |:------------------|:-----------|:-----------|:-----------|:-----------|
