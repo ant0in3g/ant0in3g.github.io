@@ -8,7 +8,7 @@ Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 >
 > [**P**remière **E**xpérience en **A**nalyse de **D**onnées (PEAD)](./sTa7/PEAD/PEAD.html)
 >
-> [**P**... **I**... **D**... **Ex** (PIDEx)](./sTa7/PIDEx/PIDEx.md)
+> [**P**rojet d'**I**nitiation à la **D**émarche **Ex**périmentale (PIDEx)](./sTa7/PIDEx/PIDEx.md)
 >
 > Les sujets d'examens donnés sont disponible sur cette [page](./sTa7/examens.md/).
 >
