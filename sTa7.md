@@ -2,7 +2,7 @@
 
 Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 
-> [**Tutorial condensé sur la prise en main de R et RStudio**](sTa7/tuto_R_RStudio/index.html)
+> [**Tutorial condensé sur la prise en main de R et RStudio**](sta7/TutoRetRStudio/index.html)
 >
 > [**Cours complet de Statistiques et analyse de données à l'ISTOM**](sTa7/LectureStat/index.html)
 >
@@ -26,9 +26,9 @@ Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 
 ### Ressources pour la promotion 115
 
-- [Séance 1 (cours)](./sTa7/tuto_R_RStudio/index.html) - Introduction et prise en main de R et RStudio (1/2) - _Vendredi 31 janvier 2025_.
+- [Séance 1 (cours)](./sTa7/TutoRetRStudio/index.html) - Introduction et prise en main de R et RStudio (1/2) - _Vendredi 31 janvier 2025_.
 - [Séance 2 (cours)](sTa7/LectureStat/index.html) - Premiers éléments de statistique descriptive - _Mercredi 5 février 2025_.
-- [Séance 3 (travaux dirigés)](./sTa7/tuto_R_RStudio/index.html) - Introduction et prise en main de R et RStudio (2/2) - _Mercredi 5 février 2025_.
+- [Séance 3 (travaux dirigés)](./sTa7/TutoRetRStudio/index.html) - Introduction et prise en main de R et RStudio (2/2) - _Mercredi 5 février 2025_.
 - [Séance 4 (cours)](sTa7/LectureStat/index.html) - On continue sur la statistique descriptive - _Mercredi 12 février 2025_.
 
 > Vacances.
@@ -76,9 +76,9 @@ Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 
 ### Ressources pour la promotion 114
 
-- [Séance 1 (travaux dirigés)](./sTa7/tuto_R_RStudio/index.html) - Introduction et prise en main de R et RStudio (1/2) - _Mercredi 29 janvier 2025_.
+- [Séance 1 (travaux dirigés)](./sTa7/TutoRetRStudio/index.html) - Introduction et prise en main de R et RStudio (1/2) - _Mercredi 29 janvier 2025_.
 - [Séance 2 (cours)](./sTa7/test_stat/presentation.html) - Tests statistiques paramétriques - _Vendredi 7 février 2025_.
-- [Séance 3 (travaux dirigés)](./sTa7/tuto_R_RStudio/index.html) - Introduction et prise en main de R et RStudio (2/2) - _Mercredi 12 février 2025_.
+- [Séance 3 (travaux dirigés)](./sTa7/TutoRetRStudio/index.html) - Introduction et prise en main de R et RStudio (2/2) - _Mercredi 12 février 2025_.
 
 > Vacances.
 
