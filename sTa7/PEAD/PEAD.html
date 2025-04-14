@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -53,9 +87,9 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#step-1---motiver-votre-travail" id="toc-step-1---motiver-votre-travail" class="nav-link" data-scroll-target="#step-1---motiver-votre-travail">Step 1 - Motiver votre travail</a></li>
   <li><a href="#step-2---bibliographie" id="toc-step-2---bibliographie" class="nav-link" data-scroll-target="#step-2---bibliographie">Step 2 - Bibliographie</a></li>
-  <li><a href="#step-3---prise-en-main-des-bases-de-données" id="toc-step-3---prise-en-main-des-bases-de-données" class="nav-link" data-scroll-target="#step-3---prise-en-main-des-bases-de-données">Step 3 - Prise en main des bases de données</a></li>
-  <li><a href="#step-4---blabla" id="toc-step-4---blabla" class="nav-link" data-scroll-target="#step-4---blabla">Step 4 - blabla</a></li>
-  <li><a href="#step-5---blabla" id="toc-step-5---blabla" class="nav-link" data-scroll-target="#step-5---blabla">Step 5 - blabla</a></li>
+  <li><a href="#step-3---bases-de-données" id="toc-step-3---bases-de-données" class="nav-link" data-scroll-target="#step-3---bases-de-données">Step 3 - Bases de données</a></li>
+  <li><a href="#step-4---statistiques-descriptive" id="toc-step-4---statistiques-descriptive" class="nav-link" data-scroll-target="#step-4---statistiques-descriptive">Step 4 - Statistiques descriptive</a></li>
+  <li><a href="#step-5---tests-statistiques" id="toc-step-5---tests-statistiques" class="nav-link" data-scroll-target="#step-5---tests-statistiques">Step 5 - Tests statistiques</a></li>
   </ul></li>
   <li><a href="#ressources" id="toc-ressources" class="nav-link" data-scroll-target="#ressources">Ressources</a></li>
   <li><a href="#bases-de-données" id="toc-bases-de-données" class="nav-link" data-scroll-target="#bases-de-données">Bases de données</a></li>
@@ -320,8 +354,8 @@ Travail pour le jeudi 6 mai.
 </div></li>
 </ul>
 </section>
-<section id="step-3---prise-en-main-des-bases-de-données" class="level3">
-<h3 class="anchored" data-anchor-id="step-3---prise-en-main-des-bases-de-données">Step 3 - Prise en main des bases de données</h3>
+<section id="step-3---bases-de-données" class="level3">
+<h3 class="anchored" data-anchor-id="step-3---bases-de-données">Step 3 - Bases de données</h3>
 <p>Les bases de données ont été difusées à chaque groupe :</p>
 <ul>
 <li><a href="">Bedari</a></li>
@@ -335,15 +369,71 @@ Travail pour le jeudi 6 mai.
 <li><a href="">Kossou</a></li>
 <li><a href="">Pedarou</a></li>
 </ul>
-<p>Vous pouvez retrouver via ce <a href="">lien</a> les bases de données manuscrites.</p>
+<p>Vous pouvez retrouver via ce <a href="https://istom-my.sharepoint.com/:f:/g/personal/a_gere_istom_fr/EhCXWWGMN49Mie3HlRxrUOUB12GYpl3NVF0gZBboWwz8MQ?e=kSwXvC">lien</a> les bases de données manuscrites.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Travail pour le vendredi 16 mai.
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Il vous est demandé de préparer votre base de données, comme sur cet <a href="https://istom-my.sharepoint.com/:x:/g/personal/a_gere_istom_fr/Eeld5c7RXQdOg8VjkRMpaQIB2SZUOmQhWwCiZscPNPHB1w?e=1LQK9d">exemple</a> pour le vendredi 16 mai.</p>
+</div>
+</div>
+<p>Il vous est possible de poser vos question au doctorant, M ???, pour toutes questions sur les bases de données, <a href="https://istom-my.sharepoint.com/:w:/g/personal/a_gere_istom_fr/EaTFFd5kubtOt-QDqDxokckB6JIuxyfUASvS6qOYkvWxcQ?e=fRgKpF">via ce fichier word en ligne</a>. Ecrivez simplement votre question avec la syntaxe indiquée.</p>
 </section>
-<section id="step-4---blabla" class="level3">
-<h3 class="anchored" data-anchor-id="step-4---blabla">Step 4 - blabla</h3>
-<p>blabla</p>
+<section id="step-4---statistiques-descriptive" class="level3">
+<h3 class="anchored" data-anchor-id="step-4---statistiques-descriptive">Step 4 - Statistiques descriptive</h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Travail pour le vendredi 23 mai.
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Il vous est demandé d’effectuer</p>
+<ul>
+<li>une analyse statistique descriptive univariée pour 2 variables de votre choix</li>
+<li>une analyse statistique descriptive bivariée pour 2 couples de variables de votre choix</li>
+</ul>
+<p>pour le <strong>vendredi 23 mai</strong>.</p>
+</div>
+</div>
+<p>Vous trouverez ci-dessous un rappel des cas univariée et bivariée.</p>
+<section id="statistique-univariée" class="level4">
+<h4 class="anchored" data-anchor-id="statistique-univariée">Statistique univariée</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>mydata <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"exempleDatasetClean.xlsx"</span>,<span class="at">sheet =</span> <span class="st">"AFTER"</span>, <span class="at">range =</span> <span class="st">"B22:L150"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="step-5---blabla" class="level3">
-<h3 class="anchored" data-anchor-id="step-5---blabla">Step 5 - blabla</h3>
-<p>blabla</p>
+<section id="statistique-bivariée" class="level4">
+<h4 class="anchored" data-anchor-id="statistique-bivariée">Statistique bivariée</h4>
+</section>
+</section>
+<section id="step-5---tests-statistiques" class="level3">
+<h3 class="anchored" data-anchor-id="step-5---tests-statistiques">Step 5 - Tests statistiques</h3>
+<p>coming.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Travail pour le vendredi 30 mai.
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Il vous est demandé d’établir une problématique en lien avec votre base de donnée, et d’ensuite d’éffetuer des tests statistiques pour tenter d’y répondre.</p>
+<p>Ce travail est à faire pour le <strong>vendredi 30 mai</strong>.</p>
+</div>
+</div>
 </section>
 </section>
 <section id="ressources" class="level2">
@@ -380,7 +470,7 @@ Travail pour le jeudi 6 mai.
 <li><a href="">Pedarou</a></li>
 </ul>
 <p>Il vous est demandé de vous concentrer dans un premier temps sur l’année 2024.</p>
-<p>Vous pouvez retrouver via ce <a href="">lien</a> les bases de données manuscrites.</p>
+<p>Vous pouvez retrouver via ce <a href="https://istom-my.sharepoint.com/:f:/g/personal/a_gere_istom_fr/EhCXWWGMN49Mie3HlRxrUOUB12GYpl3NVF0gZBboWwz8MQ?e=kSwXvC">lien</a> les bases de données manuscrites.</p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><a href="https://en.wikipedia.org/wiki/Benin"><img src="img/carte_benin.jpg" class="img-fluid"></a></p>
