@@ -36,11 +36,11 @@ Vous pouvez également vous exercer sur votre espace [jai20enmaths](https://www.
 > - [Travaux dirigés]() - Intégration - _Mardi 29 avril 2025_.
 > - [Cours magistral]() - Intégration - _Lundi 5 mai 2025_.
 > - [Travaux dirigés]() - Intégration - _Mardi 6 mai 2025_.
-> - [Cours magistral]() - Intégration - _Lundi 12 mai 2025_.
-> - [Cours magistral]() - Intégration - _Mercredi 14 mai 2025_.
-> - [Cours magistral]() - Intégration - _Lundi 19 mai 2025_.
-> - [Travaux dirigés]() - Intégration - _Mardi 20 mai 2025_.
-> - [Travaux dirigés]() - Intégration - _Mardi 27 mai 2025_.
+> - [Cours magistral]() - Equations differentielles - _Lundi 12 mai 2025_.
+> - [Cours magistral]() - Equations differentielles - _Mercredi 14 mai 2025_.
+> - [Cours magistral]() - Equations differentielles - _Lundi 19 mai 2025_.
+> - [Travaux dirigés]() - Equations differentielles - _Mardi 20 mai 2025_.
+> - [Travaux dirigés]() - Equations differentielles - _Mardi 27 mai 2025_.
 
 > 📘 Modalités d'évaluations
 >
@@ -63,13 +63,13 @@ Vous pouvez également vous exercer sur votre espace [jai20enmaths](https://www.
 2. [Intégrales multiples](./mATh/chapter-s/integrales-multiples/chapter-s.pdf)
 3. [Géométrie dans le plan et l'espace](./mATh/chapter-s/geometry/chapter-s.pdf)
 
-> - [Travaux dirigés]() - Intégration - _Mercredi 23 avril 2025_.
-> - [Travaux dirigés]() - Intégration - _Mercredi 30 avril 2025_.
-> - [Cours magistral]() - Intégration - _Mercredi 7 mai 2025_.
-> - [Cours magistral]() - Intégration - _Mercredi 14 mai 2025_.
-> - [Travaux dirigés]() - Intégration - _Vendredi 16 mai 2025_.
-> - [Cours magistral]() - Intégration - _Lundi 19 mai 2025_.
-> - [Travaux dirigés]() - Intégration - _Mercredi 28 mai 2025_.
+> - [Travaux dirigés]() - Intégrales multiples - _Mercredi 23 avril 2025_.
+> - [Travaux dirigés]() - Intégrales multiples - _Mercredi 30 avril 2025_.
+> - [Cours magistral]() - Suites - _Mercredi 7 mai 2025_.
+> - [Cours magistral]() - Suites - _Mercredi 14 mai 2025_.
+> - [Travaux dirigés]() - Suites - _Vendredi 16 mai 2025_.
+> - [Cours magistral]() - Suites - _Lundi 19 mai 2025_.
+> - [Travaux dirigés]() - Suites - _Mercredi 28 mai 2025_.
 
 > 📘 Modalités d'évaluations
 >
