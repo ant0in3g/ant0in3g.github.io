@@ -31,6 +31,17 @@ Vous pouvez également vous exercer sur votre espace [jai20enmaths](https://www.
 3. [Equations differentielles](./mATh/chapter-s/equa-diff/chapter-s.pdf)
 4. [Développement limité](./mATh/chapter-s/developpement-limite/chapter-s.pdf)
 
+> - [Cours magistral]() - Intégration - _Mercredi 23 avril 2025_.
+> - [Cours magistral]() - Intégration - _Lundi 28 avril 2025_.
+> - [Travaux dirigés]() - Intégration - _Mardi 29 avril 2025_.
+> - [Cours magistral]() - Intégration - _Lundi 5 mai 2025_.
+> - [Travaux dirigés]() - Intégration - _Mardi 6 mai 2025_.
+> - [Cours magistral]() - Intégration - _Lundi 12 mai 2025_.
+> - [Cours magistral]() - Intégration - _Mercredi 14 mai 2025_.
+> - [Cours magistral]() - Intégration - _Lundi 19 mai 2025_.
+> - [Travaux dirigés]() - Intégration - _Mardi 20 mai 2025_.
+> - [Travaux dirigés]() - Intégration - _Mardi 27 mai 2025_.
+
 > 📘 Modalités d'évaluations
 >
 > 1 examen pour chaque chapitre (1 semaine après la fin du chapitre) + 1 partiel de fin de semestre.
