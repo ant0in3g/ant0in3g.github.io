@@ -63,6 +63,14 @@ Vous pouvez également vous exercer sur votre espace [jai20enmaths](https://www.
 2. [Intégrales multiples](./mATh/chapter-s/integrales-multiples/chapter-s.pdf)
 3. [Géométrie dans le plan et l'espace](./mATh/chapter-s/geometry/chapter-s.pdf)
 
+> - [Travaux dirigés]() - Intégration - _Mercredi 23 avril 2025_.
+> - [Travaux dirigés]() - Intégration - _Mercredi 30 avril 2025_.
+> - [Cours magistral]() - Intégration - _Mercredi 7 mai 2025_.
+> - [Cours magistral]() - Intégration - _Mercredi 14 mai 2025_.
+> - [Travaux dirigés]() - Intégration - _Vendredi 16 mai 2025_.
+> - [Cours magistral]() - Intégration - _Lundi 19 mai 2025_.
+> - [Travaux dirigés]() - Intégration - _Mercredi 28 mai 2025_.
+
 > 📘 Modalités d'évaluations
 >
 > 1 examen pour chaque chapitre (1 semaine après la fin du chapitre) + 1 partiel de fin de semestre.
