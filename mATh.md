@@ -37,9 +37,27 @@ Vous pouvez également vous exercer sur votre espace [jai20enmaths](https://www.
 > - [Cours magistral]() - Intégration - _Lundi 5 mai 2025_.
 > - [Travaux dirigés]() - Intégration - _Mardi 6 mai 2025_.
 > - [Cours magistral]() - Equations differentielles - _Lundi 12 mai 2025_.
+
+<!-- condensed for clarity! -->
+<blockquote class="callout callout_default" theme="⚠️">
+  <h3>⚠️ TD noté</h3>
+  <p>
+    TD noté le lundi 12 mai.
+  </p>
+</blockquote>
+
 > - [Cours magistral]() - Equations differentielles - _Mercredi 14 mai 2025_.
 > - [Cours magistral]() - Equations differentielles - _Lundi 19 mai 2025_.
 > - [Travaux dirigés]() - Equations differentielles - _Mardi 20 mai 2025_.
+
+<!-- condensed for clarity! -->
+<blockquote class="callout callout_default" theme="⚠️">
+  <h3>⚠️ TD noté</h3>
+  <p>
+    TD noté le jeudi 22 mai.
+  </p>
+</blockquote>
+
 > - [Travaux dirigés]() - Equations differentielles - _Mardi 27 mai 2025_.
 
 > 📘 Modalités d'évaluations
@@ -65,10 +83,28 @@ Vous pouvez également vous exercer sur votre espace [jai20enmaths](https://www.
 
 > - [Travaux dirigés]() - Intégrales multiples - _Mercredi 23 avril 2025_.
 > - [Travaux dirigés]() - Intégrales multiples - _Mercredi 30 avril 2025_.
+
+<!-- condensed for clarity! -->
+<blockquote class="callout callout_default" theme="⚠️">
+  <h3>⚠️ TD noté</h3>
+  <p>
+    TD noté le mardi 6 mai.
+  </p>
+</blockquote>
+
 > - [Cours magistral]() - Suites - _Mercredi 7 mai 2025_.
 > - [Cours magistral]() - Suites - _Mercredi 14 mai 2025_.
 > - [Travaux dirigés]() - Suites - _Vendredi 16 mai 2025_.
 > - [Cours magistral]() - Suites - _Lundi 19 mai 2025_.
+
+<!-- condensed for clarity! -->
+<blockquote class="callout callout_default" theme="⚠️">
+  <h3>⚠️ TD noté</h3>
+  <p>
+    TD noté le mercredi 22 mai.
+  </p>
+</blockquote>
+
 > - [Travaux dirigés]() - Suites - _Mercredi 28 mai 2025_.
 
 > 📘 Modalités d'évaluations
