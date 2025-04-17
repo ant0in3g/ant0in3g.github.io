@@ -69,7 +69,7 @@ Il vous est demandé de préparer votre base de données, comme sur cet [exemple
 :::
 
 
-## Statistiques descriptive
+## Statistiques descriptives
 
 ::: callout-important
 ## Travail à faire
