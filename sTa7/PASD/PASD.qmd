@@ -12,9 +12,9 @@ editor: visual
 
 ## Introduction
 
-[**P**remière **A**nalyse en **S**tatistique **D**scriptive (PASD)](https://istom-my.sharepoint.com/:f:/g/personal/a_gere_istom_fr/EshYCnVCQdRAj57v68Sxko0B37j7rK8YNpPhJQlufF-uZA?e=05HV2K)
+Vous allez effectuer votre **P**remière **A**nalyse en **S**tatistique **D**scriptive [(PASD)](https://istom-my.sharepoint.com/:f:/g/personal/a_gere_istom_fr/EshYCnVCQdRAj57v68Sxko0B37j7rK8YNpPhJQlufF-uZA?e=05HV2K)
 
-Nous allons ici travailler sur la culture du **coton** dans le contexte agricole du Benin.
+Vous travaillerez sur la culture du **coton** dans le contexte agricole du Benin.
 
 :::::: {layout-ncol="3"}
 <div>
