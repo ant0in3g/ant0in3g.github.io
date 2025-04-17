@@ -6,7 +6,7 @@ Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 >
 > [**Cours complet de Statistiques et analyse de données à l'ISTOM**](sTa7/LectureStat/index.html)
 >
-> Projets :
+> **Projets :**
 >
 > - 1ère année : [**P**remière **A**nalyse en **S**tatistique **D**scriptive (PASD)](./sTa7/PASD/PASD.md) 
 >
