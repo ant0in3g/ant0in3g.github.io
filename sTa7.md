@@ -6,7 +6,7 @@ Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 >
 > [**Cours complet de Statistiques et analyse de données à l'ISTOM**](sTa7/LectureStat/index.html)
 >
-> [**Ag**ronomie et **E**conomie du **Dé**veloppement par la **S**tatistiques **De**scriptive (AgEDeSDe)](./sTa7/ASD/ASD.md) ⚠️ Nom à revoir !
+> [**P**remière **A**nalyse en **S**tatistique **D**scriptive (PASD)](./sTa7/PASD/PASD.md) 
 >
 > [**P**remière **E**xpérience en **A**nalyse de **D**onnées (PEAD)](./sTa7/PEAD/PEAD.html)
 >
