@@ -1,6 +1,6 @@
 ---
 title: |
-  Première Analyse en Statistique Dscriptive    
+  Première Analyse en Statistique Descriptive    
   [![](img/LogoISTOMdc.png){width=0.6in}](https://istom.fr/) 
 author: "Antoine Géré"
 date: "last-modified"
