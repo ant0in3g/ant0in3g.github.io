@@ -1,5 +1,18 @@
-# [**P**remière **A**nalyse en **S**tatistique **D**scriptive (PASD)](https://istom-my.sharepoint.com/:f:/g/personal/a_gere_istom_fr/EshYCnVCQdRAj57v68Sxko0B37j7rK8YNpPhJQlufF-uZA?e=05HV2K)
+---
+title: |
+  Première Analyse en Statistique Dscriptive    
+  [![](img/LogoISTOMdc.png){width=0.6in}](https://istom.fr/) 
+author: "Antoine Géré"
+date: "last-modified"
+format: 
+  html:
+    toc: true
+editor: visual
+---
 
+## Introduction
+
+[**P**remière **A**nalyse en **S**tatistique **D**scriptive (PASD)](https://istom-my.sharepoint.com/:f:/g/personal/a_gere_istom_fr/EshYCnVCQdRAj57v68Sxko0B37j7rK8YNpPhJQlufF-uZA?e=05HV2K)
 
 Nous allons ici travailler sur la culture du **coton** dans le contexte agricole du Benin.
 
@@ -60,7 +73,9 @@ Il vous est demandé de préparer votre base de données, comme sur cet [exemple
 
 ::: callout-important
 ## Travail à faire
-Il vous est demandé d'effectuer 
+Il vous est demandé d'effectuer :
+
 - une analyse statistique descriptive univariée pour au minimum 2 variables de votre choix 
+
 - une analyse statistique descriptive bivariée pour au minimum 2 couples de variables de votre choix
 :::
