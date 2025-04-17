@@ -1,1 +1,66 @@
-[**P**remière **A**nalyse en **S**tatistique **D**scriptive (PASD)](https://istom-my.sharepoint.com/:f:/g/personal/a_gere_istom_fr/EshYCnVCQdRAj57v68Sxko0B37j7rK8YNpPhJQlufF-uZA?e=05HV2K)
+# [**P**remière **A**nalyse en **S**tatistique **D**scriptive (PASD)](https://istom-my.sharepoint.com/:f:/g/personal/a_gere_istom_fr/EshYCnVCQdRAj57v68Sxko0B37j7rK8YNpPhJQlufF-uZA?e=05HV2K)
+
+
+Nous allons ici travailler sur la culture du **coton** dans le contexte agricole du Benin.
+
+:::::: {layout-ncol="3"}
+<div>
+
+![](img/coton.png)
+
+</div>
+
+<div>
+
+![](img/benin.png)
+
+</div>
+
+::: {#third-column}
+![](img/flag.png)
+:::
+::::::
+
+## Bases de données
+
+::::: {layout-ncol="2"}
+<div>
+
+Les bases de données ont été difusées à chaque groupe :
+
+-   [Bedari]()
+-   [Bereke Centre]()
+-   [Beroubouay Est]()
+-   [Bokobouerou]()
+-   [Gamia Est]()
+-   [Guessou Nord]()
+-   [Hangar Peuhl]()
+-   [Ina Gando]()
+-   [Kossou]()
+-   [Pedarou]()
+
+Vous pouvez retrouver via ce [lien](https://istom-my.sharepoint.com/:f:/g/personal/a_gere_istom_fr/EhCXWWGMN49Mie3HlRxrUOUB12GYpl3NVF0gZBboWwz8MQ?e=kSwXvC) les bases de données manuscrites.
+
+</div>
+
+<div>
+
+[![](img/carte_benin.jpg)](https://en.wikipedia.org/wiki/Benin)
+
+</div>
+:::::
+
+::: callout-important
+## Travail à faire
+Il vous est demandé de préparer votre base de données, comme sur cet [exemple](https://istom-my.sharepoint.com/:x:/g/personal/a_gere_istom_fr/Eeld5c7RXQdOg8VjkRMpaQIB2SZUOmQhWwCiZscPNPHB1w?e=1LQK9d).
+:::
+
+
+## Statistiques descriptive
+
+::: callout-important
+## Travail à faire
+Il vous est demandé d'effectuer 
+- une analyse statistique descriptive univariée pour au minimum 2 variables de votre choix 
+- une analyse statistique descriptive bivariée pour au minimum 2 couples de variables de votre choix
+:::
