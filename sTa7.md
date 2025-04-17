@@ -8,7 +8,7 @@ Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 >
 > **Projets :**
 >
-> - 1ère année : [**P**remière **A**nalyse en **S**tatistique **D**escriptive (PASD)](./sTa7/PASD/PASD.md) 
+> - 1ère année : [**P**remière **A**nalyse en **S**tatistique **D**escriptive (PASD)](./sTa7/PASD/PASD.html) 
 >
 > - 2ème année : [**P**remière **E**xpérience en **A**nalyse de **D**onnées (PEAD)](./sTa7/PEAD/PEAD.html)
 >
