@@ -6,11 +6,13 @@ Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 >
 > [**Cours complet de Statistiques et analyse de données à l'ISTOM**](sTa7/LectureStat/index.html)
 >
-> [**P**remière **A**nalyse en **S**tatistique **D**scriptive (PASD)](./sTa7/PASD/PASD.md) 
+> Projets :
 >
-> [**P**remière **E**xpérience en **A**nalyse de **D**onnées (PEAD)](./sTa7/PEAD/PEAD.html)
+> - 1ère année : [**P**remière **A**nalyse en **S**tatistique **D**scriptive (PASD)](./sTa7/PASD/PASD.md) 
 >
-> [**P**rojet d'**I**nitiation à la **D**émarche **Ex**périmentale (PIDEx)](./sTa7/PIDEx/PIDEx.md)
+> - 2ème année : [**P**remière **E**xpérience en **A**nalyse de **D**onnées (PEAD)](./sTa7/PEAD/PEAD.html)
+>
+> - 3ème année : [**P**rojet d'**I**nitiation à la **D**émarche **Ex**périmentale (PIDEx)](./sTa7/PIDEx/PIDEx.md)
 >
 > Les sujets d'examens donnés sont disponible sur cette [page](./sTa7/examens.md/)
 >
