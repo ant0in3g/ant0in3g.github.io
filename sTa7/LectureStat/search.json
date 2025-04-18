@@ -68,7 +68,7 @@
     "href": "stat_descriptive/exos.html",
     "title": "Exercices",
     "section": "",
-    "text": "Variables Qualitatives",
+    "text": "Statistiques univariées",
     "crumbs": [
       "Statistiques descriptives",
       "Exercices"
@@ -211,7 +211,7 @@
     "href": "stat_descriptive/exos.html#variables-qualitatives",
     "title": "Exercices",
     "section": "",
-    "text": "Exercice\nLe nombre de visites classé par le navigateur internet utilisé pour accéder au site internet de l’ISTOM le moi dernier est donné dans le tableau suivant.\n\n\n\n\n\n\nTableau statistique\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNavigateur (\\(x_i\\))\nNombre de visites (\\(n_i\\))\n\\(N_i\\)\n\\(f_i\\)\n\\(F_i\\)\n\\(p_i\\)\n\\(P_i\\)\n\n\n\n\nChrome\n880491\n\n\n\n\n\n\n\nFirefox\n2022764\n\n\n\n\n\n\n\nInternet Explorer\n576655\n\n\n\n\n\n\n\nOpera\n160303\n\n\n\n\n\n\n\nSafari\n315613\n\n\n\n\n\n\n\nAutres\n41367\n\n\n\n\n\n\n\n\n\n\n\n\nDéterminer la population (en précisant sa taille et les individus qui la compose), les variables étudiées, leur type et les modalités qu’elles prennent.\nDéterminer la distribution des proportions de la variable «navigateur utilisé».\nQuel est le mode de la variable ?\nReprésenter graphiquement la distribution des proportions.",
+    "text": "Exercice 1\nLe nombre de visites classé par le navigateur internet utilisé pour accéder au site internet de l’ISTOM le moi dernier est donné dans le tableau suivant.\n\n\n\n\n\n\nTableau statistique\n\n\n\n\n\n\n\n\nNavigateur (\\(x_i\\))\nNombre de visites (\\(n_i\\))\n\n\n\n\nChrome\n880491\n\n\nFirefox\n2022764\n\n\nInternet Explorer\n576655\n\n\nOpera\n160303\n\n\nSafari\n315613\n\n\nAutres\n41367\n\n\n\n\n\n\n\nDéterminer la population (en précisant sa taille et les individus qui la compose), les variables étudiées, leur type et les modalités qu’elles prennent.\nDéterminer la distribution des proportions de la variable «navigateur utilisé».\nQuel est le mode de la variable ?\nReprésenter graphiquement la distribution des proportions.\n\n\n\n\n\n\n\nCorrection Ex. 1\n\n\n\n\n\ncoming.",
     "crumbs": [
       "Statistiques descriptives",
       "Exercices"
@@ -770,7 +770,7 @@
     "href": "stat_descriptive/exos.html#variable-quantitative-discrètes",
     "title": "Exercices",
     "section": "Variable Quantitative Discrètes",
-    "text": "Variable Quantitative Discrètes\n\nExercice\nPour un exerice de PIDEx, un groupe d’étudiant-es releve le nombre de piments sur chaque planche de culture d’une exploitation agricole. Les donnée brutes sont les suivantes :\n12,6,8,3,15,4,8,9,10,5,6,12,8,10\n\nDéterminer la population (en précisant sa taille et les individus qui la compose), les variables étudiées, leur type et les modalités qu’elles prennent.\nDéterminer la distribution des proportions de la variable «nombre de piments».\nReprésenter graphiquement la distribution des proportions.\nDéterminer le mode de la variable.\nDéterminer la moyenne de la variable.\nDéterminer l’écart-type de la variable.\nDéterminer la médiane de la variable à partir des données individuelles.\n\n\n\nExercice\nUn étudiant en stage de fin d’étude fait un contrôle de qualité sur des parcelles de goyaviers. Il souhaite évaluer l’importance de la production en goyave sur chacune des parcelle. Pour cela il atribue une note sur 5 pour chaque goyavier de chaque parcelle. La noté de 0 étant un goyavier sans aucun fruit, et 5 un abondant de fruits. Les parcelles sont notée A, B, C et D.\nPour chacune des parcelle déterminer la médiane à partir du tableau de distribution des effectifs.\n\n\n\n\n\n\nParcelle A\n\n\n\n\n\n\n\n\nNote\nEffectif \\(n_i\\)\n\n\n\n\n0\n3\n\n\n1\n5\n\n\n2\n8\n\n\n3\n6\n\n\n4\n2\n\n\n5\n1\n\n\n\n\n\n\n\n\n\n\n\n\nParcelle B\n\n\n\n\n\n\n\n\nNote\nEffectif \\(n_i\\)\n\n\n\n\n0\n5\n\n\n1\n12\n\n\n2\n8\n\n\n3\n4\n\n\n4\n2\n\n\n5\n3\n\n\n\n\n\n\n\n\n\n\n\n\nParcelle C\n\n\n\n\n\n\n\n\nNote\nEffectif \\(n_i\\)\n\n\n\n\n0\n1\n\n\n1\n11\n\n\n2\n2\n\n\n3\n4\n\n\n4\n10\n\n\n5\n7\n\n\n\n\n\n\n\n\n\n\n\n\nParcelle D\n\n\n\n\n\n\n\n\nNote\nEffectif \\(n_i\\)\n\n\n\n\n0\n2\n\n\n1\n1\n\n\n2\n5\n\n\n3\n10\n\n\n4\n9\n\n\n5\n3",
+    "text": "Variable Quantitative Discrètes\n\nExercice 2\nPour un exerice de PIDEx, un groupe d’étudiant-es releve le nombre de piments sur chaque planche de culture d’une exploitation agricole. Les donnée brutes sont les suivantes :\n12,6,8,3,15,4,8,9,10,5,6,12,8,10\n\nDéterminer la population (en précisant sa taille et les individus qui la compose), les variables étudiées, leur type et les modalités qu’elles prennent.\nDéterminer la distribution des proportions de la variable «nombre de piments».\nReprésenter graphiquement la distribution des proportions.\nDéterminer le mode de la variable.\nDéterminer la moyenne de la variable.\nDéterminer l’écart-type de la variable.\nDéterminer la médiane de la variable à partir des données individuelles.\n\n\n\n\n\n\n\nCorrection Ex. 2\n\n\n\n\n\ncoming.\n\n\n\n\n\nExercice 3\nUn étudiant en stage de fin d’étude fait un contrôle de qualité sur des parcelles de goyaviers. Il souhaite évaluer l’importance de la production en goyave sur chacune des parcelle. Pour cela il atribue une note sur 5 pour chaque goyavier de chaque parcelle. La noté de 0 étant un goyavier sans aucun fruit, et 5 un abondant de fruits. Les parcelles sont notée A, B, C et D.\nPour chacune des parcelle déterminer la médiane à partir du tableau de distribution des effectifs.\n\n\n\n\n\n\nParcelle A\n\n\n\n\n\n\n\n\nNote\nEffectif \\(n_i\\)\n\n\n\n\n0\n3\n\n\n1\n5\n\n\n2\n8\n\n\n3\n6\n\n\n4\n2\n\n\n5\n1\n\n\n\n\n\n\n\n\n\n\n\n\nParcelle B\n\n\n\n\n\n\n\n\nNote\nEffectif \\(n_i\\)\n\n\n\n\n0\n5\n\n\n1\n12\n\n\n2\n8\n\n\n3\n4\n\n\n4\n2\n\n\n5\n3\n\n\n\n\n\n\n\n\n\n\n\n\nParcelle C\n\n\n\n\n\n\n\n\nNote\nEffectif \\(n_i\\)\n\n\n\n\n0\n1\n\n\n1\n11\n\n\n2\n2\n\n\n3\n4\n\n\n4\n10\n\n\n5\n7\n\n\n\n\n\n\n\n\n\n\n\n\nParcelle D\n\n\n\n\n\n\n\n\nNote\nEffectif \\(n_i\\)\n\n\n\n\n0\n2\n\n\n1\n1\n\n\n2\n5\n\n\n3\n10\n\n\n4\n9\n\n\n5\n3\n\n\n\n\n\n\n\n\n\n\n\n\nCorrection Ex. 3\n\n\n\n\n\ncoming.",
     "crumbs": [
       "Statistiques descriptives",
       "Exercices"
@@ -840,6 +840,193 @@
     "crumbs": [
       "Statistiques inférentielles",
       "Premiers pas sur les tests statistiques"
+    ]
+  },
+  {
+    "objectID": "stat_inf/chi2.html",
+    "href": "stat_inf/chi2.html",
+    "title": "Les tests du \\(\\chi^2\\)",
+    "section": "",
+    "text": "Test d’ajustement\nDans les situations où on souhaite confronter des effectifs obtenus expérimentalement à des prévisions faites sur base d’hypothèses théoriques, et quand les effectfs en questions sont suffisamment grands (&gt; 5, typiquement), on a souvent recourt à un test de \\(\\chi^2\\).\nComme le montrent l’exemple suivant, le test de \\(\\chi^2\\) d’ajustement permet de vérifier si les données récoltées pour un échantillon correspondent à une distribution théorique de probabilité \\(P\\) définie à priori.\nPrenons l’exemple de la loi de Mendel :\nImaginons que deux lignées de souris, de génotypes respectifs AA et BB, sont croisées. Les produits du croisement (appelés F1 en génétique) seront tous de génotypes AB (ce qui signifie que, pour locus étudié, ils ont reçu une copie (appelée “allèle”) A d’un de leurs parents et une copie B de l’autre, ce qui est nécessairement le cas dans la situation décrite ici de croisement de lignées AA et BB). A la génération suivante, on croise des individus F1 (c’est-à-dire de génotypes AB) entre eux de manière aléatoire, pour générer des individus de seconde génération (notés F2). Sous l’hypothèse nulle où chaque individu F1 croisé a une probabilité de 50 % de transmettre l’allèle A et une probabilité de 50 % de transmettre l’allèle B, on peut déduire que les probabilités qu’un individu F2 ait un génotype AA, AB ou BB sont respectivement de 25 %, 50 % et 25 %.",
+    "crumbs": [
+      "Statistiques inférentielles",
+      "Les tests du $\\chi^2$"
+    ]
+  },
+  {
+    "objectID": "stat_inf/chi2.html#le-test-du-chi2-dajustement",
+    "href": "stat_inf/chi2.html#le-test-du-chi2-dajustement",
+    "title": "Les tests du \\(\\chi^2\\)",
+    "section": "",
+    "text": "Les hypothèses de ce test sont les suivantes :\n\n\n\n\nH0 : les données observées suivent la loi théorique\nH1 : les données observées ne suivent pas la loi théorique",
+    "crumbs": [
+      "Statistiques inférentielles",
+      "Les tests du $\\chi^2$"
+    ]
+  },
+  {
+    "objectID": "stat_inf/chi2.html#le-test-du-chi2-dindépendance",
+    "href": "stat_inf/chi2.html#le-test-du-chi2-dindépendance",
+    "title": "Les tests du \\(\\chi^2\\)",
+    "section": "Le test du \\(\\chi^2\\) d’indépendance",
+    "text": "Le test du \\(\\chi^2\\) d’indépendance",
+    "crumbs": [
+      "Statistiques inférentielles",
+      "Les tests du $\\chi^2$"
+    ]
+  },
+  {
+    "objectID": "stat_inf/chi2.html#le-test-du-chi2-dhomogénéité",
+    "href": "stat_inf/chi2.html#le-test-du-chi2-dhomogénéité",
+    "title": "Les tests du \\(\\chi^2\\)",
+    "section": "Le test du \\(\\chi^2\\) d’homogénéité",
+    "text": "Le test du \\(\\chi^2\\) d’homogénéité",
+    "crumbs": [
+      "Statistiques inférentielles",
+      "Les tests du $\\chi^2$"
+    ]
+  },
+  {
+    "objectID": "stat_inf/chi2.html#définition-générale",
+    "href": "stat_inf/chi2.html#définition-générale",
+    "title": "Les tests du \\(\\chi^2\\)",
+    "section": "1. Définition générale",
+    "text": "1. Définition générale\nLe test du Chi² d’ajustement (ou test de conformité) permet de vérifier si la distribution d’un échantillon observé correspond à une distribution théorique attendue. Il s’agit d’un test statistique non paramétrique, souvent utilisé pour des données catégorielles (qualitatives ou discrétisées).",
+    "crumbs": [
+      "Statistiques inférentielles",
+      "Les tests du $\\chi^2$"
+    ]
+  },
+  {
+    "objectID": "stat_inf/chi2.html#objectifs-du-test",
+    "href": "stat_inf/chi2.html#objectifs-du-test",
+    "title": "Les tests du \\(\\chi^2\\)",
+    "section": "2. Objectifs du test",
+    "text": "2. Objectifs du test\n\nComparer une distribution observée à une distribution théorique connue.\nTester l’hypothèse que les fréquences observées suivent une loi théorique (comme la loi uniforme, binomiale, de Poisson, etc.)",
+    "crumbs": [
+      "Statistiques inférentielles",
+      "Les tests du $\\chi^2$"
+    ]
+  },
+  {
+    "objectID": "stat_inf/chi2.html#hypothèses",
+    "href": "stat_inf/chi2.html#hypothèses",
+    "title": "Les tests du \\(\\chi^2\\)",
+    "section": "3. Hypothèses",
+    "text": "3. Hypothèses\n\nH₀ (hypothèse nulle) : les données suivent la distribution théorique.\nH₁ (hypothèse alternative) : les données ne suivent pas cette distribution.",
+    "crumbs": [
+      "Statistiques inférentielles",
+      "Les tests du $\\chi^2$"
+    ]
+  },
+  {
+    "objectID": "stat_inf/chi2.html#formule-du-test-du-chi²",
+    "href": "stat_inf/chi2.html#formule-du-test-du-chi²",
+    "title": "Les tests du \\(\\chi^2\\)",
+    "section": "4. Formule du test du Chi²",
+    "text": "4. Formule du test du Chi²\nLa statistique du test est :\n[ ^2 = _{i=1}^{k} ]\noù :\n\n( O_i ) = fréquence observée pour la modalité ( i ),\n( E_i ) = fréquence attendue (selon la loi théorique) pour la modalité ( i ),\n( k ) = nombre de modalités (ou classes).",
+    "crumbs": [
+      "Statistiques inférentielles",
+      "Les tests du $\\chi^2$"
+    ]
+  },
+  {
+    "objectID": "stat_inf/chi2.html#conditions-dapplication",
+    "href": "stat_inf/chi2.html#conditions-dapplication",
+    "title": "Les tests du \\(\\chi^2\\)",
+    "section": "5. Conditions d’application",
+    "text": "5. Conditions d’application\n\nLes observations doivent être indépendantes.\nL’effectif total doit être suffisamment grand (souvent ( n &gt; 30 )).\nLes fréquences théoriques ( E_i ) doivent être supérieures ou égales à 5 pour chaque modalité (ou regroupement si nécessaire).",
+    "crumbs": [
+      "Statistiques inférentielles",
+      "Les tests du $\\chi^2$"
+    ]
+  },
+  {
+    "objectID": "stat_inf/chi2.html#degrés-de-liberté",
+    "href": "stat_inf/chi2.html#degrés-de-liberté",
+    "title": "Les tests du \\(\\chi^2\\)",
+    "section": "6. Degrés de liberté",
+    "text": "6. Degrés de liberté\n[ = k - 1 - p ]\n\n( k ) = nombre de modalités (ou classes),\n( p ) = nombre de paramètres estimés à partir des données (ex : moyenne ou variance si la loi théorique n’est pas entièrement connue).",
+    "crumbs": [
+      "Statistiques inférentielles",
+      "Les tests du $\\chi^2$"
+    ]
+  },
+  {
+    "objectID": "stat_inf/chi2.html#étapes-du-test",
+    "href": "stat_inf/chi2.html#étapes-du-test",
+    "title": "Les tests du \\(\\chi^2\\)",
+    "section": "7. Étapes du test",
+    "text": "7. Étapes du test\n\nFormuler les hypothèses H₀ et H₁.\nCalculer les fréquences observées ( O_i ).\nCalculer les fréquences attendues ( E_i ) en fonction de la distribution théorique.\nCalculer la statistique du test ( ^2 ).\nDéterminer la valeur critique (ou p-value) à partir de la loi du ( ^2 ) avec les degrés de liberté.\nConclusion : si ( ^2_{} &gt; ^2_{} ), on rejette H₀.",
+    "crumbs": [
+      "Statistiques inférentielles",
+      "Les tests du $\\chi^2$"
+    ]
+  },
+  {
+    "objectID": "stat_inf/chi2.html#exemple-dapplication",
+    "href": "stat_inf/chi2.html#exemple-dapplication",
+    "title": "Les tests du \\(\\chi^2\\)",
+    "section": "8. Exemple d’application",
+    "text": "8. Exemple d’application\nContexte : Une entreprise affirme que les couleurs de ses produits sont uniformément réparties entre 5 couleurs. Sur un échantillon de 200 produits, on observe :\n\n\n\nCouleur\nRouge\nBleu\nVert\nJaune\nNoir\n\n\n\n\nObservé ( O_i )\n30\n50\n40\n35\n45\n\n\n\nFréquence attendue (uniforme) :\n( E_i = = 40 ) pour chaque couleur.\n[ ^2 = = + + = 6.25 ]\n\nddl = 5 - 1 = 4\n\nSeuil à 5% : ( ^2_{0.05, 4} )\n\nConclusion : 6.25 &lt; 9.49 → on ne rejette pas H₀ : les couleurs sont bien réparties de manière uniforme.",
+    "crumbs": [
+      "Statistiques inférentielles",
+      "Les tests du $\\chi^2$"
+    ]
+  },
+  {
+    "objectID": "stat_inf/chi2.html#interprétation",
+    "href": "stat_inf/chi2.html#interprétation",
+    "title": "Les tests du \\(\\chi^2\\)",
+    "section": "9. Interprétation",
+    "text": "9. Interprétation\n\nSi on rejette H₀, cela signifie que les écarts observés entre les fréquences observées et attendues sont trop grands pour être dus au hasard.\nSi on ne rejette pas H₀, les écarts peuvent être dus à la variabilité aléatoire.",
+    "crumbs": [
+      "Statistiques inférentielles",
+      "Les tests du $\\chi^2$"
+    ]
+  },
+  {
+    "objectID": "stat_inf/chi2.html#applications-courantes",
+    "href": "stat_inf/chi2.html#applications-courantes",
+    "title": "Les tests du \\(\\chi^2\\)",
+    "section": "10. Applications courantes",
+    "text": "10. Applications courantes\n\nÉtude de conformité d’un jeu de dés (uniformité).\nVérification de la loi de Poisson (ex : nombre d’appels téléphoniques par minute).\nAnalyse de répartition démographique (sexe, âge, catégories socio-pro).",
+    "crumbs": [
+      "Statistiques inférentielles",
+      "Les tests du $\\chi^2$"
+    ]
+  },
+  {
+    "objectID": "stat_inf/chi2.html#test-dajustement",
+    "href": "stat_inf/chi2.html#test-dajustement",
+    "title": "Les tests du \\(\\chi^2\\)",
+    "section": "",
+    "text": "Les hypothèses de ce test sont les suivantes :\n\n\n\n\nH0 : les données observées suivent la loi théorique\nH1 : les données observées ne suivent pas la loi théorique",
+    "crumbs": [
+      "Statistiques inférentielles",
+      "Les tests du $\\chi^2$"
+    ]
+  },
+  {
+    "objectID": "stat_descriptive/exos.html#statistiques-univariées",
+    "href": "stat_descriptive/exos.html#statistiques-univariées",
+    "title": "Exercices",
+    "section": "",
+    "text": "Variables Qualitatives\n\nExercice 1.1\nLe nombre de visites classé par le navigateur internet utilisé pour accéder au site internet de l’ISTOM le moi dernier est donné dans le tableau suivant.\n\n\n\nNavigateur (\\(x_i\\))\nNombre de visites (\\(n_i\\))\n\n\n\n\nChrome\n880491\n\n\nFirefox\n2022764\n\n\nInternet Explorer\n576655\n\n\nOpera\n160303\n\n\nSafari\n315613\n\n\nAutres\n41367\n\n\n\n\nDéterminer la population (en précisant sa taille et les individus qui la compose), les variables étudiées, leur type et les modalités qu’elles prennent.\nDéterminer la distribution des proportions de la variable «navigateur utilisé».\nQuel est le mode de la variable ?\nReprésenter graphiquement la distribution des proportions.\n\n\n\n\n\n\n\nCorrection Ex. 1.1\n\n\n\n\n\ncoming.\n\n\n\n\n\n\nVariable Quantitative Discrètes\n\nExercice 2.1\nPour un exerice de PIDEx, un groupe d’étudiant-es releve le nombre de piments sur chaque planche de culture d’une exploitation agricole. Les donnée brutes sont les suivantes :\n12, 6, 8, 3, 15, 4, 8, 9, 10, 5, 6, 12, 8, 10\n\nDéterminer la population (en précisant sa taille et les individus qui la compose), les variables étudiées, leur type et les modalités qu’elles prennent.\nDéterminer la distribution des proportions de la variable «nombre de piments».\nReprésenter graphiquement la distribution des proportions.\nDéterminer le mode de la variable.\nDéterminer la moyenne de la variable.\nDéterminer l’écart-type de la variable.\nDéterminer la médiane de la variable à partir des données individuelles.\n\n\n\n\n\n\n\nCorrection Ex. 2.1\n\n\n\n\n\ncoming.\n\n\n\n\n\nExercice 2.2\nUn étudiant en stage de fin d’étude fait un contrôle de qualité sur des parcelles de goyaviers. Il souhaite évaluer l’importance de la production en goyave sur chacune des parcelle. Pour cela il atribue une note sur 5 pour chaque goyavier de chaque parcelle. La noté de 0 étant un goyavier sans aucun fruit, et 5 un abondant de fruits. Les parcelles sont notée A, B, C et D.\nPour chacune des parcelle déterminer la médiane à partir du tableau de distribution des effectifs.\n\n\n\n\n\n\n\n\n\n\nNote\nEffectif Parcelle A\nEffectif Parcelle B\nEffectif Parcelle C\nEffectif Parcelle D\n\n\n\n\n0\n3\n3\n3\n3\n\n\n1\n5\n3\n3\n3\n\n\n2\n8\n3\n3\n3\n\n\n3\n6\n3\n3\n3\n\n\n4\n2\n3\n3\n3\n\n\n5\n1\n3\n3\n3\n\n\n\n\n\n\n\n\n\nCorrection Ex. 2.2\n\n\n\n\n\ncoming.\n\n\n\n\n\n\nVariable Quantitatives Continues\n\nExercice 3.1\nLa répartition des étudiant-es cette année selon la durée de trajet (en minute) pour se rendre à l’ISTOM est donné par le tableau statistique ci-dessous.\n\n\n\n\n\n\nTableau statistique\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\([e_i,e_{i+1}[\\)\n\\(f_i\\)\n\\(F_i\\)\n\\(p_i\\)\n\\(P_i\\)\n\\(a_i\\)\n\\(c_i\\)\n\\(d_i\\)\n\n\n\n\n[0,5[\n0.0285\n\n\n\n\n\n\n\n\n[5,10[\n0.0996\n\n\n\n\n\n\n\n\n[10,15[\n0.1358\n\n\n\n\n\n\n\n\n[15,20[\n0.1286\n\n\n\n\n\n\n\n\n[20,25[\n0.1141\n\n\n\n\n\n\n\n\n[25,30[\n0.0947\n\n\n\n\n\n\n\n\n[30,40[\n0.1361\n\n\n\n\n\n\n\n\n[40,50[\n0.0815\n\n\n\n\n\n\n\n\n[50,70[\n0.0796\n\n\n\n\n\n\n\n\n[70,120[\n0.1015\n\n\n\n\n\n\n\n\n\n\n\n\navec \\(d_i\\) la fréquence relative. La durée de trajet maximale a été arbitrairement choisie à 120 min pour les besoins de l’exercice.\n\nDéterminer la population et la variables étudiée (en précisant son type).\nReprésenter graphiquement la distribution des proportions.\nDéterminer la classe modale de la variable.\nReprésenter graphiquement la proportion des étudiant-es ayant un trajet compris entre 7 et 22 minutes. Calculer cette proportion.\nCalculer, à l’aide de la fonction de répartition, la proportion d’étudiant-es mettant moins de 35 minutes pour venir à l’école. Même question pour un temps de trajet compris entre 17 et 35 minutes.\nDéterminer la moyenne et l’écart-type de la variable.\nDéterminer la médiane, les quartiles ainsi que les premier et neuvièmes déciles.\nReprésenter graphiquement la fonction de répartition.\n\n\n\n\n\n\n\nCorrection Ex. 3.1\n\n\n\n\n\ncoming.\n\n\n\n\n\nExercice 3.2\nLe temps de trajet domicile - lieu de la pratique sportive (en minutes) déclaré par les étudiant-es istomiens a été récolté. On a commencé à remplir le tableau statistique suivant.\n\n\n\n\n\n\nTableau statistique\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\([e_i,e_{i+1}[\\)\n\\(f_i\\)\n\\(F_i\\)\n\\(p_i\\)\n\\(P_i\\)\n\\(a_i\\)\n\\(c_i\\)\n\\(d_i\\)\n\n\n\n\n[0,5[\n\n0.0337\n\n\n\n\n\n\n\n[5,10[\n\n0.144\n\n\n\n\n\n\n\n[10,15[\n\n0.294\n\n\n\n\n\n\n\n[15,20[\n\n0.4522\n\n\n\n\n\n\n\n[20,25[\n\n0.5971\n\n\n\n\n\n\n\n[25,30[\n\n0.655\n\n\n\n\n\n\n\n[30,35[\n\n0.7869\n\n\n\n\n\n\n\n[35,45[\n\n0.846\n\n\n\n\n\n\n\n[45,60[\n\n0.9201\n\n\n\n\n\n\n\n[60,90[\n\n0.9722\n\n\n\n\n\n\n\n[90,150[\n\n1\n\n\n\n\n\n\n\n\n\n\n\n\nReprésenter la boîte à moustache.\nDéterminer l’intervalle de variation à \\(75 \\%\\).\nDéterminer l’intervalle de variation à \\(95 \\%\\).\n\n\n\n\n\n\n\nCorrection Ex. 3.2\n\n\n\n\n\ncoming.",
+    "crumbs": [
+      "Statistiques descriptives",
+      "Exercices"
+    ]
+  },
+  {
+    "objectID": "stat_descriptive/exos.html#statistiques-bivariées",
+    "href": "stat_descriptive/exos.html#statistiques-bivariées",
+    "title": "Exercices",
+    "section": "Statistiques bivariées",
+    "text": "Statistiques bivariées\n\nQualitative - Qualitative\n\nExercice 4.1\nUn site internet reçoit 113457 visiteurs durant un mois. On désigne par \\(X\\) le navigateur internet utilisé et \\(Y\\) le système d’exploitation utilisé.\n\n\n\n\nWindows\nMac\nLinux\n\n\n\n\nChrome\n14103\n1186\n427\n\n\nFirefox\n30853\n4392\n3234\n\n\nInternet Explorer\n47389\n23\n0\n\n\nSafari\n668\n6416\n0\n\n\nAutres\n2974\n40\n1752\n\n\n\n\nIdentifier la population, sa taille ainsi que les variables étudiées en précisant leur type.\nQuelle est la proportion de visiteurs sous Windows?\nQuelle proportion de visiteurs utilisent le navigateur Safari?\nParmi les utilisateurs de Mac, quelle proportion utilise Chrome?\nParmi les utilisateurs de Safari, quelle proportion est sous Windows?\nReprésenter graphiquement la distribution des proportions par Navigateur pour chaque système d’exploitation. Les variables \\(X\\) et \\(Y\\) sont-elles indépendantes?\n\n\n\n[stat-0001]\n\n\n\n\n\n\nQualitative - Quantitative\n\nExercice 5.1\nInfluence d’un incinérateur sur le taux de métaux lourds dans l’air.\nDans le tableau ci-dessous, sont relevées les valeurs du taux de plomb (en ng/m \\({ }^3\\) ) dans l’air pour trois stations ORAMIP de Toulouse : Eisenhower et Chapitre, qui sont situées à proximité de l’incinérateur de déchets du Mirail, et Berthelot, situé en zone urbaine, qui est caractéristique de l’air respiré par l’ensemble de la population toulousaine.\n\n\n\nEisenhower\nChapitre\nBerthelot\n\n\n\n\n7,6\n9,1\n7,5\n\n\n21,4\n13,1\n9,3\n\n\n12,4\n10,5\n10,2\n\n\n15,8\n8,3\n20,3\n\n\n14,8\n17,4\n10,3\n\n\n5,9\n9,4\n16,4\n\n\n12,5\n7,8\n13,3\n\n\n11,3\n12,2\n14,9\n\n\n\nOn considère ici la population des relevés de taux de plomb de taille 24 et les variables X (Taux de plomb dans l’air), et Y (Station).\n\nDe quels types sont les variables considérées?\nSur cet échantillon de relevés, peut-on considérer qu’il y a un lien important entre la station de relevé et le taux de plomb dans l’air?\nSi on considère maintenant la variable Z (Proximité de l’incinérateur), de type qualitative nominale, peut-on considérer qu’il y a un lien important entre X et Z ?\n\n\n\n\nQuantitative - Quantitative\n\nExercice 6.1\nEn 1885, Francis Galton publie un tableau de données comparant la taille \\(Y\\) des enfants avec la taille \\(X\\) de leurs parents (la taille des parents est égale à la moyenne de la taille du père et de la mère). Pour compenser les différences de tailles entre sexes, toutes les tailles des personnes de sexe féminin ont été multiplié par 1,08. Les tailles sont exprimées en pouces \\((1\\) pouce \\(=2,54 \\mathrm{~cm})\\).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(X \\backslash Y\\)\n160;61,7]\n161,7;63,7]\n163,7;65,7]\n165,7;67,7]\n167,7;69,7]\n]69,7;71,7]\n]71,7;73,7]\n173,7;75]\n\n\n\n\n]62;64]\n1\n2\n5\n4\n2\n0\n0\n0\n\n\n]64;66]\n2\n14\n17\n32\n16\n7\n1\n0\n\n\n166;68]\n0\n14\n36\n108\n93\n34\n4\n0\n\n\n168;70]\n1\n8\n47\n100\n135\n84\n22\n5\n\n\n170;72]\n1\n1\n2\n11\n38\n35\n18\n5\n\n\n]72;74]\n0\n0\n0\n0\n3\n3\n13\n4\n\n\n\nLes bornes des classes extrêmes ont été fixées arbitrairement pour les besoins de l’exercice.\n\nPréciser la population, les individus, la taille de la population ainsi que les variables étudiées.\nQuelle est la proportion d’enfants dont la taille est comprise entre 65,7 et 67,7?\nParmi les enfants dont la taille est comprise entre 71,7 et 73,7, quelle proportion a des parents dont la taille est entre 70 et 72 ?\nQuelle est la taille moyenne des enfants dont les parents ont une taille comprise entre 68 et 70 ? Convertir le résultat en centimètres.\nMême question pour la taille médiane.\nMême question pour l’écart-type.",
+    "crumbs": [
+      "Statistiques descriptives",
+      "Exercices"
     ]
   }
 ]

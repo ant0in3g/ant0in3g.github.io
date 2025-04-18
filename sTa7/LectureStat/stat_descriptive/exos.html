@@ -31,7 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../proba.html" rel="next">
-<link href="../stat_descriptive/series_temporelles.html" rel="prev">
+<link href="../stat_descriptive/analyse_bivarie.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -170,24 +170,6 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../stat_descriptive/analyse_multivarie.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Analyse multivariée</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../stat_descriptive/regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Régression</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../stat_descriptive/series_temporelles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Séries temporelles</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../stat_descriptive/exos.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Exercices</span></a>
   </div>
@@ -276,6 +258,24 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../stat_inf/tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Premiers pas sur les tests statistiques</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../stat_inf/chi2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les tests du <span class="math inline">\(\chi^2\)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../stat_inf/comp2moy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">comp2moy</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../stat_inf/exos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercices</span></a>
   </div>
@@ -321,19 +321,17 @@ window.Quarto = {
     <h2 id="toc-title">Table des matières</h2>
    
   <ul>
-  <li><a href="#variables-qualitatives" id="toc-variables-qualitatives" class="nav-link active" data-scroll-target="#variables-qualitatives">Variables Qualitatives</a>
+  <li><a href="#statistiques-univariées" id="toc-statistiques-univariées" class="nav-link active" data-scroll-target="#statistiques-univariées">Statistiques univariées</a>
   <ul class="collapse">
-  <li><a href="#exercice" id="toc-exercice" class="nav-link" data-scroll-target="#exercice">Exercice</a></li>
+  <li><a href="#variables-qualitatives" id="toc-variables-qualitatives" class="nav-link" data-scroll-target="#variables-qualitatives">Variables Qualitatives</a></li>
+  <li><a href="#variable-quantitative-discrètes" id="toc-variable-quantitative-discrètes" class="nav-link" data-scroll-target="#variable-quantitative-discrètes">Variable Quantitative Discrètes</a></li>
+  <li><a href="#variable-quantitatives-continues" id="toc-variable-quantitatives-continues" class="nav-link" data-scroll-target="#variable-quantitatives-continues">Variable Quantitatives Continues</a></li>
   </ul></li>
-  <li><a href="#variable-quantitative-discrètes" id="toc-variable-quantitative-discrètes" class="nav-link" data-scroll-target="#variable-quantitative-discrètes">Variable Quantitative Discrètes</a>
+  <li><a href="#statistiques-bivariées" id="toc-statistiques-bivariées" class="nav-link" data-scroll-target="#statistiques-bivariées">Statistiques bivariées</a>
   <ul class="collapse">
-  <li><a href="#exercice-1" id="toc-exercice-1" class="nav-link" data-scroll-target="#exercice-1">Exercice</a></li>
-  <li><a href="#exercice-2" id="toc-exercice-2" class="nav-link" data-scroll-target="#exercice-2">Exercice</a></li>
-  </ul></li>
-  <li><a href="#variable-quantitatives-continues" id="toc-variable-quantitatives-continues" class="nav-link" data-scroll-target="#variable-quantitatives-continues">Variable Quantitatives Continues</a>
-  <ul class="collapse">
-  <li><a href="#exercice-variable-continue" id="toc-exercice-variable-continue" class="nav-link" data-scroll-target="#exercice-variable-continue">Exercice (Variable continue)</a></li>
-  <li><a href="#exercice-boxplot-et-intervalles-de-variations" id="toc-exercice-boxplot-et-intervalles-de-variations" class="nav-link" data-scroll-target="#exercice-boxplot-et-intervalles-de-variations">Exercice (Boxplot et intervalles de variations)</a></li>
+  <li><a href="#qualitative---qualitative" id="toc-qualitative---qualitative" class="nav-link" data-scroll-target="#qualitative---qualitative">Qualitative - Qualitative</a></li>
+  <li><a href="#qualitative---quantitative" id="toc-qualitative---quantitative" class="nav-link" data-scroll-target="#qualitative---quantitative">Qualitative - Quantitative</a></li>
+  <li><a href="#quantitative---quantitative" id="toc-quantitative---quantitative" class="nav-link" data-scroll-target="#quantitative---quantitative">Quantitative - Quantitative</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -360,118 +358,82 @@ window.Quarto = {
 </header>
 
 
-<section id="variables-qualitatives" class="level2">
-<h2 class="anchored" data-anchor-id="variables-qualitatives">Variables Qualitatives</h2>
-<section id="exercice" class="level3">
-<h3 class="anchored" data-anchor-id="exercice">Exercice</h3>
+<style>
+.flushright {
+   text-align: right;
+}
+</style>
+<section id="statistiques-univariées" class="level2">
+<h2 class="anchored" data-anchor-id="statistiques-univariées">Statistiques univariées</h2>
+<section id="variables-qualitatives" class="level3">
+<h3 class="anchored" data-anchor-id="variables-qualitatives">Variables Qualitatives</h3>
+<section id="exercice-1.1" class="level4">
+<h4 class="anchored" data-anchor-id="exercice-1.1">Exercice 1.1</h4>
 <p>Le nombre de visites classé par le navigateur internet utilisé pour accéder au site internet de l’ISTOM le moi dernier est donné dans le tableau suivant.</p>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tableau statistique
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
 <table class="caption-top table">
-<colgroup>
-<col style="width: 23%">
-<col style="width: 32%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>Navigateur (<span class="math inline">\(x_i\)</span>)</th>
 <th>Nombre de visites (<span class="math inline">\(n_i\)</span>)</th>
-<th><span class="math inline">\(N_i\)</span></th>
-<th><span class="math inline">\(f_i\)</span></th>
-<th><span class="math inline">\(F_i\)</span></th>
-<th><span class="math inline">\(p_i\)</span></th>
-<th><span class="math inline">\(P_i\)</span></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Chrome</td>
 <td>880491</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr class="even">
 <td>Firefox</td>
 <td>2022764</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>Internet Explorer</td>
 <td>576655</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr class="even">
 <td>Opera</td>
 <td>160303</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>Safari</td>
 <td>315613</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr class="even">
 <td>Autres</td>
 <td>41367</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-</div>
 <ol type="1">
 <li><p>Déterminer la population (en précisant sa taille et les individus qui la compose), les variables étudiées, leur type et les modalités qu’elles prennent.</p></li>
 <li><p>Déterminer la distribution des proportions de la variable «navigateur utilisé».</p></li>
 <li><p>Quel est le mode de la variable ?</p></li>
 <li><p>Représenter graphiquement la distribution des proportions.</p></li>
 </ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Correction Ex. 1.1
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>coming.</p>
+</div>
+</div>
+</div>
 </section>
 </section>
-<section id="variable-quantitative-discrètes" class="level2">
-<h2 class="anchored" data-anchor-id="variable-quantitative-discrètes">Variable Quantitative Discrètes</h2>
-<section id="exercice-1" class="level3">
-<h3 class="anchored" data-anchor-id="exercice-1">Exercice</h3>
+<section id="variable-quantitative-discrètes" class="level3">
+<h3 class="anchored" data-anchor-id="variable-quantitative-discrètes">Variable Quantitative Discrètes</h3>
+<section id="exercice-2.1" class="level4">
+<h4 class="anchored" data-anchor-id="exercice-2.1">Exercice 2.1</h4>
 <p>Pour un exerice de PIDEx, un groupe d’étudiant-es releve le nombre de piments sur chaque planche de culture d’une exploitation agricole. Les donnée brutes sont les suivantes :</p>
-<p><code>12,6,8,3,15,4,8,9,10,5,6,12,8,10</code></p>
+<p><code>12, 6, 8, 3, 15, 4, 8, 9, 10, 5, 6, 12, 8, 10</code></p>
 <ol type="1">
 <li><p>Déterminer la population (en précisant sa taille et les individus qui la compose), les variables étudiées, leur type et les modalités qu’elles prennent.</p></li>
 <li><p>Déterminer la distribution des proportions de la variable «nombre de piments».</p></li>
@@ -481,216 +443,114 @@ Tableau statistique
 <li><p>Déterminer l’écart-type de la variable.</p></li>
 <li><p>Déterminer la médiane de la variable à partir des données individuelles.</p></li>
 </ol>
-</section>
-<section id="exercice-2" class="level3">
-<h3 class="anchored" data-anchor-id="exercice-2">Exercice</h3>
-<p>Un étudiant en stage de fin d’étude fait un contrôle de qualité sur des parcelles de goyaviers. Il souhaite évaluer l’importance de la production en goyave sur chacune des parcelle. Pour cela il atribue une note sur 5 pour chaque goyavier de chaque parcelle. La noté de 0 étant un goyavier sans aucun fruit, et 5 un abondant de fruits. Les parcelles sont notée A, B, C et D.</p>
-<p>Pour chacune des parcelle déterminer la médiane à partir du tableau de distribution des effectifs.</p>
-<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Parcelle A
+Correction Ex. 2.1
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<p>coming.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="exercice-2.2" class="level4">
+<h4 class="anchored" data-anchor-id="exercice-2.2">Exercice 2.2</h4>
+<p>Un étudiant en stage de fin d’étude fait un contrôle de qualité sur des parcelles de goyaviers. Il souhaite évaluer l’importance de la production en goyave sur chacune des parcelle. Pour cela il atribue une note sur 5 pour chaque goyavier de chaque parcelle. La noté de 0 étant un goyavier sans aucun fruit, et 5 un abondant de fruits. Les parcelles sont notée A, B, C et D.</p>
+<p>Pour chacune des parcelle déterminer la médiane à partir du tableau de distribution des effectifs.</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Note</th>
-<th>Effectif <span class="math inline">\(n_i\)</span></th>
+<th>Effectif Parcelle A</th>
+<th>Effectif Parcelle B</th>
+<th>Effectif Parcelle C</th>
+<th>Effectif Parcelle D</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>0</td>
 <td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
 </tr>
 <tr class="even">
 <td>1</td>
 <td>5</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
 </tr>
 <tr class="odd">
 <td>2</td>
 <td>8</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
 </tr>
 <tr class="even">
 <td>3</td>
 <td>6</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
 </tr>
 <tr class="odd">
 <td>4</td>
 <td>2</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
 </tr>
 <tr class="even">
 <td>5</td>
 <td>1</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Parcelle B
+Correction Ex. 2.2
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Note</th>
-<th>Effectif <span class="math inline">\(n_i\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0</td>
-<td>5</td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td>12</td>
-</tr>
-<tr class="odd">
-<td>2</td>
-<td>8</td>
-</tr>
-<tr class="even">
-<td>3</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td>4</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td>5</td>
-<td>3</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Parcelle C
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Note</th>
-<th>Effectif <span class="math inline">\(n_i\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td>11</td>
-</tr>
-<tr class="odd">
-<td>2</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td>3</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td>4</td>
-<td>10</td>
-</tr>
-<tr class="even">
-<td>5</td>
-<td>7</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Parcelle D
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Note</th>
-<th>Effectif <span class="math inline">\(n_i\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td>1</td>
-</tr>
-<tr class="odd">
-<td>2</td>
-<td>5</td>
-</tr>
-<tr class="even">
-<td>3</td>
-<td>10</td>
-</tr>
-<tr class="odd">
-<td>4</td>
-<td>9</td>
-</tr>
-<tr class="even">
-<td>5</td>
-<td>3</td>
-</tr>
-</tbody>
-</table>
+<p>coming.</p>
 </div>
 </div>
 </div>
 </section>
 </section>
-<section id="variable-quantitatives-continues" class="level2">
-<h2 class="anchored" data-anchor-id="variable-quantitatives-continues">Variable Quantitatives Continues</h2>
-<section id="exercice-variable-continue" class="level3">
-<h3 class="anchored" data-anchor-id="exercice-variable-continue">Exercice (Variable continue)</h3>
+<section id="variable-quantitatives-continues" class="level3">
+<h3 class="anchored" data-anchor-id="variable-quantitatives-continues">Variable Quantitatives Continues</h3>
+<section id="exercice-3.1" class="level4">
+<h4 class="anchored" data-anchor-id="exercice-3.1">Exercice 3.1</h4>
 <p>La répartition des étudiant-es cette année selon la durée de trajet (en minute) pour se rendre à l’ISTOM est donné par le tableau statistique ci-dessous.</p>
 <div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -699,12 +559,12 @@ Tableau statistique
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
-<col style="width: 10%">
+<col style="width: 11%">
 <col style="width: 10%">
 <col style="width: 10%">
 <col style="width: 10%">
@@ -841,12 +701,28 @@ Tableau statistique
 <li><p>Déterminer la médiane, les quartiles ainsi que les premier et neuvièmes déciles.</p></li>
 <li><p>Représenter graphiquement la fonction de répartition.</p></li>
 </ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Correction Ex. 3.1
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>coming.</p>
+</div>
+</div>
+</div>
 </section>
-<section id="exercice-boxplot-et-intervalles-de-variations" class="level3">
-<h3 class="anchored" data-anchor-id="exercice-boxplot-et-intervalles-de-variations">Exercice (Boxplot et intervalles de variations)</h3>
+<section id="exercice-3.2" class="level4">
+<h4 class="anchored" data-anchor-id="exercice-3.2">Exercice 3.2</h4>
 <p>Le temps de trajet domicile - lieu de la pratique sportive (en minutes) déclaré par les étudiant-es istomiens a été récolté. On a commencé à remplir le tableau statistique suivant.</p>
 <div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -855,13 +731,13 @@ Tableau statistique
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
 <col style="width: 10%">
-<col style="width: 13%">
+<col style="width: 11%">
 <col style="width: 10%">
 <col style="width: 10%">
 <col style="width: 10%">
@@ -1001,8 +877,266 @@ Tableau statistique
 <li><p>Déterminer l’intervalle de variation à <span class="math inline">\(75 \%\)</span>.</p></li>
 <li><p>Déterminer l’intervalle de variation à <span class="math inline">\(95 \%\)</span>.</p></li>
 </ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Correction Ex. 3.2
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>coming.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="statistiques-bivariées" class="level2">
+<h2 class="anchored" data-anchor-id="statistiques-bivariées">Statistiques bivariées</h2>
+<section id="qualitative---qualitative" class="level3">
+<h3 class="anchored" data-anchor-id="qualitative---qualitative">Qualitative - Qualitative</h3>
+<section id="exercice-4.1" class="level4">
+<h4 class="anchored" data-anchor-id="exercice-4.1">Exercice 4.1</h4>
+<p>Un site internet reçoit 113457 visiteurs durant un mois. On désigne par <span class="math inline">\(X\)</span> le navigateur internet utilisé et <span class="math inline">\(Y\)</span> le système d’exploitation utilisé.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>Windows</th>
+<th>Mac</th>
+<th>Linux</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Chrome</td>
+<td>14103</td>
+<td>1186</td>
+<td>427</td>
+</tr>
+<tr class="even">
+<td>Firefox</td>
+<td>30853</td>
+<td>4392</td>
+<td>3234</td>
+</tr>
+<tr class="odd">
+<td>Internet Explorer</td>
+<td>47389</td>
+<td>23</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>Safari</td>
+<td>668</td>
+<td>6416</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>Autres</td>
+<td>2974</td>
+<td>40</td>
+<td>1752</td>
+</tr>
+</tbody>
+</table>
+<ol type="1">
+<li><p>Identifier la population, sa taille ainsi que les variables étudiées en précisant leur type.</p></li>
+<li><p>Quelle est la proportion de visiteurs sous Windows?</p></li>
+<li><p>Quelle proportion de visiteurs utilisent le navigateur Safari?</p></li>
+<li><p>Parmi les utilisateurs de Mac, quelle proportion utilise Chrome?</p></li>
+<li><p>Parmi les utilisateurs de Safari, quelle proportion est sous Windows?</p></li>
+<li><p>Représenter graphiquement la distribution des proportions par Navigateur pour chaque système d’exploitation. Les variables <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> sont-elles indépendantes?</p></li>
+</ol>
+<div class="flushright">
+<div style="font-size: 70%;">
+<p>[stat-0001]</p>
+</div>
+<hr>
+</div>
+</section>
+</section>
+<section id="qualitative---quantitative" class="level3">
+<h3 class="anchored" data-anchor-id="qualitative---quantitative">Qualitative - Quantitative</h3>
+<section id="exercice-5.1" class="level4">
+<h4 class="anchored" data-anchor-id="exercice-5.1">Exercice 5.1</h4>
+<p>Influence d’un incinérateur sur le taux de métaux lourds dans l’air.</p>
+<p>Dans le tableau ci-dessous, sont relevées les valeurs du taux de plomb (en ng/m <span class="math inline">\({ }^3\)</span> ) dans l’air pour trois stations ORAMIP de Toulouse : Eisenhower et Chapitre, qui sont situées à proximité de l’incinérateur de déchets du Mirail, et Berthelot, situé en zone urbaine, qui est caractéristique de l’air respiré par l’ensemble de la population toulousaine.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Eisenhower</th>
+<th style="text-align: center;">Chapitre</th>
+<th style="text-align: center;">Berthelot</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">7,6</td>
+<td style="text-align: center;">9,1</td>
+<td style="text-align: center;">7,5</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">21,4</td>
+<td style="text-align: center;">13,1</td>
+<td style="text-align: center;">9,3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">12,4</td>
+<td style="text-align: center;">10,5</td>
+<td style="text-align: center;">10,2</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">15,8</td>
+<td style="text-align: center;">8,3</td>
+<td style="text-align: center;">20,3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">14,8</td>
+<td style="text-align: center;">17,4</td>
+<td style="text-align: center;">10,3</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">5,9</td>
+<td style="text-align: center;">9,4</td>
+<td style="text-align: center;">16,4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">12,5</td>
+<td style="text-align: center;">7,8</td>
+<td style="text-align: center;">13,3</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">11,3</td>
+<td style="text-align: center;">12,2</td>
+<td style="text-align: center;">14,9</td>
+</tr>
+</tbody>
+</table>
+<p>On considère ici la population des relevés de taux de plomb de taille 24 et les variables X (Taux de plomb dans l’air), et Y (Station).</p>
+<ol type="1">
+<li><p>De quels types sont les variables considérées?</p></li>
+<li><p>Sur cet échantillon de relevés, peut-on considérer qu’il y a un lien important entre la station de relevé et le taux de plomb dans l’air?</p></li>
+<li><p>Si on considère maintenant la variable Z (Proximité de l’incinérateur), de type qualitative nominale, peut-on considérer qu’il y a un lien important entre X et Z ?</p></li>
+</ol>
+</section>
+</section>
+<section id="quantitative---quantitative" class="level3">
+<h3 class="anchored" data-anchor-id="quantitative---quantitative">Quantitative - Quantitative</h3>
+<section id="exercice-6.1" class="level4">
+<h4 class="anchored" data-anchor-id="exercice-6.1">Exercice 6.1</h4>
+<p>En 1885, Francis Galton publie un tableau de données comparant la taille <span class="math inline">\(Y\)</span> des enfants avec la taille <span class="math inline">\(X\)</span> de leurs parents (la taille des parents est égale à la moyenne de la taille du père et de la mère). Pour compenser les différences de tailles entre sexes, toutes les tailles des personnes de sexe féminin ont été multiplié par 1,08. Les tailles sont exprimées en pouces <span class="math inline">\((1\)</span> pouce <span class="math inline">\(=2,54 \mathrm{~cm})\)</span>.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><span class="math inline">\(X \backslash Y\)</span></th>
+<th style="text-align: left;">160;61,7]</th>
+<th style="text-align: left;">161,7;63,7]</th>
+<th style="text-align: left;">163,7;65,7]</th>
+<th style="text-align: left;">165,7;67,7]</th>
+<th style="text-align: left;">167,7;69,7]</th>
+<th style="text-align: left;">]69,7;71,7]</th>
+<th style="text-align: left;">]71,7;73,7]</th>
+<th style="text-align: left;">173,7;75]</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">]62;64]</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">]64;66]</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">17</td>
+<td style="text-align: left;">32</td>
+<td style="text-align: left;">16</td>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">166;68]</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">36</td>
+<td style="text-align: left;">108</td>
+<td style="text-align: left;">93</td>
+<td style="text-align: left;">34</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">168;70]</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">47</td>
+<td style="text-align: left;">100</td>
+<td style="text-align: left;">135</td>
+<td style="text-align: left;">84</td>
+<td style="text-align: left;">22</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">170;72]</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">11</td>
+<td style="text-align: left;">38</td>
+<td style="text-align: left;">35</td>
+<td style="text-align: left;">18</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">]72;74]</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">13</td>
+<td style="text-align: left;">4</td>
+</tr>
+</tbody>
+</table>
+<p>Les bornes des classes extrêmes ont été fixées arbitrairement pour les besoins de l’exercice.</p>
+<ol type="1">
+<li><p>Préciser la population, les individus, la taille de la population ainsi que les variables étudiées.</p></li>
+<li><p>Quelle est la proportion d’enfants dont la taille est comprise entre 65,7 et 67,7?</p></li>
+<li><p>Parmi les enfants dont la taille est comprise entre 71,7 et 73,7, quelle proportion a des parents dont la taille est entre 70 et 72 ?</p></li>
+<li><p>Quelle est la taille moyenne des enfants dont les parents ont une taille comprise entre 68 et 70 ? Convertir le résultat en centimètres.</p></li>
+<li><p>Même question pour la taille médiane.</p></li>
+<li><p>Même question pour l’écart-type.</p></li>
+</ol>
 
 
+</section>
 </section>
 </section>
 
@@ -1426,8 +1560,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../stat_descriptive/series_temporelles.html" class="pagination-link" aria-label="Séries temporelles">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Séries temporelles</span>
+      <a href="../stat_descriptive/analyse_bivarie.html" class="pagination-link" aria-label="Analyse bivariée">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Analyse bivariée</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

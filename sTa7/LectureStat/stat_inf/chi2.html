@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Antoine Géré">
 
-<title>Statistiques et analyse de données</title>
+<title>Les tests du \chi^2 – Statistiques et analyse de données</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,23 +23,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./stat_descriptive.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8da5b4427184b79ecddefad3d342027e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../stat_inf/comp2moy.html" rel="next">
+<link href="../stat_inf/tests.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8da5b4427184b79ecddefad3d342027e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -110,7 +110,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../stat_inf.html">Statistiques inférentielles</a></li><li class="breadcrumb-item"><a href="../stat_inf/chi2.html">Les tests du <span class="math inline">\(\chi^2\)</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
@@ -125,7 +125,7 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Statistiques et analyse de données</a> 
+      <a href="../">Statistiques et analyse de données</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -137,13 +137,13 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./stat_descriptive.html" class="sidebar-item-text sidebar-link">
+            <a href="../stat_descriptive.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Statistiques descriptives</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -152,25 +152,43 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat_descriptive/vocab.html" class="sidebar-item-text sidebar-link">
+  <a href="../stat_descriptive/vocab.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vocabulaire</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat_descriptive/analyse_univarie.html" class="sidebar-item-text sidebar-link">
+  <a href="../stat_descriptive/analyse_univarie.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Analyse univariée</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat_descriptive/analyse_bivarie.html" class="sidebar-item-text sidebar-link">
+  <a href="../stat_descriptive/analyse_bivarie.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Analyse bivariée</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat_descriptive/exos.html" class="sidebar-item-text sidebar-link">
+  <a href="../stat_descriptive/analyse_multivarie.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Analyse multivariée</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../stat_descriptive/regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Régression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../stat_descriptive/series_temporelles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Séries temporelles</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../stat_descriptive/exos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercices</span></a>
   </div>
 </li>
@@ -178,7 +196,7 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./proba.html" class="sidebar-item-text sidebar-link">
+            <a href="../proba.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Probabilités</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -187,55 +205,55 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./proba/espace_proba.html" class="sidebar-item-text sidebar-link">
+  <a href="../proba/espace_proba.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Espace probabilisé</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./proba/proba_condi.html" class="sidebar-item-text sidebar-link">
+  <a href="../proba/proba_condi.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Probabilité conditionnelle</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./proba/independance.html" class="sidebar-item-text sidebar-link">
+  <a href="../proba/independance.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Indépendance</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./proba/variable_aleatoire.html" class="sidebar-item-text sidebar-link">
+  <a href="../proba/variable_aleatoire.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Variable aléatoire</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./proba/lois_normales.html" class="sidebar-item-text sidebar-link">
+  <a href="../proba/lois_normales.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lois normales</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./proba/lois_binomiales.html" class="sidebar-item-text sidebar-link">
+  <a href="../proba/lois_binomiales.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lois binomiales</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./proba/lois_de_poisson.html" class="sidebar-item-text sidebar-link">
+  <a href="../proba/lois_de_poisson.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Loi de Poisson</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./proba/chaines_de_markov.html" class="sidebar-item-text sidebar-link">
+  <a href="../proba/chaines_de_markov.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Chaines de Markov</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./proba/exos.html" class="sidebar-item-text sidebar-link">
+  <a href="../proba/exos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercices</span></a>
   </div>
 </li>
@@ -243,40 +261,40 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./stat_inf.html" class="sidebar-item-text sidebar-link">
+            <a href="../stat_inf.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Statistiques inférentielles</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat_inf/echantillonnage.html" class="sidebar-item-text sidebar-link">
+  <a href="../stat_inf/echantillonnage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Echantillonnage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat_inf/tests.html" class="sidebar-item-text sidebar-link">
+  <a href="../stat_inf/tests.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Premiers pas sur les tests statistiques</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat_inf/chi2.html" class="sidebar-item-text sidebar-link">
+  <a href="../stat_inf/chi2.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Les tests du <span class="math inline">\(\chi^2\)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat_inf/comp2moy.html" class="sidebar-item-text sidebar-link">
+  <a href="../stat_inf/comp2moy.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">comp2moy</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat_inf/exos.html" class="sidebar-item-text sidebar-link">
+  <a href="../stat_inf/exos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercices</span></a>
   </div>
 </li>
@@ -284,7 +302,7 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./analyse_factorielle.html" class="sidebar-item-text sidebar-link">
+            <a href="../analyse_factorielle.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Analyse factorielle</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -293,13 +311,13 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./analyse_factorielle/acp.html" class="sidebar-item-text sidebar-link">
+  <a href="../analyse_factorielle/acp.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ACP</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./analyse_factorielle/exos.html" class="sidebar-item-text sidebar-link">
+  <a href="../analyse_factorielle/exos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercices</span></a>
   </div>
 </li>
@@ -307,7 +325,7 @@ window.Quarto = {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
 </li>
@@ -321,9 +339,21 @@ window.Quarto = {
     <h2 id="toc-title">Table des matières</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <li><a href="#test-dajustement" id="toc-test-dajustement" class="nav-link active" data-scroll-target="#test-dajustement">Test d’ajustement</a></li>
+  <li><a href="#cours-le-test-du-chi²-dajustement" id="toc-cours-le-test-du-chi²-dajustement" class="nav-link" data-scroll-target="#cours-le-test-du-chi²-dajustement">📊 Cours : Le test du Chi² d’ajustement</a>
   <ul class="collapse">
-  <li><a href="#licence" id="toc-licence" class="nav-link" data-scroll-target="#licence">Licence</a></li>
+  <li><a href="#définition-générale" id="toc-définition-générale" class="nav-link" data-scroll-target="#définition-générale">1. Définition générale</a></li>
+  <li><a href="#objectifs-du-test" id="toc-objectifs-du-test" class="nav-link" data-scroll-target="#objectifs-du-test">2. Objectifs du test</a></li>
+  <li><a href="#hypothèses" id="toc-hypothèses" class="nav-link" data-scroll-target="#hypothèses">3. Hypothèses</a></li>
+  <li><a href="#formule-du-test-du-chi²" id="toc-formule-du-test-du-chi²" class="nav-link" data-scroll-target="#formule-du-test-du-chi²">4. Formule du test du Chi²</a></li>
+  <li><a href="#conditions-dapplication" id="toc-conditions-dapplication" class="nav-link" data-scroll-target="#conditions-dapplication">5. Conditions d’application</a></li>
+  <li><a href="#degrés-de-liberté" id="toc-degrés-de-liberté" class="nav-link" data-scroll-target="#degrés-de-liberté">6. Degrés de liberté</a></li>
+  <li><a href="#étapes-du-test" id="toc-étapes-du-test" class="nav-link" data-scroll-target="#étapes-du-test">7. Étapes du test</a></li>
+  <li><a href="#exemple-dapplication" id="toc-exemple-dapplication" class="nav-link" data-scroll-target="#exemple-dapplication">8. Exemple d’application</a></li>
+  <li><a href="#interprétation" id="toc-interprétation" class="nav-link" data-scroll-target="#interprétation">9. Interprétation</a></li>
+  <li><a href="#applications-courantes" id="toc-applications-courantes" class="nav-link" data-scroll-target="#applications-courantes">10. Applications courantes</a></li>
+  <li><a href="#le-test-du-chi2-dindépendance" id="toc-le-test-du-chi2-dindépendance" class="nav-link" data-scroll-target="#le-test-du-chi2-dindépendance">Le test du <span class="math inline">\(\chi^2\)</span> d’indépendance</a></li>
+  <li><a href="#le-test-du-chi2-dhomogénéité" id="toc-le-test-du-chi2-dhomogénéité" class="nav-link" data-scroll-target="#le-test-du-chi2-dhomogénéité">Le test du <span class="math inline">\(\chi^2\)</span> d’homogénéité</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -331,28 +361,16 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../stat_inf.html">Statistiques inférentielles</a></li><li class="breadcrumb-item"><a href="../stat_inf/chi2.html">Les tests du <span class="math inline">\(\chi^2\)</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Statistiques et analyse de données</h1>
+<h1 class="title">Les tests du <span class="math inline">\(\chi^2\)</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Auteur·rice</div>
-    <div class="quarto-title-meta-contents">
-             <p>Antoine Géré </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Dernière modification</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">18 avril 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -362,37 +380,142 @@ window.Quarto = {
 </header>
 
 
-
-<section id="introduction" class="level1 unnumbered">
-<h1 class="unnumbered">Introduction</h1><p><img src="img/Logo_ISTOM_Couleurs_HD-rbg.png" title="Statistiques et analyse de données" class="quarto-cover-image img-fluid"></p>
-<p>Dans le domaine de l’agronomie, la prise de décision repose sur l’analyse rigoureuse de données issues d’expériences, d’observations de terrain et de mesures variées. Que ce soit pour optimiser les rendements agricoles, analyser l’impact des changements climatiques, améliorer la gestion des ressources naturelles ou évaluer la qualité des sols et des cultures, la statistique joue un rôle central.</p>
-<p>Ce cours propose une introduction approfondie aux outils statistiques fondamentaux nécessaires aux ingénieurs agronomes. Il est structuré autour de quatre grandes thématiques :</p>
-<ul>
-<li><p><strong>Statistique descriptive</strong> : Cette première partie vise à organiser, résumer et représenter efficacement les données issues des études agronomiques à travers des indicateurs clés (moyenne, médiane, variance, etc.) et des outils graphiques adaptés.</p></li>
-<li><p><strong>Probabilités</strong> : L’incertitude est inhérente aux systèmes biologiques et environnementaux. Nous aborderons les bases du calcul des probabilités, les lois de distribution les plus courantes et leur application en agronomie (modélisation des rendements, prévision climatique, etc.).</p></li>
-<li><p><strong>Statistique inférentielle</strong> : À partir d’un échantillon limité, il est crucial de pouvoir généraliser les résultats à l’ensemble d’une population. Cette section traitera des tests d’hypothèses, des intervalles de confiance et des méthodes d’estimation pour appuyer les décisions agronomiques sur des bases solides.</p></li>
-<li><p><strong>Analyse factorielle</strong> : Dans un contexte où les données multidimensionnelles sont omniprésentes (analyses de sols, caractéristiques des cultures, facteurs environnementaux), les méthodes d’analyse factorielle (ACP, AFC, etc.) permettent d’extraire les informations essentielles et d’interpréter les relations entre variables.</p></li>
-</ul>
-<p>Tout au long de ce cours nous apprendrons à utiliser les concepts des statistiques et de l’analyse de données avec le language de programmation <strong>R</strong> et le logiciel <strong>RStudio</strong> (cf <a href="https://ant0in3g.github.io/sTa7/tuto_R_RStudio/Book_Last_Version/index.html">ce lien</a> pour un tutorial sur la prise en main de R et RStudio).</p>
-<p><img src="img/R_RStudio_LogoS-rbg.png" class="img-fluid"></p>
-<p>Cet apprentissage s’effectera sur des exemples concrets et des études de cas spécifiques aux enjeux propres des pays du sud : adaptation aux conditions climatiques locales, gestion durable des ressources et amélioration des pratiques agricoles.</p>
-<p>L’objectif est de vous fournir, futurs ingénieurs agronomes, les compétences nécessaires pour interpréter des données complexes et appuyer des décisions fondées sur des analyses rigoureuses.</p>
+<section id="test-dajustement" class="level2">
+<h2 class="anchored" data-anchor-id="test-dajustement">Test d’ajustement</h2>
+<p>Dans les situations où on souhaite confronter des effectifs obtenus expérimentalement à des prévisions faites sur base d’hypothèses théoriques, et quand les effectfs en questions sont suffisamment grands (&gt; 5, typiquement), on a souvent recourt à un test de <span class="math inline">\(\chi^2\)</span>.</p>
+<p>Comme le montrent l’exemple suivant, le test de <span class="math inline">\(\chi^2\)</span> d’ajustement permet de vérifier si les données récoltées pour un échantillon correspondent à une distribution théorique de probabilité <span class="math inline">\(P\)</span> définie à priori.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Important
+Les hypothèses de ce test sont les suivantes :
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Ces notes sont en cours d’élaboration. Si vous avez la moindre question ou remarque n’hésitez pas à me contacter par email <a href="mailto:a.gere@istom.fr">a.gere@istom.fr</a></p>
+<ul>
+<li><strong>H0</strong> : les données observées suivent la loi théorique</li>
+<li><strong>H1</strong> : les données observées ne suivent pas la loi théorique</li>
+</ul>
 </div>
 </div>
-<section id="licence" class="level2">
-<h2 class="anchored" data-anchor-id="licence">Licence</h2>
-<p>à définir…</p>
+<p>Prenons l’exemple de la loi de Mendel :</p>
+<p>Imaginons que deux lignées de souris, de génotypes respectifs AA et BB, sont croisées. Les produits du croisement (appelés F1 en génétique) seront tous de génotypes AB (ce qui signifie que, pour locus étudié, ils ont reçu une copie (appelée “allèle”) A d’un de leurs parents et une copie B de l’autre, ce qui est nécessairement le cas dans la situation décrite ici de croisement de lignées AA et BB). A la génération suivante, on croise des individus F1 (c’est-à-dire de génotypes AB) entre eux de manière aléatoire, pour générer des individus de seconde génération (notés F2). Sous l’hypothèse nulle où chaque individu F1 croisé a une probabilité de 50 % de transmettre l’allèle A et une probabilité de 50 % de transmettre l’allèle B, on peut déduire que les probabilités qu’un individu F2 ait un génotype AA, AB ou BB sont respectivement de 25 %, 50 % et 25 %.</p>
+</section>
+<section id="cours-le-test-du-chi²-dajustement" class="level1">
+<h1>📊 Cours : Le test du Chi² d’ajustement</h1>
+<section id="définition-générale" class="level2">
+<h2 class="anchored" data-anchor-id="définition-générale">1. Définition générale</h2>
+<p>Le <strong>test du Chi² d’ajustement</strong> (ou test de conformité) permet de vérifier si la <strong>distribution d’un échantillon observé</strong> correspond à une <strong>distribution théorique attendue</strong>. Il s’agit d’un test statistique <strong>non paramétrique</strong>, souvent utilisé pour des données <strong>catégorielles</strong> (qualitatives ou discrétisées).</p>
+</section>
+<section id="objectifs-du-test" class="level2">
+<h2 class="anchored" data-anchor-id="objectifs-du-test">2. Objectifs du test</h2>
+<ul>
+<li>Comparer une distribution observée à une distribution théorique connue.</li>
+<li>Tester l’hypothèse que les fréquences observées suivent une loi théorique (comme la loi uniforme, binomiale, de Poisson, etc.)</li>
+</ul>
+</section>
+<section id="hypothèses" class="level2">
+<h2 class="anchored" data-anchor-id="hypothèses">3. Hypothèses</h2>
+<ul>
+<li><strong>H₀ (hypothèse nulle)</strong> : les données suivent la distribution théorique.</li>
+<li><strong>H₁ (hypothèse alternative)</strong> : les données ne suivent pas cette distribution.</li>
+</ul>
+</section>
+<section id="formule-du-test-du-chi²" class="level2">
+<h2 class="anchored" data-anchor-id="formule-du-test-du-chi²">4. Formule du test du Chi²</h2>
+<p>La statistique du test est :</p>
+<p>[ ^2 = _{i=1}^{k} ]</p>
+<p>où :</p>
+<ul>
+<li>( O_i ) = fréquence observée pour la modalité ( i ),</li>
+<li>( E_i ) = fréquence attendue (selon la loi théorique) pour la modalité ( i ),</li>
+<li>( k ) = nombre de modalités (ou classes).</li>
+</ul>
+</section>
+<section id="conditions-dapplication" class="level2">
+<h2 class="anchored" data-anchor-id="conditions-dapplication">5. Conditions d’application</h2>
+<ul>
+<li>Les observations doivent être indépendantes.</li>
+<li>L’effectif total doit être suffisamment grand (souvent ( n &gt; 30 )).</li>
+<li>Les fréquences théoriques ( E_i ) doivent être supérieures ou égales à 5 pour chaque modalité (ou regroupement si nécessaire).</li>
+</ul>
+</section>
+<section id="degrés-de-liberté" class="level2">
+<h2 class="anchored" data-anchor-id="degrés-de-liberté">6. Degrés de liberté</h2>
+<p>[ = k - 1 - p ]</p>
+<ul>
+<li>( k ) = nombre de modalités (ou classes),</li>
+<li>( p ) = nombre de paramètres estimés à partir des données (ex : moyenne ou variance si la loi théorique n’est pas entièrement connue).</li>
+</ul>
+</section>
+<section id="étapes-du-test" class="level2">
+<h2 class="anchored" data-anchor-id="étapes-du-test">7. Étapes du test</h2>
+<ol type="1">
+<li>Formuler les hypothèses H₀ et H₁.</li>
+<li>Calculer les fréquences observées ( O_i ).</li>
+<li>Calculer les fréquences attendues ( E_i ) en fonction de la distribution théorique.</li>
+<li>Calculer la statistique du test ( ^2 ).</li>
+<li>Déterminer la valeur critique (ou p-value) à partir de la loi du ( ^2 ) avec les degrés de liberté.</li>
+<li>Conclusion : si ( ^2_{} &gt; ^2_{} ), on rejette H₀.</li>
+</ol>
+</section>
+<section id="exemple-dapplication" class="level2">
+<h2 class="anchored" data-anchor-id="exemple-dapplication">8. Exemple d’application</h2>
+<p><strong>Contexte</strong> : Une entreprise affirme que les couleurs de ses produits sont uniformément réparties entre 5 couleurs. Sur un échantillon de 200 produits, on observe :</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Couleur</th>
+<th>Rouge</th>
+<th>Bleu</th>
+<th>Vert</th>
+<th>Jaune</th>
+<th>Noir</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Observé ( O_i )</td>
+<td>30</td>
+<td>50</td>
+<td>40</td>
+<td>35</td>
+<td>45</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Fréquence attendue</strong> (uniforme) :<br>
+( E_i = = 40 ) pour chaque couleur.</p>
+<p>[ ^2 = = + + = 6.25 ]</p>
+<ul>
+<li>ddl = 5 - 1 = 4<br>
+</li>
+<li>Seuil à 5% : ( ^2_{0.05, 4} )</li>
+</ul>
+<p><strong>Conclusion</strong> : 6.25 &lt; 9.49 → on <strong>ne rejette pas H₀</strong> : les couleurs sont bien réparties de manière uniforme.</p>
+</section>
+<section id="interprétation" class="level2">
+<h2 class="anchored" data-anchor-id="interprétation">9. Interprétation</h2>
+<ul>
+<li>Si on <strong>rejette H₀</strong>, cela signifie que les écarts observés entre les fréquences observées et attendues sont trop grands pour être dus au hasard.</li>
+<li>Si on <strong>ne rejette pas H₀</strong>, les écarts peuvent être dus à la variabilité aléatoire.</li>
+</ul>
+</section>
+<section id="applications-courantes" class="level2">
+<h2 class="anchored" data-anchor-id="applications-courantes">10. Applications courantes</h2>
+<ul>
+<li>Étude de conformité d’un jeu de dés (uniformité).</li>
+<li>Vérification de la loi de Poisson (ex : nombre d’appels téléphoniques par minute).</li>
+<li>Analyse de répartition démographique (sexe, âge, catégories socio-pro).</li>
+</ul>
+</section>
+<section id="le-test-du-chi2-dindépendance" class="level2">
+<h2 class="anchored" data-anchor-id="le-test-du-chi2-dindépendance">Le test du <span class="math inline">\(\chi^2\)</span> d’indépendance</h2>
+</section>
+<section id="le-test-du-chi2-dhomogénéité" class="level2">
+<h2 class="anchored" data-anchor-id="le-test-du-chi2-dhomogénéité">Le test du <span class="math inline">\(\chi^2\)</span> d’homogénéité</h2>
 
 
 </section>
@@ -818,10 +941,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../stat_inf/tests.html" class="pagination-link" aria-label="Premiers pas sur les tests statistiques">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Premiers pas sur les tests statistiques</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./stat_descriptive.html" class="pagination-link" aria-label="Statistiques descriptives">
-        <span class="nav-page-text">Statistiques descriptives</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../stat_inf/comp2moy.html" class="pagination-link" aria-label="comp2moy">
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">comp2moy</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
