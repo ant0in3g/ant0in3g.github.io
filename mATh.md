@@ -1,4 +1,4 @@
-## [Mathématiques](./mATh.md)
+## [Mathématiques](../index.md)
 
 Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 
