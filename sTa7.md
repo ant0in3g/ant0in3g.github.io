@@ -1,4 +1,4 @@
-## Statistiques et analyse de données
+## [Statistiques et analyse de données](../index.md)
 
 Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 
