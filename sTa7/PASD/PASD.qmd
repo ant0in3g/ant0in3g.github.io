@@ -39,18 +39,18 @@ Vous travaillerez sur la culture du **coton** dans le contexte agricole du Benin
 ::::: {layout-ncol="2"}
 <div>
 
-Les bases de données ont été difusées à chaque groupe :
+Les bases de données sont regroupées par coopératives :
 
--   [Bedari]()
--   [Bereke Centre]()
--   [Beroubouay Est]()
--   [Bokobouerou]()
--   [Gamia Est]()
--   [Guessou Nord]()
--   [Hangar Peuhl]()
--   [Ina Gando]()
--   [Kossou]()
--   [Pedarou]()
+-   [Bedari](https://istom-my.sharepoint.com/:x:/g/personal/a_gere_istom_fr/EfkCONPzFohOsW9BXaskLhMB5ZvhFdfQ2PwqX7eNCom_tQ?e=DguDUM)
+-   [Bereke Centre](https://istom-my.sharepoint.com/:x:/g/personal/a_gere_istom_fr/EedY920H0uZNrGnL4V0CpKcBi2_ukFz6BxXq2GAqAaYYLg?e=8JlUwC)
+-   [Beroubouay Est](https://istom-my.sharepoint.com/:x:/g/personal/a_gere_istom_fr/EW_7owl0soZKujDuDn4R-u8B4EKAJNI48k5yGVjQS8n5Nw?e=Ecvcpd)
+-   [Bokobouerou](https://istom-my.sharepoint.com/:x:/g/personal/a_gere_istom_fr/ESMCNb4CANNGklB7xtDgyMkBrHx37fEtcLQCVB8wK_jO1w?e=zJANKS)
+-   [Gamia Est](https://istom-my.sharepoint.com/:x:/g/personal/a_gere_istom_fr/EUrM9eavQ0RHg3BVoIXC3QgBXehI9Khh54gbZz_wWaEeeg?e=29glG6)
+-   [Guessou Nord](https://istom-my.sharepoint.com/:x:/g/personal/a_gere_istom_fr/Ed2eUXwpMHNBoWcj23bSbPwBjjxeAkNsZ6fHjjOo25RC2A?e=gZgxDD)
+-   [Hangar Peuhl](https://istom-my.sharepoint.com/:x:/g/personal/a_gere_istom_fr/EXaTVcyQhF9Bu_DTeaWMitsBUlO24iQ3ujVzjxyNGhnihQ?e=uaRi34)
+-   [Ina Gando](https://istom-my.sharepoint.com/:x:/g/personal/a_gere_istom_fr/EViMZc0aJm1Hn9gVI9MzXRQBEvyrWSbPUL7KDYo7Qq5Xaw?e=JOjMIV)
+-   [Kossou](https://istom-my.sharepoint.com/:x:/g/personal/a_gere_istom_fr/Ea7KrXD7qJ5GmWSSRJdwhE0Bbe0zK82wYZICQMXf8GzROQ?e=iudk3r)
+-   [Pedarou](https://istom-my.sharepoint.com/:x:/g/personal/a_gere_istom_fr/ETuSChqHIvlDj23-ZFwe1lABkXfOwjkhu7mEyMLgLlTS0g?e=zL3l1h)
 
 Vous pouvez retrouver via ce [lien](https://istom-my.sharepoint.com/:f:/g/personal/a_gere_istom_fr/EhCXWWGMN49Mie3HlRxrUOUB12GYpl3NVF0gZBboWwz8MQ?e=kSwXvC) les bases de données manuscrites.
 
@@ -63,19 +63,20 @@ Vous pouvez retrouver via ce [lien](https://istom-my.sharepoint.com/:f:/g/person
 </div>
 :::::
 
-::: callout-important
-## Travail à faire
-Il vous est demandé de préparer votre base de données, comme sur cet [exemple](https://istom-my.sharepoint.com/:x:/g/personal/a_gere_istom_fr/Eeld5c7RXQdOg8VjkRMpaQIB2SZUOmQhWwCiZscPNPHB1w?e=1LQK9d).
-:::
+::: callout-caution
+## Travail à faire (en groupe de votre choix)
 
+Il vous est proposé de préparer votre base de données, comme sur cet [exemple](https://istom-my.sharepoint.com/:x:/g/personal/a_gere_istom_fr/Eeld5c7RXQdOg8VjkRMpaQIB2SZUOmQhWwCiZscPNPHB1w?e=1LQK9d).
+:::
 
 ## Statistiques descriptives
 
-::: callout-important
+::: callout-caution
 ## Travail à faire
-Il vous est demandé d'effectuer :
 
-- une analyse statistique descriptive univariée pour au minimum 2 variables de votre choix 
+Il vous est proposé d'effectuer :
 
-- une analyse statistique descriptive bivariée pour au minimum 2 couples de variables de votre choix
+-   une analyse statistique descriptive univariée pour au minimum 2 variables de votre choix
+
+-   une analyse statistique descriptive bivariée pour au minimum 2 couples de variables de votre choix
 :::
