@@ -1,4 +1,4 @@
-## [Statistiques et analyse de données](../index.md)
+## [Statistiques et analyse de données](./sTa7.md)
 
 Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 
