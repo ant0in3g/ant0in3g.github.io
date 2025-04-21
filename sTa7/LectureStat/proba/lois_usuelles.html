@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Exercices – Statistiques et analyse de données</title>
+<title>Lois usuelles – Statistiques et analyse de données</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../proba.html" rel="next">
-<link href="../stat_descriptive/analyse_bivarie.html" rel="prev">
+<link href="../EchantillonnageEstimation.html" rel="next">
+<link href="../proba.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -110,7 +110,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../stat_descriptive.html">Statistiques descriptives</a></li><li class="breadcrumb-item"><a href="../stat_descriptive/exos.html">Exercices</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../proba.html">Probabilités</a></li><li class="breadcrumb-item"><a href="../proba/lois_usuelles.html">Lois usuelles</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
@@ -145,11 +145,11 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../stat_descriptive.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Statistiques descriptives</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../stat_descriptive/vocab.html" class="sidebar-item-text sidebar-link">
@@ -170,7 +170,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../stat_descriptive/exos.html" class="sidebar-item-text sidebar-link active">
+  <a href="../stat_descriptive/exos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercices</span></a>
   </div>
 </li>
@@ -180,14 +180,14 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../proba.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Probabilités</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../proba/lois_usuelles.html" class="sidebar-item-text sidebar-link">
+  <a href="../proba/lois_usuelles.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Lois usuelles</span></a>
   </div>
 </li>
@@ -350,17 +350,42 @@ window.Quarto = {
     <h2 id="toc-title">Table des matières</h2>
    
   <ul>
-  <li><a href="#statistiques-univariées" id="toc-statistiques-univariées" class="nav-link active" data-scroll-target="#statistiques-univariées">Statistiques univariées</a>
+  <li><a href="#généralités" id="toc-généralités" class="nav-link active" data-scroll-target="#généralités">Généralités</a>
   <ul class="collapse">
-  <li><a href="#variables-qualitatives" id="toc-variables-qualitatives" class="nav-link" data-scroll-target="#variables-qualitatives">Variables Qualitatives</a></li>
-  <li><a href="#variable-quantitative-discrètes" id="toc-variable-quantitative-discrètes" class="nav-link" data-scroll-target="#variable-quantitative-discrètes">Variable Quantitative Discrètes</a></li>
-  <li><a href="#variable-quantitatives-continues" id="toc-variable-quantitatives-continues" class="nav-link" data-scroll-target="#variable-quantitatives-continues">Variable Quantitatives Continues</a></li>
+  <li><a href="#fonction-de-répartition-dune-loi-discrète" id="toc-fonction-de-répartition-dune-loi-discrète" class="nav-link" data-scroll-target="#fonction-de-répartition-dune-loi-discrète">Fonction de répartition d’une loi discrète</a></li>
+  <li><a href="#fonction-de-répartition-dune-loi-continue" id="toc-fonction-de-répartition-dune-loi-continue" class="nav-link" data-scroll-target="#fonction-de-répartition-dune-loi-continue">Fonction de répartition d’une loi continue</a></li>
+  <li><a href="#probabilités-du-min-et-du-max" id="toc-probabilités-du-min-et-du-max" class="nav-link" data-scroll-target="#probabilités-du-min-et-du-max">Probabilités du min et du max</a></li>
+  <li><a href="#espérance-et-variance-dans-le-cas-continu" id="toc-espérance-et-variance-dans-le-cas-continu" class="nav-link" data-scroll-target="#espérance-et-variance-dans-le-cas-continu">Espérance et variance dans le cas continu</a></li>
+  <li><a href="#propriétés-de-lespérance-et-de-la-variance" id="toc-propriétés-de-lespérance-et-de-la-variance" class="nav-link" data-scroll-target="#propriétés-de-lespérance-et-de-la-variance">Propriétés de l’espérance et de la variance</a></li>
   </ul></li>
-  <li><a href="#statistiques-bivariées" id="toc-statistiques-bivariées" class="nav-link" data-scroll-target="#statistiques-bivariées">Statistiques bivariées</a>
+  <li><a href="#principales-lois-discrètes" id="toc-principales-lois-discrètes" class="nav-link" data-scroll-target="#principales-lois-discrètes">Principales lois discrètes</a>
   <ul class="collapse">
-  <li><a href="#qualitative---qualitative" id="toc-qualitative---qualitative" class="nav-link" data-scroll-target="#qualitative---qualitative">Qualitative - Qualitative</a></li>
-  <li><a href="#qualitative---quantitative" id="toc-qualitative---quantitative" class="nav-link" data-scroll-target="#qualitative---quantitative">Qualitative - Quantitative</a></li>
-  <li><a href="#quantitative---quantitative" id="toc-quantitative---quantitative" class="nav-link" data-scroll-target="#quantitative---quantitative">Quantitative - Quantitative</a></li>
+  <li><a href="#loi-uniforme" id="toc-loi-uniforme" class="nav-link" data-scroll-target="#loi-uniforme">Loi uniforme</a></li>
+  <li><a href="#loi-de-bernoulli" id="toc-loi-de-bernoulli" class="nav-link" data-scroll-target="#loi-de-bernoulli">Loi de Bernoulli</a></li>
+  <li><a href="#loi-binomiale" id="toc-loi-binomiale" class="nav-link" data-scroll-target="#loi-binomiale">Loi binomiale</a></li>
+  <li><a href="#loi-hypergéométrique" id="toc-loi-hypergéométrique" class="nav-link" data-scroll-target="#loi-hypergéométrique">Loi hypergéométrique</a></li>
+  <li><a href="#loi-de-poisson" id="toc-loi-de-poisson" class="nav-link" data-scroll-target="#loi-de-poisson">Loi de Poisson</a></li>
+  <li><a href="#loi-géométrique" id="toc-loi-géométrique" class="nav-link" data-scroll-target="#loi-géométrique">Loi Géométrique</a></li>
+  </ul></li>
+  <li><a href="#principales-lois-continues" id="toc-principales-lois-continues" class="nav-link" data-scroll-target="#principales-lois-continues">Principales lois continues</a>
+  <ul class="collapse">
+  <li><a href="#loi-uniforme-1" id="toc-loi-uniforme-1" class="nav-link" data-scroll-target="#loi-uniforme-1">Loi uniforme</a></li>
+  <li><a href="#loi-exponentielle" id="toc-loi-exponentielle" class="nav-link" data-scroll-target="#loi-exponentielle">Loi exponentielle</a></li>
+  <li><a href="#loi-normale" id="toc-loi-normale" class="nav-link" data-scroll-target="#loi-normale">Loi normale</a></li>
+  <li><a href="#loi-du-khi-deux" id="toc-loi-du-khi-deux" class="nav-link" data-scroll-target="#loi-du-khi-deux">Loi du khi-deux</a></li>
+  <li><a href="#loi-de-student" id="toc-loi-de-student" class="nav-link" data-scroll-target="#loi-de-student">Loi de Student</a></li>
+  </ul></li>
+  <li><a href="#relations-entre-les-principales-lois" id="toc-relations-entre-les-principales-lois" class="nav-link" data-scroll-target="#relations-entre-les-principales-lois">Relations entre les principales lois</a></li>
+  <li><a href="#propriétés" id="toc-propriétés" class="nav-link" data-scroll-target="#propriétés">Propriétés</a></li>
+  <li><a href="#approximations" id="toc-approximations" class="nav-link" data-scroll-target="#approximations">Approximations</a>
+  <ul class="collapse">
+  <li><a href="#lois-normale-du-chi2-et-de-student" id="toc-lois-normale-du-chi2-et-de-student" class="nav-link" data-scroll-target="#lois-normale-du-chi2-et-de-student">Lois normale, du <span class="math inline">\(\chi^{2}\)</span> et de Student</a></li>
+  </ul></li>
+  <li><a href="#utiliser-les-tables-statistiques" id="toc-utiliser-les-tables-statistiques" class="nav-link" data-scroll-target="#utiliser-les-tables-statistiques">Utiliser les tables statistiques</a>
+  <ul class="collapse">
+  <li><a href="#loi-normale-centrée-réduite" id="toc-loi-normale-centrée-réduite" class="nav-link" data-scroll-target="#loi-normale-centrée-réduite">Loi normale centrée réduite</a></li>
+  <li><a href="#loi-de-chi2" id="toc-loi-de-chi2" class="nav-link" data-scroll-target="#loi-de-chi2">Loi de <span class="math inline">\(\chi^{2}\)</span></a></li>
+  <li><a href="#loi-de-student-1" id="toc-loi-de-student-1" class="nav-link" data-scroll-target="#loi-de-student-1">Loi de Student</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -368,9 +393,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../stat_descriptive.html">Statistiques descriptives</a></li><li class="breadcrumb-item"><a href="../stat_descriptive/exos.html">Exercices</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../proba.html">Probabilités</a></li><li class="breadcrumb-item"><a href="../proba/lois_usuelles.html">Lois usuelles</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Exercices</h1>
+<h1 class="title">Lois usuelles</h1>
 </div>
 
 
@@ -387,785 +412,208 @@ window.Quarto = {
 </header>
 
 
-<style>
-.flushright {
-   text-align: right;
-}
-</style>
-<section id="statistiques-univariées" class="level2">
-<h2 class="anchored" data-anchor-id="statistiques-univariées">Statistiques univariées</h2>
-<section id="variables-qualitatives" class="level3">
-<h3 class="anchored" data-anchor-id="variables-qualitatives">Variables Qualitatives</h3>
-<section id="exercice-1.1" class="level4">
-<h4 class="anchored" data-anchor-id="exercice-1.1">Exercice 1.1</h4>
-<p>Le nombre de visites classé par le navigateur internet utilisé pour accéder au site internet de l’ISTOM le moi dernier est donné dans le tableau suivant.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Navigateur (<span class="math inline">\(x_i\)</span>)</th>
-<th>Nombre de visites (<span class="math inline">\(n_i\)</span>)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Chrome</td>
-<td>880491</td>
-</tr>
-<tr class="even">
-<td>Firefox</td>
-<td>2022764</td>
-</tr>
-<tr class="odd">
-<td>Internet Explorer</td>
-<td>576655</td>
-</tr>
-<tr class="even">
-<td>Opera</td>
-<td>160303</td>
-</tr>
-<tr class="odd">
-<td>Safari</td>
-<td>315613</td>
-</tr>
-<tr class="even">
-<td>Autres</td>
-<td>41367</td>
-</tr>
-</tbody>
-</table>
-<ol type="1">
-<li><p>Déterminer la population (en précisant sa taille et les individus qui la compose), les variables étudiées, leur type et les modalités qu’elles prennent.</p></li>
-<li><p>Déterminer la distribution des proportions de la variable «navigateur utilisé».</p></li>
-<li><p>Quel est le mode de la variable ?</p></li>
-<li><p>Représenter graphiquement la distribution des proportions.</p></li>
-</ol>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Correction Ex. 1.1
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>coming.</p>
-</div>
-</div>
-</div>
+<section id="généralités" class="level2">
+<h2 class="anchored" data-anchor-id="généralités">Généralités</h2>
+<section id="fonction-de-répartition-dune-loi-discrète" class="level3">
+<h3 class="anchored" data-anchor-id="fonction-de-répartition-dune-loi-discrète">Fonction de répartition d’une loi discrète</h3>
+<p>Si X est une variable aléatoire telle que <span class="math inline">\(\mathrm{X}(\Omega)=\)</span> <span class="math inline">\(\left\{x_{1}, \ldots, x_{n}\right\}\)</span>, sa fonction de répartition est égale à</p>
+<p><span class="math display">\[
+\mathrm{F}_{\mathrm{X}}(x)=\mathrm{P}(\mathrm{X} \leqslant x)=\sum_{\substack{1 \leqslant i \leqslant n \\ x_{i} \leqslant x}} \mathrm{P}\left(\mathrm{X}=x_{i}\right)
+\]</span></p>
+</section>
+<section id="fonction-de-répartition-dune-loi-continue" class="level3">
+<h3 class="anchored" data-anchor-id="fonction-de-répartition-dune-loi-continue">Fonction de répartition d’une loi continue</h3>
+<p>Si X est une variable aléatoire de densité <span class="math inline">\(f\)</span>, sa fonction de répartition est égale à</p>
+<p><span class="math display">\[
+\mathrm{F}_{\mathrm{X}}(x)=\mathrm{P}(\mathrm{X} \leqslant x)=\int_{-\infty}^{x} f(t) \mathrm{d} t
+\]</span></p>
+<p>On a alors</p>
+<p><span class="math display">\[
+\mathrm{P}(\mathrm{X}&gt;x)=1-\mathrm{F}_{\mathrm{X}}(x)
+\]</span></p>
+<p>et sa densité vaut <span class="math inline">\(f(x)=\mathrm{F}_{\mathrm{X}}^{\prime}(x)\)</span></p>
+</section>
+<section id="probabilités-du-min-et-du-max" class="level3">
+<h3 class="anchored" data-anchor-id="probabilités-du-min-et-du-max">Probabilités du min et du max</h3>
+<p>Si les variables <span class="math inline">\(\mathrm{T}_{i}\)</span> sont indépendantes,</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \mathrm{P}\left(\max \mathrm{~T}_{i} \leqslant x\right)=\prod_{i=1}^{n} \mathrm{P}\left(\mathrm{~T}_{i} \leqslant x\right) \\
+&amp; \mathrm{P}\left(\min \mathrm{~T}_{i} \leqslant x\right)=1-\prod_{i=1}^{n}\left[1-\mathrm{P}\left(\mathrm{~T}_{i} \leqslant x\right)\right]
+\end{aligned}
+\]</span></p>
+<p>Espérance et variance dans le cas discret Si X est une variable aléatoire discrète,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathrm{E}(\mathrm{X}) &amp; =\sum_{k=0}^{+\infty} k \mathrm{P}(\mathrm{X}=k) \\
+\mathrm{E}\left(\mathrm{X}^{2}\right) &amp; =\sum_{k=0}^{+\infty} k^{2} \mathrm{P}(\mathrm{X}=k) \\
+\mathrm{V}(\mathrm{X}) &amp; =\mathrm{E}\left(\mathrm{X}^{2}\right)-\mathrm{E}(\mathrm{X})^{2}
+\end{aligned}
+\]</span></p>
+</section>
+<section id="espérance-et-variance-dans-le-cas-continu" class="level3">
+<h3 class="anchored" data-anchor-id="espérance-et-variance-dans-le-cas-continu">Espérance et variance dans le cas continu</h3>
+<p>Si X est une variable aléatoire continue de densité <span class="math inline">\(f\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathrm{E}(\mathrm{X}) &amp; =\int_{-\infty}^{+\infty} x f(x) \mathrm{d} x \\
+\mathrm{E}\left(\mathrm{X}^{2}\right) &amp; =\int_{-\infty}^{+\infty} x^{2} f(x) \mathrm{d} x \\
+\mathrm{~V}(\mathrm{X}) &amp; =\mathrm{E}\left(\mathrm{X}^{2}\right)-\mathrm{E}(\mathrm{X})^{2}
+\end{aligned}
+\]</span></p>
+</section>
+<section id="propriétés-de-lespérance-et-de-la-variance" class="level3">
+<h3 class="anchored" data-anchor-id="propriétés-de-lespérance-et-de-la-variance">Propriétés de l’espérance et de la variance</h3>
+<p>Si X et Y sont deux variables aléatoires et <span class="math inline">\(a\)</span> un réel,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathrm{E}(a \mathrm{X}) &amp; =a \mathrm{E}(\mathrm{X}) \\
+\mathrm{E}(\mathrm{X}+\mathrm{Y}) &amp; =\mathrm{E}(\mathrm{X})+\mathrm{E}(\mathrm{Y})
+\end{aligned}
+\]</span></p>
+<p>Important : toujours calculer à l’intérieur de l’espérance avant de séparer les termes. Par exemple, <span class="math inline">\(\mathrm{E}\left((\mathrm{X}-a)^{2}\right)=\mathrm{E}\left(\mathrm{X}^{2}-2 a \mathrm{X}+a^{2}\right)=\mathrm{E}\left(\mathrm{X}^{2}\right)-2 a \mathrm{E}(\mathrm{X})+a^{2}\)</span> Si les <span class="math inline">\(\mathrm{X}_{i}\)</span> sont des variables aléatoires,</p>
+<p><span class="math display">\[
+\mathrm{E}\left(\frac{1}{n} \sum_{i=1}^{n} \mathrm{X}_{i}\right)=\frac{1}{n} \sum_{i=1}^{n} \mathrm{E}\left(\mathrm{X}_{i}\right)
+\]</span></p>
+<p>et si elles sont indépendantes,</p>
+<p><span class="math display">\[
+\mathrm{V}\left(\frac{1}{n} \sum_{i=1}^{n} \mathrm{X}_{i}\right)=\frac{1}{n^{2}} \sum_{i=1}^{n} \mathrm{~V}\left(\mathrm{X}_{i}\right)
+\]</span></p>
 </section>
 </section>
-<section id="variable-quantitative-discrètes" class="level3">
-<h3 class="anchored" data-anchor-id="variable-quantitative-discrètes">Variable Quantitative Discrètes</h3>
-<section id="exercice-2.1" class="level4">
-<h4 class="anchored" data-anchor-id="exercice-2.1">Exercice 2.1</h4>
-<p>Pour un exerice de PIDEx, un groupe d’étudiant-es releve le nombre de piments sur chaque planche de culture d’une exploitation agricole. Les donnée brutes sont les suivantes :</p>
-<p><code>12, 6, 8, 3, 15, 4, 8, 9, 10, 5, 6, 12, 8, 10</code></p>
-<ol type="1">
-<li><p>Déterminer la population (en précisant sa taille et les individus qui la compose), les variables étudiées, leur type et les modalités qu’elles prennent.</p></li>
-<li><p>Déterminer la distribution des proportions de la variable «nombre de piments».</p></li>
-<li><p>Représenter graphiquement la distribution des proportions.</p></li>
-<li><p>Déterminer le mode de la variable.</p></li>
-<li><p>Déterminer la moyenne de la variable.</p></li>
-<li><p>Déterminer l’écart-type de la variable.</p></li>
-<li><p>Déterminer la médiane de la variable à partir des données individuelles.</p></li>
-</ol>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Correction Ex. 2.1
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>coming.</p>
-</div>
-</div>
-</div>
+<section id="principales-lois-discrètes" class="level2">
+<h2 class="anchored" data-anchor-id="principales-lois-discrètes">Principales lois discrètes</h2>
+<section id="loi-uniforme" class="level3">
+<h3 class="anchored" data-anchor-id="loi-uniforme">Loi uniforme</h3>
+<p><span class="math inline">\(\mathrm{X}(\Omega)=\left\{x_{1}, \ldots, x_{n}\right\}\)</span> <span class="math inline">\(\mathrm{P}\left(\mathrm{X}=x_{i}\right)=1 / n\)</span></p>
 </section>
-<section id="exercice-2.2" class="level4">
-<h4 class="anchored" data-anchor-id="exercice-2.2">Exercice 2.2</h4>
-<p>Un étudiant en stage de fin d’étude fait un contrôle de qualité sur des parcelles de goyaviers. Il souhaite évaluer l’importance de la production en goyave sur chacune des parcelle. Pour cela il atribue une note sur 5 pour chaque goyavier de chaque parcelle. La noté de 0 étant un goyavier sans aucun fruit, et 5 un abondant de fruits. Les parcelles sont notée A, B, C et D.</p>
-<p>Pour chacune des parcelle déterminer la médiane à partir du tableau de distribution des effectifs.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Note</th>
-<th>Effectif Parcelle A</th>
-<th>Effectif Parcelle B</th>
-<th>Effectif Parcelle C</th>
-<th>Effectif Parcelle D</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0</td>
-<td>3</td>
-<td>3</td>
-<td>3</td>
-<td>3</td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td>5</td>
-<td>3</td>
-<td>3</td>
-<td>3</td>
-</tr>
-<tr class="odd">
-<td>2</td>
-<td>8</td>
-<td>3</td>
-<td>3</td>
-<td>3</td>
-</tr>
-<tr class="even">
-<td>3</td>
-<td>6</td>
-<td>3</td>
-<td>3</td>
-<td>3</td>
-</tr>
-<tr class="odd">
-<td>4</td>
-<td>2</td>
-<td>3</td>
-<td>3</td>
-<td>3</td>
-</tr>
-<tr class="even">
-<td>5</td>
-<td>1</td>
-<td>3</td>
-<td>3</td>
-<td>3</td>
-</tr>
-</tbody>
-</table>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Correction Ex. 2.2
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>coming.</p>
-</div>
-</div>
-</div>
+<section id="loi-de-bernoulli" class="level3">
+<h3 class="anchored" data-anchor-id="loi-de-bernoulli">Loi de Bernoulli</h3>
+<p>Loi de Bernoulli <span class="math inline">\(\mathcal{B}(p)\)</span></p>
+<p><span class="math inline">\(\mathrm{X}(\Omega)=\{0,1\}\)</span>, paramètre <span class="math inline">\(p\)</span> <span class="math inline">\(\mathrm{P}(\mathrm{X}=1)=p, \mathrm{P}(\mathrm{X}=0)=1-p\)</span> <span class="math inline">\(\mathrm{E}(\mathrm{X})=p, \mathrm{~V}(\mathrm{X})=p(1-p)\)</span></p>
+</section>
+<section id="loi-binomiale" class="level3">
+<h3 class="anchored" data-anchor-id="loi-binomiale">Loi binomiale</h3>
+<p>Loi binomiale <span class="math inline">\(\mathcal{B}(n, p)\)</span></p>
+<p><span class="math inline">\(\mathrm{X}(\Omega)=\{0, \ldots, n\}\)</span>, paramètre <span class="math inline">\(p\)</span> <span class="math inline">\(\mathrm{P}(\mathrm{X}=k)=\binom{n}{k} p^{k}(1-p)^{n-k}\)</span> <span class="math inline">\(\mathrm{E}(\mathrm{X})=n p, \mathrm{~V}(\mathrm{X})=n p(1-p)\)</span></p>
+</section>
+<section id="loi-hypergéométrique" class="level3">
+<h3 class="anchored" data-anchor-id="loi-hypergéométrique">Loi hypergéométrique</h3>
+<p>Loi hypergéométrique <span class="math inline">\(\mathcal{H}\left(\mathrm{N}, n, \mathrm{~N}_{\mathrm{A}}\right)\)</span></p>
+<p>On effectue <span class="math inline">\(n\)</span> tirages sans remise dans une urne contenant N objets dont <span class="math inline">\(\mathrm{N}_{\mathrm{A}} \geqslant n\)</span> objets de type A . X est le nombre d’objets de type A obtenus. <span class="math inline">\(\mathrm{X}(\Omega)=\{1, \ldots, n\}\)</span>, paramètres <span class="math inline">\(\mathrm{N}, n\)</span> et <span class="math inline">\(\mathrm{N}_{\mathrm{A}}\left(p=\mathrm{N}_{\mathrm{A}} / \mathrm{N}\right)\)</span> <span class="math inline">\(\mathrm{P}(\mathrm{X}=k)=\frac{\binom{\mathrm{N}_{\mathrm{A}}}{k}\binom{\mathrm{~N}-\mathrm{N}_{\mathrm{A}}}{n-k}}{\binom{\mathrm{~N}}{k}}\)</span> <span class="math inline">\(\mathrm{E}(\mathrm{X})=n p, \mathrm{~V}(\mathrm{X})=n p(1-p)(\mathrm{N}-n) /(\mathrm{N}-1)\)</span></p>
+</section>
+<section id="loi-de-poisson" class="level3">
+<h3 class="anchored" data-anchor-id="loi-de-poisson">Loi de Poisson</h3>
+<p>Loi de Poisson <span class="math inline">\(\mathcal{P}(\lambda)\)</span></p>
+<p><span class="math inline">\(\mathrm{X}(\Omega)=\mathbb{N}\)</span>, paramètre <span class="math inline">\(\lambda\)</span> <span class="math inline">\(\mathrm{P}(\mathrm{X}=k)=\mathrm{e}^{-\lambda} \frac{\lambda^{k}}{k!}\)</span> <span class="math inline">\(\mathrm{E}(\mathrm{X})=\lambda, \mathrm{V}(\mathrm{X})=\lambda\)</span></p>
+</section>
+<section id="loi-géométrique" class="level3">
+<h3 class="anchored" data-anchor-id="loi-géométrique">Loi Géométrique</h3>
+<p><span class="math inline">\(\mathrm{X}(\Omega)=\mathbb{N}^{*}\)</span>, paramètre <span class="math inline">\(p\)</span> <span class="math inline">\(\mathrm{P}(\mathrm{X}=k)=(1-p)^{k-1} p\)</span> <span class="math inline">\(\mathrm{E}(\mathrm{X})=1 / p, \mathrm{~V}(\mathrm{X})=(1-p) / p^{2}\)</span></p>
 </section>
 </section>
-<section id="variable-quantitatives-continues" class="level3">
-<h3 class="anchored" data-anchor-id="variable-quantitatives-continues">Variable Quantitatives Continues</h3>
-<section id="exercice-3.1" class="level4">
-<h4 class="anchored" data-anchor-id="exercice-3.1">Exercice 3.1</h4>
-<p>La répartition des étudiant-es cette année selon la durée de trajet (en minute) pour se rendre à l’ISTOM est donné par le tableau statistique ci-dessous.</p>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tableau statistique
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 11%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><span class="math inline">\([e_i,e_{i+1}[\)</span></th>
-<th><span class="math inline">\(f_i\)</span></th>
-<th><span class="math inline">\(F_i\)</span></th>
-<th><span class="math inline">\(p_i\)</span></th>
-<th><span class="math inline">\(P_i\)</span></th>
-<th><span class="math inline">\(a_i\)</span></th>
-<th><span class="math inline">\(c_i\)</span></th>
-<th><span class="math inline">\(d_i\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>[0,5[</td>
-<td>0.0285</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>[5,10[</td>
-<td>0.0996</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>[10,15[</td>
-<td>0.1358</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>[15,20[</td>
-<td>0.1286</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>[20,25[</td>
-<td>0.1141</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>[25,30[</td>
-<td>0.0947</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>[30,40[</td>
-<td>0.1361</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>[40,50[</td>
-<td>0.0815</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>[50,70[</td>
-<td>0.0796</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>[70,120[</td>
-<td>0.1015</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<p>avec <span class="math inline">\(d_i\)</span> la fréquence relative. La durée de trajet maximale a été arbitrairement choisie à 120 min pour les besoins de l’exercice.</p>
-<ol type="1">
-<li><p>Déterminer la population et la variables étudiée (en précisant son type).</p></li>
-<li><p>Représenter graphiquement la distribution des proportions.</p></li>
-<li><p>Déterminer la classe modale de la variable.</p></li>
-<li><p>Représenter graphiquement la proportion des étudiant-es ayant un trajet compris entre 7 et 22 minutes. Calculer cette proportion.</p></li>
-<li><p>Calculer, à l’aide de la fonction de répartition, la proportion d’étudiant-es mettant moins de 35 minutes pour venir à l’école. Même question pour un temps de trajet compris entre 17 et 35 minutes.</p></li>
-<li><p>Déterminer la moyenne et l’écart-type de la variable.</p></li>
-<li><p>Déterminer la médiane, les quartiles ainsi que les premier et neuvièmes déciles.</p></li>
-<li><p>Représenter graphiquement la fonction de répartition.</p></li>
-</ol>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Correction Ex. 3.1
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>coming.</p>
-</div>
-</div>
-</div>
+<section id="principales-lois-continues" class="level2">
+<h2 class="anchored" data-anchor-id="principales-lois-continues">Principales lois continues</h2>
+<section id="loi-uniforme-1" class="level3">
+<h3 class="anchored" data-anchor-id="loi-uniforme-1">Loi uniforme</h3>
+<p>Loi uniforme <span class="math inline">\(\mathcal{U}(a, b)\)</span></p>
+<p><span class="math inline">\(\mathrm{X}(\Omega)=[a ; b]\)</span>, paramètres <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> <span class="math inline">\(f(x)= \begin{cases}1 /(b-a) &amp; \text { si } x \in[a ; b] \\ 0 &amp; \text { sinon }\end{cases}\)</span> <span class="math inline">\(\mathrm{E}(\mathrm{X})=(a+b) / 2, \mathrm{~V}(\mathrm{X})=(b-a)^{2} / 12\)</span></p>
 </section>
-<section id="exercice-3.2" class="level4">
-<h4 class="anchored" data-anchor-id="exercice-3.2">Exercice 3.2</h4>
-<p>Le temps de trajet domicile - lieu de la pratique sportive (en minutes) déclaré par les étudiant-es istomiens a été récolté. On a commencé à remplir le tableau statistique suivant.</p>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tableau statistique
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 10%">
-<col style="width: 11%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><span class="math inline">\([e_i,e_{i+1}[\)</span></th>
-<th><span class="math inline">\(f_i\)</span></th>
-<th><span class="math inline">\(F_i\)</span></th>
-<th><span class="math inline">\(p_i\)</span></th>
-<th><span class="math inline">\(P_i\)</span></th>
-<th><span class="math inline">\(a_i\)</span></th>
-<th><span class="math inline">\(c_i\)</span></th>
-<th><span class="math inline">\(d_i\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>[0,5[</td>
-<td></td>
-<td>0.0337</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>[5,10[</td>
-<td></td>
-<td>0.144</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>[10,15[</td>
-<td></td>
-<td>0.294</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>[15,20[</td>
-<td></td>
-<td>0.4522</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>[20,25[</td>
-<td></td>
-<td>0.5971</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>[25,30[</td>
-<td></td>
-<td>0.655</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>[30,35[</td>
-<td></td>
-<td>0.7869</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>[35,45[</td>
-<td></td>
-<td>0.846</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>[45,60[</td>
-<td></td>
-<td>0.9201</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>[60,90[</td>
-<td></td>
-<td>0.9722</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>[90,150[</td>
-<td></td>
-<td>1</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<ol type="1">
-<li><p>Représenter la boîte à moustache.</p></li>
-<li><p>Déterminer l’intervalle de variation à <span class="math inline">\(75 \%\)</span>.</p></li>
-<li><p>Déterminer l’intervalle de variation à <span class="math inline">\(95 \%\)</span>.</p></li>
-</ol>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Correction Ex. 3.2
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>coming.</p>
-</div>
-</div>
-</div>
+<section id="loi-exponentielle" class="level3">
+<h3 class="anchored" data-anchor-id="loi-exponentielle">Loi exponentielle</h3>
+<p>Loi exponentielle <span class="math inline">\(\mathcal{E}(\lambda)\)</span></p>
+<p><span class="math inline">\(\mathrm{X}(\Omega)=\mathbb{R}^{+}\)</span>, paramètre <span class="math inline">\(\lambda\)</span> <span class="math inline">\(f(x)= \begin{cases}1 / \lambda \mathrm{e}^{-x / \lambda} &amp; \text { si } x \geqslant 0 \\ 0 &amp; \text { sinon }\end{cases}\)</span> <span class="math inline">\(\mathrm{E}(\mathrm{X})=1 / \lambda, \mathrm{V}(\mathrm{X})=1 / \lambda^{2}\)</span></p>
+</section>
+<section id="loi-normale" class="level3">
+<h3 class="anchored" data-anchor-id="loi-normale">Loi normale</h3>
+<p>Loi normale <span class="math inline">\(\mathcal{N}(m, \sigma)\)</span></p>
+<p><span class="math inline">\(\mathrm{X}(\Omega)=\mathbb{R}\)</span>, paramètres <span class="math inline">\(m\)</span> (moyenne) et <span class="math inline">\(\sigma\)</span> (écart-type) <span class="math inline">\(f(x)=\frac{1}{\sigma \sqrt{2 \pi}} \exp \left(-\frac{(x-m)^{2}}{2 \sigma^{2}}\right) \quad\)</span> si <span class="math inline">\(x \in \mathbb{R}\)</span> <span class="math inline">\(\mathrm{E}(\mathrm{X})=m, \mathrm{~V}(\mathrm{X})=\sigma^{2}\)</span></p>
+</section>
+<section id="loi-du-khi-deux" class="level3">
+<h3 class="anchored" data-anchor-id="loi-du-khi-deux">Loi du khi-deux</h3>
+<p>Loi du khi-deux <span class="math inline">\(\chi_{n}^{2}\)</span></p>
+<p><span class="math inline">\(\mathrm{X}(\Omega)=\mathbb{R}^{+}\)</span>, paramètre <span class="math inline">\(n\)</span> (degré de liberté) <span class="math inline">\(\mathrm{E}(\mathrm{X})=n, \mathrm{~V}(\mathrm{X})=2 n\)</span></p>
+</section>
+<section id="loi-de-student" class="level3">
+<h3 class="anchored" data-anchor-id="loi-de-student">Loi de Student</h3>
+<p>Loi de Student <span class="math inline">\(\mathrm{T}_{n}\)</span></p>
+<p><span class="math inline">\(\mathrm{X}(\Omega)=\mathbb{R}\)</span>, paramètre <span class="math inline">\(n\)</span> (degré de liberté) <span class="math inline">\(\mathrm{E}(\mathrm{X})=0\)</span> pour <span class="math inline">\(n&gt;1, \mathrm{~V}(\mathrm{X})=n /(n-2)\)</span> pour <span class="math inline">\(n&gt;2\)</span></p>
+</section>
+</section>
+<section id="relations-entre-les-principales-lois" class="level2">
+<h2 class="anchored" data-anchor-id="relations-entre-les-principales-lois">Relations entre les principales lois</h2>
+</section>
+<section id="propriétés" class="level2">
+<h2 class="anchored" data-anchor-id="propriétés">Propriétés</h2>
+<p>Si les variables <span class="math inline">\(\mathrm{X}_{i}\)</span> suivent une loi <span class="math inline">\(\mathcal{B}(p)\)</span> et sont indépendantes, alors la variable <span class="math inline">\(\sum_{i=1}^{n} \mathrm{X}_{i}\)</span> suit une loi <span class="math inline">\(\mathcal{B}(n, p)\)</span>.</p>
+<p>Si les variables <span class="math inline">\(\mathrm{X}_{i}\)</span> suivent une loi <span class="math inline">\(\mathcal{P}\left(\lambda_{i}\right)\)</span> et sont indépendantes, alors la variable <span class="math inline">\(\sum_{i=1}^{n} \mathrm{X}_{i}\)</span> suit une loi <span class="math inline">\(\mathcal{P}\left(\sum \lambda_{i}\right)\)</span>.</p>
+<p>Si la variable X suit une loi <span class="math inline">\(\mathcal{N}\left(m, \sigma^{2}\right)\)</span>, la variable <span class="math inline">\(\mathrm{Y}=a \mathrm{X}+b\)</span> suit une loi <span class="math inline">\(\mathcal{N}\left(a m+b, a^{2} \sigma^{2}\right)\)</span>.</p>
+<p>Si la variable X suit une loi <span class="math inline">\(\mathcal{N}\left(m, \sigma^{2}\right)\)</span>, alors la variable <span class="math inline">\(\mathrm{Y}=(\mathrm{X}-m) / \sigma\)</span> suit une loi <span class="math inline">\(\mathcal{N}(0,1)\)</span>. En particulier, <span class="math inline">\(\mathrm{P}(\mathrm{X} \leqslant u)=\mathrm{P}(\mathrm{Y} \leqslant(u-m) / \sigma)\)</span>.</p>
+</section>
+<section id="approximations" class="level2">
+<h2 class="anchored" data-anchor-id="approximations">Approximations</h2>
+<p>Si <span class="math inline">\(n \geqslant 30\)</span> et <span class="math inline">\(n p&lt;5\)</span>, on peut approcher une loi <span class="math inline">\(\mathcal{B}(n, p)\)</span> par une loi <span class="math inline">\(\mathcal{P}(n p)\)</span>.</p>
+<p>Si <span class="math inline">\(n \geqslant 30, n p \geqslant 5\)</span> et <span class="math inline">\(n(1-p) \geqslant 5\)</span>, alors on peut approcher une loi <span class="math inline">\(\mathcal{B}(n, p)\)</span> par une loi <span class="math inline">\(\mathcal{N}(n p, n p(1-p))\)</span>.</p>
+<p>Si <span class="math inline">\(\mathrm{N} \geqslant 10 n\)</span>, on peut approcher une loi <span class="math inline">\(\mathcal{H}(\mathrm{N}, n, p \mathrm{~N})\)</span> par une loi <span class="math inline">\(\mathcal{B}(n, p)\)</span>.</p>
+<p>Si <span class="math inline">\(\lambda\)</span> est assez grand, on peut approcher une loi <span class="math inline">\(\mathcal{P}(\lambda)\)</span> par une <span class="math inline">\(\mathcal{N}(\lambda, \sqrt{\lambda})\)</span>.</p>
+<p>Si <span class="math inline">\(n\)</span> est assez grand, on peut approcher une loi <span class="math inline">\(\chi_{n}^{2}\)</span> par une loi <span class="math inline">\(\mathcal{N}(n, \sqrt{2 n})\)</span>.</p>
+<p>Si <span class="math inline">\(n\)</span> est assez grand, on peut approcher une loi <span class="math inline">\(\mathrm{T}_{n}\)</span> par une loi <span class="math inline">\(\mathcal{N}(0, \sqrt{1})\)</span>.</p>
+<section id="lois-normale-du-chi2-et-de-student" class="level3">
+<h3 class="anchored" data-anchor-id="lois-normale-du-chi2-et-de-student">Lois normale, du <span class="math inline">\(\chi^{2}\)</span> et de Student</h3>
+<p>Si <span class="math inline">\(\mathrm{X}_{1}, \ldots, \mathrm{X}_{n}\)</span> sont indépendantes et <span class="math inline">\(\mathrm{X}_{i} \rightsquigarrow \mathcal{N}(0,1)\)</span> pour tout <span class="math inline">\(i \in\{1, \ldots, n\}\)</span>, alors <span class="math inline">\(\mathrm{X}_{1}{ }^{2}+\cdots+\mathrm{X}_{n}{ }^{2} \rightsquigarrow \chi_{n}^{2}\)</span>. Si <span class="math inline">\(\mathrm{X} \rightsquigarrow \mathcal{N}(0,1)\)</span>, Y suit une loi de <span class="math inline">\(\chi^{2}\)</span> à <span class="math inline">\(n\)</span> degrés de liberté et X et Y sont indépendantes, alors <span class="math inline">\(\mathrm{Z}=\sqrt{n} \mathrm{X} / \sqrt{\mathrm{Y}}\)</span> suit une loi de Student à <span class="math inline">\(n\)</span> degrés de liberté.</p>
+<section id="cas-particuliers-importants-moments-empiriques" class="level4">
+<h4 class="anchored" data-anchor-id="cas-particuliers-importants-moments-empiriques">Cas particuliers importants (moments empiriques):</h4>
+<p>Moyenne empirique</p>
+<p><span class="math display">\[
+\overline{\mathrm{X}}_{n}=\frac{1}{n} \sum_{i=1}^{n} \mathrm{X}_{i}
+\]</span></p>
+<p>Variance empirique</p>
+<p><span class="math display">\[
+\mathrm{S}_{n}^{2}=\frac{1}{n-1} \sum_{i=1}^{n}\left(\mathrm{X}_{i}-\overline{\mathrm{X}}_{n}\right)^{2}
+\]</span></p>
+<p>Si <span class="math inline">\(\mathrm{X}_{1}, \ldots, \mathrm{X}_{n}\)</span> sont indépendantes et <span class="math inline">\(\mathrm{X}_{i} \rightsquigarrow \mathcal{N}(0,1)\)</span> pour tout <span class="math inline">\(i \in\{1, \ldots, n\}\)</span>, alors <span class="math inline">\(\mathrm{Y}_{n}=\sum_{i=1}^{n} \mathrm{X}_{i}{ }^{2} \rightsquigarrow \chi_{n}^{2}\)</span>.</p>
+<p>Si <span class="math inline">\(\mathrm{X}_{1}, \ldots, \mathrm{X}_{n}\)</span> sont indépendantes et <span class="math inline">\(\mathrm{X}_{i} \rightsquigarrow \mathcal{N}(m, \sigma)\)</span> pour tout <span class="math inline">\(i \in\{1, \ldots, n\}\)</span>, alors <span class="math inline">\(\mathrm{Z}_{n}=\sum_{i=1}^{n}\left(\mathrm{X}_{i}-m\right)^{2} / \sigma^{2} \rightsquigarrow \chi_{n}^{2}\)</span>. Si <span class="math inline">\(\mathrm{X}_{1}, \ldots, \mathrm{X}_{n}\)</span> sont indépendantes et <span class="math inline">\(\mathrm{X}_{i} \rightsquigarrow \mathcal{N}(m, \sigma)\)</span> pour tout <span class="math inline">\(i \in\{1, \ldots, n\}\)</span>, alors</p>
+<p><span class="math display">\[
+(n-1) \mathrm{S}_{n}^{2} / \sigma^{2} \rightsquigarrow \chi_{n-1}^{2}
+\]</span></p>
+<p>(car les <span class="math inline">\(\mathrm{X}_{i}-\overline{\mathrm{X}_{n}}\)</span> sont liées par une relation : leur somme vaut 0 puisque <span class="math inline">\(\left.\overline{\mathrm{X}_{n}}=\sum \mathrm{X}_{i} / n\right)\)</span>. Si <span class="math inline">\(\mathrm{X}_{1}, \ldots, \mathrm{X}_{n}\)</span> sont indépendantes et <span class="math inline">\(\mathrm{X}_{i} \rightsquigarrow \mathcal{N}(m, \sigma)\)</span> pour tout <span class="math inline">\(i \in\{1, \ldots, n\}\)</span>, alors <span class="math inline">\(\mathrm{T}_{n}=\sqrt{n} \frac{\overline{\mathrm{X}_{n}}-m}{\mathrm{~S}_{n}} \rightsquigarrow \mathrm{~T}(n-1)\)</span>.</p>
 </section>
 </section>
 </section>
-<section id="statistiques-bivariées" class="level2">
-<h2 class="anchored" data-anchor-id="statistiques-bivariées">Statistiques bivariées</h2>
-<section id="qualitative---qualitative" class="level3">
-<h3 class="anchored" data-anchor-id="qualitative---qualitative">Qualitative - Qualitative</h3>
-<section id="exercice-4.1" class="level4">
-<h4 class="anchored" data-anchor-id="exercice-4.1">Exercice 4.1</h4>
-<p>Un site internet reçoit 113457 visiteurs durant un mois. On désigne par <span class="math inline">\(X\)</span> le navigateur internet utilisé et <span class="math inline">\(Y\)</span> le système d’exploitation utilisé.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th></th>
-<th>Windows</th>
-<th>Mac</th>
-<th>Linux</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Chrome</td>
-<td>14103</td>
-<td>1186</td>
-<td>427</td>
-</tr>
-<tr class="even">
-<td>Firefox</td>
-<td>30853</td>
-<td>4392</td>
-<td>3234</td>
-</tr>
-<tr class="odd">
-<td>Internet Explorer</td>
-<td>47389</td>
-<td>23</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>Safari</td>
-<td>668</td>
-<td>6416</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td>Autres</td>
-<td>2974</td>
-<td>40</td>
-<td>1752</td>
-</tr>
-</tbody>
-</table>
-<ol type="1">
-<li><p>Identifier la population, sa taille ainsi que les variables étudiées en précisant leur type.</p></li>
-<li><p>Quelle est la proportion de visiteurs sous Windows?</p></li>
-<li><p>Quelle proportion de visiteurs utilisent le navigateur Safari?</p></li>
-<li><p>Parmi les utilisateurs de Mac, quelle proportion utilise Chrome?</p></li>
-<li><p>Parmi les utilisateurs de Safari, quelle proportion est sous Windows?</p></li>
-<li><p>Représenter graphiquement la distribution des proportions par Navigateur pour chaque système d’exploitation. Les variables <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> sont-elles indépendantes?</p></li>
-</ol>
-<div class="flushright">
-<div style="font-size: 70%;">
-<p>[stat-0001]</p>
-</div>
-<hr>
-</div>
+<section id="utiliser-les-tables-statistiques" class="level2">
+<h2 class="anchored" data-anchor-id="utiliser-les-tables-statistiques">Utiliser les tables statistiques</h2>
+<section id="loi-normale-centrée-réduite" class="level3">
+<h3 class="anchored" data-anchor-id="loi-normale-centrée-réduite">Loi normale centrée réduite</h3>
+<p>La table de la fonction de répartition de la loi normale centrée réduite donne les valeurs de <span class="math inline">\(\mathrm{P}(\mathrm{X} \leqslant u)\)</span> pour <span class="math inline">\(u\)</span> positif donné. Pour déterminer d’autres valeurs, on utilise les formules suivantes:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathrm{P}(\mathrm{X}&gt;u) &amp; =1-\mathrm{P}(\mathrm{X} \leqslant u) \\
+\mathrm{P}(u&lt;\mathrm{X}&lt;v) &amp; =\mathrm{P}(\mathrm{X}&lt;v)-\mathrm{P}(\mathrm{X} \leqslant u) \\
+\mathrm{P}(|\mathrm{X}| \leqslant u) &amp; =\mathrm{P}(-u \leqslant \mathrm{X} \leqslant u) \\
+\mathrm{P}(|\mathrm{X}| \geqslant u) &amp; =2 \mathrm{P}(\mathrm{X} \geqslant u) \\
+\mathrm{P}\left(\mathrm{X}^{2} \leqslant u\right) &amp; =\mathrm{P}(|\mathrm{X}| \leqslant \sqrt{u})
+\end{aligned}
+\]</span></p>
+<p>Pour <span class="math inline">\(u\)</span> négatif, on utilise</p>
+<p><span class="math display">\[
+\mathrm{P}(\mathrm{X} \leqslant u)=\mathrm{P}(\mathrm{X}&gt;-u)=1-\mathrm{P}(\mathrm{X} \leqslant-u)
+\]</span></p>
+<p>On peut également utiliser la table «à l’envers », pour déterminer <span class="math inline">\(u\)</span> tel que <span class="math inline">\(\mathrm{P}(\mathrm{X} \leqslant u)=p\)</span> pour <span class="math inline">\(p\)</span> donné.</p>
 </section>
+<section id="loi-de-chi2" class="level3">
+<h3 class="anchored" data-anchor-id="loi-de-chi2">Loi de <span class="math inline">\(\chi^{2}\)</span></h3>
+<p>La table de la loi de <span class="math inline">\(\chi^{2}\)</span> donne la valeur <span class="math inline">\(u\)</span> telle que <span class="math inline">\(\mathrm{P}(\mathrm{X} \geqslant u)=p\)</span> pour <span class="math inline">\(p\)</span> donné. Pour déterminer <span class="math inline">\(u\)</span> telle que <span class="math inline">\(\mathrm{P}(\mathrm{X} \leqslant u)=p\)</span> pour <span class="math inline">\(p\)</span> donné, on utilise la formule</p>
+<p><span class="math display">\[
+\mathrm{P}(\mathrm{X}&gt;u)=1-\mathrm{P}(\mathrm{X} \leqslant u)=1-p
+\]</span></p>
+<p>et on cherche dans la table la valeur <span class="math inline">\(u\)</span> correspondant à <span class="math inline">\(1-p\)</span>.</p>
+<p>Lorsque l’on cherche deux valeurs <span class="math inline">\(u_{1}\)</span> et <span class="math inline">\(u_{2}\)</span> telles que <span class="math inline">\(\mathrm{P}\left(u_{1} \leqslant \mathrm{X} \leqslant u_{2}\right)=p\)</span>, on considère un intervalle symétrique et on cherche <span class="math inline">\(u_{1}\)</span> et <span class="math inline">\(u_{2}\)</span> tels que <span class="math inline">\(\mathrm{P}\left(\mathrm{X} \geqslant u_{2}\right)=p / 2\)</span> et <span class="math inline">\(\mathrm{P}\left(\mathrm{X} \geqslant u_{1}\right)=1-\mathrm{P}\left(\mathrm{X}&lt;u_{1}\right)=1-p / 2\)</span>.</p>
 </section>
-<section id="qualitative---quantitative" class="level3">
-<h3 class="anchored" data-anchor-id="qualitative---quantitative">Qualitative - Quantitative</h3>
-<section id="exercice-5.1" class="level4">
-<h4 class="anchored" data-anchor-id="exercice-5.1">Exercice 5.1</h4>
-<p>Influence d’un incinérateur sur le taux de métaux lourds dans l’air.</p>
-<p>Dans le tableau ci-dessous, sont relevées les valeurs du taux de plomb (en ng/m <span class="math inline">\({ }^3\)</span> ) dans l’air pour trois stations ORAMIP de Toulouse : Eisenhower et Chapitre, qui sont situées à proximité de l’incinérateur de déchets du Mirail, et Berthelot, situé en zone urbaine, qui est caractéristique de l’air respiré par l’ensemble de la population toulousaine.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: center;">Eisenhower</th>
-<th style="text-align: center;">Chapitre</th>
-<th style="text-align: center;">Berthelot</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">7,6</td>
-<td style="text-align: center;">9,1</td>
-<td style="text-align: center;">7,5</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">21,4</td>
-<td style="text-align: center;">13,1</td>
-<td style="text-align: center;">9,3</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">12,4</td>
-<td style="text-align: center;">10,5</td>
-<td style="text-align: center;">10,2</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">15,8</td>
-<td style="text-align: center;">8,3</td>
-<td style="text-align: center;">20,3</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">14,8</td>
-<td style="text-align: center;">17,4</td>
-<td style="text-align: center;">10,3</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">5,9</td>
-<td style="text-align: center;">9,4</td>
-<td style="text-align: center;">16,4</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">12,5</td>
-<td style="text-align: center;">7,8</td>
-<td style="text-align: center;">13,3</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">11,3</td>
-<td style="text-align: center;">12,2</td>
-<td style="text-align: center;">14,9</td>
-</tr>
-</tbody>
-</table>
-<p>On considère ici la population des relevés de taux de plomb de taille 24 et les variables X (Taux de plomb dans l’air), et Y (Station).</p>
-<ol type="1">
-<li><p>De quels types sont les variables considérées?</p></li>
-<li><p>Sur cet échantillon de relevés, peut-on considérer qu’il y a un lien important entre la station de relevé et le taux de plomb dans l’air?</p></li>
-<li><p>Si on considère maintenant la variable Z (Proximité de l’incinérateur), de type qualitative nominale, peut-on considérer qu’il y a un lien important entre X et Z ?</p></li>
-</ol>
-</section>
-</section>
-<section id="quantitative---quantitative" class="level3">
-<h3 class="anchored" data-anchor-id="quantitative---quantitative">Quantitative - Quantitative</h3>
-<section id="exercice-6.1" class="level4">
-<h4 class="anchored" data-anchor-id="exercice-6.1">Exercice 6.1</h4>
-<p>En 1885, Francis Galton publie un tableau de données comparant la taille <span class="math inline">\(Y\)</span> des enfants avec la taille <span class="math inline">\(X\)</span> de leurs parents (la taille des parents est égale à la moyenne de la taille du père et de la mère). Pour compenser les différences de tailles entre sexes, toutes les tailles des personnes de sexe féminin ont été multiplié par 1,08. Les tailles sont exprimées en pouces <span class="math inline">\((1\)</span> pouce <span class="math inline">\(=2,54 \mathrm{~cm})\)</span>.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><span class="math inline">\(X \backslash Y\)</span></th>
-<th style="text-align: left;">160;61,7]</th>
-<th style="text-align: left;">161,7;63,7]</th>
-<th style="text-align: left;">163,7;65,7]</th>
-<th style="text-align: left;">165,7;67,7]</th>
-<th style="text-align: left;">167,7;69,7]</th>
-<th style="text-align: left;">]69,7;71,7]</th>
-<th style="text-align: left;">]71,7;73,7]</th>
-<th style="text-align: left;">173,7;75]</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">]62;64]</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">5</td>
-<td style="text-align: left;">4</td>
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: left;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">]64;66]</td>
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">14</td>
-<td style="text-align: left;">17</td>
-<td style="text-align: left;">32</td>
-<td style="text-align: left;">16</td>
-<td style="text-align: left;">7</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">166;68]</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: left;">14</td>
-<td style="text-align: left;">36</td>
-<td style="text-align: left;">108</td>
-<td style="text-align: left;">93</td>
-<td style="text-align: left;">34</td>
-<td style="text-align: left;">4</td>
-<td style="text-align: left;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">168;70]</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">8</td>
-<td style="text-align: left;">47</td>
-<td style="text-align: left;">100</td>
-<td style="text-align: left;">135</td>
-<td style="text-align: left;">84</td>
-<td style="text-align: left;">22</td>
-<td style="text-align: left;">5</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">170;72]</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">11</td>
-<td style="text-align: left;">38</td>
-<td style="text-align: left;">35</td>
-<td style="text-align: left;">18</td>
-<td style="text-align: left;">5</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">]72;74]</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: left;">3</td>
-<td style="text-align: left;">3</td>
-<td style="text-align: left;">13</td>
-<td style="text-align: left;">4</td>
-</tr>
-</tbody>
-</table>
-<p>Les bornes des classes extrêmes ont été fixées arbitrairement pour les besoins de l’exercice.</p>
-<ol type="1">
-<li><p>Préciser la population, les individus, la taille de la population ainsi que les variables étudiées.</p></li>
-<li><p>Quelle est la proportion d’enfants dont la taille est comprise entre 65,7 et 67,7?</p></li>
-<li><p>Parmi les enfants dont la taille est comprise entre 71,7 et 73,7, quelle proportion a des parents dont la taille est entre 70 et 72 ?</p></li>
-<li><p>Quelle est la taille moyenne des enfants dont les parents ont une taille comprise entre 68 et 70 ? Convertir le résultat en centimètres.</p></li>
-<li><p>Même question pour la taille médiane.</p></li>
-<li><p>Même question pour l’écart-type.</p></li>
-</ol>
+<section id="loi-de-student-1" class="level3">
+<h3 class="anchored" data-anchor-id="loi-de-student-1">Loi de Student</h3>
+<p>La table de la loi de Student donne la valeur de <span class="math inline">\(u\)</span> telle que <span class="math inline">\(\mathrm{P}(|\mathrm{X}|&gt;u)=p\)</span> pour <span class="math inline">\(p\)</span> donné. Pour trouver la valeur de <span class="math inline">\(u\)</span> telle que <span class="math inline">\(\mathrm{P}(-u \leqslant \mathrm{X} \leqslant u)=p\)</span> pour <span class="math inline">\(p\)</span> donné, on cherche la valeur de <span class="math inline">\(u\)</span> telle que <span class="math inline">\(\mathrm{P}(|\mathrm{X}|&gt;u)=1-p\)</span>.</p>
 
 
-</section>
 </section>
 </section>
 
@@ -1589,13 +1037,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../stat_descriptive/analyse_bivarie.html" class="pagination-link" aria-label="Analyse bivariée">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Analyse bivariée</span>
+      <a href="../proba.html" class="pagination-link" aria-label="Probabilités">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Probabilités</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../proba.html" class="pagination-link" aria-label="Probabilités">
-        <span class="nav-page-text">Probabilités</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../EchantillonnageEstimation.html" class="pagination-link" aria-label="Echantillonnage et Estimation">
+        <span class="nav-page-text">Echantillonnage et Estimation</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

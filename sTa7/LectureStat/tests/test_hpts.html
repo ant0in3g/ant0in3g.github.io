@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1&nbsp; comp2moy – Statistiques et analyse de données</title>
+<title>Premiers pas sur les tests statistiques – Statistiques et analyse de données</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../stat_inf/exos.html" rel="next">
-<link href="../stat_inf/chi2.html" rel="prev">
+<link href="../tests/chi2.html" rel="next">
+<link href="../TestsStat.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -110,7 +110,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../stat_inf.html">Statistiques inférentielles</a></li><li class="breadcrumb-item"><a href="../stat_inf/comp2moy.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">comp2moy</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../TestsStat.html">Tests statistiques</a></li><li class="breadcrumb-item"><a href="../tests/test_hpts.html">Premiers pas sur les tests statistiques</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
@@ -170,24 +170,6 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../stat_descriptive/analyse_multivarie.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Analyse multivariée</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../stat_descriptive/regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Régression</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../stat_descriptive/series_temporelles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Séries temporelles</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../stat_descriptive/exos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercices</span></a>
   </div>
@@ -205,97 +187,126 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../proba/espace_proba.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Espace probabilisé</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../proba/proba_condi.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Probabilité conditionnelle</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../proba/independance.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Indépendance</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../proba/variable_aleatoire.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Variable aléatoire</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../proba/lois_normales.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lois normales</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../proba/lois_binomiales.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lois binomiales</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../proba/lois_de_poisson.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Loi de Poisson</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../proba/chaines_de_markov.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Chaines de Markov</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../proba/exos.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exercices</span></a>
+  <a href="../proba/lois_usuelles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lois usuelles</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../stat_inf.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Statistiques inférentielles</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <a href="../EchantillonnageEstimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Echantillonnage et Estimation</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../stat_inf/echantillonnage.html" class="sidebar-item-text sidebar-link">
+  <a href="../EchantillonnageEstimation/echantillonnage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Echantillonnage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../stat_inf/tests.html" class="sidebar-item-text sidebar-link">
+  <a href="../EchantillonnageEstimation/estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Estimation</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../TestsStat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tests statistiques</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tests/test_hpts.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Premiers pas sur les tests statistiques</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../stat_inf/chi2.html" class="sidebar-item-text sidebar-link">
+  <a href="../tests/chi2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Les tests du <span class="math inline">\(\chi^2\)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../stat_inf/comp2moy.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">comp2moy</span></span></a>
+  <a href="../tests/student.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Test de Student</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../stat_inf/exos.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exercices</span></a>
+  <a href="../tests/shapiro-wilk.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Test de Shapiro Wilk</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tests/levene.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Test de Levene</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tests/anova.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tests/dixon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Test de Dixon</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tests/cochran.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Test de Cochran</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tests/grubbs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Test de Grubbs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tests/wilcoxon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Test de Wilcoxon</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tests/mann-whitney.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Test de Mann Whitney</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tests/kruskal-wallis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Test de Kruskal Wallis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tests/z.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Test Z</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tests/snedecor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Test de Snedecor</span></a>
   </div>
 </li>
       </ul>
@@ -304,11 +315,11 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../analyse_factorielle.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Analyse factorielle</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../analyse_factorielle/acp.html" class="sidebar-item-text sidebar-link">
@@ -334,15 +345,31 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table des matières</h2>
+   
+  <ul>
+  <li><a href="#tests-dhypothèses" id="toc-tests-dhypothèses" class="nav-link active" data-scroll-target="#tests-dhypothèses">Tests d’hypothèses</a>
+  <ul class="collapse">
+  <li><a href="#test-bilatéral-relatif-à-une-moyenne" id="toc-test-bilatéral-relatif-à-une-moyenne" class="nav-link" data-scroll-target="#test-bilatéral-relatif-à-une-moyenne">Test bilatéral relatif à une moyenne</a></li>
+  <li><a href="#test-unilatéral-relatif-à-une-moyenne" id="toc-test-unilatéral-relatif-à-une-moyenne" class="nav-link" data-scroll-target="#test-unilatéral-relatif-à-une-moyenne">Test unilatéral relatif à une moyenne</a></li>
+  <li><a href="#test-unilatéral-relatifs-à-une-fréquence" id="toc-test-unilatéral-relatifs-à-une-fréquence" class="nav-link" data-scroll-target="#test-unilatéral-relatifs-à-une-fréquence">Test unilatéral relatifs à une fréquence</a></li>
+  </ul></li>
+  <li><a href="#tests-de-comparaison" id="toc-tests-de-comparaison" class="nav-link" data-scroll-target="#tests-de-comparaison">Tests de comparaison</a>
+  <ul class="collapse">
+  <li><a href="#comparaison-de-deux-moyennes" id="toc-comparaison-de-deux-moyennes" class="nav-link" data-scroll-target="#comparaison-de-deux-moyennes">Comparaison de deux moyennes</a></li>
+  <li><a href="#comparaison-de-deux-fréquences" id="toc-comparaison-de-deux-fréquences" class="nav-link" data-scroll-target="#comparaison-de-deux-fréquences">Comparaison de deux fréquences</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../stat_inf.html">Statistiques inférentielles</a></li><li class="breadcrumb-item"><a href="../stat_inf/comp2moy.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">comp2moy</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../TestsStat.html">Tests statistiques</a></li><li class="breadcrumb-item"><a href="../tests/test_hpts.html">Premiers pas sur les tests statistiques</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">comp2moy</span></h1>
+<h1 class="title">Premiers pas sur les tests statistiques</h1>
 </div>
 
 
@@ -359,8 +386,230 @@ window.Quarto = {
 </header>
 
 
+<section id="tests-dhypothèses" class="level2">
+<h2 class="anchored" data-anchor-id="tests-dhypothèses">Tests d’hypothèses</h2>
+<p>L’association <strong>Ma Cuisine Locale</strong> prépare avec soin, toute les semaines, les paniers de fruits et légumes de ses adhérents. Pour cela ils utilisent des cageots en bois fabriqués par une entreprise locale.</p>
+<p>L’entreprise vend ses cageots comme ayant une masse de 100 g chacun. Pour le plaisir de faire un peu de staistiques les étudiants se proposent de peser chacun des paniers et de vérifier par un test statistique si l’affirmation de l’entreprise est coorecte.</p>
+<p>Une balance est utilisée afin de peser chaque cageot.</p>
+<p>On ne peut espérer que tous les cageots sortant de la machine de l’entreprise pèsent exactement 100 g. On peut seulement exiger que l’espérance mathématique des masses de tous les cageots produits soit de 100 g.</p>
+<p>Ainsi, un ensemble de 50 cageots pèsera par exemple 4.97 kg. Doit-on en conclure que la machine est mal réglée ? Si, après avoir réglé différemment la machine, une nouvel ensemble de 50 cageots pèse 5.02 kg, peut-on en conclure que la machine est mieux réglée ?</p>
+<p>Ce sont les tests de validité d’hypothèse qui permettent de prendre une décision. Ces décisions seront prises avec un certain risque a priori.</p>
+<p>Les notions seront abordées grâce à des exemples. Pour chaque test, on appliquera le cheminement suivant :</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Construction et utilisation du test d’hypothèse.
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><strong>Étape 1</strong> : détermination de la variable aléatoire de décision et de ses paramètres,</p></li>
+<li><p><strong>Étape 2</strong> : choix des deux hypothèses : l’hypothèse nulle <span class="math inline">\(H_o\)</span> et l’hypothèse alternative <span class="math inline">\(H_1\)</span>,</p></li>
+<li><p><strong>Étape 3</strong> : l’hypothèse nulle étant considérée comme vraie et compte tenu de l’hypothèse alternative, détermination de la zone critique selon le niveau de risque <span class="math inline">\(\alpha\)</span> choisi ou donné,</p></li>
+<li><p><strong>Étape 4</strong> : rédaction d’une règle de décision.</p></li>
+<li><p><strong>Étape 5</strong> : calcul des caractéristiques d’un échantillon particulier puis application de la règle de décision.</p></li>
+</ul>
+</div>
+</div>
+<section id="test-bilatéral-relatif-à-une-moyenne" class="level3">
+<h3 class="anchored" data-anchor-id="test-bilatéral-relatif-à-une-moyenne">Test bilatéral relatif à une moyenne</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exemple :
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Une machine produit des rondelles de légumes dont l’épaisseur est une variable aléatoire X d’écart type 0,3 mm. La machine a été réglée pour obtenir des épaisseurs de 5 mm . Un contrôle portant sur un échantillon de 100 rondelles a donné 5,07 mm comme moyenne des épaisseurs de ces 100 rondelles.</p>
+<p>Peut-on affirmer que la machine est bien réglée au seuil de risque de 5% ?</p>
+</div>
+</div>
+<section id="variable-aléatoire-de-décision" class="level4">
+<h4 class="anchored" data-anchor-id="variable-aléatoire-de-décision">1. Variable aléatoire de décision</h4>
+<p>Soit <span class="math inline">\(\mu\)</span> l’espérance mathématique de X, c’est-à-dire la moyenne des épaisseurs de toutes les rondelles produites par la machine ainsi réglée.</p>
+<p>Considérons la variable aléatoire M qui, à chaque échantillon de taille 100 (individus), associe sa moyenne.</p>
+<p>La taille des échantillons étant suffisamment grande, on considère que M suit la loi normale suivante</p>
+<p><span class="math display">\[\mathcal{N}\left(\mu \ ; \frac{0,3}{\sqrt{100}}\right) = \mathcal{N}\left(\mu \ ; 0,03\right)\]</span></p>
+<p>M sera la variable aléatoire de décision.</p>
+</section>
+<section id="choix-des-hypothèses" class="level4">
+<h4 class="anchored" data-anchor-id="choix-des-hypothèses">2. Choix des hypothèses</h4>
+<p>On estime que la machine est bien réglée si la moyenne de toutes les rondelles produites par la machine est de 5 mm. C’est donc l’hypothèse <span class="math inline">\(\mu=5\)</span> que nous allons tester. On l’appelle l’hypothèse nulle <span class="math inline">\(H_0\)</span>.</p>
+<p>Sinon, on choisit comme hypothèse alternative l’hypothèse <span class="math inline">\(H_1\)</span> suivante « <span class="math inline">\(\mu \neq 5\)</span> ».</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hypothèses
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Hypothèse nulle : <span class="math display">\[H_0 : \qquad \mu = 5\]</span></li>
+<li>Hypothèse alternative : <span class="math display">\[H_1 : \qquad \mu \neq 5\]</span></li>
+</ul>
+</div>
+</div>
+<p>Recherchons comment la moyenne <span class="math inline">\(\mu_e\)</span> d’un échantillon de 100 rondelles peut confirmer ou non l’hypothèse <span class="math inline">\(H_0\)</span>.</p>
+</section>
+<section id="zone-critique" class="level4">
+<h4 class="anchored" data-anchor-id="zone-critique">3. Zone critique</h4>
+<p>Dons le cas où l’hypothèse <span class="math inline">\(H_{0}\)</span> est vraie, d’après l’énoncé la variable aléatoire M suit la loi <span class="math display">\[\mathcal{N}(5 \ ; \ 0,03)\]</span></p>
+<p>On choisit un seuil de tolérance <span class="math inline">\(\alpha\)</span> égale à <span class="math inline">\(5 \%\)</span>. On cherche alors le réel <span class="math inline">\(d\)</span> tel que <span class="math display">\[P(5-d \leq M \leq 5+d)=0,95\]</span></p>
+<p>Nous allons centrer et réduire la loi de normale que suit M. La variable aléatoire T définie comme <span class="math display">\[T=\dfrac{M-5}{0,03}\]</span> suit la loi normale centrée réduite <span class="math inline">\(\mathcal{N}(0,1)\)</span>.</p>
+<p><span class="math display">\[\begin{align*}
+P(5-d \leq M \leq 5+d)=0,95
+&amp;\Longleftrightarrow
+P(5-d \leq 0,03 T+5 \leq 5+d) = 0,95 \\
+&amp;\Longleftrightarrow
+P\left(-\frac{d}{0,03} \leq T \leq \frac{d}{0,03}\right)=0,95
+\end{align*}\]</span></p>
+<p>Or</p>
+<p><span class="math display">\[\begin{align*}
+P\left(-\frac{d}{0,03} \leq T \leq \frac{d}{0,03}\right)
+&amp;= P\left(T \leq \frac{d}{0,03}\right) - P\left(T \leq -\frac{d}{0,03}\right)
+\end{align*}\]</span></p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="test_hpts_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>de plus</p>
+<p><span class="math display">\[P\left(T \leq \frac{-d}{0,03}\right) = P\left(T \geq \frac{d}{0,03}\right)\]</span> et</p>
+<p><span class="math display">\[
+P\left(T \geq \frac{d}{0,03}\right) = 1 - P\left(T \leq \frac{d}{0,03}\right)
+\]</span> donc</p>
+<p><span class="math display">\[P\left(-\frac{d}{0,03} \leq T \leq \frac{d}{0,03}\right)
+= 2 P\left(T \leq \frac{d}{0,03}\right) - 1\]</span></p>
+<p>Ce qui permet d’écrire</p>
+<p><span class="math display">\[\begin{align*}
+P(5-d \leq M \leq 5+d)=0,95
+&amp;\Longleftrightarrow
+2 P\left(T \leq \frac{d}{0,03}\right) - 1 = 0,95 \\
+&amp;\Longleftrightarrow
+P\left(T \leq \frac{d}{0,03}\right) = 0,975
+\end{align*}\]</span></p>
+<p>On trouve par exemple à l’aide d’une table de la loi normale centrée réduite :</p>
+<p><img src="img/table_loi_normale.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Table de la loi normale centrée réduite :
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La table permet de lire la probabilité suivante <span class="math display">\[P\left(Z \leq t\right)\]</span> où on peut lire : - sur la premiére colonne la valeur du paramètre <span class="math inline">\(t\)</span> avec une seule décimale - sur la première ligne la valeur de la deuxième décimale <span class="math inline">\(t\)</span></p>
+<p>Dans le reste du tableau on peut lire la valeur de la probabilité suivante <span class="math inline">\(P\left(Z \leq t\right)\)</span>.</p>
+<p>Exemple : La combinaison de la dernière ligne et de la cinquième colonne nous permet décrire <span class="math display">\[P\left(Z \leq 3.54\right) = 0,9998\]</span></p>
+</div>
+</div>
+<p>On peut donc lire</p>
+<p><span class="math display">\[\frac{d}{0,03}=1,96 \Longleftrightarrow d=0,0588 \approx 0,06\]</span></p>
+<p>L’intervalle de confiance est donc l’intervalle : <span class="math display">\[[5-0,06 ; 5+0,06]=[4,94 ; 5,06]\]</span></p>
+<p><img src="img/ex_tests_1.png" class="img-fluid"></p>
+<p>La probabilité qu’un échantillon ait une moyenne située hors de cet intervalle étant 0,05, on peut considérer que cet événement est rare. Ainsi, la moyenne de notre échantillon <span class="math inline">\(\mu_{e}=5,07\)</span> (cf.&nbsp;énoncé) nous amène à douter de la validité de l’hypothèse <span class="math inline">\(H_{0}\)</span>.</p>
+<p>Ne perdons pas de point de vue qu’il se peut, malgré tout, que la machine soit bien réglée et que notre échantillon fasse partie des <span class="math inline">\(5 \%\)</span> de ceux ayant une moyenne hors de l’intervalle trouvé. C’est pourquoi cette région est appelée zone critique.</p>
+</section>
+<section id="règle-de-décision." class="level4">
+<h4 class="anchored" data-anchor-id="règle-de-décision.">4. Règle de décision.</h4>
+<p>Si la moyenne de l’échantillon n’est pas située dans la zone critique, on accepte <span class="math inline">\(H_{0}\)</span>, sinon, on refuse <span class="math inline">\(H_{0}\)</span> et on accepte <span class="math inline">\(H_{1}\)</span>.</p>
+</section>
+<section id="conclusion." class="level4">
+<h4 class="anchored" data-anchor-id="conclusion.">5. Conclusion.</h4>
+<p>Puisque 5,07 appartient à la zone critique, on décide de rejeter l’hypothèse <span class="math inline">\(H_{0}\)</span> et d’accepter l’hypothèse alternative <span class="math inline">\(H_1 \ : \ \mu \neq 5\)</span> (la machine n’est pas bien réglée).</p>
+</section>
+</section>
+<section id="test-unilatéral-relatif-à-une-moyenne" class="level3">
+<h3 class="anchored" data-anchor-id="test-unilatéral-relatif-à-une-moyenne">Test unilatéral relatif à une moyenne</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exemple :
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La durée de vie (en heures) des ampoules électriques produites par une usine est une variable aléatoire X d’écart type 120. Le fabricant annonce qu’en moyenne, les ampoules ont une durée de vie de 1120 heures.</p>
+<p>On demande de rédiger une règle de décision pour vérifier l’affirmation du fabriquant, au seuil de risque de de 5 %, en testant un échantillon de 36 ampoules.</p>
+</div>
+</div>
+</section>
+<section id="test-unilatéral-relatifs-à-une-fréquence" class="level3">
+<h3 class="anchored" data-anchor-id="test-unilatéral-relatifs-à-une-fréquence">Test unilatéral relatifs à une fréquence</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exemple :
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un joueur qui doit choisir au hasard une carte dans un jeu de 32 cartes obtient certains avantages s’il découvre un roi. On constate qu’il a retourné 134 fois un roi sur 800 essais.</p>
+<p>Peut-on présumer, au seuil de risque de 1 %, que ce joueur est un tricheur?</p>
+</div>
+</div>
+</section>
+</section>
+<section id="tests-de-comparaison" class="level2">
+<h2 class="anchored" data-anchor-id="tests-de-comparaison">Tests de comparaison</h2>
+<section id="comparaison-de-deux-moyennes" class="level3">
+<h3 class="anchored" data-anchor-id="comparaison-de-deux-moyennes">Comparaison de deux moyennes</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exemple :
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Une entreprise fabrique des sacs en plastique pour déchets. Afin de surveiller la production, elle effectue des contrôles réguliers portant sur le poids maximum que les sacs peuvent supporter.</p>
+<p>A une première date <span class="math inline">\(t_1\)</span>, le contrôle de 100 sacs a donné une moyenne de 58 kg et un écart type de 3 kg.</p>
+<p>A la seconde date <span class="math inline">\(t_2\)</span>, le contrôle de 150 sacs a donné une moyenne de 56 kg et un écart type de 5 kg.</p>
+<p>Peut-on considérer, au risque de 4 %, que la qualité des sacs a évolué entre les deux dates?</p>
+</div>
+</div>
+</section>
+<section id="comparaison-de-deux-fréquences" class="level3">
+<h3 class="anchored" data-anchor-id="comparaison-de-deux-fréquences">Comparaison de deux fréquences</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exemple :
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A l’issue d’un examen, il y a 23 reçus et 17 ajournés dans une classe et 15 reçus et 25 ajournés dans une autre classe.</p>
+<p>La différence observée entre les deux pourcentages de réussite est-elle significative d’une différence de niveau entre les deux classes, au seuil de 5 % ?</p>
+</div>
+</div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -782,13 +1031,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../stat_inf/chi2.html" class="pagination-link" aria-label="Les tests du $\chi^2$">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Les tests du <span class="math inline">\(\chi^2\)</span></span>
+      <a href="../TestsStat.html" class="pagination-link" aria-label="Tests statistiques">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Tests statistiques</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../stat_inf/exos.html" class="pagination-link" aria-label="Exercices">
-        <span class="nav-page-text">Exercices</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../tests/chi2.html" class="pagination-link" aria-label="Les tests du $\chi^2$">
+        <span class="nav-page-text">Les tests du <span class="math inline">\(\chi^2\)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

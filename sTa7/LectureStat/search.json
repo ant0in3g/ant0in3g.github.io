@@ -1,10 +1,75 @@
 [
   {
+    "objectID": "stat_descriptive/analyse_univarie.html",
+    "href": "stat_descriptive/analyse_univarie.html",
+    "title": "Analyse univariée",
+    "section": "",
+    "text": "Cadre d’étude\nLa méthode utilisé est la suivante :\nLes méthodes à employer pour effectuer cette analyse vont dépendre du type de variable :",
+    "crumbs": [
+      "Statistiques descriptives",
+      "Analyse univariée"
+    ]
+  },
+  {
+    "objectID": "stat_descriptive/analyse_univarie.html#cadre-détude",
+    "href": "stat_descriptive/analyse_univarie.html#cadre-détude",
+    "title": "Analyse univariée",
+    "section": "",
+    "text": "On récupère des données brutes, suites à des mesures, sondages, etc.\nOn présente ensuite nos données dans un tableau statistique\nOn visualise nos résultat avec des représentations graphiques adaptées\nEnfin on réalise un résumé numérique de notre analyse.\n\n\n\nVariable quantitative discrète\nVariable quantitative continue\nVariable qualitative",
+    "crumbs": [
+      "Statistiques descriptives",
+      "Analyse univariée"
+    ]
+  },
+  {
+    "objectID": "stat_descriptive/analyse_univarie.html#variable-quantitative-discrète",
+    "href": "stat_descriptive/analyse_univarie.html#variable-quantitative-discrète",
+    "title": "Analyse univariée",
+    "section": "Variable quantitative discrète",
+    "text": "Variable quantitative discrète\n\nDonnées brutes\nOn demande à l’ensemble des étudiants d’une promotion combien ils ont de plantes chez eux. L’effectif total de la promotion est de 50 étudiants.\nLes données brutes sont :\n1, 4, 10, 5, 14, 13, 14, 2, 13, 2, 2, 4, 7, 5, 5, 5, 11, 8, 15, 10, 2, 7, 10, 15, 2, 4, 6, 6, 4, 3, 5, 11, 13, 3, 10, 10, 12, 13, 14, 6, 16, 4, 15, 15, 16, 5, 5, 3, 15, 8\n\n\n\nTableau Statistiques\nOn présente ces données dans un tableau statistique, où\n\n\\(x_i\\) est une des valeurs que peut prendre la variable étudiée \\(X\\), où \\(X\\) est ici le nombre de plantes dans un appartement\n\\(n_i\\) est le nombre d’occurences de \\(x_i\\), ou encore l’effectif de \\(x_i\\)\n\\(N_i\\) est l’effectif cumulé de \\(x_i\\), c’est à dire \\[N_i = \\sum_{k=1}^i n_k\\]\n\\(n\\) est l’effectif total, ici \\(n=50\\)\n\\(f_i\\) est la fréquence de \\(x_i\\) (comprise entre \\(0\\) et \\(1\\)) \\[f_i = \\frac{n_i}{n}\\]\n\\(F_i\\) est la fréquence cumulée de \\(x_i\\) (comprise entre \\(0\\) et \\(1\\)), c’est à dire \\[F_i = \\frac{N_i}{n}\\]\n\\(p_i\\) est la proportion de \\(x_i\\), elle correspond simplement à \\(f_i\\) exprimée en pourcentage, c’est à dire \\[p_i = f_i \\times 100\\]\n\\(P_i\\) est la proportion cumulée de \\(x_i\\), elle correspond simplement à \\(F_i\\) exprimée en pourcentage, c’est à dire \\[P_i = F_i \\times 100\\]\n\n\n\n\n\n\n\nTableau statistique\n\n\n\n\n\n\n\n\n\\(x_i\\)\n\\(n_i\\)\n\\(N_i\\)\n\\(f_i\\)\n\\(F_i\\)\n\\(p_i\\)\n\\(P_i\\)\n\n\n\n\n0\n0\n0\n0\n0\n0\n0\n\n\n1\n1\n1\n0.02\n0.02\n2\n2\n\n\n2\n5\n6\n0.10\n0.12\n10\n12\n\n\n3\n3\n9\n0.06\n0.18\n6\n18\n\n\n4\n5\n14\n0.10\n0.28\n10\n28\n\n\n5\n7\n21\n0.14\n0.42\n14\n42\n\n\n6\n3\n24\n0.06\n0.48\n6\n48\n\n\n7\n2\n26\n0.04\n0.52\n4\n52\n\n\n8\n2\n28\n0.04\n0.56\n4\n56\n\n\n9\n0\n28\n0\n0.56\n0\n56\n\n\n10\n5\n33\n0.10\n0.66\n10\n66\n\n\n11\n2\n35\n0.04\n0.70\n4\n70\n\n\n12\n1\n36\n0.02\n0.72\n2\n72\n\n\n13\n4\n40\n0.08\n0.80\n8\n80\n\n\n14\n3\n43\n0.06\n0.86\n6\n86\n\n\n15\n5\n48\n0.10\n0.96\n10\n96\n\n\n16\n2\n50\n0.04\n1.00\n4\n100\n\n\n\n\n\n\nce que l’on peut également faire avec R de la façon suivante :\n\nOn déclare notre vecteur avec l’ensemble des réponses des étudiant-es\n\n\nnb_plantes &lt;- c(1, 4, 10, 5, 14, 13, 14, 2, 13, 2, 2, 4, 7, 5, 5, 5, 11, 8, 15, 10, 2, 7, 10, 15, 2, 4, 6, 6, 4, 3, 5, 11, 13, 3, 10, 10, 12, 13, 14, 6, 16, 4, 15, 15, 16, 5, 5, 3, 15, 8)\n\n\nOn calcule ensuite les \\(n_i\\)\n\n\neff_partiel &lt;- table(nb_plantes)\neff_partiel\n\nnb_plantes\n 1  2  3  4  5  6  7  8 10 11 12 13 14 15 16 \n 1  5  3  5  7  3  2  2  5  2  1  4  3  5  2 \n\n\n\nPuis les \\(N_i\\)\n\n\neff_cumul &lt;- cumsum(eff_partiel)\neff_cumul\n\n 1  2  3  4  5  6  7  8 10 11 12 13 14 15 16 \n 1  6  9 14 21 24 26 28 33 35 36 40 43 48 50 \n\n\n\nL’effectif total\n\n\neff_tot &lt;- sum(eff_partiel)\neff_tot\n\n[1] 50\n\n\n\nLa fréquence \\(f_i\\) des \\(x_i\\) par deux méthodes\n\n\nfreq_partiel_methode_1 &lt;- prop.table(eff_partiel)\nfreq_partiel_methode_1\n\nnb_plantes\n   1    2    3    4    5    6    7    8   10   11   12   13   14   15   16 \n0.02 0.10 0.06 0.10 0.14 0.06 0.04 0.04 0.10 0.04 0.02 0.08 0.06 0.10 0.04 \n\nfreq_partiel_methode_2 &lt;- eff_partiel/eff_tot\nfreq_partiel_methode_2\n\nnb_plantes\n   1    2    3    4    5    6    7    8   10   11   12   13   14   15   16 \n0.02 0.10 0.06 0.10 0.14 0.06 0.04 0.04 0.10 0.04 0.02 0.08 0.06 0.10 0.04 \n\n\n\nLa frequence cumulée \\(F_i\\) correspondante\n\n\nfreq_cumul_methode_1 &lt;- cumsum(freq_partiel_methode_1)\nfreq_cumul_methode_1\n\n   1    2    3    4    5    6    7    8   10   11   12   13   14   15   16 \n0.02 0.12 0.18 0.28 0.42 0.48 0.52 0.56 0.66 0.70 0.72 0.80 0.86 0.96 1.00 \n\nfreq_cumul_methode_2 &lt;- cumsum(freq_partiel_methode_2)\nfreq_cumul_methode_2\n\n   1    2    3    4    5    6    7    8   10   11   12   13   14   15   16 \n0.02 0.12 0.18 0.28 0.42 0.48 0.52 0.56 0.66 0.70 0.72 0.80 0.86 0.96 1.00 \n\n\n\nLa proportion \\(p_i\\)\n\n\nfreq_partiel_methode_1_pct &lt;- prop.table(eff_partiel)*100\nfreq_partiel_methode_1_pct\n\nnb_plantes\n 1  2  3  4  5  6  7  8 10 11 12 13 14 15 16 \n 2 10  6 10 14  6  4  4 10  4  2  8  6 10  4 \n\nfreq_partiel_methode_2_pct &lt;- (eff_partiel/eff_tot)*100\nfreq_partiel_methode_2_pct\n\nnb_plantes\n 1  2  3  4  5  6  7  8 10 11 12 13 14 15 16 \n 2 10  6 10 14  6  4  4 10  4  2  8  6 10  4 \n\n\n\nLa poportion cumulée \\(P_i\\)\n\n\nfreq_cumul_methode_1_pct &lt;- freq_cumul_methode_1*100\nfreq_cumul_methode_1_pct\n\n  1   2   3   4   5   6   7   8  10  11  12  13  14  15  16 \n  2  12  18  28  42  48  52  56  66  70  72  80  86  96 100 \n\nfreq_cumul_methode_2_pct &lt;- freq_cumul_methode_2*100\nfreq_cumul_methode_2_pct\n\n  1   2   3   4   5   6   7   8  10  11  12  13  14  15  16 \n  2  12  18  28  42  48  52  56  66  70  72  80  86  96 100 \n\n\n\n\nReprésentation graphique\n\nReprésentation tige feuille (stem and leaf)\n\n\nstem(nb_plantes)\n\n\n  The decimal point is at the |\n\n   0 | 0\n   2 | 00000000\n   4 | 000000000000\n   6 | 00000\n   8 | 00\n  10 | 0000000\n  12 | 00000\n  14 | 00000000\n  16 | 00\n\n\n\n\n\n\n\n\nERROR\n\n\n\nProblème en sortie pour stem(nb_plantes). Je m’occupe de fixer ce petit problème !\n\n\n\nDiagramme en batons\n\n\nbarplot(eff_partiel,main = \"Diagranne en bâtons des effectifs partiels\")\n\n\n\n\n\n\n\nbarplot(freq_partiel_methode_1,main = \"Diagranne en bâtons des fréquence partiels\")\n\n\n\n\n\n\n\n\n\nDiagramme cumulatif\n\nLe diagramme cumulatif peut être tracé pour \\(N_i\\) et \\(F_i\\). Lorsqu’il est tracé à l’aide des fréquences cumulés \\(F_i\\), alors on dit qu’il représente la fonction de répartition.\n\nplot(eff_cumul, type=\"s\", main=\"Diagramme cummulatif en effectif\", xlab=\"x (nbre de plantes)\", ylab=\"Effectif cumulé\")\n\n\n\n\n\n\n\nplot(freq_cumul_methode_1, type=\"s\", main=\"Diagramme cummulatif en frequence\", xlab=\"x (nbre de plantes)\", ylab=\"F(x) (fréquence cumulée)\")\n\n\n\n\n\n\n\n\nCette dernière courbe correspond à la courbe de la fonction de répartition \\(F(x)\\) que nous allons définir dans la suite.\n\n\nFonction de répartition\nOn appelle fonction de répartition d’une variable statistique quantitative toute application définie par : \\[ F(x) = \\left|\n\\begin{array}{cl}\n0 &\\mbox{ si } \\ x &lt; x_i \\\\\nF_i &\\mbox{ si } \\ x_i \\leq x &lt; x_{i+1} \\\\\n1 &\\mbox{ si } \\ x \\geq x_r\n\\end{array}\n\\right.\\]\noù \\(r\\) désigne l’odre de la dernière valeur (modalité).\nLa fonction de répartition \\(F\\) est une fonction en escalier.\n\n\nQuantiles\nUn objet utile pour la suite.\n\n\n\n\n\n\nAvertissement\n\n\n\nPour déterminer un quantile, il faut toujours travailler avec une serie statistique ordonnée.\n\n\nDe façon empirique, on peut dire que le quantile d’ordre \\(\\alpha\\), noté \\(x_\\alpha\\), est une valeur qui partage la serie statistique en deux sous ensemble qui contiennent respectivement un nombre d’observations égale à \\(n\\alpha\\) et \\(n\\left(1-\\alpha\\right)\\), où \\(n\\) est l’effectif total de la serie statistique et \\(\\alpha\\) une proportion comprise entre \\(0\\) et \\(1\\).\n\n\n\n\n\n\nQuantile d’ordre \\(\\alpha\\)\n\n\n\nSoit la série statistique brute \\[\\{x_i\\}_{1 \\leq i \\leq n}\\] donnant la lieu à la série statistique ordonnée \\[\\{x_{(i)}\\}_{1 \\leq i \\leq n}.\\] On considère la proportion \\(\\alpha\\) où \\(0 \\leq \\alpha \\leq 1\\).\n\nSi \\(n\\alpha\\) n’est pas un entier, alors le quantile d’ordre \\(\\alpha\\), noté \\(x_\\alpha\\) est égale à \\(x_{([n\\alpha])}\\).\nSi \\(n\\alpha\\) est un entier, alors\n\n1ère convention (lorsque l’effectif est impaire) : le quantile d’ordre \\(\\alpha\\), noté \\(x_\\alpha\\), est égale à \\[x_{(n\\alpha)}\\]\n2ème convention (lorsque l’effectif est paire) : le quantile d’ordre \\(\\alpha\\), noté \\(x_\\alpha\\), est égale à \\[\\frac{x_{(n\\alpha)}+x_{(n\\alpha+1)}}{2}\\]\n\n\n\n\n\n\nLes valeurs centrales\nIl existe trois valeurs centrales :\n\nLe mode\nLa médiane\nLa moyenne\n\nAprès avoir appris à les calculer on étudiera leurs propriétés puis on verra comment la comparaison des trois valeurs centrales permet de rendre compte de la forme d’une distribution et quelles sont les valeurs centrales qui presentent les propriétés les plus intéressantes.\n\nLe mode\nLe mode d’une série statistique est la valeur avec l’effectif le plus élévé, ou la fréquence la plus élevée.\n\n\nLa médiane\nLe quantile d’ordre \\(\\displaystyle\\frac12\\) correspond à la mediane.\nDans notre exemple, \\(n=50\\), donc \\(n\\) est paire, d’où \\[x_{(n\\alpha)} = x_{\\frac{1}{2}} = \\frac{x_{(25)}+x_{(26)}}{2} = 7\\]\nLa mediane est insensible aux variations des valeurs extrèmes.\n\ntri_nb_plantes &lt;- sort(nb_plantes)\ntri_nb_plantes\n\n [1]  1  2  2  2  2  2  3  3  3  4  4  4  4  4  5  5  5  5  5  5  5  6  6  6  7\n[26]  7  8  8 10 10 10 10 10 11 11 12 13 13 13 13 14 14 14 15 15 15 15 15 16 16\n\n(tri_nb_plantes[25]+tri_nb_plantes[26])/2\n\n[1] 7\n\nmedian(nb_plantes)\n\n[1] 7\n\n\n\n\nLa moyenne arithmétique\nLa moyenne arithmétique est le paramètre de tendance centrale le plus utilisé. La moyenne est très sensible aux valeurs extrèmes, c’est un paramètre peu robuste. On le note \\(\\overline{x}\\) et est définie par \\[\\overline{x} = \\sum_{i=1}^n f_i x_i = f_1 x_1 + f_2 x_2 + f_3 x_3 + \\dots + f_4 x_4\\]\nAvec R on a\n\nmean(nb_plantes)\n\n[1] 8.16\n\n\n\n\nComparaison des valeurs centrales\nDistributions bimodales ou multimodales significatives. La distribution ne peut pas être résumée par une seule valeur. Elle se compose de deux groupes très différenciés. \\(\\Rightarrow\\) le meilleur résumé est alors donné par les modes principaux et secondaires de la distribution.\nDistribution unimodales symétriques Lorsque la distribution est unimodale et symétrique, on va trouver à peu près moyenne \\(=\\) médiane \\(=\\) mode . \\(\\Rightarrow\\) le meilleur résumé est alors donné par la moyenne car elle tient compte de toutes les observations et elle possède des propriétés statistiques intéressantes.\nDistributions unimodales dissymétriques: Deux cas peuvent se présenter : - mode &lt; médiane &lt; moyenne : la distribution est dissymétrique à gauche, c’est à dire qu’ily a concentration pour les valeurs faibles et dispersion pour les valeurs fortes. C’est le cas le plus fréquent. - moyenne &lt; médiane &lt;mode : la distribution est dissymétrique à droite, c’est à dire qu’il y a concentration pourles valeurs élevées et dispersion pour les valeurs faibles. Ce cas est plus rare que le précédent. on pourra néanmoins utiliser la moyenne.\n\n\nPropriétés de Yule\nLe statisticien Yule (XIXème siècle) a définis six propriétés souhaitables pour les valeurs centrales.\n\nEtre définie de façon objective partition en classe adoptée.\nDépendre de toutes les observations\nAvoir une signification concrète\nEtre simple à calculer\nEtre peu sensible aux fluctuations d’échantillonage\nSe prêter au calcul algébrique\n\nLe tableau ci-dessous permet de résumer les avantages et inconvénients des trois valeurs centrales.\n\n\n\n\n\n\n\n\n\nPropriétés de Yule\nMode\nMédiane\nMoyenne\n\n\n\n\nDéfinie de façon objective\n-\n+\n+\n\n\nDépend de toutes les observations\n-\n-\n+\n\n\nSignification concrète\n+\n+\n-\n\n\nSimple à calculer\n+\n+\n+\n\n\nPeu sensible aux fluctuations d’echantillonage\n-\n+\n-\n\n\nSe prête au calcul algébrique\n-\n-\n+\n\n\n\n\n\n\nLes paramètres de dispersion\nUne série numérique peut être résumée par deux paramètres statistiques :\n\nle centre d’une distribution des valeurs, représentant leur tendance d’ensemble\nLa dispersion des valeurs, représentant leur variabilité\n\n\nLes quartiles\nLe quantile d’ordre \\(\\frac14\\) correspond au premier quartile \\(Q_1\\).\nLe quantile d’ordre \\(\\frac34\\) correspond au troisième quartile \\(Q_3\\).\n\n\nLes déciles\nblabla\n\n\nLes centiles\nblablabla\n\nEtendue ou intervalle de variation \\[\\left|x_{max} - x_{min}\\right|\\] dependance des valeurs extrèmes, donc instable\nintervalle interquartile \\[\\left|Q_3 - Q_1\\right|\\]\nVariance \\[\\sigma^2 = \\frac{1}{n} \\sum_{i=1}^n \\left( x_i - \\overline{x} \\right)^2\\]\nEcart type : \\(\\sigma\\)\n\n\n\n\nRésumé numérique\nBoxplot\n\nboxplot(nb_plantes)",
+    "crumbs": [
+      "Statistiques descriptives",
+      "Analyse univariée"
+    ]
+  },
+  {
+    "objectID": "stat_descriptive/analyse_univarie.html#variable-quantitative-continue",
+    "href": "stat_descriptive/analyse_univarie.html#variable-quantitative-continue",
+    "title": "Analyse univariée",
+    "section": "Variable quantitative continue",
+    "text": "Variable quantitative continue\n\nDonnée brutes\nblabla\n\n\nTableaux statistiques\nblabla\n\n\nReprésentation graphique\nblabla\n\n\nFonction de répartition\nblabla\n\n\nLes valeurs centrales\nblabla\n\n\nLes paramètres de dispersion\nblabla\n\n\nRésumé numérique\nblabla",
+    "crumbs": [
+      "Statistiques descriptives",
+      "Analyse univariée"
+    ]
+  },
+  {
+    "objectID": "stat_descriptive/analyse_univarie.html#variable-qualitative",
+    "href": "stat_descriptive/analyse_univarie.html#variable-qualitative",
+    "title": "Analyse univariée",
+    "section": "Variable qualitative",
+    "text": "Variable qualitative",
+    "crumbs": [
+      "Statistiques descriptives",
+      "Analyse univariée"
+    ]
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Statistiques et analyse de données",
     "section": "",
     "text": "Introduction\nDans le domaine de l’agronomie, la prise de décision repose sur l’analyse rigoureuse de données issues d’expériences, d’observations de terrain et de mesures variées. Que ce soit pour optimiser les rendements agricoles, analyser l’impact des changements climatiques, améliorer la gestion des ressources naturelles ou évaluer la qualité des sols et des cultures, la statistique joue un rôle central.\nCe cours propose une introduction approfondie aux outils statistiques fondamentaux nécessaires aux ingénieurs agronomes. Il est structuré autour de quatre grandes thématiques :\nTout au long de ce cours nous apprendrons à utiliser les concepts des statistiques et de l’analyse de données avec le language de programmation R et le logiciel RStudio (cf ce lien pour un tutorial sur la prise en main de R et RStudio).\nCet apprentissage s’effectera sur des exemples concrets et des études de cas spécifiques aux enjeux propres des pays du sud : adaptation aux conditions climatiques locales, gestion durable des ressources et amélioration des pratiques agricoles.\nL’objectif est de vous fournir, futurs ingénieurs agronomes, les compétences nécessaires pour interpréter des données complexes et appuyer des décisions fondées sur des analyses rigoureuses.",
+    "crumbs": [
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "index.html#licence",
+    "href": "index.html#licence",
+    "title": "Statistiques et analyse de données",
+    "section": "Licence",
+    "text": "Licence\nà définir…",
     "crumbs": [
       "Introduction"
     ]
@@ -28,94 +93,6 @@
     "crumbs": [
       "Statistiques descriptives",
       "Vocabulaire"
-    ]
-  },
-  {
-    "objectID": "stat_descriptive/variable_quali.html",
-    "href": "stat_descriptive/variable_quali.html",
-    "title": "Variables qualitatives",
-    "section": "",
-    "text": "Représentations graphiques\nOn utilise le jeu de données « iris » de R.\nLa fonction head() permet d’avoir un aperçu des premières lignes du jeu de données :\nOn a ainsi :\nReprésensation graphique d’une population selon une variable qualitative, ici Species",
-    "crumbs": [
-      "Statistiques descriptives",
-      "Variables qualitatives"
-    ]
-  },
-  {
-    "objectID": "stat_descriptive/variable_quali.html#représentations-graphiques",
-    "href": "stat_descriptive/variable_quali.html#représentations-graphiques",
-    "title": "Variables qualitatives",
-    "section": "",
-    "text": "Pie chart\n\nmytable &lt;- table(iris$Species)\nmylabels &lt;- names(mytable)\npct &lt;- round(mytable/sum(mytable)*100)\nlbls &lt;- paste(mylabels,\"(\",pct,\"%)\")\npie(mytable, labels = lbls, main=\"Pie Chart of Species\")\n\n\n\n\n\n\n\n\n\n\nTableau des effectifs\nTableau des effectifs \\(\\left(n_e\\right)\\) pour une variable (Species) dans une population donnée\n\ntable_Species&lt;-table(iris$Species)\ntable_Species\n\n\n    setosa versicolor  virginica \n        50         50         50 \n\n\n\n\nTableau des fréquences\nTableau des fréquences \\(\\left(f_e\\right)\\) pour une variable (Species) dans une population donnée\n\nprop.table(table_Species)\n\n\n    setosa versicolor  virginica \n 0.3333333  0.3333333  0.3333333 \n\n\n\\[f_e = \\frac{n_e}{\\sum_e n_e} = \\frac{50}{150}\\]\n\n\nDiagramme en baton des effectifs\n\nbarplot(table_Species)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nImportant\n\n\n\nMême choses pour les variables quantitatives discrètes.",
-    "crumbs": [
-      "Statistiques descriptives",
-      "Variables qualitatives"
-    ]
-  },
-  {
-    "objectID": "stat_descriptive/variable_quanti_discrete.html",
-    "href": "stat_descriptive/variable_quanti_discrete.html",
-    "title": "Variables quantitatives discrètes",
-    "section": "",
-    "text": "Effectif partiel\n\n\n\n\n\n\nDéfinition - Effectif partiel\n\n\n\nL’effectif partiel est le nombre d’individu \\(n_i\\) qui ont la même valeur pour la variable étudiée.\n\n\nOn répertorie les familles istomiennes avec leur nombre d’enfants\n\nfam_ISTOM &lt;- c(4,8,6,2,3,8,4,6,8,4,8,6,1,6,8,1,2,8,1,6,4)\neff_partiel &lt;- table(fam_ISTOM)\neff_partiel\n\nfam_ISTOM\n1 2 3 4 6 8 \n3 2 1 4 5 6 \n\n\n\neff_partiel\n\nfam_ISTOM\n1 2 3 4 6 8 \n3 2 1 4 5 6 \n\n\n\n3 familles ont 1 enfant\n2 familles ont 2 enfants\n1 familles ont 3 enfants\n4 familles ont 4 enfants\n5 familles ont 6 enfants\n6 familles ont 8 enfants\n\n\n\nEffectif cumulé\n\n\n\n\n\n\nDéfinition - Effectif cumulé\n\n\n\nL’effectif cumulé d’une valeur est la somme de l’effectif de cette valeur et de tous les effectifs des valeurs qui précèdent.\n\n\nOn regarde toujours nos familles istomiennes\n\neff_partiel\n\nfam_ISTOM\n1 2 3 4 6 8 \n3 2 1 4 5 6 \n\neff_cumul &lt;- cumsum(eff_partiel)\neff_cumul\n\n 1  2  3  4  6  8 \n 3  5  6 10 15 21 \n\n\n\neff_cumul\n\n 1  2  3  4  6  8 \n 3  5  6 10 15 21 \n\n\n\n3 familles ont 1 enfant ou moins\n5 familles ont 2 enfants ou moins\n6 familles ont 3 enfants ou moins\n10 familles ont 4 enfants ou moins\n15 familles ont 6 enfants ou moins\n21 familles ont 8 enfants ou moins\n\n\n\nEffectif total\n\n\n\n\n\n\nNote\n\n\n\nSoit un ensemnle de \\(p\\) famille. L’effectif total \\(N\\) est donné par \\[N= \\sum_i^p n_i\\] où \\(n_i\\) est l’effectif de la famille \\(i\\).\n\n\n\nfam_ISTOM\n\n [1] 4 8 6 2 3 8 4 6 8 4 8 6 1 6 8 1 2 8 1 6 4\n\neff_tot_enfants_istom &lt;- sum(fam_ISTOM)\neff_tot_enfants_istom\n\n[1] 104\n\n\n\n\nFréquence partielle / relative\n\n\n\n\n\n\nDéfinition - Fréquence partielle\n\n\n\nLa fréquence partielle d’une valeur est le rapport de l’effectif partiel de cette valeur par l’effectif total.\n\n\nici pour l’exemple des familles istomiennes\n\nfreq_part_methode_1 &lt;- prop.table(eff_partiel)\nfreq_part_methode_1\n\nfam_ISTOM\n         1          2          3          4          6          8 \n0.14285714 0.09523810 0.04761905 0.19047619 0.23809524 0.28571429 \n\nfreq_part_methode_2 &lt;- eff_partiel/sum(eff_partiel)\nfreq_part_methode_2\n\nfam_ISTOM\n         1          2          3          4          6          8 \n0.14285714 0.09523810 0.04761905 0.19047619 0.23809524 0.28571429 \n\n\nen pourcentage :\n\nfreq_part_methode_2_pct &lt;- (eff_partiel/sum(eff_partiel))*100\nfreq_part_methode_2_pct\n\nfam_ISTOM\n        1         2         3         4         6         8 \n14.285714  9.523810  4.761905 19.047619 23.809524 28.571429 \n\n\n\non peut également arrondir nos résultats :\n\nfreq_part_methode_2_pct_arrondi &lt;- round((eff_partiel/sum(eff_partiel))*100,2)\nfreq_part_methode_2_pct_arrondi\n\nfam_ISTOM\n    1     2     3     4     6     8 \n14.29  9.52  4.76 19.05 23.81 28.57 \n\n\nla somme des fréquences partielles est égale à \\(1\\) ou \\(100 \\%\\)\n\nsum(freq_part_methode_1)\n\n[1] 1\n\nsum(freq_part_methode_2)\n\n[1] 1\n\nsum(freq_part_methode_2_pct)\n\n[1] 100\n\n\n\n\nFréquence cumulée\n\n\n\n\n\n\nDéfinition - Fréquence cumulée\n\n\n\nLa fréquence cumulée d’une valeur est la somme de la fréquence partiel de cette valeur et de toutes les fréquences des valeurs qui précèdent.\n\n\n\nfreq_cumul_methode_1 &lt;- cumsum(freq_part_methode_1)\nround(freq_cumul_methode_1,2)\n\n   1    2    3    4    6    8 \n0.14 0.24 0.29 0.48 0.71 1.00 \n\nfreq_cumul_methode_2 &lt;- cumsum(freq_part_methode_2)\nround(freq_cumul_methode_2,2)\n\n   1    2    3    4    6    8 \n0.14 0.24 0.29 0.48 0.71 1.00 \n\n\n\n\nReprésentation graphique\n\nMéthode de représentation : dépend de la nature de variable (qualitative ou quantitative)\nLe graphique permet de :\n\nde synthétiser les principales caractéristiques de la série stat.\nde mettre de évidence les tendances / les anomalies\n\nDiagramme en baton\n\n\nbarplot(eff_partiel)\n\n\n\n\n\n\n\n\n\nDiagramme cummulatif\n\n\n\n\n\n\n\nDéfinition - Fonction de répartition\n\n\n\nSoit la fonction \\[F : \\mathbb{R} \\to [0,1]\\] \\(F(x)\\) : pourcentage d’individus dont la valeur du caractère \\(\\leq x\\).\nC’est la fonction de répartition du caractère \\(X\\)\n\n\nOn choisit de s’interesser au caractère fréquence cumulée.\n\nfreq_cumul_methode_1_rd &lt;- round(freq_cumul_methode_1,3)\nfreq_cumul_methode_1_rd\n\n    1     2     3     4     6     8 \n0.143 0.238 0.286 0.476 0.714 1.000 \n\nplot(freq_cumul_methode_1_rd, type=\"s\", main=\"Diagramme cummulatif\", xlab=\"x (nbre d'enfants)\", ylab=\"F(x) (fréquence cumulée)\")\n\n\n\n\n\n\n\n\n\n\nParamètre de position\nParamètres de position fréquents :\n\nLe maximum, le minimum\nLe mode\nLa médiane\nLa moyenne\nLe 1er quartile\nLe 3eme quartile\nLe maximum\n\n\nmax(fam_ISTOM)\n\n[1] 8\n\n\n\nLe minimum\n\n\nmin(fam_ISTOM)\n\n[1] 1\n\n\n\n\n\n\n\n\nDéfinition - Le mode\n\n\n\nLe mode d’une variable est la valeur qui a le plus grand effectif partiel (ou plus grande fréquence partielle). On le note \\(M_0\\).\n\n\nAvec R, le calcul du mode d’une série statistique n’est pas direct. Cependant, il est possible de créer une fonction pour le calculer.\n\ncalcul_mode &lt;- function(x) {\n  eff &lt;- table(x)\n  mode &lt;- as.numeric(names(eff[eff == max(eff)]))\n  return(mode)\n}\ncalcul_mode(fam_ISTOM)\n\n[1] 8\n\n\n\nLa fonction table(x) compte combien de fois chaque valeur apparaît dans le vecteur x\nLa fonction max(eff) permet d’extraire la valeur qui a l’effectif max\nEnsuite on filtre eff afin d’avoir les valeurs ayant cette effectif max avec eff[eff == max(eff)]\nOn récupère le nom de la valeur qui a été filtrée avec names()\nnames() renvoie du texte, on doit donc convertir le résultat en nombre avec as.numeric()\n\n\nfam_ISTOM\n\n [1] 4 8 6 2 3 8 4 6 8 4 8 6 1 6 8 1 2 8 1 6 4\n\ntable(fam_ISTOM)\n\nfam_ISTOM\n1 2 3 4 6 8 \n3 2 1 4 5 6 \n\nmax(table(fam_ISTOM))\n\n[1] 6\n\ntable(fam_ISTOM)[table(fam_ISTOM) == max(table(fam_ISTOM))]\n\n8 \n6 \n\nnames(table(fam_ISTOM)[table(fam_ISTOM) == max(table(fam_ISTOM))])\n\n[1] \"8\"\n\nas.numeric(names(table(fam_ISTOM)[table(fam_ISTOM) == max(table(fam_ISTOM))]))\n\n[1] 8\n\n\n\ncalcul_mode &lt;- function(x) {\n  freq &lt;- table(x)\n  mode &lt;- as.numeric(names(freq[freq == max(freq)]))\n  return(mode)\n}\ncalcul_mode(fam_ISTOM)\n\n[1] 8\n\n\nce que l’on observait bien directement sur le diagramme en baton :\n\nbarplot(eff_partiel)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDéfinition - La médiane\n\n\n\nLa médiane partage la série statistique en deux groupes de même effectif. On la note \\(M_e\\)\n\n\n\nfam_ISTOM\n\n [1] 4 8 6 2 3 8 4 6 8 4 8 6 1 6 8 1 2 8 1 6 4\n\nmedian(fam_ISTOM)\n\n[1] 6\n\n\nIl y a autant de famille avec plus de 6 enfants que de famille avec moins de 6 enfants.\nAvec la fonction de répartition précedemment présentée : \\[F(M_e^-) &lt; 0.5 &lt; F(M_e^+)\\]\n\nfreq_cumul_methode_1_rd\n\n    1     2     3     4     6     8 \n0.143 0.238 0.286 0.476 0.714 1.000 \n\nplot(freq_cumul_methode_1_rd, type=\"s\", main=\"Diagramme cummulatif\", xlab=\"x (nbre d'enfants)\", ylab=\"F(x) (fréquence cumulée)\")\nabline(h=0.5,col=\"red\")\n\n\n\n\n\n\n\n\nOn retrouve la valeur de la médiane \\(M_e = 6\\)\n\n\n\n\n\n\nDéfinition - la moyenne arithmétique\n\n\n\nOn note moyenne de \\(X\\), la quantité \\[\\bar{x} = \\frac{1}{N} \\sum_{i=1}^{n} n_i x_i = \\sum_{i=1}^{n} f_i x_i\\]\n\n\\(N\\) : l’effectif total\n\\(n_i\\) : l’effectif partiel\n\\(f_i\\) : la fréquence partiel\n\\(x_i\\) : le nombre d’enfant de la famille \\(i\\)\n\n\n\n\nmean(fam_ISTOM)\n\n[1] 4.952381\n\n\n\n\n\n\n\n\nDéfinition - 1er et 3eme quartile\n\n\n\n\nLe 1er quartile, noté Q1, est la valeur qui sépare le premier quart du reste de la distribution.\nLe 3eme quartile, noté Q3, est la valeur qui sépare le dernier quart du reste de la distribution.\n\n\n\n\nfam_ISTOM\n\n [1] 4 8 6 2 3 8 4 6 8 4 8 6 1 6 8 1 2 8 1 6 4\n\nquantile(fam_ISTOM, 0.25)  # Premier quartile (25%)\n\n25% \n  3 \n\nquantile(fam_ISTOM, 0.75)  # Troisième quartile (75%)\n\n75% \n  8 \n\n\n\nsummary(fam_ISTOM)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  1.000   3.000   6.000   4.952   8.000   8.000 \n\nmin(fam_ISTOM)\n\n[1] 1\n\nquantile(fam_ISTOM, 0.25) \n\n25% \n  3 \n\nmedian(fam_ISTOM)\n\n[1] 6\n\nmean(fam_ISTOM)\n\n[1] 4.952381\n\nquantile(fam_ISTOM, 0.75)\n\n75% \n  8 \n\nmax(fam_ISTOM)\n\n[1] 8\n\n\n\n\nExemple\nTramway Ligne C - Roseraie → Belle-Beille Campus\nDonnées :\n\nLigneC_arret &lt;- c('Roseraie','Jean Vilar','Jean XXIII','Bamako','Strasbourg','La Fayette','Les Gares','Foch-Haras','Foch-Maison Bleue','Ralliement','Molière','Doutre','Le Quai','Farcy','Élysée','Patton','La Barre','Beaussier','Belle-Beille Campus')\nLigneC_arret\n\n [1] \"Roseraie\"            \"Jean Vilar\"          \"Jean XXIII\"         \n [4] \"Bamako\"              \"Strasbourg\"          \"La Fayette\"         \n [7] \"Les Gares\"           \"Foch-Haras\"          \"Foch-Maison Bleue\"  \n[10] \"Ralliement\"          \"Molière\"             \"Doutre\"             \n[13] \"Le Quai\"             \"Farcy\"               \"Élysée\"             \n[16] \"Patton\"              \"La Barre\"            \"Beaussier\"          \n[19] \"Belle-Beille Campus\"\n\n\n\nLigneC_kms &lt;- c(9,8.6,8.1,7.6,7.0,6.5,6.1,5.6,5.0,4.3,3.7,2.8,2,1.6,1.1,0.7,0.5,0.1,0)\nLigneC_kms\n\n [1] 9.0 8.6 8.1 7.6 7.0 6.5 6.1 5.6 5.0 4.3 3.7 2.8 2.0 1.6 1.1 0.7 0.5 0.1 0.0\n\n\n\ndata.frame(LigneC_arret, LigneC_kms)\n\n          LigneC_arret LigneC_kms\n1             Roseraie        9.0\n2           Jean Vilar        8.6\n3           Jean XXIII        8.1\n4               Bamako        7.6\n5           Strasbourg        7.0\n6           La Fayette        6.5\n7            Les Gares        6.1\n8           Foch-Haras        5.6\n9    Foch-Maison Bleue        5.0\n10          Ralliement        4.3\n11             Molière        3.7\n12              Doutre        2.8\n13             Le Quai        2.0\n14               Farcy        1.6\n15              Élysée        1.1\n16              Patton        0.7\n17            La Barre        0.5\n18           Beaussier        0.1\n19 Belle-Beille Campus        0.0\n\n\n\n\n\n\n\n\nAvertissement\n\n\n\nObjectif : trouver un lieu de RDV le long de la ligne C qui minimise le trajet de tous !\n\n\nNotations :\n\n\\(A_i\\) : arret \\(i\\) (l’arret \\(A_4\\) est Bamako)\n\\(x_i\\) : distance de l’arrêt \\(i\\) au terminus (\\(x_4 = 7.6\\))\n\\(P\\) : point de RDV\n\\(p\\) : distance entre le point de RDV et le terminus\nPremière idée : Placer le point de RDV au milieu de ligne C\n\n\\[p=\\frac12 \\left(x_{min} + x_{max}\\right)\\]\n\np1 &lt;- 0.5*(max(LigneC_kms)+min(LigneC_kms))\np1\n\n[1] 4.5\n\n\nSi la répartitions est à peu près symétrique, pourquoi pas, autrement …\nTrouver \\(D\\) revient à trouver la mediane !\n\nDeuxième idée : On choisi de placer le point de RDV sur l’arret du milieu, au Ralliement (\\(x_{10}\\)). Donc\n\n\\(9\\) arrets avant Ralliement\n\\(9\\) arrets apres Ralliement\n\n\nLa distance totale parcourue pour rejoindre \\(P\\) est :\n\\[\\begin{align*}\nD\n=& \\sum_{i=1}^{19} \\ |p-x_i| \\\\\n=& \\sum_{i=1}^{9} \\ |p-x_i| + |p-x_{10}| + \\sum_{i=11}^{19} \\ |p-x_i|\n\\end{align*}\\]\nD’où\n\\[\\begin{align*}\nD =& \\sum_{i=1}^{9} \\ |x_{10}-x_i| + \\sum_{i=11}^{19} \\ |x_{10}-x_i| \\\\\n=& |x_{1}-x_{19}| + |x_{2}-x_{18}| + |x_{3}-x_{17}| + |x_{4}-x_{16}| \\\\\n&+ |x_{5}-x_{15}| + |x_{6}-x_{14}| + |x_{7}-x_{13}| + |x_{8}-x_{12}| \\\\\n&+ |x_{9}-x_{11}|  \n\\end{align*}\\]\nOn choisi de placer \\(P\\) entre Foch-Maison Bleue (\\(x_{9}\\)) et Ralliement (\\(x_{10}\\)). On a\n\\[\\begin{align*}\nD\n=& |x_{1}-x_{19}| + |x_{2}-x_{18}| + |x_{3}-x_{17}| + |x_{4}-x_{16}| \\\\\n&+ |x_{5}-x_{15}| + |x_{6}-x_{14}| + |x_{7}-x_{13}| + |x_{8}-x_{12}| \\\\\n&+ |x_{9}-x_{11}| + |c-x_{10}|\n\\end{align*}\\]\nUn terme en plus \\(|p-x_{10}|\\)\nMême observation si on place \\(P\\) entre Ralliement (\\(x_{10}\\)) et Molière (\\(x_{11}\\))\n\n\n\n\n\n\nImportant\n\n\n\nChercher la valeur de \\(p\\) afin de minimiser \\(D\\) revient à chercher la médiane de cette série statistique.\n\n\n\n\n\n\n\n\nImportant\n\n\n\nLa moyenne quant à elle est la valeur de \\(p\\) qui permet de minimiser \\[\\sum_{i=1}^{19} \\left(p-x_i\\right)^2\\]\n\n\n\n\nParamètre de dispersion\nLes indicateurs de dispersion usuels sont :\n\nL’étendue / L’intervalle des valeurs possibles\nL’écaart moyen absolu\nLa variance et l’écart type\nL’écart inter-quartiles\n\n\nlibrary(palmerpenguins) #charge un jeu de données nommé 'penguins'\n\nWarning: package 'palmerpenguins' was built under R version 4.4.2\n\nhead(penguins) \n\n# A tibble: 6 × 8\n  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n1 Adelie  Torgersen           39.1          18.7               181        3750\n2 Adelie  Torgersen           39.5          17.4               186        3800\n3 Adelie  Torgersen           40.3          18                 195        3250\n4 Adelie  Torgersen           NA            NA                  NA          NA\n5 Adelie  Torgersen           36.7          19.3               193        3450\n6 Adelie  Torgersen           39.3          20.6               190        3650\n# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;\n\n\n\n\n\n\n\n\nDéfinition - L’étendue\n\n\n\nLa médiane partage la série statistique e, groupe de même effectif. On la note \\(M_e\\)\n\n\n\n\n\n\n\n\nDéfinition - La variance\n\n\n\nLa médiane partage la série statistique e, groupe de même effectif. On la note \\(M_e\\)\n\n\n\n\n\n\n\n\nDéfinition - L’écart type\n\n\n\nLa médiane partage la série statistique e, groupe de même effectif. On la note \\(M_e\\)",
-    "crumbs": [
-      "Statistiques descriptives",
-      "Variables quantitatives discrètes"
-    ]
-  },
-  {
-    "objectID": "stat_descriptive/exos.html",
-    "href": "stat_descriptive/exos.html",
-    "title": "Exercices",
-    "section": "",
-    "text": "Statistiques univariées",
-    "crumbs": [
-      "Statistiques descriptives",
-      "Exercices"
-    ]
-  },
-  {
-    "objectID": "proba/exos.html",
-    "href": "proba/exos.html",
-    "title": "Exercices",
-    "section": "",
-    "text": "Important\n\n\n\nTous les exercices doivent être maitrisés avec et sans R.",
-    "crumbs": [
-      "Probabilités",
-      "Exercices"
-    ]
-  },
-  {
-    "objectID": "stat_inf/exos.html",
-    "href": "stat_inf/exos.html",
-    "title": "Exercices",
-    "section": "",
-    "text": "Important\n\n\n\nTous les exercices doivent être maitrisés avec et sans R.",
-    "crumbs": [
-      "Statistiques inférentielles",
-      "Exercices"
-    ]
-  },
-  {
-    "objectID": "analyse_factorielle/acp.html",
-    "href": "analyse_factorielle/acp.html",
-    "title": "ACP",
-    "section": "",
-    "text": "Techniques de l’analyse en composantes principales",
-    "crumbs": [
-      "Analyse factorielle",
-      "ACP"
-    ]
-  },
-  {
-    "objectID": "analyse_factorielle/exos.html",
-    "href": "analyse_factorielle/exos.html",
-    "title": "Exercices",
-    "section": "",
-    "text": "Important\n\n\n\nTous les exercices doivent être maitrisés avec et sans R.",
-    "crumbs": [
-      "Analyse factorielle",
-      "Exercices"
     ]
   },
   {
@@ -163,72 +140,6 @@
     ]
   },
   {
-    "objectID": "stat_descriptive/vocab.html#statistique-bivariée",
-    "href": "stat_descriptive/vocab.html#statistique-bivariée",
-    "title": "Vocabulaire",
-    "section": "Statistique bivariée",
-    "text": "Statistique bivariée\n\nTableau de contingence : Tableau croisant deux variables qualitatives.\nCovariance : Mesure de la variation conjointe de deux variables.\nCorrélation (coefficient de Pearson r) : Mesure de la force et de la direction de la relation linéaire entre deux variables (−1≤r≤1−1≤r≤1).\nRégression linéaire simple : Modèle prédictif exprimé par Y=aX+bY=aX+b.",
-    "crumbs": [
-      "Statistiques descriptives",
-      "Vocabulaire"
-    ]
-  },
-  {
-    "objectID": "stat_descriptive/vocab.html#statistique-descriptive-et-inférentielle-lien",
-    "href": "stat_descriptive/vocab.html#statistique-descriptive-et-inférentielle-lien",
-    "title": "Vocabulaire",
-    "section": "Statistique descriptive et inférentielle (lien)",
-    "text": "Statistique descriptive et inférentielle (lien)\nBien que la statistique descriptive ne cherche qu’à résumer et organiser les données, elle sert de base à la statistique inférentielle, qui permet de généraliser les résultats d’un échantillon à une population plus large à l’aide de tests et d’intervalles de confiance.",
-    "crumbs": [
-      "Statistiques descriptives",
-      "Vocabulaire"
-    ]
-  },
-  {
-    "objectID": "stat_descriptive/vocab.html#statistique-multivariée",
-    "href": "stat_descriptive/vocab.html#statistique-multivariée",
-    "title": "Vocabulaire",
-    "section": "Statistique Multivariée",
-    "text": "Statistique Multivariée\n\nVariable explicative (indépendante) : Variable utilisée pour expliquer ou prédire une autre.\nVariable dépendante : Variable influencée par d’autres.\nTableau de données : Matrice contenant les individus en lignes et les variables en colonnes.\nCentrage : Soustraction de la moyenne à chaque valeur d’une variable.\nRéduction : Division des valeurs centrées par l’écart-type, utilisée pour mettre les variables à la même échelle.\nTableau de contingence : Tableau croisant deux variables qualitatives.\nCovariance : Mesure de la variation conjointe de deux variables.",
-    "crumbs": [
-      "Statistiques descriptives",
-      "Vocabulaire"
-    ]
-  },
-  {
-    "objectID": "stat_descriptive/exos.html#le-vocabulaire-de-la-statistique-descriptive",
-    "href": "stat_descriptive/exos.html#le-vocabulaire-de-la-statistique-descriptive",
-    "title": "Exercices",
-    "section": "",
-    "text": "Exercice 1\n\n\n\n\nDonner la définition d’une population ainsi que trois exemples.\nDéfinir la notion d’unité statistique ou individu et donner trois exemples.\n\n\n\n\n\n\n\n\n\nSolution Exercice 1\n\n\n\n\n\ncoming.",
-    "crumbs": [
-      "Statistiques descriptives",
-      "Exercices"
-    ]
-  },
-  {
-    "objectID": "stat_descriptive/exos.html#variables-qualitatives",
-    "href": "stat_descriptive/exos.html#variables-qualitatives",
-    "title": "Exercices",
-    "section": "",
-    "text": "Exercice 1\nLe nombre de visites classé par le navigateur internet utilisé pour accéder au site internet de l’ISTOM le moi dernier est donné dans le tableau suivant.\n\n\n\n\n\n\nTableau statistique\n\n\n\n\n\n\n\n\nNavigateur (\\(x_i\\))\nNombre de visites (\\(n_i\\))\n\n\n\n\nChrome\n880491\n\n\nFirefox\n2022764\n\n\nInternet Explorer\n576655\n\n\nOpera\n160303\n\n\nSafari\n315613\n\n\nAutres\n41367\n\n\n\n\n\n\n\nDéterminer la population (en précisant sa taille et les individus qui la compose), les variables étudiées, leur type et les modalités qu’elles prennent.\nDéterminer la distribution des proportions de la variable «navigateur utilisé».\nQuel est le mode de la variable ?\nReprésenter graphiquement la distribution des proportions.\n\n\n\n\n\n\n\nCorrection Ex. 1\n\n\n\n\n\ncoming.",
-    "crumbs": [
-      "Statistiques descriptives",
-      "Exercices"
-    ]
-  },
-  {
-    "objectID": "stat_descriptive/exos.html#variables-quantatives",
-    "href": "stat_descriptive/exos.html#variables-quantatives",
-    "title": "Exercices",
-    "section": "Variables quantatives",
-    "text": "Variables quantatives\n\n\n\n\n\n\nExercice 4\n\n\n\n\nDonner la définition d’une population ainsi que trois exemples.\nDéfinir la notion d’unité statistique ou individu et donner trois exemples.\n\n\n\n\n\n\n\n\n\nSolution Exercice 4\n\n\n\n\n\ncoming.\n\n\n\n\n\n\n\n\n\nExercice 5\n\n\n\n\nDonner la définition d’une population ainsi que trois exemples.\nDéfinir la notion d’unité statistique ou individu et donner trois exemples.\n\n\n\n\n\n\n\n\n\nSolution Exercice 5\n\n\n\n\n\ncoming.",
-    "crumbs": [
-      "Statistiques descriptives",
-      "Exercices"
-    ]
-  },
-  {
     "objectID": "stat_descriptive/vocab.html#analyse-multivariée",
     "href": "stat_descriptive/vocab.html#analyse-multivariée",
     "title": "Vocabulaire",
@@ -251,760 +162,14 @@
     ]
   },
   {
-    "objectID": "stat_descriptive/analyse_bivarie.html#exemples-danalyse-bivariée-en-biodiversité",
-    "href": "stat_descriptive/analyse_bivarie.html#exemples-danalyse-bivariée-en-biodiversité",
-    "title": "Analyse bivariée",
-    "section": "",
-    "text": "Corrélation entre la richesse spécifique (nombres d’espèces observée) et la surface d’un habitat\nRelation entre la pollution de l’eau et la diversité des macroinvertébrés aquatiques\nInfluence de la température sur l’abondance d’une espèce animale\nRelation entre la diversité floristique et la présence d’herbivores\nEffet de la fragmentation des habitats sur la diversité génétique d’une espèce\n\n\n\nCorrélation entre la richesse spécifique et la surface d’un habitat\nVariables :\n\nVariable indépendante (X) : Surface de l’habitat (ex. : taille d’une forêt, d’un récif corallien).\n\nVariable dépendante (Y) : Nombre d’espèces observées (richesse spécifique).\n\nAnalyse :\n\nDiagramme de dispersion.\n\nCoefficient de corrélation de Pearson (r).\n\nRégression linéaire simple.\n\nExemple concret :\n- Étudier si les îles plus grandes ont une biodiversité plus élevée (théorie de la biogéographie insulaire).\n\n\n\n2. Relation entre la pollution de l’eau et la diversité des macroinvertébrés aquatiques\nVariables :\n- Variable indépendante (X) : Concentration de polluants (ex. : nitrates, phosphates).\n- Variable dépendante (Y) : Indice de diversité des macroinvertébrés (ex. : indice de Shannon).\nAnalyse :\n- Nuage de points pour visualiser la relation.\n- Coefficient de corrélation de Spearman si la relation est non linéaire.\n- Régression logistique pour prédire une catégorie de pollution.\nExemple concret :\n- Étudier l’impact des effluents agricoles sur les rivières et les écosystèmes aquatiques.\n\n\n\n3. Influence de la température sur l’abondance d’une espèce animale\nVariables :\n- Variable indépendante (X) : Température moyenne annuelle (°C).\n- Variable dépendante (Y) : Densité d’une population animale (ex. : nombre d’individus/km²).\nAnalyse :\n- Corrélation de Pearson.\n- Régression quadratique si la relation est en cloche.\nExemple concret :\n- Étudier comment le changement climatique influence la distribution des papillons ou des amphibiens.\n\n\n\n4. Relation entre la diversité floristique et la présence d’herbivores\nVariables :\n- Variable indépendante (X) : Présence/absence ou densité d’herbivores (ex. : bovins, cervidés).\n- Variable dépendante (Y) : Nombre d’espèces végétales présentes.\nAnalyse :\n- Test de Student si comparaison entre deux groupes (pâturage vs. non pâturage).\n- Analyse de variance (ANOVA) si plusieurs niveaux d’herbivorie sont testés.\nExemple concret :\n- Étudier si le pâturage modéré favorise la diversité des plantes, contrairement au surpâturage.\n\n\n\n5. Effet de la fragmentation des habitats sur la diversité génétique d’une espèce\nVariables :\n- Variable indépendante (X) : Distance entre les fragments d’habitat.\n- Variable dépendante (Y) : Diversité génétique d’une population.\nAnalyse :\n- Corrélation de Pearson ou de Spearman.\n- Régression linéaire.\n- Test de Student pour comparer populations fragmentées et non fragmentées.\nExemple concret :\n- Étudier comment la déforestation impacte la diversité génétique des jaguars ou des grenouilles tropicales.\n\nCes analyses bivariées permettent de mieux comprendre les interactions écologiques et d’orienter les politiques de conservation.",
-    "crumbs": [
-      "Statistiques descriptives",
-      "Analyse bivariée"
-    ]
-  },
-  {
-    "objectID": "proba.html",
-    "href": "proba.html",
-    "title": "Probabilités",
-    "section": "",
-    "text": "Les probabilités sont une branche des mathématiques qui permet de mesurer et de quantifier l’incertitude. Que ce soit en jouant à un jeu de cartes, en prévoyant la météo ou en analysant des résultats sportifs, nous faisons constamment face à des situations incertaines. Les probabilités nous aident à mieux comprendre ces situations en attribuant des valeurs numériques aux chances qu’un événement se produise.\nL’objectif est de vous donner les outils nécessaires pour analyser et anticiper des événements incertains, une compétence précieuse en mathématiques mais aussi dans de nombreux domaines comme l’économie, l’agronomie ou les sciences général.",
-    "crumbs": [
-      "Probabilités"
-    ]
-  },
-  {
-    "objectID": "proba/espace_proba.html",
-    "href": "proba/espace_proba.html",
-    "title": "Espace probabilisé",
-    "section": "",
-    "text": "Univers \\(\\Omega\\)\nUn espace probabilisé est une structure mathématique permettant de modéliser une expérience aléatoire. Il est défini par un triplet \\[\\left(\\Omega, \\mathcal{A}, \\mathbb{P}\\right)\\]\nL’univers \\(\\Omega\\) est l’ensemble des événements élémentaires \\(\\omega\\), c’est à dire l’ensemble de tous les résultats possibles d’une expérience aléatoire.\nExemples",
-    "crumbs": [
-      "Probabilités",
-      "Espace probabilisé"
-    ]
-  },
-  {
-    "objectID": "proba/espace_proba.html#lespace-des-événements-élémentaires-univers",
-    "href": "proba/espace_proba.html#lespace-des-événements-élémentaires-univers",
-    "title": "Espace probabilisé",
-    "section": "1. () : L’espace des événements élémentaires (Univers)",
-    "text": "1. () : L’espace des événements élémentaires (Univers)\nC’est l’ensemble de tous les résultats possibles d’une expérience aléatoire.\n\nExemple : Lors du lancer d’un dé à six faces, l’univers des possibles est : [ = {1, 2, 3, 4, 5, 6} ]",
-    "crumbs": [
-      "Probabilités",
-      "Espace probabilisé"
-    ]
-  },
-  {
-    "objectID": "proba/espace_proba.html#la-tribu-des-événements",
-    "href": "proba/espace_proba.html#la-tribu-des-événements",
-    "title": "Espace probabilisé",
-    "section": "2. () : La tribu des événements",
-    "text": "2. () : La tribu des événements\nUn événement est un sous-ensemble de (). L’ensemble () regroupe les événements pour lesquels on peut attribuer une probabilité.\n\nExemple : Si on s’intéresse aux événements “obtenir un nombre pair” et “obtenir un nombre impair”, on peut définir : [ = { , {2,4,6}, {1,3,5}, } ]",
-    "crumbs": [
-      "Probabilités",
-      "Espace probabilisé"
-    ]
-  },
-  {
-    "objectID": "proba/espace_proba.html#p-la-mesure-de-probabilité",
-    "href": "proba/espace_proba.html#p-la-mesure-de-probabilité",
-    "title": "Espace probabilisé",
-    "section": "\\(P\\) : La mesure de probabilité",
-    "text": "\\(P\\) : La mesure de probabilité\nC’est une fonction qui associe à chaque événement ( A ) un nombre réel entre \\(0\\) et \\(1\\), respectant les règles suivantes : - ( P() = 1 ) (l’événement certain a une probabilité de 1). - ( P() = 0 ) (l’événement impossible a une probabilité de 0). - Pour des événements disjoints ( A_1, A_2, A_3, ), la probabilité de leur union est la somme des probabilités individuelles : [ P(A_1 A_2 A_3 ) = P(A_1) + P(A_2) + P(A_3) + ]",
-    "crumbs": [
-      "Probabilités",
-      "Espace probabilisé"
-    ]
-  },
-  {
-    "objectID": "proba/espace_proba.html#exemple-dun-lancer-de-dé-équilibré",
-    "href": "proba/espace_proba.html#exemple-dun-lancer-de-dé-équilibré",
-    "title": "Espace probabilisé",
-    "section": "Exemple d’un lancer de dé équilibré",
-    "text": "Exemple d’un lancer de dé équilibré\nSi on lance un dé à six faces : - (= {1, 2, 3, 4, 5, 6}) - Un événement : “obtenir un nombre pair” ( A = {2, 4, 6} ) - La probabilité associée est : [ P(A) = = 0.5 ]\nCe cadre mathématique permet d’analyser et de calculer des probabilités de manière rigoureuse. 🎲",
-    "crumbs": [
-      "Probabilités",
-      "Espace probabilisé"
-    ]
-  },
-  {
-    "objectID": "proba/espace_proba.html#omega-lespace-des-événements-élémentaires-univers",
-    "href": "proba/espace_proba.html#omega-lespace-des-événements-élémentaires-univers",
-    "title": "Espace probabilisé",
-    "section": "",
-    "text": "Exemple : Lors du lancer d’un dé à six faces, l’univers des possibles est : [ = {1, 2, 3, 4, 5, 6} ]",
-    "crumbs": [
-      "Probabilités",
-      "Espace probabilisé"
-    ]
-  },
-  {
-    "objectID": "proba/espace_proba.html#mathcala-la-tribu-des-événements",
-    "href": "proba/espace_proba.html#mathcala-la-tribu-des-événements",
-    "title": "Espace probabilisé",
-    "section": "\\(\\mathcal{A}\\) : La tribu des événements",
-    "text": "\\(\\mathcal{A}\\) : La tribu des événements\nUn événement est un sous-ensemble de (). L’ensemble () regroupe les événements pour lesquels on peut attribuer une probabilité.\n\nExemple : Si on s’intéresse aux événements “obtenir un nombre pair” et “obtenir un nombre impair”, on peut définir : [ = { , {2,4,6}, {1,3,5}, } ]",
-    "crumbs": [
-      "Probabilités",
-      "Espace probabilisé"
-    ]
-  },
-  {
-    "objectID": "proba/espace_proba.html#exemple",
-    "href": "proba/espace_proba.html#exemple",
-    "title": "Espace probabilisé",
-    "section": "Exemple",
-    "text": "Exemple\nExemple d’un lancer de dé équilibré Si on lance un dé à six faces : - (= {1, 2, 3, 4, 5, 6}) - Un événement : “obtenir un nombre pair” ( A = {2, 4, 6} ) - La probabilité associée est : [ P(A) = = 0.5 ]\nCe cadre mathématique permet d’analyser et de calculer des probabilités de manière rigoureuse.",
-    "crumbs": [
-      "Probabilités",
-      "Espace probabilisé"
-    ]
-  },
-  {
-    "objectID": "proba/espace_proba.html#omega-est-lespace-des-événements-élémentaires-univers",
-    "href": "proba/espace_proba.html#omega-est-lespace-des-événements-élémentaires-univers",
-    "title": "Espace probabilisé",
-    "section": "",
-    "text": "Exemple : Lors du lancer d’un dé à six faces, l’univers des possibles est : [ = {1, 2, 3, 4, 5, 6} ]",
-    "crumbs": [
-      "Probabilités",
-      "Espace probabilisé"
-    ]
-  },
-  {
-    "objectID": "proba/espace_proba.html#mathcala-est-la-tribu-des-événements",
-    "href": "proba/espace_proba.html#mathcala-est-la-tribu-des-événements",
-    "title": "Espace probabilisé",
-    "section": "\\(\\mathcal{A}\\) est la tribu des événements",
-    "text": "\\(\\mathcal{A}\\) est la tribu des événements\nUn événement est un sous-ensemble de (). L’ensemble () regroupe les événements pour lesquels on peut attribuer une probabilité.\n\nExemple : Si on s’intéresse aux événements “obtenir un nombre pair” et “obtenir un nombre impair”, on peut définir : [ = { , {2,4,6}, {1,3,5}, } ]",
-    "crumbs": [
-      "Probabilités",
-      "Espace probabilisé"
-    ]
-  },
-  {
-    "objectID": "proba/espace_proba.html#p-est-la-mesure-de-probabilité",
-    "href": "proba/espace_proba.html#p-est-la-mesure-de-probabilité",
-    "title": "Espace probabilisé",
-    "section": "\\(P\\) est la mesure de probabilité",
-    "text": "\\(P\\) est la mesure de probabilité\nC’est une fonction qui associe à chaque événement ( A ) un nombre réel entre \\(0\\) et \\(1\\), respectant les règles suivantes : - ( P() = 1 ) (l’événement certain a une probabilité de 1). - ( P() = 0 ) (l’événement impossible a une probabilité de 0). - Pour des événements disjoints ( A_1, A_2, A_3, ), la probabilité de leur union est la somme des probabilités individuelles : [ P(A_1 A_2 A_3 ) = P(A_1) + P(A_2) + P(A_3) + ]",
-    "crumbs": [
-      "Probabilités",
-      "Espace probabilisé"
-    ]
-  },
-  {
-    "objectID": "proba/espace_proba.html#définition",
-    "href": "proba/espace_proba.html#définition",
-    "title": "Espace probabilisé",
-    "section": "1 Définition",
-    "text": "1 Définition\nPour définir un espace probabilisé, on a besoin d’un ensemble \\(\\Omega\\) appelé univers, qui peut représenter l’ensemble des résultats possibles de l’expérience considérée.",
-    "crumbs": [
-      "Probabilités",
-      "Espace probabilisé"
-    ]
-  },
-  {
-    "objectID": "proba/espace_proba.html#exemples",
-    "href": "proba/espace_proba.html#exemples",
-    "title": "Espace probabilisé",
-    "section": "Exemples",
-    "text": "Exemples\n\nLancer d’une pièce équilibrée : on souhaite modéliser le résultat du lancer d’une pièce sans tricherie. Pour cela, on choisit \\(\\Omega_{1}=\\{\\) pile, face \\(\\}\\). L’ensemble des parties de \\(\\Omega_{1}\\) comporte quatre éléments et on définit la mesure de probabilité \\(\\mathbb{P}\\) par \\(\\mathbb{P}(\\) pile \\()=\\mathbb{P}(\\) face \\()=1 / 2\\) puisque les deux événements sont équiprobables (i.e. de même probabilité).\nLancer de \\(k\\) pièces, \\(k \\geq 2\\) : on prend cette fois-ci \\(\\Omega_{k}=\\Omega_{1}^{k}\\), c’est-à-dire l’ensemble des \\(k\\)-uplets de pile ou face. On a \\(\\operatorname{Card}\\left(\\Omega_{k}\\right)=2^{k}\\). Les différents \\(k\\)-uplets sont tous équiprobables donc \\(\\mathbb{P}(\\omega)=2^{-k}\\), pour tout \\(\\omega \\in \\Omega_{k}\\). On aboutit ainsi naturellement à la Définition 5 Supposons que \\(\\Omega\\) soit un ensemble fini. On dit qu’on se trouve dans un cas équiprobable si tous les événements élémentaires ont même valeur \\(\\overline{d e}\\) probablité. On dit aussi que la probabilité est uniforme discrète.\n\nDans le cas équiprobable, on a donc \\(\\mathbb{P}(\\omega)=p\\) pour tout \\(\\omega \\in \\Omega\\), où \\(p=1 / \\operatorname{Card}(\\Omega)\\). On peut alors écrire :\n\\[\n\\mathbb{P}(A)=\\sum_{\\omega \\in A} \\mathbb{P}(\\omega)=\\sum_{\\omega \\in A} \\frac{1}{\\operatorname{Card}(\\Omega)}=\\frac{\\operatorname{Card}(A)}{\\operatorname{Card}(\\Omega)}\n\\]\nsoit encore :\n\\[\n\\mathbb{P}(A)=\\frac{\\text { nombre de cas favorables }}{\\text { nombre de cas possibles }} .\n\\]\nATTENTION, cette formule n’est valable que pour les cas équiprobables. Elle fonctionne dans l’exemple du dé normal, mais pas dans celui du dé truqué. Il ne peut bien sûr pas y avoir de probabilité uniforme sur \\(\\mathbb{N}\\). Exemples Mesure de probabilité sur \\(\\mathbb{N}^{*}\\). On lance un dé de façon répétée jusqu’à obtenir un 6 , et on note le numéro du tirage du premier 6 . On a évidemment \\(\\mathbb{P}(1)=1 / 6\\). On a également\n\\[\n\\mathbb{P}(2)=\\mathbb{P}(\\text { au premier tirage, on n'a pas eu de } 6 \\text {; au deuxième tirage, on a eu un } 6)=\\frac{5}{36}\n\\]\ncar sur les 36 tirages possibles équiprobables, seuls 5 permettent d’obtenir le premier 6 au deuxième tirage. De même, pour tout \\(k \\geq 2\\),\n\\[\n\\mathbb{P}(k)=\\mathbb{P}(k-1 \\text { echecs, puis une réussite })=\\left(\\frac{5}{6}\\right)^{k-1} \\frac{1}{6} .\n\\]\nCela constitue bien une mesure de probabilité discrète sur \\(\\mathbb{N}^{*}\\) puisque \\(\\sum_{k \\geq 1} \\mathbb{P}(k)=1\\).",
-    "crumbs": [
-      "Probabilités",
-      "Espace probabilisé"
-    ]
-  },
-  {
-    "objectID": "proba/espace_proba.html#exemples-1",
-    "href": "proba/espace_proba.html#exemples-1",
-    "title": "Espace probabilisé",
-    "section": "Exemples",
-    "text": "Exemples\n\nLa mesure uniforme sur l’intervalle \\([a, b]\\), où \\(a&lt;b:\\) On définit\n\n\\[\n\\mathbb{P}(A)=\\int_{A \\cap[a, b]} \\frac{1}{b-a} d x\n\\]\n\nLa probabilité de Gauss sur \\(\\mathbb{R}\\). On utilise ici la fonction\n\n\\[\nf(x)=\\frac{1}{\\sqrt{2 \\pi} \\sigma} \\exp \\left(\\frac{(x-m)^{2}}{2 \\sigma^{2}}\\right)\n\\]\noù \\(m \\in \\mathbb{R}\\) et \\(\\sigma \\in \\mathbb{R}^{+*}\\) sont deux paramètres fixés.",
-    "crumbs": [
-      "Probabilités",
-      "Espace probabilisé"
-    ]
-  },
-  {
-    "objectID": "proba/espace_proba.html#propriétés-élémentaires-des-probabilités",
-    "href": "proba/espace_proba.html#propriétés-élémentaires-des-probabilités",
-    "title": "Espace probabilisé",
-    "section": "Propriétés élémentaires des probabilités",
-    "text": "Propriétés élémentaires des probabilités\nProposition 3 Soit \\(A\\) et \\(B\\) deux événements quelconques (i.e. \\(A, B \\in S\\) ). Alors\n\n\\(\\mathbb{P}(\\bar{A})=1-\\mathbb{P}(A)\\),\n\\(\\mathbb{P}(\\emptyset)=0\\),\n\\(\\mathbb{P}(B)=\\mathbb{P}(A \\cap B)+\\mathbb{P}(\\bar{A} \\cap B)\\),\n\\(\\mathbb{P}(A \\cup B)=\\mathbb{P}(A)+\\mathbb{P}(B)-\\mathbb{P}(A \\cap B)\\).\n\nProposition 4 Soit \\(\\left(A_{i}\\right)_{1 \\leq i \\leq n} n\\) évènements quelconques de \\(\\Omega\\), on a\n\\[\n\\mathbb{P}\\left(\\bigcup_{i=1}^{n} A_{i}\\right)=\\sum_{i=1}^{n} \\mathbb{P}\\left(A_{i}\\right)-\\sum_{1 \\leq i&lt;j \\leq n} \\mathbb{P}\\left(A_{i} \\cap A_{j}\\right)+\\sum_{1 \\leq i&lt;j&lt;k \\leq n} \\mathbb{P}\\left(A_{i} \\cap A_{j} \\cap A_{k}\\right)+\\cdots+(-1)^{n} \\mathbb{P}\\left(\\bigcap_{i=1}^{n} A_{i}\\right)\n\\]",
-    "crumbs": [
-      "Probabilités",
-      "Espace probabilisé"
-    ]
-  },
-  {
-    "objectID": "proba/espace_proba.html#preuve.",
-    "href": "proba/espace_proba.html#preuve.",
-    "title": "Espace probabilisé",
-    "section": "Preuve.",
-    "text": "Preuve.\n\nOn a vu (prop 1.3.2) que:\n\n\\[\n\\mathbb{P}(B)=\\sum_{i \\in I} \\mathbb{P}\\left(B \\cap A_{i}\\right) .\n\\]\nPuisque \\(\\mathbb{P}\\left(B / A_{i}\\right)=\\frac{\\mathbb{P}\\left(B \\cap A_{i}\\right)}{\\mathbb{P}\\left(A_{i}\\right)}\\), on a bien :\n\\[\n\\mathbb{P}(B)=\\sum_{i \\in I} \\mathbb{P}\\left(B / A_{i}\\right) \\mathbb{P}\\left(A_{i}\\right) .\n\\]\n\nPar définition des probabilités conditionnelles, \\(\\mathbb{P}\\left(A_{k} / B\\right)=\\frac{\\mathbb{P}\\left(A_{k} \\cap B\\right)}{\\mathbb{P}(B)}\\). On peut donc écrire, en utilisant le même raisonnement que ci-dessus :\n\n\\[\n\\mathbb{P}\\left(A_{k} / B\\right)=\\frac{\\mathbb{P}\\left(B / A_{k}\\right) \\mathbb{P}\\left(A_{k}\\right)}{\\mathbb{P}(B)}\n\\]\nEn utilisant le résultat du 1 . et en remplaçant \\(\\mathbb{P}(B)\\), on obtient bien :\n\\[\n\\mathbb{P}\\left(A_{k} / B\\right)=\\frac{\\mathbb{P}\\left(A_{k}\\right) \\mathbb{P}\\left(B / A_{k}\\right)}{\\sum_{i \\in I} \\mathbb{P}\\left(A_{i}\\right) \\mathbb{P}\\left(B / A_{i}\\right)}\n\\]",
-    "crumbs": [
-      "Probabilités",
-      "Espace probabilisé"
-    ]
-  },
-  {
-    "objectID": "proba/espace_proba.html#probabilités-discrètes",
-    "href": "proba/espace_proba.html#probabilités-discrètes",
-    "title": "Espace probabilisé",
-    "section": "Probabilités discrètes",
-    "text": "Probabilités discrètes\nLa probabilité \\(\\mathbb{P}\\) est dite discrète dès que l’espace \\(\\Omega\\) est fini ou dénombrable. La tribu associée est alors généralement \\(P(\\Omega)\\), l’ensemble des parties de \\(\\Omega\\). Une probabilité sur un ensemble dénombrable est complètement déterminée par les \\(\\mathbb{P}(\\{\\omega\\})\\) pour tout \\(\\omega \\in \\Omega\\). En effet, pour \\(A \\subset \\Omega\\), on a\n\\[\n\\mathbb{P}(A)=\\sum_{\\omega \\in A} \\mathbb{P}(\\omega)\n\\]\nEn particulier, \\(1=\\mathbb{P}(\\Omega)=\\sum_{\\omega \\in \\Omega} \\mathbb{P}(\\omega)\\).\nExemples\n\nLancer d’une pièce équilibrée : on souhaite modéliser le résultat du lancer d’une pièce sans tricherie. Pour cela, on choisit \\(\\Omega_{1}=\\{\\) pile, face \\(\\}\\). L’ensemble des parties de \\(\\Omega_{1}\\) comporte quatre éléments et on définit la mesure de probabilité \\(\\mathbb{P}\\) par \\(\\mathbb{P}(\\) pile \\()=\\mathbb{P}(\\) face \\()=1 / 2\\) puisque les deux événements sont équiprobables (i.e. de même probabilité).\nLancer de \\(k\\) pièces, \\(k \\geq 2\\) : on prend cette fois-ci \\(\\Omega_{k}=\\Omega_{1}^{k}\\), c’est-à-dire l’ensemble des \\(k\\)-uplets de pile ou face. On a \\(\\operatorname{Card}\\left(\\Omega_{k}\\right)=2^{k}\\). Les différents \\(k\\)-uplets sont tous équiprobables donc \\(\\mathbb{P}(\\omega)=2^{-k}\\), pour tout \\(\\omega \\in \\Omega_{k}\\). On aboutit ainsi naturellement à la Définition 5 Supposons que \\(\\Omega\\) soit un ensemble fini. On dit qu’on se trouve dans un cas équiprobable si tous les événements élémentaires ont même valeur \\(\\overline{d e}\\) probablité. On dit aussi que la probabilité est uniforme discrète.\n\nDans le cas équiprobable, on a donc \\(\\mathbb{P}(\\omega)=p\\) pour tout \\(\\omega \\in \\Omega\\), où \\(p=1 / \\operatorname{Card}(\\Omega)\\). On peut alors écrire :\n\\[\n\\mathbb{P}(A)=\\sum_{\\omega \\in A} \\mathbb{P}(\\omega)=\\sum_{\\omega \\in A} \\frac{1}{\\operatorname{Card}(\\Omega)}=\\frac{\\operatorname{Card}(A)}{\\operatorname{Card}(\\Omega)}\n\\]\nsoit encore :\n\\[\n\\mathbb{P}(A)=\\frac{\\text { nombre de cas favorables }}{\\text { nombre de cas possibles }} .\n\\]\nATTENTION, cette formule n’est valable que pour les cas équiprobables. Elle fonctionne dans l’exemple du dé normal, mais pas dans celui du dé truqué. Il ne peut bien sûr pas y avoir de probabilité uniforme sur \\(\\mathbb{N}\\). Exemples Mesure de probabilité sur \\(\\mathbb{N}^{*}\\). On lance un dé de façon répétée jusqu’à obtenir un 6 , et on note le numéro du tirage du premier 6 . On a évidemment \\(\\mathbb{P}(1)=1 / 6\\). On a également\n\\[\n\\mathbb{P}(2)=\\mathbb{P}(\\text { au premier tirage, on n'a pas eu de } 6 \\text {; au deuxième tirage, on a eu un } 6)=\\frac{5}{36}\n\\]\ncar sur les 36 tirages possibles équiprobables, seuls 5 permettent d’obtenir le premier 6 au deuxième tirage. De même, pour tout \\(k \\geq 2\\),\n\\[\n\\mathbb{P}(k)=\\mathbb{P}(k-1 \\text { echecs, puis une réussite })=\\left(\\frac{5}{6}\\right)^{k-1} \\frac{1}{6} .\n\\]\nCela constitue bien une mesure de probabilité discrète sur \\(\\mathbb{N}^{*}\\) puisque \\(\\sum_{k \\geq 1} \\mathbb{P}(k)=1\\).",
-    "crumbs": [
-      "Probabilités",
-      "Espace probabilisé"
-    ]
-  },
-  {
-    "objectID": "proba/espace_proba.html#exemples-2",
-    "href": "proba/espace_proba.html#exemples-2",
-    "title": "Espace probabilisé",
-    "section": "Exemples",
-    "text": "Exemples\n\nLancer d’une pièce équilibrée : on souhaite modéliser le résultat du lancer d’une pièce sans tricherie. Pour cela, on choisit \\(\\Omega_{1}=\\{\\) pile, face \\(\\}\\). L’ensemble des parties de \\(\\Omega_{1}\\) comporte quatre éléments et on définit la mesure de probabilité \\(\\mathbb{P}\\) par \\(\\mathbb{P}(\\) pile \\()=\\mathbb{P}(\\) face \\()=1 / 2\\) puisque les deux événements sont équiprobables (i.e. de même probabilité).\nLancer de \\(k\\) pièces, \\(k \\geq 2\\) : on prend cette fois-ci \\(\\Omega_{k}=\\Omega_{1}^{k}\\), c’est-à-dire l’ensemble des \\(k\\)-uplets de pile ou face. On a \\(\\operatorname{Card}\\left(\\Omega_{k}\\right)=2^{k}\\). Les différents \\(k\\)-uplets sont tous équiprobables donc \\(\\mathbb{P}(\\omega)=2^{-k}\\), pour tout \\(\\omega \\in \\Omega_{k}\\). On aboutit ainsi naturellement à la Définition 5 Supposons que \\(\\Omega\\) soit un ensemble fini. On dit qu’on se trouve dans un cas équiprobable si tous les événements élémentaires ont même valeur \\(\\overline{d e}\\) probablité. On dit aussi que la probabilité est uniforme discrète.\n\nDans le cas équiprobable, on a donc \\(\\mathbb{P}(\\omega)=p\\) pour tout \\(\\omega \\in \\Omega\\), où \\(p=1 / \\operatorname{Card}(\\Omega)\\). On peut alors écrire :\n\\[\n\\mathbb{P}(A)=\\sum_{\\omega \\in A} \\mathbb{P}(\\omega)=\\sum_{\\omega \\in A} \\frac{1}{\\operatorname{Card}(\\Omega)}=\\frac{\\operatorname{Card}(A)}{\\operatorname{Card}(\\Omega)}\n\\]\nsoit encore :\n\\[\n\\mathbb{P}(A)=\\frac{\\text { nombre de cas favorables }}{\\text { nombre de cas possibles }} .\n\\]\nATTENTION, cette formule n’est valable que pour les cas équiprobables. Elle fonctionne dans l’exemple du dé normal, mais pas dans celui du dé truqué. Il ne peut bien sûr pas y avoir de probabilité uniforme sur \\(\\mathbb{N}\\). Exemples Mesure de probabilité sur \\(\\mathbb{N}^{*}\\). On lance un dé de façon répétée jusqu’à obtenir un 6 , et on note le numéro du tirage du premier 6 . On a évidemment \\(\\mathbb{P}(1)=1 / 6\\). On a également\n\\[\n\\mathbb{P}(2)=\\mathbb{P}(\\text { au premier tirage, on n'a pas eu de } 6 \\text {; au deuxième tirage, on a eu un } 6)=\\frac{5}{36}\n\\]\ncar sur les 36 tirages possibles équiprobables, seuls 5 permettent d’obtenir le premier 6 au deuxième tirage. De même, pour tout \\(k \\geq 2\\),\n\\[\n\\mathbb{P}(k)=\\mathbb{P}(k-1 \\text { echecs, puis une réussite })=\\left(\\frac{5}{6}\\right)^{k-1} \\frac{1}{6} .\n\\]\nCela constitue bien une mesure de probabilité discrète sur \\(\\mathbb{N}^{*}\\) puisque \\(\\sum_{k \\geq 1} \\mathbb{P}(k)=1\\).",
-    "crumbs": [
-      "Probabilités",
-      "Espace probabilisé"
-    ]
-  },
-  {
-    "objectID": "proba/espace_proba.html#probabilités-à-densité",
-    "href": "proba/espace_proba.html#probabilités-à-densité",
-    "title": "Espace probabilisé",
-    "section": "Probabilités à densité",
-    "text": "Probabilités à densité\nSoit \\(f: \\mathbb{R} \\rightarrow \\mathbb{R}\\) une fonction positive, continue par morceaux (ou plus généralement mesurable, i.e. \\(\\{x, f(x) \\leq\\) \\(y\\} \\in \\mathcal{B}(\\mathbb{R})\\) pour tout \\(y \\in \\mathbb{R}\\) ) et d’intégrale sur \\(\\mathbb{R}\\) égale à 1 . Il est facile de vérifier que l’on définit une probabilité en posant, pour tout \\(A \\subset \\mathbb{R}\\) :\n\\[\n\\mathbb{P}(A)=\\int_{A} f(x) d x\n\\]\nUne telle probabilité est dite à densité. On dit également que c’est une probabilité continue.\nExemples\n\nLa mesure uniforme sur l’intervalle \\([a, b]\\), où \\(a&lt;b:\\) On définit\n\n\\[\n\\mathbb{P}(A)=\\int_{A \\cap[a, b]} \\frac{1}{b-a} d x\n\\]\n\nLa probabilité de Gauss sur \\(\\mathbb{R}\\). On utilise ici la fonction\n\n\\[\nf(x)=\\frac{1}{\\sqrt{2 \\pi} \\sigma} \\exp \\left(\\frac{(x-m)^{2}}{2 \\sigma^{2}}\\right)\n\\]\noù \\(m \\in \\mathbb{R}\\) et \\(\\sigma \\in \\mathbb{R}^{+*}\\) sont deux paramètres fixés.",
-    "crumbs": [
-      "Probabilités",
-      "Espace probabilisé"
-    ]
-  },
-  {
-    "objectID": "proba/espace_proba.html#exemples-3",
-    "href": "proba/espace_proba.html#exemples-3",
-    "title": "Espace probabilisé",
-    "section": "Exemples",
-    "text": "Exemples\n\nLa mesure uniforme sur l’intervalle \\([a, b]\\), où \\(a&lt;b:\\) On définit\n\n\\[\n\\mathbb{P}(A)=\\int_{A \\cap[a, b]} \\frac{1}{b-a} d x\n\\]\n\nLa probabilité de Gauss sur \\(\\mathbb{R}\\). On utilise ici la fonction\n\n\\[\nf(x)=\\frac{1}{\\sqrt{2 \\pi} \\sigma} \\exp \\left(\\frac{(x-m)^{2}}{2 \\sigma^{2}}\\right)\n\\]\noù \\(m \\in \\mathbb{R}\\) et \\(\\sigma \\in \\mathbb{R}^{+*}\\) sont deux paramètres fixés.",
-    "crumbs": [
-      "Probabilités",
-      "Espace probabilisé"
-    ]
-  },
-  {
-    "objectID": "proba/espace_proba.html#probabilités-conditionnelles",
-    "href": "proba/espace_proba.html#probabilités-conditionnelles",
-    "title": "Espace probabilisé",
-    "section": "5 Probabilités conditionnelles",
-    "text": "5 Probabilités conditionnelles\nReprenons l’exemple du dé. Notons \\(A\\) l’événement “on obtient un 2” et \\(B\\) l’événement “on n’obtient pas 1”. L’événement \\(A \\cap B\\) est égal à \\(A\\) car si on obtient 2 et pas 1 , c’est qu’on a obtenu 2 tout court. Donc \\(\\mathbb{P}(A \\cap B)=1 / 6\\). De plus, \\(\\mathbb{P}(B)=5 / 6\\) car il y a 5 résultats favorables sur 6 si on n’obtient pas 1 .\nSupposons maintenant qu’on sache que \\(B\\) est vérifié, c’est-à-dire qu’on n’a pas obtenu 1 . Dans ce cas, la probabilité d’obtenir 2 est de \\(1 / 5\\), car il n’y a plus que 5 résultats possibles (et on est toujours dans un cas équiprobable). On remarque que cette probabilité vaut exactement \\(\\mathbb{P}(A \\cap B) / \\mathbb{P}(B)\\). C’est ce qu’on appelle une probabilité conditionnelle.\nDéfinition 6 Soit \\(A\\) et \\(B\\) deux événements tels que \\(\\mathbb{P}(B) \\neq 0\\). On appelle probabilité conditionnelle de \\(A\\) sachant \\(B\\) (c’est-à-dire sachant que \\(B\\) est réalisé), notée \\(\\mathbb{P}(A / B)\\) le quotient :\n\\[\n\\mathbb{P}(A / B)=\\frac{\\mathbb{P}(A \\cap B)}{\\mathbb{P}(B)}\n\\]\nProposition 7 Soit \\(B\\) un événement de probabilité \\(\\mathbb{P}(B)\\) non nulle. Alors \\(\\mathbb{Q}(A)=\\mathbb{P}(A / B)\\) est une probabilité sur \\(S\\).\nPreuve. Il suffit de montrer que \\(\\mathbb{Q}\\) vérifie bien les propriétés de la définition d’une probabilité.\n\nSoit \\(A \\in S\\); on a alors\n\n\\[\n0 \\leq \\mathbb{Q}(A)=\\mathbb{P}(A / B) \\leq 1\n\\]\ncar \\(\\mathbb{P}(B)=\\mathbb{P}(A \\cap B)+\\mathbb{P}(\\bar{A} \\cap B) \\geq \\mathbb{P}(A \\cap B)\\).\n\nOn a\n\n\\[\n\\mathbb{Q}(\\Omega)=\\mathbb{P}(\\Omega / B)=\\frac{\\mathbb{P}(\\Omega \\cap B)}{\\mathbb{P}(B)}=\\frac{\\mathbb{P}(B)}{\\mathbb{P}(B)}=1\n\\]\n\nSoit \\(\\left(A_{n}\\right)_{n}\\) une famille d’événements deux à deux incompatibles.\n\n\\[\n\\mathbb{Q}\\left(\\bigcup_{n} A_{n}\\right)=\\mathbb{P}\\left(\\left(\\bigcup_{n} A_{n}\\right) / B\\right)=\\frac{\\mathbb{P}\\left(\\left(\\bigcup_{n} A_{n}\\right) \\cap B\\right)}{\\mathbb{P}(B)}=\\frac{\\mathbb{P}\\left(\\bigcup_{n}\\left(A_{n} \\cap B\\right)\\right)}{\\mathbb{P}(B)}=\\sum_{n} \\frac{\\mathbb{P}\\left(A_{n} \\cap B\\right)}{\\mathbb{P}(B)}=\\sum_{n} \\mathbb{P}\\left(A_{n} / B\\right)\n\\]\nOn a bien vérifié toutes les propriétés, donc \\(\\mathbb{Q}\\) est une probabilité sur \\(S\\). Définition 8 Soit \\(\\left(A_{i}\\right)_{i \\in I}\\) une famille (finie) d’événements (en général non impossibles, i.e. \\(\\mathbb{P}\\left(A_{i}\\right)&gt;0\\) pour tout \\(i\\) ). On dira que c’est un système complet d’événements si :\n\\[\n\\bigcup_{i \\in I} A_{i}=\\Omega \\quad \\text { et } \\quad A_{i} \\cap A_{j}=\\emptyset, \\quad \\forall i \\neq j .\n\\]\nProposition 9 Soit \\(\\left(A_{i}\\right)_{i \\in I}\\) un système complet d’événements et soit \\(B\\) un événement quelconque. Alors :\n\\[\n\\mathbb{P}(B)=\\sum_{i \\in I} \\mathbb{P}\\left(B \\cap A_{i}\\right)\n\\]\nPreuve. Puisque \\(\\left(A_{i}\\right)_{i \\in I}\\) est un système complet d’événements, \\(\\bigcup_{i \\in I} A_{i}=\\Omega\\). On peut écrire :\n\\[\n\\mathbb{P}(B)=\\mathbb{P}(B \\cap \\Omega)=\\mathbb{P}\\left(B \\cap\\left(\\bigcup_{i \\in I} A_{i}\\right)\\right)=\\mathbb{P}\\left(\\bigcup_{i \\in I}\\left(B \\cap A_{i}\\right)\\right)\n\\]\nOr, par définition d’un système complet, les \\(A_{i}\\) sont deux à deux incompatibles. Les \\(B \\cap A_{i}\\) le sont donc aussi, et on a bien finalement :\n\\[\n\\mathbb{P}(B)=\\sum_{i \\in I} \\mathbb{P}\\left(B \\cap A_{i}\\right)\n\\]\nProposition 10 Soit \\(\\left(A_{i}\\right)_{i \\in I}\\) un système complet d’événements et \\(B\\) un événement vérifiant \\(\\mathbb{P}(B) \\neq 0\\) et \\(\\mathbb{P}\\left(A_{i}\\right) \\neq 0 \\forall i \\in I\\). Alors,\n1 .\n\\[\n\\mathbb{P}(B)=\\sum_{i \\in I} \\mathbb{P}\\left(B / A_{i}\\right) \\mathbb{P}\\left(A_{i}\\right)\n\\]\n\nFormule de Bayes :\n\n\\[\n\\mathbb{P}\\left(A_{k} / B\\right)=\\frac{\\mathbb{P}\\left(A_{k}\\right) \\mathbb{P}\\left(B / A_{k}\\right)}{\\sum_{i \\in I} \\mathbb{P}\\left(A_{i}\\right) \\mathbb{P}\\left(B / A_{i}\\right)} \\quad \\forall k \\in I\n\\]\nOn a un corollaire immédiat : Corollaire 11 Soit \\(A\\) et \\(B\\) deux événements vérifiant \\(\\mathbb{P}(B) \\neq 0\\) et \\(0&lt;\\mathbb{P}(A)&lt;1\\). Alors :\n\\[\n\\mathbb{P}(A / B)=\\frac{\\mathbb{P}(B / A) \\mathbb{P}(A)}{\\mathbb{P}(A) \\mathbb{P}(B / A)+\\mathbb{P}(\\bar{A}) \\mathbb{P}(B / \\bar{A})}\n\\]\nDémontrons la proposition précédente.",
-    "crumbs": [
-      "Probabilités",
-      "Espace probabilisé"
-    ]
-  },
-  {
-    "objectID": "proba/espace_proba.html#preuve.-1",
-    "href": "proba/espace_proba.html#preuve.-1",
-    "title": "Espace probabilisé",
-    "section": "Preuve.",
-    "text": "Preuve.\n\n\\(A \\coprod A \\Longleftrightarrow \\mathbb{P}(A \\cap A)=\\mathbb{P}^{2}(A) \\Longleftrightarrow \\mathbb{P}(A)(1-\\mathbb{P}(A))=0 \\Longleftrightarrow \\mathbb{P}(A)=0\\) ou \\(\\mathbb{P}(A)=1\\).\nIl suffit de montrer la première équivalence, les autres sont alors automatiques.\n\n\\[\n\\left.\\begin{array}{rl}\nA \\amalg B & \\Longleftrightarrow \\mathbb{P}(A \\cap B)=\\mathbb{P}(A) \\mathbb{P}(B) \\\\\n& \\Longleftrightarrow \\mathbb{P}(A \\cap B)=\\mathbb{P}(A)(1-\\mathbb{P}(\\bar{B}) \\\\\n& \\Longleftrightarrow \\mathbb{P}(A) \\mathbb{P}(\\bar{B})=\\mathbb{P}(A)-\\mathbb{P}(A \\cap B)\n\\end{array} \\Longleftrightarrow \\mathbb{P}(A) \\mathbb{P}(\\bar{B})=\\mathbb{P}(A \\cap B)+\\mathbb{P}(A \\cap \\bar{B})-\\mathbb{P}(A \\cap B), \\vec{B}\\right)=\\mathbb{P}(A \\cap \\bar{B}) \\quad \\Longleftrightarrow A \\coprod \\bar{B} .\n\\]\nOn peut étendre cette notion d’événements indépendants à une famille : Définition 15 Une famille d’événements \\(\\left(A_{i}\\right)_{i \\in I}\\) est dite indépendante si pour toute sous-famille finie \\(\\left(A_{i_{1}}, A_{i_{2}}, \\ldots, A_{i_{n}}\\right)\\) de cette famille, on a :\n\\[\n\\mathbb{P}\\left(\\bigcap_{j=1}^{n} A_{i_{j}}\\right)=\\prod_{j=1}^{n} \\mathbb{P}\\left(A_{i_{j}}\\right) .\n\\]\nOn retrouve les mêmes propriétés que pour deux événements indépendants. ATTENTION, le fait que les événements \\(\\left(A_{i}\\right)_{i \\in I}\\) sont indépendants entraîne qu’ils sont indépendants deux à deux, mais la réciproque est fausse. Exercice On lance une pièce deux fois de suite. Soit \\(A\\) l’événement “obtenir face au premier jet”, \\(B\\) l’événement “obtenir face au deuxième jet”, et \\(C\\) l’événement “obtenir deux résultats différents”. Montrer que les événements \\(A, B, C\\) sont deux à deux indépendants, mais que la famille \\((A, B, C)\\) n’est pas indépendante.",
-    "crumbs": [
-      "Probabilités",
-      "Espace probabilisé"
-    ]
-  },
-  {
-    "objectID": "proba/espace_proba.html#evénements-indépendants",
-    "href": "proba/espace_proba.html#evénements-indépendants",
-    "title": "Espace probabilisé",
-    "section": "6 Evénements indépendants",
-    "text": "6 Evénements indépendants\nPrenons une urne contenant des jetons numérotés de 1 à \\(N\\). Considérons les événements \\(A=\\) “obtenir le jeton 1 au premier tirage” et \\(B=\\) “obtenir le jeton 1 au deuxième tirage”. Si les tirages se font sans remise et que l’événement \\(A\\) est réalisé, l’événement \\(B\\) ne peut pas être réalisé. Par contre, si les tirages se font avec remise, le fait que l’événement \\(A\\) soit réalisé ou non n’influe pas sur la probabilité que \\(B\\) soit réalisé et vice-versa. C’est ce qu’on appelle des événements indépendants.\nProposition 12 Soit \\(A\\) et \\(B\\) deux événements de probabilité non nulle. Alors les trois énoncés suivants sont équivalents :\n\n\\(\\mathbb{P}(A / B)=\\mathbb{P}(A)\\)\n\\(\\mathbb{P}(B / A)=\\mathbb{P}(B)\\)\n\\(\\mathbb{P}(A \\cap B)=\\mathbb{P}(A) \\mathbb{P}(B)\\).\n\nPreuve. Elle se fait facilement par succession d’équivalence :\n\\[\n\\begin{aligned}\n\\mathbb{P}(A / B)=\\mathbb{P}(A) & \\Longleftrightarrow \\frac{\\mathbb{P}(A \\cap B)}{\\mathbb{P}(B)}=\\mathbb{P}(A) \\\\\n& \\Longleftrightarrow \\mathbb{P}(A \\cap B)=\\mathbb{P}(A) \\mathbb{P}(B) \\\\\n& \\Longleftrightarrow \\frac{\\mathbb{P}(B \\cap A)}{\\mathbb{P}(A)}=\\mathbb{P}(B) \\\\\n& \\Longleftrightarrow \\mathbb{P}(B / A)=\\mathbb{P}(B)\n\\end{aligned}\n\\]\nDéfinition 13 Deux événements \\(A\\) et \\(B\\) sont dits indépendants (noté \\(A \\amalg B\\) ) si et seulement si :\n\\[\n\\mathbb{P}(A \\cap B)=\\mathbb{P}(A) \\mathbb{P}(B)\n\\]\nProposition 14 Soit \\(A\\) et \\(B\\) deux événements. Alors on \\(a\\) :\n\n\\(A \\coprod A \\Longleftrightarrow \\mathbb{P}(A)=0\\) ou \\(\\mathbb{P}(A)=1\\).\n\\(A \\coprod B \\Longleftrightarrow A \\coprod \\bar{B} \\Longleftrightarrow \\bar{A} \\coprod B \\Longleftrightarrow \\bar{A} \\coprod \\bar{B}\\).",
-    "crumbs": [
-      "Probabilités",
-      "Espace probabilisé"
-    ]
-  },
-  {
-    "objectID": "proba/espace_proba.html#preuve.-2",
-    "href": "proba/espace_proba.html#preuve.-2",
-    "title": "Espace probabilisé",
-    "section": "Preuve.",
-    "text": "Preuve.\n\n\\(A \\coprod A \\Longleftrightarrow \\mathbb{P}(A \\cap A)=\\mathbb{P}^{2}(A) \\Longleftrightarrow \\mathbb{P}(A)(1-\\mathbb{P}(A))=0 \\Longleftrightarrow \\mathbb{P}(A)=0\\) ou \\(\\mathbb{P}(A)=1\\).\nIl suffit de montrer la première équivalence, les autres sont alors automatiques.\n\n\\[\n\\left.\\begin{array}{rl}\nA \\amalg B & \\Longleftrightarrow \\mathbb{P}(A \\cap B)=\\mathbb{P}(A) \\mathbb{P}(B) \\\\\n& \\Longleftrightarrow \\mathbb{P}(A \\cap B)=\\mathbb{P}(A)(1-\\mathbb{P}(\\bar{B}) \\\\\n& \\Longleftrightarrow \\mathbb{P}(A) \\mathbb{P}(\\bar{B})=\\mathbb{P}(A)-\\mathbb{P}(A \\cap B)\n\\end{array} \\Longleftrightarrow \\mathbb{P}(A) \\mathbb{P}(\\bar{B})=\\mathbb{P}(A \\cap B)+\\mathbb{P}(A \\cap \\bar{B})-\\mathbb{P}(A \\cap B), \\vec{B}\\right)=\\mathbb{P}(A \\cap \\bar{B}) \\quad \\Longleftrightarrow A \\coprod \\bar{B} .\n\\]\nOn peut étendre cette notion d’événements indépendants à une famille : Définition 15 Une famille d’événements \\(\\left(A_{i}\\right)_{i \\in I}\\) est dite indépendante si pour toute sous-famille finie \\(\\left(A_{i_{1}}, A_{i_{2}}, \\ldots, A_{i_{n}}\\right)\\) de cette famille, on a :\n\\[\n\\mathbb{P}\\left(\\bigcap_{j=1}^{n} A_{i_{j}}\\right)=\\prod_{j=1}^{n} \\mathbb{P}\\left(A_{i_{j}}\\right) .\n\\]\nOn retrouve les mêmes propriétés que pour deux événements indépendants. ATTENTION, le fait que les événements \\(\\left(A_{i}\\right)_{i \\in I}\\) sont indépendants entraîne qu’ils sont indépendants deux à deux, mais la réciproque est fausse. Exercice On lance une pièce deux fois de suite. Soit \\(A\\) l’événement “obtenir face au premier jet”, \\(B\\) l’événement “obtenir face au deuxième jet”, et \\(C\\) l’événement “obtenir deux résultats différents”. Montrer que les événements \\(A, B, C\\) sont deux à deux indépendants, mais que la famille \\((A, B, C)\\) n’est pas indépendante.",
-    "crumbs": [
-      "Probabilités",
-      "Espace probabilisé"
-    ]
-  },
-  {
-    "objectID": "proba/espace_proba.html#mathcala-tribu-des-événements-sur-omega",
-    "href": "proba/espace_proba.html#mathcala-tribu-des-événements-sur-omega",
-    "title": "Espace probabilisé",
-    "section": "\\(\\mathcal{A}\\) : Tribu des événements sur \\(\\Omega\\)",
-    "text": "\\(\\mathcal{A}\\) : Tribu des événements sur \\(\\Omega\\)\nUne famille \\(\\mathcal{A}\\) de partie de \\(\\Omega\\) est appelée tribu si elle vérifie les propriétés suivantes : - \\(\\matcal{A}\\) est non vide - Si \\(B\\) est un élément de \\(\\matcal{A}\\), alors \\(\\bar{B} \\in \\mathcal{A}\\). - Si \\(\\displaystyle\\bigcup_{n} A_{n} \\in \\mathcal{A}\\).\nUn événement est un sous-ensemble de (). L’ensemble () regroupe les événements pour lesquels on peut attribuer une probabilité.\n\nExemple : Si on s’intéresse aux événements “obtenir un nombre pair” et “obtenir un nombre impair”, on peut définir : [ = { , {2,4,6}, {1,3,5}, } ]",
-    "crumbs": [
-      "Probabilités",
-      "Espace probabilisé"
-    ]
-  },
-  {
-    "objectID": "proba/espace_proba.html#tribu-mathcala-des-événements-sur-omega",
-    "href": "proba/espace_proba.html#tribu-mathcala-des-événements-sur-omega",
-    "title": "Espace probabilisé",
-    "section": "Tribu \\(\\mathcal{A}\\) des événements sur \\(\\Omega\\)",
-    "text": "Tribu \\(\\mathcal{A}\\) des événements sur \\(\\Omega\\)\nUne famille \\(\\mathcal{A}\\) de parties de \\(\\Omega\\) est appelée tribu si elle vérifie les propriétés suivantes :\n\n\\(\\mathcal{A}\\) est non vide\nSi \\(B\\) est un élément de \\(\\mathcal{A}\\), alors \\(\\overline{B} \\in \\mathcal{A}\\), où \\(\\overline{B}\\) désigne le complémentaire de \\(B\\) dans \\(\\Omega\\)\nSi pour tout \\(n\\in\\mathbb{N}\\) on a \\(B_n\\in\\mathcal{A}\\), alors \\[\\displaystyle\\bigcup_{n} B_{n} \\in \\mathcal{A}\\]\n\nLes éléments de \\(\\mathcal{A}\\) sont appelés événements, et \\(\\Omega\\) est l’événement certain.",
-    "crumbs": [
-      "Probabilités",
-      "Espace probabilisé"
-    ]
-  },
-  {
-    "objectID": "proba/espace_proba.html#probabilité",
-    "href": "proba/espace_proba.html#probabilité",
-    "title": "Espace probabilisé",
-    "section": "Probabilité ",
-    "text": "Probabilité \nC’est une fonction qui associe à chaque événement ( A ) un nombre réel entre \\(0\\) et \\(1\\), respectant les règles suivantes :\n\n( P() = 1 ) (l’événement certain a une probabilité de 1).\n( P() = 0 ) (l’événement impossible a une probabilité de 0).\nPour des événements disjoints ( A_1, A_2, A_3, ), la probabilité de leur union est la somme des probabilités individuelles : [ P(A_1 A_2 A_3 ) = P(A_1) + P(A_2) + P(A_3) + ]",
-    "crumbs": [
-      "Probabilités",
-      "Espace probabilisé"
-    ]
-  },
-  {
-    "objectID": "proba/espace_proba.html#probabilité-mathbbp",
-    "href": "proba/espace_proba.html#probabilité-mathbbp",
-    "title": "Espace probabilisé",
-    "section": "Probabilité \\(\\mathbb{P}\\)",
-    "text": "Probabilité \\(\\mathbb{P}\\)\nUne probabilité \\(\\mathbb{P}\\) est une application de \\(\\mathcal{A}\\) dans \\([0,1]\\), c’est à dire \\[ \\mathbb{P} : \\mathcal{A} \\mapsto [0,1]\\] vérifiant les propriétés :\n\n\\(\\mathbb{P}(\\Omega)=1\\), l’événement certain a une probabilité de \\(1\\)\n\\(\\mathbb{P}(\\emptyset)=0\\), l’événement impossible a une probabilité de \\(0\\)\nSi \\(\\left(B_n\\right)_n\\) est une suite (éventuellement finie) d’éléments de \\(\\mathcal{A}\\) deux à deux incompatibles, c’est à dire \\(A_i \\cap A_j=\\emptyset\\) si \\(i \\neq j\\) , alors \\[\\mathbb{P}\\left(\\bigcup_n A_n\\right)=\\sum_n \\ \\mathbb{P}\\left(A_n\\right)\\] autrement dit pour des événements disjoints \\(A_1, A_2, A_3, \\dots\\), la probabilité de leur union est la somme de leurs probabilités individuelles \\[P\\left(A_1 \\cup A_2 \\cup A_3 \\cup \\dots\\right) = P(A_1) + P(A_2) + P(A_3) + \\dots\\]",
-    "crumbs": [
-      "Probabilités",
-      "Espace probabilisé"
-    ]
-  },
-  {
-    "objectID": "proba/espace_proba.html#univers-omega",
-    "href": "proba/espace_proba.html#univers-omega",
-    "title": "Espace probabilisé",
-    "section": "",
-    "text": "Pour le jet d’une pièce de monnaie, \\(\\Omega=\\{0,1\\}\\) convient, où 0 représente pile et 1 représente face.\nPour le lancé d’une fléchette sur une cible, \\(\\Omega=\\) un disque du plan euclidien convient.\nPour la durée de vie d’une ampoule électrique, \\(\\Omega=\\mathbb{R}^{+}\\).\nPour le lancé d’un dé, \\(\\Omega=\\{1,2,3,4,5,6\\}\\).",
-    "crumbs": [
-      "Probabilités",
-      "Espace probabilisé"
-    ]
-  },
-  {
-    "objectID": "proba/espace_proba.html#propriété",
-    "href": "proba/espace_proba.html#propriété",
-    "title": "Espace probabilisé",
-    "section": "Propriété",
-    "text": "Propriété\nSoit \\(A\\) et \\(B\\) deux événements quelconques (i.e. \\(A, B \\in S\\) ). Alors\n\n\\(\\mathbb{P}(\\bar{A})=1-\\mathbb{P}(A)\\),\n\\(\\mathbb{P}(\\emptyset)=0\\),\n\\(\\mathbb{P}(B)=\\mathbb{P}(A \\cap B)+\\mathbb{P}(\\bar{A} \\cap B)\\),\n\\(\\mathbb{P}(A \\cup B)=\\mathbb{P}(A)+\\mathbb{P}(B)-\\mathbb{P}(A \\cap B)\\).",
-    "crumbs": [
-      "Probabilités",
-      "Espace probabilisé"
-    ]
-  },
-  {
-    "objectID": "proba/proba_condi.html",
-    "href": "proba/proba_condi.html",
-    "title": "Probabilité conditionnelle",
-    "section": "",
-    "text": "Preuve.\nProbabilités conditionnelles\nReprenons l’exemple du dé. Notons \\(A\\) l’événement “on obtient un 2” et \\(B\\) l’événement “on n’obtient pas 1”. L’événement \\(A \\cap B\\) est égal à \\(A\\) car si on obtient 2 et pas 1 , c’est qu’on a obtenu 2 tout court. Donc \\(\\mathbb{P}(A \\cap B)=1 / 6\\). De plus, \\(\\mathbb{P}(B)=5 / 6\\) car il y a 5 résultats favorables sur 6 si on n’obtient pas 1 .\nSupposons maintenant qu’on sache que \\(B\\) est vérifié, c’est-à-dire qu’on n’a pas obtenu 1 . Dans ce cas, la probabilité d’obtenir 2 est de \\(1 / 5\\), car il n’y a plus que 5 résultats possibles (et on est toujours dans un cas équiprobable). On remarque que cette probabilité vaut exactement \\(\\mathbb{P}(A \\cap B) / \\mathbb{P}(B)\\). C’est ce qu’on appelle une probabilité conditionnelle.\nDéfinition 6 Soit \\(A\\) et \\(B\\) deux événements tels que \\(\\mathbb{P}(B) \\neq 0\\). On appelle probabilité conditionnelle de \\(A\\) sachant \\(B\\) (c’est-à-dire sachant que \\(B\\) est réalisé), notée \\(\\mathbb{P}(A / B)\\) le quotient :\n\\[\n\\mathbb{P}(A / B)=\\frac{\\mathbb{P}(A \\cap B)}{\\mathbb{P}(B)}\n\\]\nProposition 7 Soit \\(B\\) un événement de probabilité \\(\\mathbb{P}(B)\\) non nulle. Alors \\(\\mathbb{Q}(A)=\\mathbb{P}(A / B)\\) est une probabilité sur \\(S\\).\nPreuve. Il suffit de montrer que \\(\\mathbb{Q}\\) vérifie bien les propriétés de la définition d’une probabilité.\n\\[\n0 \\leq \\mathbb{Q}(A)=\\mathbb{P}(A / B) \\leq 1\n\\]\ncar \\(\\mathbb{P}(B)=\\mathbb{P}(A \\cap B)+\\mathbb{P}(\\bar{A} \\cap B) \\geq \\mathbb{P}(A \\cap B)\\).\n\\[\n\\mathbb{Q}(\\Omega)=\\mathbb{P}(\\Omega / B)=\\frac{\\mathbb{P}(\\Omega \\cap B)}{\\mathbb{P}(B)}=\\frac{\\mathbb{P}(B)}{\\mathbb{P}(B)}=1\n\\]\n\\[\n\\mathbb{Q}\\left(\\bigcup_{n} A_{n}\\right)=\\mathbb{P}\\left(\\left(\\bigcup_{n} A_{n}\\right) / B\\right)=\\frac{\\mathbb{P}\\left(\\left(\\bigcup_{n} A_{n}\\right) \\cap B\\right)}{\\mathbb{P}(B)}=\\frac{\\mathbb{P}\\left(\\bigcup_{n}\\left(A_{n} \\cap B\\right)\\right)}{\\mathbb{P}(B)}=\\sum_{n} \\frac{\\mathbb{P}\\left(A_{n} \\cap B\\right)}{\\mathbb{P}(B)}=\\sum_{n} \\mathbb{P}\\left(A_{n} / B\\right)\n\\]\nOn a bien vérifié toutes les propriétés, donc \\(\\mathbb{Q}\\) est une probabilité sur \\(S\\). Définition 8 Soit \\(\\left(A_{i}\\right)_{i \\in I}\\) une famille (finie) d’événements (en général non impossibles, i.e. \\(\\mathbb{P}\\left(A_{i}\\right)&gt;0\\) pour tout \\(i\\) ). On dira que c’est un système complet d’événements si :\n\\[\n\\bigcup_{i \\in I} A_{i}=\\Omega \\quad \\text { et } \\quad A_{i} \\cap A_{j}=\\emptyset, \\quad \\forall i \\neq j .\n\\]\nProposition 9 Soit \\(\\left(A_{i}\\right)_{i \\in I}\\) un système complet d’événements et soit \\(B\\) un événement quelconque. Alors :\n\\[\n\\mathbb{P}(B)=\\sum_{i \\in I} \\mathbb{P}\\left(B \\cap A_{i}\\right)\n\\]\nPreuve. Puisque \\(\\left(A_{i}\\right)_{i \\in I}\\) est un système complet d’événements, \\(\\bigcup_{i \\in I} A_{i}=\\Omega\\). On peut écrire :\n\\[\n\\mathbb{P}(B)=\\mathbb{P}(B \\cap \\Omega)=\\mathbb{P}\\left(B \\cap\\left(\\bigcup_{i \\in I} A_{i}\\right)\\right)=\\mathbb{P}\\left(\\bigcup_{i \\in I}\\left(B \\cap A_{i}\\right)\\right)\n\\]\nOr, par définition d’un système complet, les \\(A_{i}\\) sont deux à deux incompatibles. Les \\(B \\cap A_{i}\\) le sont donc aussi, et on a bien finalement :\n\\[\n\\mathbb{P}(B)=\\sum_{i \\in I} \\mathbb{P}\\left(B \\cap A_{i}\\right)\n\\]\nProposition 10 Soit \\(\\left(A_{i}\\right)_{i \\in I}\\) un système complet d’événements et \\(B\\) un événement vérifiant \\(\\mathbb{P}(B) \\neq 0\\) et \\(\\mathbb{P}\\left(A_{i}\\right) \\neq 0 \\forall i \\in I\\). Alors,\n1 .\n\\[\n\\mathbb{P}(B)=\\sum_{i \\in I} \\mathbb{P}\\left(B / A_{i}\\right) \\mathbb{P}\\left(A_{i}\\right)\n\\]\n\\[\n\\mathbb{P}\\left(A_{k} / B\\right)=\\frac{\\mathbb{P}\\left(A_{k}\\right) \\mathbb{P}\\left(B / A_{k}\\right)}{\\sum_{i \\in I} \\mathbb{P}\\left(A_{i}\\right) \\mathbb{P}\\left(B / A_{i}\\right)} \\quad \\forall k \\in I\n\\]\nOn a un corollaire immédiat : Corollaire 11 Soit \\(A\\) et \\(B\\) deux événements vérifiant \\(\\mathbb{P}(B) \\neq 0\\) et \\(0&lt;\\mathbb{P}(A)&lt;1\\). Alors :\n\\[\n\\mathbb{P}(A / B)=\\frac{\\mathbb{P}(B / A) \\mathbb{P}(A)}{\\mathbb{P}(A) \\mathbb{P}(B / A)+\\mathbb{P}(\\bar{A}) \\mathbb{P}(B / \\bar{A})}\n\\]\nDémontrons la proposition précédente.\n\\[\n\\mathbb{P}(B)=\\sum_{i \\in I} \\mathbb{P}\\left(B \\cap A_{i}\\right) .\n\\]\nPuisque \\(\\mathbb{P}\\left(B / A_{i}\\right)=\\frac{\\mathbb{P}\\left(B \\cap A_{i}\\right)}{\\mathbb{P}\\left(A_{i}\\right)}\\), on a bien :\n\\[\n\\mathbb{P}(B)=\\sum_{i \\in I} \\mathbb{P}\\left(B / A_{i}\\right) \\mathbb{P}\\left(A_{i}\\right) .\n\\]\n\\[\n\\mathbb{P}\\left(A_{k} / B\\right)=\\frac{\\mathbb{P}\\left(B / A_{k}\\right) \\mathbb{P}\\left(A_{k}\\right)}{\\mathbb{P}(B)}\n\\]\nEn utilisant le résultat du 1 . et en remplaçant \\(\\mathbb{P}(B)\\), on obtient bien :\n\\[\n\\mathbb{P}\\left(A_{k} / B\\right)=\\frac{\\mathbb{P}\\left(A_{k}\\right) \\mathbb{P}\\left(B / A_{k}\\right)}{\\sum_{i \\in I} \\mathbb{P}\\left(A_{i}\\right) \\mathbb{P}\\left(B / A_{i}\\right)}\n\\]",
-    "crumbs": [
-      "Probabilités",
-      "Probabilité conditionnelle"
-    ]
-  },
-  {
-    "objectID": "proba/proba_condi.html#preuve.",
-    "href": "proba/proba_condi.html#preuve.",
-    "title": "Probabilité conditionnelle",
-    "section": "",
-    "text": "On a vu (prop 1.3.2) que:\n\n\n\n\n\nPar définition des probabilités conditionnelles, \\(\\mathbb{P}\\left(A_{k} / B\\right)=\\frac{\\mathbb{P}\\left(A_{k} \\cap B\\right)}{\\mathbb{P}(B)}\\). On peut donc écrire, en utilisant le même raisonnement que ci-dessus :",
-    "crumbs": [
-      "Probabilités",
-      "Probabilité conditionnelle"
-    ]
-  },
-  {
-    "objectID": "proba/proba_condi.html#evénements-indépendants",
-    "href": "proba/proba_condi.html#evénements-indépendants",
-    "title": "Probabilité conditionnelle",
-    "section": "6 Evénements indépendants",
-    "text": "6 Evénements indépendants\nPrenons une urne contenant des jetons numérotés de 1 à \\(N\\). Considérons les événements \\(A=\\) “obtenir le jeton 1 au premier tirage” et \\(B=\\) “obtenir le jeton 1 au deuxième tirage”. Si les tirages se font sans remise et que l’événement \\(A\\) est réalisé, l’événement \\(B\\) ne peut pas être réalisé. Par contre, si les tirages se font avec remise, le fait que l’événement \\(A\\) soit réalisé ou non n’influe pas sur la probabilité que \\(B\\) soit réalisé et vice-versa. C’est ce qu’on appelle des événements indépendants.\nProposition 12 Soit \\(A\\) et \\(B\\) deux événements de probabilité non nulle. Alors les trois énoncés suivants sont équivalents :\n\n\\(\\mathbb{P}(A / B)=\\mathbb{P}(A)\\)\n\\(\\mathbb{P}(B / A)=\\mathbb{P}(B)\\)\n\\(\\mathbb{P}(A \\cap B)=\\mathbb{P}(A) \\mathbb{P}(B)\\).\n\nPreuve. Elle se fait facilement par succession d’équivalence :\n\\[\n\\begin{aligned}\n\\mathbb{P}(A / B)=\\mathbb{P}(A) & \\Longleftrightarrow \\frac{\\mathbb{P}(A \\cap B)}{\\mathbb{P}(B)}=\\mathbb{P}(A) \\\\\n& \\Longleftrightarrow \\mathbb{P}(A \\cap B)=\\mathbb{P}(A) \\mathbb{P}(B) \\\\\n& \\Longleftrightarrow \\frac{\\mathbb{P}(B \\cap A)}{\\mathbb{P}(A)}=\\mathbb{P}(B) \\\\\n& \\Longleftrightarrow \\mathbb{P}(B / A)=\\mathbb{P}(B)\n\\end{aligned}\n\\]\nDéfinition 13 Deux événements \\(A\\) et \\(B\\) sont dits indépendants (noté \\(A \\amalg B\\) ) si et seulement si :\n\\[\n\\mathbb{P}(A \\cap B)=\\mathbb{P}(A) \\mathbb{P}(B)\n\\]\nProposition 14 Soit \\(A\\) et \\(B\\) deux événements. Alors on \\(a\\) :\n\n\\(A \\coprod A \\Longleftrightarrow \\mathbb{P}(A)=0\\) ou \\(\\mathbb{P}(A)=1\\).\n\\(A \\coprod B \\Longleftrightarrow A \\coprod \\bar{B} \\Longleftrightarrow \\bar{A} \\coprod B \\Longleftrightarrow \\bar{A} \\coprod \\bar{B}\\).",
-    "crumbs": [
-      "Probabilités",
-      "Probabilité conditionnelle"
-    ]
-  },
-  {
-    "objectID": "proba/proba_condi.html#preuve.-1",
-    "href": "proba/proba_condi.html#preuve.-1",
-    "title": "Probabilité conditionnelle",
-    "section": "Preuve.",
-    "text": "Preuve.\n\n\\(A \\coprod A \\Longleftrightarrow \\mathbb{P}(A \\cap A)=\\mathbb{P}^{2}(A) \\Longleftrightarrow \\mathbb{P}(A)(1-\\mathbb{P}(A))=0 \\Longleftrightarrow \\mathbb{P}(A)=0\\) ou \\(\\mathbb{P}(A)=1\\).\nIl suffit de montrer la première équivalence, les autres sont alors automatiques.\n\n\\[\n\\left.\\begin{array}{rl}\nA \\amalg B & \\Longleftrightarrow \\mathbb{P}(A \\cap B)=\\mathbb{P}(A) \\mathbb{P}(B) \\\\\n& \\Longleftrightarrow \\mathbb{P}(A \\cap B)=\\mathbb{P}(A)(1-\\mathbb{P}(\\bar{B}) \\\\\n& \\Longleftrightarrow \\mathbb{P}(A) \\mathbb{P}(\\bar{B})=\\mathbb{P}(A)-\\mathbb{P}(A \\cap B)\n\\end{array} \\Longleftrightarrow \\mathbb{P}(A) \\mathbb{P}(\\bar{B})=\\mathbb{P}(A \\cap B)+\\mathbb{P}(A \\cap \\bar{B})-\\mathbb{P}(A \\cap B), \\vec{B}\\right)=\\mathbb{P}(A \\cap \\bar{B}) \\quad \\Longleftrightarrow A \\coprod \\bar{B} .\n\\]\nOn peut étendre cette notion d’événements indépendants à une famille : Définition 15 Une famille d’événements \\(\\left(A_{i}\\right)_{i \\in I}\\) est dite indépendante si pour toute sous-famille finie \\(\\left(A_{i_{1}}, A_{i_{2}}, \\ldots, A_{i_{n}}\\right)\\) de cette famille, on a :\n\\[\n\\mathbb{P}\\left(\\bigcap_{j=1}^{n} A_{i_{j}}\\right)=\\prod_{j=1}^{n} \\mathbb{P}\\left(A_{i_{j}}\\right) .\n\\]\nOn retrouve les mêmes propriétés que pour deux événements indépendants. ATTENTION, le fait que les événements \\(\\left(A_{i}\\right)_{i \\in I}\\) sont indépendants entraîne qu’ils sont indépendants deux à deux, mais la réciproque est fausse. Exercice On lance une pièce deux fois de suite. Soit \\(A\\) l’événement “obtenir face au premier jet”, \\(B\\) l’événement “obtenir face au deuxième jet”, et \\(C\\) l’événement “obtenir deux résultats différents”. Montrer que les événements \\(A, B, C\\) sont deux à deux indépendants, mais que la famille \\((A, B, C)\\) n’est pas indépendante.",
-    "crumbs": [
-      "Probabilités",
-      "Probabilité conditionnelle"
-    ]
-  },
-  {
-    "objectID": "proba/chaines_de_markov.html",
-    "href": "proba/chaines_de_markov.html",
-    "title": "Chaines de Markov",
-    "section": "",
-    "text": "Bonus.\ncf cours de Jean-François Delmas, Ecole des Ponts ParisTech",
-    "crumbs": [
-      "Probabilités",
-      "Chaines de Markov"
-    ]
-  },
-  {
-    "objectID": "index.html#licence",
-    "href": "index.html#licence",
-    "title": "Statistiques et analyse de données",
-    "section": "Licence",
-    "text": "Licence\nà définir…",
-    "crumbs": [
-      "Introduction"
-    ]
-  },
-  {
-    "objectID": "stat_descriptive/analyse_univarie.html",
-    "href": "stat_descriptive/analyse_univarie.html",
-    "title": "Analyse univariée",
-    "section": "",
-    "text": "Cadre d’étude\nLa méthode utilisé est la suivante :\nLes méthodes à employer pour effectuer cette analyse vont dépendre du type de variable :",
-    "crumbs": [
-      "Statistiques descriptives",
-      "Analyse univariée"
-    ]
-  },
-  {
-    "objectID": "stat_descriptive/analyse_univarie.html#variable-quantitative-discrète",
-    "href": "stat_descriptive/analyse_univarie.html#variable-quantitative-discrète",
-    "title": "Analyse univariée",
-    "section": "Variable quantitative discrète",
-    "text": "Variable quantitative discrète\n\nDonnées brutes\nOn demande à l’ensemble des étudiants d’une promotion combien ils ont de plantes chez eux. L’effectif total de la promotion est de 50 étudiants.\nLes données brutes sont :\n1, 4, 10, 5, 14, 13, 14, 2, 13, 2, 2, 4, 7, 5, 5, 5, 11, 8, 15, 10, 2, 7, 10, 15, 2, 4, 6, 6, 4, 3, 5, 11, 13, 3, 10, 10, 12, 13, 14, 6, 16, 4, 15, 15, 16, 5, 5, 3, 15, 8\n\n\n\nTableau Statistiques\nOn présente ces données dans un tableau statistique, où\n\n\\(x_i\\) est une des valeurs que peut prendre la variable étduidée \\(X\\), où \\(X\\) est ici le nombre de plantes dans un appartement\n\\(n_i\\) est le nombre d’occurences de \\(x_i\\), ou encore l’effectif de \\(x_i\\)\n\\(N_i\\) est l’effectif cumulé de \\(x_i\\) \\[N_i = \\sum_{k=1}^i n_k\\]\n\\(n\\) est l’effectif total, ici \\(n=50\\)\n\\(f_i\\) est la fréquence de \\(x_i\\) (comprise entre \\(0\\) et \\(1\\)) \\[f_i = \\frac{n_i}{n}\\]\n\\(F_i\\) est la fréquence cumulée de \\(x_i\\) (comprise entre \\(0\\) et \\(1\\)) \\[F_i = \\frac{N_i}{n}\\]\n\\(p_i\\) est la proportion de \\(x_i\\), elle correspond simplement à \\(f_i\\) exprimée en pourcentage \\[p_i = f_i \\times 100\\]\n\\(P_i\\) est la proportion cumulée de \\(x_i\\), elle correspond simplement à \\(F_i\\) exprimée en pourcentage \\[P_i = F_i \\times 100\\]\n\n\n\n\n\n\n\nTableau statistique\n\n\n\n\n\n\n\n\n\\(x_i\\)\n\\(n_i\\)\n\\(N_i\\)\n\\(f_i\\)\n\\(F_i\\)\n\\(p_i\\)\n\\(P_i\\)\n\n\n\n\n0\n0\n0\n0\n0\n0\n0\n\n\n1\n1\n1\n0.02\n0.02\n2\n2\n\n\n2\n5\n6\n0.10\n0.12\n10\n12\n\n\n3\n3\n9\n0.06\n0.18\n6\n18\n\n\n4\n5\n14\n0.10\n0.28\n10\n28\n\n\n5\n7\n21\n0.14\n0.42\n14\n42\n\n\n6\n3\n24\n0.06\n0.48\n6\n48\n\n\n7\n2\n26\n0.04\n0.52\n4\n52\n\n\n8\n2\n28\n0.04\n0.56\n4\n56\n\n\n9\n0\n28\n0\n0.56\n0\n56\n\n\n10\n5\n33\n0.10\n0.66\n10\n66\n\n\n11\n2\n35\n0.04\n0.70\n4\n70\n\n\n12\n1\n36\n0.02\n0.72\n2\n72\n\n\n13\n4\n40\n0.08\n0.80\n8\n80\n\n\n14\n3\n43\n0.06\n0.86\n6\n86\n\n\n15\n5\n48\n0.10\n0.96\n10\n96\n\n\n16\n2\n50\n0.04\n1.00\n4\n100\n\n\n\n\n\n\nce que l’on peut également faire avec R de la façon suivante :\n\nOn déclare notre vecteur avec l’ensemble des réponses des étudiant-es\n\n\nnb_plantes &lt;- c(1, 4, 10, 5, 14, 13, 14, 2, 13, 2, 2, 4, 7, 5, 5, 5, 11, 8, 15, 10, 2, 7, 10, 15, 2, 4, 6, 6, 4, 3, 5, 11, 13, 3, 10, 10, 12, 13, 14, 6, 16, 4, 15, 15, 16, 5, 5, 3, 15, 8)\n\n\nOn calcule ensuite les \\(n_i\\)\n\n\neff_partiel &lt;- table(nb_plantes)\neff_partiel\n\nnb_plantes\n 1  2  3  4  5  6  7  8 10 11 12 13 14 15 16 \n 1  5  3  5  7  3  2  2  5  2  1  4  3  5  2 \n\n\n\nPuis les \\(N_i\\)\n\n\neff_cumul &lt;- cumsum(eff_partiel)\neff_cumul\n\n 1  2  3  4  5  6  7  8 10 11 12 13 14 15 16 \n 1  6  9 14 21 24 26 28 33 35 36 40 43 48 50 \n\n\n\nL’effectif total\n\n\neff_tot &lt;- sum(eff_partiel)\neff_tot\n\n[1] 50\n\n\n\nLa fréquence \\(f_i\\) des \\(x_i\\) par deux méthodes\n\n\nfreq_partiel_methode_1 &lt;- prop.table(eff_partiel)\nfreq_partiel_methode_1\n\nnb_plantes\n   1    2    3    4    5    6    7    8   10   11   12   13   14   15   16 \n0.02 0.10 0.06 0.10 0.14 0.06 0.04 0.04 0.10 0.04 0.02 0.08 0.06 0.10 0.04 \n\nfreq_partiel_methode_2 &lt;- eff_partiel/eff_tot\nfreq_partiel_methode_2\n\nnb_plantes\n   1    2    3    4    5    6    7    8   10   11   12   13   14   15   16 \n0.02 0.10 0.06 0.10 0.14 0.06 0.04 0.04 0.10 0.04 0.02 0.08 0.06 0.10 0.04 \n\n\n\nLa frequence cumulée \\(F_i\\) correspondante\n\n\nfreq_cumul_methode_1 &lt;- cumsum(freq_partiel_methode_1)\nfreq_cumul_methode_1\n\n   1    2    3    4    5    6    7    8   10   11   12   13   14   15   16 \n0.02 0.12 0.18 0.28 0.42 0.48 0.52 0.56 0.66 0.70 0.72 0.80 0.86 0.96 1.00 \n\nfreq_cumul_methode_2 &lt;- cumsum(freq_partiel_methode_2)\nfreq_cumul_methode_2\n\n   1    2    3    4    5    6    7    8   10   11   12   13   14   15   16 \n0.02 0.12 0.18 0.28 0.42 0.48 0.52 0.56 0.66 0.70 0.72 0.80 0.86 0.96 1.00 \n\n\n\nLa proportion \\(p_i\\)\n\n\nfreq_partiel_methode_1_pct &lt;- prop.table(eff_partiel)*100\nfreq_partiel_methode_1_pct\n\nnb_plantes\n 1  2  3  4  5  6  7  8 10 11 12 13 14 15 16 \n 2 10  6 10 14  6  4  4 10  4  2  8  6 10  4 \n\nfreq_partiel_methode_2_pct &lt;- (eff_partiel/eff_tot)*100\nfreq_partiel_methode_2_pct\n\nnb_plantes\n 1  2  3  4  5  6  7  8 10 11 12 13 14 15 16 \n 2 10  6 10 14  6  4  4 10  4  2  8  6 10  4 \n\n\n\nLa poportion cumulée \\(P_i\\)\n\n\nfreq_cumul_methode_1_pct &lt;- freq_cumul_methode_1*100\nfreq_cumul_methode_1_pct\n\n  1   2   3   4   5   6   7   8  10  11  12  13  14  15  16 \n  2  12  18  28  42  48  52  56  66  70  72  80  86  96 100 \n\nfreq_cumul_methode_2_pct &lt;- freq_cumul_methode_2*100\nfreq_cumul_methode_2_pct\n\n  1   2   3   4   5   6   7   8  10  11  12  13  14  15  16 \n  2  12  18  28  42  48  52  56  66  70  72  80  86  96 100 \n\n\n\n\nReprésentation graphique\n\nReprésentation tige feuille (stem and leaf)\n\n\nstem(nb_plantes)\n\n\n  The decimal point is at the |\n\n   0 | 0\n   2 | 00000000\n   4 | 000000000000\n   6 | 00000\n   8 | 00\n  10 | 0000000\n  12 | 00000\n  14 | 00000000\n  16 | 00\n\n\n\n\n\n\n\n\nERROR\n\n\n\nProblème en sortie pour stem(nb_plantes). Je m’occupe de fixer ce petit problème au plus vite.\n\n\n\nDiagramme en batons\n\n\nbarplot(eff_partiel,main = \"Diagranne en bâtons des effectifs partiels\")\n\n\n\n\n\n\n\nbarplot(freq_partiel_methode_1,main = \"Diagranne en bâtons des fréquence partiels\")\n\n\n\n\n\n\n\n\n\nDiagramme cumulatif\n\nLe diagramme cumulatif peut être tracé pour \\(N_i\\) et \\(F_i\\). Lorsqu’il est tracé à l’aide des fréquences cumulés \\(F_i\\), alors on dit qu’il représente la fonction de répartition.\n\nplot(eff_cumul, type=\"s\", main=\"Diagramme cummulatif en effectif\", xlab=\"x (nbre de plantes)\", ylab=\"Effectif cumulé\")\n\n\n\n\n\n\n\nplot(freq_cumul_methode_1, type=\"s\", main=\"Diagramme cummulatif en frequence\", xlab=\"x (nbre de plantes)\", ylab=\"F(x) (fréquence cumulée)\")\n\n\n\n\n\n\n\n\nCette dernière courbe correspond à la courbe de la fonction de répartition \\(F(x)\\) que nous allons définir dans la suite.\n\n\nFonction de répartition\nOn appelle fonction de répartition d’une variable statistique quantitative toute application définie par : \\[ F(x) = \\left|\n\\begin{array}{cl}\n0 &\\mbox{ si } \\ x &lt; x_i \\\\\nF_i &\\mbox{ si } \\ x_i \\leq x &lt; x_{i+1} \\\\\n1 &\\mbox{ si } \\ x \\geq x_r\n\\end{array}\n\\right.\\]\noù \\(r\\) désigne l’odre de la dernière valeur (modalité).\nLa fonction de répartition \\(F\\) est une fonction en escalier.\n\n\nQuantiles\nUn objet utile pour la suite.\n\n\n\n\n\n\nAvertissement\n\n\n\nPour déterminer un quantile, il faut toujours travailler avec une serie statistique ordonnée.\n\n\nDe façon empirique, on peut dire que le quantile d’ordre \\(\\alpha\\), noté \\(x_\\alpha\\), est une valeur qui partage la serie statistique en deux sous ensemble qui contiennent respectivement un nombre d’observations égale à \\(n\\alpha\\) et \\(n\\left(1-\\alpha\\right)\\), où \\(n\\) est l’effectif total de la serie statistique et \\(\\alpha\\) une proportion comprise entre \\(0\\) et \\(1\\).\n\n\n\n\n\n\nQuantile d’ordre \\(\\alpha\\)\n\n\n\nSoit la série statistique brute \\[\\{x_i\\}_{1 \\leq i \\leq n}\\] donnant la lieu à la série statistique ordonnée \\[\\{x_{(i)}\\}_{1 \\leq i \\leq n}.\\] On considère la proportion \\(\\alpha\\) où \\(0 \\leq \\alpha \\leq 1\\).\n\nSi \\(n\\alpha\\) n’est pas un entier, alors le quantile d’ordre \\(\\alpha\\), noté \\(x_\\alpha\\) est égale à \\(x_{([n\\alpha])}\\).\nSi \\(n\\alpha\\) est un entier, alors\n\n1ère convention (lorsque l’effectif est impaire) : le quantile d’ordre \\(\\alpha\\), noté \\(x_\\alpha\\), est égale à \\[x_{(n\\alpha)}\\]\n2ème convention (lorsque l’effectif est paire) : le quantile d’ordre \\(\\alpha\\), noté \\(x_\\alpha\\), est égale à \\[\\frac{x_{(n\\alpha)}+x_{(n\\alpha+1)}}{2}\\]\n\n\n\n\n\n\nLes valeurs centrales\nIl existe trois valeurs centrales :\n\nLe mode\nLa médiane\nLa moyenne\n\nAprès avoir appris à les calculer on étudiera leurs propriétés puis on verra comment la comparaison des trois valeurs centrales permet de rendre compte de la forme d’une distribution et quelles sont les valeurs centrales qui presentent les propriétés les plus intéressantes.\n\nLe mode\nLe mode d’une série statistique est la valeur avec l’effectif le plus élévé, ou la fréquence la plus élevée.\n\n\nLa médiane\nLe quantile d’ordre \\(\\displaystyle\\frac12\\) correspond à la mediane.\nDans notre exemple, \\(n=50\\), donc \\(n\\) est paire, d’où \\[x_{(n\\alpha)} = x_{\\frac{1}{2}} = \\frac{x_{(25)}+x_{(26)}}{2} = 7\\]\nLa mediane est insensible aux variations des valeurs extrèmes.\n\ntri_nb_plantes &lt;- sort(nb_plantes)\ntri_nb_plantes\n\n [1]  1  2  2  2  2  2  3  3  3  4  4  4  4  4  5  5  5  5  5  5  5  6  6  6  7\n[26]  7  8  8 10 10 10 10 10 11 11 12 13 13 13 13 14 14 14 15 15 15 15 15 16 16\n\n(tri_nb_plantes[25]+tri_nb_plantes[26])/2\n\n[1] 7\n\nmedian(nb_plantes)\n\n[1] 7\n\n\n\n\nLa moyenne arithmétique\nLa moyenne arithmétique est le paramètre de tendance centrale le plus utilisé. La moyenne est très sensible aux valeurs extrèmes, c’est un paramètre peu robuste. On le note \\(\\overline{x}\\) et est définie par \\[\\overline{x} = \\sum_{i=1}^n f_i x_i = f_1 x_1 + f_2 x_2 + f_3 x_3 + \\dots + f_4 x_4\\]\nAvec R on a\n\nmean(nb_plantes)\n\n[1] 8.16\n\n\n\n\nComparaison des valeurs centrales\nDistributions bimodales ou multimodales significatives. La distribution ne peut pas être résumée par une seule valeur. Elle se compose de deux groupes très différenciés. \\(\\Rightarrow\\) le meilleur résumé est alors donné par les modes principaux et secondaires de la distribution.\nDistribution unimodales symétriques Lorsque la distribution est unimodale et symétrique, on va trouver à peu près moyenne \\(=\\) médiane \\(=\\) mode . \\(\\Rightarrow\\) le meilleur résumé est alors donné par la moyenne car elle tient compte de toutes les observations et elle possède des propriétés statistiques intéressantes.\nDistributions unimodales dissymétriques: Deux cas peuvent se présenter : - mode &lt; médiane &lt; moyenne : la distribution est dissymétrique à gauche, c’est à dire qu’ily a concentration pour les valeurs faibles et dispersion pour les valeurs fortes. C’est le cas le plus fréquent. - moyenne &lt; médiane &lt;mode : la distribution est dissymétrique à droite, c’est à dire qu’il y a concentration pourles valeurs élevées et dispersion pour les valeurs faibles. Ce cas est plus rare que le précédent. on pourra néanmoins utiliser la moyenne.\n\n\nPropriétés de Yule\nLe statisticien Yule (XIXème siècle) a définis six propriétés souhaitables pour les valeurs centrales.\n\nEtre définie de façon objective partition en classe adoptée.\nDépendre de toutes les observations\nAvoir une signification concrète\nEtre simple à calculer\nEtre peu sensible aux fluctuations d’échantillonage\nSe prêter au calcul algébrique\n\nLe tableau ci-dessous permet de résumer les avantages et inconvénients des trois valeurs centrales.\n\n\n\n\n\n\n\n\n\nPropriétés de Yule\nMode\nMédiane\nMoyenne\n\n\n\n\nDéfinie de façon objective\n-\n+\n+\n\n\nDépend de toutes les observations\n-\n-\n+\n\n\nSignification concrète\n+\n+\n-\n\n\nSimple à calculer\n+\n+\n+\n\n\nPeu sensible aux fluctuations d’echantillonage\n-\n+\n-\n\n\nSe prête au calcul algébrique\n-\n-\n+\n\n\n\n\n\n\nLes paramètres de dispersion\nUne série numérique peut être résumée par deux paramètres statistiques :\n\nle centre d’une distribution des valeurs, représentant leur tendance d’ensemble\nLa dispersion des valeurs, représentant leur variabilité\n\n\nLes quartiles\nLe quantile d’ordre \\(\\frac14\\) correspond au premier quartile \\(Q_1\\).\nLe quantile d’ordre \\(\\frac34\\) correspond au troisième quartile \\(Q_3\\).\n\n\nLes déciles\nblabla\n\n\nLes centiles\nblablabla\n\nEtendue ou intervalle de variation \\[\\left|x_{max} - x_{min}\\right|\\] dependance des valeurs extrèmes, donc instable\nintervalle interquartile \\[\\left|Q_3 - Q_1\\right|\\]\nVariance \\[\\sigma^2 = \\frac{1}{n} \\sum_{i=1}^n \\left( x_i - \\overline{x} \\right)^2\\]\nEcart type : \\(\\sigma\\)\n\n\n\n\nRésumé numérique\nBoxplot\n\nboxplot(nb_plantes)",
-    "crumbs": [
-      "Statistiques descriptives",
-      "Analyse univariée"
-    ]
-  },
-  {
-    "objectID": "stat_descriptive/analyse_univarie.html#variable-quantitative-continue",
-    "href": "stat_descriptive/analyse_univarie.html#variable-quantitative-continue",
-    "title": "Analyse univariée",
-    "section": "Variable quantitative continue",
-    "text": "Variable quantitative continue\n\nDonnée brutes\nblabla\n\n\nTableaux statistiques\nblabla\n\n\nReprésentation graphique\nblabla\n\n\nFonction de répartition\nblabla\n\n\nLes valeurs centrales\nblabla\n\n\nLes paramètres de dispersion\nblabla\n\n\nRésumé numérique\nblabla",
-    "crumbs": [
-      "Statistiques descriptives",
-      "Analyse univariée"
-    ]
-  },
-  {
-    "objectID": "stat_descriptive/analyse_univarie.html#variable-qualitative",
-    "href": "stat_descriptive/analyse_univarie.html#variable-qualitative",
-    "title": "Analyse univariée",
-    "section": "Variable qualitative",
-    "text": "Variable qualitative",
-    "crumbs": [
-      "Statistiques descriptives",
-      "Analyse univariée"
-    ]
-  },
-  {
-    "objectID": "stat_descriptive/analyse_univarie.html#cadre-détude",
-    "href": "stat_descriptive/analyse_univarie.html#cadre-détude",
-    "title": "Analyse univariée",
-    "section": "",
-    "text": "On récupère des données brutes, suites à des mesures, sondages, etc.\nOn présente ensuite nos données dans un tableau statistique\nOn visualise nos résultat avec des représentations graphiques adaptées\nEnfin on réalise un résumé numérique de notre analyse.\n\n\n\nVariable quantitative discrète\nVariable quantitative continue\nVariable qualitative",
-    "crumbs": [
-      "Statistiques descriptives",
-      "Analyse univariée"
-    ]
-  },
-  {
-    "objectID": "stat_descriptive/exos.html#cas-discret",
-    "href": "stat_descriptive/exos.html#cas-discret",
+    "objectID": "stat_descriptive/exos.html",
+    "href": "stat_descriptive/exos.html",
     "title": "Exercices",
     "section": "",
-    "text": "Exercice 1\nPour étudier le nombre de tortues au Seychelles, on a relevé la population de tortues sur 1000 zones et on a obtenu les résultats suivants (résultats completement fictifs !) :\n\n\n\nNombre de tortues\n0\n1\n2\n3\n4\n5\n6\n7\n8\n\n\n\n\nNombre de zones\n162\n240\n297\n208\n62\n16\n8\n5\n2\n\n\n\n\nDemonstration of pipe table syntax\n\n\nDefault\nLeft\nRight\nCenter\n\n\n\n\n12\n12\n12\n12\n\n\n123\n123\n123\n123\n\n\n1\n1\n1\n1",
+    "text": "Statistiques univariées",
     "crumbs": [
       "Statistiques descriptives",
       "Exercices"
-    ]
-  },
-  {
-    "objectID": "stat_descriptive/exos.html#exercice-1",
-    "href": "stat_descriptive/exos.html#exercice-1",
-    "title": "Exercices",
-    "section": "",
-    "text": "Tableau statistique\n\n\n\n\n\n\n\n\n\\([e_i,e_{i+1}]\\)\n\\(f_i\\)\n\\(F_i\\)\n\\(p_i\\)\n\\(P_i\\)\n\\(a_i\\)\n\\(d_i\\)\n\n\n\n\n[0,5[\n0.0285\n\n\n\n\n\n\n\n[5,10[\n0.0996\n\n\n\n\n\n\n\n[10,15[\n0.1358\n\n\n\n\n\n\n\n[15,20[\n0.1286\n\n\n\n\n\n\n\n[20,25[\n0.1141\n\n\n\n\n\n\n\n[25,30[\n0.0947\n\n\n\n\n\n\n\n[30,40[\n0.1361\n\n\n\n\n\n\n\n[40,50[\n0.0815\n\n\n\n\n\n\n\n[50,70[\n0.0796\n\n\n\n\n\n\n\n[70,120[\n0.1015\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDéterminer la population et la variables étudiée (en précisant son type).\nReprésenter graphiquement la distribution des proportions.\nDéterminer la classe modale de la variable.\nReprésenter graphiquement la proportion des étudiant-es ayant un trajet compris entre 7 et 22 minutes. Calculer cette proportion.\nCalculer, à l’aide de la fonction de répartition, la proportion d’étudiant-es mettant moins de 35 minutes pour venir à l’école. Même question pour un temps de trajet compris entre 17 et 35 minutes.\nDéterminer la moyenne et l’écart-type de la variable.\nDéterminer la médiane, les quartiles ainsi que les premier et neuvièmes déciles.\nReprésenter graphiquement la fonction de répartition.",
-    "crumbs": [
-      "Statistiques descriptives",
-      "Exercices"
-    ]
-  },
-  {
-    "objectID": "stat_descriptive/exos.html#exercice-varaible-continue",
-    "href": "stat_descriptive/exos.html#exercice-varaible-continue",
-    "title": "Exercices",
-    "section": "",
-    "text": "Tableau statistique\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\([e_i,e_{i+1}]\\)\n\\(f_i\\)\n\\(F_i\\)\n\\(p_i\\)\n\\(P_i\\)\n\\(a_i\\)\n\\(c_i\\)\n\\(d_i\\)\n\n\n\n\n[0,5[\n0.0285\n\n\n\n\n\n\n\n\n[5,10[\n0.0996\n\n\n\n\n\n\n\n\n[10,15[\n0.1358\n\n\n\n\n\n\n\n\n[15,20[\n0.1286\n\n\n\n\n\n\n\n\n[20,25[\n0.1141\n\n\n\n\n\n\n\n\n[25,30[\n0.0947\n\n\n\n\n\n\n\n\n[30,40[\n0.1361\n\n\n\n\n\n\n\n\n[40,50[\n0.0815\n\n\n\n\n\n\n\n\n[50,70[\n0.0796\n\n\n\n\n\n\n\n\n[70,120[\n0.1015\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDéterminer la population et la variables étudiée (en précisant son type).\nReprésenter graphiquement la distribution des proportions.\nDéterminer la classe modale de la variable.\nReprésenter graphiquement la proportion des étudiant-es ayant un trajet compris entre 7 et 22 minutes. Calculer cette proportion.\nCalculer, à l’aide de la fonction de répartition, la proportion d’étudiant-es mettant moins de 35 minutes pour venir à l’école. Même question pour un temps de trajet compris entre 17 et 35 minutes.\nDéterminer la moyenne et l’écart-type de la variable.\nDéterminer la médiane, les quartiles ainsi que les premier et neuvièmes déciles.\nReprésenter graphiquement la fonction de répartition.",
-    "crumbs": [
-      "Statistiques descriptives",
-      "Exercices"
-    ]
-  },
-  {
-    "objectID": "stat_descriptive/exos.html#exercice-boxplot-et-intervalles-de-variations",
-    "href": "stat_descriptive/exos.html#exercice-boxplot-et-intervalles-de-variations",
-    "title": "Exercices",
-    "section": "Exercice (Boxplot et intervalles de variations)",
-    "text": "Exercice (Boxplot et intervalles de variations)\nLe temps de trajet domicile - lieu de la pratique sportive (en minutes) déclaré par les étudiant-es istomiens a été récolté. On a commencé à remplir le tableau statistique suivant.\n\n\n\n\n\n\nTableau statistique\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\([e_i,e_{i+1}]\\)\n\\(f_i\\)\n\\(F_i\\)\n\\(p_i\\)\n\\(P_i\\)\n\\(a_i\\)\n\\(c_i\\)\n\\(d_i\\)\n\n\n\n\n[0,5[\n\n0.0337\n\n\n\n\n\n\n\n[5,10[\n\n0.144\n\n\n\n\n\n\n\n[10,15[\n\n0.294\n\n\n\n\n\n\n\n[15,20[\n\n0.4522\n\n\n\n\n\n\n\n[20,25[\n\n0.5971\n\n\n\n\n\n\n\n[25,30[\n\n0.655\n\n\n\n\n\n\n\n[30,35[\n\n0.7869\n\n\n\n\n\n\n\n[35,45[\n\n0.846\n\n\n\n\n\n\n\n[45,60[\n\n0.9201\n\n\n\n\n\n\n\n[60,90[\n\n0.9722\n\n\n\n\n\n\n\n[90,150[\n\n1\n\n\n\n\n\n\n\n\n\n\n\n\nReprésenter la boîte à moustache.\nDéterminer l’intervalle de variation à \\(75 \\%\\).\nDéterminer l’intervalle de variation à \\(95 \\%\\).",
-    "crumbs": [
-      "Statistiques descriptives",
-      "Exercices"
-    ]
-  },
-  {
-    "objectID": "stat_descriptive/exos.html#variable-quantitative-discrètes",
-    "href": "stat_descriptive/exos.html#variable-quantitative-discrètes",
-    "title": "Exercices",
-    "section": "Variable Quantitative Discrètes",
-    "text": "Variable Quantitative Discrètes\n\nExercice 2\nPour un exerice de PIDEx, un groupe d’étudiant-es releve le nombre de piments sur chaque planche de culture d’une exploitation agricole. Les donnée brutes sont les suivantes :\n12,6,8,3,15,4,8,9,10,5,6,12,8,10\n\nDéterminer la population (en précisant sa taille et les individus qui la compose), les variables étudiées, leur type et les modalités qu’elles prennent.\nDéterminer la distribution des proportions de la variable «nombre de piments».\nReprésenter graphiquement la distribution des proportions.\nDéterminer le mode de la variable.\nDéterminer la moyenne de la variable.\nDéterminer l’écart-type de la variable.\nDéterminer la médiane de la variable à partir des données individuelles.\n\n\n\n\n\n\n\nCorrection Ex. 2\n\n\n\n\n\ncoming.\n\n\n\n\n\nExercice 3\nUn étudiant en stage de fin d’étude fait un contrôle de qualité sur des parcelles de goyaviers. Il souhaite évaluer l’importance de la production en goyave sur chacune des parcelle. Pour cela il atribue une note sur 5 pour chaque goyavier de chaque parcelle. La noté de 0 étant un goyavier sans aucun fruit, et 5 un abondant de fruits. Les parcelles sont notée A, B, C et D.\nPour chacune des parcelle déterminer la médiane à partir du tableau de distribution des effectifs.\n\n\n\n\n\n\nParcelle A\n\n\n\n\n\n\n\n\nNote\nEffectif \\(n_i\\)\n\n\n\n\n0\n3\n\n\n1\n5\n\n\n2\n8\n\n\n3\n6\n\n\n4\n2\n\n\n5\n1\n\n\n\n\n\n\n\n\n\n\n\n\nParcelle B\n\n\n\n\n\n\n\n\nNote\nEffectif \\(n_i\\)\n\n\n\n\n0\n5\n\n\n1\n12\n\n\n2\n8\n\n\n3\n4\n\n\n4\n2\n\n\n5\n3\n\n\n\n\n\n\n\n\n\n\n\n\nParcelle C\n\n\n\n\n\n\n\n\nNote\nEffectif \\(n_i\\)\n\n\n\n\n0\n1\n\n\n1\n11\n\n\n2\n2\n\n\n3\n4\n\n\n4\n10\n\n\n5\n7\n\n\n\n\n\n\n\n\n\n\n\n\nParcelle D\n\n\n\n\n\n\n\n\nNote\nEffectif \\(n_i\\)\n\n\n\n\n0\n2\n\n\n1\n1\n\n\n2\n5\n\n\n3\n10\n\n\n4\n9\n\n\n5\n3\n\n\n\n\n\n\n\n\n\n\n\n\nCorrection Ex. 3\n\n\n\n\n\ncoming.",
-    "crumbs": [
-      "Statistiques descriptives",
-      "Exercices"
-    ]
-  },
-  {
-    "objectID": "stat_descriptive/exos.html#variable-quantitatives-continues",
-    "href": "stat_descriptive/exos.html#variable-quantitatives-continues",
-    "title": "Exercices",
-    "section": "Variable Quantitatives Continues",
-    "text": "Variable Quantitatives Continues\n\nExercice (Variable continue)\nLa répartition des étudiant-es cette année selon la durée de trajet (en minute) pour se rendre à l’ISTOM est donné par le tableau statistique ci-dessous.\n\n\n\n\n\n\nTableau statistique\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\([e_i,e_{i+1}[\\)\n\\(f_i\\)\n\\(F_i\\)\n\\(p_i\\)\n\\(P_i\\)\n\\(a_i\\)\n\\(c_i\\)\n\\(d_i\\)\n\n\n\n\n[0,5[\n0.0285\n\n\n\n\n\n\n\n\n[5,10[\n0.0996\n\n\n\n\n\n\n\n\n[10,15[\n0.1358\n\n\n\n\n\n\n\n\n[15,20[\n0.1286\n\n\n\n\n\n\n\n\n[20,25[\n0.1141\n\n\n\n\n\n\n\n\n[25,30[\n0.0947\n\n\n\n\n\n\n\n\n[30,40[\n0.1361\n\n\n\n\n\n\n\n\n[40,50[\n0.0815\n\n\n\n\n\n\n\n\n[50,70[\n0.0796\n\n\n\n\n\n\n\n\n[70,120[\n0.1015\n\n\n\n\n\n\n\n\n\n\n\n\navec \\(d_i\\) la fréquence relative. La durée de trajet maximale a été arbitrairement choisie à 120 min pour les besoins de l’exercice.\n\nDéterminer la population et la variables étudiée (en précisant son type).\nReprésenter graphiquement la distribution des proportions.\nDéterminer la classe modale de la variable.\nReprésenter graphiquement la proportion des étudiant-es ayant un trajet compris entre 7 et 22 minutes. Calculer cette proportion.\nCalculer, à l’aide de la fonction de répartition, la proportion d’étudiant-es mettant moins de 35 minutes pour venir à l’école. Même question pour un temps de trajet compris entre 17 et 35 minutes.\nDéterminer la moyenne et l’écart-type de la variable.\nDéterminer la médiane, les quartiles ainsi que les premier et neuvièmes déciles.\nReprésenter graphiquement la fonction de répartition.\n\n\n\nExercice (Boxplot et intervalles de variations)\nLe temps de trajet domicile - lieu de la pratique sportive (en minutes) déclaré par les étudiant-es istomiens a été récolté. On a commencé à remplir le tableau statistique suivant.\n\n\n\n\n\n\nTableau statistique\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\([e_i,e_{i+1}[\\)\n\\(f_i\\)\n\\(F_i\\)\n\\(p_i\\)\n\\(P_i\\)\n\\(a_i\\)\n\\(c_i\\)\n\\(d_i\\)\n\n\n\n\n[0,5[\n\n0.0337\n\n\n\n\n\n\n\n[5,10[\n\n0.144\n\n\n\n\n\n\n\n[10,15[\n\n0.294\n\n\n\n\n\n\n\n[15,20[\n\n0.4522\n\n\n\n\n\n\n\n[20,25[\n\n0.5971\n\n\n\n\n\n\n\n[25,30[\n\n0.655\n\n\n\n\n\n\n\n[30,35[\n\n0.7869\n\n\n\n\n\n\n\n[35,45[\n\n0.846\n\n\n\n\n\n\n\n[45,60[\n\n0.9201\n\n\n\n\n\n\n\n[60,90[\n\n0.9722\n\n\n\n\n\n\n\n[90,150[\n\n1\n\n\n\n\n\n\n\n\n\n\n\n\nReprésenter la boîte à moustache.\nDéterminer l’intervalle de variation à \\(75 \\%\\).\nDéterminer l’intervalle de variation à \\(95 \\%\\).",
-    "crumbs": [
-      "Statistiques descriptives",
-      "Exercices"
-    ]
-  },
-  {
-    "objectID": "stat_inf/tests.html",
-    "href": "stat_inf/tests.html",
-    "title": "Premiers pas sur les tests statistiques",
-    "section": "",
-    "text": "Tests d’hypothèses\nL’association Ma Cuisine Locale prépare avec soin, toute les semaines, les paniers de fruits et légumes de ses adhérents. Pour cela ils utilisent des cageots en bois fabriqués par une entreprise locale.\nL’entreprise vend ses cageots comme ayant une masse de 100 g chacun. Pour le plaisir de faire un peu de staistiques les étudiants se proposent de peser chacun des paniers et de vérifier par un test statistique si l’affirmation de l’entreprise est coorecte.\nUne balance est utilisée afin de peser chaque cageot.\nOn ne peut espérer que tous les cageots sortant de la machine de l’entreprise pèsent exactement 100 g. On peut seulement exiger que l’espérance mathématique des masses de tous les cageots produits soit de 100 g.\nAinsi, un ensemble de 50 cageots pèsera par exemple 4.97 kg. Doit-on en conclure que la machine est mal réglée ? Si, après avoir réglé différemment la machine, une nouvel ensemble de 50 cageots pèse 5.02 kg, peut-on en conclure que la machine est mieux réglée ?\nCe sont les tests de validité d’hypothèse qui permettent de prendre une décision. Ces décisions seront prises avec un certain risque a priori.\nLes notions seront abordées grâce à des exemples. Pour chaque test, on appliquera le cheminement suivant :",
-    "crumbs": [
-      "Statistiques inférentielles",
-      "Premiers pas sur les tests statistiques"
-    ]
-  },
-  {
-    "objectID": "stat_inf/tests.html#les-tests-dhypothèses",
-    "href": "stat_inf/tests.html#les-tests-dhypothèses",
-    "title": "Les tests Statistiques",
-    "section": "",
-    "text": "Construction et utilisation du test d’hypothèse.\n\n\n\n\nÉtape 1 : détermination de la variable aléatoire de décision et de ses paramètres,\nÉtape 2 : choix des deux hypothèses : l’hypothèse nulle \\(H_o\\) et l’hypothèse alternative \\(H_1\\),\nÉtape 3 : l’hypothèse nulle étant considérée comme vraie et compte tenu de l’hypothèse alternative, détermination de la zone critique selon le niveau de risque \\(\\alpha\\) choisi ou donné,\nÉtape 4 : rédaction d’une règle de décision.\nÉtape 5 : calcul des caractéristiques d’un échantillon particulier puis application de la règle de décision.\n\n\n\n\nTest bilatéral relatif à une moyenne\n\n\n\n\n\n\nExemple :\n\n\n\nUne machine produit des rondelles de légumes dont l’épaisseur est une variable aléatoire \\(X\\) d’écart type \\(0,3 \\mathrm{~mm}\\). La machine a été réglée pour obtenir des épaisseurs de 5 mm . Un contrôle portant sur un échantillon de 100 rondelles a donné \\(5,07 \\mathrm{~mm}\\) comme moyenne des épaisseurs de ces 100 rondelles. Peut-on affirmer que la machine est bien réglée au seuil de risque de \\(5 \\%\\) ?\n\n\n\n1. Variable aléatoire de décision\nSoit \\(\\mu\\) l’espérance mathématique de \\(X\\), c’est-à-dire la moyenne des épaisseurs de toutes les rondelles produites par la machine ainsi réglée.\nConsidérons la variable aléatoire \\(M\\) qui, à chaque échantillon de taille 100 individus, associe sa moyenne.\nLa taille des échantillons étant suffisamment grande, on considère que \\(M\\) suit la loi normale suivante \\[\\mathcal{N}\\left(\\mu \\ , \\frac{0,3}{\\sqrt{100}}\\right) = \\mathcal{N}\\left(\\mu \\ ; 0,03\\right)\\] \\(M\\) sera la variable aléatoire de décision.\n\n\n2. Choix des hypothèses\nOn estime que la machine est bien réglée, si la moyenne de toutes les rondelles produites par la machine est 5 mm. C’est donc l’hypothèse \\(\\mu=5\\) que nous allons tester. On l’appelle l’hypothèse nulle \\(H_0\\).\nSinon, on choisit comme hypothèse alternative l’hypothèse \\(H_1\\) suivante « \\(\\mu \\neq 5\\) ».\nRecherchons comment la moyenne \\(\\mu_e\\) d’un échantillon de 100 rondelles peut confirmer ou non l’hypothèse \\(H_0\\).\n\n\n3. Zone critique\nDons le cas où l’hypothèse \\(H_{0}\\) est vraie, la variable aléatoire \\(M\\) suit la loi \\(\\mathcal{N}(5 ; 0,03)\\), d’après l’énoncé.\nOn cherche alors le réel \\(d\\) tel que \\[P(5-d \\leq M \\leq 5+d)=0,95\\] La variable aléatoire \\(T=\\dfrac{M-5}{0,03}\\) suit la loi normale centrée réduite \\(\\mathcal{N}(0,1)\\), on a alors : \\[\n\\begin{align*}\nP(5-d \\leq M \\leq 5+d)=0,95\n&\\Longleftrightarrow\nP(5-d \\leq 0,03 T+5 \\leq 5+d) = 0,95 \\\\\n&\\Longleftrightarrow\nP\\left(-\\frac{d}{0,03} \\leq T \\leq \\frac{d}{0,03}\\right)=0,95 \\\\\n&\\Longleftrightarrow\n1- 2 P\\left(M &gt;\\frac{d}{0,03}\\right) =0,95 \\\\\n&\\Longleftrightarrow\nP\\left(M &gt; \\frac{d}{0,03}\\right) = 0,975\n\\end{align*}\n\\] On trouve alors \\[\\frac{d}{0,03}=1,96 \\Longleftrightarrow d=0,0588 \\approx 0,06\\] L’intervalle de confiance est donc l’intervalle : \\([5-0,06 ; 5+0,06]=[4,94 ; 5,06]\\).\n\nLa probabilité qu’un échantillon ait une moyenne située hors de cet intervalle étant 0,05, on peut considérer que cet événement est rare. Ainsi, la moyenne de notre échantillon \\(\\mu_{e}=5,07\\) (cf. énoncé) nous amène à douter de la validité de l’hypothèse \\(H_{0}\\).\nNe perdons pas de point de vue qu’il se peut, malgré tout, que la machine soit bien réglée et que notre échantillon fasse partie des \\(5 \\%\\) de ceux ayant une moyenne hors de l’intervalle trouvé. C’est pourquoi cette région est appelée zone critique.\n\n\n4. Règle de décision.\nSi la moyenne de l’échantillon n’est pas située dans la zone critique, on accepte \\(H_{0}\\), sinon, on refuse \\(H_{0}\\) et on accepte \\(H_{1}\\).\n\n\n5. Conclusion.\nPuisque 5, 07 appartient à la zone critique, on décide de rejeter l’hypothèse \\(H_{0}\\) et d’accepter l’hypothèse alternative \\(H_1 \\ : \\ \\mu \\neq 5\\) (la machine n’est pas bien réglée).\nDans un test de validité d’hypothèse, le seuil de risque \\(\\alpha\\) est la probabilité de rejeter \\(H_{0}\\) alors qu’elle est vraie.\n\n\n6. Avec R\n\nmoy &lt;- 10 # moyenne de la population.\nstd &lt;- 3 # écart-type de la population.\nplot(function(x) dnorm(x,moy,std),  moy-4*std, moy+4*std,main = \"\",lwd=3,xlab=\"Taille des pièces (en mm)\",ylab=\"Fréquence\")\nabline (v =c(5,15), col=\"red\",lwd=2,lty=3) # normes min et max\n\n\n\n\n\n\n\n\n\n\n\nTest unilatéral relatif à une moyenne\n\n\n\n\n\n\nExemple :\n\n\n\nLa durée de vie (en heures) des ampoules électriques produites par une usine est une variable aléatoire \\(X\\) d’écart type 120 . Le fabricant annonce qu’en moyenne, les ampoules ont une durée de vie de 1120 heures. On demande de rédiger une règle de décision pour vérifier l’affirmation du fabriquant, au seuil de risque de de \\(5 \\%\\), en testant un échantillon de 36 ampoules.\n\n\n\n\nTest unilatéral relatifs à une fréquence\n\n\n\n\n\n\nExemple :\n\n\n\nun joueur qui doit choisir au hasard une carte dans un jeu de 32 cartes obtient certains avantages s’il découvre un roi. On constate qu’il a retourné 134 fois un roi sur 800 essais. Peut-on présumer, au seuil de risque de \\(1 \\%\\), que ce joueur est un tricheur?",
-    "crumbs": [
-      "Statistiques inférentielles",
-      "Les tests Statistiques"
-    ]
-  },
-  {
-    "objectID": "stat_inf/tests.html#test-de-comparaison",
-    "href": "stat_inf/tests.html#test-de-comparaison",
-    "title": "Les tests Statistiques",
-    "section": "Test de comparaison",
-    "text": "Test de comparaison\n\nComparaison de deux moyennes\n\n\n\n\n\n\nExemple :\n\n\n\nUne entreprise fabrique des sacs en plastique pour déchets. Afin de surveiller la production, elle effectue des contrôles réguliers portant sur le poids maximum que les sacs peuvent supporter. Á une première date \\(t_1\\), le contrôle de 100 sacs a donné une moyenne de 58 kg et un écart type de 3 kg . A la seconde date \\(t_2\\), le contrôle de 150 sacs a donné une moyenne de 56 kg et un écart type de 5 kg . Peut-on considérer, au risque de \\(4 \\%\\), que la qualité des sacs a évolué entre les deux dates?\n\n\n\n\nComparaison de deux fréquences\n\n\n\n\n\n\nExemple :\n\n\n\nA l’issue d’un examen, il y a 23 reçus et 17 ajournés dans une classe et 15 reçus et 25 ajournés dans une autre classe. La différence observée entre les deux pourcentages de réussite est-elle significative d’une différence de niveau entre les deux classes, au seuil de \\(5 \\%\\)",
-    "crumbs": [
-      "Statistiques inférentielles",
-      "Les tests Statistiques"
-    ]
-  },
-  {
-    "objectID": "stat_inf/tests.html#tests-dhypothèses",
-    "href": "stat_inf/tests.html#tests-dhypothèses",
-    "title": "Premiers pas sur les tests statistiques",
-    "section": "",
-    "text": "Construction et utilisation du test d’hypothèse.\n\n\n\n\nÉtape 1 : détermination de la variable aléatoire de décision et de ses paramètres,\nÉtape 2 : choix des deux hypothèses : l’hypothèse nulle \\(H_o\\) et l’hypothèse alternative \\(H_1\\),\nÉtape 3 : l’hypothèse nulle étant considérée comme vraie et compte tenu de l’hypothèse alternative, détermination de la zone critique selon le niveau de risque \\(\\alpha\\) choisi ou donné,\nÉtape 4 : rédaction d’une règle de décision.\nÉtape 5 : calcul des caractéristiques d’un échantillon particulier puis application de la règle de décision.\n\n\n\n\nTest bilatéral relatif à une moyenne\n\n\n\n\n\n\nExemple :\n\n\n\nUne machine produit des rondelles de légumes dont l’épaisseur est une variable aléatoire X d’écart type 0,3 mm. La machine a été réglée pour obtenir des épaisseurs de 5 mm . Un contrôle portant sur un échantillon de 100 rondelles a donné 5,07 mm comme moyenne des épaisseurs de ces 100 rondelles.\nPeut-on affirmer que la machine est bien réglée au seuil de risque de 5% ?\n\n\n\n1. Variable aléatoire de décision\nSoit \\(\\mu\\) l’espérance mathématique de X, c’est-à-dire la moyenne des épaisseurs de toutes les rondelles produites par la machine ainsi réglée.\nConsidérons la variable aléatoire M qui, à chaque échantillon de taille 100 (individus), associe sa moyenne.\nLa taille des échantillons étant suffisamment grande, on considère que M suit la loi normale suivante\n\\[\\mathcal{N}\\left(\\mu \\ ; \\frac{0,3}{\\sqrt{100}}\\right) = \\mathcal{N}\\left(\\mu \\ ; 0,03\\right)\\]\nM sera la variable aléatoire de décision.\n\n\n2. Choix des hypothèses\nOn estime que la machine est bien réglée si la moyenne de toutes les rondelles produites par la machine est de 5 mm. C’est donc l’hypothèse \\(\\mu=5\\) que nous allons tester. On l’appelle l’hypothèse nulle \\(H_0\\).\nSinon, on choisit comme hypothèse alternative l’hypothèse \\(H_1\\) suivante « \\(\\mu \\neq 5\\) ».\n\n\n\n\n\n\nHypothèses\n\n\n\n\nHypothèse nulle : \\[H_0 : \\qquad \\mu = 5\\]\nHypothèse alternative : \\[H_1 : \\qquad \\mu \\neq 5\\]\n\n\n\nRecherchons comment la moyenne \\(\\mu_e\\) d’un échantillon de 100 rondelles peut confirmer ou non l’hypothèse \\(H_0\\).\n\n\n3. Zone critique\nDons le cas où l’hypothèse \\(H_{0}\\) est vraie, d’après l’énoncé la variable aléatoire M suit la loi \\[\\mathcal{N}(5 \\ ; \\ 0,03)\\]\nOn choisit un seuil de tolérance \\(\\alpha\\) égale à \\(5 \\%\\). On cherche alors le réel \\(d\\) tel que \\[P(5-d \\leq M \\leq 5+d)=0,95\\]\nNous allons centrer et réduire la loi de normale que suit M. La variable aléatoire T définie comme \\[T=\\dfrac{M-5}{0,03}\\] suit la loi normale centrée réduite \\(\\mathcal{N}(0,1)\\).\n\\[\\begin{align*}\nP(5-d \\leq M \\leq 5+d)=0,95\n&\\Longleftrightarrow\nP(5-d \\leq 0,03 T+5 \\leq 5+d) = 0,95 \\\\\n&\\Longleftrightarrow\nP\\left(-\\frac{d}{0,03} \\leq T \\leq \\frac{d}{0,03}\\right)=0,95\n\\end{align*}\\]\nOr\n\\[\\begin{align*}\nP\\left(-\\frac{d}{0,03} \\leq T \\leq \\frac{d}{0,03}\\right)\n&= P\\left(T \\leq \\frac{d}{0,03}\\right) - P\\left(T \\leq -\\frac{d}{0,03}\\right)\n\\end{align*}\\]\n\n\n\n\n\n\n\n\n\nde plus\n\\[P\\left(T \\leq \\frac{-d}{0,03}\\right) = P\\left(T \\geq \\frac{d}{0,03}\\right)\\] et\n\\[\nP\\left(T \\geq \\frac{d}{0,03}\\right) = 1 - P\\left(T \\leq \\frac{d}{0,03}\\right)\n\\] donc\n\\[P\\left(-\\frac{d}{0,03} \\leq T \\leq \\frac{d}{0,03}\\right)\n= 2 P\\left(T \\leq \\frac{d}{0,03}\\right) - 1\\]\nCe qui permet d’écrire\n\\[\\begin{align*}\nP(5-d \\leq M \\leq 5+d)=0,95\n&\\Longleftrightarrow\n2 P\\left(T \\leq \\frac{d}{0,03}\\right) - 1 = 0,95 \\\\\n&\\Longleftrightarrow\nP\\left(T \\leq \\frac{d}{0,03}\\right) = 0,975\n\\end{align*}\\]\nOn trouve par exemple à l’aide d’une table de la loi normale centrée réduite :\n\n\n\n\n\n\n\nTable de la loi normale centrée réduite :\n\n\n\nLa table permet de lire la probabilité suivante \\[P\\left(Z \\leq t\\right)\\] où on peut lire : - sur la premiére colonne la valeur du paramètre \\(t\\) avec une seule décimale - sur la première ligne la valeur de la deuxième décimale \\(t\\)\nDans le reste du tableau on peut lire la valeur de la probabilité suivante \\(P\\left(Z \\leq t\\right)\\).\nExemple : La combinaison de la dernière ligne et de la cinquième colonne nous permet décrire \\[P\\left(Z \\leq 3.54\\right) = 0,9998\\]\n\n\nOn peut donc lire\n\\[\\frac{d}{0,03}=1,96 \\Longleftrightarrow d=0,0588 \\approx 0,06\\]\nL’intervalle de confiance est donc l’intervalle : \\[[5-0,06 ; 5+0,06]=[4,94 ; 5,06]\\]\n\nLa probabilité qu’un échantillon ait une moyenne située hors de cet intervalle étant 0,05, on peut considérer que cet événement est rare. Ainsi, la moyenne de notre échantillon \\(\\mu_{e}=5,07\\) (cf. énoncé) nous amène à douter de la validité de l’hypothèse \\(H_{0}\\).\nNe perdons pas de point de vue qu’il se peut, malgré tout, que la machine soit bien réglée et que notre échantillon fasse partie des \\(5 \\%\\) de ceux ayant une moyenne hors de l’intervalle trouvé. C’est pourquoi cette région est appelée zone critique.\n\n\n4. Règle de décision.\nSi la moyenne de l’échantillon n’est pas située dans la zone critique, on accepte \\(H_{0}\\), sinon, on refuse \\(H_{0}\\) et on accepte \\(H_{1}\\).\n\n\n5. Conclusion.\nPuisque 5,07 appartient à la zone critique, on décide de rejeter l’hypothèse \\(H_{0}\\) et d’accepter l’hypothèse alternative \\(H_1 \\ : \\ \\mu \\neq 5\\) (la machine n’est pas bien réglée).\n\n\n\nTest unilatéral relatif à une moyenne\n\n\n\n\n\n\nExemple :\n\n\n\nLa durée de vie (en heures) des ampoules électriques produites par une usine est une variable aléatoire X d’écart type 120. Le fabricant annonce qu’en moyenne, les ampoules ont une durée de vie de 1120 heures.\nOn demande de rédiger une règle de décision pour vérifier l’affirmation du fabriquant, au seuil de risque de de 5 %, en testant un échantillon de 36 ampoules.\n\n\n\n\nTest unilatéral relatifs à une fréquence\n\n\n\n\n\n\nExemple :\n\n\n\nUn joueur qui doit choisir au hasard une carte dans un jeu de 32 cartes obtient certains avantages s’il découvre un roi. On constate qu’il a retourné 134 fois un roi sur 800 essais.\nPeut-on présumer, au seuil de risque de 1 %, que ce joueur est un tricheur?",
-    "crumbs": [
-      "Statistiques inférentielles",
-      "Premiers pas sur les tests statistiques"
-    ]
-  },
-  {
-    "objectID": "stat_inf/tests.html#tests-de-comparaison",
-    "href": "stat_inf/tests.html#tests-de-comparaison",
-    "title": "Premiers pas sur les tests statistiques",
-    "section": "Tests de comparaison",
-    "text": "Tests de comparaison\n\nComparaison de deux moyennes\n\n\n\n\n\n\nExemple :\n\n\n\nUne entreprise fabrique des sacs en plastique pour déchets. Afin de surveiller la production, elle effectue des contrôles réguliers portant sur le poids maximum que les sacs peuvent supporter.\nA une première date \\(t_1\\), le contrôle de 100 sacs a donné une moyenne de 58 kg et un écart type de 3 kg.\nA la seconde date \\(t_2\\), le contrôle de 150 sacs a donné une moyenne de 56 kg et un écart type de 5 kg.\nPeut-on considérer, au risque de 4 %, que la qualité des sacs a évolué entre les deux dates?\n\n\n\n\nComparaison de deux fréquences\n\n\n\n\n\n\nExemple :\n\n\n\nA l’issue d’un examen, il y a 23 reçus et 17 ajournés dans une classe et 15 reçus et 25 ajournés dans une autre classe.\nLa différence observée entre les deux pourcentages de réussite est-elle significative d’une différence de niveau entre les deux classes, au seuil de 5 % ?",
-    "crumbs": [
-      "Statistiques inférentielles",
-      "Premiers pas sur les tests statistiques"
-    ]
-  },
-  {
-    "objectID": "stat_inf/chi2.html",
-    "href": "stat_inf/chi2.html",
-    "title": "Les tests du \\(\\chi^2\\)",
-    "section": "",
-    "text": "Test d’ajustement\nDans les situations où on souhaite confronter des effectifs obtenus expérimentalement à des prévisions faites sur base d’hypothèses théoriques, et quand les effectfs en questions sont suffisamment grands (&gt; 5, typiquement), on a souvent recourt à un test de \\(\\chi^2\\).\nComme le montrent l’exemple suivant, le test de \\(\\chi^2\\) d’ajustement permet de vérifier si les données récoltées pour un échantillon correspondent à une distribution théorique de probabilité \\(P\\) définie à priori.\nPrenons l’exemple de la loi de Mendel :\nImaginons que deux lignées de souris, de génotypes respectifs AA et BB, sont croisées. Les produits du croisement (appelés F1 en génétique) seront tous de génotypes AB (ce qui signifie que, pour locus étudié, ils ont reçu une copie (appelée “allèle”) A d’un de leurs parents et une copie B de l’autre, ce qui est nécessairement le cas dans la situation décrite ici de croisement de lignées AA et BB). A la génération suivante, on croise des individus F1 (c’est-à-dire de génotypes AB) entre eux de manière aléatoire, pour générer des individus de seconde génération (notés F2). Sous l’hypothèse nulle où chaque individu F1 croisé a une probabilité de 50 % de transmettre l’allèle A et une probabilité de 50 % de transmettre l’allèle B, on peut déduire que les probabilités qu’un individu F2 ait un génotype AA, AB ou BB sont respectivement de 25 %, 50 % et 25 %.",
-    "crumbs": [
-      "Statistiques inférentielles",
-      "Les tests du $\\chi^2$"
-    ]
-  },
-  {
-    "objectID": "stat_inf/chi2.html#le-test-du-chi2-dajustement",
-    "href": "stat_inf/chi2.html#le-test-du-chi2-dajustement",
-    "title": "Les tests du \\(\\chi^2\\)",
-    "section": "",
-    "text": "Les hypothèses de ce test sont les suivantes :\n\n\n\n\nH0 : les données observées suivent la loi théorique\nH1 : les données observées ne suivent pas la loi théorique",
-    "crumbs": [
-      "Statistiques inférentielles",
-      "Les tests du $\\chi^2$"
-    ]
-  },
-  {
-    "objectID": "stat_inf/chi2.html#le-test-du-chi2-dindépendance",
-    "href": "stat_inf/chi2.html#le-test-du-chi2-dindépendance",
-    "title": "Les tests du \\(\\chi^2\\)",
-    "section": "Le test du \\(\\chi^2\\) d’indépendance",
-    "text": "Le test du \\(\\chi^2\\) d’indépendance",
-    "crumbs": [
-      "Statistiques inférentielles",
-      "Les tests du $\\chi^2$"
-    ]
-  },
-  {
-    "objectID": "stat_inf/chi2.html#le-test-du-chi2-dhomogénéité",
-    "href": "stat_inf/chi2.html#le-test-du-chi2-dhomogénéité",
-    "title": "Les tests du \\(\\chi^2\\)",
-    "section": "Le test du \\(\\chi^2\\) d’homogénéité",
-    "text": "Le test du \\(\\chi^2\\) d’homogénéité",
-    "crumbs": [
-      "Statistiques inférentielles",
-      "Les tests du $\\chi^2$"
-    ]
-  },
-  {
-    "objectID": "stat_inf/chi2.html#définition-générale",
-    "href": "stat_inf/chi2.html#définition-générale",
-    "title": "Les tests du \\(\\chi^2\\)",
-    "section": "1. Définition générale",
-    "text": "1. Définition générale\nLe test du Chi² d’ajustement (ou test de conformité) permet de vérifier si la distribution d’un échantillon observé correspond à une distribution théorique attendue. Il s’agit d’un test statistique non paramétrique, souvent utilisé pour des données catégorielles (qualitatives ou discrétisées).",
-    "crumbs": [
-      "Statistiques inférentielles",
-      "Les tests du $\\chi^2$"
-    ]
-  },
-  {
-    "objectID": "stat_inf/chi2.html#objectifs-du-test",
-    "href": "stat_inf/chi2.html#objectifs-du-test",
-    "title": "Les tests du \\(\\chi^2\\)",
-    "section": "2. Objectifs du test",
-    "text": "2. Objectifs du test\n\nComparer une distribution observée à une distribution théorique connue.\nTester l’hypothèse que les fréquences observées suivent une loi théorique (comme la loi uniforme, binomiale, de Poisson, etc.)",
-    "crumbs": [
-      "Statistiques inférentielles",
-      "Les tests du $\\chi^2$"
-    ]
-  },
-  {
-    "objectID": "stat_inf/chi2.html#hypothèses",
-    "href": "stat_inf/chi2.html#hypothèses",
-    "title": "Les tests du \\(\\chi^2\\)",
-    "section": "3. Hypothèses",
-    "text": "3. Hypothèses\n\nH₀ (hypothèse nulle) : les données suivent la distribution théorique.\nH₁ (hypothèse alternative) : les données ne suivent pas cette distribution.",
-    "crumbs": [
-      "Statistiques inférentielles",
-      "Les tests du $\\chi^2$"
-    ]
-  },
-  {
-    "objectID": "stat_inf/chi2.html#formule-du-test-du-chi²",
-    "href": "stat_inf/chi2.html#formule-du-test-du-chi²",
-    "title": "Les tests du \\(\\chi^2\\)",
-    "section": "4. Formule du test du Chi²",
-    "text": "4. Formule du test du Chi²\nLa statistique du test est :\n[ ^2 = _{i=1}^{k} ]\noù :\n\n( O_i ) = fréquence observée pour la modalité ( i ),\n( E_i ) = fréquence attendue (selon la loi théorique) pour la modalité ( i ),\n( k ) = nombre de modalités (ou classes).",
-    "crumbs": [
-      "Statistiques inférentielles",
-      "Les tests du $\\chi^2$"
-    ]
-  },
-  {
-    "objectID": "stat_inf/chi2.html#conditions-dapplication",
-    "href": "stat_inf/chi2.html#conditions-dapplication",
-    "title": "Les tests du \\(\\chi^2\\)",
-    "section": "5. Conditions d’application",
-    "text": "5. Conditions d’application\n\nLes observations doivent être indépendantes.\nL’effectif total doit être suffisamment grand (souvent ( n &gt; 30 )).\nLes fréquences théoriques ( E_i ) doivent être supérieures ou égales à 5 pour chaque modalité (ou regroupement si nécessaire).",
-    "crumbs": [
-      "Statistiques inférentielles",
-      "Les tests du $\\chi^2$"
-    ]
-  },
-  {
-    "objectID": "stat_inf/chi2.html#degrés-de-liberté",
-    "href": "stat_inf/chi2.html#degrés-de-liberté",
-    "title": "Les tests du \\(\\chi^2\\)",
-    "section": "6. Degrés de liberté",
-    "text": "6. Degrés de liberté\n[ = k - 1 - p ]\n\n( k ) = nombre de modalités (ou classes),\n( p ) = nombre de paramètres estimés à partir des données (ex : moyenne ou variance si la loi théorique n’est pas entièrement connue).",
-    "crumbs": [
-      "Statistiques inférentielles",
-      "Les tests du $\\chi^2$"
-    ]
-  },
-  {
-    "objectID": "stat_inf/chi2.html#étapes-du-test",
-    "href": "stat_inf/chi2.html#étapes-du-test",
-    "title": "Les tests du \\(\\chi^2\\)",
-    "section": "7. Étapes du test",
-    "text": "7. Étapes du test\n\nFormuler les hypothèses H₀ et H₁.\nCalculer les fréquences observées ( O_i ).\nCalculer les fréquences attendues ( E_i ) en fonction de la distribution théorique.\nCalculer la statistique du test ( ^2 ).\nDéterminer la valeur critique (ou p-value) à partir de la loi du ( ^2 ) avec les degrés de liberté.\nConclusion : si ( ^2_{} &gt; ^2_{} ), on rejette H₀.",
-    "crumbs": [
-      "Statistiques inférentielles",
-      "Les tests du $\\chi^2$"
-    ]
-  },
-  {
-    "objectID": "stat_inf/chi2.html#exemple-dapplication",
-    "href": "stat_inf/chi2.html#exemple-dapplication",
-    "title": "Les tests du \\(\\chi^2\\)",
-    "section": "8. Exemple d’application",
-    "text": "8. Exemple d’application\nContexte : Une entreprise affirme que les couleurs de ses produits sont uniformément réparties entre 5 couleurs. Sur un échantillon de 200 produits, on observe :\n\n\n\nCouleur\nRouge\nBleu\nVert\nJaune\nNoir\n\n\n\n\nObservé ( O_i )\n30\n50\n40\n35\n45\n\n\n\nFréquence attendue (uniforme) :\n( E_i = = 40 ) pour chaque couleur.\n[ ^2 = = + + = 6.25 ]\n\nddl = 5 - 1 = 4\n\nSeuil à 5% : ( ^2_{0.05, 4} )\n\nConclusion : 6.25 &lt; 9.49 → on ne rejette pas H₀ : les couleurs sont bien réparties de manière uniforme.",
-    "crumbs": [
-      "Statistiques inférentielles",
-      "Les tests du $\\chi^2$"
-    ]
-  },
-  {
-    "objectID": "stat_inf/chi2.html#interprétation",
-    "href": "stat_inf/chi2.html#interprétation",
-    "title": "Les tests du \\(\\chi^2\\)",
-    "section": "9. Interprétation",
-    "text": "9. Interprétation\n\nSi on rejette H₀, cela signifie que les écarts observés entre les fréquences observées et attendues sont trop grands pour être dus au hasard.\nSi on ne rejette pas H₀, les écarts peuvent être dus à la variabilité aléatoire.",
-    "crumbs": [
-      "Statistiques inférentielles",
-      "Les tests du $\\chi^2$"
-    ]
-  },
-  {
-    "objectID": "stat_inf/chi2.html#applications-courantes",
-    "href": "stat_inf/chi2.html#applications-courantes",
-    "title": "Les tests du \\(\\chi^2\\)",
-    "section": "10. Applications courantes",
-    "text": "10. Applications courantes\n\nÉtude de conformité d’un jeu de dés (uniformité).\nVérification de la loi de Poisson (ex : nombre d’appels téléphoniques par minute).\nAnalyse de répartition démographique (sexe, âge, catégories socio-pro).",
-    "crumbs": [
-      "Statistiques inférentielles",
-      "Les tests du $\\chi^2$"
-    ]
-  },
-  {
-    "objectID": "stat_inf/chi2.html#test-dajustement",
-    "href": "stat_inf/chi2.html#test-dajustement",
-    "title": "Les tests du \\(\\chi^2\\)",
-    "section": "",
-    "text": "Les hypothèses de ce test sont les suivantes :\n\n\n\n\nH0 : les données observées suivent la loi théorique\nH1 : les données observées ne suivent pas la loi théorique",
-    "crumbs": [
-      "Statistiques inférentielles",
-      "Les tests du $\\chi^2$"
     ]
   },
   {
@@ -1026,6 +191,313 @@
     "text": "Statistiques bivariées\n\nQualitative - Qualitative\n\nExercice 4.1\nUn site internet reçoit 113457 visiteurs durant un mois. On désigne par \\(X\\) le navigateur internet utilisé et \\(Y\\) le système d’exploitation utilisé.\n\n\n\n\nWindows\nMac\nLinux\n\n\n\n\nChrome\n14103\n1186\n427\n\n\nFirefox\n30853\n4392\n3234\n\n\nInternet Explorer\n47389\n23\n0\n\n\nSafari\n668\n6416\n0\n\n\nAutres\n2974\n40\n1752\n\n\n\n\nIdentifier la population, sa taille ainsi que les variables étudiées en précisant leur type.\nQuelle est la proportion de visiteurs sous Windows?\nQuelle proportion de visiteurs utilisent le navigateur Safari?\nParmi les utilisateurs de Mac, quelle proportion utilise Chrome?\nParmi les utilisateurs de Safari, quelle proportion est sous Windows?\nReprésenter graphiquement la distribution des proportions par Navigateur pour chaque système d’exploitation. Les variables \\(X\\) et \\(Y\\) sont-elles indépendantes?\n\n\n\n[stat-0001]\n\n\n\n\n\n\nQualitative - Quantitative\n\nExercice 5.1\nInfluence d’un incinérateur sur le taux de métaux lourds dans l’air.\nDans le tableau ci-dessous, sont relevées les valeurs du taux de plomb (en ng/m \\({ }^3\\) ) dans l’air pour trois stations ORAMIP de Toulouse : Eisenhower et Chapitre, qui sont situées à proximité de l’incinérateur de déchets du Mirail, et Berthelot, situé en zone urbaine, qui est caractéristique de l’air respiré par l’ensemble de la population toulousaine.\n\n\n\nEisenhower\nChapitre\nBerthelot\n\n\n\n\n7,6\n9,1\n7,5\n\n\n21,4\n13,1\n9,3\n\n\n12,4\n10,5\n10,2\n\n\n15,8\n8,3\n20,3\n\n\n14,8\n17,4\n10,3\n\n\n5,9\n9,4\n16,4\n\n\n12,5\n7,8\n13,3\n\n\n11,3\n12,2\n14,9\n\n\n\nOn considère ici la population des relevés de taux de plomb de taille 24 et les variables X (Taux de plomb dans l’air), et Y (Station).\n\nDe quels types sont les variables considérées?\nSur cet échantillon de relevés, peut-on considérer qu’il y a un lien important entre la station de relevé et le taux de plomb dans l’air?\nSi on considère maintenant la variable Z (Proximité de l’incinérateur), de type qualitative nominale, peut-on considérer qu’il y a un lien important entre X et Z ?\n\n\n\n\nQuantitative - Quantitative\n\nExercice 6.1\nEn 1885, Francis Galton publie un tableau de données comparant la taille \\(Y\\) des enfants avec la taille \\(X\\) de leurs parents (la taille des parents est égale à la moyenne de la taille du père et de la mère). Pour compenser les différences de tailles entre sexes, toutes les tailles des personnes de sexe féminin ont été multiplié par 1,08. Les tailles sont exprimées en pouces \\((1\\) pouce \\(=2,54 \\mathrm{~cm})\\).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(X \\backslash Y\\)\n160;61,7]\n161,7;63,7]\n163,7;65,7]\n165,7;67,7]\n167,7;69,7]\n]69,7;71,7]\n]71,7;73,7]\n173,7;75]\n\n\n\n\n]62;64]\n1\n2\n5\n4\n2\n0\n0\n0\n\n\n]64;66]\n2\n14\n17\n32\n16\n7\n1\n0\n\n\n166;68]\n0\n14\n36\n108\n93\n34\n4\n0\n\n\n168;70]\n1\n8\n47\n100\n135\n84\n22\n5\n\n\n170;72]\n1\n1\n2\n11\n38\n35\n18\n5\n\n\n]72;74]\n0\n0\n0\n0\n3\n3\n13\n4\n\n\n\nLes bornes des classes extrêmes ont été fixées arbitrairement pour les besoins de l’exercice.\n\nPréciser la population, les individus, la taille de la population ainsi que les variables étudiées.\nQuelle est la proportion d’enfants dont la taille est comprise entre 65,7 et 67,7?\nParmi les enfants dont la taille est comprise entre 71,7 et 73,7, quelle proportion a des parents dont la taille est entre 70 et 72 ?\nQuelle est la taille moyenne des enfants dont les parents ont une taille comprise entre 68 et 70 ? Convertir le résultat en centimètres.\nMême question pour la taille médiane.\nMême question pour l’écart-type.",
     "crumbs": [
       "Statistiques descriptives",
+      "Exercices"
+    ]
+  },
+  {
+    "objectID": "proba.html",
+    "href": "proba.html",
+    "title": "Probabilités",
+    "section": "",
+    "text": "Les probabilités sont une branche des mathématiques qui permet de mesurer et de quantifier l’incertitude. Que ce soit en jouant à un jeu de cartes, en prévoyant la météo ou en analysant des résultats sportifs, nous faisons constamment face à des situations incertaines. Les probabilités nous aident à mieux comprendre ces situations en attribuant des valeurs numériques aux chances qu’un événement se produise.\nL’objectif est de vous donner les outils nécessaires pour analyser et anticiper des événements incertains, une compétence précieuse en mathématiques mais aussi dans de nombreux domaines comme l’économie, l’agronomie ou les sciences général.",
+    "crumbs": [
+      "Probabilités"
+    ]
+  },
+  {
+    "objectID": "proba/lois_usuelles.html",
+    "href": "proba/lois_usuelles.html",
+    "title": "Lois usuelles",
+    "section": "",
+    "text": "Généralités",
+    "crumbs": [
+      "Probabilités",
+      "Lois usuelles"
+    ]
+  },
+  {
+    "objectID": "proba/lois_usuelles.html#généralités",
+    "href": "proba/lois_usuelles.html#généralités",
+    "title": "Lois usuelles",
+    "section": "",
+    "text": "Fonction de répartition d’une loi discrète\nSi X est une variable aléatoire telle que \\(\\mathrm{X}(\\Omega)=\\) \\(\\left\\{x_{1}, \\ldots, x_{n}\\right\\}\\), sa fonction de répartition est égale à\n\\[\n\\mathrm{F}_{\\mathrm{X}}(x)=\\mathrm{P}(\\mathrm{X} \\leqslant x)=\\sum_{\\substack{1 \\leqslant i \\leqslant n \\\\ x_{i} \\leqslant x}} \\mathrm{P}\\left(\\mathrm{X}=x_{i}\\right)\n\\]\n\n\nFonction de répartition d’une loi continue\nSi X est une variable aléatoire de densité \\(f\\), sa fonction de répartition est égale à\n\\[\n\\mathrm{F}_{\\mathrm{X}}(x)=\\mathrm{P}(\\mathrm{X} \\leqslant x)=\\int_{-\\infty}^{x} f(t) \\mathrm{d} t\n\\]\nOn a alors\n\\[\n\\mathrm{P}(\\mathrm{X}&gt;x)=1-\\mathrm{F}_{\\mathrm{X}}(x)\n\\]\net sa densité vaut \\(f(x)=\\mathrm{F}_{\\mathrm{X}}^{\\prime}(x)\\)\n\n\nProbabilités du min et du max\nSi les variables \\(\\mathrm{T}_{i}\\) sont indépendantes,\n\\[\n\\begin{aligned}\n& \\mathrm{P}\\left(\\max \\mathrm{~T}_{i} \\leqslant x\\right)=\\prod_{i=1}^{n} \\mathrm{P}\\left(\\mathrm{~T}_{i} \\leqslant x\\right) \\\\\n& \\mathrm{P}\\left(\\min \\mathrm{~T}_{i} \\leqslant x\\right)=1-\\prod_{i=1}^{n}\\left[1-\\mathrm{P}\\left(\\mathrm{~T}_{i} \\leqslant x\\right)\\right]\n\\end{aligned}\n\\]\nEspérance et variance dans le cas discret Si X est une variable aléatoire discrète,\n\\[\n\\begin{aligned}\n\\mathrm{E}(\\mathrm{X}) & =\\sum_{k=0}^{+\\infty} k \\mathrm{P}(\\mathrm{X}=k) \\\\\n\\mathrm{E}\\left(\\mathrm{X}^{2}\\right) & =\\sum_{k=0}^{+\\infty} k^{2} \\mathrm{P}(\\mathrm{X}=k) \\\\\n\\mathrm{V}(\\mathrm{X}) & =\\mathrm{E}\\left(\\mathrm{X}^{2}\\right)-\\mathrm{E}(\\mathrm{X})^{2}\n\\end{aligned}\n\\]\n\n\nEspérance et variance dans le cas continu\nSi X est une variable aléatoire continue de densité \\(f\\),\n\\[\n\\begin{aligned}\n\\mathrm{E}(\\mathrm{X}) & =\\int_{-\\infty}^{+\\infty} x f(x) \\mathrm{d} x \\\\\n\\mathrm{E}\\left(\\mathrm{X}^{2}\\right) & =\\int_{-\\infty}^{+\\infty} x^{2} f(x) \\mathrm{d} x \\\\\n\\mathrm{~V}(\\mathrm{X}) & =\\mathrm{E}\\left(\\mathrm{X}^{2}\\right)-\\mathrm{E}(\\mathrm{X})^{2}\n\\end{aligned}\n\\]\n\n\nPropriétés de l’espérance et de la variance\nSi X et Y sont deux variables aléatoires et \\(a\\) un réel,\n\\[\n\\begin{aligned}\n\\mathrm{E}(a \\mathrm{X}) & =a \\mathrm{E}(\\mathrm{X}) \\\\\n\\mathrm{E}(\\mathrm{X}+\\mathrm{Y}) & =\\mathrm{E}(\\mathrm{X})+\\mathrm{E}(\\mathrm{Y})\n\\end{aligned}\n\\]\nImportant : toujours calculer à l’intérieur de l’espérance avant de séparer les termes. Par exemple, \\(\\mathrm{E}\\left((\\mathrm{X}-a)^{2}\\right)=\\mathrm{E}\\left(\\mathrm{X}^{2}-2 a \\mathrm{X}+a^{2}\\right)=\\mathrm{E}\\left(\\mathrm{X}^{2}\\right)-2 a \\mathrm{E}(\\mathrm{X})+a^{2}\\) Si les \\(\\mathrm{X}_{i}\\) sont des variables aléatoires,\n\\[\n\\mathrm{E}\\left(\\frac{1}{n} \\sum_{i=1}^{n} \\mathrm{X}_{i}\\right)=\\frac{1}{n} \\sum_{i=1}^{n} \\mathrm{E}\\left(\\mathrm{X}_{i}\\right)\n\\]\net si elles sont indépendantes,\n\\[\n\\mathrm{V}\\left(\\frac{1}{n} \\sum_{i=1}^{n} \\mathrm{X}_{i}\\right)=\\frac{1}{n^{2}} \\sum_{i=1}^{n} \\mathrm{~V}\\left(\\mathrm{X}_{i}\\right)\n\\]",
+    "crumbs": [
+      "Probabilités",
+      "Lois usuelles"
+    ]
+  },
+  {
+    "objectID": "proba/lois_usuelles.html#principales-lois-discrètes",
+    "href": "proba/lois_usuelles.html#principales-lois-discrètes",
+    "title": "Lois usuelles",
+    "section": "Principales lois discrètes",
+    "text": "Principales lois discrètes\n\nLoi uniforme\n\\(\\mathrm{X}(\\Omega)=\\left\\{x_{1}, \\ldots, x_{n}\\right\\}\\) \\(\\mathrm{P}\\left(\\mathrm{X}=x_{i}\\right)=1 / n\\)\n\n\nLoi de Bernoulli\nLoi de Bernoulli \\(\\mathcal{B}(p)\\)\n\\(\\mathrm{X}(\\Omega)=\\{0,1\\}\\), paramètre \\(p\\) \\(\\mathrm{P}(\\mathrm{X}=1)=p, \\mathrm{P}(\\mathrm{X}=0)=1-p\\) \\(\\mathrm{E}(\\mathrm{X})=p, \\mathrm{~V}(\\mathrm{X})=p(1-p)\\)\n\n\nLoi binomiale\nLoi binomiale \\(\\mathcal{B}(n, p)\\)\n\\(\\mathrm{X}(\\Omega)=\\{0, \\ldots, n\\}\\), paramètre \\(p\\) \\(\\mathrm{P}(\\mathrm{X}=k)=\\binom{n}{k} p^{k}(1-p)^{n-k}\\) \\(\\mathrm{E}(\\mathrm{X})=n p, \\mathrm{~V}(\\mathrm{X})=n p(1-p)\\)\n\n\nLoi hypergéométrique\nLoi hypergéométrique \\(\\mathcal{H}\\left(\\mathrm{N}, n, \\mathrm{~N}_{\\mathrm{A}}\\right)\\)\nOn effectue \\(n\\) tirages sans remise dans une urne contenant N objets dont \\(\\mathrm{N}_{\\mathrm{A}} \\geqslant n\\) objets de type A . X est le nombre d’objets de type A obtenus. \\(\\mathrm{X}(\\Omega)=\\{1, \\ldots, n\\}\\), paramètres \\(\\mathrm{N}, n\\) et \\(\\mathrm{N}_{\\mathrm{A}}\\left(p=\\mathrm{N}_{\\mathrm{A}} / \\mathrm{N}\\right)\\) \\(\\mathrm{P}(\\mathrm{X}=k)=\\frac{\\binom{\\mathrm{N}_{\\mathrm{A}}}{k}\\binom{\\mathrm{~N}-\\mathrm{N}_{\\mathrm{A}}}{n-k}}{\\binom{\\mathrm{~N}}{k}}\\) \\(\\mathrm{E}(\\mathrm{X})=n p, \\mathrm{~V}(\\mathrm{X})=n p(1-p)(\\mathrm{N}-n) /(\\mathrm{N}-1)\\)\n\n\nLoi de Poisson\nLoi de Poisson \\(\\mathcal{P}(\\lambda)\\)\n\\(\\mathrm{X}(\\Omega)=\\mathbb{N}\\), paramètre \\(\\lambda\\) \\(\\mathrm{P}(\\mathrm{X}=k)=\\mathrm{e}^{-\\lambda} \\frac{\\lambda^{k}}{k!}\\) \\(\\mathrm{E}(\\mathrm{X})=\\lambda, \\mathrm{V}(\\mathrm{X})=\\lambda\\)\n\n\nLoi Géométrique\n\\(\\mathrm{X}(\\Omega)=\\mathbb{N}^{*}\\), paramètre \\(p\\) \\(\\mathrm{P}(\\mathrm{X}=k)=(1-p)^{k-1} p\\) \\(\\mathrm{E}(\\mathrm{X})=1 / p, \\mathrm{~V}(\\mathrm{X})=(1-p) / p^{2}\\)",
+    "crumbs": [
+      "Probabilités",
+      "Lois usuelles"
+    ]
+  },
+  {
+    "objectID": "proba/lois_usuelles.html#principales-lois-continues",
+    "href": "proba/lois_usuelles.html#principales-lois-continues",
+    "title": "Lois usuelles",
+    "section": "Principales lois continues",
+    "text": "Principales lois continues\n\nLoi uniforme\nLoi uniforme \\(\\mathcal{U}(a, b)\\)\n\\(\\mathrm{X}(\\Omega)=[a ; b]\\), paramètres \\(a\\) et \\(b\\) \\(f(x)= \\begin{cases}1 /(b-a) & \\text { si } x \\in[a ; b] \\\\ 0 & \\text { sinon }\\end{cases}\\) \\(\\mathrm{E}(\\mathrm{X})=(a+b) / 2, \\mathrm{~V}(\\mathrm{X})=(b-a)^{2} / 12\\)\n\n\nLoi exponentielle\nLoi exponentielle \\(\\mathcal{E}(\\lambda)\\)\n\\(\\mathrm{X}(\\Omega)=\\mathbb{R}^{+}\\), paramètre \\(\\lambda\\) \\(f(x)= \\begin{cases}1 / \\lambda \\mathrm{e}^{-x / \\lambda} & \\text { si } x \\geqslant 0 \\\\ 0 & \\text { sinon }\\end{cases}\\) \\(\\mathrm{E}(\\mathrm{X})=1 / \\lambda, \\mathrm{V}(\\mathrm{X})=1 / \\lambda^{2}\\)\n\n\nLoi normale\nLoi normale \\(\\mathcal{N}(m, \\sigma)\\)\n\\(\\mathrm{X}(\\Omega)=\\mathbb{R}\\), paramètres \\(m\\) (moyenne) et \\(\\sigma\\) (écart-type) \\(f(x)=\\frac{1}{\\sigma \\sqrt{2 \\pi}} \\exp \\left(-\\frac{(x-m)^{2}}{2 \\sigma^{2}}\\right) \\quad\\) si \\(x \\in \\mathbb{R}\\) \\(\\mathrm{E}(\\mathrm{X})=m, \\mathrm{~V}(\\mathrm{X})=\\sigma^{2}\\)\n\n\nLoi du khi-deux\nLoi du khi-deux \\(\\chi_{n}^{2}\\)\n\\(\\mathrm{X}(\\Omega)=\\mathbb{R}^{+}\\), paramètre \\(n\\) (degré de liberté) \\(\\mathrm{E}(\\mathrm{X})=n, \\mathrm{~V}(\\mathrm{X})=2 n\\)\n\n\nLoi de Student\nLoi de Student \\(\\mathrm{T}_{n}\\)\n\\(\\mathrm{X}(\\Omega)=\\mathbb{R}\\), paramètre \\(n\\) (degré de liberté) \\(\\mathrm{E}(\\mathrm{X})=0\\) pour \\(n&gt;1, \\mathrm{~V}(\\mathrm{X})=n /(n-2)\\) pour \\(n&gt;2\\)",
+    "crumbs": [
+      "Probabilités",
+      "Lois usuelles"
+    ]
+  },
+  {
+    "objectID": "proba/lois_usuelles.html#relations-entre-les-principales-lois",
+    "href": "proba/lois_usuelles.html#relations-entre-les-principales-lois",
+    "title": "Lois usuelles",
+    "section": "Relations entre les principales lois",
+    "text": "Relations entre les principales lois",
+    "crumbs": [
+      "Probabilités",
+      "Lois usuelles"
+    ]
+  },
+  {
+    "objectID": "proba/lois_usuelles.html#propriétés",
+    "href": "proba/lois_usuelles.html#propriétés",
+    "title": "Lois usuelles",
+    "section": "Propriétés",
+    "text": "Propriétés\nSi les variables \\(\\mathrm{X}_{i}\\) suivent une loi \\(\\mathcal{B}(p)\\) et sont indépendantes, alors la variable \\(\\sum_{i=1}^{n} \\mathrm{X}_{i}\\) suit une loi \\(\\mathcal{B}(n, p)\\).\nSi les variables \\(\\mathrm{X}_{i}\\) suivent une loi \\(\\mathcal{P}\\left(\\lambda_{i}\\right)\\) et sont indépendantes, alors la variable \\(\\sum_{i=1}^{n} \\mathrm{X}_{i}\\) suit une loi \\(\\mathcal{P}\\left(\\sum \\lambda_{i}\\right)\\).\nSi la variable X suit une loi \\(\\mathcal{N}\\left(m, \\sigma^{2}\\right)\\), la variable \\(\\mathrm{Y}=a \\mathrm{X}+b\\) suit une loi \\(\\mathcal{N}\\left(a m+b, a^{2} \\sigma^{2}\\right)\\).\nSi la variable X suit une loi \\(\\mathcal{N}\\left(m, \\sigma^{2}\\right)\\), alors la variable \\(\\mathrm{Y}=(\\mathrm{X}-m) / \\sigma\\) suit une loi \\(\\mathcal{N}(0,1)\\). En particulier, \\(\\mathrm{P}(\\mathrm{X} \\leqslant u)=\\mathrm{P}(\\mathrm{Y} \\leqslant(u-m) / \\sigma)\\).",
+    "crumbs": [
+      "Probabilités",
+      "Lois usuelles"
+    ]
+  },
+  {
+    "objectID": "proba/lois_usuelles.html#approximations",
+    "href": "proba/lois_usuelles.html#approximations",
+    "title": "Lois usuelles",
+    "section": "Approximations",
+    "text": "Approximations\nSi \\(n \\geqslant 30\\) et \\(n p&lt;5\\), on peut approcher une loi \\(\\mathcal{B}(n, p)\\) par une loi \\(\\mathcal{P}(n p)\\).\nSi \\(n \\geqslant 30, n p \\geqslant 5\\) et \\(n(1-p) \\geqslant 5\\), alors on peut approcher une loi \\(\\mathcal{B}(n, p)\\) par une loi \\(\\mathcal{N}(n p, n p(1-p))\\).\nSi \\(\\mathrm{N} \\geqslant 10 n\\), on peut approcher une loi \\(\\mathcal{H}(\\mathrm{N}, n, p \\mathrm{~N})\\) par une loi \\(\\mathcal{B}(n, p)\\).\nSi \\(\\lambda\\) est assez grand, on peut approcher une loi \\(\\mathcal{P}(\\lambda)\\) par une \\(\\mathcal{N}(\\lambda, \\sqrt{\\lambda})\\).\nSi \\(n\\) est assez grand, on peut approcher une loi \\(\\chi_{n}^{2}\\) par une loi \\(\\mathcal{N}(n, \\sqrt{2 n})\\).\nSi \\(n\\) est assez grand, on peut approcher une loi \\(\\mathrm{T}_{n}\\) par une loi \\(\\mathcal{N}(0, \\sqrt{1})\\).\n\nLois normale, du \\(\\chi^{2}\\) et de Student\nSi \\(\\mathrm{X}_{1}, \\ldots, \\mathrm{X}_{n}\\) sont indépendantes et \\(\\mathrm{X}_{i} \\rightsquigarrow \\mathcal{N}(0,1)\\) pour tout \\(i \\in\\{1, \\ldots, n\\}\\), alors \\(\\mathrm{X}_{1}{ }^{2}+\\cdots+\\mathrm{X}_{n}{ }^{2} \\rightsquigarrow \\chi_{n}^{2}\\). Si \\(\\mathrm{X} \\rightsquigarrow \\mathcal{N}(0,1)\\), Y suit une loi de \\(\\chi^{2}\\) à \\(n\\) degrés de liberté et X et Y sont indépendantes, alors \\(\\mathrm{Z}=\\sqrt{n} \\mathrm{X} / \\sqrt{\\mathrm{Y}}\\) suit une loi de Student à \\(n\\) degrés de liberté.\n\nCas particuliers importants (moments empiriques):\nMoyenne empirique\n\\[\n\\overline{\\mathrm{X}}_{n}=\\frac{1}{n} \\sum_{i=1}^{n} \\mathrm{X}_{i}\n\\]\nVariance empirique\n\\[\n\\mathrm{S}_{n}^{2}=\\frac{1}{n-1} \\sum_{i=1}^{n}\\left(\\mathrm{X}_{i}-\\overline{\\mathrm{X}}_{n}\\right)^{2}\n\\]\nSi \\(\\mathrm{X}_{1}, \\ldots, \\mathrm{X}_{n}\\) sont indépendantes et \\(\\mathrm{X}_{i} \\rightsquigarrow \\mathcal{N}(0,1)\\) pour tout \\(i \\in\\{1, \\ldots, n\\}\\), alors \\(\\mathrm{Y}_{n}=\\sum_{i=1}^{n} \\mathrm{X}_{i}{ }^{2} \\rightsquigarrow \\chi_{n}^{2}\\).\nSi \\(\\mathrm{X}_{1}, \\ldots, \\mathrm{X}_{n}\\) sont indépendantes et \\(\\mathrm{X}_{i} \\rightsquigarrow \\mathcal{N}(m, \\sigma)\\) pour tout \\(i \\in\\{1, \\ldots, n\\}\\), alors \\(\\mathrm{Z}_{n}=\\sum_{i=1}^{n}\\left(\\mathrm{X}_{i}-m\\right)^{2} / \\sigma^{2} \\rightsquigarrow \\chi_{n}^{2}\\). Si \\(\\mathrm{X}_{1}, \\ldots, \\mathrm{X}_{n}\\) sont indépendantes et \\(\\mathrm{X}_{i} \\rightsquigarrow \\mathcal{N}(m, \\sigma)\\) pour tout \\(i \\in\\{1, \\ldots, n\\}\\), alors\n\\[\n(n-1) \\mathrm{S}_{n}^{2} / \\sigma^{2} \\rightsquigarrow \\chi_{n-1}^{2}\n\\]\n(car les \\(\\mathrm{X}_{i}-\\overline{\\mathrm{X}_{n}}\\) sont liées par une relation : leur somme vaut 0 puisque \\(\\left.\\overline{\\mathrm{X}_{n}}=\\sum \\mathrm{X}_{i} / n\\right)\\). Si \\(\\mathrm{X}_{1}, \\ldots, \\mathrm{X}_{n}\\) sont indépendantes et \\(\\mathrm{X}_{i} \\rightsquigarrow \\mathcal{N}(m, \\sigma)\\) pour tout \\(i \\in\\{1, \\ldots, n\\}\\), alors \\(\\mathrm{T}_{n}=\\sqrt{n} \\frac{\\overline{\\mathrm{X}_{n}}-m}{\\mathrm{~S}_{n}} \\rightsquigarrow \\mathrm{~T}(n-1)\\).",
+    "crumbs": [
+      "Probabilités",
+      "Lois usuelles"
+    ]
+  },
+  {
+    "objectID": "proba/lois_usuelles.html#utiliser-les-tables-statistiques",
+    "href": "proba/lois_usuelles.html#utiliser-les-tables-statistiques",
+    "title": "Lois usuelles",
+    "section": "Utiliser les tables statistiques",
+    "text": "Utiliser les tables statistiques\n\nLoi normale centrée réduite\nLa table de la fonction de répartition de la loi normale centrée réduite donne les valeurs de \\(\\mathrm{P}(\\mathrm{X} \\leqslant u)\\) pour \\(u\\) positif donné. Pour déterminer d’autres valeurs, on utilise les formules suivantes:\n\\[\n\\begin{aligned}\n\\mathrm{P}(\\mathrm{X}&gt;u) & =1-\\mathrm{P}(\\mathrm{X} \\leqslant u) \\\\\n\\mathrm{P}(u&lt;\\mathrm{X}&lt;v) & =\\mathrm{P}(\\mathrm{X}&lt;v)-\\mathrm{P}(\\mathrm{X} \\leqslant u) \\\\\n\\mathrm{P}(|\\mathrm{X}| \\leqslant u) & =\\mathrm{P}(-u \\leqslant \\mathrm{X} \\leqslant u) \\\\\n\\mathrm{P}(|\\mathrm{X}| \\geqslant u) & =2 \\mathrm{P}(\\mathrm{X} \\geqslant u) \\\\\n\\mathrm{P}\\left(\\mathrm{X}^{2} \\leqslant u\\right) & =\\mathrm{P}(|\\mathrm{X}| \\leqslant \\sqrt{u})\n\\end{aligned}\n\\]\nPour \\(u\\) négatif, on utilise\n\\[\n\\mathrm{P}(\\mathrm{X} \\leqslant u)=\\mathrm{P}(\\mathrm{X}&gt;-u)=1-\\mathrm{P}(\\mathrm{X} \\leqslant-u)\n\\]\nOn peut également utiliser la table «à l’envers », pour déterminer \\(u\\) tel que \\(\\mathrm{P}(\\mathrm{X} \\leqslant u)=p\\) pour \\(p\\) donné.\n\n\nLoi de \\(\\chi^{2}\\)\nLa table de la loi de \\(\\chi^{2}\\) donne la valeur \\(u\\) telle que \\(\\mathrm{P}(\\mathrm{X} \\geqslant u)=p\\) pour \\(p\\) donné. Pour déterminer \\(u\\) telle que \\(\\mathrm{P}(\\mathrm{X} \\leqslant u)=p\\) pour \\(p\\) donné, on utilise la formule\n\\[\n\\mathrm{P}(\\mathrm{X}&gt;u)=1-\\mathrm{P}(\\mathrm{X} \\leqslant u)=1-p\n\\]\net on cherche dans la table la valeur \\(u\\) correspondant à \\(1-p\\).\nLorsque l’on cherche deux valeurs \\(u_{1}\\) et \\(u_{2}\\) telles que \\(\\mathrm{P}\\left(u_{1} \\leqslant \\mathrm{X} \\leqslant u_{2}\\right)=p\\), on considère un intervalle symétrique et on cherche \\(u_{1}\\) et \\(u_{2}\\) tels que \\(\\mathrm{P}\\left(\\mathrm{X} \\geqslant u_{2}\\right)=p / 2\\) et \\(\\mathrm{P}\\left(\\mathrm{X} \\geqslant u_{1}\\right)=1-\\mathrm{P}\\left(\\mathrm{X}&lt;u_{1}\\right)=1-p / 2\\).\n\n\nLoi de Student\nLa table de la loi de Student donne la valeur de \\(u\\) telle que \\(\\mathrm{P}(|\\mathrm{X}|&gt;u)=p\\) pour \\(p\\) donné. Pour trouver la valeur de \\(u\\) telle que \\(\\mathrm{P}(-u \\leqslant \\mathrm{X} \\leqslant u)=p\\) pour \\(p\\) donné, on cherche la valeur de \\(u\\) telle que \\(\\mathrm{P}(|\\mathrm{X}|&gt;u)=1-p\\).",
+    "crumbs": [
+      "Probabilités",
+      "Lois usuelles"
+    ]
+  },
+  {
+    "objectID": "tests/test_hpts.html",
+    "href": "tests/test_hpts.html",
+    "title": "Premiers pas sur les tests statistiques",
+    "section": "",
+    "text": "Tests d’hypothèses\nL’association Ma Cuisine Locale prépare avec soin, toute les semaines, les paniers de fruits et légumes de ses adhérents. Pour cela ils utilisent des cageots en bois fabriqués par une entreprise locale.\nL’entreprise vend ses cageots comme ayant une masse de 100 g chacun. Pour le plaisir de faire un peu de staistiques les étudiants se proposent de peser chacun des paniers et de vérifier par un test statistique si l’affirmation de l’entreprise est coorecte.\nUne balance est utilisée afin de peser chaque cageot.\nOn ne peut espérer que tous les cageots sortant de la machine de l’entreprise pèsent exactement 100 g. On peut seulement exiger que l’espérance mathématique des masses de tous les cageots produits soit de 100 g.\nAinsi, un ensemble de 50 cageots pèsera par exemple 4.97 kg. Doit-on en conclure que la machine est mal réglée ? Si, après avoir réglé différemment la machine, une nouvel ensemble de 50 cageots pèse 5.02 kg, peut-on en conclure que la machine est mieux réglée ?\nCe sont les tests de validité d’hypothèse qui permettent de prendre une décision. Ces décisions seront prises avec un certain risque a priori.\nLes notions seront abordées grâce à des exemples. Pour chaque test, on appliquera le cheminement suivant :",
+    "crumbs": [
+      "Tests statistiques",
+      "Premiers pas sur les tests statistiques"
+    ]
+  },
+  {
+    "objectID": "tests/test_hpts.html#tests-dhypothèses",
+    "href": "tests/test_hpts.html#tests-dhypothèses",
+    "title": "Premiers pas sur les tests statistiques",
+    "section": "",
+    "text": "Construction et utilisation du test d’hypothèse.\n\n\n\n\nÉtape 1 : détermination de la variable aléatoire de décision et de ses paramètres,\nÉtape 2 : choix des deux hypothèses : l’hypothèse nulle \\(H_o\\) et l’hypothèse alternative \\(H_1\\),\nÉtape 3 : l’hypothèse nulle étant considérée comme vraie et compte tenu de l’hypothèse alternative, détermination de la zone critique selon le niveau de risque \\(\\alpha\\) choisi ou donné,\nÉtape 4 : rédaction d’une règle de décision.\nÉtape 5 : calcul des caractéristiques d’un échantillon particulier puis application de la règle de décision.\n\n\n\n\nTest bilatéral relatif à une moyenne\n\n\n\n\n\n\nExemple :\n\n\n\nUne machine produit des rondelles de légumes dont l’épaisseur est une variable aléatoire X d’écart type 0,3 mm. La machine a été réglée pour obtenir des épaisseurs de 5 mm . Un contrôle portant sur un échantillon de 100 rondelles a donné 5,07 mm comme moyenne des épaisseurs de ces 100 rondelles.\nPeut-on affirmer que la machine est bien réglée au seuil de risque de 5% ?\n\n\n\n1. Variable aléatoire de décision\nSoit \\(\\mu\\) l’espérance mathématique de X, c’est-à-dire la moyenne des épaisseurs de toutes les rondelles produites par la machine ainsi réglée.\nConsidérons la variable aléatoire M qui, à chaque échantillon de taille 100 (individus), associe sa moyenne.\nLa taille des échantillons étant suffisamment grande, on considère que M suit la loi normale suivante\n\\[\\mathcal{N}\\left(\\mu \\ ; \\frac{0,3}{\\sqrt{100}}\\right) = \\mathcal{N}\\left(\\mu \\ ; 0,03\\right)\\]\nM sera la variable aléatoire de décision.\n\n\n2. Choix des hypothèses\nOn estime que la machine est bien réglée si la moyenne de toutes les rondelles produites par la machine est de 5 mm. C’est donc l’hypothèse \\(\\mu=5\\) que nous allons tester. On l’appelle l’hypothèse nulle \\(H_0\\).\nSinon, on choisit comme hypothèse alternative l’hypothèse \\(H_1\\) suivante « \\(\\mu \\neq 5\\) ».\n\n\n\n\n\n\nHypothèses\n\n\n\n\nHypothèse nulle : \\[H_0 : \\qquad \\mu = 5\\]\nHypothèse alternative : \\[H_1 : \\qquad \\mu \\neq 5\\]\n\n\n\nRecherchons comment la moyenne \\(\\mu_e\\) d’un échantillon de 100 rondelles peut confirmer ou non l’hypothèse \\(H_0\\).\n\n\n3. Zone critique\nDons le cas où l’hypothèse \\(H_{0}\\) est vraie, d’après l’énoncé la variable aléatoire M suit la loi \\[\\mathcal{N}(5 \\ ; \\ 0,03)\\]\nOn choisit un seuil de tolérance \\(\\alpha\\) égale à \\(5 \\%\\). On cherche alors le réel \\(d\\) tel que \\[P(5-d \\leq M \\leq 5+d)=0,95\\]\nNous allons centrer et réduire la loi de normale que suit M. La variable aléatoire T définie comme \\[T=\\dfrac{M-5}{0,03}\\] suit la loi normale centrée réduite \\(\\mathcal{N}(0,1)\\).\n\\[\\begin{align*}\nP(5-d \\leq M \\leq 5+d)=0,95\n&\\Longleftrightarrow\nP(5-d \\leq 0,03 T+5 \\leq 5+d) = 0,95 \\\\\n&\\Longleftrightarrow\nP\\left(-\\frac{d}{0,03} \\leq T \\leq \\frac{d}{0,03}\\right)=0,95\n\\end{align*}\\]\nOr\n\\[\\begin{align*}\nP\\left(-\\frac{d}{0,03} \\leq T \\leq \\frac{d}{0,03}\\right)\n&= P\\left(T \\leq \\frac{d}{0,03}\\right) - P\\left(T \\leq -\\frac{d}{0,03}\\right)\n\\end{align*}\\]\n\n\n\n\n\n\n\n\n\nde plus\n\\[P\\left(T \\leq \\frac{-d}{0,03}\\right) = P\\left(T \\geq \\frac{d}{0,03}\\right)\\] et\n\\[\nP\\left(T \\geq \\frac{d}{0,03}\\right) = 1 - P\\left(T \\leq \\frac{d}{0,03}\\right)\n\\] donc\n\\[P\\left(-\\frac{d}{0,03} \\leq T \\leq \\frac{d}{0,03}\\right)\n= 2 P\\left(T \\leq \\frac{d}{0,03}\\right) - 1\\]\nCe qui permet d’écrire\n\\[\\begin{align*}\nP(5-d \\leq M \\leq 5+d)=0,95\n&\\Longleftrightarrow\n2 P\\left(T \\leq \\frac{d}{0,03}\\right) - 1 = 0,95 \\\\\n&\\Longleftrightarrow\nP\\left(T \\leq \\frac{d}{0,03}\\right) = 0,975\n\\end{align*}\\]\nOn trouve par exemple à l’aide d’une table de la loi normale centrée réduite :\n\n\n\n\n\n\n\nTable de la loi normale centrée réduite :\n\n\n\nLa table permet de lire la probabilité suivante \\[P\\left(Z \\leq t\\right)\\] où on peut lire : - sur la premiére colonne la valeur du paramètre \\(t\\) avec une seule décimale - sur la première ligne la valeur de la deuxième décimale \\(t\\)\nDans le reste du tableau on peut lire la valeur de la probabilité suivante \\(P\\left(Z \\leq t\\right)\\).\nExemple : La combinaison de la dernière ligne et de la cinquième colonne nous permet décrire \\[P\\left(Z \\leq 3.54\\right) = 0,9998\\]\n\n\nOn peut donc lire\n\\[\\frac{d}{0,03}=1,96 \\Longleftrightarrow d=0,0588 \\approx 0,06\\]\nL’intervalle de confiance est donc l’intervalle : \\[[5-0,06 ; 5+0,06]=[4,94 ; 5,06]\\]\n\nLa probabilité qu’un échantillon ait une moyenne située hors de cet intervalle étant 0,05, on peut considérer que cet événement est rare. Ainsi, la moyenne de notre échantillon \\(\\mu_{e}=5,07\\) (cf. énoncé) nous amène à douter de la validité de l’hypothèse \\(H_{0}\\).\nNe perdons pas de point de vue qu’il se peut, malgré tout, que la machine soit bien réglée et que notre échantillon fasse partie des \\(5 \\%\\) de ceux ayant une moyenne hors de l’intervalle trouvé. C’est pourquoi cette région est appelée zone critique.\n\n\n4. Règle de décision.\nSi la moyenne de l’échantillon n’est pas située dans la zone critique, on accepte \\(H_{0}\\), sinon, on refuse \\(H_{0}\\) et on accepte \\(H_{1}\\).\n\n\n5. Conclusion.\nPuisque 5,07 appartient à la zone critique, on décide de rejeter l’hypothèse \\(H_{0}\\) et d’accepter l’hypothèse alternative \\(H_1 \\ : \\ \\mu \\neq 5\\) (la machine n’est pas bien réglée).\n\n\n\nTest unilatéral relatif à une moyenne\n\n\n\n\n\n\nExemple :\n\n\n\nLa durée de vie (en heures) des ampoules électriques produites par une usine est une variable aléatoire X d’écart type 120. Le fabricant annonce qu’en moyenne, les ampoules ont une durée de vie de 1120 heures.\nOn demande de rédiger une règle de décision pour vérifier l’affirmation du fabriquant, au seuil de risque de de 5 %, en testant un échantillon de 36 ampoules.\n\n\n\n\nTest unilatéral relatifs à une fréquence\n\n\n\n\n\n\nExemple :\n\n\n\nUn joueur qui doit choisir au hasard une carte dans un jeu de 32 cartes obtient certains avantages s’il découvre un roi. On constate qu’il a retourné 134 fois un roi sur 800 essais.\nPeut-on présumer, au seuil de risque de 1 %, que ce joueur est un tricheur?",
+    "crumbs": [
+      "Tests statistiques",
+      "Premiers pas sur les tests statistiques"
+    ]
+  },
+  {
+    "objectID": "tests/test_hpts.html#tests-de-comparaison",
+    "href": "tests/test_hpts.html#tests-de-comparaison",
+    "title": "Premiers pas sur les tests statistiques",
+    "section": "Tests de comparaison",
+    "text": "Tests de comparaison\n\nComparaison de deux moyennes\n\n\n\n\n\n\nExemple :\n\n\n\nUne entreprise fabrique des sacs en plastique pour déchets. Afin de surveiller la production, elle effectue des contrôles réguliers portant sur le poids maximum que les sacs peuvent supporter.\nA une première date \\(t_1\\), le contrôle de 100 sacs a donné une moyenne de 58 kg et un écart type de 3 kg.\nA la seconde date \\(t_2\\), le contrôle de 150 sacs a donné une moyenne de 56 kg et un écart type de 5 kg.\nPeut-on considérer, au risque de 4 %, que la qualité des sacs a évolué entre les deux dates?\n\n\n\n\nComparaison de deux fréquences\n\n\n\n\n\n\nExemple :\n\n\n\nA l’issue d’un examen, il y a 23 reçus et 17 ajournés dans une classe et 15 reçus et 25 ajournés dans une autre classe.\nLa différence observée entre les deux pourcentages de réussite est-elle significative d’une différence de niveau entre les deux classes, au seuil de 5 % ?",
+    "crumbs": [
+      "Tests statistiques",
+      "Premiers pas sur les tests statistiques"
+    ]
+  },
+  {
+    "objectID": "tests/chi2.html",
+    "href": "tests/chi2.html",
+    "title": "Les tests du \\(\\chi^2\\)",
+    "section": "",
+    "text": "Test d’ajustement\nDans les situations où on souhaite confronter des effectifs obtenus expérimentalement à des prévisions faites sur base d’hypothèses théoriques, et quand les effectfs en questions sont suffisamment grands (&gt; 5, typiquement), on a souvent recourt à un test de \\(\\chi^2\\).\nComme le montrent l’exemple suivant, le test de \\(\\chi^2\\) d’ajustement permet de vérifier si les données récoltées pour un échantillon correspondent à une distribution théorique de probabilité \\(P\\) définie à priori.\nPrenons l’exemple de la loi de Mendel :\nImaginons que deux lignées de souris, de génotypes respectifs AA et BB, sont croisées. Les produits du croisement (appelés F1 en génétique) seront tous de génotypes AB (ce qui signifie que, pour locus étudié, ils ont reçu une copie (appelée “allèle”) A d’un de leurs parents et une copie B de l’autre, ce qui est nécessairement le cas dans la situation décrite ici de croisement de lignées AA et BB). A la génération suivante, on croise des individus F1 (c’est-à-dire de génotypes AB) entre eux de manière aléatoire, pour générer des individus de seconde génération (notés F2). Sous l’hypothèse nulle où chaque individu F1 croisé a une probabilité de 50 % de transmettre l’allèle A et une probabilité de 50 % de transmettre l’allèle B, on peut déduire que les probabilités qu’un individu F2 ait un génotype AA, AB ou BB sont respectivement de 25 %, 50 % et 25 %.",
+    "crumbs": [
+      "Tests statistiques",
+      "Les tests du $\\chi^2$"
+    ]
+  },
+  {
+    "objectID": "tests/chi2.html#test-dajustement",
+    "href": "tests/chi2.html#test-dajustement",
+    "title": "Les tests du \\(\\chi^2\\)",
+    "section": "",
+    "text": "Les hypothèses de ce test sont les suivantes :\n\n\n\n\nH0 : les données observées suivent la loi théorique\nH1 : les données observées ne suivent pas la loi théorique",
+    "crumbs": [
+      "Tests statistiques",
+      "Les tests du $\\chi^2$"
+    ]
+  },
+  {
+    "objectID": "tests/chi2.html#définition-générale",
+    "href": "tests/chi2.html#définition-générale",
+    "title": "Les tests du \\(\\chi^2\\)",
+    "section": "1. Définition générale",
+    "text": "1. Définition générale\nLe test du Chi² d’ajustement (ou test de conformité) permet de vérifier si la distribution d’un échantillon observé correspond à une distribution théorique attendue. Il s’agit d’un test statistique non paramétrique, souvent utilisé pour des données catégorielles (qualitatives ou discrétisées).",
+    "crumbs": [
+      "Tests statistiques",
+      "Les tests du $\\chi^2$"
+    ]
+  },
+  {
+    "objectID": "tests/chi2.html#objectifs-du-test",
+    "href": "tests/chi2.html#objectifs-du-test",
+    "title": "Les tests du \\(\\chi^2\\)",
+    "section": "2. Objectifs du test",
+    "text": "2. Objectifs du test\n\nComparer une distribution observée à une distribution théorique connue.\nTester l’hypothèse que les fréquences observées suivent une loi théorique (comme la loi uniforme, binomiale, de Poisson, etc.)",
+    "crumbs": [
+      "Tests statistiques",
+      "Les tests du $\\chi^2$"
+    ]
+  },
+  {
+    "objectID": "tests/chi2.html#hypothèses",
+    "href": "tests/chi2.html#hypothèses",
+    "title": "Les tests du \\(\\chi^2\\)",
+    "section": "3. Hypothèses",
+    "text": "3. Hypothèses\n\nH₀ (hypothèse nulle) : les données suivent la distribution théorique.\nH₁ (hypothèse alternative) : les données ne suivent pas cette distribution.",
+    "crumbs": [
+      "Tests statistiques",
+      "Les tests du $\\chi^2$"
+    ]
+  },
+  {
+    "objectID": "tests/chi2.html#formule-du-test-du-chi²",
+    "href": "tests/chi2.html#formule-du-test-du-chi²",
+    "title": "Les tests du \\(\\chi^2\\)",
+    "section": "4. Formule du test du Chi²",
+    "text": "4. Formule du test du Chi²\nLa statistique du test est :\n[ ^2 = _{i=1}^{k} ]\noù :\n\n( O_i ) = fréquence observée pour la modalité ( i ),\n( E_i ) = fréquence attendue (selon la loi théorique) pour la modalité ( i ),\n( k ) = nombre de modalités (ou classes).",
+    "crumbs": [
+      "Tests statistiques",
+      "Les tests du $\\chi^2$"
+    ]
+  },
+  {
+    "objectID": "tests/chi2.html#conditions-dapplication",
+    "href": "tests/chi2.html#conditions-dapplication",
+    "title": "Les tests du \\(\\chi^2\\)",
+    "section": "5. Conditions d’application",
+    "text": "5. Conditions d’application\n\nLes observations doivent être indépendantes.\nL’effectif total doit être suffisamment grand (souvent ( n &gt; 30 )).\nLes fréquences théoriques ( E_i ) doivent être supérieures ou égales à 5 pour chaque modalité (ou regroupement si nécessaire).",
+    "crumbs": [
+      "Tests statistiques",
+      "Les tests du $\\chi^2$"
+    ]
+  },
+  {
+    "objectID": "tests/chi2.html#degrés-de-liberté",
+    "href": "tests/chi2.html#degrés-de-liberté",
+    "title": "Les tests du \\(\\chi^2\\)",
+    "section": "6. Degrés de liberté",
+    "text": "6. Degrés de liberté\n[ = k - 1 - p ]\n\n( k ) = nombre de modalités (ou classes),\n( p ) = nombre de paramètres estimés à partir des données (ex : moyenne ou variance si la loi théorique n’est pas entièrement connue).",
+    "crumbs": [
+      "Tests statistiques",
+      "Les tests du $\\chi^2$"
+    ]
+  },
+  {
+    "objectID": "tests/chi2.html#étapes-du-test",
+    "href": "tests/chi2.html#étapes-du-test",
+    "title": "Les tests du \\(\\chi^2\\)",
+    "section": "7. Étapes du test",
+    "text": "7. Étapes du test\n\nFormuler les hypothèses H₀ et H₁.\nCalculer les fréquences observées ( O_i ).\nCalculer les fréquences attendues ( E_i ) en fonction de la distribution théorique.\nCalculer la statistique du test ( ^2 ).\nDéterminer la valeur critique (ou p-value) à partir de la loi du ( ^2 ) avec les degrés de liberté.\nConclusion : si ( ^2_{} &gt; ^2_{} ), on rejette H₀.",
+    "crumbs": [
+      "Tests statistiques",
+      "Les tests du $\\chi^2$"
+    ]
+  },
+  {
+    "objectID": "tests/chi2.html#exemple-dapplication",
+    "href": "tests/chi2.html#exemple-dapplication",
+    "title": "Les tests du \\(\\chi^2\\)",
+    "section": "8. Exemple d’application",
+    "text": "8. Exemple d’application\nContexte : Une entreprise affirme que les couleurs de ses produits sont uniformément réparties entre 5 couleurs. Sur un échantillon de 200 produits, on observe :\n\n\n\nCouleur\nRouge\nBleu\nVert\nJaune\nNoir\n\n\n\n\nObservé ( O_i )\n30\n50\n40\n35\n45\n\n\n\nFréquence attendue (uniforme) :\n( E_i = = 40 ) pour chaque couleur.\n[ ^2 = = + + = 6.25 ]\n\nddl = 5 - 1 = 4\n\nSeuil à 5% : ( ^2_{0.05, 4} )\n\nConclusion : 6.25 &lt; 9.49 → on ne rejette pas H₀ : les couleurs sont bien réparties de manière uniforme.",
+    "crumbs": [
+      "Tests statistiques",
+      "Les tests du $\\chi^2$"
+    ]
+  },
+  {
+    "objectID": "tests/chi2.html#interprétation",
+    "href": "tests/chi2.html#interprétation",
+    "title": "Les tests du \\(\\chi^2\\)",
+    "section": "9. Interprétation",
+    "text": "9. Interprétation\n\nSi on rejette H₀, cela signifie que les écarts observés entre les fréquences observées et attendues sont trop grands pour être dus au hasard.\nSi on ne rejette pas H₀, les écarts peuvent être dus à la variabilité aléatoire.",
+    "crumbs": [
+      "Tests statistiques",
+      "Les tests du $\\chi^2$"
+    ]
+  },
+  {
+    "objectID": "tests/chi2.html#applications-courantes",
+    "href": "tests/chi2.html#applications-courantes",
+    "title": "Les tests du \\(\\chi^2\\)",
+    "section": "10. Applications courantes",
+    "text": "10. Applications courantes\n\nÉtude de conformité d’un jeu de dés (uniformité).\nVérification de la loi de Poisson (ex : nombre d’appels téléphoniques par minute).\nAnalyse de répartition démographique (sexe, âge, catégories socio-pro).",
+    "crumbs": [
+      "Tests statistiques",
+      "Les tests du $\\chi^2$"
+    ]
+  },
+  {
+    "objectID": "tests/chi2.html#le-test-du-chi2-dindépendance",
+    "href": "tests/chi2.html#le-test-du-chi2-dindépendance",
+    "title": "Les tests du \\(\\chi^2\\)",
+    "section": "Le test du \\(\\chi^2\\) d’indépendance",
+    "text": "Le test du \\(\\chi^2\\) d’indépendance",
+    "crumbs": [
+      "Tests statistiques",
+      "Les tests du $\\chi^2$"
+    ]
+  },
+  {
+    "objectID": "tests/chi2.html#le-test-du-chi2-dhomogénéité",
+    "href": "tests/chi2.html#le-test-du-chi2-dhomogénéité",
+    "title": "Les tests du \\(\\chi^2\\)",
+    "section": "Le test du \\(\\chi^2\\) d’homogénéité",
+    "text": "Le test du \\(\\chi^2\\) d’homogénéité",
+    "crumbs": [
+      "Tests statistiques",
+      "Les tests du $\\chi^2$"
+    ]
+  },
+  {
+    "objectID": "analyse_factorielle/acp.html",
+    "href": "analyse_factorielle/acp.html",
+    "title": "ACP",
+    "section": "",
+    "text": "Techniques de l’analyse en composantes principales",
+    "crumbs": [
+      "Analyse factorielle",
+      "ACP"
+    ]
+  },
+  {
+    "objectID": "analyse_factorielle/exos.html",
+    "href": "analyse_factorielle/exos.html",
+    "title": "Exercices",
+    "section": "",
+    "text": "Important\n\n\n\nTous les exercices doivent être maitrisés avec et sans R.",
+    "crumbs": [
+      "Analyse factorielle",
       "Exercices"
     ]
   }
