@@ -9,19 +9,19 @@ Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 |:------------------|:-----------|:----------- |:-----------|:------------|
 | tot.              | - séances  | 32 séances  | - séances  | 22 séances  |
 
-Ces notes ci-dessous sont en cours d’élaboration. Si vous avez la moindre question ou remarque ne pas hésiter à me contacter par mail à [a.gere@istom.fr](mailto:a.gere@istom.fr).
+Les notes de cours ci-dessous sont en cours d’élaboration. Si vous avez la moindre question ou remarque ne pas hésiter à me contacter par mail à [a.gere@istom.fr](mailto:a.gere@istom.fr).
+
+### Table des matières
+
+ - [Semestre 1](#semestre-1)
+ - [Semestre 2](#semestre-2)
+ - [Semestre 3](#semestre-3)
+ - [Semestre 4](#semestre-4)
+ - [Examens et corrections](#examens-et-corrections)
+ - [Corrections supplémentaires](#corrections-supplémentaires)
+ - [Pour aller plus loin](#pour-aller-plus-loin)
 
 Vous pouvez également vous exercer sur votre espace [jai20enmaths](https://www.jai20enmaths.com/connexion/istom), où vous y retrouverez des notions de cours ainsi que des exercices corrigés. Si vous remarquez une erreur ou avez une suggestion pour que cet espace de travail soit plus agréable à utiliser, ne surtout pas hésiter à me le signaler par mail à [a.gere@istom.fr](mailto:a.gere@istom.fr).
-
-### Table of Contents
-
- 1. [Semestre 1](#semestre-1)
- 2. [Semestre 2](#semestre-2)
- 3. [Semestre 3](#semestre-3)
- 4. [Semestre 4](#semestre-4)
- 5. [Examens et corrections](#examens-et-corrections)
- 6. [Corrections supplémentaires](#corrections-supplémentaires)
- 7. [Pour aller plus loin](#pour-aller-plus-loin)
 
 ### Semestre 1
 
