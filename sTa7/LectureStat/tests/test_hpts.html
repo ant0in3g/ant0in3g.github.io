@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../tests/chi2.html" rel="next">
+<link href="../analyse_factorielle.html" rel="next">
 <link href="../TestsStat.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -231,84 +231,6 @@ window.Quarto = {
  <span class="menu-text">Premiers pas sur les tests statistiques</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../tests/chi2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Les tests du <span class="math inline">\(\chi^2\)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../tests/student.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Test de Student</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../tests/shapiro-wilk.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Test de Shapiro Wilk</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../tests/levene.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Test de Levene</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../tests/anova.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ANOVA</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../tests/dixon.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Test de Dixon</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../tests/cochran.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Test de Cochran</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../tests/grubbs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Test de Grubbs</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../tests/wilcoxon.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Test de Wilcoxon</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../tests/mann-whitney.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Test de Mann Whitney</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../tests/kruskal-wallis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Test de Kruskal Wallis</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../tests/z.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Test Z</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../tests/snedecor.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Test de Snedecor</span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -352,14 +274,16 @@ window.Quarto = {
   <ul>
   <li><a href="#tests-dhypothèses" id="toc-tests-dhypothèses" class="nav-link active" data-scroll-target="#tests-dhypothèses">Tests d’hypothèses</a>
   <ul class="collapse">
+  <li><a href="#hypothèses-nulles-et-alternatives" id="toc-hypothèses-nulles-et-alternatives" class="nav-link" data-scroll-target="#hypothèses-nulles-et-alternatives">Hypothèses nulles et alternatives</a></li>
+  <li><a href="#seuil-de-signification" id="toc-seuil-de-signification" class="nav-link" data-scroll-target="#seuil-de-signification">Seuil de signification</a></li>
+  </ul></li>
+  <li><a href="#tests-basés-sur-une-distribution-normale" id="toc-tests-basés-sur-une-distribution-normale" class="nav-link" data-scroll-target="#tests-basés-sur-une-distribution-normale">Tests basés sur une distribution normale</a>
+  <ul class="collapse">
   <li><a href="#test-bilatéral-relatif-à-une-moyenne" id="toc-test-bilatéral-relatif-à-une-moyenne" class="nav-link" data-scroll-target="#test-bilatéral-relatif-à-une-moyenne">Test bilatéral relatif à une moyenne</a></li>
+  <li><a href="#test-bilatéral-relatifs-à-une-fréquence" id="toc-test-bilatéral-relatifs-à-une-fréquence" class="nav-link" data-scroll-target="#test-bilatéral-relatifs-à-une-fréquence">Test bilatéral relatifs à une fréquence</a></li>
   <li><a href="#test-unilatéral-relatif-à-une-moyenne" id="toc-test-unilatéral-relatif-à-une-moyenne" class="nav-link" data-scroll-target="#test-unilatéral-relatif-à-une-moyenne">Test unilatéral relatif à une moyenne</a></li>
   <li><a href="#test-unilatéral-relatifs-à-une-fréquence" id="toc-test-unilatéral-relatifs-à-une-fréquence" class="nav-link" data-scroll-target="#test-unilatéral-relatifs-à-une-fréquence">Test unilatéral relatifs à une fréquence</a></li>
-  </ul></li>
-  <li><a href="#tests-de-comparaison" id="toc-tests-de-comparaison" class="nav-link" data-scroll-target="#tests-de-comparaison">Tests de comparaison</a>
-  <ul class="collapse">
-  <li><a href="#comparaison-de-deux-moyennes" id="toc-comparaison-de-deux-moyennes" class="nav-link" data-scroll-target="#comparaison-de-deux-moyennes">Comparaison de deux moyennes</a></li>
-  <li><a href="#comparaison-de-deux-fréquences" id="toc-comparaison-de-deux-fréquences" class="nav-link" data-scroll-target="#comparaison-de-deux-fréquences">Comparaison de deux fréquences</a></li>
+  <li><a href="#tests-de-comparaison" id="toc-tests-de-comparaison" class="nav-link" data-scroll-target="#tests-de-comparaison">Tests de comparaison</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -414,6 +338,28 @@ Construction et utilisation du test d’hypothèse.
 </ul>
 </div>
 </div>
+<section id="hypothèses-nulles-et-alternatives" class="level3">
+<h3 class="anchored" data-anchor-id="hypothèses-nulles-et-alternatives">Hypothèses nulles et alternatives</h3>
+<p>Une <strong>hypothèse statistique</strong> est un énoncé, une affirmation qui concerne les caractéristiques (valeurs des paramètres, forme de la distribution des observations) d’une population.</p>
+<p>Un <strong>test d’hypothèse</strong> (ou test statistique) est une démarche qui a pour but de fournir une règle de décision permettant, sur la base des résultats d’étude sur un échantillon, de faire un choix entre deux hypothèses statistiques.</p>
+<ul>
+<li><strong>Hypothèse nulle</strong> (H0)</li>
+<li><strong>Hypothèse alternative</strong> (H1)</li>
+</ul>
+<p>L’hypothèse selon laquelle on fixe à priori un paramètre de la population à une valeur particulière s’appelle l’hypothèse nulle et est notée H0. N’importe quelle autre hypothèse qui diffère de l’hypothèse H0 s’appelle l’hypothèse alternative et est notée H1.</p>
+<p>C’est l’hypothèse nulle qui est soumise au test et toute la démarche du test s’effectue en considérant cette hypothèse comme vraie.</p>
+<p>Le but est d’établir des règles de décision qui permetent de conduire à l’acceptation ou au rejet de l’hypothèse nulle H0. Toutefois cette décision est fondée sur une information partielle, les résultats d’un échantillon. Il est donc statistiquement impossible de prendre la bonne décision à coup sûr. En pratique, on met en oeuvre une démarche qui nous permettrait, à long terme de rejeter à tort une hypothèse nulle vraie dans une faible proportion de cas. La conclusion qui sera déduite des résultats de l’échantillon aura un caractère probabiliste : on ne pourra prendre une décision qu’en ayant conscience qu’il y a un certain risque qu’elle soit erronée. Ce risque nous est donné par le seuil de signification du test.</p>
+</section>
+<section id="seuil-de-signification" class="level3">
+<h3 class="anchored" data-anchor-id="seuil-de-signification">Seuil de signification</h3>
+<p>Le risque, consenti à l’avance et que nous notons <span class="math inline">\(\alpha\)</span> de rejeter à tort l’hypothèse nulle H0 alors qu’elle est vraie, s’appelle le seuil de signification du test.</p>
+<p>A ce seuil de signification, on fait correspondre sur la distribution d’échantillonnage de la statistique une région de rejet de l’hypothèse nulle (appelée également région critique). L’aire de cette région correspond à la probabilité <span class="math inline">\(\alpha\)</span>.</p>
+<p>Si par exemple , on choisit <span class="math inline">\(\alpha = 0.005\)</span>, cela signifie que l’on admet d’avance que la variable d’échantillonnage peut prendre, dans 5% des cas, une valeur se situant dans la zone de rejet de H0, bien que H0 soit vraie et ceci uniquement d’après le hasard de l’échantillonnage.</p>
+<p>Sur la distribution d’échantillonnage correspondra aussi une région complémentaire, dite région d’acceptation de H0 (ou région de non-rejet) de probabilité <span class="math inline">\(1-\alpha\)</span>.</p>
+</section>
+</section>
+<section id="tests-basés-sur-une-distribution-normale" class="level2">
+<h2 class="anchored" data-anchor-id="tests-basés-sur-une-distribution-normale">Tests basés sur une distribution normale</h2>
 <section id="test-bilatéral-relatif-à-une-moyenne" class="level3">
 <h3 class="anchored" data-anchor-id="test-bilatéral-relatif-à-une-moyenne">Test bilatéral relatif à une moyenne</h3>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -534,6 +480,10 @@ Table de la loi normale centrée réduite :
 <p>Puisque 5,07 appartient à la zone critique, on décide de rejeter l’hypothèse <span class="math inline">\(H_{0}\)</span> et d’accepter l’hypothèse alternative <span class="math inline">\(H_1 \ : \ \mu \neq 5\)</span> (la machine n’est pas bien réglée).</p>
 </section>
 </section>
+<section id="test-bilatéral-relatifs-à-une-fréquence" class="level3">
+<h3 class="anchored" data-anchor-id="test-bilatéral-relatifs-à-une-fréquence">Test bilatéral relatifs à une fréquence</h3>
+<p>coming</p>
+</section>
 <section id="test-unilatéral-relatif-à-une-moyenne" class="level3">
 <h3 class="anchored" data-anchor-id="test-unilatéral-relatif-à-une-moyenne">Test unilatéral relatif à une moyenne</h3>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -568,11 +518,10 @@ Exemple :
 </div>
 </div>
 </section>
-</section>
-<section id="tests-de-comparaison" class="level2">
-<h2 class="anchored" data-anchor-id="tests-de-comparaison">Tests de comparaison</h2>
-<section id="comparaison-de-deux-moyennes" class="level3">
-<h3 class="anchored" data-anchor-id="comparaison-de-deux-moyennes">Comparaison de deux moyennes</h3>
+<section id="tests-de-comparaison" class="level3">
+<h3 class="anchored" data-anchor-id="tests-de-comparaison">Tests de comparaison</h3>
+<section id="comparaison-de-deux-moyennes" class="level4">
+<h4 class="anchored" data-anchor-id="comparaison-de-deux-moyennes">Comparaison de deux moyennes</h4>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -590,8 +539,8 @@ Exemple :
 </div>
 </div>
 </section>
-<section id="comparaison-de-deux-fréquences" class="level3">
-<h3 class="anchored" data-anchor-id="comparaison-de-deux-fréquences">Comparaison de deux fréquences</h3>
+<section id="comparaison-de-deux-fréquences" class="level4">
+<h4 class="anchored" data-anchor-id="comparaison-de-deux-fréquences">Comparaison de deux fréquences</h4>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -608,6 +557,7 @@ Exemple :
 </div>
 
 
+</section>
 </section>
 </section>
 
@@ -1036,8 +986,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../tests/chi2.html" class="pagination-link" aria-label="Les tests du $\chi^2$">
-        <span class="nav-page-text">Les tests du <span class="math inline">\(\chi^2\)</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../analyse_factorielle.html" class="pagination-link" aria-label="Analyse factorielle">
+        <span class="nav-page-text">Analyse factorielle</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

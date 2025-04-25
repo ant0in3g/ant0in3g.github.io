@@ -69,35 +69,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -229,84 +200,6 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="./tests/test_hpts.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Premiers pas sur les tests statistiques</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tests/chi2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Les tests du <span class="math inline">\(\chi^2\)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tests/student.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Test de Student</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tests/shapiro-wilk.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Test de Shapiro Wilk</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tests/levene.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Test de Levene</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tests/anova.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ANOVA</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tests/dixon.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Test de Dixon</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tests/cochran.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Test de Cochran</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tests/grubbs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Test de Grubbs</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tests/wilcoxon.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Test de Wilcoxon</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tests/mann-whitney.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Test de Mann Whitney</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tests/kruskal-wallis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Test de Kruskal Wallis</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tests/z.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Test Z</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tests/snedecor.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Test de Snedecor</span></a>
   </div>
 </li>
       </ul>
