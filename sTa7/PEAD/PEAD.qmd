@@ -2,7 +2,7 @@
 title: |
   Première Expérience en Analyse de Données    
   [![](img/LogoISTOMdc.png){width=0.6in}](https://istom.fr/) 
-author: "Inès Shili-Touzi, Daniel Kalnin et Antoine Géré"
+author: "Inès Shili-Touzi et Antoine Géré"
 date: "last-modified"
 format: 
   html:
@@ -90,104 +90,14 @@ Merci aux délégués de nous envoyer le tableau définitif avec nom et prénom 
 Ce travail doit être fait pour au plus tard le 04 avril
 :::
 
--   Tenir un cahier de terrain, de recherches et construire une bibliographie, etc.
--   Prise en main des différents moteurs de recherche :
-    -   [Web of Science](https://bu.univ-angers.fr/node/55)
-    -   [Scopus](https://www.scopus.com/home.uri)
-    -   [Science Direct](https://www.sciencedirect.com/)
-    -   [Springerlink](https://link.springer.com/)
-    -   [Pub Med](https://pubmed.ncbi.nlm.nih.gov/)
-    -   [Cahier de l’agriculture](https://www.cahiersagricultures.fr/fr/)
-    -   [Agritrop](https://agritrop.cirad.fr/)
+### Step 2 - Bases de données
 
-::: callout-note
-Quelles sont les spécificités des moteurs de recherche bibliographique ? Quelles base de données «ouvrent» ils ?
+::: {.flushright data-latex=""}
+**Jeudi 1er Mai 2025**
 :::
-
--   Mise en route de votre recherche bibliograpqhie
-
-    -   La recherche est à cibler autour des mots clé **agroécologie** et **cotton** !
-    -   Comparez les moteurs de recherche bibliographiques entre eux : **Bibliométrie**
-
-    ::: callout-tip
-    La bibliométrie est l'application de méthodes statistiques et mathématiques pour mesurer et évaluer la production et la diffusion de publications.
-    :::
-
-    -   Utilisation de liens Logiques (Boolean)
-
--   Les équations de recherche (avec boolean, connecteurs logique), prompts à utiliser.
-
-::: callout-note
-Comment les utiliser ? Les connecteurs sont génériques mais s’utilisent avec une syntaxe spécifique. Croiser les mots clées : `ITK`, `Sol`, `Fertilisation`, `Ravageur`, `Pest`, `Yield` avec **agroécologie** et **cotton**,commencer à faire de la bibliométrie. • Yield
-:::
-
--   Triez les articles trouvés, puis gênerez une liste de 5 à 10 articles à récupérer sous forme PDF avec leur référence hypertexte puis leur équation de recherche sur votre cahier de Recherche.
 
 ::::: {layout-ncol="2"}
 <div>
-
--   Installation et prise en de **Zotero**
-
-Zotero est un logiciel bibliographique au code source libre et gratuit sous licence GNU.
-
-</div>
-
-<div>
-
-[![](img/zotero-logo-256x62.png)](https://www.zotero.org/)
-
-</div>
-:::::
-
--   Créer sa première base de données
--   Utiliser l’extension browser de Zotero pour crées sa première référence
--   Ajouter manuellement une deuxième référence, livre, DOI, etc
--   Ajouter une bibliographie par Zotero
--   Ajouter une liste de reference par Zotero dans Word
--   Modifier une liste de référence bibliographique automatique
--   Changer lee style de la Bibliographie
--   Ajouter les 6 références pour le PEAD
-
-Un [lien](https://bib.umontreal.ca/citer/logiciels-bibliographiques/zotero/installer) vers une serie de tutorial pour Zotero.
-
-{{< video https://youtu.be/LVsI7kaIwFc?feature=shared >}}
-
-{{< video https://youtu.be/RGL_Hwo4sxo?feature=shared >}}
-
-{{< video https://youtu.be/7tFH0gGLCcQ?feature=shared >}}
-
--   Ouvrir sa base de données (ZOTERO) Word et un Navigateur
-
--   Changer le style de la Bibliographie
-
--   Ajouter les 6 références pour le PEAD
-
--   **Analyse d’articles PIDEX**
-
-    -   Contextualiser l’article
-
-        -   Quelle est la problématique de l’article ?
-        -   Comment l’auteur justifie le positionnement de la problématique ? Ce questionnement permet de saisir le coeur de l’article et de résumer la thèse ou la position défendue par l’auteur. Cela aide à bien comprendre le texte dans son ensemble.
-
-    -   Comment cet article se rapporte-t-il à d’autres recherches ou théories dans le domaine ?
-
-    -   A-t-il bien utilisé la bibliographie ?
-
-    -   Cela situe l’article dans son contexte académique et à réfléchir à ses relations avec d’autres travaux, que ce soit en termes de comparaison, de complémentarité ou de contradiction.
-
-    -   L’auteur a-t-il utilisé des biais ou des présupposés dans son argumentation ?
-
-    -   Réfléchir de manière critique sur la manière dont l’auteur a construit son argumentation et à analyser les résultats qui ont influencé la discussion.
-
-    -   **Proposer une amélioration de la problématique. Argumenter votre choix.**
-
-    ::: callout-important
-    #### Travail pour le jeudi 6 mai.
-
-    Ce travail sera évalué sous forme d'oral le jeudi 06 mai.
-    :::
-
-### Step 3 - Bases de données
 
 Les bases de données ont été difusées à chaque groupe :
 
@@ -202,17 +112,28 @@ Les bases de données ont été difusées à chaque groupe :
 -   [Kossou]()
 -   [Pedarou]()
 
-Vous pouvez retrouver via ce [lien](https://istom-my.sharepoint.com/:f:/g/personal/a_gere_istom_fr/EhCXWWGMN49Mie3HlRxrUOUB12GYpl3NVF0gZBboWwz8MQ?e=kSwXvC) les bases de données manuscrites.
+Il vous est demandé de vous concentrer dans un premier temps sur l'année 2024.
+
+</div>
+
+<div>
+
+[![](img/carte_benin.jpg)](https://en.wikipedia.org/wiki/Benin)
+
+</div>
+:::::
 
 ::: callout-important
 #### Travail pour le vendredi 16 mai.
 
-Il vous est demandé de préparer votre base de données, comme sur cet [exemple](https://istom-my.sharepoint.com/:x:/g/personal/a_gere_istom_fr/Eeld5c7RXQdOg8VjkRMpaQIB2SZUOmQhWwCiZscPNPHB1w?e=1LQK9d) pour le vendredi 16 mai.
+Il vous est demandé de préparer votre base de données, comme sur cet [exemple](https://istom-my.sharepoint.com/:x:/g/personal/a_gere_istom_fr/Eeld5c7RXQdOg8VjkRMpaQIB2SZUOmQhWwCiZscPNPHB1w?e=1LQK9d).
 :::
 
-Il vous est possible de poser vos question au doctorant, M ???, pour toutes questions sur les bases de données, [via ce fichier word en ligne](https://istom-my.sharepoint.com/:w:/g/personal/a_gere_istom_fr/EaTFFd5kubtOt-QDqDxokckB6JIuxyfUASvS6qOYkvWxcQ?e=fRgKpF). Ecrivez simplement votre question avec la syntaxe indiquée.
+### Step 3 - Statistique descriptive
 
-### Step 4 - Statistiques descriptive
+::: {.flushright data-latex=""}
+**Vendredi 2 Mai 2025**
+:::
 
 ::: callout-important
 #### Travail pour le vendredi 23 mai.
@@ -221,34 +142,21 @@ Il vous est demandé d'effectuer
 
 -   une analyse statistique descriptive univariée pour 2 variables de votre choix
 -   une analyse statistique descriptive bivariée pour 2 couples de variables de votre choix
-
-pour le **vendredi 23 mai**.
 :::
 
 Vous trouverez ci-dessous un rappel des cas univariée et bivariée.
 
 #### Statistique univariée
 
-```{r}
-#| echo: true
-#| output: false
-library(readxl)
-mydata <- read_excel("exempleDatasetClean.xlsx",sheet = "AFTER", range = "B22:L150")
-```
+coming.
 
 #### Statistique bivariée
 
-### Step 5 - Tests statistiques
-
 coming.
 
-::: callout-important
-#### Travail pour le vendredi 30 mai.
+### Step 4 - Tests statistiques
 
-Il vous est demandé d'établir une problématique en lien avec votre base de donnée, et d'ensuite d'éffetuer des tests statistiques pour tenter d'y répondre.
-
-Ce travail est à faire pour le **vendredi 30 mai**.
-:::
+coming.
 
 ## Ressources
 
@@ -264,41 +172,5 @@ Voici quelques sites qui porposent des base de données open source :
 
 -   [World Bank Open Data](https://data.worldbank.org/)
 
--   [eurostat](https://ec.europa.eu/eurostat/data/database)
+-   [Eurostat](https://ec.europa.eu/eurostat/data/database)
 
-## Bases de données
-
-```{r}
-#| echo: FALSE
-
-
-```
-
-::::: {layout-ncol="2"}
-<div>
-
-Voici les bases de données pour chacun des groupes :
-
--   [Bedari]()
--   [Bereke Centre]()
--   [Beroubouay Est]()
--   [Bokobouerou]()
--   [Gamia Est]()
--   [Guessou Nord]()
--   [Hangar Peuhl]()
--   [Ina Gando]()
--   [Kossou]()
--   [Pedarou]()
-
-Il vous est demandé de vous concentrer dans un premier temps sur l'année 2024.
-
-Vous pouvez retrouver via ce [lien](https://istom-my.sharepoint.com/:f:/g/personal/a_gere_istom_fr/EhCXWWGMN49Mie3HlRxrUOUB12GYpl3NVF0gZBboWwz8MQ?e=kSwXvC) les bases de données manuscrites.
-
-</div>
-
-<div>
-
-[![](img/carte_benin.jpg)](https://en.wikipedia.org/wiki/Benin)
-
-</div>
-:::::

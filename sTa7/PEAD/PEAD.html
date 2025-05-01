@@ -6,8 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Inès Shili-Touzi, Daniel Kalnin et Antoine Géré">
-<meta name="dcterms.date" content="2025-04-17">
+<meta name="author" content="Inès Shili-Touzi et Antoine Géré">
+<meta name="dcterms.date" content="2025-05-01">
 
 <title>Première Expérience en Analyse de Données </title>
 <style>
@@ -21,40 +21,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -86,12 +52,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#progression" id="toc-progression" class="nav-link" data-scroll-target="#progression">Progression</a>
   <ul class="collapse">
   <li><a href="#step-1---motiver-votre-travail" id="toc-step-1---motiver-votre-travail" class="nav-link" data-scroll-target="#step-1---motiver-votre-travail">Step 1 - Motiver votre travail</a></li>
-  <li><a href="#step-3---bases-de-données" id="toc-step-3---bases-de-données" class="nav-link" data-scroll-target="#step-3---bases-de-données">Step 3 - Bases de données</a></li>
-  <li><a href="#step-4---statistiques-descriptive" id="toc-step-4---statistiques-descriptive" class="nav-link" data-scroll-target="#step-4---statistiques-descriptive">Step 4 - Statistiques descriptive</a></li>
-  <li><a href="#step-5---tests-statistiques" id="toc-step-5---tests-statistiques" class="nav-link" data-scroll-target="#step-5---tests-statistiques">Step 5 - Tests statistiques</a></li>
+  <li><a href="#step-2---bases-de-données" id="toc-step-2---bases-de-données" class="nav-link" data-scroll-target="#step-2---bases-de-données">Step 2 - Bases de données</a></li>
+  <li><a href="#step-3---statistique-descriptive" id="toc-step-3---statistique-descriptive" class="nav-link" data-scroll-target="#step-3---statistique-descriptive">Step 3 - Statistique descriptive</a></li>
+  <li><a href="#step-4---tests-statistiques" id="toc-step-4---tests-statistiques" class="nav-link" data-scroll-target="#step-4---tests-statistiques">Step 4 - Tests statistiques</a></li>
   </ul></li>
   <li><a href="#ressources" id="toc-ressources" class="nav-link" data-scroll-target="#ressources">Ressources</a></li>
-  <li><a href="#bases-de-données" id="toc-bases-de-données" class="nav-link" data-scroll-target="#bases-de-données">Bases de données</a></li>
   </ul>
 </nav>
 </div>
@@ -109,14 +74,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Inès Shili-Touzi, Daniel Kalnin et Antoine Géré </p>
+             <p>Inès Shili-Touzi et Antoine Géré </p>
           </div>
   </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 17, 2025</p>
+      <p class="date">May 1, 2025</p>
     </div>
   </div>
   
@@ -217,137 +182,18 @@ Travail pour le vendredi 4 avril.
 <p>Ce travail doit être fait pour au plus tard le 04 avril</p>
 </div>
 </div>
-<ul>
-<li>Tenir un cahier de terrain, de recherches et construire une bibliographie, etc.</li>
-<li>Prise en main des différents moteurs de recherche :
-<ul>
-<li><a href="https://bu.univ-angers.fr/node/55">Web of Science</a></li>
-<li><a href="https://www.scopus.com/home.uri">Scopus</a></li>
-<li><a href="https://www.sciencedirect.com/">Science Direct</a></li>
-<li><a href="https://link.springer.com/">Springerlink</a></li>
-<li><a href="https://pubmed.ncbi.nlm.nih.gov/">Pub Med</a></li>
-<li><a href="https://www.cahiersagricultures.fr/fr/">Cahier de l’agriculture</a></li>
-<li><a href="https://agritrop.cirad.fr/">Agritrop</a></li>
-</ul></li>
-</ul>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+</section>
+<section id="step-2---bases-de-données" class="level3">
+<h3 class="anchored" data-anchor-id="step-2---bases-de-données">Step 2 - Bases de données</h3>
+<div class="flushright">
+<p><strong>Jeudi 1er Mai 2025</strong></p>
 </div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Quelles sont les spécificités des moteurs de recherche bibliographique ? Quelles base de données «ouvrent» ils ?</p>
-</div>
-</div>
-<ul>
-<li>Mise en route de votre recherche bibliograpqhie
-<ul>
-<li>La recherche est à cibler autour des mots clé <strong>agroécologie</strong> et <strong>cotton</strong> !</li>
-<li>Comparez les moteurs de recherche bibliographiques entre eux : <strong>Bibliométrie</strong></li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>La bibliométrie est l’application de méthodes statistiques et mathématiques pour mesurer et évaluer la production et la diffusion de publications.</p>
-</div>
-</div>
-<ul>
-<li>Utilisation de liens Logiques (Boolean)</li>
-</ul></li>
-<li>Les équations de recherche (avec boolean, connecteurs logique), prompts à utiliser.</li>
-</ul>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Comment les utiliser ? Les connecteurs sont génériques mais s’utilisent avec une syntaxe spécifique. Croiser les mots clées : <code>ITK</code>, <code>Sol</code>, <code>Fertilisation</code>, <code>Ravageur</code>, <code>Pest</code>, <code>Yield</code> avec <strong>agroécologie</strong> et <strong>cotton</strong>,commencer à faire de la bibliométrie. • Yield</p>
-</div>
-</div>
-<ul>
-<li>Triez les articles trouvés, puis gênerez une liste de 5 à 10 articles à récupérer sous forme PDF avec leur référence hypertexte puis leur équation de recherche sur votre cahier de Recherche.</li>
-</ul>
 <div>
 
 </div>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<ul>
-<li>Installation et prise en de <strong>Zotero</strong></li>
-</ul>
-<p>Zotero est un logiciel bibliographique au code source libre et gratuit sous licence GNU.</p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="https://www.zotero.org/"><img src="img/zotero-logo-256x62.png" class="img-fluid"></a></p>
-</div>
-</div>
-</div>
-<ul>
-<li>Créer sa première base de données</li>
-<li>Utiliser l’extension browser de Zotero pour crées sa première référence</li>
-<li>Ajouter manuellement une deuxième référence, livre, DOI, etc</li>
-<li>Ajouter une bibliographie par Zotero</li>
-<li>Ajouter une liste de reference par Zotero dans Word</li>
-<li>Modifier une liste de référence bibliographique automatique</li>
-<li>Changer lee style de la Bibliographie</li>
-<li>Ajouter les 6 références pour le PEAD</li>
-</ul>
-<p>Un <a href="https://bib.umontreal.ca/citer/logiciels-bibliographiques/zotero/installer">lien</a> vers une serie de tutorial pour Zotero.</p>
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/LVsI7kaIwFc?feature=shared" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/RGL_Hwo4sxo?feature=shared" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/7tFH0gGLCcQ?feature=shared" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-<ul>
-<li><p>Ouvrir sa base de données (ZOTERO) Word et un Navigateur</p></li>
-<li><p>Changer le style de la Bibliographie</p></li>
-<li><p>Ajouter les 6 références pour le PEAD</p></li>
-<li><p><strong>Analyse d’articles PIDEX</strong></p>
-<ul>
-<li><p>Contextualiser l’article</p>
-<ul>
-<li>Quelle est la problématique de l’article ?</li>
-<li>Comment l’auteur justifie le positionnement de la problématique ? Ce questionnement permet de saisir le coeur de l’article et de résumer la thèse ou la position défendue par l’auteur. Cela aide à bien comprendre le texte dans son ensemble.</li>
-</ul></li>
-<li><p>Comment cet article se rapporte-t-il à d’autres recherches ou théories dans le domaine ?</p></li>
-<li><p>A-t-il bien utilisé la bibliographie ?</p></li>
-<li><p>Cela situe l’article dans son contexte académique et à réfléchir à ses relations avec d’autres travaux, que ce soit en termes de comparaison, de complémentarité ou de contradiction.</p></li>
-<li><p>L’auteur a-t-il utilisé des biais ou des présupposés dans son argumentation ?</p></li>
-<li><p>Réfléchir de manière critique sur la manière dont l’auteur a construit son argumentation et à analyser les résultats qui ont influencé la discussion.</p></li>
-<li><p><strong>Proposer une amélioration de la problématique. Argumenter votre choix.</strong></p></li>
-</ul>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Travail pour le jeudi 6 mai.
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Ce travail sera évalué sous forme d’oral le jeudi 06 mai.</p>
-</div>
-</div></li>
-</ul>
-</section>
-<section id="step-3---bases-de-données" class="level3">
-<h3 class="anchored" data-anchor-id="step-3---bases-de-données">Step 3 - Bases de données</h3>
 <p>Les bases de données ont été difusées à chaque groupe :</p>
 <ul>
 <li><a href="">Bedari</a></li>
@@ -361,7 +207,13 @@ Travail pour le jeudi 6 mai.
 <li><a href="">Kossou</a></li>
 <li><a href="">Pedarou</a></li>
 </ul>
-<p>Vous pouvez retrouver via ce <a href="https://istom-my.sharepoint.com/:f:/g/personal/a_gere_istom_fr/EhCXWWGMN49Mie3HlRxrUOUB12GYpl3NVF0gZBboWwz8MQ?e=kSwXvC">lien</a> les bases de données manuscrites.</p>
+<p>Il vous est demandé de vous concentrer dans un premier temps sur l’année 2024.</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="https://en.wikipedia.org/wiki/Benin"><img src="img/carte_benin.jpg" class="img-fluid"></a></p>
+</div>
+</div>
+</div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -372,13 +224,15 @@ Travail pour le vendredi 16 mai.
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Il vous est demandé de préparer votre base de données, comme sur cet <a href="https://istom-my.sharepoint.com/:x:/g/personal/a_gere_istom_fr/Eeld5c7RXQdOg8VjkRMpaQIB2SZUOmQhWwCiZscPNPHB1w?e=1LQK9d">exemple</a> pour le vendredi 16 mai.</p>
+<p>Il vous est demandé de préparer votre base de données, comme sur cet <a href="https://istom-my.sharepoint.com/:x:/g/personal/a_gere_istom_fr/Eeld5c7RXQdOg8VjkRMpaQIB2SZUOmQhWwCiZscPNPHB1w?e=1LQK9d">exemple</a>.</p>
 </div>
 </div>
-<p>Il vous est possible de poser vos question au doctorant, M ???, pour toutes questions sur les bases de données, <a href="https://istom-my.sharepoint.com/:w:/g/personal/a_gere_istom_fr/EaTFFd5kubtOt-QDqDxokckB6JIuxyfUASvS6qOYkvWxcQ?e=fRgKpF">via ce fichier word en ligne</a>. Ecrivez simplement votre question avec la syntaxe indiquée.</p>
 </section>
-<section id="step-4---statistiques-descriptive" class="level3">
-<h3 class="anchored" data-anchor-id="step-4---statistiques-descriptive">Step 4 - Statistiques descriptive</h3>
+<section id="step-3---statistique-descriptive" class="level3">
+<h3 class="anchored" data-anchor-id="step-3---statistique-descriptive">Step 3 - Statistique descriptive</h3>
+<div class="flushright">
+<p><strong>Vendredi 2 Mai 2025</strong></p>
+</div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -394,38 +248,21 @@ Travail pour le vendredi 23 mai.
 <li>une analyse statistique descriptive univariée pour 2 variables de votre choix</li>
 <li>une analyse statistique descriptive bivariée pour 2 couples de variables de votre choix</li>
 </ul>
-<p>pour le <strong>vendredi 23 mai</strong>.</p>
 </div>
 </div>
 <p>Vous trouverez ci-dessous un rappel des cas univariée et bivariée.</p>
 <section id="statistique-univariée" class="level4">
 <h4 class="anchored" data-anchor-id="statistique-univariée">Statistique univariée</h4>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>mydata <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"exempleDatasetClean.xlsx"</span>,<span class="at">sheet =</span> <span class="st">"AFTER"</span>, <span class="at">range =</span> <span class="st">"B22:L150"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<p>coming.</p>
 </section>
 <section id="statistique-bivariée" class="level4">
 <h4 class="anchored" data-anchor-id="statistique-bivariée">Statistique bivariée</h4>
-</section>
-</section>
-<section id="step-5---tests-statistiques" class="level3">
-<h3 class="anchored" data-anchor-id="step-5---tests-statistiques">Step 5 - Tests statistiques</h3>
 <p>coming.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Travail pour le vendredi 30 mai.
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Il vous est demandé d’établir une problématique en lien avec votre base de donnée, et d’ensuite d’éffetuer des tests statistiques pour tenter d’y répondre.</p>
-<p>Ce travail est à faire pour le <strong>vendredi 30 mai</strong>.</p>
-</div>
-</div>
+</section>
+</section>
+<section id="step-4---tests-statistiques" class="level3">
+<h3 class="anchored" data-anchor-id="step-4---tests-statistiques">Step 4 - Tests statistiques</h3>
+<p>coming.</p>
 </section>
 </section>
 <section id="ressources" class="level2">
@@ -437,38 +274,8 @@ Travail pour le vendredi 30 mai.
 <li><p><a href="https://unctadstat.unctad.org/wds/ReportFolders/reportFolders.aspx?sCS_ChosenLang=en">UN trade &amp; development</a></p></li>
 <li><p><a href="https://www.imf.org/en/Data">International Monetary Fund</a></p></li>
 <li><p><a href="https://data.worldbank.org/">World Bank Open Data</a></p></li>
-<li><p><a href="https://ec.europa.eu/eurostat/data/database">eurostat</a></p></li>
+<li><p><a href="https://ec.europa.eu/eurostat/data/database">Eurostat</a></p></li>
 </ul>
-</section>
-<section id="bases-de-données" class="level2">
-<h2 class="anchored" data-anchor-id="bases-de-données">Bases de données</h2>
-<div>
-
-</div>
-<div class="quarto-layout-panel" data-layout-ncol="2">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<p>Voici les bases de données pour chacun des groupes :</p>
-<ul>
-<li><a href="">Bedari</a></li>
-<li><a href="">Bereke Centre</a></li>
-<li><a href="">Beroubouay Est</a></li>
-<li><a href="">Bokobouerou</a></li>
-<li><a href="">Gamia Est</a></li>
-<li><a href="">Guessou Nord</a></li>
-<li><a href="">Hangar Peuhl</a></li>
-<li><a href="">Ina Gando</a></li>
-<li><a href="">Kossou</a></li>
-<li><a href="">Pedarou</a></li>
-</ul>
-<p>Il vous est demandé de vous concentrer dans un premier temps sur l’année 2024.</p>
-<p>Vous pouvez retrouver via ce <a href="https://istom-my.sharepoint.com/:f:/g/personal/a_gere_istom_fr/EhCXWWGMN49Mie3HlRxrUOUB12GYpl3NVF0gZBboWwz8MQ?e=kSwXvC">lien</a> les bases de données manuscrites.</p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="https://en.wikipedia.org/wiki/Benin"><img src="img/carte_benin.jpg" class="img-fluid"></a></p>
-</div>
-</div>
-</div>
 </section>
 
 </main>
