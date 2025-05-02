@@ -99,18 +99,20 @@ Ce travail doit être fait pour au plus tard le 04 avril
 ::::: {layout-ncol="2"}
 <div>
 
-Les bases de données ont été difusées à chaque groupe :
+Les bases de données ont été difusées à chaque [groupe](https://istom-my.sharepoint.com/:t:/g/personal/a_gere_istom_fr/EZb1PCGBectIme-Y0ce8lJ0B3OhZPO0sByjhLx4QYnwOKQ?e=1tQA2M) :
 
--   [Bedari](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/sTa7/PEAD/Gr-01_Bedari?csf=1&web=1&e=g1UYZ4)
--   [Bereke Centre](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/sTa7/PEAD/Gr-02_Bereke_Centre?csf=1&web=1&e=CB57nI)
--   [Beroubouay Est](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/sTa7/PEAD/Gr-03_Beroubouay_Est?csf=1&web=1&e=nLnPig)
--   [Bokobouerou](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/sTa7/PEAD/Gr-04_Bokobouerou?csf=1&web=1&e=OU38WU)
--   [Gamia Est](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/sTa7/PEAD/Gr-05_Gamia_Est?csf=1&web=1&e=VLSU8D)
--   [Guessou Nord](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/sTa7/PEAD/Gr-06_Guessou_Nord?csf=1&web=1&e=xfNHw1)
--   [Hangar Peuhl](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/sTa7/PEAD/Gr-07_Hangar_Peuhl?csf=1&web=1&e=8spaJf)
--   [Ina Gando](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/sTa7/PEAD/Gr-08_Ina_Gando?csf=1&web=1&e=of4VhS)
--   [Kossou](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/sTa7/PEAD/Gr-09_Kossou?csf=1&web=1&e=BR5Dzt)
--   [Pedarou](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/sTa7/PEAD/Gr-10_Pedarou?csf=1&web=1&e=I2Xx8i)
+<br> 
+
+-   [Groupe 1 - Bedari](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/sTa7/PEAD/Gr-01_Bedari?csf=1&web=1&e=g1UYZ4)
+-   [Groupe 2 - Bereke Centre](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/sTa7/PEAD/Gr-02_Bereke_Centre?csf=1&web=1&e=CB57nI)
+-   [Groupe 3 - Beroubouay Est](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/sTa7/PEAD/Gr-03_Beroubouay_Est?csf=1&web=1&e=nLnPig)
+-   [Groupe 4 - Bokobouerou](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/sTa7/PEAD/Gr-04_Bokobouerou?csf=1&web=1&e=OU38WU)
+-   [Groupe 5 - Gamia Est](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/sTa7/PEAD/Gr-05_Gamia_Est?csf=1&web=1&e=VLSU8D)
+-   [Groupe 6 - Guessou Nord](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/sTa7/PEAD/Gr-06_Guessou_Nord?csf=1&web=1&e=xfNHw1)
+-   [Groupe 7 - Hangar Peuhl](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/sTa7/PEAD/Gr-07_Hangar_Peuhl?csf=1&web=1&e=8spaJf)
+-   [Groupe 8 - Ina Gando](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/sTa7/PEAD/Gr-08_Ina_Gando?csf=1&web=1&e=of4VhS)
+-   [Groupe 9 - Kossou](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/sTa7/PEAD/Gr-09_Kossou?csf=1&web=1&e=BR5Dzt)
+-   [Groupe 10 - Pedarou](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/sTa7/PEAD/Gr-10_Pedarou?csf=1&web=1&e=I2Xx8i)
 
 Il vous est demandé de vous concentrer dans un premier temps sur l'année 2024.
 
