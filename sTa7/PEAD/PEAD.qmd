@@ -103,16 +103,16 @@ Les bases de données ont été difusées à chaque [groupe](https://istom-my.sh
 
 <br> 
 
--   [Groupe 1 - Bedari](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/sTa7/PEAD/Gr-01_Bedari?csf=1&web=1&e=g1UYZ4)
--   [Groupe 2 - Bereke Centre](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/sTa7/PEAD/Gr-02_Bereke_Centre?csf=1&web=1&e=CB57nI)
--   [Groupe 3 - Beroubouay Est](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/sTa7/PEAD/Gr-03_Beroubouay_Est?csf=1&web=1&e=nLnPig)
--   [Groupe 4 - Bokobouerou](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/sTa7/PEAD/Gr-04_Bokobouerou?csf=1&web=1&e=OU38WU)
--   [Groupe 5 - Gamia Est](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/sTa7/PEAD/Gr-05_Gamia_Est?csf=1&web=1&e=VLSU8D)
--   [Groupe 6 - Guessou Nord](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/sTa7/PEAD/Gr-06_Guessou_Nord?csf=1&web=1&e=xfNHw1)
--   [Groupe 7 - Hangar Peuhl](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/sTa7/PEAD/Gr-07_Hangar_Peuhl?csf=1&web=1&e=8spaJf)
--   [Groupe 8 - Ina Gando](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/sTa7/PEAD/Gr-08_Ina_Gando?csf=1&web=1&e=of4VhS)
--   [Groupe 9 - Kossou](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/sTa7/PEAD/Gr-09_Kossou?csf=1&web=1&e=BR5Dzt)
--   [Groupe 10 - Pedarou](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/sTa7/PEAD/Gr-10_Pedarou?csf=1&web=1&e=I2Xx8i)
+-   [Groupe 1 - Bedari](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-01_Bedari?csf=1&web=1&e=Bbaaxj)
+-   [Groupe 2 - Bereke Centre](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-02_Bereke_Centre?csf=1&web=1&e=dsTXw5)
+-   [Groupe 3 - Beroubouay Est](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-03_Beroubouay_Est?csf=1&web=1&e=WhpXh6)
+-   [Groupe 4 - Bokobouerou](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-04_Bokobouerou?csf=1&web=1&e=zVU3jS)
+-   [Groupe 5 - Gamia Est](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-05_Gamia_Est?csf=1&web=1&e=zO4Upd)
+-   [Groupe 6 - Guessou Nord](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-06_Guessou_Nord?csf=1&web=1&e=1TeGUV)
+-   [Groupe 7 - Hangar Peuhl](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-07_Hangar_Peuhl?csf=1&web=1&e=VR9edS)
+-   [Groupe 8 - Ina Gando](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-08_Ina_Gando?csf=1&web=1&e=1rlkoO)
+-   [Groupe 9 - Kossou](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-09_Kossou?csf=1&web=1&e=fIR90f)
+-   [Groupe 10 - Pedarou](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-10_Pedarou?csf=1&web=1&e=AapMfT)
 
 Il vous est demandé de vous concentrer dans un premier temps sur l'année 2024.
 
@@ -146,19 +146,20 @@ Il vous est demandé d'effectuer
 -   une analyse statistique descriptive bivariée pour 2 couples de variables de votre choix
 :::
 
-Vous trouverez ci-dessous un rappel des cas univariée et bivariée.
+Vous trouverez ci-dessous quelques ressources pour le traitement statistiques de données avec R sur RStudio.
 
-#### Statistique univariée
+- [vidéo youtube interessante](https://youtu.be/NG94JHsh9oA?feature=shared)
+- [ressource inrae](https://odr.inrae.fr/intranet/carto/cartowiki/index.php/Statistiques_descriptives_avec_R)
+- [page du site web analyse-R](https://larmarange.github.io/analyse-R/statistique-bivariee.html)
+- [ressource paris descartes](https://helios2.mi.parisdescartes.fr/~vperduca/cours/programmation/R2_stat_desc_graphs.pdf)
 
-coming.
+### Step 4 - Etablir une problématique
 
-#### Statistique bivariée
+A la suite de votre analyse statistique descriptive, il vous est demandé de formuler une problématique, que vous devrez comuniquer à Mme Shili-Touzi.
 
-coming.
+### Step 5 - Tests statistiques
 
-### Step 4 - Tests statistiques
-
-coming.
+Réaliser des tests statistiques sur RStudio afin de répondre à votre problématique.
 
 ## Ressources
 
