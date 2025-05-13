@@ -41,18 +41,18 @@ Vous travaillerez sur la culture du **coton** dans le contexte agricole du Benin
 
 Les bases de données sont regroupées par coopératives :
 
--   [Bedari](https://istom-my.sharepoint.com/:x:/g/personal/a_gere_istom_fr/EfkCONPzFohOsW9BXaskLhMB5ZvhFdfQ2PwqX7eNCom_tQ?e=DguDUM)
--   [Bereke Centre](https://istom-my.sharepoint.com/:x:/g/personal/a_gere_istom_fr/EedY920H0uZNrGnL4V0CpKcBi2_ukFz6BxXq2GAqAaYYLg?e=8JlUwC)
--   [Beroubouay Est](https://istom-my.sharepoint.com/:x:/g/personal/a_gere_istom_fr/EW_7owl0soZKujDuDn4R-u8B4EKAJNI48k5yGVjQS8n5Nw?e=Ecvcpd)
--   [Bokobouerou](https://istom-my.sharepoint.com/:x:/g/personal/a_gere_istom_fr/ESMCNb4CANNGklB7xtDgyMkBrHx37fEtcLQCVB8wK_jO1w?e=zJANKS)
--   [Gamia Est](https://istom-my.sharepoint.com/:x:/g/personal/a_gere_istom_fr/EUrM9eavQ0RHg3BVoIXC3QgBXehI9Khh54gbZz_wWaEeeg?e=29glG6)
--   [Guessou Nord](https://istom-my.sharepoint.com/:x:/g/personal/a_gere_istom_fr/Ed2eUXwpMHNBoWcj23bSbPwBjjxeAkNsZ6fHjjOo25RC2A?e=gZgxDD)
--   [Hangar Peuhl](https://istom-my.sharepoint.com/:x:/g/personal/a_gere_istom_fr/EXaTVcyQhF9Bu_DTeaWMitsBUlO24iQ3ujVzjxyNGhnihQ?e=uaRi34)
--   [Ina Gando](https://istom-my.sharepoint.com/:x:/g/personal/a_gere_istom_fr/EViMZc0aJm1Hn9gVI9MzXRQBEvyrWSbPUL7KDYo7Qq5Xaw?e=JOjMIV)
--   [Kossou](https://istom-my.sharepoint.com/:x:/g/personal/a_gere_istom_fr/Ea7KrXD7qJ5GmWSSRJdwhE0Bbe0zK82wYZICQMXf8GzROQ?e=iudk3r)
--   [Pedarou](https://istom-my.sharepoint.com/:x:/g/personal/a_gere_istom_fr/ETuSChqHIvlDj23-ZFwe1lABkXfOwjkhu7mEyMLgLlTS0g?e=zL3l1h)
+-   [Bedari](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PASD/Gr-01_Bedari?csf=1&web=1&e=FtZI23)
+-   [Bereke Centre](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PASD/Gr-02_Bereke_Centre?csf=1&web=1&e=VO1Hla)
+-   [Beroubouay Est](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PASD/Gr-03_Beroubouay_Est?csf=1&web=1&e=iTR9fD)
+-   [Bokobouerou](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PASD/Gr-04_Bokobouerou?csf=1&web=1&e=qMNubp)
+-   [Gamia Est](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PASD/Gr-05_Gamia_Est?csf=1&web=1&e=eJhi0z)
+-   [Guessou Nord](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PASD/Gr-06_Guessou_Nord?csf=1&web=1&e=2YVRzT)
+-   [Hangar Peuhl](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PASD/Gr-07_Hangar_Peuhl?csf=1&web=1&e=aexGRB)
+-   [Ina Gando](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PASD/Gr-08_Ina_Gando?csf=1&web=1&e=ZdWsUI)
+-   [Kossou](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PASD/Gr-09_Kossou?csf=1&web=1&e=CiuxXD)
+-   [Pedarou](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PASD/Gr-10_Pedarou?csf=1&web=1&e=PKvwao)
 
-Vous pouvez retrouver via ce [lien](https://istom-my.sharepoint.com/:f:/g/personal/a_gere_istom_fr/EhCXWWGMN49Mie3HlRxrUOUB12GYpl3NVF0gZBboWwz8MQ?e=kSwXvC) les bases de données manuscrites.
+Vous pouvez retrouver via ce [lien](https://istom-my.sharepoint.com/:t:/g/personal/a_gere_istom_fr/EUzRE_4jXghFmF3Cv1JUXRkBJsvvKgMaTwkSCqqbDDH4Xw?e=pe3UuE) la liste des groupes.
 
 </div>
 
@@ -66,7 +66,7 @@ Vous pouvez retrouver via ce [lien](https://istom-my.sharepoint.com/:f:/g/person
 ::: callout-caution
 ## Travail à faire (en groupe de votre choix)
 
-Il vous est proposé de préparer votre base de données, comme sur cet [exemple](https://istom-my.sharepoint.com/:x:/g/personal/a_gere_istom_fr/Eeld5c7RXQdOg8VjkRMpaQIB2SZUOmQhWwCiZscPNPHB1w?e=1LQK9d).
+Il vous est proposé de préparer votre base de données, comme sur cet [exemple](https://istom-my.sharepoint.com/:x:/g/personal/a_gere_istom_fr/EcR7XBOazCdDrNdegd428uwBSJWAUKpNzOin3XTseFaGDg?e=pGsy60).
 :::
 
 ## Statistiques descriptives
@@ -80,3 +80,10 @@ Il vous est proposé d'effectuer :
 
 -   une analyse statistique descriptive bivariée pour au minimum 2 couples de variables de votre choix
 :::
+
+Vous trouverez ci-dessous quelques ressources pour le traitement statistiques de données avec R sur RStudio.
+
+- [vidéo youtube interessante](https://youtu.be/NG94JHsh9oA?feature=shared)
+- [ressource inrae](https://odr.inrae.fr/intranet/carto/cartowiki/index.php/Statistiques_descriptives_avec_R)
+- [page du site web analyse-R](https://larmarange.github.io/analyse-R/statistique-bivariee.html)
+- [ressource paris descartes](https://helios2.mi.parisdescartes.fr/~vperduca/cours/programmation/R2_stat_desc_graphs.pdf)
