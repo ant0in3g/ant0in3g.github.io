@@ -69,6 +69,10 @@ Vous pouvez retrouver via ce [lien](https://istom-my.sharepoint.com/:t:/g/person
 Il vous est proposé de préparer votre base de données, comme sur cet [exemple](https://istom-my.sharepoint.com/:x:/g/personal/a_gere_istom_fr/EcR7XBOazCdDrNdegd428uwBSJWAUKpNzOin3XTseFaGDg?e=pGsy60).
 :::
 
+---
+
+Afin de travailler plus facilement avec le dossier OneDrive partagé, il est conseillé de le [synchroniser localement](https://youtu.be/8WC7iClUH3k?feature=shared) sur votre ordinateur.
+
 ## Statistiques descriptives
 
 ::: callout-caution
@@ -87,3 +91,4 @@ Vous trouverez ci-dessous quelques ressources pour le traitement statistiques de
 - [ressource inrae](https://odr.inrae.fr/intranet/carto/cartowiki/index.php/Statistiques_descriptives_avec_R)
 - [page du site web analyse-R](https://larmarange.github.io/analyse-R/statistique-bivariee.html)
 - [ressource paris descartes](https://helios2.mi.parisdescartes.fr/~vperduca/cours/programmation/R2_stat_desc_graphs.pdf)
+
