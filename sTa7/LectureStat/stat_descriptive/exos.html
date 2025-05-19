@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -231,84 +265,6 @@ window.Quarto = {
  <span class="menu-text">Premiers pas sur les tests statistiques</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../tests/chi2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Les tests du <span class="math inline">\(\chi^2\)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../tests/student.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Test de Student</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../tests/shapiro-wilk.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Test de Shapiro Wilk</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../tests/levene.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Test de Levene</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../tests/anova.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ANOVA</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../tests/dixon.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Test de Dixon</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../tests/cochran.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Test de Cochran</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../tests/grubbs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Test de Grubbs</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../tests/wilcoxon.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Test de Wilcoxon</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../tests/mann-whitney.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Test de Mann Whitney</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../tests/kruskal-wallis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Test de Kruskal Wallis</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../tests/z.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Test Z</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../tests/snedecor.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Test de Snedecor</span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -455,9 +411,85 @@ Correction Ex. 1.1
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>coming.</p>
+<ol type="1">
+<li><ul>
+<li><strong>Population</strong> : visites d’un site dédié à l’informatique durant le mois de mars 2011.</li>
+<li><strong>Individu</strong> : une de ces visites</li>
+<li><strong>Effectif total</strong> : 2 022 764 + 880 491 + 576 655 + 315 613 + 150 639 + 51 031 = 3 997 193.</li>
+<li><strong>Variables étudiées</strong> : une seule variable, le navigateur utilisé lors de la visite. C’est une variable qualitative nominale qui prend les six modalités «Firefox», «Chrome», «Internet Explorer», «Safari », «Opera» et «Autres».</li>
+</ul></li>
+<li>Voici le tableau de distribution des effectifs et des proportions :</li>
+</ol>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Navigateur</th>
+<th style="text-align: right;">Effectif</th>
+<th style="text-align: right;">Proportion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Chrome</td>
+<td style="text-align: right;">880491</td>
+<td style="text-align: right;"><span class="math inline">\(22,03 \%\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Firefox</td>
+<td style="text-align: right;">2022764</td>
+<td style="text-align: right;"><span class="math inline">\(50,60 \%\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Internet Explorer</td>
+<td style="text-align: right;">576655</td>
+<td style="text-align: right;"><span class="math inline">\(14,43 \%\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Opera</td>
+<td style="text-align: right;">160303</td>
+<td style="text-align: right;"><span class="math inline">\(4,01 \%\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Safari</td>
+<td style="text-align: right;">315613</td>
+<td style="text-align: right;"><span class="math inline">\(7,90 \%\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Autres</td>
+<td style="text-align: right;">41367</td>
+<td style="text-align: right;"><span class="math inline">\(1,03 \%\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: right;">3997193</td>
+<td style="text-align: right;"><span class="math inline">\(100 \%\)</span></td>
+</tr>
+</tbody>
+</table>
+<ol start="3" type="1">
+<li><p>Le mode est la modalité dont l’effectif est le plus grand, c’est-à-dire « Firefox ».</p></li>
+<li><p>Puisque la variable est qualitative, on utilise un diagramme en baton :</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">22.03</span>,<span class="fl">50.60</span>,<span class="fl">14.43</span>,<span class="fl">4.01</span>,<span class="fl">7.90</span>,<span class="fl">1.03</span>) </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>NamesNav <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Chrome"</span>,<span class="st">"Firefox"</span>,<span class="st">"Internet Explorer"</span>,<span class="st">"Opera"</span>,<span class="st">"Safari"</span>,<span class="st">"Autres"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(x,<span class="at">col=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),<span class="at">border=</span><span class="cn">NA</span>,<span class="at">names.arg=</span>NamesNav) </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="exos_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="flushright">
+<div style="font-size: 70%;">
+<p>[stat-1000]</p>
+</div>
+<hr>
 </div>
 </section>
 </section>
@@ -488,9 +520,128 @@ Correction Ex. 2.1
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>coming.</p>
+<ol type="1">
+<li><ul>
+<li><strong>Population</strong> : les planches de piments</li>
+</ul></li>
+</ol>
+<ul>
+<li><strong>Individu</strong> : une de ces planches</li>
+<li><strong>Effectif total</strong> : 14</li>
+<li><strong>Variables étudiées</strong> : une seule variable, le nombre de piment par planche. C’est une variable quantitative discrète qui prend les neuf modalités <span class="math inline">\(3,4,5,6,8,9,10,12,15\)</span>.</li>
+</ul>
+<ol start="2" type="1">
+<li>Voici le tableau de distribution des effectifs et des proportions.</li>
+</ol>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Note</th>
+<th style="text-align: right;">Effectif</th>
+<th style="text-align: right;">Proportion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;"><span class="math inline">\(7,14 \%\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;"><span class="math inline">\(7,14 \%\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;"><span class="math inline">\(7,14 \%\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;"><span class="math inline">\(14,29 \%\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;"><span class="math inline">\(21,43 \%\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">9</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;"><span class="math inline">\(7,14 \%\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">10</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;"><span class="math inline">\(14,29 \%\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;"><span class="math inline">\(14,29 \%\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">15</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;"><span class="math inline">\(7,14 \%\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TOTAL</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;"></td>
+</tr>
+</tbody>
+</table>
+<ol start="3" type="1">
+<li>Puisque la variable est quantitative discrète, on utilise un diagramme en bâtons :</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">7.14</span>,<span class="fl">7.14</span>,<span class="fl">7.14</span>,<span class="fl">14.29</span>,<span class="dv">0</span>,<span class="fl">21.43</span>,<span class="fl">7.14</span>,<span class="fl">14.29</span>,<span class="fl">14.29</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">7.14</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>z <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>,<span class="dv">16</span>,<span class="dv">17</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(y,<span class="at">col=</span><span class="st">"steelblue"</span>,<span class="at">names.arg=</span>z)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="exos_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
 </div>
+</div>
+<ol start="4" type="1">
+<li><p>Le mode est la modalité dont l’effectif est le plus grand, c’est-à-dire «8».</p></li>
+<li><p>Pour calculer la moyenne on utilise la formule suivante :</p></li>
+</ol>
+<p><span class="math display">\[
+\begin{aligned}
+\mu &amp; =\frac{\sum_{i=1}^{k} n_{i} x_{i}}{N} \\
+&amp; =\frac{1 \times 3+1 \times 4+1 \times 5+2 \times 6+3 \times 8+1 \times 9+2 \times 10+2 \times 12+1 \times 15}{14} \\
+&amp; =\frac{116}{14} \\
+\mu &amp;\simeq 8,2857
+\end{aligned}
+\]</span></p>
+<ol start="5" type="1">
+<li>Pour calculer l’écart-type on utilise la formule suivante :</li>
+</ol>
+<p><span class="math display">\[\sigma =\sqrt{\frac{\displaystyle\sum_{i=1}^{k} n_{i} x_{i}^{2}}{N}-\mu^{2}}\]</span> Avec <span class="math display">\[\sum_{i=1}^{k} n_{i} x_{i}^{2}
+= 1 \times 3^{2}+1 \times 4^{2}+1 \times 5^{2}+2 \times 6^{2}+3 \times 8^{2}+1 \times 9^{2}+2 \times 10^{2}+2 \times 12^{2}+1 \times 15^{2} = 1108\]</span> Donc <span class="math display">\[\sigma = \sqrt{\frac{1108}{14}-8,2857^{2}} \simeq 3,2388
+\]</span></p>
+<ol start="6" type="1">
+<li>Puisque l’effectif total <span class="math inline">\(N\)</span> est pair, pour déterminer la médiane à partir des données individuelles, on les range par ordre croissant et on fait la moyenne des deux valeurs du milieu :</li>
+</ol>
+<p><span class="math display">\[
+3,4,5,6,6,8,8, \mid 8,9,10,10,12,12,15
+\]</span></p>
+<p>Les deux valeurs du milieu (de part et d’autre du trait) sont 8 et 8 donc la médiane est <span class="math inline">\(\dfrac{8+8}{2}=8\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="flushright">
+<div style="font-size: 70%;">
+<p>[stat-1001]</p>
+</div>
+<hr>
 </div>
 </section>
 <section id="exercice-2.2" class="level4">
@@ -1078,12 +1229,12 @@ Correction Ex. 3.2
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;"><span class="math inline">\(X \backslash Y\)</span></th>
-<th style="text-align: left;">160;61,7]</th>
-<th style="text-align: left;">161,7;63,7]</th>
-<th style="text-align: left;">163,7;65,7]</th>
-<th style="text-align: left;">165,7;67,7]</th>
-<th style="text-align: left;">167,7;69,7]</th>
+<th style="text-align: left;">X &nbsp;Y</th>
+<th style="text-align: left;">]60;61,7]</th>
+<th style="text-align: left;">]61,7;63,7]</th>
+<th style="text-align: left;">]63,7;65,7]</th>
+<th style="text-align: left;">]65,7;67,7]</th>
+<th style="text-align: left;">]67,7;69,7]</th>
 <th style="text-align: left;">]69,7;71,7]</th>
 <th style="text-align: left;">]71,7;73,7]</th>
 <th style="text-align: left;">173,7;75]</th>
@@ -1113,7 +1264,7 @@ Correction Ex. 3.2
 <td style="text-align: left;">0</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">166;68]</td>
+<td style="text-align: left;">]66;68]</td>
 <td style="text-align: left;">0</td>
 <td style="text-align: left;">14</td>
 <td style="text-align: left;">36</td>
@@ -1124,7 +1275,7 @@ Correction Ex. 3.2
 <td style="text-align: left;">0</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">168;70]</td>
+<td style="text-align: left;">]68;70]</td>
 <td style="text-align: left;">1</td>
 <td style="text-align: left;">8</td>
 <td style="text-align: left;">47</td>
@@ -1135,7 +1286,7 @@ Correction Ex. 3.2
 <td style="text-align: left;">5</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">170;72]</td>
+<td style="text-align: left;">]70;72]</td>
 <td style="text-align: left;">1</td>
 <td style="text-align: left;">1</td>
 <td style="text-align: left;">2</td>
@@ -1167,6 +1318,58 @@ Correction Ex. 3.2
 <li><p>Même question pour la taille médiane.</p></li>
 <li><p>Même question pour l’écart-type.</p></li>
 </ol>
+</section>
+<section id="exercice-6.2-corrélation-et-causalité" class="level4">
+<h4 class="anchored" data-anchor-id="exercice-6.2-corrélation-et-causalité">Exercice 6.2 (Corrélation et causalité)</h4>
+<p>Une bonne corrélation entre deux séries de données ne signifie pas pour autant qu’il existe un lien de cause à effet entre les deux. Pour illsutrer cette affirmation, considérons la série statistique suivante :</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Année</th>
+<th style="text-align: center;">1996</th>
+<th style="text-align: center;">1997</th>
+<th style="text-align: center;">1998</th>
+<th style="text-align: center;">1999</th>
+<th style="text-align: center;">2000</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Morts</td>
+<td style="text-align: center;">15.85</td>
+<td style="text-align: center;">15.7</td>
+<td style="text-align: center;">15.39</td>
+<td style="text-align: center;">15.32</td>
+<td style="text-align: center;">14.85</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Importations de citrons</td>
+<td style="text-align: center;">230</td>
+<td style="text-align: center;">280</td>
+<td style="text-align: center;">360</td>
+<td style="text-align: center;">410</td>
+<td style="text-align: center;">525</td>
+</tr>
+</tbody>
+</table>
+<p>Ce tableau donne le nombre de morts (pour un million d’habitants) sur les autoroutes américaines, ainsi que le nombre de tonnes de citrons mexicains importés aux États-Unis de 1996 à 2000.</p>
+<p>Calculer le coefficient de corrélation linéaire pour cette série double. En déduisez vous une information pertinente ?</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Remarque
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Attention donc à l’erreur courante qui est de croire qu’un coefficient de corrélation linéaire élevé (en valeur absolue) induit une relation de causalité entre les deux phénomènes mesurés.</p>
+</div>
+</div>
+</div>
 </section>
 </section>
 </section>
