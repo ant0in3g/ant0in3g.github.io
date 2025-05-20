@@ -23,6 +23,8 @@
 - [[04.0036]](./corrections/04.0036.C.pdf)
 - [[04.0037]](./corrections/04.0037.C.pdf)
 - [[04.0038]](./corrections/04.0038.C.pdf)
+- [[10.0015]](./corrections/10.0015.C.pdf)
+- [[10.0016]](./corrections/10.0016.C.pdf)
 - [[11.0081]](./corrections/11.0081.C.pdf)
 - [[11.0082]](./corrections/11.0082.C.pdf)
 - [[13.0001]](./corrections/13.0001.C.pdf)
