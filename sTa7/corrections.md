@@ -1,1 +1,2 @@
-- coming.
+- [[stat-0005]](./corrections/stat-0005.C.pdf)
+- [[stat-0006]](./corrections/stat-0006.C.pdf)
