@@ -41,35 +41,6 @@ Vous pouvez également vous exercer sur votre espace [jai20enmaths](https://www.
 3. [Equations differentielles](./mATh/chapter-s/equa-diff/chapter-s.pdf)
 4. [Développement limité](./mATh/chapter-s/developpement-limite/chapter-s.pdf)
 
-> - [Cours magistral]() - Intégration - _Mercredi 23 avril 2025_.
-> - [Cours magistral]() - Intégration - _Lundi 28 avril 2025_.
-> - [Travaux dirigés]() - Intégration - _Mardi 29 avril 2025_.
-> - [Cours magistral]() - Intégration - _Lundi 5 mai 2025_.
-> - [Travaux dirigés]() - Intégration - _Mardi 6 mai 2025_.
-> - [Cours magistral]() - Equations differentielles - _Lundi 12 mai 2025_.
-
-<!-- condensed for clarity! -->
-<blockquote class="callout callout_default" theme="⚠️">
-  <h3>⚠️ TD noté</h3>
-  <p>
-    TD noté le lundi 12 mai.
-  </p>
-</blockquote>
-
-> - [Cours magistral]() - Equations differentielles - _Mercredi 14 mai 2025_.
-> - [Cours magistral]() - Equations differentielles - _Lundi 19 mai 2025_.
-> - [Travaux dirigés]() - Equations differentielles - _Mardi 20 mai 2025_.
-
-<!-- condensed for clarity! -->
-<blockquote class="callout callout_default" theme="⚠️">
-  <h3>⚠️ TD noté</h3>
-  <p>
-    TD noté le jeudi 22 mai.
-  </p>
-</blockquote>
-
-> - [Travaux dirigés]() - Equations differentielles - _Mardi 27 mai 2025_.
-
 > 📘 Modalités d'évaluations
 >
 > 1 examen pour chaque chapitre (1 semaine après la fin du chapitre) + 1 partiel de fin de semestre.
@@ -90,32 +61,6 @@ Vous pouvez également vous exercer sur votre espace [jai20enmaths](https://www.
 1. [Fonctions à plusieurs variables réelles](./mATh/chapter-s/fonction-multi-variables/chapter-s.pdf)
 2. [Intégrales multiples](./mATh/chapter-s/integrales-multiples/chapter-s.pdf)
 3. [Géométrie dans le plan et l'espace](./mATh/chapter-s/geometry/chapter-s.pdf)
-
-> - [Travaux dirigés]() - Intégrales multiples - _Mercredi 23 avril 2025_.
-> - [Travaux dirigés]() - Intégrales multiples - _Mercredi 30 avril 2025_.
-
-<!-- condensed for clarity! -->
-<blockquote class="callout callout_default" theme="⚠️">
-  <h3>⚠️ TD noté</h3>
-  <p>
-    TD noté le mardi 6 mai.
-  </p>
-</blockquote>
-
-> - [Cours magistral]() - Suites - _Mercredi 7 mai 2025_.
-> - [Cours magistral]() - Suites - _Mercredi 14 mai 2025_.
-> - [Travaux dirigés]() - Suites - _Vendredi 16 mai 2025_.
-> - [Cours magistral]() - Suites - _Lundi 19 mai 2025_.
-
-<!-- condensed for clarity! -->
-<blockquote class="callout callout_default" theme="⚠️">
-  <h3>⚠️ TD noté</h3>
-  <p>
-    TD noté le mercredi 22 mai.
-  </p>
-</blockquote>
-
-> - [Travaux dirigés]() - Suites - _Mercredi 28 mai 2025_.
 
 > 📘 Modalités d'évaluations
 >
