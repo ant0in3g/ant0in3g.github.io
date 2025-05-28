@@ -6,7 +6,7 @@ Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 >
 > [**Cours complet de Statistiques et analyse de données à l'ISTOM**](sTa7/LectureStat/index.html)
 >
-> **Fiche de révisions : [Fiche P115](./sTa7/fiche-p115.pdf) et [Fiche P114](fiche-p114.pdf)**
+> **Fiches de révisions : [Fiche P115](./sTa7/fiche-p115.pdf) et [Fiche P114](fiche-p114.pdf)**
 >
 > **Projets :**
 >
