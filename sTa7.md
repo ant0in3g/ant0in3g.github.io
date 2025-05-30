@@ -16,7 +16,7 @@ Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 >
 > - 3ème année : [**P**rojet d'**I**nitiation à la **D**émarche **Ex**périmentale (PIDEx)](./sTa7/PIDEx/PIDEx.html)
 >
-> Les sujets d'examens donnés sont disponible sur cette [page](./sTa7/examens.md/)
+> Les **sujets d'examens** donnés sont disponible sur cette [**page**](./sTa7/examens.md/)
 >
 > Un [cours (en anglais) de l'université de Stanford](https://www.statlearning.com/) sur tout notre programme de statistiques analyse de données et bien au delà. Une [playliste YouTube](https://youtube.com/playlist?list=PLoROMvodv4rOzrYsAxzQyHb8n_RWNuS1e&feature=shared) des chapitres de ce cours est disponible.
 >
