@@ -4,7 +4,9 @@ Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 
 > [**Tutorial condensé sur la prise en main de R et RStudio**](./sTa7/TutoRetRStudio/index.html)
 >
-> [**Cours complet de Statistiques et analyse de données à l'ISTOM**](sTa7/LectureStat/index.html)
+> [**Cours complet de Statistiques et analyse de données**](sTa7/LectureStat/index.html)
+>
+> [**Travaux dirigés**](sTa7/poly_td.pdf)
 >
 > **Projets :**
 >
