@@ -8,8 +8,6 @@ Vous retrouverez à ce lien le [syllabus](https://www.istom.fr/etudiant) complet
 
 Un outil très pratique [Wolfram Alpha](https://www.wolframalpha.com/). C'est un "moteur de recherche scientifique", une superbe calculatrice à tout faire. Disponible sur le navigateur mais également sur mobile avec une application téléchargeable sur [Google Play](https://play.google.com/store/apps/details?id=com.wolfram.android.alphapro&hl=en&pli=1) et [l’App Store](https://apps.apple.com/us/app/wolframalpha/id548861535).
 
-Etudiez en musique ! Vos playlists sur [Spotify](https://open.spotify.com/playlist/0KZGwpcrKkFicSRuAJ3CQ4?si=4670e9f1df6749e5) et [Deezer](https://deezer.page.link/TxLR2fALBsRhxWnY9).
-
 ### [Mathématiques](./mATh.md)
 
 ### [Statistiques et analyses de données](./sTa7.md) 
