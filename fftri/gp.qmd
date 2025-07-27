@@ -1,0 +1,91 @@
+---
+title: "Championnats de France FFTRI"
+author: " "
+format: dashboard
+---
+
+```{ojs}
+//| output: false
+
+data = FileAttachment("gp_du.csv")
+  .csv({ typed: true })
+
+filtered = data.filter(function(duathlon) {
+  return club < gp &&
+         islands.includes(penguin.island);
+})
+```
+
+# {.sidebar}
+
+![](fftri.png){width="80%"}
+
+```{ojs}
+
+viewof islands = Inputs.checkbox(
+  ["D1 Homme", "D1 Femme", "D2 Homme", "D2 Femme"], 
+  { value: ["D1 Homme", "D1 Femme", "D2 Homme", "D2 Femme"], 
+    label: "Championnats"
+  }
+)
+
+```
+
+# Duathlon
+
+```{ojs}
+Plot.rectY(filtered, 
+  Plot.binX(
+    {y: "gp"}, 
+    {x: "club", fill: "championnats", thresholds: 20}
+  ))
+  .plot({
+    facet: {
+      data: filtered,
+      x: "sex",
+      y: "species",
+      marginRight: 80
+    },
+    marks: [
+      Plot.frame(),
+    ]
+  }
+)
+```
+
+# Triathlon
+
+coming.
+
+# Data
+
+# Infos
+
+##
+
+Ce dashbaord est un pojet personel dont les les données sont issues du site [prolivesport.fr](https://www.prolivesport.fr/). Pour toutes remarques ou demandes, merci de contacter par mail [gereantoine@gmail.com](to:gereantoine@gmail.com)
+
+## 
+
+**Detail de l'attribution des points**
+
+|               | 4 première étapes (coeff. 1) | 5ème étape - finale (coeff. 1.5) |
+|:-------------:|:-----------------:|:-------------------:|
+| 1ère équipe   | 20 points         | 30 points           |
+| 2ème équipe   | 18 points         | 27 points           |
+| 3ème équipe   | 16 points         | 24 points           |
+| 4ème équipe   | 14 points         | 21 points           |
+| 5ème équipe   | 13 points         | 19.5 points         |
+| 6ème équipe   | 12 points         | 18 points           |
+| 7ème équipe   | 11 points         | 16.5 points         |
+| 8ème équipe   | 10 points         | 15 points           |
+| 9ème équipe   | 9 points          | 13.5 points         |
+| 10ème équipe  | 8 points          | 12 points           |
+| 11ème équipe  | 7 points          | 10.5 points         |
+| 12ème équipe  | 6 points          | 9 points            |
+| 13ème équipe  | 5 points          | 7.5 points          |
+| 14ème équipe  | 4 points          | 6 points            |
+| 15ème équipe  | 3 points          | 4.5 points          |
+| 16ème équipe  | 2 points          | 3 points            |
+
+
