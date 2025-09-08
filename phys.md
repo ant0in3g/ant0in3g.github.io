@@ -8,7 +8,7 @@ Enseignant : [Fredric Koch](mailto:f.koch-ext@istom.fr) (S1 et S2) et [Fabien Be
 
 |                   | Semestre 1 | Semestre 2 | Semestre 4 |
 |:------------------|:-----------|:-----------|:-----------|
-| Cours             | 8 séances  | 8 séances  | 8 séances  |
-| Travaux dirigés   | 16 séances | 16 séances | 16 séances |
+| Cours             | 16 séances | 16 séances | 16 séances |
+| Travaux dirigés   | 8 séances  | 8 séances  | 8 séances  |
 |:------------------|:-----------|:-----------|:-----------|
 | tot.              | 24 séances | 24 séances | 24 séances |
