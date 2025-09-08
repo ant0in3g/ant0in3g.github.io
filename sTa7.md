@@ -2,8 +2,6 @@
 
 Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 
-> [**Tutorial condensé sur la prise en main de R et RStudio**](./sTa7/TutoRetRStudio/index.html)
->
 > [**Cours complet de Statistiques et analyse de données**](sTa7/LectureStat/index.html)
 >
 > [**Travaux dirigés**](sTa7/poly_td.pdf)
@@ -23,10 +21,10 @@ Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 
 |                   | Semestre 2 | Semestre 3 | Semestre 4 | Semestre 5 |
 |:------------------|:-----------|:-----------|:-----------|:-----------|
-| Cours             | 16 séances | - séances  | 8 séances  | - séances  |
-| Travaux dirigés   | 8 séances  | - séances  | 7 séances  | - séances  |
+| Cours             | 8 séances  | 8 séances  | 8 séances  | 8 séances  |
+| Travaux dirigés   | 8 séances  | 8 séances  | 8 séances  | 8 séances  |
 |:------------------|:-----------|:-----------|:-----------|:-----------|
-| tot.              | 24 séances | - séances  | 15 séances | - séances  |
+| tot.              | 16 séances | 16 séances | 16 séances | 16 séances |
 
 ![image](./img/curve_fitting.png)  
 _Source : [https://imgs.xkcd.com/comics/curve_fitting.png](https://imgs.xkcd.com/comics/curve_fitting.png)_
