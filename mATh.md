@@ -25,10 +25,10 @@ Vous pouvez également vous exercer sur votre espace [jai20enmaths](https://www.
 
 ### Semestre 1
 
-1. [Nombres complexes](./mATh/chapter-s/nombres-complexes/chapter-s.pdf)
-2. [Pôlynomes](./mATh/chapter-s/Polynomes/chapter-s.pdf)
-3. [Suites numériques](./mATh/chapter-s/suites/chapter-s.pdf) 
-4. [Fonctions à une variable réelle](./mATh/chapter-s/limit-conti-deriv/chapter-s.pdf) 
+1. [Fonctions à une variable réelle](./mATh/chapter-s/limit-conti-deriv/chapter-s.pdf)
+2. [Fonctions usuelles](./mATh/chapter-s/fonctions-usuelles/chapter-s.pdf)
+3. [Nombres complexes](./mATh/chapter-s/nombres-complexes/chapter-s.pdf)
+4. [Suites numériques](./mATh/chapter-s/suites/chapter-s.pdf) 
 
 > 📘 Modalités d'évaluations
 >
@@ -36,7 +36,7 @@ Vous pouvez également vous exercer sur votre espace [jai20enmaths](https://www.
 
 ### Semestre 2
 
-1. [Fonctions usuelles](./mATh/chapter-s/fonctions-usuelles/chapter-s.pdf)
+1. [Pôlynomes](./mATh/chapter-s/Polynomes/chapter-s.pdf)
 2. [Intégrations](./mATh/chapter-s/integration/chapter-s.pdf)
 3. [Equations differentielles](./mATh/chapter-s/equa-diff/chapter-s.pdf)
 4. [Développement limité](./mATh/chapter-s/developpement-limite/chapter-s.pdf)
