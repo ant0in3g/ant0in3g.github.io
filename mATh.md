@@ -32,7 +32,7 @@ Vous pouvez également vous exercer sur votre espace [jai20enmaths](https://www.
 
 > 📘 Modalités d'évaluations
 >
-> -
+> 1 examen pour chaque chapitre (1 semaine après la fin du chapitre) + QCMs + 1 partiel de fin de semestre.
 
 ### Semestre 2
 
@@ -43,7 +43,7 @@ Vous pouvez également vous exercer sur votre espace [jai20enmaths](https://www.
 
 > 📘 Modalités d'évaluations
 >
-> 1 examen pour chaque chapitre (1 semaine après la fin du chapitre) + 1 partiel de fin de semestre.
+> 1 examen pour chaque chapitre (1 semaine après la fin du chapitre) + QCMs + 1 partiel de fin de semestre.
 
 ### Semestre 3
 
@@ -54,7 +54,7 @@ Vous pouvez également vous exercer sur votre espace [jai20enmaths](https://www.
 
 > 📘 Modalités d'évaluations
 >
-> -
+> 1 examen pour chaque chapitre (1 semaine après la fin du chapitre) + QCMs + 1 partiel de fin de semestre.
 
 ### Semestre 4
 
@@ -64,7 +64,7 @@ Vous pouvez également vous exercer sur votre espace [jai20enmaths](https://www.
 
 > 📘 Modalités d'évaluations
 >
-> 1 examen pour chaque chapitre (1 semaine après la fin du chapitre) + 1 partiel de fin de semestre.
+> 1 examen pour chaque chapitre (1 semaine après la fin du chapitre) + QCMs + 1 partiel de fin de semestre.
 
 ### Examens et corrections
 
