@@ -4,10 +4,10 @@ Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 
 |                   | Semestre 1 | Semestre 2  | Semestre 3 | Semestre 4  |
 |:------------------|:-----------|:------------|:-----------|:------------|
-| Cours             | - séances  | 16 séances  | - séances  | 10 séances  |
-| Travaux dirigés   | - séances  | 16 séances  | - séances  | 12 séances  |
+| Cours             | 10 séances | 10 séances  | 10 séances | 10 séances  |
+| Travaux dirigés   | 12 séances | 12 séances  | 12 séances | 12 séances  |
 |:------------------|:-----------|:----------- |:-----------|:------------|
-| tot.              | - séances  | 32 séances  | - séances  | 22 séances  |
+| tot.              | 22 séances | 22 séances  | 22 séances | 22 séances  |
 
 Les notes de cours ci-dessous sont en cours d’élaboration. Si vous avez la moindre question ou remarque ne pas hésiter à me contacter par mail à [a.gere@istom.fr](mailto:a.gere@istom.fr).
 
