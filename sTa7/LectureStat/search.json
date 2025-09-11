@@ -59,7 +59,7 @@
     "href": "index.html",
     "title": "Statistiques et analyse de données",
     "section": "",
-    "text": "Introduction\nDans le domaine de l’agronomie, la prise de décision repose sur l’analyse rigoureuse de données issues d’expériences, d’observations de terrain et de mesures variées. Que ce soit pour optimiser les rendements agricoles, analyser l’impact des changements climatiques, améliorer la gestion des ressources naturelles ou évaluer la qualité des sols et des cultures, la statistique joue un rôle central.\nCe cours propose une introduction approfondie aux outils statistiques fondamentaux nécessaires aux ingénieurs agronomes. Il est structuré autour de quatre grandes thématiques :\nTout au long de ce cours nous apprendrons à utiliser les concepts des statistiques et de l’analyse de données avec le language de programmation R et le logiciel RStudio (cf ce lien pour un tutorial sur la prise en main de R et RStudio).\nCet apprentissage s’effectera sur des exemples concrets et des études de cas spécifiques aux enjeux propres des pays du sud : adaptation aux conditions climatiques locales, gestion durable des ressources et amélioration des pratiques agricoles.\nL’objectif est de vous fournir, futurs ingénieurs agronomes, les compétences nécessaires pour interpréter des données complexes et appuyer des décisions fondées sur des analyses rigoureuses.",
+    "text": "Introduction\nDans le domaine de l’agronomie, la prise de décision repose sur l’analyse rigoureuse de données issues d’expériences, d’observations de terrain et de mesures variées. Que ce soit pour optimiser les rendements agricoles, analyser l’impact des changements climatiques, améliorer la gestion des ressources naturelles ou évaluer la qualité des sols et des cultures, la statistique joue un rôle central.\nCe cours propose une introduction approfondie aux outils statistiques fondamentaux nécessaires aux ingénieurs agronomes. Il est structuré autour de quatre grandes thématiques :\nTout au long de ce cours nous apprendrons à utiliser les concepts des statistiques et de l’analyse de données avec le language de programmation R et le logiciel RStudio.\nCet apprentissage s’effectera sur des exemples concrets et des études de cas spécifiques aux enjeux propres des pays du sud : adaptation aux conditions climatiques locales, gestion durable des ressources et amélioration des pratiques agricoles.\nL’objectif est de vous fournir, futurs ingénieurs agronomes, les compétences nécessaires pour interpréter des données complexes et appuyer des décisions fondées sur des analyses rigoureuses.",
     "crumbs": [
       "Introduction"
     ]
@@ -521,6 +521,352 @@
     "crumbs": [
       "Tests statistiques",
       "Premiers pas sur les tests statistiques"
+    ]
+  },
+  {
+    "objectID": "tuto_R_RStudio.html",
+    "href": "tuto_R_RStudio.html",
+    "title": "Tutorial à R et RStudio",
+    "section": "",
+    "text": "R est un langage de programmation et un environnement statistique open-source, largement utilisé pour l’analyse de données, les statistiques et la science des données. Créé dans les années 1990 par Ross Ihaka et Robert Gentleman, il est particulièrement apprécié pour sa puissance dans le traitement des données, la modélisation statistique et la visualisation graphique. Grâce à une vaste communauté de développeurs, R bénéficie d’un large écosystème de packages (via CRAN) qui étendent ses fonctionnalités dans divers domaines, comme l’apprentissage automatique, la bioinformatique et l’économétrie.\nRStudio est un environnement de développement intégré (IDE) conçu pour faciliter l’utilisation de R. Il offre une interface conviviale avec un éditeur de code avancé, une console interactive, des outils de visualisation et un gestionnaire de projets. Disponible en version gratuite et professionnelle, RStudio améliore l’expérience utilisateur grâce à des fonctionnalités telles que l’auto-complétion du code, l’intégration avec Git, la gestion des environnements et la possibilité de générer des rapports dynamiques avec R Markdown et Quarto.\nSur RStudio il est possible d’utiliser R Markdown et Quarto:\n\nR Markdown est un format de document qui permet d’intégrer du code R dans un fichier texte et de générer des rapports dynamiques sous divers formats (HTML, PDF, Word, etc.). Il est très utilisé pour la documentation, les rapports d’analyse et les présentations interactives.\nQuarto est une évolution de R Markdown, plus flexible et multi-langage, permettant d’intégrer du code non seulement en R, mais aussi en Python, Julia et d’autres langages. Il est conçu pour produire des documents scientifiques, des articles, des tableaux de bord et des sites web interactifs avec un meilleur support pour la reproductibilité des analyses.\n\n\nEnsemble, R, RStudio, R Markdown et Quarto forment un écosystème puissant pour l’analyse de données, la visualisation et la communication scientifique, largement utilisé dans les milieux académiques et professionnels.\nCe cours fournit une introduction aux bases de R, en mettant l’accent sur les applications statistiques.\n\n\n\n\n\n\nImportant\n\n\n\nCes notes sont en cours d’élaboration. Si vous avez la moindre question ou remarque ne pas hésiter à me contacter par email a.gere@istom.fr",
+    "crumbs": [
+      "Tutorial à R et RStudio"
+    ]
+  },
+  {
+    "objectID": "tuto_R_RStudio/analysis_dataset.html",
+    "href": "tuto_R_RStudio/analysis_dataset.html",
+    "title": "Inroduction à l’analyse de données",
+    "section": "",
+    "text": "Importer des données dans RStudio\nRStudio est l’environnement qui va vous permettre d’analyser vos données. Vous allez maintenant apprendre à charger des données dans RStudio, les modifier puis les ressortir de RStudio.\nNous allons apprendre à ouvrir un fichier CSV consacré que voustéléchargerez sur le site open data du gouvernement. Choisissez un jeu de donnée qui vous interesse. Vous enregistrer ce fichier dans le dossier data_raw de votre projet sous R. Ce fichier CSV est un fichier texte où les données sous formes de tables sont séparées par des virgules. C’est le format de table par excellence à privilégier car nativement pris en compte par R, sans limite de lignes, contrairement à Excel. Pour ma part j’ai choisi ce jeu de données.\nEcrivez sous R\nVous récupérez dans le cadran en bas à droite la documentation de la fonction read.csv.\nIl est nécessaire de charger le package readxl. Deux possibilités s’offrent à nous, soit on procède comme précement pour le package rmarkdown, soit on écrit sur la ligne de code suivante :\nEt maintenant nous allons charger les données d’un fichier excel récupérer sur ce site.\nCela ne fonctionne malheuresement pas très bien. Il est nécessaire de péciser l’onglet sur lequel on va travailler et les celules qui nous intéressent.\nEnfin pour ajouter les titre de chacune des colonnes on écrit",
+    "crumbs": [
+      "Inroduction à l'analyse de données"
+    ]
+  },
+  {
+    "objectID": "tuto_R_RStudio/analysis_dataset.html#importer-des-données-dans-rstudio",
+    "href": "tuto_R_RStudio/analysis_dataset.html#importer-des-données-dans-rstudio",
+    "title": "Inroduction à l’analyse de données",
+    "section": "",
+    "text": "Télécharger le jeu de données au format CSV\nEnregistrer ce fichier CSV dans le dossier data_raw de votre projet sous R\nSous R, rentrer le code :\n\n\nmixite_groupe_edf &lt;- read.csv(\"data_raw/mixite-dans-le-groupe-edf.csv\",sep = \";\")\n\nVous récupérer dans le cadran en haut à droite, dans Environment, l’ensemble des varaibles de votre fichier CSV\n\n\nPour éviter les erreurs : Lisez la page d’aide avant d’utiliser une fonction pour la première fois grâce à la fonction help() ou l’onglet Help.\n\n\n&gt; help(\"read.csv\")\n\n\nIl est cependant fréquent que les données ne soit pas regroupées dans un fichier CSV, mais directement dans un fichier Excel.\n\n\ninstall.packages(\"readxl\")\n\nlibrary(readxl)\nsalaire &lt;- read_excel(\"data_raw/mrsd_2022Wages_Occ_Ind_List.xlsx\")\n\nlibrary(readxl)\nsalaire &lt;- read_excel(\"data_raw/mrsd_2022Wages_table4.xlsx\", sheet = \"T4\", range = \"B10:J352\")\n\nlibrary(readxl)\nsalaire &lt;- read_excel(\"data_raw/mrsd_2022Wages_table4.xlsx\", sheet = \"T4\", range = \"B10:J352\", col_names = {\n  c(\"SSOC 2020\",\"Occupation\",\"Number Covered\",\"Basic Wage - 25th Percentile ($)\", \"Basic Wage - Median  ($)\",\"Basic Wage - 75th Percentile ($)\",\"Gross Wage - 25th Percentile ($)\", \"Gross Wage - Median  ($)\",\"Gross Wage - 75th Percentile ($)\")})",
+    "crumbs": [
+      "Inroduction à l'analyse de données"
+    ]
+  },
+  {
+    "objectID": "tuto_R_RStudio/analysis_dataset.html#modifier-et-exporter-des-données-importées-dans-rstudio",
+    "href": "tuto_R_RStudio/analysis_dataset.html#modifier-et-exporter-des-données-importées-dans-rstudio",
+    "title": "Inroduction à l’analyse de données",
+    "section": "Modifier et exporter des données importées dans RStudio",
+    "text": "Modifier et exporter des données importées dans RStudio\n\nReprenez les données que vous avez importé au paragraphe précédent.\nOuvrez le tableau de données en cliquant dessus dans l’onglet Environment ou en utilisant le code :\n\nmixite_groupe_edf &lt;- read.csv(\"data_raw/mixite-dans-le-groupe-edf.csv\",sep = \";\")\nView(mixite_groupe_edf)\nAfin de remplacer une valeur dans une cellule, il faut localiser cette cellule et lui donner sa valeur. Cela se fait de la manière suivante :\nmixite_groupe_edf &lt;- read.csv(\"data_raw/mixite-dans-le-groupe-edf.csv\",sep = \";\")\nmixite_groupe_edf[38, 5] &lt;- \"Mars\" # cellule à la 28eme ligne et 1ere colonne\nDe la même manière, vous allez pouvoir sélectionner toutes les lignes de plusieurs colonnes en ne mettant rien avant la virgule, et les colonnes d’intérêt listées après.\nmixite_groupe_edf &lt;- read.csv(\"data_raw/mixite-dans-le-groupe-edf.csv\",sep = \";\")\n\n# avec le nom des colonnes\nmixite_groupe_edf_fr &lt;- mixite_groupe_edf[, c(\"tri\", \"annee\", \"perimetre_juridique\", \"perimetre_spatial\", \"indicateur\", \"valeur_de_l_indicateur\", \"unite\", \"methode_de_consolidation\")]\n\n# ou la position des colonnes\nmixite_groupe_edf_fr &lt;- mixite_groupe_edf[, c(1:3, 5, 7, 9, 10, 12)]\nVous remarquerez qu’un nouveau tableau a été créé, associé au nom mixite_groupe_edf_fr. Il est possible de réutiliser le même nom, ce qui permet de gagner en mémoire mais élimine les données de base.\nLes modifications réalisées dans l’environnement de RStudio n’impactent pas les données en dehors tant qu’elles ne sont pas enregistrées.\nPour enregistrer une table sous format CSV, il suffit d’utiliser la fonction write.csv() :\nmixite_groupe_edf &lt;- read.csv(\"data_raw/mixite-dans-le-groupe-edf.csv\",sep = \";\")\nmixite_groupe_edf_fr &lt;- mixite_groupe_edf[, c(1:3, 5, 7, 9, 10, 12)]\nwrite.csv(x = mixite_groupe_edf_fr, file = \"data/presence_femme_edf.csv\")  . \nSi vous souhaitez enregistrer votre fichier au format XLSX (Excel), il sufiit d’écrire : ```{r} install.packages(“writexl”) library(writexl) write_xlsx(x = mixite_groupe_edf_fr, path = “data/presence_femme_edf.xlsx”)",
+    "crumbs": [
+      "Inroduction à l'analyse de données"
+    ]
+  },
+  {
+    "objectID": "tuto_R_RStudio/R_RStudio.html",
+    "href": "tuto_R_RStudio/R_RStudio.html",
+    "title": "R et RStudio",
+    "section": "",
+    "text": "Il est nécessaire d’avoir :\n\nsoit un pc windows\nsoit un ordinateur avec une distribution linux, par exemple Ubuntu\nsoit un mac\n\nIl est aujourd’hui possible de trouver des ordinateurs de qualité à moindre prix, en reconditionné, par exemple sur ce site https://www.backmarket.fr/fr-fr.",
+    "crumbs": [
+      "Tutorial à R et RStudio",
+      "R et RStudio"
+    ]
+  },
+  {
+    "objectID": "tuto_R_RStudio/install_R.html",
+    "href": "tuto_R_RStudio/install_R.html",
+    "title": "Installation et configuration",
+    "section": "",
+    "text": "Il est nécessaire d’avoir :\n\nsoit un pc windows\nsoit un ordinateur avec une distribution linux, par exemple Ubuntu\nsoit un mac\n\nIl est aujourd’hui possible de trouver des ordinateurs de qualité à moindre prix, en reconditionné, par exemple sur ce site https://www.backmarket.fr/fr-fr.\n\nInstallation de RStudio\nR : Rendez-vous sur le site officiel CRAN. pour télécharger et installer R.\n\nPour toutes les personnes utilisant Linux, choisissez la bonne page entre parenthèses et suivez les consignes pour télécharger et installer R.\nPour les personnes utilisant MacOS, téléchargez l’installateur en fonction de votre système et lancez-le.\nPour les personnes utilisant Windows, téléchargez l’installateur en cliquant sur install R for the first time puis lancez-le. Vous devez aussi installer Rtools via le lien sur le CRAN ou en utilisant les lignes de code suivantes dans R :\n\ninstall.packages(\"utils\")\ninstall.packages(\"installr\")\ninstallr::install.Rtools()\n\n\nInstallation de RStudio\nRstudio est un IDE.\n\nEn programmation informatique, un IDE (environnement de développement) est un ensemble d’outils qui permet d’augmenter la productivité des programmeurs qui développent des logiciels. Source : Wikipédia\n\nDans cette partie vous allez apprendre à installer RStudio, l’environnement dans lequel vous allez coder en R.\nRStudio : L’interface utilisateur graphique que vous allez utiliser pour travailler avec R. Téléchargez-le depuis RStudio. Choisissez bien l’installateur associé à votre système d’exploitation et suivez les consignes.\n\n\nConfiguration de RStudio\nDans cette partie nous allons apprendre à personnaliser RStudio de sorte à avoir un environnement de travail agréable à utiliser.​\nLorsque que vous ouvrez RStudio pour la première fois, votre écran doit ressembler à ça.\n\n\n\nimage\n\n\nLes versions de R et RStudio peuvent être legerement différentes, donc quelques différences sont possibles entre ce que vous avez sur votre ordinateur et ce que vous pouvez observer sur cette capture d’écran.\nL’organisation de ces parties est complètement modulable à votre guise dans :\nTools &gt; Global options\nNous allons débuter par personaliser le Pane Layout.\nTools &gt; Global options &gt; Pane Layout\n\n\n\nimage\n\n\n\nEn haut à gauche vous avez la fenêtre Source, là où les scripts s’ouvriront.\nEn haut à droite la fenêtre Environnement, History, Connections, VSC, Tutorial, Presentation. Sélectionnez :\n\nEnvironnement\nHistory\nConnections\nBuild\nVCS\nTutorial : Cet onglet va vous permettre d’accéder à un ensemble de tutoriels très pratique pour apprendre à coder en R.\n\nEn bas à gauche la fenêtre Console, pour le moment avec Terminal et Background Jobs. Vide à chaque ouverture de RStudio, cette fenêtre est l’endroit où les codes vont être activés.\nEn bas à droite la fenêtre Files, Plots, Packages, Help, Viewer, Presentations. Sélectionnez :\n\nFiles\nPlots\nPackages\nHelp\nViewer\nPresentations\n\n\nNous allons à présent ajuster l’apparence de RStudio suivant nos propres préférences. Le chemin pour ces modification est toujours le même :\nTools &gt; Global options\nNous commençons par R General :\nTools &gt; Global options &gt; R General\n\n\n\nimage\n\n\n\nVérifiez si la version préente est la dernière en cliquant sous R version sur Change.\nWorkspace : Décocher Restore .RData into workspace at startup, de même choisissez Never pour Save workspace to .RData on exit.\nHistory : Laissez décochés les deux paramètres.\nOther : Laissez cochés les trois premiers paramètres.\n\nNous passons à Code/Editing :\nTools &gt; Global options &gt; Code &gt; Editing\n\n\n\nimage\n\n\nSélectionnez Use native pipe operator\nNous passons à Code/Display :\nTools &gt; Global options &gt; Code &gt; Display\n\n\n\nimage\n\n\nSélectionnez Use rainbow parentheses\nNous passons à Appearance :\nTools &gt; Global options &gt; Appearance\n\n\n\nimage\n\n\nA vous de sélectionner les options qui vous conviennent le mieux !\n\nNe pas oublier de cliquer sur apply !\n\nAfin de vérifier si vous avez la bonne version, vous pouvez rentrer dans la Console\nsessionInfo()\n\n\n\nimage",
+    "crumbs": [
+      "Tutorial à R et RStudio",
+      "Installation et configuration"
+    ]
+  },
+  {
+    "objectID": "tuto_R_RStudio/install_RStudio.html",
+    "href": "tuto_R_RStudio/install_RStudio.html",
+    "title": "Installation de RStudio",
+    "section": "",
+    "text": "Rstudio est un IDE.\n\nEn programmation informatique, un IDE (environnement de développement) est un ensemble d’outils qui permet d’augmenter la productivité des programmeurs qui développent des logiciels. Source : Wikipédia\n\nDans cette partie vous allez apprendre à installer RStudio, l’environnement dans lequel vous allez coder en R.\nRStudio : L’interface utilisateur graphique que vous allez utiliser pour travailler avec R. Téléchargez-le depuis RStudio. Choisissez bien l’installateur associé à votre système d’exploitation et suivez les consignes.",
+    "crumbs": [
+      "Tutorial à R et RStudio",
+      "Installation de RStudio"
+    ]
+  },
+  {
+    "objectID": "tuto_R_RStudio/custom_RStudio.html",
+    "href": "tuto_R_RStudio/custom_RStudio.html",
+    "title": "Configuration de RStudio",
+    "section": "",
+    "text": "Dans cette partie nous allons apprendre à personnaliser RStudio de sorte à avoir un environnement de travail agréable à utiliser.​\nLorsque que vous ouvrez RStudio pour la première fois, votre écran doit ressembler à ça.\n\n\n\nimage\n\n\nLes versions de R et RStudio peuvent être legerement différentes, donc quelques différences sont possibles entre ce que vous avez sur votre ordinateur et ce que vous pouvez observer sur cette capture d’écran.\nL’organisation de ces parties est complètement modulable à votre guise dans :\nTools &gt; Global options\nNous allons débuter par personaliser le Pane Layout.\nTools &gt; Global options &gt; Pane Layout\n\n\n\nimage\n\n\n\nEn haut à gauche vous avez la fenêtre Source, là où les scripts s’ouvriront.\nEn haut à droite la fenêtre Environnement, History, Connections, VSC, Tutorial, Presentation. Sélectionnez :\n\nEnvironnement\nHistory\nConnections\nBuild\nVCS\nTutorial : Cet onglet va vous permettre d’accéder à un ensemble de tutoriels très pratique pour apprendre à coder en R.\n\nEn bas à gauche la fenêtre Console, pour le moment avec Terminal et Background Jobs. Vide à chaque ouverture de RStudio, cette fenêtre est l’endroit où les codes vont être activés.\nEn bas à droite la fenêtre Files, Plots, Packages, Help, Viewer, Presentations. Sélectionnez :\n\nFiles\nPlots\nPackages\nHelp\nViewer\nPresentations\n\n\nNous allons à présent ajuster l’apparence de RStudio suivant nos propres préférences. Le chemin pour ces modification est toujours le même :\nTools &gt; Global options\nNous commençons par R General :\nTools &gt; Global options &gt; R General\n\n\n\nimage\n\n\n\nVérifiez si la version préente est la dernière en cliquant sous R version sur Change.\nWorkspace : Décocher Restore .RData into workspace at startup, de même choisissez Never pour Save workspace to .RData on exit.\nHistory : Laissez décochés les deux paramètres.\nOther : Laissez cochés les trois premiers paramètres.\n\nNous passons à Code/Editing :\nTools &gt; Global options &gt; Code &gt; Editing\n\n\n\nimage\n\n\nSélectionnez Use native pipe operator\nNous passons à Code/Display :\nTools &gt; Global options &gt; Code &gt; Display\n\n\n\nimage\n\n\nSélectionnez Use rainbow parentheses\nNous passons à Appearance :\nTools &gt; Global options &gt; Appearance\n\n\n\nimage\n\n\nA vous de sélectionner les options qui vous conviennent le mieux !\n\nNe pas oublier de cliquer sur apply !\n\nAfin de vérifier si vous avez la bonne version, vous pouvez rentrer dans la Console\nsessionInfo()\n\n\n\nimage",
+    "crumbs": [
+      "Tutorial à R et RStudio",
+      "Configuration de RStudio"
+    ]
+  },
+  {
+    "objectID": "tuto_R_RStudio/intro_projets.html",
+    "href": "tuto_R_RStudio/intro_projets.html",
+    "title": "Les projets avec RStudio",
+    "section": "",
+    "text": "Un projet centralise les éléments de travail et facilite la compréhension et la réutilisation du code. Un projet, c’est une manière de travailler qui va vous permettre d’écrire du code, mais pas que. En effet, un projet RStudio est globalement un dossier informatique dans lequel se trouvent des données, des scripts mais aussi de la documentation, des images et tout ce qu’il vous faut pour travailler. Lorsqu’on travaille sous forme de projet, il n’y a pas d’interaction involontaire entre les codes de différents projets.\n\nMaintenir les packages R et Rstudio à jour.\nLes packages peuvent être mis à jour dans l’onglet Packages puis en cliquant sur Update ou dans le menu Tools &gt; Check for Package Update. À faire au moins une fois par mois.\n\nLors de la création d’un projet, le dossier ne contient que le fichier .Rproj , c’est le projet. Il est très fortement conseillé de créer des sous-dossiers : - data_raw (qui regroupent toutes les données brutes) - data (qui regroupent les données retravaillées) - doc (de la documentation ou tout autre document utile) - img (les images utiles à notre projet)\nNous allons à présent créer notre premier projet. Il y a plusieurs chemin pour créer un projet, tous sont équivalents. Une possibilité est de cliquer sur Project en haut à droite de votre fenêtre RStudio.\n\n\n\nimage\n\n\nVous avec alors la possibilité de créer un projet à partir d’un dossier vide ou existant. Nous choisirons pour cette prmière fois de créer un projet à partir d’un dossier vide. Nous créons quatre sous dossiers : data_raw, data, doc et img.\n\n\n\nimage\n\n\nOn peut alors observer dans le cadran en bas à droite : - 1st_project.Rproj - data - data_raw - doc - img",
+    "crumbs": [
+      "Tutorial à R et RStudio",
+      "Les projets avec RStudio"
+    ]
+  },
+  {
+    "objectID": "tuto_R_RStudio/intro_script.html",
+    "href": "tuto_R_RStudio/intro_script.html",
+    "title": "Ecrire des scripts sur RStudio",
+    "section": "",
+    "text": "coming.",
+    "crumbs": [
+      "Tutorial à R et RStudio",
+      "Ecrire des scripts sur RStudio"
+    ]
+  },
+  {
+    "objectID": "tuto_R_RStudio/intro_scriptQuarto.html",
+    "href": "tuto_R_RStudio/intro_scriptQuarto.html",
+    "title": "Script Quarto",
+    "section": "",
+    "text": "Quarto, c’est la nouvelle génération de R markdown. De manière basique, vous pourrez générer des documents (qui intègrent ou pas du code R) dans les formats html, word ou pdf, mais avec plus de facilité pour gérer, par exemple, les images, les références croisées. Vous pourrez également réaliser des diapositives, des dashboards et des sites webs, des livres, comme R markdown mais nativement, c’est à dire sans faire appel à des packages complémentaires comme bookdown (livres), xaringan (slides), flexdasboard (dashboard).\nVoici un rapide tour d’horizon de la syntaxe, pour plus d’informations :\n\nLe saut de ligne est marqué par un double espace (en fin d’une ligne).\nLes étoiles servent à marquer :\n\nEn italique : *italique*\nEn gras : **gras**\nEn gras et italique : ***gras et italique***\nPour raturer on utiliser les tildes : ~~raturé~~\n\nPour la syntaxe code les impostropes : `code`\nLes titres sont précédés de#, autant que de niveaux :\n\nTitre de premier niveau : # Titre de premier niveau\nTitre de deuxième niveau : ## Titre de deuxième niveau\nTitre de troisième niveau : ### Titre de troisième niveau\n\n\nVous pouvez retrouver les principales syntaxes sur Markdown à cette page.\nNous allons créer notre premier script Quarto.\n\nCréer un nouveau document Quarto File &gt; New File &gt; Quarto Document\nPour cette premire fois choisissez les options suivantes :\n\n\n\n\nimage\n\n\n\nVous allez probablement avoir besoin d’installer le package Rmarkdown. Pour cela il vous suffit d’aller dans le cadran en bas à droite et de cliquer sur Packages puis Install. Une boite de dialogue s’ouvre :\n\n\n\n\nimage\n\n\nCliquez sur Install, et enregistrez votre script. Le script Quarto apparrait alors dans le cadran en bas à droite dans la fenetre Files. Vous pouvez vous amuser avec ce script, lancer les morceaux de code R. Pour générer le document html cliquer sur la petite fleche bleue Render the current document, ou utilser le raccourci Ctrl + Shift + K.\nSi vous souhaitez modifier la le format de sortie, par exemple récupérer un pdf à la place d’un html, il vous suffit d’crire pdf à la place de html dans le code : fenetre en haut à gauche puis Source.\nUn ensemble d’exemple de ce qui est possible de faire avec Quarto.",
+    "crumbs": [
+      "Tutorial à R et RStudio",
+      "Script Quarto"
+    ]
+  },
+  {
+    "objectID": "tuto_R_RStudio/intro_scriptR.html",
+    "href": "tuto_R_RStudio/intro_scriptR.html",
+    "title": "Script R",
+    "section": "",
+    "text": "Nous allons créer notre premier script R.\n\nCréer un nouveau document Quarto File &gt; New File &gt; R Script\nEnregistrer votre script\nEcrivez votre première ligne de code sur R :\n\n2 + 3\n\nEnregistrez votre script\nCliquer sur Run, en haut à droite du cadran en haut à gauche.\n\n\nDans la partie suivante nous allons voir les bases du language R.",
+    "crumbs": [
+      "Tutorial à R et RStudio",
+      "Script R"
+    ]
+  },
+  {
+    "objectID": "tuto_R_RStudio/bases_R.html",
+    "href": "tuto_R_RStudio/bases_R.html",
+    "title": "Bases du langage R",
+    "section": "",
+    "text": "Nous allons travailler dans notre script R.",
+    "crumbs": [
+      "Tutorial à R et RStudio",
+      "Bases du langage R"
+    ]
+  },
+  {
+    "objectID": "tuto_R_RStudio/help.html",
+    "href": "tuto_R_RStudio/help.html",
+    "title": "Obtenir de l’aide sur R",
+    "section": "",
+    "text": "Le système d’aide en ligne fourni avec R est accessible via la commande help(). Lorsque l’on connaît le nom de la commande R, par exemple, cmd, on peut taper help(cmd) ou ?cmd (sauf dans le cas de certains opérateurs). Sinon, on peut rechercher à partir de mots-clés en tapant help. search(). Une alternative pour la recherche par motif consiste à utiliser apropos(). Pour connaître toutes les commandes fournies par un package (e.g., pkg), il suffit de taper help(package=pkg).",
+    "crumbs": [
+      "Tutorial à R et RStudio",
+      "Obtenir de l’aide sur R"
+    ]
+  },
+  {
+    "objectID": "tuto_R_RStudio/startR.html",
+    "href": "tuto_R_RStudio/startR.html",
+    "title": "Quelques premières notions",
+    "section": "",
+    "text": "Nous avons vu que R peut effectuer des opérations mathématiques. Par exemple :\n2 + 3\nou encore\n2 * 3\nPour récupérer du texte en sortie, il est nécesaire de l’écrire de cette façon :\n\"ISTOM, Ecole supérieure d'agro-développement international\"\nSans les guillemets R retourne une erreur.\nEn revanche pour récupérer des nombres en sortie, il suffit simplement de rentrer ces nombres :\n105\n8\n89\n2576\n978364\nAfin d’ajouter des commentaires dans votre code (tres fortement conseillé), il suffit d’écrire :\n# L'école la plus cool ;-)\n\"ISTOM, Ecole supérieure d'agro-développement international\"\nIl est très souvent utile de créer des variables. Cela se fait de la manière suivante\necole &lt;- \"ISTOM\"\nadresse &lt;- \"4 Rue Joseph Lakanal, 49000 Angers\"\ndate_creation &lt;- 1908\nDe cette façon si ensuite vous rentrez\necole\nil vous sortira simplement ISTOM.\nOn peut également manipuler ces variables. Par exemple :\npaste(\"L'\",ecole,\"a été créée en\",date_creation) \nou encore\ndate_creation &lt;- 1908\nnombre_etudiant_promotion &lt;- 60\n\n(2025-date_creation)*nombre_etudiant_promotion\nOn peut attribuer la même valeur à plusieurs variables.\nvar1 &lt;- \"Angers\"\nvar2 &lt;- \"Angers\"\nvar3 &lt;- \"Angers\"\n\nvar1\nvar2\nvar3",
+    "crumbs": [
+      "Tutorial à R et RStudio",
+      "Quelques premières notions"
+    ]
+  },
+  {
+    "objectID": "tuto_R_RStudio/types_data.html",
+    "href": "tuto_R_RStudio/types_data.html",
+    "title": "Les différents types de données",
+    "section": "",
+    "text": "Il existe différents types de données sur R, on peut citer :\n\nnumeric (10.5, 55, 787)\ninteger (1L, 55L, 100L, où le “L” informe R que c’est un integer)\ncomplex (9 + 3i)\ncharacter / string (“k”, “Les stat c’est cool”, “FALSE”, “11.5”)\nlogical / boolean - (TRUE or FALSE)\n\nOn peut vérifier le type de donnée d’une variable en utilisant la fonction class().\n# numeric\nx &lt;- 10.5\nclass(x)\n\n# integer\nx &lt;- 1000L\nclass(x)\n\n# complex\nx &lt;- 9i + 3\nclass(x)\n\n# character/string\nx &lt;- \"R is exciting\"\nclass(x)\n\n# logical/boolean\nx &lt;- TRUE\nclass(x) \nIl y a trois types de nombres : numeric, integer et complex. On peut convertir un nombre d’un type à un autre en utilsant les fonctions :\n\nas.numeric()\nas.integer()\nas.complex()\n\nPlusieurs fonctions utiles pour les character / string :\n\nConnaitre la longueur d’une string : nchar(ecole)\nSavoir si une string est contenue dans une autre string : grepl(\"I\",ecole)\nRegrouper deux strings : paste(\"Cette ecole a été créée en\",date_creation)\n\nEn ce qui concerne les vraiables logical / boolean on a simplement :\n10 &gt; 9    # TRUE car 10 est plus grand que 9 !\n10 == 9   # FALSE car 10 n'est pas egale à 9 !\n10 &lt; 9    # FALSE car 10 est plus grand que 9 ! \nQuelques outils d’arithmétques :\n2 + 3 # Addition    \n2 - 3 # Subtraction     \n2 * 3 # Multiplication  \n2 / 3 # Division\n2^3 # Exponent\nQuelques outils de comparaison\n3 == 3 # Check if equal     \n5 != 3 # Check if not equal \n5 &gt; 3 # Check if 5 is greater than 3    \n5 &lt; 3 # Check if 5 is less than 3 \n5 &gt;= 3 # Check if 5 is greater than or equal to 3\n5 &lt;= 3 # Check if 5 is less than or equal to 3\nOn peut ranger ces données dans différents objets :\n\nVecteurs : Une séquence d’éléments du même type.\n\nx &lt;- c(55, 1, 2, 3, 4)\nx\nlength(x)\nsort(x)\nx[3]\nx[c(1,3)]\nx[c(-1)]\nx[4] &lt;- 100 \nx\n-Listes : Une séquence d’éléments qui peuvent être différents.\nma_liste &lt;- list(\"apple\", \"banana\", \"cherry\")\nma_liste\nma_liste[1]\nma_liste[2] &lt;- \"pineapple\"\nlength(ma_liste)\n\"apple\" %in% ma_liste \nappend(ma_liste,\"orange\",after=3)\n\nMatrices : Tableau à deux dimensions.\n\nmat &lt;- matrix(1:9, nrow = 3, ncol = 3)\nmat\nmat[1,2]\nmat[1,]\nmat[,2]\nmat[c(1,2),] \nmat[,c(1,2)] \nmat_add_column &lt;- cbind(mat,c(50,8,47))\nmat_add_column\nmat_add_row &lt;- rbind(mat,c(50,8,47))\nmat_add_row\nmat_remove_line_column_one &lt;- mat[-c(1), -c(1)]  #Remove the first row and the first column\nmat_remove_line_column_one\ndim(mat)\n\nData frames : Tableau avec colonnes pouvant contenir différents types de données.\n\ndf &lt;- data.frame(\n    Age = c(25, 30, 35), \n    Sexe = c('Homme', 'Femme', 'Homme'))\ndf\nsummary(df)\ndf[1]\ndf[[\"Age\"]]\n\nFacteurs : c’est un vecteur dont les éléments ne peuvent prendre que des modalités prédéfinies. Ce qui caractérise un facteur dans R est le fait qu’elle dispose de l’attribut Levels (niveaux). En pratique, un facteur est typiquement utilisé pour stocker les valeurs observées d’une variable catégorielle (couleur, sexe, jours de la semaine, religion, …).\n\nmusic_genre &lt;- factor(c(\"Jazz\", \"Rock\", \"Classic\", \"Classic\", \"Pop\", \"Jazz\", \"Rock\", \"Jazz\"))\nmusic_genre\nlevels(music_genre) \nlength(music_genre) \nmusic_genre[3] \nmusic_genre[3] &lt;- \"Pop\"\nmusic_genre",
+    "crumbs": [
+      "Tutorial à R et RStudio",
+      "Les différents types de données"
+    ]
+  },
+  {
+    "objectID": "tuto_R_RStudio/Loops.html",
+    "href": "tuto_R_RStudio/Loops.html",
+    "title": "Conditions, boucles",
+    "section": "",
+    "text": "If … Else\nLe mieux est d’illustrer ceci sur un exemple :\na &lt;- 200\nb &lt;- 33\n\nif (b &gt; a) {\n  print(\"b is greater than a\")\n} else if (a == b) {\n  print(\"a and b are equal\")\n} else {\n  print(\"a is greater than b\")\n}  \n\n\nNested If\nSur un exemple :\nx &lt;- 41\n\nif (x &gt; 10) {\n  print(\"Above ten\")\n  if (x &gt; 20) {\n    print(\"and also above 20!\")\n  } else {\n    print(\"but not above 20.\")\n  }\n} else {\n  print(\"below 10.\")\n} \n\n\nAND, OR\nUn exemple pour AND\na &lt;- 200\nb &lt;- 33\nc &lt;- 500\n\nif (a &gt; b & c &gt; a) {\n  print(\"Both conditions are true\")\n} \nUn exemple pour OR\na &lt;- 200\nb &lt;- 33\nc &lt;- 500\n\nif (a &gt; b | a &gt; c) {\n  print(\"At least one of the conditions is true\")\n}\n\n\nLoops\nR a deux commandes pour les boucles : - while loops - for loops\ni &lt;- 1\nwhile (i &lt; 6) {\n  print(i)\n  i &lt;- i + 1\n}\nun autre exemple\ni &lt;- 1\nwhile (i &lt; 6) {\n  print(i)\n  i &lt;- i + 1\n  if (i == 4) {\n    break\n  }\n} \nUn dernier exemple pour illsutrer la fonction next\ni &lt;- 0\nwhile (i &lt; 6) {\n  i &lt;- i + 1\n  if (i == 3) {\n    next\n  }\n  print(i)\n} \nUn exemple pour une boucle for\nfruits &lt;- list(\"apple\", \"banana\", \"cherry\")\n\nfor (x in fruits) {\n  print(x)\n} \nou encore\nadj &lt;- list(\"red\", \"big\", \"tasty\")\nfruits &lt;- list(\"apple\", \"banana\", \"cherry\")\n  for (x in adj) {\n    for (y in fruits) {\n      print(paste(x, y))\n  }\n}",
+    "crumbs": [
+      "Tutorial à R et RStudio",
+      "Conditions, boucles"
+    ]
+  },
+  {
+    "objectID": "tuto_R_RStudio/fonctions.html",
+    "href": "tuto_R_RStudio/fonctions.html",
+    "title": "Les fonctions",
+    "section": "",
+    "text": "Pour créer une fonction on écrit :\n my_function &lt;- function() { # create a function with the name my_function\n  print(\"L'ISTOM c'est top!\")\n} \n\nmy_function()\nOn peut créer des fonctions avec des arguments :\nma_promo &lt;- function(promo,groupe) {\n  paste(\"Promotion\", promo, \"groupe\", groupe)\n}\n\nma_promo(114,\"A\")\nma_promo(115,\"B\") \nOn a également :\nma_multiplication &lt;- function(x) {\n  return (5 * x)\n}\n\nprint(ma_multiplication(3))\nprint(ma_multiplication(5))\nprint(ma_multiplication(9))",
+    "crumbs": [
+      "Tutorial à R et RStudio",
+      "Les fonctions"
+    ]
+  },
+  {
+    "objectID": "tuto_R_RStudio/graph.html",
+    "href": "tuto_R_RStudio/graph.html",
+    "title": "Les graphiques",
+    "section": "",
+    "text": "Le mieux est d’encore de travailler sur des exemples. Pour tracer le point de coordonnées (1,3) on écrit :\nplot(1, 3) \npour tracer les points de coordonnées (1,3) et (8,10) on écrit :\n plot(c(1, 8), c(3, 10)) \nde la même façon on a :\nx &lt;- c(1, 2, 3, 4, 5)\ny &lt;- c(3, 7, 8, 9, 12)\n\nplot(x, y)\npour tracer les points (1,1), (2,2), (3,3), …, (10,10) on peut écrire\nplot(1:10) \nsi on veut tracer une ligne qui passe par ces points on écrit\nplot(1:10, type=\"l\",lwd=2, lty=3) \nL’argument lwd permet de modifier l’epaisseur de la ligne tracée, sachant que 0.5 correspond à 50% et 2 à 100%. L’arguement lty permet de modifier le style de la ligne : - 0 removes the line - 1 displays a solid line - 2 displays a dashed line - 3 displays a dotted line - 4 displays a “dot dashed” line - 5 displays a “long dashed” line - 6 displays a “two dashed” line\nOn peut affiner la présentation de notre graphique :\nplot(1:10, main=\"My Graph\", xlab=\"The x-axis\", ylab=\"The y axis\",col=\"green\",cex=0.5,pch=11) \nL’argument cex permet de réduire ou augementer a taille des points, sachant que 0.5 correspond à 50% et 2 à 100%. L’argument pch permet de changer le style des points tracés, de 0 à 25 : \nUn autre exemple\nline1 &lt;- c(1,2,3,4,5,10)\nline2 &lt;- c(2,5,7,8,9,10)\n\nplot(line1, type = \"l\", col = \"blue\")\nlines(line2, type=\"l\", col = \"red\") \nPour comparer des données sur un graphe :\nx1 &lt;- c(5,7,8,7,2,2,9,4,11,12,9,6)\ny1 &lt;- c(99,86,87,88,111,103,87,94,78,77,85,86)\n\nx2 &lt;- c(2,2,8,1,15,8,12,9,7,3,11,4,7,14,12)\ny2 &lt;- c(100,105,84,105,90,99,90,95,94,100,79,112,91,80,85)\n\nplot(x1, y1, main=\"mon titre\", xlab=\"l'axe x\", ylab=\"l'axe y\", col=\"red\", cex=2)\npoints(x2, y2, col=\"blue\", cex=2)\nPie Charts - Diagramme circulaire\nx &lt;- c(10,20,30,40)\nmylabel &lt;- c(\"Apples\", \"Bananas\", \"Cherries\", \"Dates\")\ncolors &lt;- c(\"blue\", \"yellow\", \"green\", \"black\")\npie(x,, label = mylabel, main = \"Fruits\",col = colors,init.angle = 90) \nlegend(\"bottomright\", mylabel, fill = colors) \nBar Charts\nx &lt;- c(\"A\", \"B\", \"C\", \"D\")\ny &lt;- c(2, 4, 6, 8)\nbarplot(y, names.arg = x, col = \"red\",density = 10,width = c(1,2,3,4))\nbarplot(y, names.arg = x, horiz = TRUE)",
+    "crumbs": [
+      "Tutorial à R et RStudio",
+      "Les graphiques"
+    ]
+  },
+  {
+    "objectID": "intro_proba.html",
+    "href": "intro_proba.html",
+    "title": "Probabilités",
+    "section": "",
+    "text": "Les probabilités sont une branche des mathématiques qui permet de mesurer et de quantifier l’incertitude. Que ce soit en jouant à un jeu de cartes, en prévoyant la météo ou en analysant des résultats sportifs, nous faisons constamment face à des situations incertaines. Les probabilités nous aident à mieux comprendre ces situations en attribuant des valeurs numériques aux chances qu’un événement se produise.\nL’objectif est de vous donner les outils nécessaires pour analyser et anticiper des événements incertains, une compétence précieuse en mathématiques mais aussi dans de nombreux domaines comme l’économie, l’agronomie ou les sciences général.",
+    "crumbs": [
+      "Probabilités"
+    ]
+  },
+  {
+    "objectID": "proba/proba.html",
+    "href": "proba/proba.html",
+    "title": "Probabilité",
+    "section": "",
+    "text": "Qu’est ce qu’une expérience aléatoire ?\nUne expérience aléatoire est une expérience :\n\nqui peut être répétée\nqui a plusieurs résultats possibles dont le résultat est imprévisible\n\n\n\n\n\n\n\nExemples\n\n\n\n\nlancé d’un dé à 6 faces\nobservation du statut maladie d’un individu\n\n\n\nOn apelle évènement élémentaire le résultat d’une expérience aléatoire.\n\n\n\n\n\n\nExemples\n\n\n\n\n«Obtenir 3 lors du lancé d’un dé à 6 faces »\n«Être malade»",
+    "crumbs": [
+      "Probabilités",
+      "Probabilité"
+    ]
+  },
+  {
+    "objectID": "proba/proba.html#univers-omega",
+    "href": "proba/proba.html#univers-omega",
+    "title": "Espace probabilisé",
+    "section": "",
+    "text": "Pour le jet d’une pièce de monnaie, \\(\\Omega=\\{0,1\\}\\) convient, où 0 représente pile et 1 représente face.\nPour le lancé d’une fléchette sur une cible, \\(\\Omega=\\) un disque du plan euclidien convient.\nPour la durée de vie d’une ampoule électrique, \\(\\Omega=\\mathbb{R}^{+}\\).\nPour le lancé d’un dé, \\(\\Omega=\\{1,2,3,4,5,6\\}\\).",
+    "crumbs": [
+      "Probabilités",
+      "Probabilité"
+    ]
+  },
+  {
+    "objectID": "proba/proba.html#tribu-mathcala-des-événements-sur-omega",
+    "href": "proba/proba.html#tribu-mathcala-des-événements-sur-omega",
+    "title": "Espace probabilisé",
+    "section": "Tribu \\(\\mathcal{A}\\) des événements sur \\(\\Omega\\)",
+    "text": "Tribu \\(\\mathcal{A}\\) des événements sur \\(\\Omega\\)\nUne famille \\(\\mathcal{A}\\) de parties de \\(\\Omega\\) est appelée tribu si elle vérifie les propriétés suivantes :\n\n\\(\\mathcal{A}\\) est non vide\nSi \\(B\\) est un élément de \\(\\mathcal{A}\\), alors \\(\\overline{B} \\in \\mathcal{A}\\), où \\(\\overline{B}\\) désigne le complémentaire de \\(B\\) dans \\(\\Omega\\)\nSi pour tout \\(n\\in\\mathbb{N}\\) on a \\(B_n\\in\\mathcal{A}\\), alors \\[\\displaystyle\\bigcup_{n} B_{n} \\in \\mathcal{A}\\]\n\nLes éléments de \\(\\mathcal{A}\\) sont appelés événements, et \\(\\Omega\\) est l’événement certain.",
+    "crumbs": [
+      "Probabilités",
+      "Probabilité"
+    ]
+  },
+  {
+    "objectID": "proba/proba.html#probabilité-mathbbp",
+    "href": "proba/proba.html#probabilité-mathbbp",
+    "title": "Espace probabilisé",
+    "section": "Probabilité \\(\\mathbb{P}\\)",
+    "text": "Probabilité \\(\\mathbb{P}\\)\nUne probabilité \\(\\mathbb{P}\\) est une application de \\(\\mathcal{A}\\) dans \\([0,1]\\), c’est à dire \\[ \\mathbb{P} : \\mathcal{A} \\mapsto [0,1]\\] vérifiant les propriétés :\n\n\\(\\mathbb{P}(\\Omega)=1\\), l’événement certain a une probabilité de \\(1\\)\n\\(\\mathbb{P}(\\emptyset)=0\\), l’événement impossible a une probabilité de \\(0\\)\nSi \\(\\left(B_n\\right)_n\\) est une suite (éventuellement finie) d’éléments de \\(\\mathcal{A}\\) deux à deux incompatibles, c’est à dire \\(A_i \\cap A_j=\\emptyset\\) si \\(i \\neq j\\) , alors \\[\\mathbb{P}\\left(\\bigcup_n A_n\\right)=\\sum_n \\ \\mathbb{P}\\left(A_n\\right)\\] autrement dit pour des événements disjoints \\(A_1, A_2, A_3, \\dots\\), la probabilité de leur union est la somme de leurs probabilités individuelles \\[P\\left(A_1 \\cup A_2 \\cup A_3 \\cup \\dots\\right) = P(A_1) + P(A_2) + P(A_3) + \\dots\\]",
+    "crumbs": [
+      "Probabilités",
+      "Probabilité"
+    ]
+  },
+  {
+    "objectID": "proba/proba.html#propriété",
+    "href": "proba/proba.html#propriété",
+    "title": "Espace probabilisé",
+    "section": "Propriété",
+    "text": "Propriété\nSoit \\(A\\) et \\(B\\) deux événements quelconques (i.e. \\(A, B \\in \\matchal{A}\\) ). Alors\n\n\\(\\mathbb{P}(\\bar{A})=1-\\mathbb{P}(A)\\),\n\\(\\mathbb{P}(\\emptyset)=0\\),\n\\(\\mathbb{P}(B)=\\mathbb{P}(A \\cap B)+\\mathbb{P}(\\bar{A} \\cap B)\\),\n\\(\\mathbb{P}(A \\cup B)=\\mathbb{P}(A)+\\mathbb{P}(B)-\\mathbb{P}(A \\cap B)\\).",
+    "crumbs": [
+      "Probabilités",
+      "Probabilité"
+    ]
+  },
+  {
+    "objectID": "proba/proba.html#probabilités-discrètes",
+    "href": "proba/proba.html#probabilités-discrètes",
+    "title": "Espace probabilisé",
+    "section": "Probabilités discrètes",
+    "text": "Probabilités discrètes\nLa probabilité \\(\\mathbb{P}\\) est dite discrète dès que l’espace \\(\\Omega\\) est fini ou dénombrable. La tribu associée est alors généralement \\(P(\\Omega)\\), l’ensemble des parties de \\(\\Omega\\). Une probabilité sur un ensemble dénombrable est complètement déterminée par les \\(\\mathbb{P}(\\{\\omega\\})\\) pour tout \\(\\omega \\in \\Omega\\). En effet, pour \\(A \\subset \\Omega\\), on a\n\\[\n\\mathbb{P}(A)=\\sum_{\\omega \\in A} \\mathbb{P}(\\omega)\n\\]\nEn particulier, \\(1=\\mathbb{P}(\\Omega)=\\sum_{\\omega \\in \\Omega} \\mathbb{P}(\\omega)\\).\nExemples\n\nLancer d’une pièce équilibrée : on souhaite modéliser le résultat du lancer d’une pièce sans tricherie. Pour cela, on choisit \\(\\Omega_{1}=\\{\\) pile, face \\(\\}\\). L’ensemble des parties de \\(\\Omega_{1}\\) comporte quatre éléments et on définit la mesure de probabilité \\(\\mathbb{P}\\) par \\(\\mathbb{P}(\\) pile \\()=\\mathbb{P}(\\) face \\()=1 / 2\\) puisque les deux événements sont équiprobables (i.e. de même probabilité).\nLancer de \\(k\\) pièces, \\(k \\geq 2\\) : on prend cette fois-ci \\(\\Omega_{k}=\\Omega_{1}^{k}\\), c’est-à-dire l’ensemble des \\(k\\)-uplets de pile ou face. On a \\(\\operatorname{Card}\\left(\\Omega_{k}\\right)=2^{k}\\). Les différents \\(k\\)-uplets sont tous équiprobables donc \\(\\mathbb{P}(\\omega)=2^{-k}\\), pour tout \\(\\omega \\in \\Omega_{k}\\). On aboutit ainsi naturellement à la Définition 5 Supposons que \\(\\Omega\\) soit un ensemble fini. On dit qu’on se trouve dans un cas équiprobable si tous les événements élémentaires ont même valeur \\(\\overline{d e}\\) probablité. On dit aussi que la probabilité est uniforme discrète.\n\nDans le cas équiprobable, on a donc \\(\\mathbb{P}(\\omega)=p\\) pour tout \\(\\omega \\in \\Omega\\), où \\(p=1 / \\operatorname{Card}(\\Omega)\\). On peut alors écrire :\n\\[\n\\mathbb{P}(A)=\\sum_{\\omega \\in A} \\mathbb{P}(\\omega)=\\sum_{\\omega \\in A} \\frac{1}{\\operatorname{Card}(\\Omega)}=\\frac{\\operatorname{Card}(A)}{\\operatorname{Card}(\\Omega)}\n\\]\nsoit encore :\n\\[\n\\mathbb{P}(A)=\\frac{\\text { nombre de cas favorables }}{\\text { nombre de cas possibles }} .\n\\]\nATTENTION, cette formule n’est valable que pour les cas équiprobables. Elle fonctionne dans l’exemple du dé normal, mais pas dans celui du dé truqué. Il ne peut bien sûr pas y avoir de probabilité uniforme sur \\(\\mathbb{N}\\). Exemples Mesure de probabilité sur \\(\\mathbb{N}^{*}\\). On lance un dé de façon répétée jusqu’à obtenir un 6 , et on note le numéro du tirage du premier 6 . On a évidemment \\(\\mathbb{P}(1)=1 / 6\\). On a également\n\\[\n\\mathbb{P}(2)=\\mathbb{P}(\\text { au premier tirage, on n'a pas eu de } 6 \\text {; au deuxième tirage, on a eu un } 6)=\\frac{5}{36}\n\\]\ncar sur les 36 tirages possibles équiprobables, seuls 5 permettent d’obtenir le premier 6 au deuxième tirage. De même, pour tout \\(k \\geq 2\\),\n\\[\n\\mathbb{P}(k)=\\mathbb{P}(k-1 \\text { echecs, puis une réussite })=\\left(\\frac{5}{6}\\right)^{k-1} \\frac{1}{6} .\n\\]\nCela constitue bien une mesure de probabilité discrète sur \\(\\mathbb{N}^{*}\\) puisque \\(\\sum_{k \\geq 1} \\mathbb{P}(k)=1\\).",
+    "crumbs": [
+      "Probabilités",
+      "Probabilité"
+    ]
+  },
+  {
+    "objectID": "proba/proba.html#probabilités-à-densité",
+    "href": "proba/proba.html#probabilités-à-densité",
+    "title": "Espace probabilisé",
+    "section": "Probabilités à densité",
+    "text": "Probabilités à densité\nSoit \\(f: \\mathbb{R} \\rightarrow \\mathbb{R}\\) une fonction positive, continue par morceaux (ou plus généralement mesurable, i.e. \\(\\{x, f(x) \\leq\\) \\(y\\} \\in \\mathcal{B}(\\mathbb{R})\\) pour tout \\(y \\in \\mathbb{R}\\) ) et d’intégrale sur \\(\\mathbb{R}\\) égale à 1 . Il est facile de vérifier que l’on définit une probabilité en posant, pour tout \\(A \\subset \\mathbb{R}\\) :\n\\[\n\\mathbb{P}(A)=\\int_{A} f(x) d x\n\\]\nUne telle probabilité est dite à densité. On dit également que c’est une probabilité continue.\nExemples\n\nLa mesure uniforme sur l’intervalle \\([a, b]\\), où \\(a&lt;b:\\) On définit\n\n\\[\n\\mathbb{P}(A)=\\int_{A \\cap[a, b]} \\frac{1}{b-a} d x\n\\]\n\nLa probabilité de Gauss sur \\(\\mathbb{R}\\). On utilise ici la fonction\n\n\\[\nf(x)=\\frac{1}{\\sqrt{2 \\pi} \\sigma} \\exp \\left(\\frac{(x-m)^{2}}{2 \\sigma^{2}}\\right)\n\\]\noù \\(m \\in \\mathbb{R}\\) et \\(\\sigma \\in \\mathbb{R}^{+*}\\) sont deux paramètres fixés.",
+    "crumbs": [
+      "Probabilités",
+      "Probabilité"
+    ]
+  },
+  {
+    "objectID": "proba/proba_condi.html",
+    "href": "proba/proba_condi.html",
+    "title": "Probabilité conditionnelle",
+    "section": "",
+    "text": "Preuve.\nProbabilités conditionnelles\nReprenons l’exemple du dé. Notons \\(A\\) l’événement “on obtient un 2” et \\(B\\) l’événement “on n’obtient pas 1”. L’événement \\(A \\cap B\\) est égal à \\(A\\) car si on obtient 2 et pas 1 , c’est qu’on a obtenu 2 tout court. Donc \\(\\mathbb{P}(A \\cap B)=1 / 6\\). De plus, \\(\\mathbb{P}(B)=5 / 6\\) car il y a 5 résultats favorables sur 6 si on n’obtient pas 1 .\nSupposons maintenant qu’on sache que \\(B\\) est vérifié, c’est-à-dire qu’on n’a pas obtenu 1 . Dans ce cas, la probabilité d’obtenir 2 est de \\(1 / 5\\), car il n’y a plus que 5 résultats possibles (et on est toujours dans un cas équiprobable). On remarque que cette probabilité vaut exactement \\(\\mathbb{P}(A \\cap B) / \\mathbb{P}(B)\\). C’est ce qu’on appelle une probabilité conditionnelle.\nDéfinition 6 Soit \\(A\\) et \\(B\\) deux événements tels que \\(\\mathbb{P}(B) \\neq 0\\). On appelle probabilité conditionnelle de \\(A\\) sachant \\(B\\) (c’est-à-dire sachant que \\(B\\) est réalisé), notée \\(\\mathbb{P}(A / B)\\) le quotient :\n\\[\n\\mathbb{P}(A / B)=\\frac{\\mathbb{P}(A \\cap B)}{\\mathbb{P}(B)}\n\\]\nProposition 7 Soit \\(B\\) un événement de probabilité \\(\\mathbb{P}(B)\\) non nulle. Alors \\(\\mathbb{Q}(A)=\\mathbb{P}(A / B)\\) est une probabilité sur \\(S\\).\nPreuve. Il suffit de montrer que \\(\\mathbb{Q}\\) vérifie bien les propriétés de la définition d’une probabilité.\n\\[\n0 \\leq \\mathbb{Q}(A)=\\mathbb{P}(A / B) \\leq 1\n\\]\ncar \\(\\mathbb{P}(B)=\\mathbb{P}(A \\cap B)+\\mathbb{P}(\\bar{A} \\cap B) \\geq \\mathbb{P}(A \\cap B)\\).\n\\[\n\\mathbb{Q}(\\Omega)=\\mathbb{P}(\\Omega / B)=\\frac{\\mathbb{P}(\\Omega \\cap B)}{\\mathbb{P}(B)}=\\frac{\\mathbb{P}(B)}{\\mathbb{P}(B)}=1\n\\]\n\\[\n\\mathbb{Q}\\left(\\bigcup_{n} A_{n}\\right)=\\mathbb{P}\\left(\\left(\\bigcup_{n} A_{n}\\right) / B\\right)=\\frac{\\mathbb{P}\\left(\\left(\\bigcup_{n} A_{n}\\right) \\cap B\\right)}{\\mathbb{P}(B)}=\\frac{\\mathbb{P}\\left(\\bigcup_{n}\\left(A_{n} \\cap B\\right)\\right)}{\\mathbb{P}(B)}=\\sum_{n} \\frac{\\mathbb{P}\\left(A_{n} \\cap B\\right)}{\\mathbb{P}(B)}=\\sum_{n} \\mathbb{P}\\left(A_{n} / B\\right)\n\\]\nOn a bien vérifié toutes les propriétés, donc \\(\\mathbb{Q}\\) est une probabilité sur \\(S\\). Définition 8 Soit \\(\\left(A_{i}\\right)_{i \\in I}\\) une famille (finie) d’événements (en général non impossibles, i.e. \\(\\mathbb{P}\\left(A_{i}\\right)&gt;0\\) pour tout \\(i\\) ). On dira que c’est un système complet d’événements si :\n\\[\n\\bigcup_{i \\in I} A_{i}=\\Omega \\quad \\text { et } \\quad A_{i} \\cap A_{j}=\\emptyset, \\quad \\forall i \\neq j .\n\\]\nProposition 9 Soit \\(\\left(A_{i}\\right)_{i \\in I}\\) un système complet d’événements et soit \\(B\\) un événement quelconque. Alors :\n\\[\n\\mathbb{P}(B)=\\sum_{i \\in I} \\mathbb{P}\\left(B \\cap A_{i}\\right)\n\\]\nPreuve. Puisque \\(\\left(A_{i}\\right)_{i \\in I}\\) est un système complet d’événements, \\(\\bigcup_{i \\in I} A_{i}=\\Omega\\). On peut écrire :\n\\[\n\\mathbb{P}(B)=\\mathbb{P}(B \\cap \\Omega)=\\mathbb{P}\\left(B \\cap\\left(\\bigcup_{i \\in I} A_{i}\\right)\\right)=\\mathbb{P}\\left(\\bigcup_{i \\in I}\\left(B \\cap A_{i}\\right)\\right)\n\\]\nOr, par définition d’un système complet, les \\(A_{i}\\) sont deux à deux incompatibles. Les \\(B \\cap A_{i}\\) le sont donc aussi, et on a bien finalement :\n\\[\n\\mathbb{P}(B)=\\sum_{i \\in I} \\mathbb{P}\\left(B \\cap A_{i}\\right)\n\\]\nProposition 10 Soit \\(\\left(A_{i}\\right)_{i \\in I}\\) un système complet d’événements et \\(B\\) un événement vérifiant \\(\\mathbb{P}(B) \\neq 0\\) et \\(\\mathbb{P}\\left(A_{i}\\right) \\neq 0 \\forall i \\in I\\). Alors,\n1 .\n\\[\n\\mathbb{P}(B)=\\sum_{i \\in I} \\mathbb{P}\\left(B / A_{i}\\right) \\mathbb{P}\\left(A_{i}\\right)\n\\]\n\\[\n\\mathbb{P}\\left(A_{k} / B\\right)=\\frac{\\mathbb{P}\\left(A_{k}\\right) \\mathbb{P}\\left(B / A_{k}\\right)}{\\sum_{i \\in I} \\mathbb{P}\\left(A_{i}\\right) \\mathbb{P}\\left(B / A_{i}\\right)} \\quad \\forall k \\in I\n\\]\nOn a un corollaire immédiat : Corollaire 11 Soit \\(A\\) et \\(B\\) deux événements vérifiant \\(\\mathbb{P}(B) \\neq 0\\) et \\(0&lt;\\mathbb{P}(A)&lt;1\\). Alors :\n\\[\n\\mathbb{P}(A / B)=\\frac{\\mathbb{P}(B / A) \\mathbb{P}(A)}{\\mathbb{P}(A) \\mathbb{P}(B / A)+\\mathbb{P}(\\bar{A}) \\mathbb{P}(B / \\bar{A})}\n\\]\nDémontrons la proposition précédente.\n\\[\n\\mathbb{P}(B)=\\sum_{i \\in I} \\mathbb{P}\\left(B \\cap A_{i}\\right) .\n\\]\nPuisque \\(\\mathbb{P}\\left(B / A_{i}\\right)=\\frac{\\mathbb{P}\\left(B \\cap A_{i}\\right)}{\\mathbb{P}\\left(A_{i}\\right)}\\), on a bien :\n\\[\n\\mathbb{P}(B)=\\sum_{i \\in I} \\mathbb{P}\\left(B / A_{i}\\right) \\mathbb{P}\\left(A_{i}\\right) .\n\\]\n\\[\n\\mathbb{P}\\left(A_{k} / B\\right)=\\frac{\\mathbb{P}\\left(B / A_{k}\\right) \\mathbb{P}\\left(A_{k}\\right)}{\\mathbb{P}(B)}\n\\]\nEn utilisant le résultat du 1 . et en remplaçant \\(\\mathbb{P}(B)\\), on obtient bien :\n\\[\n\\mathbb{P}\\left(A_{k} / B\\right)=\\frac{\\mathbb{P}\\left(A_{k}\\right) \\mathbb{P}\\left(B / A_{k}\\right)}{\\sum_{i \\in I} \\mathbb{P}\\left(A_{i}\\right) \\mathbb{P}\\left(B / A_{i}\\right)}\n\\]",
+    "crumbs": [
+      "Probabilités",
+      "Probabilité conditionnelle"
+    ]
+  },
+  {
+    "objectID": "proba/proba_condi.html#preuve.",
+    "href": "proba/proba_condi.html#preuve.",
+    "title": "Probabilité conditionnelle",
+    "section": "",
+    "text": "On a vu (prop 1.3.2) que:\n\n\n\n\n\nPar définition des probabilités conditionnelles, \\(\\mathbb{P}\\left(A_{k} / B\\right)=\\frac{\\mathbb{P}\\left(A_{k} \\cap B\\right)}{\\mathbb{P}(B)}\\). On peut donc écrire, en utilisant le même raisonnement que ci-dessus :",
+    "crumbs": [
+      "Probabilités",
+      "Probabilité conditionnelle"
+    ]
+  },
+  {
+    "objectID": "proba/proba_condi.html#evénements-indépendants",
+    "href": "proba/proba_condi.html#evénements-indépendants",
+    "title": "Probabilité conditionnelle",
+    "section": "6 Evénements indépendants",
+    "text": "6 Evénements indépendants\nPrenons une urne contenant des jetons numérotés de 1 à \\(N\\). Considérons les événements \\(A=\\) “obtenir le jeton 1 au premier tirage” et \\(B=\\) “obtenir le jeton 1 au deuxième tirage”. Si les tirages se font sans remise et que l’événement \\(A\\) est réalisé, l’événement \\(B\\) ne peut pas être réalisé. Par contre, si les tirages se font avec remise, le fait que l’événement \\(A\\) soit réalisé ou non n’influe pas sur la probabilité que \\(B\\) soit réalisé et vice-versa. C’est ce qu’on appelle des événements indépendants.\nProposition 12 Soit \\(A\\) et \\(B\\) deux événements de probabilité non nulle. Alors les trois énoncés suivants sont équivalents :\n\n\\(\\mathbb{P}(A / B)=\\mathbb{P}(A)\\)\n\\(\\mathbb{P}(B / A)=\\mathbb{P}(B)\\)\n\\(\\mathbb{P}(A \\cap B)=\\mathbb{P}(A) \\mathbb{P}(B)\\).\n\nPreuve. Elle se fait facilement par succession d’équivalence :\n\\[\n\\begin{aligned}\n\\mathbb{P}(A / B)=\\mathbb{P}(A) & \\Longleftrightarrow \\frac{\\mathbb{P}(A \\cap B)}{\\mathbb{P}(B)}=\\mathbb{P}(A) \\\\\n& \\Longleftrightarrow \\mathbb{P}(A \\cap B)=\\mathbb{P}(A) \\mathbb{P}(B) \\\\\n& \\Longleftrightarrow \\frac{\\mathbb{P}(B \\cap A)}{\\mathbb{P}(A)}=\\mathbb{P}(B) \\\\\n& \\Longleftrightarrow \\mathbb{P}(B / A)=\\mathbb{P}(B)\n\\end{aligned}\n\\]\nDéfinition 13 Deux événements \\(A\\) et \\(B\\) sont dits indépendants (noté \\(A \\amalg B\\) ) si et seulement si :\n\\[\n\\mathbb{P}(A \\cap B)=\\mathbb{P}(A) \\mathbb{P}(B)\n\\]\nProposition 14 Soit \\(A\\) et \\(B\\) deux événements. Alors on \\(a\\) :\n\n\\(A \\coprod A \\Longleftrightarrow \\mathbb{P}(A)=0\\) ou \\(\\mathbb{P}(A)=1\\).\n\\(A \\coprod B \\Longleftrightarrow A \\coprod \\bar{B} \\Longleftrightarrow \\bar{A} \\coprod B \\Longleftrightarrow \\bar{A} \\coprod \\bar{B}\\).",
+    "crumbs": [
+      "Probabilités",
+      "Probabilité conditionnelle"
+    ]
+  },
+  {
+    "objectID": "proba/proba_condi.html#preuve.-1",
+    "href": "proba/proba_condi.html#preuve.-1",
+    "title": "Probabilité conditionnelle",
+    "section": "Preuve.",
+    "text": "Preuve.\n\n\\(A \\coprod A \\Longleftrightarrow \\mathbb{P}(A \\cap A)=\\mathbb{P}^{2}(A) \\Longleftrightarrow \\mathbb{P}(A)(1-\\mathbb{P}(A))=0 \\Longleftrightarrow \\mathbb{P}(A)=0\\) ou \\(\\mathbb{P}(A)=1\\).\nIl suffit de montrer la première équivalence, les autres sont alors automatiques.\n\n\\[\n\\left.\\begin{array}{rl}\nA \\amalg B & \\Longleftrightarrow \\mathbb{P}(A \\cap B)=\\mathbb{P}(A) \\mathbb{P}(B) \\\\\n& \\Longleftrightarrow \\mathbb{P}(A \\cap B)=\\mathbb{P}(A)(1-\\mathbb{P}(\\bar{B}) \\\\\n& \\Longleftrightarrow \\mathbb{P}(A) \\mathbb{P}(\\bar{B})=\\mathbb{P}(A)-\\mathbb{P}(A \\cap B)\n\\end{array} \\Longleftrightarrow \\mathbb{P}(A) \\mathbb{P}(\\bar{B})=\\mathbb{P}(A \\cap B)+\\mathbb{P}(A \\cap \\bar{B})-\\mathbb{P}(A \\cap B), \\vec{B}\\right)=\\mathbb{P}(A \\cap \\bar{B}) \\quad \\Longleftrightarrow A \\coprod \\bar{B} .\n\\]\nOn peut étendre cette notion d’événements indépendants à une famille : Définition 15 Une famille d’événements \\(\\left(A_{i}\\right)_{i \\in I}\\) est dite indépendante si pour toute sous-famille finie \\(\\left(A_{i_{1}}, A_{i_{2}}, \\ldots, A_{i_{n}}\\right)\\) de cette famille, on a :\n\\[\n\\mathbb{P}\\left(\\bigcap_{j=1}^{n} A_{i_{j}}\\right)=\\prod_{j=1}^{n} \\mathbb{P}\\left(A_{i_{j}}\\right) .\n\\]\nOn retrouve les mêmes propriétés que pour deux événements indépendants. ATTENTION, le fait que les événements \\(\\left(A_{i}\\right)_{i \\in I}\\) sont indépendants entraîne qu’ils sont indépendants deux à deux, mais la réciproque est fausse. Exercice On lance une pièce deux fois de suite. Soit \\(A\\) l’événement “obtenir face au premier jet”, \\(B\\) l’événement “obtenir face au deuxième jet”, et \\(C\\) l’événement “obtenir deux résultats différents”. Montrer que les événements \\(A, B, C\\) sont deux à deux indépendants, mais que la famille \\((A, B, C)\\) n’est pas indépendante.",
+    "crumbs": [
+      "Probabilités",
+      "Probabilité conditionnelle"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "à construire …",
+    "crumbs": [
+      "References"
     ]
   }
 ]

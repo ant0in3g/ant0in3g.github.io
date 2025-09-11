@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Antoine Géré">
 
-<title>Statistiques et analyse de données</title>
+<title>Bases du langage R – Statistiques et analyse de données</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,23 +23,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./stat_descriptive.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8da5b4427184b79ecddefad3d342027e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../tuto_R_RStudio/help.html" rel="next">
+<link href="../tuto_R_RStudio/intro_scriptR.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8da5b4427184b79ecddefad3d342027e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -81,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tuto_R_RStudio.html">Tutorial à R et RStudio</a></li><li class="breadcrumb-item"><a href="../tuto_R_RStudio/bases_R.html">Bases du langage R</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
@@ -96,7 +96,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Statistiques et analyse de données</a> 
+      <a href="../">Statistiques et analyse de données</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -108,13 +108,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./stat_descriptive.html" class="sidebar-item-text sidebar-link">
+            <a href="../stat_descriptive.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Statistiques descriptives</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -123,19 +123,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat_descriptive/vocab.html" class="sidebar-item-text sidebar-link">
+  <a href="../stat_descriptive/vocab.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vocabulaire</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat_descriptive/analyse_univarie.html" class="sidebar-item-text sidebar-link">
+  <a href="../stat_descriptive/analyse_univarie.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Analyse univariée</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat_descriptive/analyse_bivarie.html" class="sidebar-item-text sidebar-link">
+  <a href="../stat_descriptive/analyse_bivarie.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Analyse bivariée</span></a>
   </div>
 </li>
@@ -143,7 +143,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./intro_proba.html" class="sidebar-item-text sidebar-link">
+            <a href="../proba.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Probabilités</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -152,31 +152,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./proba/proba.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Espace probabilisé</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./proba/proba_condi.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Probabilité conditionnelle</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./proba/independance.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Indépendance</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./proba/variable_aleatoire.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Variable aléatoire</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./proba/lois_usuelles.html" class="sidebar-item-text sidebar-link">
+  <a href="../proba/lois_usuelles.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lois usuelles</span></a>
   </div>
 </li>
@@ -184,7 +160,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./EchantillonnageEstimation.html" class="sidebar-item-text sidebar-link">
+            <a href="../EchantillonnageEstimation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Echantillonnage et Estimation</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -193,13 +169,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./EchantillonnageEstimation/echantillonnage.html" class="sidebar-item-text sidebar-link">
+  <a href="../EchantillonnageEstimation/echantillonnage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Echantillonnage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./EchantillonnageEstimation/estimation.html" class="sidebar-item-text sidebar-link">
+  <a href="../EchantillonnageEstimation/estimation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Estimation</span></a>
   </div>
 </li>
@@ -207,7 +183,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./TestsStat.html" class="sidebar-item-text sidebar-link">
+            <a href="../TestsStat.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tests statistiques</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -216,7 +192,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tests/test_hpts.html" class="sidebar-item-text sidebar-link">
+  <a href="../tests/test_hpts.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Premiers pas sur les tests statistiques</span></a>
   </div>
 </li>
@@ -224,7 +200,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./analyse_factorielle.html" class="sidebar-item-text sidebar-link">
+            <a href="../analyse_factorielle.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Analyse factorielle</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -233,7 +209,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./analyse_factorielle/acp.html" class="sidebar-item-text sidebar-link">
+  <a href="../analyse_factorielle/acp.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ACP</span></a>
   </div>
 </li>
@@ -241,88 +217,106 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./tuto_R_RStudio.html" class="sidebar-item-text sidebar-link">
+            <a href="../tuto_R_RStudio.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tutorial à R et RStudio</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tuto_R_RStudio/install_R.html" class="sidebar-item-text sidebar-link">
+  <a href="../tuto_R_RStudio/R_RStudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R et RStudio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tuto_R_RStudio/install_R.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Installation et configuration</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tuto_R_RStudio/intro_projets.html" class="sidebar-item-text sidebar-link">
+  <a href="../tuto_R_RStudio/install_RStudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installation de RStudio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tuto_R_RStudio/custom_RStudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Configuration de RStudio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tuto_R_RStudio/intro_projets.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Les projets avec RStudio</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tuto_R_RStudio/intro_script.html" class="sidebar-item-text sidebar-link">
+  <a href="../tuto_R_RStudio/intro_script.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Ecrire des scripts sur RStudio</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tuto_R_RStudio/intro_scriptQuarto.html" class="sidebar-item-text sidebar-link">
+  <a href="../tuto_R_RStudio/intro_scriptQuarto.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Script Quarto</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tuto_R_RStudio/intro_scriptR.html" class="sidebar-item-text sidebar-link">
+  <a href="../tuto_R_RStudio/intro_scriptR.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Script R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tuto_R_RStudio/bases_R.html" class="sidebar-item-text sidebar-link">
+  <a href="../tuto_R_RStudio/bases_R.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Bases du langage R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tuto_R_RStudio/help.html" class="sidebar-item-text sidebar-link">
+  <a href="../tuto_R_RStudio/help.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obtenir de l’aide sur R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tuto_R_RStudio/startR.html" class="sidebar-item-text sidebar-link">
+  <a href="../tuto_R_RStudio/startR.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quelques premières notions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tuto_R_RStudio/types_data.html" class="sidebar-item-text sidebar-link">
+  <a href="../tuto_R_RStudio/types_data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Les différents types de données</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tuto_R_RStudio/Loops.html" class="sidebar-item-text sidebar-link">
+  <a href="../tuto_R_RStudio/Loops.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Conditions, boucles</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tuto_R_RStudio/fonctions.html" class="sidebar-item-text sidebar-link">
+  <a href="../tuto_R_RStudio/fonctions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Les fonctions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tuto_R_RStudio/graph.html" class="sidebar-item-text sidebar-link">
+  <a href="../tuto_R_RStudio/graph.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Les graphiques</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tuto_R_RStudio/analysis_dataset.html" class="sidebar-item-text sidebar-link">
+  <a href="../tuto_R_RStudio/analysis_dataset.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Inroduction à l’analyse de données</span></a>
   </div>
 </li>
@@ -330,7 +324,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
 </li>
@@ -339,43 +333,22 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table des matières</h2>
-   
-  <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
-  <ul class="collapse">
-  <li><a href="#licence" id="toc-licence" class="nav-link" data-scroll-target="#licence">Licence</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tuto_R_RStudio.html">Tutorial à R et RStudio</a></li><li class="breadcrumb-item"><a href="../tuto_R_RStudio/bases_R.html">Bases du langage R</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Statistiques et analyse de données</h1>
+<h1 class="title">Bases du langage R</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Auteur·rice</div>
-    <div class="quarto-title-meta-contents">
-             <p>Antoine Géré </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Dernière modification</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">9 septembre 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -385,41 +358,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-
-<section id="introduction" class="level1 unnumbered">
-<h1 class="unnumbered">Introduction</h1><p><img src="img/Logo_ISTOM_Couleurs_HD-rbg.png" title="Statistiques et analyse de données" class="quarto-cover-image img-fluid"></p>
-<p>Dans le domaine de l’agronomie, la prise de décision repose sur l’analyse rigoureuse de données issues d’expériences, d’observations de terrain et de mesures variées. Que ce soit pour optimiser les rendements agricoles, analyser l’impact des changements climatiques, améliorer la gestion des ressources naturelles ou évaluer la qualité des sols et des cultures, la statistique joue un rôle central.</p>
-<p>Ce cours propose une introduction approfondie aux outils statistiques fondamentaux nécessaires aux ingénieurs agronomes. Il est structuré autour de quatre grandes thématiques :</p>
-<ul>
-<li><p><strong>Statistique descriptive</strong> : Cette première partie vise à organiser, résumer et représenter efficacement les données issues des études agronomiques à travers des indicateurs clés (moyenne, médiane, variance, etc.) et des outils graphiques adaptés.</p></li>
-<li><p><strong>Probabilités</strong> : L’incertitude est inhérente aux systèmes biologiques et environnementaux. Nous aborderons les bases du calcul des probabilités, les lois de distribution les plus courantes et leur application en agronomie (modélisation des rendements, prévision climatique, etc.).</p></li>
-<li><p><strong>Statistique inférentielle</strong> : À partir d’un échantillon limité, il est crucial de pouvoir généraliser les résultats à l’ensemble d’une population. Cette section traitera des tests d’hypothèses, des intervalles de confiance et des méthodes d’estimation pour appuyer les décisions agronomiques sur des bases solides.</p></li>
-<li><p><strong>Analyse factorielle</strong> : Dans un contexte où les données multidimensionnelles sont omniprésentes (analyses de sols, caractéristiques des cultures, facteurs environnementaux), les méthodes d’analyse factorielle (ACP, AFC, etc.) permettent d’extraire les informations essentielles et d’interpréter les relations entre variables.</p></li>
-</ul>
-<p>Tout au long de ce cours nous apprendrons à utiliser les concepts des statistiques et de l’analyse de données avec le language de programmation <strong>R</strong> et le logiciel <strong>RStudio</strong>.</p>
-<p><img src="img/R_RStudio_LogoS-rbg.png" class="img-fluid"></p>
-<p>Cet apprentissage s’effectera sur des exemples concrets et des études de cas spécifiques aux enjeux propres des pays du sud : adaptation aux conditions climatiques locales, gestion durable des ressources et amélioration des pratiques agricoles.</p>
-<p>L’objectif est de vous fournir, futurs ingénieurs agronomes, les compétences nécessaires pour interpréter des données complexes et appuyer des décisions fondées sur des analyses rigoureuses.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Ces notes sont en cours d’élaboration. Si vous avez la moindre question ou remarque n’hésitez pas à me contacter par email <a href="mailto:a.gere@istom.fr">a.gere@istom.fr</a></p>
-</div>
-</div>
-<section id="licence" class="level2">
-<h2 class="anchored" data-anchor-id="licence">Licence</h2>
-<p>à définir…</p>
+<p>Nous allons travailler dans notre script R.</p>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -841,10 +782,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../tuto_R_RStudio/intro_scriptR.html" class="pagination-link" aria-label="Script R">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Script R</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./stat_descriptive.html" class="pagination-link" aria-label="Statistiques descriptives">
-        <span class="nav-page-text">Statistiques descriptives</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../tuto_R_RStudio/help.html" class="pagination-link" aria-label="Obtenir de l’aide sur R">
+        <span class="nav-page-text">Obtenir de l’aide sur R</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
