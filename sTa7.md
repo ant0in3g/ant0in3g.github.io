@@ -4,7 +4,7 @@ Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 
 > [**Slides du cours magistral**](sTa7/Slides/slides.html)
 >
-> [**Cours complet de Statistiques et analyse de données**](sTa7/LectureStat/index.html)
+> [**Cours complet de Statistiques et analyse de données** (en construction)](sTa7/LectureStat/index.html)
 >
 > [**Travaux dirigés**](sTa7/poly_td.pdf)
 >
