@@ -22,6 +22,10 @@ Vous pourrez prochainement trouver un [ensemble de cours](./lecture-s.md) rédig
 
 coming soon.
 
+## Divers
+
+Quelques projets divers à venir, dont un [dashboard quarto](./fftri/gp.html) pour suivre le championnat de france de duathlon organisé par la fédération française de triathlon.
+
 ## Contact
 
 - **Email** : [a.gere@istom.fr](mailto:a.gere@istom.fr)
