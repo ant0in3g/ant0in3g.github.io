@@ -2,6 +2,8 @@
 
 Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 
+> [**Slides du cours magistral**]() ![](http://usa.flagpedia.net/data/flags/mini/ca.png) <pre><code>&#x1f1eb;&#x1f1f7;</code></pre>
+>
 > [**Slides du cours magistral**](sTa7/Slides/slides.html)
 >
 > [**Cours complet de Statistiques et analyse de données** (en construction)](sTa7/LectureStat/index.html)
