@@ -2,9 +2,9 @@
 
 Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 
-> [**Slides du cours magistral**]() &#x1f1eb;&#x1f1f7;
+> [**Slides du cours magistral**](sTa7/Slides/slides_fr.html) &#x1f1eb;&#x1f1f7;
 >
-> [**Slides du cours magistral**](sTa7/Slides/slides.html) &#x1f1ec;&#x1f1e7; &#x1f1fa;&#x1f1f8;
+> [**Slides du cours magistral**](sTa7/Slides/slides_en.html) &#x1f1ec;&#x1f1e7; &#x1f1fa;&#x1f1f8;
 >
 > [**Cours complet de Statistiques et analyse de données** (en construction)](sTa7/LectureStat/index.html) &#x1f1eb;&#x1f1f7;
 >
