@@ -1,7 +1,5 @@
 ## Chimie
 
-## Chimie
-
 Référent : [Antoine Géré](mailto:a.gere@istom.fr)
 
 Enseignant : [Oksana Toma](mailto:o.toma-ext@istom.fr)
