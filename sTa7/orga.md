@@ -6,7 +6,7 @@ Il vous est demandé de synchroniser ce dossier OneDrive sur votre ordinateur pe
 
 ###  Étapes de synchronisation d’un dossier partagé OneDrive sur Windows ou Mac
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/8WC7iClUH3k?si=Na52qqPlQ4LC4wWx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="448" height="252" src="https://www.youtube.com/embed/8WC7iClUH3k?si=Na52qqPlQ4LC4wWx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 1. Vérifier OneDrive sur son PC
 - Cliquer sur le bouton Démarrer et tape OneDrive
