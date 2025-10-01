@@ -2,7 +2,7 @@ Afin de faciliter notre travail en travaux dirigés, je vous partage un dossier 
 
 ![image](./img/onedrive-orga.png)  
 
-Il vous ai demandé de synchroniser ce dossier OneDrive sur votre ordinateur personel.
+Il vous est demandé de synchroniser ce dossier OneDrive sur votre ordinateur personel.
 
 ###  Étapes de synchronisation d’un dossier partagé OneDrive sur Windows ou Mac
 
