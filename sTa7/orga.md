@@ -32,7 +32,7 @@ Il vous est demandé de synchroniser ce dossier OneDrive sur votre ordinateur pe
 - Dans le menu de gauche, il va apparaitre une rubrique ISTOM
 - Le fichier sera alors présent dans cette rubrique ISTOM
 
-## Usage si vous travailleé sur un ordinateur de l'école
+## Usage si vous travaillez sur un ordinateur de l'école
 
 Si vous travaillez sur un ordinateur de l'école, dans ce cas il est plus pratique de créer un raccourci du dossier partagé sur votre OneDrive ISTOM. La démarche à suivre est très bien expliquée sur cette vidéo.
 
