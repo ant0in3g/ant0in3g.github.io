@@ -24,7 +24,7 @@ Vous pourrez prochainement trouver un [ensemble de cours](./lecture-s.md) rédig
 
 ## Recherche
 
-coming soon.
+En construction ... ([phd thesis](https://github.com/ant0in3g/Ph.D.-thesis/blob/main/phd_antoine_gere.pdf))
 
 ## Divers
 
