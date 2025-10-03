@@ -36,7 +36,7 @@ Il vous est demandé de synchroniser ce dossier OneDrive sur votre ordinateur pe
 
 ## Usage si vous travailleé sur un ordinateur de l'école
 
-Si vous travaillez sur un ordinateur de l'école, dans ce cas il est plus pratique de créer un raccourci du dossier partagé sur votre OneDrive ISTOM. La démarche à suivre est très bien expliqué sur cette vidéo.
+Si vous travaillez sur un ordinateur de l'école, dans ce cas il est plus pratique de créer un raccourci du dossier partagé sur votre OneDrive ISTOM. La démarche à suivre est très bien expliquée sur cette vidéo.
 
 <iframe width="448" height="252" src="https://www.youtube.com/embed/BiirNtobNxE?si=wIsy5cV5-5UH9b7R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
