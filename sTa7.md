@@ -2,7 +2,7 @@
 
 Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 
-Vous retrouverez [ici](sTa7/orga.md) l'organisation de ce cours.
+Vous retrouverez [**ici**](sTa7/orga.md) l'organisation de ce cours.
 
 > [**Slides du cours magistral**](sTa7/Slides/slides_fr.html) &#x1f1eb;&#x1f1f7;
 >
