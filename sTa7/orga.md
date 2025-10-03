@@ -1,7 +1,5 @@
 Afin de faciliter notre travail en travaux dirigés, je vous partage un dossier OneDrive.
 
-<br>
-
 ![image](./img/onedrive-orga.png)  
 
 Il vous est demandé de synchroniser ce dossier OneDrive sur votre ordinateur personel.
