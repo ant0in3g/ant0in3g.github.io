@@ -300,6 +300,7 @@ P(A \cap B)=P(B) \times P(A \mid B)
 <p><span class="math inline">\(A\)</span> et <span class="math inline">\(\bar{A}\)</span> forment un système complet d’évènements.</p>
 <p>Pour tout évènement <span class="math inline">\(B\)</span> :</p>
 <p><span class="math display">\[P(B)=P(B \mid A) \times P(A)+P(B \mid \bar{A}) \times P(\bar{A})\]</span></p>
+<p><span class="math inline">\(\to\)</span> Généralisation possible pour <span class="math inline">\(n\)</span> évènements</p>
 </section>
 <section id="section-7" class="slide level2">
 <h2></h2>
@@ -315,18 +316,13 @@ P(A \cap B)=P(B) \times P(A \mid B)
 <p><img data-src="https://cdn.mathpix.com/cropped/2025_09_17_68f9d5d55601c91876fcg-22.jpg?height=245&amp;width=475&amp;top_left_y=464&amp;top_left_x=720"></p>
 </div></div>
 <p>Donc on applique la formule des probabilités composées et on obtient <span class="math display">\[P(B)=P(B \mid A) \times P(A)+P(B \mid \bar{A}) \times P(\bar{A})\]</span></p>
-<p><span class="math inline">\(\to\)</span> Généralisation possible pour <span class="math inline">\(n\)</span> évènements</p>
 </section>
 <section id="le-théorème-de-bayes" class="slide level2">
 <h2>Le théorème de Bayes</h2>
 <h3 id="énoncé-du-théorème-dans-le-cas-général">Énoncé du théorème dans le cas général</h3>
 <p>Soient <span class="math inline">\(\left\{A_{1} ; A_{2} ; \ldots ; A_{n}\right\}\)</span> un système complet d’évènements et <span class="math inline">\(B\)</span> un évènement de probabilité non nulle.</p>
 <p>Pour tout <span class="math inline">\(j\)</span> on a :</p>
-<p><span class="math display">\[
-P\left(A_{j} \mid B\right)=\frac{P\left(A_{j}\right) \times P\left(B \mid A_{j}\right)}{P(B)}
-\]</span> donc <span class="math display">\[
-P\left(A_{j} \mid B\right)\frac{P\left(A_{j}\right) \times P\left(B \mid A_{j}\right)}{\sum_{i=1}^{n} P\left(A_{i}\right) \times P\left(B \mid A_{i}\right)}
-\]</span></p>
+<p><span class="math display">\[P\left(A_{j} \mid B\right)=\frac{P\left(A_{j}\right) \times P\left(B \mid A_{j}\right)}{P(B)}\]</span> donc <span class="math display">\[P\left(A_{j} \mid B\right) = \frac{P\left(A_{j}\right) \times P\left(B \mid A_{j}\right)}{\sum_{i=1}^{n} P\left(A_{i}\right) \times P\left(B \mid A_{i}\right)}\]</span></p>
 </section>
 <section id="section-8" class="slide level2">
 <h2></h2>
@@ -347,8 +343,382 @@ P\left(A_{j} \mid B\right)\frac{P\left(A_{j}\right) \times P\left(B \mid A_{j}\r
 </section>
 <section id="indépendance-de-2-évènements" class="slide level2">
 <h2>Indépendance de 2 évènements</h2>
-
+<p>Deux évènements <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> de probabilité non nulle sont <strong>indépendants</strong> (relativement à la probabilité P) ssi <span class="math display">\[P(A \mid B)=P(A)\]</span></p>
+<p>De la même façon <span class="math display">\[P(B \mid A)=P(B)\]</span></p>
+<p>Ou autrement dit <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> sont indépendants (relativement à la probabilité P) ssi <span class="math display">\[P(A \cap B)=P(A) \times P(B)\]</span></p>
+</section>
+<section id="section-9" class="slide level2">
+<h2></h2>
+<h3 id="théorème">Théorème</h3>
+<p>Les affirmations suivantes sont équivalentes</p>
+<ul>
+<li><span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> sont <strong>indépendants</strong></li>
+<li><span class="math inline">\(A\)</span> et <span class="math inline">\(\bar{B}\)</span> sont <strong>indépendants</strong></li>
+<li><span class="math inline">\(\bar{A}\)</span> et <span class="math inline">\(B\)</span> sont <strong>indépendants</strong></li>
+<li><span class="math inline">\(\bar{A}\)</span> et <span class="math inline">\(\bar{B}\)</span> sont <strong>indépendants</strong></li>
+</ul>
+</section>
+<section id="indépendance-et-incompatibilité" class="slide level2">
+<h2>Indépendance et incompatibilité</h2>
+<p>Deux notions différentes !</p>
+<ul>
+<li><span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> incompatibles : <span class="math inline">\(A \cap B=\varnothing\)</span></li>
+</ul>
+<p>Ne fait pas intervenir la probabilité</p>
+<ul>
+<li><span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> indépendants : <span class="math inline">\(P(A \cap B)=P(A) \times P(B)\)</span></li>
+</ul>
+</section>
+<section id="section-10" class="slide level2">
+<h2></h2>
+<p><strong>Question</strong> :</p>
+<p>Deux évènements de probabilité non nulle incompatibles sont-ils indépendants ?</p>
+<ul>
+<li>On a <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> incompatibles : <span class="math inline">\(A \cap B=\varnothing\)</span>, donc <span class="math inline">\(P(A \cap B)=0\)</span></li>
+<li>Or, <span class="math inline">\(P(A) \neq 0\)</span> et <span class="math inline">\(P(B) \neq 0\)</span>, donc <span class="math inline">\(P(A) \times P(B) \neq 0\)</span></li>
+<li>Donc <span class="math inline">\(P(A \cap B) \neq P(A) \times P(B)\)</span></li>
+</ul>
+<p><strong>Conclusion</strong> :</p>
+<p><span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> ne sont pas indépendants</p>
+<p><strong>Deux évènements de probabilité non nulle incompatibles ne sont donc pas indépendants.</strong></p>
+</section>
+<section id="épreuves-expériences-indépendantes" class="slide level2">
+<h2>Épreuves / Expériences indépendantes</h2>
+<p>On parle d’<strong>épreuves indépendantes</strong> lorsque le résultat d’une des épreuves n’a aucune influence sur les résultats des autres épreuves.</p>
+<h3 id="propriété">Propriété</h3>
+<p>Lors d’une répétition de n épreuves indépendantes, la probabilités d’une issue est égale au poduit des probabilité de chacunes des issues du n épreuves indépendantes</p>
+</section>
+<section id="section-11" class="slide level2">
+<h2></h2>
+<h3 id="application-en-statistique">Application en statistique</h3>
+<p>Constitution de n-échantillons (cf chapitre suivant “Estimation et intervalle de confiance”)</p>
+<p><strong>Exemple :</strong></p>
+<p>Réalisation de 5 lancés d’une pièce équilibrée.</p>
+<p><span class="math inline">\(F_{i}\)</span> : «Obtenir face au i-ème lancé »</p>
+<p>La probabilité <span class="math inline">\(p\)</span> d’obtenir 5 fois face :</p>
+<p><span class="math display">\[P\left(F_{1} \cap F_{2} \cap F_{3} \cap F_{4} \cap F_{5}\right)\]</span></p>
+<p>Les 5 lancés sont indépendants :</p>
+<p><span class="math display">\[p=P\left(F_{1}\right) P\left(F_{2}\right) P\left(F_{3}\right) P\left(F_{4}\right) P\left(F_{5}\right) \\
+p=\left(\frac{1}{2}\right)^{5}\]</span></p>
 </section></section>
+<section>
+<section id="variable-aléatoire" class="title-slide slide level1 center">
+<h1>Variable aléatoire</h1>
+
+</section>
+<section id="section-12" class="slide level2">
+<h2></h2>
+<p>Soit <span class="math inline">\(\Omega\)</span> l’ensemble fondamental des résultats d’une expérience aléatoire. L’attribution d’un nombre à chaque résultat de l’expérience permet de définir une variable aléatoire.</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><img data-src="https://cdn.mathpix.com/cropped/2025_09_17_68f9d5d55601c91876fcg-35.jpg?height=341&amp;width=480&amp;top_left_y=388&amp;top_left_x=80"></p>
+</div><div class="column" style="width:60%;">
+<ul>
+<li>À chaque événement élémentaire <span class="math inline">\(\omega\)</span> correspond un nombre réel <span class="math inline">\(x\)</span>.</li>
+<li><span class="math inline">\(x\)</span> : réalisation de la variable <span class="math inline">\(X\)</span> pour l’événement <span class="math inline">\(\omega\)</span></li>
+<li>Attention, pas forcément autant de valeurs possibles <span class="math inline">\(x\)</span> que d’événements élémentaires <span class="math inline">\(\omega\)</span></li>
+</ul>
+</div></div>
+</section>
+<section id="section-13" class="slide level2">
+<h2></h2>
+<h3 id="exemple-1-lancé-dun-dé-à-6-faces">Exemple 1 : lancé d’un dé à 6 faces</h3>
+<ul>
+<li>Expérience aléatoire : lancé d’un dé à 6 faces</li>
+<li>Univers des événements élémentaires possibles : <span class="math inline">\(\{1 ; 2 ; 3 ; 4 ; 5 ; 6\}\)</span></li>
+<li>Valeurs possibles pour la va : <span class="math inline">\(\{1 ; 2 ; 3 ; 4 ; 5 ; 6\}\)</span></li>
+</ul>
+<h3 id="exemple-2">Exemple 2 :</h3>
+<ul>
+<li>Expérience aléatoire : détermination de l’infection d’une maladie sur des plantes</li>
+<li>Univers des possibles : {positif; négatif}</li>
+<li>Valeurs possibles pour la va : <span class="math inline">\(\{0 ; 1\}\)</span> (codage arbitraire)</li>
+</ul>
+</section>
+<section id="section-14" class="slide level2">
+<h2></h2>
+<h3 id="définition">Définition</h3>
+<p>Une variable aléatoire sur <span class="math inline">\(\Omega\)</span> est une application <span class="math display">\[X: \Omega \rightarrow \mathbb{R}\]</span> tel que <span class="math inline">\(\forall(a, b) \in \mathbb{R} \quad X^{-1}([a, b])\)</span> est un évènement</p>
+<h3 id="notations">Notations</h3>
+<ul>
+<li>Les va sont notées avec des lettres majuscules : <span class="math inline">\(X, Y, \ldots\)</span></li>
+<li>Les valeurs possibles ou réalisations d’une va sont notées avec des lettres minuscules : <span class="math inline">\(x_{i}, a, z, \ldots\)</span></li>
+</ul>
+</section>
+<section id="section-15" class="slide level2">
+<h2></h2>
+<h3 id="deux-types-de-variables-aléatoires">Deux types de variables aléatoires</h3>
+<p><strong>Une variable aléatoire est variable quantitative.</strong></p>
+<ul>
+<li><strong>Variable aléatoire discrète</strong></li>
+</ul>
+<p>Elle prend un nombre fini ou infini dénombrable de valeurs possibles.</p>
+<ul>
+<li><strong>Variable aléatoire continue</strong></li>
+</ul>
+<p>Elle prend un nombre infini indénombrable de valeurs possibles.</p>
+</section>
+<section id="cas-des-variables-aléatoires-discrètes" class="slide level2">
+<h2>Cas des variables aléatoires discrètes</h2>
+<h3 id="définition-1">Définition</h3>
+<p>Soit <span class="math inline">\(X\)</span> une variable aléatoire discrète. Sa loi de probabilité est déterminée par</p>
+<ul>
+<li>I’ensemble des valeurs possibles <span class="math inline">\(x_{i}(i \in I\)</span>, fini ou infini dénombrable)</li>
+<li>les probabilités <span class="math inline">\(p_{i}=\mathrm{P}\left(X=x_{i}\right)\)</span></li>
+</ul>
+<h3 id="propriétés-1">Propriétés</h3>
+<ul>
+<li><span class="math inline">\(\forall i \in I\)</span>, <span class="math inline">\(\ P\left(X=x_{i}\right) \geq 0\)</span></li>
+<li><span class="math inline">\(\sum_{i \in I} \mathrm{P}\left(X=x_{i}\right)=\sum_{i \in I} p_{i}=1\)</span></li>
+</ul>
+</section>
+<section id="section-16" class="slide level2">
+<h2></h2>
+<h3 id="exemple-de-loi-de-probabilité-discrète">Exemple de loi de probabilité discrète</h3>
+<ul>
+<li>Hypothèse : Proba. d’avoir un veau mal pour une vache (<span class="math inline">\(0.5\)</span>)</li>
+</ul>
+<p>Distribution de probabilité ou loi de probabilité du nombre de femmelle dans un deux vélages consecutifs :</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">événements possibles</th>
+<th style="text-align: center;">MM</th>
+<th style="text-align: center;">MF ou FM</th>
+<th style="text-align: center;">FF</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">valeurs possibles</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">probabilités</td>
+<td style="text-align: center;"><span class="math inline">\(1 / 4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1 / 2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1 / 4\)</span></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><span class="math inline">\(\mathrm{P}(X=0)=\mathrm{P}(G \cap G)=\mathrm{P}(G) \times \mathrm{P}(G)\)</span> (indépendance)</li>
+<li><span class="math inline">\(\mathrm{P}(X=1)=\mathrm{P}((G \cap F) \cup(F \cap G))=\mathrm{P}(G \cap F)+\mathrm{P}(F \cap G)\)</span> (incompatibilité)</li>
+</ul>
+</section>
+<section id="fonction-de-répartition-cas-discret" class="slide level2">
+<h2>Fonction de répartition : cas discret</h2>
+<h3 id="définition-2">Définition</h3>
+<p>On appelle fonction de répartition de <span class="math inline">\(X\)</span> toute fonction <span class="math inline">\(F\)</span> telle que pour tout <span class="math inline">\(t \in \mathbb{R}\)</span>, <span class="math display">\[F(t)=\mathrm{P}(X \leq t)\]</span></p>
+<h3 id="interprétation">Interprétation</h3>
+<p>La fonction de répartition correspond à la distribution des probabilités cumulées</p>
+</section>
+<section id="section-17" class="slide level2">
+<h2></h2>
+<h3 id="retour-sur-lexemple">Retour sur l’exemple</h3>
+<div class="columns">
+<div class="column" style="width:35%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Valeurs possibles</th>
+<th style="text-align: center;">Probabilités</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0,25</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0,5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0,25</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:55%;">
+<p><span class="math display">\[
+\begin{array}{cl}
+t&lt;0 &amp; \mathrm{P}(X \leq t)=0 \\
+t=0 &amp; \mathrm{P}(X \leq t)=0,25 \\
+0&lt;t&lt;1 &amp; \mathrm{P}(X \leq t)=0,25 \\
+t=1 &amp; \mathrm{P}(X \leq t)=0,75 \\
+1&lt;t&lt;2 &amp; \mathrm{P}(X \leq t)=0,75 \\
+t=2 &amp; \mathrm{P}(X \leq t)=1 \\
+t&gt;2 &amp; \mathrm{P}(X \leq t)=1
+\end{array}
+\]</span></p>
+</div></div>
+</section>
+<section id="section-18" class="slide level2">
+<h2></h2>
+<p>On a alors :</p>
+<p><img data-src="https://cdn.mathpix.com/cropped/2025_09_17_68f9d5d55601c91876fcg-42.jpg?height=331&amp;width=510&amp;top_left_y=578&amp;top_left_x=80"> <img data-src="https://cdn.mathpix.com/cropped/2025_09_17_68f9d5d55601c91876fcg-42.jpg?height=332&amp;width=516&amp;top_left_y=578&amp;top_left_x=646"></p>
+</section>
+<section id="section-19" class="slide level2">
+<h2></h2>
+<h3 id="propriétés-2">Propriétés</h3>
+<ul>
+<li><span class="math inline">\(\forall t \in \mathbb{R}\)</span>, &nbsp;&nbsp;<span class="math inline">\(0 \leq F(t) \leq 1\)</span></li>
+<li>F est croissante</li>
+<li><span class="math inline">\(\lim _{x \rightarrow-\infty} F(x)=0\)</span></li>
+<li><span class="math inline">\(\lim _{x \rightarrow+\infty} F(x)=1\)</span></li>
+</ul>
+<p>Dans le cas discret, F est une fonction «en marches d’escalier» Calcul de probabilités</p>
+<p><span class="math display">\[
+\begin{gathered}
+\mathrm{P}\left(X=x_{i}\right)=\mathrm{P}\left(X \leq x_{i}\right)-\mathrm{P}\left(X \leq x_{i-1}\right) \\
+\mathrm{P}\left(X=x_{i}\right)=F\left(x_{i}\right)-F\left(x_{i-1}\right)
+\end{gathered}
+\]</span></p>
+</section>
+<section id="cas-des-variables-aléatoires-continues" class="slide level2">
+<h2>Cas des variables aléatoires continues</h2>
+<h3 id="problème">Problème</h3>
+<p>L’ensemble des valeurs possibles de <span class="math inline">\(X\)</span> est infini indénombrable</p>
+<ul>
+<li>On ne peut définir la loi de probabilité par l’ensemble des <span class="math inline">\(\left(x_{i}, p_{i}\right)\)</span></li>
+<li>En général, <span class="math inline">\(\forall i, \mathrm{P}\left(X=x_{i}\right)=p_{i}=0\)</span></li>
+</ul>
+</section>
+<section id="section-20" class="slide level2">
+<h2></h2>
+<h3 id="densité-de-probabilité">Densité de probabilité</h3>
+<p>On appelle densité de probabilité (ddp) toute fonction <span class="math inline">\(f\)</span> telle que :</p>
+<ul>
+<li><span class="math inline">\(\forall x \in \mathbb{R}, f(x) \geq 0\)</span></li>
+<li><span class="math inline">\(\displaystyle\int_{-\infty}^{+\infty} f(x) d x=1\)</span> (aire sous la courbe égale à 1 )</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:60%;">
+<h3 id="probabilité-dun-intervalle">Probabilité d’un intervalle</h3>
+<p><span class="math display">\[
+\mathrm{P}(a \leq X \leq b)=\int_{a}^{b} f(x) d x
+\]</span></p>
+</div><div class="column" style="width:40%;">
+<p><img data-src="https://cdn.mathpix.com/cropped/2025_09_17_68f9d5d55601c91876fcg-44.jpg?height=273&amp;width=418&amp;top_left_y=663&amp;top_left_x=724"></p>
+</div></div>
+</section>
+<section id="fonction-de-répartition-cas-continu" class="slide level2">
+<h2>Fonction de répartition : cas continu</h2>
+<p><strong>Même définition que dans le cas discret</strong></p>
+<p>On appelle fonction de répartition de <span class="math inline">\(X\)</span> toute fonction <span class="math inline">\(F\)</span> telle que <span class="math inline">\(\forall x \in \mathbb{R}, F(x)=\mathrm{P}(X \leq x)\)</span></p>
+<p><strong>Cas continu</strong> : la fonction de répartition est continue et non plus en marches d’escalier !</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p>On a <span class="math display">\[F(x)=\int_{-\infty}^{x} f(t) d t\]</span></p>
+</div><div class="column" style="width:60%;">
+<p>d’où</p>
+<p><span class="math display">\[\mathrm{P}(a \leq X \leq b)=\int_{a}^{b} f(t) d t=F(b)-F(a)\]</span></p>
+</div></div>
+</section>
+<section id="section-21" class="slide level2">
+<h2></h2>
+<p><strong>Espérance = moyenne théorique</strong></p>
+<p>Elle renseigne sur la position des valeurs possibles sur une échelle.</p>
+<p><strong>Définition dans le cas d’une va discrète</strong> :</p>
+<p><span class="math display">\[\mathrm{E}(X)=\sum_{i} x_{i} \times P\left(X=x_{i}\right)=\sum_{i} x_{i} \times p_{i}\]</span></p>
+<p><strong>Définition dans le cas d’une va continue</strong> <span class="math display">\[
+\mathrm{E}(X)=\int_{-\infty}^{+\infty} x f(x) d x
+\]</span></p>
+</section>
+<section id="section-22" class="slide level2">
+<h2></h2>
+<h3 id="propriété-de-lespérance">Propriété de l’espérance</h3>
+<p><strong>Linéarité</strong></p>
+<p>Soient <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> deux va et <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> des nombres réels :</p>
+<p><span class="math display">\[
+\begin{gathered}
+\mathrm{E}(a X+b)=a \mathrm{E}(X)+b \\
+\mathrm{E}(X+Y)=\mathrm{E}(X)+\mathrm{E}(Y)
+\end{gathered}
+\]</span></p>
+<p><strong>Variable centrée</strong></p>
+<ul>
+<li>Si <span class="math inline">\(\mathrm{E}(X)=0\)</span> alors <span class="math inline">\(X\)</span> est une <strong>va centrée</strong></li>
+<li>la va <span class="math inline">\(Y=X-\mathrm{E}(X)\)</span> est la va centrée associée à <span class="math inline">\(X\)</span></li>
+</ul>
+</section>
+<section id="variance-dune-va" class="slide level2">
+<h2>Variance d’une va</h2>
+<h3 id="rappel-variance-dune-distribution">Rappel : variance d’une distribution</h3>
+
+<img data-src="https://cdn.mathpix.com/cropped/2025_09_17_68f9d5d55601c91876fcg-48.jpg?height=257&amp;width=498&amp;top_left_y=173&amp;top_left_x=115" class="r-stretch"><p>La variance d’une distribution mesure sa dispersion autour de sa moyenne</p>
+<h3 id="définition-cas-discret-ou-continu">Définition (cas discret ou continu)</h3>
+<p>Soit <span class="math inline">\(X\)</span> une va.</p>
+<p>La variance de <span class="math inline">\(X\)</span> se note <span class="math inline">\(\operatorname{var}(X)\)</span> ou <span class="math inline">\(\sigma_{X}^{2}\)</span> et est définie par :</p>
+<p><span class="math display">\[
+\sigma_X^2=\mathrm{E}\left((X-\mathrm{E}(X))^{2}\right)
+\]</span></p>
+</section>
+<section id="section-23" class="slide level2">
+<h2></h2>
+<p>Autre formule équivalente, plus pratique pour les calculs</p>
+<p><span class="math display">\[
+\sigma_X^2=\mathrm{E}\left(X^{2}\right)-\mathrm{E}(X)^{2}
+\]</span></p>
+<h3 id="propriétés-dune-variance">Propriétés d’une variance</h3>
+<ul>
+<li>Une variance est toujours positive (ou nulle)</li>
+<li>La variance n’est pas linéaire !</li>
+<li>Si <span class="math inline">\(\operatorname{var}(X)=1\)</span> alors <span class="math inline">\(X\)</span> est une va réduite</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="math display">\[
+\begin{gathered}
+\operatorname{var}(a X)=a^{2} \operatorname{var}(X) \\
+\operatorname{var}(X+b)=\operatorname{var}(X)
+\end{gathered}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><span class="math display">\[
+\begin{gathered}
+\operatorname{var}(a X+b)=a^{2} \operatorname{var}(X) \\
+\operatorname{var}(X+Y)=\operatorname{var}(X)+\operatorname{var}(Y)
+\\+2 \operatorname{cov}(X, Y)
+\end{gathered}
+\]</span></p>
+</div></div>
+</section>
+<section id="écart-type-dune-variable-aléatoire" class="slide level2">
+<h2>Écart-type d’une variable aléatoire</h2>
+<h3 id="définition-3">Définition</h3>
+<p>Soit <span class="math inline">\(X\)</span> une va. L’écart-type de <span class="math inline">\(X\)</span> se note <span class="math inline">\(\sigma_{X}\)</span> et se définit par :</p>
+<p><span class="math display">\[
+\sigma_{X}=\sqrt{\operatorname{var}(X)}
+\]</span></p>
+<p>Intérêt : mesure de dispersion dans la même unité de mesure que <span class="math inline">\(X\)</span></p>
+</section>
+<section id="section-24" class="slide level2">
+<h2></h2>
+<h3 id="variable-centrée-réduite">Variable centrée réduite</h3>
+<p>Soit <span class="math inline">\(X\)</span> une variable aléatoire d’espérance <span class="math inline">\(\mathrm{E}(X)\)</span> et d’écart-type <span class="math inline">\(\sigma_{X}\)</span></p>
+<p><span class="math display">\[
+Z=\frac{X-E(X)}{\sigma_{X}}
+\]</span></p>
+<p><span class="math inline">\(Z\)</span> est la variable aléatoire centrée réduite associée à <span class="math inline">\(X\)</span></p>
+<ul>
+<li><span class="math inline">\(\displaystyle\mathrm{E}(Z)=\mathrm{E}\left(\frac{X-E(X)}{\sigma_{X}}\right)=\frac{1}{\sigma_{X}} \times(\mathrm{E}(X)-\mathrm{E}(X))=0\)</span></li>
+<li><span class="math inline">\(\displaystyle\operatorname{var}(Z)=\sigma_{Z}^{2}=\frac{1}{\sigma_{X}^{2}} \times \operatorname{var}(X-\mathrm{E}(X))=1\)</span></li>
+</ul>
+</section></section>
+<section id="lois-classiques" class="title-slide slide level1 center">
+<h1>Lois classiques</h1>
+<ul>
+<li>Lois discrètes : Bernoulli et binomiale</li>
+<li>Lois continues : loi normale</li>
+</ul>
+
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
