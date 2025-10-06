@@ -12,6 +12,8 @@ Vous retrouverez [**ici**](sTa7/orga.md) l'organisation de ce cours.
 >
 > [**Travaux dirigés**](sTa7/poly_td.pdf) &#x1f1eb;&#x1f1f7;
 >
+> [La page des **E**nseignements de **M**éthodes et **O**utils **A**ppliqués (**EMOA**) en statistiques et analyse de données](sTa7/EMOA.md)
+>
 > **Projets :**
 >
 > - 1ère année : [**P**remière **A**nalyse en **S**tatistique **D**escriptive (PASD)](./sTa7/PASD/PASD.html) 
