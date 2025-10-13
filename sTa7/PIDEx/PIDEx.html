@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="—">
-<meta name="dcterms.date" content="2025-04-20">
+<meta name="author" content="Samuel Laboisse, Cristèle Delsart, Roman Sermand et Antoine Géré.">
 
 <title>Projet d’initiation à la démarche expérimentale </title>
 <style>
@@ -36,6 +35,35 @@ ul.task-list li input[type="checkbox"] {
 <link href="PIDEx_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="PIDEx_files/libs/bootstrap/bootstrap-1bc8a17f135ab3d594c857e9f48e611b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -44,10 +72,50 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
   <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">Table des matières</h2>
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#organisation" id="toc-organisation" class="nav-link" data-scroll-target="#organisation">Organisation</a>
+  <ul class="collapse">
+  <li><a href="#les-grande-phase-de-votre-travail" id="toc-les-grande-phase-de-votre-travail" class="nav-link" data-scroll-target="#les-grande-phase-de-votre-travail">Les grande phase de votre travail</a></li>
+  <li><a href="#la-constitution-des-groupes" id="toc-la-constitution-des-groupes" class="nav-link" data-scroll-target="#la-constitution-des-groupes">La constitution des groupes</a></li>
+  <li><a href="#le-cas-particulier-des-étudiant-es-en-erasmus" id="toc-le-cas-particulier-des-étudiant-es-en-erasmus" class="nav-link" data-scroll-target="#le-cas-particulier-des-étudiant-es-en-erasmus">Le cas particulier des étudiant-es en ERASMUS</a></li>
+  <li><a href="#dossier-de-travail-onedrive" id="toc-dossier-de-travail-onedrive" class="nav-link" data-scroll-target="#dossier-de-travail-onedrive">Dossier de travail OneDrive</a></li>
+  </ul></li>
+  <li><a href="#sujets" id="toc-sujets" class="nav-link" data-scroll-target="#sujets">Sujets</a></li>
+  <li><a href="#planing" id="toc-planing" class="nav-link" data-scroll-target="#planing">Planing</a></li>
+  <li><a href="#budget" id="toc-budget" class="nav-link" data-scroll-target="#budget">Budget</a></li>
+  <li><a href="#identification-du-problème" id="toc-identification-du-problème" class="nav-link" data-scroll-target="#identification-du-problème">Identification du problème</a></li>
+  <li><a href="#note-bibliographique" id="toc-note-bibliographique" class="nav-link" data-scroll-target="#note-bibliographique">Note bibliographique</a>
+  <ul class="collapse">
+  <li><a href="#objectif-général-du-présent-document" id="toc-objectif-général-du-présent-document" class="nav-link" data-scroll-target="#objectif-général-du-présent-document">Objectif général du présent document</a></li>
+  <li><a href="#lécriture-de-la-note-bibliographique" id="toc-lécriture-de-la-note-bibliographique" class="nav-link" data-scroll-target="#lécriture-de-la-note-bibliographique">L’écriture de la note bibliographique</a></li>
+  </ul></li>
+  <li><a href="#conception-du-protocole" id="toc-conception-du-protocole" class="nav-link" data-scroll-target="#conception-du-protocole">Conception du protocole</a></li>
+  <li><a href="#mise-en-oeuvre-expérimentale" id="toc-mise-en-oeuvre-expérimentale" class="nav-link" data-scroll-target="#mise-en-oeuvre-expérimentale">Mise en oeuvre expérimentale</a></li>
+  <li><a href="#analyse-des-données" id="toc-analyse-des-données" class="nav-link" data-scroll-target="#analyse-des-données">Analyse des données</a></li>
+  <li><a href="#valorisation-des-données" id="toc-valorisation-des-données" class="nav-link" data-scroll-target="#valorisation-des-données">Valorisation des données</a></li>
+  <li><a href="#démarche-scientifique" id="toc-démarche-scientifique" class="nav-link" data-scroll-target="#démarche-scientifique">Démarche scientifique</a>
+  <ul class="collapse">
+  <li><a href="#définitions" id="toc-définitions" class="nav-link" data-scroll-target="#définitions">Définitions</a></li>
+  <li><a href="#etapes-de-la-démarche-scientifique" id="toc-etapes-de-la-démarche-scientifique" class="nav-link" data-scroll-target="#etapes-de-la-démarche-scientifique">Etapes de la démarche scientifique</a></li>
+  <li><a href="#à-quoi-sert-la-démarche-scientifique" id="toc-à-quoi-sert-la-démarche-scientifique" class="nav-link" data-scroll-target="#à-quoi-sert-la-démarche-scientifique">À quoi sert la démarche scientifique ?</a></li>
+  <li><a href="#règles-de-base-de-la-démarche-scientifique" id="toc-règles-de-base-de-la-démarche-scientifique" class="nav-link" data-scroll-target="#règles-de-base-de-la-démarche-scientifique">Règles de base de la démarche scientifique</a></li>
+  <li><a href="#critères-dune-vraie-démarche-scientifique" id="toc-critères-dune-vraie-démarche-scientifique" class="nav-link" data-scroll-target="#critères-dune-vraie-démarche-scientifique">Critères d’une vraie démarche scientifique</a></li>
+  <li><a href="#conditions-et-objectifs" id="toc-conditions-et-objectifs" class="nav-link" data-scroll-target="#conditions-et-objectifs">Conditions et objectifs</a></li>
+  <li><a href="#postulats" id="toc-postulats" class="nav-link" data-scroll-target="#postulats">Postulats</a></li>
+  <li><a href="#raisonnements-démarches" id="toc-raisonnements-démarches" class="nav-link" data-scroll-target="#raisonnements-démarches">Raisonnements &amp; Démarches</a></li>
+  <li><a href="#limites-de-la-méthode" id="toc-limites-de-la-méthode" class="nav-link" data-scroll-target="#limites-de-la-méthode">Limites de la méthode</a></li>
+  <li><a href="#cycle-de-recherche" id="toc-cycle-de-recherche" class="nav-link" data-scroll-target="#cycle-de-recherche">Cycle de recherche</a></li>
+  <li><a href="#lire-et-analyser-un-article-scientifique" id="toc-lire-et-analyser-un-article-scientifique" class="nav-link" data-scroll-target="#lire-et-analyser-un-article-scientifique">Lire et analyser un article scientifique</a></li>
+  </ul></li>
+  <li><a href="#modalités-dévaluation" id="toc-modalités-dévaluation" class="nav-link" data-scroll-target="#modalités-dévaluation">Modalités d’évaluation</a>
+  <ul class="collapse">
+  <li><a href="#semestre-5" id="toc-semestre-5" class="nav-link" data-scroll-target="#semestre-5">Semestre 5</a></li>
+  <li><a href="#semestre-6" id="toc-semestre-6" class="nav-link" data-scroll-target="#semestre-6">Semestre 6</a></li>
+  <li><a href="#remarque" id="toc-remarque" class="nav-link" data-scroll-target="#remarque">Remarque</a></li>
+  </ul></li>
   </ul>
 </nav>
 </div>
@@ -63,16 +131,16 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     <div>
-    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
     <div class="quarto-title-meta-contents">
-             <p>— </p>
+             <p>Samuel Laboisse, Cristèle Delsart, Roman Sermand et Antoine Géré. </p>
           </div>
   </div>
     
     <div>
-    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 20, 2025</p>
+      <p class="date">13 octobre 2025</p>
     </div>
   </div>
   
@@ -84,9 +152,481 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<hr>
+<div class="columns">
+<div class="column" style="width:80%;">
+<p><strong>Cette page est en construction. Si vous avez la moindre question ou remarque ne pas hésiter à contacter par mail :</strong> <code>a.gere@istom.fr</code></p>
+</div><div class="column" style="width:5%;">
+<!-- empty column to create gap -->
+</div><div class="column" style="width:15%;">
+<p><img src="./img/attention.png" class="img-fluid"></p>
+</div>
+</div>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p><strong>P</strong>rojet d’<strong>I</strong>nitiation à la <strong>D</strong>émarche <strong>Ex</strong>périmentale (PIDEx)</p>
+<p>Le <strong>P</strong>rojet d’<strong>I</strong>nitiation à la <strong>D</strong>émarche <strong>Ex</strong>périmentale (PIDEx) est votre projet de troisième année d’étude à l’ISTOM. Il se déroule sur deux semestres :</p>
+<ul>
+<li>Semestre 5 : Identification du problème, revue bibliographique, conception du protocole, début des expérimentations</li>
+<li>Semestre 6 : Mise en œuvre expérimentale, analyse et valorisation des résultats</li>
+</ul>
+<p>Les <strong>objectifs pédagogiques</strong> sont :</p>
+<ul>
+<li>Réaliser un projet d’expérimentation complet en groupe (4 à 5 personnes)</li>
+<li>Savoir planifier son travail, collaborer efficacement et s’insérer dans un collectif.</li>
+<li>Développer une réflexion scientifique : poser une problématique, formuler des hypothèses, concevoir un protocole, produire et analyser des données.</li>
+<li>S’exercer à la critique, à l’argumentation et à la valorisation scientifique (écrit + oral).</li>
+</ul>
+<p>De façon plus détaillé, chaque étudiant va réaliser un projet d’expérimentation de A à Z en groupe de 4 à 5 personnes, à partir d’une proposition de sujet d’un ou deux enseignants-chercheurs de l’ISTOM en lien possible avec leurs thématiques de recherche et/ou les orientations stratégiques d’une entreprise. La demande est volontairement concise pour favoriser l’appropriation du sujet par le groupe. Les enseignants-chercheurs qui propose le sujet sont les tuteurs et accompagnent le groupe dans l’ensemble des différentes actions pour mener à bien le projet.</p>
+<p>Chaque étudiant va donc apprendre à être capable de :</p>
+<ul>
+<li>Prévoir son travail dans la durée pour répondre à des objectifs précis et préalablement définis</li>
+<li>S’insérer dans un collectif varié (autres membres du groupe, avec un tuteur, éventuellement collaborateurs externes, en présentiel ou distanciel) pour collaborer et répondre à des objectifs communs</li>
+<li>Intégrer son action scientifique dans un contexte global, en appréhendant l’existant et en discutant ses résultats à la lumière de l’état actuel des connaissances, notamment via une approche de bibliographie</li>
+<li>Se confronter au contexte international de la recherche scientifique</li>
+<li>Inscrire sa réflexion dans une approche hypothético-déductive, notamment en identifiant une problématique et en formulant des hypothèses permettant d’y apporter une réponse</li>
+<li>Concevoir une méthodologie et une approche expérimentale pour mettre à l’épreuve ses hypothèses ;</li>
+<li>Produire des données scientifiques fiables et exploitables, notamment en questionnant la façon dont ces dernières sont obtenues</li>
+<li>Porter un regard critique notamment par l’analyse et l’interprétation de ses résultats scientifiques</li>
+<li>Valoriser son travail par des communications orales et écrites de nature diverse</li>
+</ul>
+</section>
+<section id="organisation" class="level2">
+<h2 class="anchored" data-anchor-id="organisation">Organisation</h2>
+<section id="les-grande-phase-de-votre-travail" class="level3">
+<h3 class="anchored" data-anchor-id="les-grande-phase-de-votre-travail">Les grande phase de votre travail</h3>
+<p>Le PIDEx s’articule sous forme de phases méthodologiques successives.</p>
+<p>Le <strong>semestre 5</strong> permet de développer les deux premières dans leur totalité : <strong>identification du problème</strong> et <strong>conception du protocole</strong>.</p>
+<p>La troisième phase (mise en œuvre expérimentale) démarrera également au cours du semestre.</p>
+<p>Le <strong>semestre 6</strong> permet de continuer la phase expérimentale et de développer les deux suivantes : analyse de données et valorisation des résultats.</p>
+<p>Ces trois dernières phases sont amenées à se superposer au cours du semestre 6 pour maximiser l’organisation du groupe.</p>
+</section>
+<section id="la-constitution-des-groupes" class="level3">
+<h3 class="anchored" data-anchor-id="la-constitution-des-groupes">La constitution des groupes</h3>
+<p>Il est demandé aux étudiants de former un groupe par sujet.</p>
+<p>Afin de constituer les groupes, il vous est demandé de respecter les règles suivantes :</p>
+<ul>
+<li>entre 4 et 5 étudiants par sujet</li>
+<li>la constitution des groupes doit respecter celui des groupes de langues (la totalité des membres du groupe doit faire partie soit des groupes de langues A et C, soit B et D)</li>
+<li>entre un ou deux étudiants en ERASMUS par groupe :
+<ul>
+<li>les groupes de 4 doivent comporter 0 ou 1 étudiant en ERASMUS,</li>
+<li>les groupes de 5 doivent comporter entre 0 et 2 étudiant(s) en ERASMUS, mais le choix de 0</li>
+</ul></li>
+</ul>
+</section>
+<section id="le-cas-particulier-des-étudiant-es-en-erasmus" class="level3">
+<h3 class="anchored" data-anchor-id="le-cas-particulier-des-étudiant-es-en-erasmus">Le cas particulier des étudiant-es en ERASMUS</h3>
+<p>Les étudiants en ERASMUS ne sont pas soumis à la réalisation du travail pour le PIDEx durant le semestre 5, puisqu’ils sont détachés dans d’autres universités et ont donc des obligations pédagogiques uniquement envers ces institutions.</p>
+<p>Il leur est malgré tout fortement conseillé de se tenir au courant de l’avancement des travaux de leur groupe, afin qu’ils soient opérationnels le plus tôt possible lors de leur retour au semestre 6.</p>
+<p>Les étudiants restés à I’ISTOM durant le semestre 5 veilleront à rendre accessible aux étudiants en ERASMUS l’ensemble des informations relatives à l’avancement du groupe sur le projet et à bien anticiper leur intégration au groupe lors du semestre 6.</p>
+</section>
+<section id="dossier-de-travail-onedrive" class="level3">
+<h3 class="anchored" data-anchor-id="dossier-de-travail-onedrive">Dossier de travail OneDrive</h3>
+<p>Pour votre travail un dossier OneDrive vous a été partagé. Dans ce dossier vous y trouverez les documents et dossiers suivants :</p>
+<p><img src="./img/onedrive-orga.png" class="img-fluid"></p>
+<p>Il vous est demandé de synchroniser ce dossier OneDrive sur votre ordinateur personel.</p>
+<section id="étapes-de-synchronisation-dun-dossier-partagé-onedrive-sur-windows-ou-mac" class="level4">
+<h4 class="anchored" data-anchor-id="étapes-de-synchronisation-dun-dossier-partagé-onedrive-sur-windows-ou-mac">Étapes de synchronisation d’un dossier partagé OneDrive sur Windows ou Mac</h4>
+<iframe width="448" height="252" src="https://www.youtube.com/embed/8WC7iClUH3k?si=Na52qqPlQ4LC4wWx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+<ol type="1">
+<li>Vérifier OneDrive sur son PC</li>
+</ol>
+<ul>
+<li>Cliquer sur le bouton Démarrer et tape OneDrive</li>
+<li>Si OneDrive n’est pas installé, télécharger le depuis la page officielle Microsoft OneDrive</li>
+<li>Se connecter avec son compte Microsoft ISTOM</li>
+</ul>
+<ol start="2" type="1">
+<li>Accéder au dossier partagé</li>
+</ol>
+<ul>
+<li>Ouvrir un navigateur internet (Firefox, Edge, Chrome, etc.)</li>
+<li>Se connecter sur <a href="https://onedrive.live.com/login">https://onedrive.live.com/login</a></li>
+<li>Dans le menu à gauche, cliquer sur Partagé</li>
+<li>Trouver le dossier que à synchroniser</li>
+</ul>
+<ol start="3" type="1">
+<li>Synchroniser le dossier à son OneDrive</li>
+</ol>
+<ul>
+<li>Ouvrir le dossier partagé dans le navigateur</li>
+<li>En haut, cliquer sur le bouton Synchroniser</li>
+<li>L’application OneDrive va alors se lancer automatiquement</li>
+<li>Confirmer que vous souhaiter synchroniser ce dossier</li>
+</ul>
+<ol start="4" type="1">
+<li>Retrouver ce dossier synchronisé sur son ordinateur</li>
+</ol>
+<ul>
+<li>Ouvrir Explorateur de fichiers (touche Windows + E)</li>
+<li>Dans le menu de gauche, il va apparaitre une rubrique ISTOM</li>
+<li>Le dossier sera alors présent dans cette rubrique ISTOM</li>
+</ul>
+</section>
+<section id="usage-si-vous-travaillez-sur-un-ordinateur-de-lécole" class="level4">
+<h4 class="anchored" data-anchor-id="usage-si-vous-travaillez-sur-un-ordinateur-de-lécole">Usage si vous travaillez sur un ordinateur de l’école</h4>
+<p>Si vous travaillez sur un ordinateur de l’école, dans ce cas il est plus pratique de créer un raccourci du dossier partagé sur votre OneDrive ISTOM. La démarche à suivre est très bien expliquée sur cette vidéo.</p>
+<iframe width="448" height="252" src="https://www.youtube.com/embed/BiirNtobNxE?si=wIsy5cV5-5UH9b7R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+</section>
+<section id="convention-sur-la-synchronisation-des-documents-et-dossiers-sur-onedrive" class="level4">
+<h4 class="anchored" data-anchor-id="convention-sur-la-synchronisation-des-documents-et-dossiers-sur-onedrive">Convention sur la synchronisation des documents et dossiers sur OneDrive</h4>
+<p><img src="./img/convention-OneDrive.png" class="img-fluid"></p>
+</section>
+</section>
+</section>
+<section id="sujets" class="level2">
+<h2 class="anchored" data-anchor-id="sujets">Sujets</h2>
+<ul>
+<li><p>Développement d’une bière à base de dattes, hibiscus et houblon : étude des aspects gustatifs et fermentaires</p></li>
+<li><p>Substitution de la poudre de cacao par de la farine de caroube torréfiée : impact sur le profil sensoriel et la texture des produits</p></li>
+<li><p>Caractérisation et analyse des sols togolais de la région de Blitta</p></li>
+<li><p>Optimisation de la croissance du kéfir d’eau avec un objectif de sucre résiduel contrôlé</p></li>
+<li><p>Étude du transfert d’huile et d’eau lors de la friture profonde : modélisation expérimentale pour limiter l’absorption d’huile (cas produit 1)</p></li>
+<li><p>Étude du transfert d’huile et d’eau lors de la friture profonde : modélisation expérimentale pour limiter l’absorption d’huile (cas produit 2)</p></li>
+<li><p>Évaluation des ressources mellifères d’une zone par une approche mélisso-palynologique</p></li>
+<li><p>Perception sensorielle de l’eau: les consommateurs distinguent-ils les différences de goût ?</p></li>
+<li><p>Effets du stress hydrique sur la physiologie du riz</p></li>
+<li><p>Optimisation de la production de spiruline pour l’alimentation animale (monogastriques)</p></li>
+<li><p>Impact de l’éco-pâturage sur la biodiversité des prairies (faune et flore)</p></li>
+<li><p>Optimisation de la production de fromage en fonction du type de lait (bufflonne, chamelle)</p></li>
+<li><p>Intérêt du biofloc pour les élevages piscicoles intensifs (poisson-chat, tilapia)</p></li>
+<li><p>Analyse des paramètres physico-chimiques du sol pour caractériser finement les parcelles destinées à l’alimentation animale (notamment bovins)</p></li>
+<li><p>Substitution du houblon par de l’hibiscus infusé : jusqu’à quel taux peut-on maintenir une amertume perçue équivalente à une bière blonde (20 - 25 IBU) ?</p></li>
+<li><p>Optimisation d’un milieu “low-cost” à base d’eau de coco (EC) pour améliorer la qualité des plantules de bananier (Musa)</p></li>
+<li><p>Évaluation de l’impact de différents matériaux de couverture et de surface (tôle, ardoise, graviers, couvert végétal) sur le ruissellement et l’infiltration en contexte d’imperméabilisation des sols</p></li>
+<li><p>Optimisation du kéfir de lait : influence du substrat sur le goût et la texture</p></li>
+</ul>
+</section>
+<section id="planing" class="level2">
+<h2 class="anchored" data-anchor-id="planing">Planing</h2>
+<ul>
+<li>Présentation de l’exerice PIDEx : Lundi 6 octobre 2025</li>
+<li>Composition des groupes : Vendredi 10 octobre 2025</li>
+<li>Intervention de la Bibliotéque Universitaire d’Angers</li>
+<li>Dépot de la note bibliographique : Vendredi 14 novembre 2025</li>
+<li>…</li>
+</ul>
+</section>
+<section id="budget" class="level2">
+<h2 class="anchored" data-anchor-id="budget">Budget</h2>
+<p>Un budget de 100 € par groupe est mis à disposition de chaque groupe, dans le cadre de la mise en oeuvre expérimentale pour l’achat de matériel non présent à l’ISTOM ou pour les déplacements en dehors de l’école.</p>
+<p>Si l’ensemble des dépenses d’un groupe ne dépasse pas 100 €, la totalité sera prise en charge par l’ISTOM. En revanche si les dépenses dépassent 100 €, le complément ne sera pas pris en charge par l’ISTOM. Il n’est donc pas conseillé de dépenser plus de 100 € par groupe. Un budget prévisionnel devra être associé au protocole lors du dépôt de l’écrit.</p>
+<p>Toute dépense devra faire l’objet d’un accord au préalable de M Serman et/ou de votre tuteur.</p>
+<p>L’ensemble des pièces justificatives sera transmis en une seule fois avec le budget réel donné.</p>
+<p>Pour faciliter les remboursements, un trésorier de groupe sera désigné et c’est lui qui assumera l’ensemble des dépenses et sera remboursé par la comptabilité de l’école. A cet effet, il devra transmettre un RIB. Le remboursement se fera au plus tard 1 mois après la date limite de remise des budgets, sauf si demande expresse des trésoriers.</p>
+</section>
+<section id="identification-du-problème" class="level2">
+<h2 class="anchored" data-anchor-id="identification-du-problème">Identification du problème</h2>
+<p>Le premier livrable consiste en la rédaction d’une note bibliographique qui identifie le contexte de l’étude proposée par les tuteurs et pose la problématique associée et les hypothèses.</p>
+<p>Cette note permet de justifier le travail expérimental du groupe à la lumière du contexte scientifique associé au sujet. Il s’agit de réaliser un état de l’art par rapport au sujet considéré, mais aussi d’être capable de poser la problématique et de la justifier à la lumière de l’existant.</p>
+<p>La pratique de la langue anglaise et la confrontation aux travaux de la communauté scientifique internationale seront privilégiées. Ainsi, les références qui seront citées dans la bibliographie de la note devront être en langue anglaise pour au minimum 80% d’entre elles.</p>
+<p>Il est programmé un appui à la recherche documentaire en collaboration avec la Bibliothèque Universitaire d’Angers. Une intervention à l’ISTOM sera programmé afin de présenter les grands outils associés, ainsi qu’un travail encadré en groupe de PIDEx à la Bibliothèque Universitaire d’Angers sera programmé pour se familiariser avec son environnement et la diversité des sources. Ce dernier permet également d’avoir une approche plus spécifique sur son sujet avec un soutien des intervenants.</p>
+<p>Il est conseillé de programmer des points en groupe et de soliciter régulierement son tuteur afin de permettre la recherche bibliographique, la réflexion et la rédaction de la note par le groupe. Au moins 2 séances de travail accompagné consistant en des réunions avec le tuteur et programmées par les étudiants, seront à mettre en oeuvre pour confronter l’avancement du groupe à un regard extérieur et approfondir la réflexion autour de la question de recherche.</p>
+<p>La note bibliographique devra être déposée aux fromats Word et PDF.</p>
+<p>Ce travail d’écriture de la note bibliographique permettra d’évaluer la pertinence de la contextualisation, au travers d’une structuration de la rédaction qui met en évidence l’état de l’art autour de la question et la nécessité du travail scientifique expérimental proposé par le groupe, matérialisé par la problématique et les hypothèses associées.</p>
+</section>
+<section id="note-bibliographique" class="level2">
+<h2 class="anchored" data-anchor-id="note-bibliographique">Note bibliographique</h2>
+<p><strong>Qu’est ce qu’une note bibliographique ?</strong></p>
+<section id="objectif-général-du-présent-document" class="level3">
+<h3 class="anchored" data-anchor-id="objectif-général-du-présent-document">Objectif général du présent document</h3>
+<p>Cette section a pour objet de vous donner les clés nécessaires à la réalisation de la note bibliographique demandée dans le cadre de l’évaluation du PIDEx au semestre 5. Cette note permet de positionner votre travail expérimental dans un existant scientifique. Elle permet, de manière synthétique, d’avoir une vision globale des références bibliographiques les plus pertinentes sur la thématique de l’étude, de mettre en évidence un manque dans les connaissances scientifiques que l’étude proposée va combler. Elle propose une problématique associée au sujet et donne quelques hypothèses qui proposent un bref aperçu du travail qui sera engagé dans la suite du travail.</p>
+</section>
+<section id="lécriture-de-la-note-bibliographique" class="level3">
+<h3 class="anchored" data-anchor-id="lécriture-de-la-note-bibliographique">L’écriture de la note bibliographique</h3>
+<section id="choisir-les-informations-les-plus-pertinentes" class="level4">
+<h4 class="anchored" data-anchor-id="choisir-les-informations-les-plus-pertinentes">Choisir les informations les plus pertinentes</h4>
+<p>Lors de vos recherches documentaires, vous avez accumulé un certain nombre de connaissances associées à des références bibliographiques en relation avec la compréhension de votre sujet. Il s’agit maintenant lors de la rédaction de la note bibliographique de sélectionner les informations et les références les plus pertinentes. Quelles sont celles qui décrivent le mieux les différents mots-clés de votre sujet ? Par exemple dans le cas d’un travail sur l’effet de la lumière sur les Végétaux, il s’agira de questionner quel est le végétal le plus pertinent en donnant les espèces qui ont été travaillées dans des études précédentes. Par exemple, vous constatez 10 références sur le maïs, 30 sur le blé et 5 sur le seigle, mais aucune sur le soja. Ainsi, vous pourrez justifier de la pertinence d’utiliser le blé car vous souhaitez vous inscrire dans la continuité de cette littérature fournie, ou de travailler le soja car aucune étude ne traite de cette espèce.</p>
+<p>Les références scientifiques les plus pertinentes sont validées par la communauté scientifique. Ce sont des articles dans des revues scientifiques qui pratiquent la relecture par les pairs, c’est-à-dire que tout travail soumis dans ce type de journal est relu par un ou plusieurs scientifiques reconnus. Ces relecteurs ne connaissent pas l’identité des auteurs de l’étude et n’évaluent l’article qu’à la lumière de son contenu, et non en fonction de la qualité scientifique supposée d’un auteur. Que l’on soit titulaire d’un prix Nobel ou nouvellement docteur, tout scientifique est évalué de la même façon. Ce fonctionnement est d’ailleurs repris en PIDEx pour l’évaluation des différents documents écrits, car un enseignant-chercheur différent de votre tuteur évaluera vos productions. Des rapports ou des livres provenant d’institutions internationales scientifiques ou non comme la FAO, la Commission Européenne, le FMI, le CNRS, les Universités, le MNHN peuvent aussi être utilisées sans trop de problème en les citant. En revanche, les documents issus d’un auteur qui n’est pas clairement identifié, d’entreprises ou d’associations doivent être considérés avec la plus grande prudence, et ne sont pas acceptables dans la majorité des cas pour un article scientifique.</p>
+</section>
+<section id="du-général-vers-le-particulier" class="level4">
+<h4 class="anchored" data-anchor-id="du-général-vers-le-particulier">Du général vers le particulier</h4>
+<p>Le fil des idées doit aller des notions générales vers des points plus particuliers, par exemple en proposant une définition des mots-clés puis en précisant de plus en plus les notions, en illustrant toujours votre propos par des exemples issus de références bibliographiques. Cela permettra également de mettre en évidence des points d’interrogation, des manques de connaissances ou des zones de flou dans certaines connaissances scientifiques. Cette structure rédactionnelle vous permettra ainsi de positionner votre travail personnel comme légitime et digne d’intérêt au regard de ce qui existe déjà au sein de la communauté scientifique, et de répondre au manque de connaissances que vous avez pu mettre en évidence. Vous pouvez structurer votre note bibliographique en différents paragraphes qui vous permettent d’exprimer une idée à la fois. Des titres pour chaque partie ne sont pas forcément nécessaires et la structuration seule suffit à comprendre votre cheminement.</p>
+</section>
+<section id="la-problématique-et-les-hypothèses" class="level4">
+<h4 class="anchored" data-anchor-id="la-problématique-et-les-hypothèses">La problématique et les hypothèses</h4>
+<p>En fin de document, la problématique qui fait la synthèse de la réflexion est formulée et permet de donner l’orientation du questionnement auquel va répondre votre travail expérimental. Elle peut se décliner en plusieurs sous-questions qui permettent d’alléger la formulation de la problématique principale. Des hypothèses peuvent également être formulées, qui proposent une première réponse a priori à la problématique. Elles seront le point de départ de l’expérimentation, puisque tout le dispositif expérimental, l’obtention de données et leur analyse serviront à les valider ou les infirmer. Elles seront systématiquement formulées au conditionnel, ce qui permettra de bien les identifier au sein de votre document.</p>
+</section>
+<section id="les-grandes-règles-de-rédaction." class="level4">
+<h4 class="anchored" data-anchor-id="les-grandes-règles-de-rédaction.">Les grandes règles de rédaction.</h4>
+<p>Le style rédactionnel de votre note bibliographique doit être le plus efficace possible. Des phrases courtes avec un sujet, verbe, complément sont souvent plus efficaces pour faire passer une information. Le présent est souvent employé, sauf dans le cas des hypothèses où le conditionnel est nécessaire, car ce qui est énoncé dans ce cas n’est pas encore prouvé. Il faut définir les notions essentielles mais ce document s’adressant à un public scientifique, il est inutile de revenir sur des définitions de notions basiques : par exemple le sol comme support de la vie terrestre ou l’eau composée de molécule <span class="math inline">\(H_2O\)</span>. Evitez l’utilisation des pronoms personnels à la première personne (« je » et « nous »), préférez par exemple la voie passive (« le seigle a été sélectionné pour évaluer l’effet de la lumière rouge » plutôt que « nous avons choisi le seigle et nous lui appliquons plusieurs niveaux de lumière »).</p>
+<p>Concernant le recours aux références bibliographiques, toute idée, notion qui est extraite d’un document autre que le vôtre doit renvoyer à une source. Deux formes peuvent être rencontrées :</p>
+<ul>
+<li>Soit une citation mot pour mot peut être réalisée. La citation doit être courte et entre guillemets suivie ou précédée de la référence associée. Cette forme n’est pas à privilégier, et doit être utilisée avec parcimonie, 1 ou 2 fois maximum dans un document ; « L’utilisation de matières organiques basées sur des plantes fixatrices d’azote pour la production de fertilisants organiques semblent être un bon choix et l’utilisation d’Azolla est une de ces possibilités » (Maham et al., 2018).</li>
+<li>Soit il s’agit d’une reformulation, mais la référence associée reste nécessaire.</li>
+</ul>
+<p>Certaines plantes fixatrices d’azote, comme la fougère aquatique Azolla, représentent une source intéressante pour produire de la matière organique qui servira de fertilisant (Maham et al., 2018).</p>
+<p>La référence peut être positionnée en fin de phrase comme précédemment ou en début de phrase. Maham et al.&nbsp;(2018) indiquent que les plantes fixatrices d’azote, la fougère aquatique Azolla en tête, sont intéressantes en tant que fertilisants organiques.</p>
+<p>Noter les formes précises de notation associées à la référence (les parenthèses, et al., la date). Toutes les sources dans le corps du document doivent renvoyer à une référence complète dans la bibliographie en fin de note. Les règles de citation et de rédaction des références bibliographiques doivent être scrupuleusement suivies, d’après la convention de rédaction des références bibliographiques.</p>
+</section>
+<section id="la-forme-de-la-note-bibliographique" class="level4">
+<h4 class="anchored" data-anchor-id="la-forme-de-la-note-bibliographique">La forme de la note bibliographique</h4>
+<p>La forme doit être la même que celle utilisée dans l’exemple de note bibliographique (voir ce document), c’est-à-dire avec un titre explicite qui peut différer du sujet proposé au lancement du PIDEx, les noms et prénoms des auteurs, leur appartenance professionnelle avec un indice numérique, 5 mots-clés maximum, et deux colonnes de rédaction. Les références bibliographiques peuvent être proposées sur une seule colonne. Concernant les mots-clés, il s’agit de termes qui ont un objectif d’optimisation du référencement du document dans les moteurs de recherche. Ils doivent donc être pertinents pour que votre production scientifique soit facilement retrouvée par des personnes qui s’intéressent à votre sujet. 4 pages maximum sans les annexes et la bibliographie sont imposées pour la rédaction de la note bibliographique. Il s’agira de préciser également le nombre de références bibliographiques en langue anglaise utilisées, sur le nombre total de références, et d’associer l’équivalent en pourcentage.</p>
+</section>
+</section>
+</section>
+<section id="conception-du-protocole" class="level2">
+<h2 class="anchored" data-anchor-id="conception-du-protocole">Conception du protocole</h2>
+<p>Une présentation par un enseignant chercheur sera réalisé pour présenter cette phase.</p>
+<p>Afin d’accompagner les étudiants dans ce travail au moins 2 points doivent être programmés par les étudiants pour échanger avec les tuteurs.</p>
+<p>Les étudiants doivent rendre leur protocole écrit sous format Word.</p>
+<p>Les pitchs sont ensuite réalisés devant un jury selon le format suivant :</p>
+<ul>
+<li>30 min d’oral, dont
+<ul>
+<li>10 min de présentation,</li>
+<li>plus 10 à 15 min de questions,</li>
+<li>plus 5 à 10 min d’évaluation.</li>
+</ul></li>
+</ul>
+<p>Ce pitch du protocole permet de faire monter en compétences les étudiants sur la présentation d’un sujet très précis en un minimum de temps et convaincre des experts de la solidité de leur projet.</p>
+<p>En termes de retour, le jury donne une appréciation générale avec trois réponses possibles :</p>
+<ul>
+<li>« Avis favorable »,</li>
+<li>« Un ou plusieurs points d’attention présents, à approfondir avec le tuteur »,</li>
+<li>« Attention, de sérieux changements à mettre en œuvre. A revoir avec le tuteur ».</li>
+</ul>
+</section>
+<section id="mise-en-oeuvre-expérimentale" class="level2">
+<h2 class="anchored" data-anchor-id="mise-en-oeuvre-expérimentale">Mise en oeuvre expérimentale</h2>
+<p>Une présentation par un enseignant chercheur sera programmé début d’anée civile.</p>
+<p>Une organisation spécifique est mise en œuvre pour permettre le bon fonctionnement des laboratoires :</p>
+<ul>
+<li>Les laboratoires ne sont pas accessibles sans rendez-vous préalable auprès de M. SERMAND, les heures d’ouverture des laboratoires étant par ailleurs notées sur la porte. En dehors de ces créneaux l’accès est impossible</li>
+<li>Le box 11 est mis à disposition pour les expérimentations, il demeure ouvert pendant toute la durée du PIDEx</li>
+<li>Pour toute mise en oeuvre expérimentale en dehors de ces deux espaces, il faudra en faire la demande à M Sermand</li>
+</ul>
+<p>Au moins deux échanges avec les tuteurs devront être programmés par les étudiants.</p>
+<p>Afin de suivre de la meilleure des façons possibles les différentes expérimentations, un cahier de laboratoire doit être tenu par les étudiants de façon obligatoire. Il permettra de noter les différentes observations, modifications, ajouts au cours des expérimentations afin d’améliorer la qualité de l’évaluation des résultats par la suite, et assurera la traçabilité et la qualité des mesures réalisées et des données obtenues. Le cahier de laboratoire doit être à tout moment disponible pour l’ensemble des membres du groupe ainsi que pour le tuteur, et fera l’objet d’une évaluation qui rentrera dans la note de groupe attribuée par ce dernier.</p>
+</section>
+<section id="analyse-des-données" class="level2">
+<h2 class="anchored" data-anchor-id="analyse-des-données">Analyse des données</h2>
+<p>Pour indication 15 EP sont conseillées pour réaliser les travaux d’analyse des données y compris statistiques.</p>
+<p>Afin d’accompagner les étudiants dans ce travail seront mis en place :</p>
+<ul>
+<li>1 session d’accompagnement à la gestion statistique des données pourra être mise en place au cours du S6 ;</li>
+<li>Au moins 2 TA qui consistent en des réunions d’échange avec les tuteurs et programmées par les étudiants.</li>
+</ul>
+<p>Cette phase doit être démarrée le plus tôt possible après le début de la mise en œuvre expérimentale, car une analyse des résultats permettra si nécessaire de modifier ou ajouter des modalités aux expérimentations afin d’affiner l’interprétation et la réponse à la problématique initiale. Aucune date de début et de fin ne sera clairement programmée. Il appartient à chaque groupe d’organiser cette phase méthodologique en fonction de son état d’avancement.</p>
+</section>
+<section id="valorisation-des-données" class="level2">
+<h2 class="anchored" data-anchor-id="valorisation-des-données">Valorisation des données</h2>
+<p>La valorisation des résultats obtenus est l’aboutissement du travail réalisé au cours de l’année et est un exercice à part entière qu’il convient de démarrer le plus tôt possible.</p>
+<p>Il appartient à chaque groupe d’organiser cette phase méthodologique en fonction de son état d’avancement.</p>
+</section>
+<section id="démarche-scientifique" class="level2">
+<h2 class="anchored" data-anchor-id="démarche-scientifique">Démarche scientifique</h2>
+<p><strong>Qu’est-ce qu’une démarche expérimentale ?</strong></p>
+<section id="définitions" class="level3">
+<h3 class="anchored" data-anchor-id="définitions">Définitions</h3>
+<p>Une démarche est une manière de progresser dans la pensée ou le raisonnement. Elle désigne la méthode adoptée pour atteindre un objectif ou aborder un problème.</p>
+<p>La science est un ensemble cohérent de connaissances vérifiées par des méthodes expérimentales. Elle vise à décrire, expliquer et comprendre les phénomènes naturels et sociaux.</p>
+<p>La démarche scientifique est un processus organisé pour comprendre le réel. Elle consiste à :</p>
+<ul>
+<li>poser une question issue de l’observation d’un phénomène ou de discussions/lectures,</li>
+<li>formuler des hypothèses,</li>
+<li>les tester par l’expérimentation, l’observation ou la documentation,</li>
+<li>confirmer ou infirmer ces hypothèses,</li>
+<li>élaborer, en cas de confirmation, une théorie ou un modèle.</li>
+</ul>
+<p>Elle représente ainsi la méthode de travail utilisée en recherche scientifique.</p>
+</section>
+<section id="etapes-de-la-démarche-scientifique" class="level3">
+<h3 class="anchored" data-anchor-id="etapes-de-la-démarche-scientifique">Etapes de la démarche scientifique</h3>
+<p><a href="https://fr.wikipedia.org/wiki/OHERIC">Méthode OHERIC</a></p>
+<ol type="1">
+<li>Observation</li>
+</ol>
+<ul>
+<li>Point de départ de toute recherche</li>
+<li>Basée sur faits, modèles, théories, croyances</li>
+<li>Fait émerger un problème ou un questionnement</li>
+</ul>
+<ol start="2" type="1">
+<li>Hypothèse</li>
+</ol>
+<ul>
+<li>Types :
+<ul>
+<li>Générale : explication théorique d’un phénomène</li>
+<li>Opérationnelle : variables mesurables (forme « Si… alors…»)</li>
+<li>Statistique : validée ou rejetée par des tests statistiques</li>
+</ul></li>
+<li>Tester une hypothèse implique :
+<ul>
+<li>Formuler une hypothèse opératoire</li>
+<li>Concevoir un protocole expérimental</li>
+<li>Réaliser les expériences</li>
+<li>Analyser les résultats</li>
+</ul></li>
+</ul>
+<ol start="3" type="1">
+<li>Expérience : 4 règles</li>
+</ol>
+<ul>
+<li>Varier un seul paramètre</li>
+<li>Garder les autres constants</li>
+<li>Témoin pour comparer</li>
+<li>Répéter pour fiabilité</li>
+</ul>
+<ol start="4" type="1">
+<li>Résultats</li>
+</ol>
+<ul>
+<li>Observer et consigner les données.</li>
+<li>Comparer les tests pour vérifier la cohérence.</li>
+<li>Présenter : tableaux, graphiques, schémas</li>
+</ul>
+<ol start="5" type="1">
+<li>Interprétation et conclusion</li>
+</ol>
+<ul>
+<li>Relier résultats <span class="math inline">\(\leftrightarrow\)</span> hypothèse</li>
+<li>Confirme <span class="math inline">\(\rightarrow\)</span> hypothèse validée / possible loi (provisoire)</li>
+<li>Infirme <span class="math inline">\(\rightarrow\)</span> réviser ou nouvelles expériences</li>
+<li>Conclusion : récap (obs <span class="math inline">\(\rightarrow\)</span> hypothèses <span class="math inline">\(\rightarrow\)</span> tests <span class="math inline">\(\rightarrow\)</span> résultats <span class="math inline">\(\rightarrow\)</span> interprétation).</li>
+<li>La science progresse par remise en question + publication.</li>
+</ul>
+</section>
+<section id="à-quoi-sert-la-démarche-scientifique" class="level3">
+<h3 class="anchored" data-anchor-id="à-quoi-sert-la-démarche-scientifique">À quoi sert la démarche scientifique ?</h3>
+<ul>
+<li>La démarche scientifique a pour but de :</li>
+<li>mieux comprendre le monde,</li>
+<li>encadrer les observations et idées des chercheurs,</li>
+<li>confirmer ou infirmer une hypothèse,</li>
+<li>vérifier des théories existantes ou proposer de nouvelles hypothèses.</li>
+<li>Elle constitue ainsi un système d’évaluation et de validation du savoir, reposant sur l’expérimentation et les tests.</li>
+</ul>
+</section>
+<section id="règles-de-base-de-la-démarche-scientifique" class="level3">
+<h3 class="anchored" data-anchor-id="règles-de-base-de-la-démarche-scientifique">Règles de base de la démarche scientifique</h3>
+<ul>
+<li>Neutralité</li>
+<li>La science doit rester indépendante de toute influence politique, religieuse ou idéologique. Elle se base uniquement sur la raison et l’observation des phénomènes.</li>
+<li>Prise en compte des échecs</li>
+<li>Un échec expérimental doit conduire à une réflexion et à la reproduction des tests. Si l’échec persiste, l’hypothèse doit être révisée ou reformulée. -Doute</li>
+<li>En science, tout ce qui n’est pas prouvé ou confirmé peut être remis en question. Le doute est donc une étape essentielle.</li>
+<li>Expérimentation</li>
+<li>Une théorie n’est scientifique que si elle peut être testée et confirmée par l’expérience.</li>
+</ul>
+</section>
+<section id="critères-dune-vraie-démarche-scientifique" class="level3">
+<h3 class="anchored" data-anchor-id="critères-dune-vraie-démarche-scientifique">Critères d’une vraie démarche scientifique</h3>
+<ul>
+<li>Questionnement : elle part toujours d’une situation problématique.</li>
+<li>Collaboration : les expériences se réalisent souvent en groupe, permettant la confrontation d’avis différents.</li>
+<li>Communication : indispensable au travail collectif et essentielle pour partager les résultats.</li>
+<li>Stratégies d’apprentissage : elles se développent au fil des différentes étapes de la démarche.</li>
+<li>Créativité : nécessaire lors de la conception du protocole de recherche, même si elle n’a rien d’artistique.</li>
+<li>Réflexivité : comparer les résultats obtenus aux hypothèses de départ suppose un retour critique sur la démarche.</li>
+</ul>
+</section>
+<section id="conditions-et-objectifs" class="level3">
+<h3 class="anchored" data-anchor-id="conditions-et-objectifs">Conditions et objectifs</h3>
+<ul>
+<li>Conditions
+<ul>
+<li>Maîtriser les savoirs et théories d’une discipline.</li>
+<li>Utiliser des outils et instruments adaptés à la collecte et l’analyse de données (quantitatives et qualitatives).</li>
+</ul></li>
+<li>Objectifs
+<ul>
+<li>Expliquer, prédire, contrôler les phénomènes naturels.</li>
+<li>Construire le savoir par : observation, expérimentation, induction, déduction.</li>
+<li>Faire progresser les connaissances par étapes successives (réfutations ou synthèses).</li>
+</ul></li>
+</ul>
+</section>
+<section id="postulats" class="level3">
+<h3 class="anchored" data-anchor-id="postulats">Postulats</h3>
+<ul>
+<li>Déterminisme (causes <span class="math inline">\(\rightarrow\)</span> effets).</li>
+<li>Empirisme (observations vérifiables).</li>
+<li>Intégration théorique (faits <span class="math inline">\(\rightarrow\)</span> lois <span class="math inline">\(\rightarrow\)</span> théories).</li>
+<li>Dynamique (essais/erreurs, remise en question).</li>
+<li>Dimension publique (partage, reproduction, critique).</li>
+<li>Évolution paradigmatique (modèles qui changent).</li>
+</ul>
+</section>
+<section id="raisonnements-démarches" class="level3">
+<h3 class="anchored" data-anchor-id="raisonnements-démarches">Raisonnements &amp; Démarches</h3>
+<ul>
+<li>Inductif : particulier <span class="math inline">\(\rightarrow\)</span> général (observations <span class="math inline">\(\rightarrow\)</span> hypothèse).</li>
+<li>Déductif : général <span class="math inline">\(\rightarrow\)</span> particulier (théorie <span class="math inline">\(\rightarrow\)</span> test).</li>
+<li>Hypothético-déductif : poser <span class="math inline">\(\rightarrow\)</span> prédire <span class="math inline">\(\rightarrow\)</span> tester <span class="math inline">\(\rightarrow\)</span> conclure.</li>
+<li><span class="math inline">\(\rightarrow\)</span> Principe clé : confrontation aux faits.</li>
+</ul>
+</section>
+<section id="limites-de-la-méthode" class="level3">
+<h3 class="anchored" data-anchor-id="limites-de-la-méthode">Limites de la méthode</h3>
+<ul>
+<li>Vérité provisoire, révisable.</li>
+<li>Risques: erreurs, fraudes, biais, contextes sociaux/idéologiques.</li>
+</ul>
+</section>
+<section id="cycle-de-recherche" class="level3">
+<h3 class="anchored" data-anchor-id="cycle-de-recherche">Cycle de recherche</h3>
+<ul>
+<li>Définir le problème + protocole</li>
+<li>Collecter les données</li>
+<li>Interpréter (valider / infirmer)</li>
+</ul>
+</section>
+<section id="lire-et-analyser-un-article-scientifique" class="level3">
+<h3 class="anchored" data-anchor-id="lire-et-analyser-un-article-scientifique">Lire et analyser un article scientifique</h3>
+<ul>
+<li>Questions clés
+<ul>
+<li>Problème, hypothèses, objectifs, résultats majeurs ?</li>
+<li>Échantillonnage, variables, contrôles, matériel, traitements?</li>
+</ul></li>
+<li>Structure IMRD
+<ul>
+<li>Introduction (problématique, objectifs)</li>
+<li>Méthodes (milieu, pop., collecte, analyses)</li>
+<li>Résultats (clairs, cohérents, appuyés)</li>
+<li>Discussion/Conclusion (interprétation, limites, perspectives)</li>
+<li>Biblio : récente, pertinente, exhaustive.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="modalités-dévaluation" class="level2">
+<h2 class="anchored" data-anchor-id="modalités-dévaluation">Modalités d’évaluation</h2>
+<section id="semestre-5" class="level3">
+<h3 class="anchored" data-anchor-id="semestre-5">Semestre 5</h3>
+<p>Une note au semestre 5, décomposée de la façon suivante :</p>
+<ul>
+<li>Une note bibliographique, évalué par un enseignant chercheur différent de votre tuteur (1/3 de la note)</li>
+<li>Un présentation du protocole proposé par le groupe devant un jury (1/3 de la note).</li>
+<li>Une note d’évaluation portant sur la collaboration et l’organisation du groupe, divisée en trois modalités (1/3 de la note) :
+<ul>
+<li>Une auto-évaluation de l’intégration propre de l’étudiant au sein du groupe</li>
+<li>Une évaluation par les pairs où chaque personne évalue tous les autres membres du groupe</li>
+<li>Une note tuteur qui évalue le groupe et chacun de ses membres</li>
+</ul></li>
+</ul>
+</section>
+<section id="semestre-6" class="level3">
+<h3 class="anchored" data-anchor-id="semestre-6">Semestre 6</h3>
+<p>Une note au semestre 6, décomposée de la façon suivante :</p>
+<ul>
+<li>Un poster et un résumé écrit. L’évaluation se fera lors de la session poster. Les modalités d’évaluation seront l’évaluation par les pairs et une évaluation par des scientifiques externes au groupe. (2/3 de la note)</li>
+<li>Une note d’évaluation portant sur la collaboration et l’organisation du groupe, divisée en trois modalités ( 1/3 de la note) :
+<ul>
+<li>Une auto-évaluation de l’intégration propre de l’étudiant au sein du groupe</li>
+<li>Une évaluation par les pairs où chaque personne évalue tous les autres membres du groupe</li>
+<li>Une note tuteur qui évalue le groupe et chacun de ses membres</li>
+</ul></li>
+</ul>
+</section>
+<section id="remarque" class="level3">
+<h3 class="anchored" data-anchor-id="remarque">Remarque</h3>
+<p>Tout retard sera pénalisé par 0.5 point par fromat et par demi-journée de retard.</p>
+</section>
 </section>
 
 </main>
@@ -134,12 +674,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Copié");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
+      button.setAttribute("data-bs-title", "Copié");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",
