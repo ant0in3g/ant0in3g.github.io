@@ -1,0 +1,1716 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>ACP - Premier exemple avec R</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="acp-ex-r_files/libs/clipboard/clipboard.min.js"></script>
+<script src="acp-ex-r_files/libs/quarto-html/quarto.js"></script>
+<script src="acp-ex-r_files/libs/quarto-html/popper.min.js"></script>
+<script src="acp-ex-r_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="acp-ex-r_files/libs/quarto-html/anchor.min.js"></script>
+<link href="acp-ex-r_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="acp-ex-r_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="acp-ex-r_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="acp-ex-r_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="acp-ex-r_files/libs/bootstrap/bootstrap-1bc8a17f135ab3d594c857e9f48e611b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table des matières</h2>
+   
+  <ul>
+  <li><a href="#la-base-de-données" id="toc-la-base-de-données" class="nav-link active" data-scroll-target="#la-base-de-données">La base de données</a></li>
+  <li><a href="#importation-des-données" id="toc-importation-des-données" class="nav-link" data-scroll-target="#importation-des-données">Importation des données</a></li>
+  <li><a href="#analyse-des-valeurs-manquantes" id="toc-analyse-des-valeurs-manquantes" class="nav-link" data-scroll-target="#analyse-des-valeurs-manquantes">Analyse des valeurs manquantes</a></li>
+  <li><a href="#description-des-données" id="toc-description-des-données" class="nav-link" data-scroll-target="#description-des-données">Description des données</a></li>
+  <li><a href="#corrélations-entre-les-variables-quantitatives" id="toc-corrélations-entre-les-variables-quantitatives" class="nav-link" data-scroll-target="#corrélations-entre-les-variables-quantitatives">Corrélations entre les variables quantitatives</a></li>
+  <li><a href="#centrer-et-réduire-les-données" id="toc-centrer-et-réduire-les-données" class="nav-link" data-scroll-target="#centrer-et-réduire-les-données">Centrer et réduire les données</a></li>
+  <li><a href="#réalisation-de-lacp" id="toc-réalisation-de-lacp" class="nav-link" data-scroll-target="#réalisation-de-lacp">Réalisation de l’ACP</a>
+  <ul class="collapse">
+  <li><a href="#choix-du-nombre-daxe-factoriel" id="toc-choix-du-nombre-daxe-factoriel" class="nav-link" data-scroll-target="#choix-du-nombre-daxe-factoriel">Choix du nombre d’axe factoriel</a></li>
+  <li><a href="#cercle-de-corrélation" id="toc-cercle-de-corrélation" class="nav-link" data-scroll-target="#cercle-de-corrélation">Cercle de corrélation</a></li>
+  <li><a href="#nuages-des-individus" id="toc-nuages-des-individus" class="nav-link" data-scroll-target="#nuages-des-individus">Nuages des individus</a></li>
+  <li><a href="#variables-supplémentaires" id="toc-variables-supplémentaires" class="nav-link" data-scroll-target="#variables-supplémentaires">Variables supplémentaires</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">ACP - Premier exemple avec R</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">20 octobre 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<hr>
+<p>Le fichier source de cette page est disponible via ce <a href="https://istom-my.sharepoint.com/:u:/g/personal/a_gere_istom_fr/EbNHV8Y0ap5GlJmBr-PrbqUBOrbKXCHhWc3-oMdIio3O0g?e=lB0pil"><strong>lien</strong></a>.</p>
+<section id="la-base-de-données" class="level2">
+<h2 class="anchored" data-anchor-id="la-base-de-données">La base de données</h2>
+<p>La base de données regroupe les performances de 41 athlètes lors d’un décathlon. Chaque ligne correspond à un athlète et indique ses résultats aux différentes épreuves (100 m, saut en longueur, lancer du poids, etc), son classement, son total de points et le nom de la compétition.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/Nafissatou_Thiam.png" class="img-fluid figure-img"></p>
+<figcaption>Nafissatou Thiam, J.O. Paris 2024, Photo de 2024 Getty Images</figcaption>
+</figure>
+</div>
+<p>L’analyse en composantes principales (ACP) a deux objectifs :</p>
+<ul>
+<li><p><strong>Analyser les épreuves</strong> : repérer celles qui sont corrélées entre elles, déterminer les plus influentes sur le score total et identifier des groupes d’épreuves liées.</p></li>
+<li><p><strong>Analyser les athlètes</strong> : repérer des profils de compétences similaires, mettre en évidence ceux qui se distinguent dans certaines disciplines et visualiser la répartition des performances selon leurs points forts et faibles.</p></li>
+</ul>
+<p>Voici le <a href="https://istom-my.sharepoint.com/:t:/g/personal/a_gere_istom_fr/ERSF-RgfXQJNmn9aPLdFEw4BM2kMTe5SHdDzCt5Yy2nodg?e=R68ac8"><strong>lien</strong></a> vers la base de données. Téléchargez cette base de donnée et sauvegardez là dans votre dossier <code>data_raw</code>.</p>
+</section>
+<section id="importation-des-données" class="level2">
+<h2 class="anchored" data-anchor-id="importation-des-données">Importation des données</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importer les données</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>decathlon_data <span class="ot">=</span> <span class="fu">read.table</span>(<span class="st">"data_raw/decathlon.txt"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Les variables sont :</p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li><p><code>X100m</code> : 100m</p></li>
+<li><p><code>Long.jump</code> : Saut en longueur</p></li>
+<li><p><code>Shot.put</code> : Lancer de poids</p></li>
+<li><p><code>High.jump</code> : Saut en hauteur</p></li>
+<li><p><code>X400m</code> : 400m</p></li>
+<li><p><code>X110m.hurdle</code> : 110m Haies</p></li>
+<li><p><code>Discus</code> : Lancer de disque</p></li>
+</ul>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<ul>
+<li><p><code>Pole.vault</code> : Saut à la perche</p></li>
+<li><p><code>Javeline</code> : Lancer de javelot</p></li>
+<li><p><code>X1500m</code> : 1500m</p></li>
+<li><p><code>Rank</code> : Classement</p></li>
+<li><p><code>Points</code> : Points</p></li>
+<li><p><code>Competition</code> : Compétitions</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="analyse-des-valeurs-manquantes" class="level2">
+<h2 class="anchored" data-anchor-id="analyse-des-valeurs-manquantes">Analyse des valeurs manquantes</h2>
+<p>En pratique il y a toujours des valeurs manquantes dans une base de données. Il est donc nécessaire de les analyser.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fonction pour calculer la proportion de valeurs manquantes par variable</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>prop.missing.val <span class="ot">=</span> <span class="cf">function</span>(data) {</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calcul du nombre de valeurs manquantes par colonne</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  nb.missing.val <span class="ot">&lt;-</span> <span class="fu">sapply</span>(data, <span class="cf">function</span>(x) <span class="fu">sum</span>(<span class="fu">is.na</span>(x)))</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calcul de la proportion de valeurs manquantes</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  prop.missing <span class="ot">&lt;-</span> nb.missing.val <span class="sc">/</span> <span class="fu">nrow</span>(data)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Création d'un dataframe pour le résultat</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  resultat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Nombre =</span> nb.missing.val, <span class="at">Proportion =</span> prop.missing)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(resultat)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilisation de la fonction avec votre base de données</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>Analyse.Missing.Values <span class="ot">=</span> <span class="fu">prop.missing.val</span>(decathlon_data)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Affichage du résultat</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>Analyse.Missing.Values</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             Nombre Proportion
+X100m             0          0
+Long.jump         0          0
+Shot.put          0          0
+High.jump         0          0
+X400m             0          0
+X110m.hurdle      0          0
+Discus            0          0
+Pole.vault        0          0
+Javeline          0          0
+X1500m            0          0
+Rank              0          0
+Points            0          0
+Competition       0          0</code></pre>
+</div>
+</div>
+<p>Un package très interessant pour analyser les valeurs manquantes est le package <code>VIM</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Charger le package VIM</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(VIM)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilisation de la fonction aggr() pour visualiser les valeurs manquantes</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">aggr</span>(decathlon_data, </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">col=</span><span class="fu">c</span>(<span class="st">'navyblue'</span>,<span class="st">'yellow'</span>), </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">numbers=</span><span class="cn">TRUE</span>, </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">sortVars=</span><span class="cn">TRUE</span>, </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">labels=</span><span class="fu">names</span>(decathlon_data), </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">cex.axis=</span><span class="fl">0.9</span>, </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">gap=</span><span class="dv">4</span>, </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="fu">c</span>(<span class="st">"Histogram of missing values"</span>,<span class="st">"Pattern"</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>     )</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ Variables sorted by number of missings: 
+     Variable Count
+        X100m     0
+    Long.jump     0
+     Shot.put     0
+    High.jump     0
+        X400m     0
+ X110m.hurdle     0
+       Discus     0
+   Pole.vault     0
+     Javeline     0
+       X1500m     0
+         Rank     0
+       Points     0
+  Competition     0</code></pre>
+</div>
+</div>
+</section>
+<section id="description-des-données" class="level2">
+<h2 class="anchored" data-anchor-id="description-des-données">Description des données</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(decathlon_data)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     X100m         Long.jump       Shot.put       High.jump         X400m      
+ Min.   :10.44   Min.   :6.61   Min.   :12.68   Min.   :1.850   Min.   :46.81  
+ 1st Qu.:10.85   1st Qu.:7.03   1st Qu.:13.88   1st Qu.:1.920   1st Qu.:48.93  
+ Median :10.98   Median :7.30   Median :14.57   Median :1.950   Median :49.40  
+ Mean   :11.00   Mean   :7.26   Mean   :14.48   Mean   :1.977   Mean   :49.62  
+ 3rd Qu.:11.14   3rd Qu.:7.48   3rd Qu.:14.97   3rd Qu.:2.040   3rd Qu.:50.30  
+ Max.   :11.64   Max.   :7.96   Max.   :16.36   Max.   :2.150   Max.   :53.20  
+  X110m.hurdle       Discus        Pole.vault       Javeline    
+ Min.   :13.97   Min.   :37.92   Min.   :4.200   Min.   :50.31  
+ 1st Qu.:14.21   1st Qu.:41.90   1st Qu.:4.500   1st Qu.:55.27  
+ Median :14.48   Median :44.41   Median :4.800   Median :58.36  
+ Mean   :14.61   Mean   :44.33   Mean   :4.762   Mean   :58.32  
+ 3rd Qu.:14.98   3rd Qu.:46.07   3rd Qu.:4.920   3rd Qu.:60.89  
+ Max.   :15.67   Max.   :51.65   Max.   :5.400   Max.   :70.52  
+     X1500m           Rank           Points     Competition       
+ Min.   :262.1   Min.   : 1.00   Min.   :7313   Length:41         
+ 1st Qu.:271.0   1st Qu.: 6.00   1st Qu.:7802   Class :character  
+ Median :278.1   Median :11.00   Median :8021   Mode  :character  
+ Mean   :279.0   Mean   :12.12   Mean   :8005                     
+ 3rd Qu.:285.1   3rd Qu.:18.00   3rd Qu.:8122                     
+ Max.   :317.0   Max.   :28.00   Max.   :8893                     </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Charger les packages</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Identifier les colonnes quantitatives</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>var.quanti <span class="ot">=</span> <span class="fu">sapply</span>(decathlon_data, is.numeric)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer un histogramme pour chaque variable quantitative</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (var <span class="cf">in</span> <span class="fu">names</span>(decathlon_data)[var.quanti]) {</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">ggplot</span>(decathlon_data, <span class="fu">aes_string</span>(<span class="at">x =</span> var)) <span class="sc">+</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>          <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">30</span>, <span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>          <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>          <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">paste</span>(<span class="st">"Histogramme de"</span>, var), <span class="at">x =</span> var, <span class="at">y =</span> <span class="st">"Fréquence"</span>))</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: `aes_string()` was deprecated in ggplot2 3.0.0.
+ℹ Please use tidy evaluation idioms with `aes()`.
+ℹ See also `vignette("ggplot2-in-packages")` for more information.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-6-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-6-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-6-4.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-6-5.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-6-6.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-6-7.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-6-8.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-6-9.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-6-10.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-6-11.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-6-12.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Question
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Analyser et interpréter ces histogrammes.</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer un boxplot pour chaque variable quantitative</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (var <span class="cf">in</span> <span class="fu">names</span>(decathlon_data)[var.quanti]) {</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">ggplot</span>(decathlon_data, <span class="fu">aes_string</span>(<span class="at">x =</span> <span class="fu">factor</span>(<span class="dv">1</span>), <span class="at">y =</span> var)) <span class="sc">+</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>          <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">color =</span> <span class="st">"darkblue"</span>) <span class="sc">+</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>          <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>          <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">paste</span>(<span class="st">"Boxplot de"</span>, var), <span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> var))</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-7-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-7-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-7-4.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-7-5.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-7-6.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-7-7.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-7-8.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-7-9.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-7-10.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-7-11.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-7-12.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Question
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Analyser et interpréter ces boxplots.</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Charger le package</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fonction pour créer un barplot en proportions</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>creer_barplot_proportion <span class="ot">&lt;-</span> <span class="cf">function</span>(data, column_name) {</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculer les proportions</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  proportions <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">count</span>(.data[[column_name]]) <span class="sc">%&gt;%</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">Proportion =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Créer le barplot</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(proportions, <span class="fu">aes_string</span>(<span class="at">x =</span> column_name, <span class="at">y =</span> <span class="st">"Proportion"</span>, <span class="at">fill =</span> column_name)) <span class="sc">+</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent_format</span>()) <span class="sc">+</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> column_name, <span class="at">y =</span> <span class="st">"Proportion (%)"</span>) <span class="sc">+</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>()</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer un barplot pour la variable "Compétition"</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="fu">creer_barplot_proportion</span>(decathlon_data, <span class="st">"Competition"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Question
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Analyser et interpréter ces barplots</p>
+</div>
+</div>
+</section>
+<section id="corrélations-entre-les-variables-quantitatives" class="level2">
+<h2 class="anchored" data-anchor-id="corrélations-entre-les-variables-quantitatives">Corrélations entre les variables quantitatives</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Charger les packages</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>corrplot 0.95 loaded</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>data.quanti <span class="ot">=</span> decathlon_data[, var.quanti]</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculer la matrice de corrélation</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>Matrice.Correlation <span class="ot">&lt;-</span> <span class="fu">cor</span>(data.quanti, <span class="at">use =</span> <span class="st">"complete.obs"</span>)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer la heatmap de corrélation avec des coefficients plus visibles</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(Matrice.Correlation, </span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">method =</span> <span class="st">"color"</span>, </span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="st">"upper"</span>, </span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">order =</span> <span class="st">"hclust"</span>,</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">tl.col =</span> <span class="st">"black"</span>, </span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">tl.srt =</span> <span class="dv">45</span>, </span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">addCoef.col =</span> <span class="st">"black"</span>, <span class="co"># Couleur des coefficients</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">cl.pos =</span> <span class="st">"n"</span>, <span class="co"># Position de la légende de couleur</span></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">cl.cex =</span> <span class="fl">1.2</span>, <span class="co"># Taille de la légende de couleur</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>         <span class="at">addCoefasPercent =</span> <span class="cn">TRUE</span>, <span class="co"># Afficher les coefficients en pourcentage</span></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>         <span class="at">number.cex =</span> <span class="fl">0.8</span>) <span class="co"># Taille des chiffres des coefficients</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Question
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Analyser et interpréter cette matrice de corrélation, et plus particulèrment la heatmap ci-dessus.</p>
+</div>
+</div>
+</section>
+<section id="centrer-et-réduire-les-données" class="level2">
+<h2 class="anchored" data-anchor-id="centrer-et-réduire-les-données">Centrer et réduire les données</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Centrer et réduire les données</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>data.CR <span class="ot">&lt;-</span> <span class="fu">scale</span>(data.quanti,<span class="at">center =</span> <span class="cn">TRUE</span>,<span class="at">scale=</span><span class="cn">TRUE</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Question
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Regarder <code>data.CR</code> et eventuellement vérfier quelques coeeficients à la main.</p>
+</div>
+</div>
+</section>
+<section id="réalisation-de-lacp" class="level2">
+<h2 class="anchored" data-anchor-id="réalisation-de-lacp">Réalisation de l’ACP</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Charger les packages</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(FactoMineR)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(remotes)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">"kassambara/factoextra"</span>)</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Réaliser l'ACP</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>Mon.ACP <span class="ot">&lt;-</span> <span class="fu">PCA</span>(data.CR, <span class="at">graph =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Afficher les résultats de l'ACP</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>Mon.ACP</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>**Results for the Principal Component Analysis (PCA)**
+The analysis was performed on 41 individuals, described by 12 variables
+*The results are available in the following objects:
+
+   name               description                          
+1  "$eig"             "eigenvalues"                        
+2  "$var"             "results for the variables"          
+3  "$var$coord"       "coord. for the variables"           
+4  "$var$cor"         "correlations variables - dimensions"
+5  "$var$cos2"        "cos2 for the variables"             
+6  "$var$contrib"     "contributions of the variables"     
+7  "$ind"             "results for the individuals"        
+8  "$ind$coord"       "coord. for the individuals"         
+9  "$ind$cos2"        "cos2 for the individuals"           
+10 "$ind$contrib"     "contributions of the individuals"   
+11 "$call"            "summary statistics"                 
+12 "$call$centre"     "mean of the variables"              
+13 "$call$ecart.type" "standard error of the variables"    
+14 "$call$row.w"      "weights for the individuals"        
+15 "$call$col.w"      "weights for the variables"          </code></pre>
+</div>
+</div>
+<section id="choix-du-nombre-daxe-factoriel" class="level3">
+<h3 class="anchored" data-anchor-id="choix-du-nombre-daxe-factoriel">Choix du nombre d’axe factoriel</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>My.Eigenvalues <span class="ot">&lt;-</span> Mon.ACP<span class="sc">$</span>eig</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>My.Eigenvalues</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          eigenvalue percentage of variance cumulative percentage of variance
+comp 1  4.758790e+00           3.965659e+01                          39.65659
+comp 2  1.740146e+00           1.450122e+01                          54.15780
+comp 3  1.414902e+00           1.179085e+01                          65.94866
+comp 4  1.131778e+00           9.431483e+00                          75.38014
+comp 5  8.619423e-01           7.182852e+00                          82.56299
+comp 6  6.073189e-01           5.060991e+00                          87.62398
+comp 7  5.104506e-01           4.253755e+00                          91.87774
+comp 8  4.110845e-01           3.425704e+00                          95.30344
+comp 9  2.352087e-01           1.960072e+00                          97.26351
+comp 10 1.873636e-01           1.561364e+00                          98.82488
+comp 11 1.409606e-01           1.174671e+00                          99.99955
+comp 12 5.402403e-05           4.502002e-04                         100.00000</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Question
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Analyser <code>My.Eigenvalues</code></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(My.Eigenvalues[, <span class="dv">2</span>], </span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">names.arg=</span><span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(My.Eigenvalues), </span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Pourcentage de la variance expliquée par chaque composante"</span>,</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"Composantes principales"</span>,</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Pourcentage de variance expliquée"</span>,</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span><span class="st">"steelblue"</span>)</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(My.Eigenvalues), </span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>      My.Eigenvalues[, <span class="dv">2</span>], </span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">type=</span><span class="st">"b"</span>, </span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">pch=</span><span class="dv">19</span>, </span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">col =</span> <span class="st">"black"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+La « règle du coude »
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La règle consiste à rechercher, s’il existe, un “coude” dans le graphe ci-dessus et de ne conserver que les valeurs propres jusqu’à ce coude.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Question
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Combien d’axes principales est-il pertinent de choisir.</p>
+</div>
+</div>
+</section>
+<section id="cercle-de-corrélation" class="level3">
+<h3 class="anchored" data-anchor-id="cercle-de-corrélation">Cercle de corrélation</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer le graphique du cercle de corrélation</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_var</span>(Mon.ACP, </span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">col.var =</span> <span class="st">"cos2"</span>, <span class="co"># Utiliser la qualité de représentation (cos2) pour la couleur</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">gradient.cols =</span> <span class="fu">c</span>(<span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>, <span class="st">"#FC4E07"</span>), <span class="co"># Palette de couleurs</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="co"># Éviter le chevauchement des étiquettes</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">title =</span> <span class="st">"Cercle de Corrélation des Variables (cos2)"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.
+ℹ The deprecated feature was likely used in the ggpubr package.
+  Please report the issue at &lt;https://github.com/kassambara/ggpubr/issues&gt;.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Qualité de réprésentation des variables
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Le <code>cos2</code> est une mesure de qualité de représentation d’un individu ou d’une variable sur un plan factoriel dans une Analyse en Composantes Principales (ACP). Il indique dans quelle mesure un point est bien représenté par les axes choisis.</p>
+<p>C’est en fait le carré du cosinus de l’angle entre le point et l’axe du plan factoriel. Il varie donc entre 0 et 1.</p>
+<ul>
+<li><p>proche de 1 <span class="math inline">\(\to\)</span> le point est bien représenté sur le plan (sa position est bien restituée).</p></li>
+<li><p>proche de 0 <span class="math inline">\(\to\)</span> le point est mal représenté (il est mieux décrit sur d’autres axes).</p></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Analyse d’un cercle de corrélation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Une flèche <strong>longue</strong> représente une variable bien représentée, forte corrélation avec les axes. Au contraire une flèche <strong>courte</strong> représente une variable mal représentée sur ce plan. (Qualité)</p>
+<p>Angle entre les flèches :</p>
+<ul>
+<li><p><strong>0°</strong> : variables fortement <strong>corrélées positivement</strong></p></li>
+<li><p><strong>90°</strong> : variables <strong>indépendantes</strong></p></li>
+<li><p><strong>180°</strong> : variables <strong>corrélées négativement</strong></p></li>
+</ul>
+<p>Lorsqu’une flèche est proche d’un axe, la variable contribue principalement à cet axe.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Question
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Analyser en détail ce cercle de corrélation des variables. Est-ce en accord avec votre analyse de la matrice de corrélation ?</p>
+<p>Des suggestions pour les athlètes ?</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer le graphique du cercle de corrélation</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_var</span>(Mon.ACP, </span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">col.var =</span> <span class="st">"contrib"</span>, <span class="co"># Utiliser la contribution</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">gradient.cols =</span> <span class="fu">c</span>(<span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>, <span class="st">"#FC4E07"</span>), <span class="co"># Palette de couleurs</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="co"># Éviter le chevauchement des étiquettes</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">title =</span> <span class="st">"Cercle de Corrélation des Variables (contribution)"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>contrib</code> permet d’indiquer quelle proportion de la variance de l’axe est expliquée par chaque variable.</p>
+<p>Une variable peut avoir un <code>cos2</code> élevé sur le plan (bien représentée), mais une faible contribution <code>contrib</code> à l’axe 1 si elle est surtout corrélée avec l’axe 2.</p>
+<p>Une variable avec un <code>contrib</code> élevée sur l’axe 1 influence fortement la formation de cet axe.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Question
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Analyser en détail ce cercle de corrélation des variables.</p>
+</div>
+</div>
+<p>A present que nous avons analyser chaque variable, il est nécessaire d’analyser chaque individu.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Coordonnées des individus</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Mon.ACP<span class="sc">$</span>ind<span class="sc">$</span>coord)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              Dim.1      Dim.2      Dim.3      Dim.4       Dim.5
+SEBRLE   1.50509908  0.7038928  0.9418516  1.4300073  0.57877082
+CLAY     1.55741711  0.5554568  2.1891163 -0.5335835 -0.78038352
+KARPOV   1.59996822  0.4625653  2.0569580 -1.5276391  1.57216651
+BERNARD  0.08242073 -0.9779441  0.9724700  2.4695691  0.08487193
+YURKOV  -0.03923536  2.0507210 -1.0717485  1.5007847  1.41509091
+WARNERS  0.63094174 -1.7190474  0.8258308 -0.3128895  1.15564917</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cos 2 des individus</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Mon.ACP<span class="sc">$</span>ind<span class="sc">$</span>cos2)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>               Dim.1      Dim.2     Dim.3      Dim.4        Dim.5
+SEBRLE  0.2822876661 0.06174116 0.1105418 0.25482276 0.0417421654
+CLAY    0.1721144249 0.02189313 0.3400518 0.02020283 0.0432139102
+KARPOV  0.1973363095 0.01649417 0.3261633 0.17989779 0.1905378987
+BERNARD 0.0007769458 0.10938200 0.1081609 0.69752562 0.0008238458
+YURKOV  0.0001547923 0.42287035 0.1154994 0.22648052 0.2013551540
+WARNERS 0.0611270308 0.45376449 0.1047218 0.01503269 0.2050722061</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Contribution des individus</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Mon.ACP<span class="sc">$</span>ind<span class="sc">$</span>contrib)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>               Dim.1     Dim.2    Dim.3      Dim.4      Dim.5
+SEBRLE  1.1610468554 0.6944540 1.529166  4.4068816 0.94787531
+CLAY    1.2431669421 0.4324451 8.260899  0.6135638 1.72327322
+KARPOV  1.3120255194 0.2999001 7.293576  5.0291713 6.99415163
+BERNARD 0.0034817093 1.3404743 1.630204 13.1430836 0.02038291
+YURKOV  0.0007889962 5.8944540 1.980047  4.8539096 5.66639235
+WARNERS 0.2040319080 4.1419623 1.175633  0.2109778 3.77911393</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Question
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Analyser cette sortie.</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Contribution des variables à l'axer principale 1"</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_contrib</span>(Mon.ACP, <span class="at">choice =</span> <span class="st">"var"</span>, <span class="at">axes =</span> <span class="dv">1</span>, <span class="at">top =</span> <span class="dv">4</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Contributions des variables à l'axer principale 2</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_contrib</span>(Mon.ACP, <span class="at">choice =</span> <span class="st">"var"</span>, <span class="at">axes =</span> <span class="dv">2</span>, <span class="at">top =</span> <span class="dv">10</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-18-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Question
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Analyser la contributon de chacune des variables aux deux axes principaux.</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cosinus carré des variables sur la première composante principale (PC1)</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_cos2</span>(Mon.ACP, <span class="at">choice =</span> <span class="st">"var"</span>, <span class="at">axes =</span> <span class="dv">1</span>, <span class="at">top =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Qualité de la représentation des variables sur la PC1 (cos²)"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cosinus carré des variables sur la deuxième composante principale (PC2)</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_cos2</span>(Mon.ACP, <span class="at">choice =</span> <span class="st">"var"</span>, <span class="at">axes =</span> <span class="dv">2</span>, <span class="at">top =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Qualité de la représentation des variables sur la PC2 (cos²)"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-19-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Question
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Analyser la qualité de la représentation de chacune des variables aux deux axes principaux.</p>
+</div>
+</div>
+</section>
+<section id="nuages-des-individus" class="level3">
+<h3 class="anchored" data-anchor-id="nuages-des-individus">Nuages des individus</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_ind</span>(Mon.ACP,  <span class="at">col.ind=</span><span class="st">"cos2"</span>) <span class="sc">+</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_gradient2</span>(<span class="at">low=</span><span class="st">"blue"</span>, <span class="at">mid=</span><span class="st">"white"</span>, </span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">high=</span><span class="st">"red"</span>, <span class="at">midpoint=</span><span class="fl">0.50</span>)<span class="sc">+</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Question
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Analyser la représentation de la représentation ci-dessus. En particulier, quels sont les individus qui sont bien représentés et contribuent le plus à la formation des axes principaux ?</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrer les individus avec cos² &gt; 50%</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>ind_cos2 <span class="ot">&lt;-</span> <span class="fu">apply</span>(Mon.ACP<span class="sc">$</span>ind<span class="sc">$</span>cos2, <span class="dv">1</span>, max) <span class="sc">&gt;</span> <span class="fl">0.5</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrer les variables avec cos² &gt; 50%</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>var_cos2 <span class="ot">&lt;-</span> <span class="fu">apply</span>(Mon.ACP<span class="sc">$</span>var<span class="sc">$</span>cos2, <span class="dv">1</span>, max) <span class="sc">&gt;</span> <span class="fl">0.5</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer un graphique combiné des individus et des variables</span></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_biplot</span>(Mon.ACP,</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">select.ind =</span> <span class="fu">list</span>(<span class="at">cos2 =</span> <span class="fl">0.5</span>), <span class="co"># Sélectionner les individus avec cos² &gt; 50%</span></span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">select.var =</span> <span class="fu">list</span>(<span class="at">cos2 =</span> <span class="fl">0.5</span>), <span class="co"># Sélectionner les variables avec cos² &gt; 50%</span></span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>                <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="co"># Éviter le chevauchement des étiquettes</span></span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>                <span class="at">title =</span> <span class="st">"Biplot des Individus et des Variables (cos² &gt; 50%)"</span>,</span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>                <span class="at">col.ind =</span> <span class="st">"blue"</span>, <span class="co"># Couleur des individus</span></span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>                <span class="at">col.var =</span> <span class="st">"red"</span> <span class="co"># Couleur des variables</span></span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Question
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Avec ce biplot, tenter de faire le lien entre les analyses sur les individus et les variables.</p>
+</div>
+</div>
+</section>
+<section id="variables-supplémentaires" class="level3">
+<h3 class="anchored" data-anchor-id="variables-supplémentaires">Variables supplémentaires</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Variable supplémentaire
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Une variable supplémentaire sans une ACP est une variable qui n’entre pas dans le calcul des axes principaux mais peut être projetée sur le plan factoriel pour interprétation. Elle n’influence pas la construction des composantes principales. Elle sert uniquement à aider l’interprétation des résultats. Elle peut être quantitative ou qualitative.</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>Mon.ACP <span class="ot">&lt;-</span> <span class="fu">PCA</span>(decathlon_data, </span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">quanti.sup =</span> <span class="dv">10</span>,</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">quali.sup =</span> <span class="dv">13</span>, <span class="co"># Numéro de colonne de la variable qualitative</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">graph =</span> <span class="cn">TRUE</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: ggrepel: 2 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-22-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_ind</span>(Mon.ACP, </span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">habillage =</span> <span class="dv">13</span>,</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">addEllipses =</span><span class="cn">TRUE</span>, </span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">ellipse.level =</span> <span class="fl">0.68</span>) <span class="sc">+</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette=</span><span class="st">"Dark2"</span>) <span class="sc">+</span></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Création du graphique</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_ind</span>(Mon.ACP, </span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">habillage =</span> <span class="dv">13</span>, <span class="co"># Utiliser la 13ème colonne pour le coloriage</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">addEllipses =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">ellipse.level =</span> <span class="fl">0.68</span>) <span class="sc">+</span></span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Dark2"</span>) <span class="sc">+</span> <span class="co"># Palette de couleurs</span></span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="co"># Thème minimaliste</span></span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"ACP avec R"</span>) <span class="co"># Ajouter un titre (assurez-vous que le titre n'est pas NA/NaN)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="acp-ex-r_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>Mon.ACP<span class="sc">$</span>quali.sup</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$coord
+              Dim.1      Dim.2      Dim.3      Dim.4      Dim.5
+Decastar -0.3565568 -0.2310813  0.3444772  0.7387878 -0.5286587
+OlympicG  0.1655442  0.1072877 -0.1599358 -0.3430086  0.2454487
+
+$cos2
+              Dim.1     Dim.2      Dim.3     Dim.4     Dim.5
+Decastar 0.09532976 0.0400406 0.08897991 0.4092706 0.2095665
+OlympicG 0.09532976 0.0400406 0.08897991 0.4092706 0.2095665
+
+$v.test
+              Dim.1      Dim.2     Dim.3     Dim.4     Dim.5
+Decastar -0.7050037 -0.7689493  1.381099  3.359027 -2.613954
+OlympicG  0.7050037  0.7689493 -1.381099 -3.359027  2.613954
+
+$dist
+ Decastar  OlympicG 
+1.1548204 0.5361666 
+
+$eta2
+                 Dim.1      Dim.2      Dim.3     Dim.4     Dim.5
+Competition 0.01242575 0.01478208 0.04768587 0.2820765 0.1708189</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Le <code>v.test</code> est une statistique qui mesure la relation entre un groupe d’individus (variable qualitative) et la position des individus sur un axe factoriel.</p>
+<p>Il est utilisé pour les variables qualitatives supplémentaires, afin de savoir si les individus d’un certain groupe sont significativement plus élevés ou plus faibles sur un axe donné.</p>
+<p>En pratique, afin d’avoir un lien significatif il faut que le coefficient en valeur absolue soit supperieur à 1,96.</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>Mon.ACP<span class="sc">$</span>quanti.sup</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$coord
+             Dim.1    Dim.2     Dim.3     Dim.4     Dim.5
+X1500m -0.08101474 0.124414 0.1151478 0.2692549 0.4492733
+
+$cor
+             Dim.1    Dim.2     Dim.3     Dim.4     Dim.5
+X1500m -0.08101474 0.124414 0.1151478 0.2692549 0.4492733
+
+$cos2
+             Dim.1      Dim.2      Dim.3      Dim.4     Dim.5
+X1500m 0.006563388 0.01547885 0.01325902 0.07249818 0.2018465</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+la focntion dimdesc
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pour les variables quantitatives, cette focntion calcule la corrélation entre chaque variable et chaque axe. Plus la corrélation est élevée, plus la variable contribue à l’axe.</p>
+<p>Pour les variables qualitatives, cette fonction calcule le V-test pour chaque modalité sur chaque axe.Elle permet de voir quelles modalités sont sur-représentées ou sous-représentées sur un axe</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>res.desc <span class="ot">&lt;-</span> <span class="fu">dimdesc</span>(Mon.ACP, <span class="at">axes =</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">5</span>), <span class="at">proba =</span> <span class="fl">0.05</span>)</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>res.desc</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$Dim.4
+
+Link between the variable and the continuous variables (R-square)
+=================================================================================
+         correlation      p.value
+X100m      0.3606946 2.051769e-02
+Rank      -0.3182313 4.258959e-02
+Javeline  -0.6541163 3.515093e-06
+
+Link between the variable and the categorical variable (1-way anova)
+=============================================
+                   R2      p.value
+Competition 0.2820765 0.0003533077
+
+Link between variable and the categories of the categorical variables
+================================================================
+                       Estimate      p.value
+Competition=Decastar  0.5408982 0.0003533077
+Competition=OlympicG -0.5408982 0.0003533077
+
+$Dim.5
+
+Link between the variable and the continuous variables (R-square)
+=================================================================================
+          correlation     p.value
+X1500m      0.4492733 0.003212199
+Discus      0.3210000 0.040722336
+X100m      -0.3163774 0.043878419
+High.jump  -0.4464054 0.003438064
+
+Link between the variable and the categorical variable (1-way anova)
+=============================================
+                   R2     p.value
+Competition 0.1708189 0.007234681
+
+Link between variable and the categories of the categorical variables
+================================================================
+                       Estimate     p.value
+Competition=OlympicG  0.3870537 0.007234681
+Competition=Decastar -0.3870537 0.007234681</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Question
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Analyser l’apport de ces variables supplémentaires.</p>
+</div>
+</div>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copié");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copié");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
