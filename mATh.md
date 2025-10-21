@@ -72,8 +72,8 @@ Les sujets d'examens donnés sont disponible sur cette [page](./mATh/examens.md/
 
 ### Corrections supplémentaires
 
-Vous pouvez trouver via ce [lien](./mATh/corrections.md/) les corrections manuscrites que je n'ai pas encore pris le temps de taper.
+Vous pouvez trouver via ce [**lien**](./mATh/corrections.md/) les corrections manuscrites que je n'ai pas encore pris le temps de taper.
 
 ### Pour aller plus loin
 
-Vous trouverez [ici des chapitres en plus pour les curieux](./mATh/plus_loin.md).
+Vous trouverez [ici des support en plus pour les curieux](./mATh/plus_loin.md).
