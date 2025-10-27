@@ -17,7 +17,7 @@ Les notes de cours ci-dessous sont en cours d’élaboration. Si vous avez la mo
  - [Semestre 2](#semestre-2)
  - [Semestre 3](#semestre-3)
  - [Semestre 4](#semestre-4)
- - [Semestre 5 (optionnel)](#semestre-5-(optionnel))
+ - [Semestre 5 (optionnel)](#semestre-5)
  - [Examens et corrections](#examens-et-corrections)
  - [Corrections supplémentaires](#corrections-supplémentaires)
  - [Pour aller plus loin](#pour-aller-plus-loin)
@@ -66,11 +66,11 @@ Vous pouvez également vous exercer sur votre espace [jai20enmaths](https://www.
 >
 > 1 examen pour chaque chapitre (1 semaine après la fin du chapitre) + QCMs + 1 partiel de fin de semestre.
 
-### Semestre 5 (optionnel)
+### Semestre 5 
 
-Pour ce semestre optionnel, nous nous intéresserons à la notion d'espace vectoriel. Je n'ai pas encore terminé la rédaction d'une [introduction aux espaces vectoriels](./mATh/chapter-s/intro-espace-vect/chapter-s.pdf). Je vous propose donc ci-dessous quelques ressources de qualité :  
-- [un cours sur les espaces vectoriels destiné à des étudiant-es de BCPST](https://www.molin-mathematiques.fr/cours/Espaces-vectoriels-cours-BCPST)  
-- [la série d'exercices correspondante](https://www.molin-mathematiques.fr/exo/Espaces-vectoriels-exercices-BCPST)
+Pour ce semestre **optionnel**, nous nous intéresserons à la notion d'espace vectoriel. Je n'ai pas encore terminé la rédaction d'une [introduction aux espaces vectoriels](./mATh/chapter-s/intro-espace-vect/chapter-s.pdf). Je vous propose donc ci-dessous quelques ressources de qualité :  
+- [Un cours sur les espaces vectoriels destiné à des étudiant-es de BCPST](https://www.molin-mathematiques.fr/cours/Espaces-vectoriels-cours-BCPST)  
+- [La série d'exercices correspondante](https://www.molin-mathematiques.fr/exo/Espaces-vectoriels-exercices-BCPST)
 - [Une **magnifique** présentation à l'algèbre linéire en vidéo](https://youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab&si=MUOq7O2DJBcKh4R9)
 
 ### Examens et corrections
