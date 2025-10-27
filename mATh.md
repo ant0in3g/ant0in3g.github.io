@@ -17,7 +17,7 @@ Les notes de cours ci-dessous sont en cours d’élaboration. Si vous avez la mo
  - [Semestre 2](#semestre-2)
  - [Semestre 3](#semestre-3)
  - [Semestre 4](#semestre-4)
- - [Semestre 5 (optionnel)](#semestre-5)
+ - [Semestre 5 (optionnel)](#semestre-5-(optionnel))
  - [Examens et corrections](#examens-et-corrections)
  - [Corrections supplémentaires](#corrections-supplémentaires)
  - [Pour aller plus loin](#pour-aller-plus-loin)
