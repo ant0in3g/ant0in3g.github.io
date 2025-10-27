@@ -2,12 +2,12 @@
 
 Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 
-|                   | Semestre 1 | Semestre 2  | Semestre 3 | Semestre 4  |
-|:------------------|:-----------|:------------|:-----------|:------------|
-| Cours             | 10 séances | 10 séances  | 10 séances | 10 séances  |
-| Travaux dirigés   | 12 séances | 12 séances  | 12 séances | 12 séances  |
-|:------------------|:-----------|:----------- |:-----------|:------------|
-| tot.              | 22 séances | 22 séances  | 22 séances | 22 séances  |
+|                   | Semestre 1 | Semestre 2  | Semestre 3 | Semestre 4  | Semestre 5  |
+|:------------------|:-----------|:------------|:-----------|:------------|:------------|
+| Cours             | 10 séances | 10 séances  | 10 séances | 10 séances  | -           |
+| Travaux dirigés   | 12 séances | 12 séances  | 12 séances | 12 séances  | -           |
+|:------------------|:-----------|:----------- |:-----------|:------------|:------------|
+| tot.              | 22 séances | 22 séances  | 22 séances | 22 séances  | -           |
 
 Les notes de cours ci-dessous sont en cours d’élaboration. Si vous avez la moindre question ou remarque ne pas hésiter à me contacter par mail à [a.gere@istom.fr](mailto:a.gere@istom.fr).
 
@@ -17,6 +17,7 @@ Les notes de cours ci-dessous sont en cours d’élaboration. Si vous avez la mo
  - [Semestre 2](#semestre-2)
  - [Semestre 3](#semestre-3)
  - [Semestre 4](#semestre-4)
+ - [Semestre 5 (optionnel)](#semestre-5)
  - [Examens et corrections](#examens-et-corrections)
  - [Corrections supplémentaires](#corrections-supplémentaires)
  - [Pour aller plus loin](#pour-aller-plus-loin)
@@ -49,8 +50,7 @@ Vous pouvez également vous exercer sur votre espace [jai20enmaths](https://www.
 
 1. [Calcul matriciel](./mATh/chapter-s/matrices/chapter-s.pdf)
 2. [Déterminant](./mATh/chapter-s/determinant/chapter-s.pdf)
-3. [Introduction aux espaces vectoriels](./mATh/chapter-s/intro-espace-vect/chapter-s.pdf)
-4. [Diagonalisation](./mATh/chapter-s/Diagonalisation/chapter-s.pdf)
+3. [Diagonalisation](./mATh/chapter-s/Diagonalisation/chapter-s.pdf)
 
 > 📘 Modalités d'évaluations
 >
@@ -61,6 +61,10 @@ Vous pouvez également vous exercer sur votre espace [jai20enmaths](https://www.
 1. [Fonctions à plusieurs variables réelles](./mATh/chapter-s/fonction-multi-variables/chapter-s.pdf)
 2. [Intégrales multiples](./mATh/chapter-s/integrales-multiples/chapter-s.pdf)
 3. [Géométrie dans le plan et l'espace](./mATh/chapter-s/geometry/chapter-s.pdf)
+
+### Semestre 5 (optionnel)
+
+1. [Introduction aux espaces vectoriels](./mATh/chapter-s/intro-espace-vect/chapter-s.pdf)
 
 > 📘 Modalités d'évaluations
 >
