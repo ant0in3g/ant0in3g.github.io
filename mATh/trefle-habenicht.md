@@ -1,4 +1,4 @@
-### Trèfle de Habenicht
+## Trèfle de Habenicht
 
 L'équation polaire est 
 $$
