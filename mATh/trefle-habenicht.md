@@ -1,7 +1,9 @@
 ### Trèfle de Habenicht
 
 L'équation polaire est 
-$$\rho = 1 +\cos\left(n\theta\right) + \sin^2\left(n\theta\right)$$
+$$
+\rho = 1 +\cos\left(n\theta\right) + \sin^2\left(n\theta\right)
+$$
 
 La courbe est : 
 
@@ -13,7 +15,7 @@ La courbe est :
 
 
 
-Rappelons tout d'abord la définition précise des coordonnées polaires. Le plan est rapporté à un repère orthonormé $(O, \vec{i}, \vec{j})$. Pour $\theta$ réel, on pose
+On se plave dans le plan orthonormé $(O, \vec{i}, \vec{j})$. Pour un paramètre $\theta$ réel, on pose
 
 $$
 \overrightarrow{u_{\theta}}=\cos \theta \vec{i}+\sin \theta \vec{j} \quad \text { et } \quad \overrightarrow{v_{\theta}}=-\sin \theta \vec{i}+\cos \theta \vec{j}=\overrightarrow{u_{\theta+\pi / 2}} \text {. }
@@ -188,21 +190,4 @@ En l'origine, on ne peut avoir qu'un point d'allure ordinaire ou un rebroussemen
 
 - Si $r$ s'annule en changeant de signe, le point $M(\theta)$ franchit l'origine en tournant dans le sens direct : c'est un point d'allure ordinaire.
 - Si $r$ s'annule sans changer de signe en arrivant en $O$, on rebrousse chemin en traversant la tangente (puisque l'on tourne toujours dans le même sens) : c'est un rebroussement de première espèce.
-
-
-## Exemple 20.
-
-Étudier le point $M\left(\frac{\pi}{2}\right)$ dans les deux cas suivants :
-
-$$
-r=(\theta+1) \cos \theta \quad \text { et } \quad r=\cos ^{2}(\theta) .
-$$
-
-Solution. Dans les deux cas, $M\left(\frac{\pi}{2}\right)=O$ et la tangente en $M\left(\frac{\pi}{2}\right)$ est la droite passant par $O$ et d'angle polaire $\frac{\pi}{2}$, c'est-à-dire l'axe des ordonnées.
-
-- Dans le premier cas, $r$ change de signe en franchissant $\frac{\pi}{2}$, de positif à négatif. Ainsi, en tournant toujours dans le même sens, on se rapproche de l'origine, on la franchit et on s'en écarte : c'est un point d'allure ordinaire.
-- Dans le deuxième cas, $r$ ne change pas de signe. On ne franchit pas l'origine. On rebrousse chemin tout en tournant toujours dans le même sens : c'est un point de rebroussement de première espèce.
-![](https://cdn.mathpix.com/cropped/2025_10_30_af7e7d68bab7eb330d44g-29.jpg?height=363&width=629&top_left_y=691&top_left_x=388)
-![](https://cdn.mathpix.com/cropped/2025_10_30_af7e7d68bab7eb330d44g-29.jpg?height=357&width=646&top_left_y=691&top_left_x=1025)
-
 
