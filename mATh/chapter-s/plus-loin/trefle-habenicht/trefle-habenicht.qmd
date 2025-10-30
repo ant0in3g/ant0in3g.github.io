@@ -1,4 +1,12 @@
-## Trèfle de Habenicht
+---
+title: "Trèfle de Habenicht"
+author: "Antoine Géré"
+format: html
+editor: visual
+---
+
+
+## 
 
 L'équation polaire est 
 $$
