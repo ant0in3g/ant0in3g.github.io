@@ -5,8 +5,7 @@ format: html
 editor: visual
 ---
 
-
-## 
+https://mathcurve.com/courbes2d/ornementales/ornementales.shtml
 
 L'équation polaire est 
 $$
