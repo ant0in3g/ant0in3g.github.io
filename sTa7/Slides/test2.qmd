@@ -1,0 +1,1301 @@
+
+
+
+
+
+
+
+
+
+## General Addition Rule
+
+## Disjoint Events (= Mutually Exclusive Events)
+
+Disjoint (mutually exclusive) events cannot be both true.
+
+- Tossing a coin once, the events $\{$ getting H$\}$ and $\{$ getting T$\}$ are disjoint
+- The events \{John passed STAT 220\} and \{John failed STAT 220\} are disjoint
+- Drawing a card from a deck, the events \{getting an ace\} and \{getting a queen\} are disjoint
+
+
+## Disjoint Events (= Mutually Exclusive Events)
+
+Disjoint (mutually exclusive) events cannot be both true.
+
+- Tossing a coin once, the events $\{$ getting H$\}$ and $\{$ getting T$\}$ are disjoint
+- The events \{John passed STAT 220\} and \{John failed STAT 220\} are disjoint
+- Drawing a card from a deck, the events \{getting an ace\} and \{getting a queen\} are disjoint
+
+Non-disjoint events can be both true.
+
+- The events \{John got an A in STATs\} and \{John got an A in Econ\} are NOT disjoint
+
+
+## General Addition Rule
+
+What is the probability of drawing a jack or a red card from a well shuffled full deck?
+![](https://cdn.mathpix.com/cropped/2025_09_23_fd6b4ea76fc16bd35fe6g-015.jpg?height=403&width=914&top_left_y=266&top_left_x=175)
+
+## General Addition Rule
+
+What is the probability of drawing a jack or a red card from a well shuffled full deck?
+![](https://cdn.mathpix.com/cropped/2025_09_23_fd6b4ea76fc16bd35fe6g-016.jpg?height=405&width=914&top_left_y=269&top_left_x=175)
+
+$$
+\begin{aligned}
+P(\text { jack or red }) & =P(\text { jack })+P(\text { red })-P(\text { jack and red }) \\
+& =\frac{4}{52}+\frac{26}{52}-\frac{2}{52}=\frac{28}{52}
+\end{aligned}
+$$
+
+## General Addition Rule
+
+$$
+P(A \text { or } B)=P(A)+P(B)-P(A \text { and } B)
+$$
+
+For disjoint events $P(A$ and $B)=0$, so the above formula simplifies to
+
+$$
+P(A \text { or } B)=P(A)+P(B)
+$$
+
+## The Complement Rule
+
+## The Complement Rule
+
+- Because an event must either occur or not occur,
+
+$$
+P(A)+P\left(A^{c}\right)=1
+$$
+
+- Thus, if we know the probability of an event, we can always determine the probability of its complement:
+
+$$
+P\left(A^{c}\right)=1-P(A)
+$$
+
+- This simple but useful rule is called the complement rule
+
+
+## Example - The Complement Rule
+
+Question: What is the probability of getting at least one head in 3 tosses of a fair coin?
+
+- Sample space
+
+$$
+S=\{H H H, H H T, H T H, T H H, H T T, T H T, T T H, T T T\}
+$$
+
+$$
+\begin{aligned}
+\text { Event } A & =\{\text { at least one heads }\} \\
+& =\{H H H, H H T, H T H, T H H, H T T, T H T, T T H\}
+\end{aligned}
+$$
+
+- $A^{c}=\{$ not least one heads $\}$
+
+
+## Example - The Complement Rule
+
+Question: What is the probability of getting at least one head in 3 tosses of a fair coin?
+
+- Sample space
+
+$$
+S=\{H H H, H H T, H T H, T H H, H T T, T H T, T T H, T T T\}
+$$
+
+$$
+\begin{aligned}
+\text { Event } A & =\{\text { at least one heads }\} \\
+& =\{H H H, H H T, H T H, T H H, H T T, T H T, T T H\}
+\end{aligned}
+$$
+
+- $A^{c}=\{$ not least one heads $\}=\{$ all tails $\}=\{T T T\}$
+- $P\left(A^{c}\right)=$
+
+
+## Example - The Complement Rule
+
+Question: What is the probability of getting at least one head in 3 tosses of a fair coin?
+
+- Sample space
+
+$$
+S=\{H H H, H H T, H T H, T H H, H T T, T H T, T T H, T T T\}
+$$
+
+$$
+\begin{aligned}
+\text { Event } A & =\{\text { at least one heads }\} \\
+& =\{H H H, H H T, H T H, T H H, H T T, T H T, T T H\}
+\end{aligned}
+$$
+
+- $A^{c}=\{$ not least one heads $\}=\{$ all tails $\}=\{T T T\}$
+- $P\left(A^{c}\right)=1 / 8$
+
+
+## Example - The Complement Rule
+
+Question: What is the probability of getting at least one head in 3 tosses of a fair coin?
+
+- Sample space
+
+$$
+S=\{H H H, H H T, H T H, T H H, H T T, T H T, T T H, T T T\}
+$$
+
+$$
+\begin{aligned}
+\text { Event } A & =\{\text { at least one heads }\} \\
+& =\{H H H, H H T, H T H, T H H, H T T, T H T, T T H\}
+\end{aligned}
+$$
+
+- $A^{c}=\{$ not least one heads $\}=\{$ all tails $\}=\{T T T\}$
+- $P\left(A^{c}\right)=1 / 8$
+- $P(A)=1-P\left(A^{c}\right)=1-1 / 8=7 / 8$
+
+
+## Conditional Probability
+
+## Conditional Probabilities
+
+## Example - Poker
+
+A card is drawn from a well-shuffled deck.
+-What is the probability that the card drawn is a King?
+
+$$
+P(\text { got a King })=\frac{4}{52}=\frac{1}{13} .
+$$
+
+- If the card drawn is known to be a face card ( $J, Q, K$ ), what is the probability that it is a $K$ ?
+
+
+## Conditional Probabilities
+
+## Example - Poker
+
+A card is drawn from a well-shuffled deck.
+-What is the probability that the card drawn is a King?
+
+$$
+P(\text { got a King })=\frac{4}{52}=\frac{1}{13} .
+$$
+
+- If the card drawn is known to be a face card ( $J, Q, K$ ), what is the probability that it is a $K$ ?
+
+$$
+\frac{4}{12}=\frac{1}{4}
+$$
+
+## Conditional Probabilities
+
+Given two events $A$ and $B$. We denote the probability of event $A$ happens given that event $B$ is known to happen as
+
+$$
+P(A \mid B),
+$$
+
+read as the probability of " $A$ given $B$."
+For the example on the previous slide, let
+
+$$
+\begin{aligned}
+& A=\text { the card is a King, } \\
+& B=\text { the card is a face card }(\mathrm{J}, \mathrm{Q}, \mathrm{~K}) .
+\end{aligned}
+$$
+
+We have
+
+$$
+P(A \mid B)=\frac{4}{12} \neq P(A)=\frac{4}{52}
+$$
+
+Current knowledge (face card) has changed (restricted) the sample space (possible outcomes).
+
+## Exercise
+
+In the previous example, what is
+$P\left(B \mid A^{c}\right)=P($ the card is a face card $\mid$ the card is not a King $) ?$
+
+## Exercise
+
+In the previous example, what is
+$P\left(B \mid A^{c}\right)=P$ (the card is a face card | the card is not a King)?
+
+- If the card is not a King, as there are 4 Kings in a deck, then the card must be one of the remaining 48, among which 8 are face cards ( 4 Jacks and 4 Queens). So the answer is 8/48.
+
+
+## Exercise
+
+In the previous example, what is
+$P\left(B \mid A^{c}\right)=P$ (the card is a face card | the card is not a King)?
+
+- If the card is not a King, as there are 4 Kings in a deck, then the card must be one of the remaining 48, among which 8 are face cards ( 4 Jacks and 4 Queens). So the answer is 8/48.
+$P(B \mid A)=P($ the card is a face card | the card is a King $) ?$
+
+
+## Exercise
+
+In the previous example, what is
+$P\left(B \mid A^{c}\right)=P$ (the card is a face card | the card is not a King)?
+
+- If the card is not a King, as there are 4 Kings in a deck, then the card must be one of the remaining 48, among which 8 are face cards ( 4 Jacks and 4 Queens). So the answer is 8/48.
+$P(B \mid A)=P($ the card is a face card | the card is a King)?
+$\bullet=1$, since a King is a face card.
+
+
+## Exercise
+
+In the previous example, what is
+$P\left(B \mid A^{c}\right)=P$ (the card is a face card | the card is not a King)?
+
+- If the card is not a King, as there are 4 Kings in a deck, then the card must be one of the remaining 48, among which 8 are face cards ( 4 Jacks and 4 Queens). So the answer is 8/48.
+$P(B \mid A)=P($ the card is a face card | the card is a King)?
+$\bullet=1$, since a King is a face card.
+$P\left(A \mid B^{c}\right)=P($ the card is a King $\mid$ the card is not a face card $)$ ?
+
+
+## Exercise
+
+In the previous example, what is
+$P\left(B \mid A^{c}\right)=P$ (the card is a face card | the card is not a King)?
+
+- If the card is not a King, as there are 4 Kings in a deck, then the card must be one of the remaining 48, among which 8 are face cards ( 4 Jacks and 4 Queens). So the answer is 8/48.
+$P(B \mid A)=P($ the card is a face card | the card is a King)?
+$\bullet=1$, since a King is a face card.
+$P\left(A \mid B^{c}\right)=P($ the card is a King $\mid$ the card is not a face card $)$ ?
+- $=0$, since a King is a face card. If it's not a face card, it cannot be a King.
+
+
+## Another Example
+
+A deck of cards is well-shuffled and the two cards are drawn w/o replacement. What is the probability that second card is a King
+given that the first card is a King?
+
+## Another Example
+
+A deck of cards is well-shuffled and the two cards are drawn w/o replacement. What is the probability that second card is a King
+given that the first card is a King?
+
+- $3 / 51$
+
+
+## Another Example
+
+A deck of cards is well-shuffled and the two cards are drawn w/o replacement. What is the probability that second card is a King
+given that the first card is a King?
+
+- $3 / 51$
+given that the first card is NOT a King?
+
+
+## Another Example
+
+A deck of cards is well-shuffled and the two cards are drawn w/o replacement. What is the probability that second card is a King
+given that the first card is a King?
+
+- $3 / 51$
+given that the first card is NOT a King?
+- $4 / 51$
+
+
+## Example: Age and Rank of Faculty Members
+
+The table below cross-classifies faculty members in a certain university by age and rank.
+
+| Age (year) | Full professor | Associate professor | Assistant professor | Lecturer | Total |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Under 40 | 54 | 173 | 220 | 23 | 470 |
+| 40-49 | 156 | 125 | 61 | 6 | 348 |
+| 50-59 | 145 | 68 | 36 | 4 | 253 |
+| 60+ | 75 | 15 | 3 | 0 | 93 |
+| Total | 430 | 381 | 320 | 33 | 1164 |
+
+## Marginal Probabilities of Contingency Tables
+
+If a faculty member is selected at random, what is the probability that he/she is a full professor?
+
+| Age (year) | Full professor | Associate professor | Assistant professor | Lecturer | Total |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Under 40 | 54 | 173 | 220 | 23 | 470 |
+| 40-49 | 156 | 125 | 61 | 6 | 348 |
+| 50-59 | 145 | 68 | 36 | 4 | 253 |
+| 60+ | 75 | 15 | 3 | 0 | 93 |
+| Total | 430 | 381 | 320 | 33 | 1164 |
+
+## Marginal Probabilities of Contingency Tables
+
+If a faculty member is selected at random, what is the probability that he/she is a full professor?
+
+| Age <br> (year) | Full <br> professor | Associate <br> professor | Assistant <br> professor | Lecturer | Total |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| Under 40 | 54 | 173 | 220 | 23 | 470 |
+| $40-49$ | 156 | 125 | 61 | 6 | 348 |
+| $50-59$ | 145 | 68 | 36 | 4 | 253 |
+| $60+$ | 75 | 15 | 3 | 0 | 93 |
+| Total | 430 | 381 | 320 | 33 | 1164 |
+
+$\mathrm{P}($ full professor $)=\frac{430}{1164} \approx 0.37$.
+Probabilities that involve only one of the categorical variables in a contingency table are called marginal probabilities.
+
+## Joint Probabilities of Contingency Tables
+
+If a faculty member is selected at random, what is the probability that he/she is a full professor and under 40?
+
+| Age <br> (year) | Full <br> professor | Associate <br> professor | Assistant <br> professor | Lecturer | Total |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| Under 40 | 54 | 173 | 220 | 23 | 470 |
+| $40-49$ | 156 | 125 | 61 | 6 | 348 |
+| $50-59$ | 145 | 68 | 36 | 4 | 253 |
+| $60+$ | 75 | 15 | 3 | 0 | 93 |
+| Total | 430 | 381 | 320 | 33 | 1164 |
+
+## Joint Probabilities of Contingency Tables
+
+If a faculty member is selected at random, what is the probability that he/she is a full professor and under 40?
+
+| Age <br> (year) | Full <br> professor | Associate <br> professor | Assistant <br> professor | Lecturer | Total |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| Under 40 | 54 | 173 | 220 | 23 | 470 |
+| $40-49$ | 156 | 125 | 61 | 6 | 348 |
+| $50-59$ | 145 | 68 | 36 | 4 | 253 |
+| $60+$ | 75 | 15 | 3 | 0 | 93 |
+| Total | 430 | 381 | 320 | 33 | 1164 |
+
+$\mathrm{P}($ full professor \& under 40$)=\frac{54}{1164} \approx 0.046$.
+
+## Joint Probabilities of Contingency Tables
+
+If a faculty member is selected at random, what is the probability that he/she is a full professor and under 40?
+
+| Age <br> (year) | Full <br> professor | Associate <br> professor | Assistant <br> professor | Lecturer | Total |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| Under 40 | 54 | 173 | 220 | 23 | 470 |
+| $40-49$ | 156 | 125 | 61 | 6 | 348 |
+| $50-59$ | 145 | 68 | 36 | 4 | 253 |
+| $60+$ | 75 | 15 | 3 | 0 | 93 |
+| Total | 430 | 381 | 320 | 33 | 1164 |
+
+$\mathrm{P}($ full professor \& under 40 $)=\frac{54}{1164} \approx 0.046$.
+
+- Probabilities that involve combination of categories of both categorical variables in a contingency table are called joint probabilities.
+- same as the overall proportions for contingency tables introduced in Week 2.
+
+
+## Conditional Probabilities of Contingency Tables
+
+If we know that the selected faculty member is under 40 , what is the probability that he/she is a full professor?
+
+| Age (year) | Full professor | Associate professor | Assistant professor | Lecturer | Total |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Under 40 | 54 | 173 | 220 | 23 | 470 |
+| 40-49 | 156 | 125 | 61 | 6 | 348 |
+| 50-59 | 145 | 68 | 36 | 4 | 253 |
+| 60+ | 75 | 15 | 3 | 0 | 93 |
+| Total | 430 | 381 | 320 | 33 | 1164 |
+
+## Conditional Probabilities of Contingency Tables
+
+If we know that the selected faculty member is under 40 , what is the probability that he/she is a full professor?
+
+| Age (year) | Full professor | Associate professor | Assistant professor | Lecturer | Total |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Under 40 | 54 | 173 | 220 | 23 | 470 |
+| 40-49 | 156 | 125 | 61 | 6 | 348 |
+| 50-59 | 145 | 68 | 36 | 4 | 253 |
+| 60+ | 75 | 15 | 3 | 0 | 93 |
+| Total | 430 | 381 | 320 | 33 | 1164 |
+
+$\mathrm{P}($ full professor $\mid$ under 40$)=\frac{54}{470} \approx 0.11$
+
+## Conditional Probabilities of Contingency Tables
+
+If we know that the selected faculty member is under 40 , what is the probability that he/she is a full professor?
+
+| Age (year) | Full professor | Associate professor | Assistant professor | Lecturer | Total |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Under 40 | 54 | 173 | 220 | 23 | 470 |
+| 40-49 | 156 | 125 | 61 | 6 | 348 |
+| 50-59 | 145 | 68 | 36 | 4 | 253 |
+| 60+ | 75 | 15 | 3 | 0 | 93 |
+| Total | 430 | 381 | 320 | 33 | 1164 |
+
+$\mathrm{P}($ full professor $\mid$ under 40$)=\frac{54}{470} \approx 0.11$
+Notice that the conditional probabilities of rank given age (column variable given row variable) for a randomly selected faculty member are simply the row proportions for contingency tables introduced in Week 2
+
+## Conditional Probabilities of Contingency Tables
+
+If we know that the selected faculty member is a full professor, what is the probability that he/she is under 40 ?
+
+| Age (year) | Full professor | Associate professor | Assistant professor | Lecturer | Total |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Under 40 | 54 | 173 | 220 | 23 | 470 |
+| 40-49 | 156 | 125 | 61 | 6 | 348 |
+| 50-59 | 145 | 68 | 36 | 4 | 253 |
+| 60+ | 75 | 15 | 3 | 0 | 93 |
+| Total | 430 | 381 | 320 | 33 | 1164 |
+
+## Conditional Probabilities of Contingency Tables
+
+If we know that the selected faculty member is a full professor, what is the probability that he/she is under 40 ?
+
+| Age (year) | Full professor | Associate professor | Assistant professor | Lecturer | Total |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Under 40 | 54 | 173 | 220 | 23 | 470 |
+| 40-49 | 156 | 125 | 61 | 6 | 348 |
+| 50-59 | 145 | 68 | 36 | 4 | 253 |
+| 60+ | 75 | 15 | 3 | 0 | 93 |
+| Total | 430 | 381 | 320 | 33 | 1164 |
+
+$\mathrm{P}($ under $40 \mid$ full professor $)=\frac{54}{430} \approx 0.13$.
+
+## Conditional Probabilities of Contingency Tables
+
+If we know that the selected faculty member is a full professor, what is the probability that he/she is under 40 ?
+
+| Age (year) | Full professor | Associate professor | Assistant professor | Lecturer | Total |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Under 40 | 54 | 173 | 220 | 23 | 470 |
+| 40-49 | 156 | 125 | 61 | 6 | 348 |
+| 50-59 | 145 | 68 | 36 | 4 | 253 |
+| 60+ | 75 | 15 | 3 | 0 | 93 |
+| Total | 430 | 381 | 320 | 33 | 1164 |
+
+$\mathrm{P}($ under $40 \mid$ full professor $)=\frac{54}{430} \approx 0.13$.
+Notice that the conditional probabilities of age given rank (row variable given column variable) for a randomly selected faculty member are simply the column proportions for contingency tables introduced in Week 2
+
+## Conditional Probability
+
+Conditional probability
+The conditional probability of the outcome of interest $A$ given condition $B$ can be calculated as
+
+$$
+P(A \mid B)=\frac{P(A \text { and } B)}{P(B)}
+$$
+
+## Conditional Probability
+
+## Conditional probability
+
+The conditional probability of the outcome of interest $A$ given condition $B$ can be calculated as
+
+$$
+P(A \mid B)=\frac{P(A \text { and } B)}{P(B)}
+$$
+
+| Age <br> (year) | Full Assoc. Assist. <br> prof. |  |  |  | prof. | prof. |
+| :---: | :---: | :---: | :---: | :---: | :---: | :--- |
+|  | 54 | 173 | 220 | 23 | 470 |  |
+| $40-49$ | 156 | 125 | 61 | 6 | 348 |  |
+| $50-59$ | 145 | 68 | 36 | 4 | 253 |  |
+| $60+$ | 75 | 15 | 3 | 0 | 93 | $=\frac{54}{470}$ |
+| Total | 430 | 381 | 320 | 33 | 1164 | $=$ |
+
+## Conditional Probability
+
+## Conditional probability
+
+The conditional probability of the outcome of interest $A$ given condition $B$ can be calculated as
+
+$$
+P(A \mid B)=\frac{P(A \text { and } B)}{P(B)}
+$$
+
+| Age <br> (year) | Full Assoc. Assist. <br> prof. |  |  |  | prof. | prof. |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+|  | 54 | 173 | 220 | 23 | 470 |  |
+| $40-49$ | 156 | 125 | 61 | 6 | 348 |  |
+| $50-59$ | 145 | 68 | 36 | 4 | 253 | $=\frac{54 / 1164}{470 / 1164}$ |
+| $60+$ | 75 | 15 | 3 | 0 | 93 |  |
+| Total | 430 | 381 | 320 | 33 | 1164 | $=$ |
+
+## Conditional Probability
+
+## Conditional probability
+
+The conditional probability of the outcome of interest $A$ given condition $B$ can be calculated as
+
+$$
+P(A \mid B)=\frac{P(A \text { and } B)}{P(B)}
+$$
+
+| Age <br> (year) | Full Assoc. Assist. <br> prof. |  |  |  | prof. | prof. |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+|  | 54 | 173 | 220 | 23 | 470 |  |
+| $40-49$ | 156 | 125 | 61 | 6 | 348 |  |
+| $50-59$ | 145 | 68 | 36 | 4 | 253 | $=\frac{54 / 1164}{470 / 1164}$ |
+| $60+$ | 75 | 15 | 3 | 0 | 93 | $=\frac{P(\text { full prof. } \text { \& under } 40)}{P(\text { under } 40)}$ |
+| Total | 430 | 381 | 320 | 33 | 1164 |  |
+
+If only the joint probabilities (relative frequencies) are available, but the counts are not,
+
+| Age <br> (year) | Full <br> prof. | Assoc. <br> prof. | Assist. <br> prof. | Lect. | Total |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| Under 40 | 0.046 | 0.149 | 0.189 | 0.020 |  |
+| $40-49$ | 0.134 | 0.107 | 0.052 | 0.005 |  |
+| $50-59$ | 0.125 | 0.058 | 0.031 | 0.003 |  |
+| $60+$ | 0.064 | 0.013 | 0.003 | 0.000 |  |
+| Total |  |  |  |  |  |
+
+If only the joint probabilities (relative frequencies) are available, but the counts are not,
+
+| Age <br> (year) | Full <br> prof. | Assoc. <br> prof. | Assist. <br> prof. | Lect. | Total |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| Under 40 | 0.046 | 0.149 | 0.189 | 0.020 | 0.404 |
+| $40-49$ | 0.134 | 0.107 | 0.052 | 0.005 | 0.299 |
+| $50-59$ | 0.125 | 0.058 | 0.031 | 0.003 | 0.217 |
+| $60+$ | 0.064 | 0.013 | 0.003 | 0.000 | 0.080 |
+| Total | 0.369 | 0.327 | 0.275 | 0.028 | 1.000 |
+
+- the marginal probabilities can be computed from the joint probabilities
+
+If only the joint probabilities (relative frequencies) are available, but the counts are not,
+
+| Age <br> (year) | Full <br> prof. | Assoc. <br> prof. | Assist. <br> prof. | Lect. | Total |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| Under 40 | 0.046 | 0.149 | 0.189 | 0.020 | 0.404 |
+| $40-49$ | 0.134 | 0.107 | 0.052 | 0.005 | 0.299 |
+| $50-59$ | 0.125 | 0.058 | 0.031 | 0.003 | 0.217 |
+| $60+$ | 0.064 | 0.013 | 0.003 | 0.000 | 0.080 |
+| Total | 0.369 | 0.327 | 0.275 | 0.028 | 1.000 |
+
+- the marginal probabilities can be computed from the joint probabilities
+- the conditional probabilities can be computed from the joint probabilities, e.g.,
+$P($ full prof. | under 40$)=\frac{P(\text { full prof. \& under } 40)}{P(\text { under } 40)}=\frac{0.046}{0.404}$
+
+
+## General Multiplication Rule
+
+## General Multiplication Rule
+
+The formula for conditional probability
+
+$$
+P(B \mid A)=\frac{P(A \text { and } B)}{P(A)}
+$$
+
+can be used the other way around. Multiplied both sides by $P(A)$, we get the General Multiplication Rule:
+
+$$
+P(A \text { and } B)=P(A) \times P(B \mid A)
+$$
+
+If we want $P(A$ and $B)$, and both $P(A), P(B \mid A)$ are known or are easy to compute, we can use the General Multiplication Rule.
+
+## Example: General Multiplication Rule
+
+A deck of cards is shuffled and the two top cards are placed face down on a table. What is the probability that both cards are Kings?
+
+Solution. Let
+
+$$
+\begin{aligned}
+& A=1 \text { st card is a King, } \\
+& B=2 \text { nd card is a King. }
+\end{aligned}
+$$
+
+- $P(A)=P($ the 1 st card is a King $)=$
+- Given that the 1 st card is a King, the conditional probability that the 2 nd card is a King $=$ ?
+- So the probability that both cards are Kings =?
+
+
+## Example: General Multiplication Rule
+
+A deck of cards is shuffled and the two top cards are placed face down on a table. What is the probability that both cards are Kings?
+
+Solution. Let
+
+$$
+\begin{aligned}
+& A=1 \text { st card is a King, } \\
+& B=2 \text { nd card is a King. }
+\end{aligned}
+$$
+
+- $P(A)=P($ the 1 st card is a King $)=4 / 52$.
+- Given that the 1 st card is a King, the conditional probability that the 2 nd card is a King $=$ ?
+- So the probability that both cards are Kings =?
+
+
+## Example: General Multiplication Rule
+
+A deck of cards is shuffled and the two top cards are placed face down on a table. What is the probability that both cards are Kings?
+
+Solution. Let
+
+$$
+\begin{aligned}
+& A=1 \text { st card is a King, } \\
+& B=2 \text { nd card is a King. }
+\end{aligned}
+$$
+
+- $P(A)=P($ the 1 st card is a King $)=4 / 52$.
+- Given that the 1 st card is a King, the conditional probability that the 2nd card is a King $=$ ? $P(B \mid A)=\frac{3}{51}$.
+- So the probability that both cards are Kings =?
+
+
+## Example: General Multiplication Rule
+
+A deck of cards is shuffled and the two top cards are placed face down on a table. What is the probability that both cards are Kings?
+
+Solution. Let
+
+$$
+\begin{aligned}
+& A=1 \text { st card is a King, } \\
+& B=2 \text { nd card is a King. }
+\end{aligned}
+$$
+
+- $P(A)=P($ the 1 st card is a King $)=4 / 52$.
+- Given that the 1 st card is a King, the conditional probability that the 2nd card is a King $=$ ? $P(B \mid A)=\frac{3}{51}$.
+- So the probability that both cards are Kings =?
+
+$$
+P(A \text { and } B)=P(A) \times P(B \mid A)=\frac{4}{52} \times \frac{3}{51}=\frac{1}{221} \approx 0.0045
+$$
+
+## Example: General Multiplication Rule
+
+A deck of cards is shuffled and the two top cards are placed face down on a table. What is the probability that neither card is a K ?
+
+Sol. Let
+
+$$
+\begin{aligned}
+& A=1 \text { st card is NOT a K, } \\
+& B=2 \text { nd card is NOT a K. }
+\end{aligned}
+$$
+
+- $P(A)=P$ (the 1 st card is not a K ) $=$
+- Given that the 1 st card is not a K , the conditional probability that the 2nd card is not a $\mathrm{K}=$ ?
+- So the probability that neither card is a $\mathrm{K}=$ ?
+- P (at least one of the two cards is a K ) =?
+
+
+## Example: General Multiplication Rule
+
+A deck of cards is shuffled and the two top cards are placed face down on a table. What is the probability that neither card is a K ?
+
+Sol. Let
+
+$$
+\begin{aligned}
+& A=1 \text { st card is NOT a K, } \\
+& B=2 \text { nd card is NOT a K. }
+\end{aligned}
+$$
+
+- $P(A)=P($ the 1 st card is not a K$)=48 / 52$.
+- Given that the 1 st card is not a K , the conditional probability that the 2nd card is not a $\mathrm{K}=$ ?
+- So the probability that neither card is a $\mathrm{K}=$ ?
+- P (at least one of the two cards is a K ) =?
+
+
+## Example: General Multiplication Rule
+
+A deck of cards is shuffled and the two top cards are placed face down on a table. What is the probability that neither card is a K ?
+
+Sol. Let
+
+$$
+\begin{aligned}
+& A=1 \text { st card is NOT a K, } \\
+& B=2 \text { nd card is NOT a K. }
+\end{aligned}
+$$
+
+- $P(A)=P($ the 1 st card is not a K$)=48 / 52$.
+- Given that the 1 st card is not a K , the conditional probability that the 2nd card is not a $\mathrm{K}=? P(B \mid A)=\frac{47}{51}$.
+- So the probability that neither card is a $\mathrm{K}=$ ?
+- P (at least one of the two cards is a K ) =?
+
+
+## Example: General Multiplication Rule
+
+A deck of cards is shuffled and the two top cards are placed face down on a table. What is the probability that neither card is a K ?
+
+Sol. Let
+
+$$
+\begin{aligned}
+& A=1 \text { st card is NOT a K, } \\
+& B=2 \text { nd card is NOT a K. }
+\end{aligned}
+$$
+
+- $P(A)=P($ the 1 st card is not a K$)=48 / 52$.
+- Given that the 1 st card is not a K , the conditional probability that the 2nd card is not a $\mathrm{K}=? P(B \mid A)=\frac{47}{51}$.
+- So the probability that neither card is a $\mathrm{K}=$ ? $P(A$ and $B)=P(A) \times P(B \mid A)=\frac{48}{52} \times \frac{47}{51}=\frac{188}{221} \approx 0.851$.
+- P (at least one of the two cards is a K$)=$ ?
+
+
+## Example: General Multiplication Rule
+
+A deck of cards is shuffled and the two top cards are placed face down on a table. What is the probability that neither card is a K ?
+
+Sol. Let
+
+$$
+\begin{aligned}
+& A=1 \text { st card is NOT a K, } \\
+& B=2 \text { nd card is NOT a K. }
+\end{aligned}
+$$
+
+- $P(A)=P($ the 1 st card is not a K$)=48 / 52$.
+- Given that the 1 st card is not a K , the conditional probability that the 2nd card is not a $\mathrm{K}=? P(B \mid A)=\frac{47}{51}$.
+- So the probability that neither card is a $\mathrm{K}=$ ? $P(A$ and $B)=P(A) \times P(B \mid A)=\frac{48}{52} \times \frac{47}{51}=\frac{188}{221} \approx 0.851$.
+- P (at least one of the two cards is a K$)=$ ? \{at least a K$\}^{c}=\{$ neither is a K$\}$
+So, $\mathrm{P}($ at least a K$)=1-\mathrm{P}($ neither is K$)=1-0.851=0.149$.
+
+
+## General Multiplication Rule for Several Events
+
+$$
+\begin{aligned}
+P(A B C) & =P(A) \times P(B \mid A) \times P(C \mid A B) \\
+P(A B C D) & =P(A) \times P(B \mid A) \times P(C \mid A B) \times P(D \mid A B C) \\
+P(A B C D E) & =P(A) \times P(B \mid A) \times P(C \mid A B) \times P(D \mid A B C) \times P(E \mid A B C D)
+\end{aligned}
+$$
+
+and so on
+
+## Example: General Multiplication Rule for Several Events
+
+Five cards are dealt from a deck of well-shuffled card. What is the chance that none of them are hearts $\varphi$ ?
+
+Sol. Let $A_{i}$ be the event that the $i$ th card dealt is not a $\triangle$.
+
+- $P\left(A_{1}\right)=P(1$ st card is not a $\varnothing)=39 / 52$
+
+
+## Example: General Multiplication Rule for Several Events
+
+Five cards are dealt from a deck of well-shuffled card. What is the chance that none of them are hearts $\varphi$ ?
+
+Sol. Let $A_{i}$ be the event that the $i$ th card dealt is not a $\triangle$.
+
+- $P\left(A_{1}\right)=P(1$ st card is not a $\varnothing)=39 / 52$
+- Given that the 1 st card is not a $v$, the conditional probability that the 2nd is not a $\diamond=P\left(A_{2} \mid A_{1}\right)=\frac{38}{51}$.
+
+
+## Example: General Multiplication Rule for Several Events
+
+Five cards are dealt from a deck of well-shuffled card. What is the chance that none of them are hearts $\varphi$ ?
+
+Sol. Let $A_{i}$ be the event that the $i$ th card dealt is not a $\triangle$.
+
+- $P\left(A_{1}\right)=P(1$ st card is not a $\varnothing)=39 / 52$
+- Given that the 1 st card is not a $v$, the conditional probability that the 2nd is not a $\ominus=P\left(A_{2} \mid A_{1}\right)=\frac{38}{51}$.
+- Given neither of the first two cards is a $\triangle$, the condition probability that the 3rd is not a $\diamond=P\left(A_{3} \mid A_{1} A_{2}\right)=\frac{37}{50}$.
+
+
+## Example: General Multiplication Rule for Several Events
+
+Five cards are dealt from a deck of well-shuffled card. What is the chance that none of them are hearts $\varphi$ ?
+
+Sol. Let $A_{i}$ be the event that the $i$ th card dealt is not a $\triangle$.
+
+- $P\left(A_{1}\right)=P(1$ st card is not a $\varnothing)=39 / 52$
+- Given that the 1 st card is not a $v$, the conditional probability that the 2nd is not a $\ominus=P\left(A_{2} \mid A_{1}\right)=\frac{38}{51}$.
+- Given neither of the first two cards is a $\triangle$, the condition probability that the 3rd is not a $\triangle=P\left(A_{3} \mid A_{1} A_{2}\right)=\frac{37}{50}$.
+- Likewise, $P\left(A_{4} \mid A_{1} A_{2} A_{3}\right)=\frac{36}{49}, P\left(A_{5} \mid A_{1} A_{2} A_{3} A_{4}\right)=\frac{35}{48}$
+
+
+## Example: General Multiplication Rule for Several Events
+
+Five cards are dealt from a deck of well-shuffled card. What is the chance that none of them are hearts $\varphi$ ?
+
+Sol. Let $A_{i}$ be the event that the $i$ th card dealt is not a $\triangle$.
+
+- $P\left(A_{1}\right)=P(1$ st card is not a $\varnothing)=39 / 52$
+- Given that the 1 st card is not a $v$, the conditional probability that the 2nd is not a $\ominus=P\left(A_{2} \mid A_{1}\right)=\frac{38}{51}$.
+- Given neither of the first two cards is a $\triangle$, the condition probability that the 3rd is not a $\diamond=P\left(A_{3} \mid A_{1} A_{2}\right)=\frac{37}{50}$.
+- Likewise, $P\left(A_{4} \mid A_{1} A_{2} A_{3}\right)=\frac{36}{49}, P\left(A_{5} \mid A_{1} A_{2} A_{3} A_{4}\right)=\frac{35}{48}$
+- By the General Multiplication Rule,
+
+$$
+P\left(A_{1} A_{2} A_{3} A_{4} A_{5}\right)=\frac{39}{52} \times \frac{38}{51} \times \frac{37}{50} \times \frac{36}{49} \times \frac{35}{48} \approx 0.222
+$$
+
+Continue the previous slide, what is the probability of getting at least one heart $\rho$ among the five cards?
+
+Sol. Since $\{\text { at least one } \triangleright\}^{c}=\{$ no $\triangleright\}$, by the complement rule,
+
+$$
+P(\text { at least one } \otimes)=1-P(\text { no } \otimes)=1-0.222=0.778 \text {. }
+$$
+
+Keep in mind:
+
+- The complement of \{at least one is...\} is \{none is...\}
+- The complement of $\{$ all are...\} is \{at least one is not ...\}
+
+
+## Independence
+
+Two random processes are independent if knowing the outcome of one provides no useful information about the outcome of the other.
+
+## Independence
+
+Two random processes are independent if knowing the outcome of one provides no useful information about the outcome of the other.
+
+- Knowing that the coin landed on a head on the first toss does not provide any useful information for determining what the coin will land on in the second toss.
+$\longrightarrow$ Outcomes of two tosses of a coin are independent.
+
+
+## Independence
+
+Two random processes are independent if knowing the outcome of one provides no useful information about the outcome of the other.
+
+- Knowing that the coin landed on a head on the first toss does not provide any useful information for determining what the coin will land on in the second toss.
+$\longrightarrow$ Outcomes of two tosses of a coin are independent.
+- Knowing that the first card drawn from a deck is an ace does provide useful information for determining the probability of drawing an ace in the second draw.
+$\longrightarrow$ Outcomes of two draws from a deck of cards (w/o replacement) are dependent.
+
+
+## Independence and Conditional Probabilities
+
+In mathematical notation, if $P(A \mid B)=P(A)$ then the events $A$ and $B$ are said to be independent.
+
+## Independence and Conditional Probabilities
+
+In mathematical notation, if $P(A \mid B)=P(A)$ then the events $A$ and $B$ are said to be independent.
+
+- Conceptually: Giving $B$ doesn't tell us anything about $A$.
+
+
+## Independence and Conditional Probabilities
+
+In mathematical notation, if $P(A \mid B)=P(A)$ then the events $A$ and $B$ are said to be independent.
+
+- Conceptually: Giving $B$ doesn't tell us anything about $A$.
+
+Equivalently, one can also check the independency of the events $A$ and $B$ by check whether $P(B \mid A)=P(B)$.
+
+## Practice - Checking for Independence
+
+Between January 9-12, 2013, SurveyUSA interviewed a random sample of 500 NC residents asking them whether they think widespread gun ownership protects law abiding citizens from crime, or makes society more dangerous. $58 \%$ of all respondents said it protects citizens. $67 \%$ of White respondents, $28 \%$ of Black respondents, and $64 \%$ of Hispanic respondents shared this view. Are opinion on gun ownership and race ethnicity independent?
+
+## Practice - Checking for Independence
+
+Between January 9-12, 2013, SurveyUSA interviewed a random sample of 500 NC residents asking them whether they think widespread gun ownership protects law abiding citizens from crime, or makes society more dangerous. $58 \%$ of all respondents said it protects citizens. $67 \%$ of White respondents, $28 \%$ of Black respondents, and $64 \%$ of Hispanic respondents shared this view. Are opinion on gun ownership and race ethnicity independent?
+
+$$
+\begin{aligned}
+P(\text { protects citizens }) & =0.58 \\
+P(\text { protects citizens } \mid \text { White }) & =0.67 \\
+P(\text { protects citizens } \mid \text { Black }) & =0.28 \\
+P(\text { protects citizens } \mid \text { Hispanic }) & =0.64
+\end{aligned}
+$$
+
+## Practice - Checking for Independence
+
+Between January 9-12, 2013, SurveyUSA interviewed a random sample of 500 NC residents asking them whether they think widespread gun ownership protects law abiding citizens from crime, or makes society more dangerous. $58 \%$ of all respondents said it protects citizens. $67 \%$ of White respondents, $28 \%$ of Black respondents, and $64 \%$ of Hispanic respondents shared this view. Are opinion on gun ownership and race ethnicity independent?
+
+$$
+\begin{aligned}
+P(\text { protects citizens }) & =0.58 \\
+P(\text { protects citizens } \mid \text { White }) & =0.67 \\
+P(\text { protects citizens } \mid \text { Black }) & =0.28 \\
+P(\text { protects citizens } \mid \text { Hispanic }) & =0.64
+\end{aligned}
+$$
+
+$P$ (protects citizens) varies by race/ethnicity, therefore opinion on gun ownership and race ethnicity are dependent.
+
+## Independence of Events v.s. Independence of Variables in a Two-Way Contingency Table
+
+Recall that for a two-way contingency table, the two variables are independent if the row proportions do not change from row to row. This is consistent with the definition of independence of events since
+
+$$
+\text { row proportions }=P \text { (column var.|row var.), }
+$$
+
+and if the row proportions do not change from row to row, they will be equal to the marginal prob. of the column variable.
+
+## Independence of Events v.s. Independence of Variables in a Two-Way Contingency Table
+
+Recall that for a two-way contingency table, the two variables are independent if the row proportions do not change from row to row. This is consistent with the definition of independence of events since
+
+$$
+\text { row proportions }=P \text { (column var.|row var.), }
+$$
+
+and if the row proportions do not change from row to row, they will be equal to the marginal prob. of the column variable.
+
+For the faculty example, as $P($ rank $\mid$ age $) \neq P($ rank $)$, the age and rank of faculty members are dependent.
+
+## Multiplication Rule for Independent Events
+
+When $A$ and $B$ are independent
+
+$$
+P(A \text { and } B)=P(A) \times P(B)
+$$
+
+- This is simply the general multiplication rule: $P(A$ and $B)=P(A) \times P(B \mid A)$ in which $P(B \mid A)$ reduce to $P(B)$ when $A$ and $B$ are independent
+- More generally,
+
+$$
+P\left(A_{1} \text { and } \cdots \text { and } A_{k}\right)=P\left(A_{1}\right) \times \cdots \times P\left(A_{k}\right)
+$$
+
+if $A_{1}, \ldots, A_{k}$ are independent.
+
+## Multiplication Rule for Independent Events
+
+When $A$ and $B$ are independent
+
+$$
+P(A \text { and } B)=P(A) \times P(B)
+$$
+
+- This is simply the general multiplication rule: $P(A$ and $B)=P(A) \times P(B \mid A)$ in which $P(B \mid A)$ reduce to $P(B)$ when $A$ and $B$ are independent
+- More generally,
+
+$$
+P\left(A_{1} \text { and } \cdots \text { and } A_{k}\right)=P\left(A_{1}\right) \times \cdots \times P\left(A_{k}\right)
+$$
+
+if $A_{1}, \ldots, A_{k}$ are independent.
+Exercise: You roll a 6-face die twice, what is the probability of getting two aces in a row?
+
+## Multiplication Rule for Independent Events
+
+When $A$ and $B$ are independent
+
+$$
+P(A \text { and } B)=P(A) \times P(B)
+$$
+
+- This is simply the general multiplication rule: $P(A$ and $B)=P(A) \times P(B \mid A)$ in which $P(B \mid A)$ reduce to $P(B)$ when $A$ and $B$ are independent
+- More generally,
+
+$$
+P\left(A_{1} \text { and } \cdots \text { and } A_{k}\right)=P\left(A_{1}\right) \times \cdots \times P\left(A_{k}\right)
+$$
+
+if $A_{1}, \ldots, A_{k}$ are independent.
+Exercise: You roll a 6-face die twice, what is the probability of getting two aces in a row?
+
+$$
+P(\text { ace in the } 1 \text { st roll }) \times P(\text { ace on the } 2 \text { nd roll })=\frac{1}{6} \times \frac{1}{6}=\frac{1}{36}
+$$
+
+## Practice
+
+A recent Gallup poll suggests that $25.5 \%$ of Texans do not have health insurance as of June 2012. Assuming that the uninsured rate stayed constant, what is the probability that two randomly selected Texans are both uninsured?
+(a) $25.5^{2}$
+(b) $0.255^{2}$
+(c) $0.255 \times 2$
+(d) $(1-0.255)^{2}$
+![](https://cdn.mathpix.com/cropped/2025_09_23_fd6b4ea76fc16bd35fe6g-090.jpg?height=480&width=587&top_left_y=337&top_left_x=495)
+
+## Practice
+
+A recent Gallup poll suggests that $25.5 \%$ of Texans do not have health insurance as of June 2012. Assuming that the uninsured rate stayed constant, what is the probability that two randomly selected Texans are both uninsured?
+(a) $25.5^{2}$
+(b) $0.255^{2}$
+(c) $0.255 \times 2$
+(d) $(1-0.255)^{2}$
+![](https://cdn.mathpix.com/cropped/2025_09_23_fd6b4ea76fc16bd35fe6g-091.jpg?height=480&width=587&top_left_y=337&top_left_x=495)
+
+## Putting everything together...
+
+If we were to randomly select 5 Texans, what is the probability that at least one is uninsured?
+
+By the complement rule:
+
+$$
+\begin{aligned}
+P(\text { at least } 1 \text { uninsured }) & =1-P(\text { none uninsured }) \\
+& =1-\left[(1-0.255)^{5}\right] \\
+& =1-0.745^{5} \\
+& =0.77
+\end{aligned}
+$$
+
+Keep in mind that
+
+$$
+P(\text { at least one })=1-P(\text { none })
+$$
+
+## Abuse of the Multiplication Rule
+
+As estimated in 2012, of the U.S. population,
+
+- $13.4 \%$ were 65 or older, and
+- $52 \%$ were male.
+
+True or False and explain: $0.134 \times 0.52 \approx 7 \%$ of the U.S. population were males age 65 or older.
+
+## Abuse of the Multiplication Rule
+
+As estimated in 2012, of the U.S. population,
+
+- $13.4 \%$ were 65 or older, and
+- $52 \%$ were male.
+
+True or False and explain: $0.134 \times 0.52 \approx 7 \%$ of the U.S. population were males age 65 or older.
+
+False, age and gender are dependent.
+In particular, as women on average live longer than men, there are more old women than old men.
+
+Among those age 65 or older, only $44 \%$ are male, not $52 \%$. Of the U.S. population in 2012, only $0.134 \times 0.44 \approx 5.9 \%$ were males age 65 or older.
+
+Tree diagrams and Bayes' Theorem
+
+## Example - Nervous Job Applicant
+
+Suppose an applicant for a job has been invited for an interview.
+The probability that
+
+- he is nervous is $P(N)=0.7$,
+- the interview is successful given he is nervous is $P(S \mid N)=0.2$,
+- the interview is successful given he is not nervous is $P\left(S \mid N^{c}\right)=0.9$.
+
+What is the probability that the interview is successful?
+
+$$
+\begin{aligned}
+P(S) & =P(S \text { and } N)+P\left(S \text { and } N^{c}\right) \\
+& =P(N) P(S \mid N)+P\left(N^{c}\right) P\left(S \mid N^{c}\right) \\
+& =0.7 \times 0.2+0.3 \times 0.9=0.41
+\end{aligned}
+$$
+
+## Tree Diagram for the Nervous Job Applicant Example
+
+Another look at the nervous job applicant example:
+![](https://cdn.mathpix.com/cropped/2025_09_23_fd6b4ea76fc16bd35fe6g-097.jpg?height=645&width=982&top_left_y=212&top_left_x=89)
+
+## Nervous Job Applicant Example Continued
+
+Conversely, given the interview is successful, what is the probability that the job applicant is nervous during the interview?
+
+$$
+\begin{aligned}
+P(N \mid S)=\frac{P(N \text { and } S)}{P(S)} & =\frac{P(N \text { and } S)}{0.41} \\
+& =\frac{P(N) P(S \mid N)}{0.41} \\
+& =\frac{0.7 \times 0.2}{0.41}=\frac{14}{41} \approx 0.34
+\end{aligned}
+$$
+
+in which $P(S)=0.41$ was found in the previous slide.
+
+## Bayes' Theorem
+
+The problem in the previous slide is an example of the Bayses' Theorem.
+
+Knowing $P(B \mid A), P\left(B \mid A^{c}\right)$, and $P(A)$, is there a way to know $P(A \mid B)$ ?
+
+$$
+P(A \mid B)=\frac{P(A \text { and } B)}{P(B)}
+$$
+
+## Bayes' Theorem
+
+The problem in the previous slide is an example of the Bayses' Theorem.
+
+Knowing $P(B \mid A), P\left(B \mid A^{c}\right)$, and $P(A)$, is there a way to know $P(A \mid B)$ ?
+
+$$
+P(A \mid B)=\frac{P(A \text { and } B)}{P(B)}=\frac{P(A) P(B \mid A)}{P(B)}
+$$
+
+## Bayes' Theorem
+
+The problem in the previous slide is an example of the Bayses' Theorem.
+
+Knowing $P(B \mid A), P\left(B \mid A^{c}\right)$, and $P(A)$, is there a way to know $P(A \mid B)$ ?
+
+$$
+\begin{aligned}
+P(A \mid B)=\frac{P(A \text { and } B)}{P(B)} & =\frac{P(A) P(B \mid A)}{P(B)} \\
+& =\frac{P(A) P(B \mid A)}{P(B \text { and } A)+P\left(B \text { and } A^{c}\right)}
+\end{aligned}
+$$
+
+## Bayes' Theorem
+
+The problem in the previous slide is an example of the Bayses' Theorem.
+
+Knowing $P(B \mid A), P\left(B \mid A^{c}\right)$, and $P(A)$, is there a way to know $P(A \mid B)$ ?
+
+$$
+\begin{aligned}
+P(A \mid B)=\frac{P(A \text { and } B)}{P(B)} & =\frac{P(A) P(B \mid A)}{P(B)} \\
+& =\frac{P(A) P(B \mid A)}{P(B \text { and } A)+P\left(B \text { and } A^{c}\right)} \\
+& =\frac{P(A) P(B \mid A)}{P(A) P(B \mid A)+P\left(A^{c}\right) P\left(B \mid A^{c}\right)}
+\end{aligned}
+$$
+
+## Medical Testing
+
+A common application of Bayes' rule is in the area of diagnostic testing
+
+- Let $D$ denote the event that an individual has the disease that we are testing for
+
+
+## Medical Testing
+
+A common application of Bayes' rule is in the area of diagnostic testing
+
+- Let $D$ denote the event that an individual has the disease that we are testing for
+- Let $T+$ denote the event that the test is positive, and $T$-denote the event that the test comes back negative
+
+
+## Medical Testing
+
+A common application of Bayes' rule is in the area of diagnostic testing
+
+- Let $D$ denote the event that an individual has the disease that we are testing for
+- Let $T+$ denote the event that the test is positive, and $T$-denote the event that the test comes back negative
+- $P(T+\mid D)$ is called the sensitivity of the test
+
+
+## Medical Testing
+
+A common application of Bayes' rule is in the area of diagnostic testing
+
+- Let $D$ denote the event that an individual has the disease that we are testing for
+- Let $T+$ denote the event that the test is positive, and $T$-denote the event that the test comes back negative
+- $P(T+\mid D)$ is called the sensitivity of the test
+- $P\left(T-\mid D^{c}\right)$ is called the specificity of the test
+
+
+## Medical Testing
+
+A common application of Bayes' rule is in the area of diagnostic testing
+
+- Let $D$ denote the event that an individual has the disease that we are testing for
+- Let $T+$ denote the event that the test is positive, and $T$-denote the event that the test comes back negative
+- $P(T+\mid D)$ is called the sensitivity of the test
+- $P\left(T-\mid D^{c}\right)$ is called the specificity of the test
+- Ideally, both $P(T+\mid D)$ and $P\left(T-\mid D^{c}\right)$ would equal 1.
+
+However, diagnostic tests are not perfect.
+They may give false positives and false negatives.
+
+## Enzyme Immunoassay Test for HIV
+
+- $P(T+\mid D)=0.98$ (sensitivity - positive for infected)
+- $P\left(T-\mid D^{c}\right)=0.995$ (specificity - negative for non-infected)
+- $P(D)=1 / 300$ (prevalence in the US: estimated 1 million HIV infected)
+
+What is the probability that the tested person is infected if the test was positive?
+
+$$
+\begin{aligned}
+P(D \mid T+) & =\frac{P(D) P(T+\mid D)}{P(D) P(T+\mid D)+P\left(D^{c}\right) P\left(T+\mid D^{c}\right)} \\
+& =\frac{(1 / 300) \times 0.98}{(1 / 300) \times 0.98+(299 / 300) \times 0.005} \\
+& =39.4 \%
+\end{aligned}
+$$
+
+This test is not confirmatory. Need to confirm by a second test.
+
+## Tree Diagram for the Enzyme Immunoassay Test for HIV
+
+![](https://cdn.mathpix.com/cropped/2025_09_23_fd6b4ea76fc16bd35fe6g-109.jpg?height=578&width=1007&top_left_y=133&top_left_x=90)
+
+$$
+P(D \mid T+)=\frac{(1 / 300) \times 0.98}{(1 / 300) \times 0.98+(299 / 300) \times 0.005}
+$$
+
+Draw a tree diagram!
+Don't try to memorize the formula of Bayes' Theorem.
+
+Law of Large Numbers
+
+## Law of Large Numbers
+
+Law of large numbers states that as more observations are collected, the proportion of occurrences with a particular outcome, converges to the probability of that outcome.
+
+## Misunderstanding of Law of Large Numbers I
+
+When tossing a fair coin, if heads comes up on each of the first 10 tosses, what do you think the chance is that another head will come up on the next toss? 0.5 , less than 0.5 , or more than 0.5 ?
+
+$$
+\underline{H} \underline{H} \underline{H} \underline{H} \underline{H} \underline{H} \underline{H} \underline{H} \underline{H} \underline{H} ?
+$$
+
+## Misunderstanding of Law of Large Numbers I
+
+When tossing a fair coin, if heads comes up on each of the first 10 tosses, what do you think the chance is that another head will come up on the next toss? 0.5 , less than 0.5 , or more than 0.5 ?
+
+$$
+\underline{H} \underline{H} \underline{H} \underline{H} \underline{H} \underline{H} \underline{H} \underline{H} \underline{H} \underline{H} ?
+$$
+
+- The probability is still 0.5 , or there is still a $50 \%$ chance that another head will come up on the next toss.
+
+$$
+P\left(H \text { on } 11^{\text {th }} \text { toss }\right)=P\left(T \text { on } 11^{\text {th }} \text { toss }\right)=0.5
+$$
+
+## Misunderstanding of Law of Large Numbers I
+
+When tossing a fair coin, if heads comes up on each of the first 10 tosses, what do you think the chance is that another head will come up on the next toss? 0.5 , less than 0.5 , or more than 0.5 ?
+
+$$
+\underline{H} \underline{H} \underline{H} \underline{H} \underline{H} \underline{H} \underline{H} \underline{H} \underline{H} \underline{H} ?
+$$
+
+- The probability is still 0.5 , or there is still a $50 \%$ chance that another head will come up on the next toss.
+
+$$
+P\left(H \text { on } 11^{\text {th }} \text { toss }\right)=P\left(T \text { on } 11^{\text {th }} \text { toss }\right)=0.5
+$$
+
+- The coin is not "due" for a tail.
+
+
+## Misunderstanding of Law of Large Numbers I
+
+When tossing a fair coin, if heads comes up on each of the first 10 tosses, what do you think the chance is that another head will come up on the next toss? 0.5 , less than 0.5 , or more than 0.5 ?
+
+$$
+\underline{H} \underline{H} \underline{H} \underline{H} \underline{H} \underline{H} \underline{H} \underline{H} \underline{H} \underline{H} ?
+$$
+
+- The probability is still 0.5 , or there is still a $50 \%$ chance that another head will come up on the next toss.
+
+$$
+P\left(H \text { on } 11^{\text {th }} \text { toss }\right)=P\left(T \text { on } 11^{\text {th }} \text { toss }\right)=0.5
+$$
+
+- The coin is not "due" for a tail.
+- The common misunderstanding of the LLN is that random processes are supposed to compensate for whatever happened in the past; this is just not true and is also called gambler's fallacy
+
+
+## Misunderstanding of Law of Large Numbers II
+
+Let
+$H(n)=\#$ of heads obtained in $n$ tosses of a fair coin.
+Generally, we say LLN says that " $H(n) \approx \frac{n}{2}$."
+What does " $H(n) \approx \frac{n}{2}$ " mean precisely?
+
+- Does $\left|H(n)-\frac{n}{2}\right| \longrightarrow 0$ as $n$ gets large?
+- Does $\left|\frac{H(n)}{n}-\frac{1}{2}\right| \longrightarrow 0$ as $n$ gets large?
+
+See Lab 4 and HW3.
+

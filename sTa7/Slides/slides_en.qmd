@@ -1,0 +1,1211 @@
+---
+title: "Statistics and data analysis"
+author: "Antoine Géré"
+format:
+  revealjs:
+    incremental: false
+    menu:
+      side: left
+    width: 1600
+    height: 900
+    css: styles.css
+    include-after-body: custom.js
+editor: visual
+---
+
+# General informations
+
+## Organization
+
+<br>
+
+|           |    S2    |    S3    |    S4    |    S5    |
+|-----------|:--------:|:--------:|:--------:|:--------:|
+| Lectures  | 8 (12h)  | 8 (12h)  | 8 (12h)  | 8 (12h)  |
+| Tutorials | 8 (12h)  | 8 (12h)  | 8 (12h)  | 8 (12h)  |
+| tot.      | 16 (24h) | 16 (24h) | 16 (24h) | 16 (24h) |
+
+<br>
+
+- **Lectures** : no need to bring your personal computer
+- **Tutorials** : bring your personal computer
+
+<br>
+
+<https://ant0in3g.github.io/sTa7.html> $\to$ look at your stickers !
+
+## Evaluations and Group projets
+
+<br><br>
+
+::::: columns
+::: {.column width="32%"}
+
+### Evaluations
+
+For each semester :
+
+-   One mid-semester exam (1h30)
+-   One final exam (1h30)
+
+:::
+
+::: {.column width="6%"}
+
+:::
+
+::: {.column width="62%"}
+### Group projets
+
+-   **Semester 2 :**
+
+    ::: {style="text-align:center;"}
+    [**P**remière **A**nalyse en **S**tatistique **D**escriptive (PASD)](https://ant0in3g.github.io/sTa7/PASD/PASD.html)
+    :::
+
+-   **Semester 4 :**
+
+    ::: {style="text-align:center;"}
+    [**P**remière **E**xpérience en **A**nalyse de **D**onnées (PEAD)](https://ant0in3g.github.io/sTa7/PEAD/PEAD.html)
+    :::
+
+-   **Semester 6 :**
+
+    ::: {style="text-align:center;"}
+    [**P**rojet d’**I**nitiation à la **D**émarche **Ex**périmentale (PIDEx)](https://ant0in3g.github.io/sTa7/PIDEx/PIDEx.html)
+    :::
+
+:::
+::::::
+
+## Resources and OneDrive folder
+
+### Resources
+
+-   [Slides du cours](https://ant0in3g.github.io/sTa7/Slides/slides.html)
+
+-   [Cours complet de Statistiques et analyse de données](https://ant0in3g.github.io/sTa7/LectureStat/index.html) (en construction)
+
+-   [Travaux dirigés](https://ant0in3g.github.io/sTa7/td-s.html)
+
+-   [Sujets d’examens corrigées des années passées](https://ant0in3g.github.io/sTa7/examens.html)
+
+-   [An Introduction to Statistical Learning from the Stanford University](https://www.statlearning.com/) with a [YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOzrYsAxzQyHb8n_RWNuS1e) of the lectures
+
+
+### Shared OneDrive folder
+
+*A OneDrive folder has been shared with every student*
+
+::: {.callout-caution}
+## To Do !
+[Synchornize this folder on your laptop **OR** create a shortcut on your own OneDrvive](https://ant0in3g.github.io/sTa7/orga.html)
+:::
+
+
+
+# Introduction to statistics and/with R
+
+<br>
+
+-   **Data** : interesting 
+
+$\to$ they help us **understand the world** !
+
+<br>
+
+-   **Statistics** : fundamental in **science** 
+
+$\to$ needed in the design, analysis, and interpretation of experiments !
+
+## A brief intro to R and RStudio {.scrollable}
+
+![](img/R_RStudio_LogoS.png){width=70%}
+
+-   Free open source language
+-   Built to do statistics
+-   Updated by the mathematician from all over the world
+-   Amazing graphics !
+-   Widely used in biology, agronomy, economy, ...
+
+::: {.callout-tip}
+## R and RStudio
+**Learn it, love it, use it !**
+:::
+
+<br>
+
+### Installation of R and RStudio
+
+::: {.callout-caution}
+## To Do !
+Install R and RStudio for next class !
+:::
+
+<br>
+
+### Good habits
+
+-   create a **project** on RStudio
+-   create ALWAYS **4 folders** :
+    -   `data_raw`
+    -   `data`
+    -   `img`
+    -   `doc`
+-   Use the `help` function ! ... and also `chat GPT` ...\
+    **WARNING ! It often writes code wayyyy too complicated !**
+-   **What you see in your OneDrive folder** :
+
+![](img/onedrive-folder.png){width=50%}
+
+::: {.callout-important}
+## Launch RStudio
+Always launch your **RStudio project** with 
+
+![](img/launch-RStudio.png){width=150%}
+:::
+
+<br>
+
+### Using RStudio
+
+![](img/rstudio-1st-time.png)
+
+<br>
+
+### Import DATA into RStudio
+
+- Data used for this class : [**`Data.Lecture.xlsx`**](https://istom-my.sharepoint.com/:x:/g/personal/a_gere_istom_fr/EW43vM6YV45LuPoLzg8oxlEB4bBEy3gdX2Cjh84sbcx-uQ?e=qTJp3O) 
+
+::: {.callout-important}
+**You can download it by clicking on [**`Data.Lecture.xlsx`**](https://istom-my.sharepoint.com/:x:/g/personal/a_gere_istom_fr/EW43vM6YV45LuPoLzg8oxlEB4bBEy3gdX2Cjh84sbcx-uQ?e=qTJp3O) !**
+:::
+
+- Import data from an **excel** file
+
+```{r}
+#| echo: true
+library(readxl)
+my.data <- read_excel("data_raw/Data.Lecture.xlsx")
+```
+
+- Possible to import data from many more file formats ...
+
+::: {.callout-tip}
+## Let’s get started
+**NOW "doing statistics" can get started !**
+:::
+
+<br>
+
+## General framework {.scrollable}
+
+::::: columns
+::: column
+![](img/global_view_stat.png){width="80%"}
+:::
+
+::: column
+What we are going to learn :
+
+-   Descriptive Statistics
+-   Probability theory
+-   Sample theory
+-   Inferential Statistics
+:::
+:::::
+
+<br>
+
+### Statistical Variables
+
+::: {.callout-tip}
+## Def.
+- A **variable** $X$ is any characteristic observed in a study. 
+- The data values that we observe for a variable are called **observations**
+:::
+
+-   **Unit / individual** : A member of a population
+-   **Population** : The collection of all individuals / units that we want to know more about
+-   **Sample** : The subset of the population we observe
+-   **Modality** : The distinct values or categories that the variable can take
+
+<br>
+
+### Example 
+
+**Variable** : Grade in Statistics of ISTOM's Students
+
+**Observations** : $18,14,16,11,12,15, \ldots$
+
+-   **Unit / individual** : single student
+-   **Population** : all students of ISTOM
+-   **Sample** : a class
+-   **Modality** : [0 ; 20]
+
+<br>
+
+### Types of variables
+
+-   Qualitative (Categorical)
+    -   Nominal
+    -   Ordinal
+-   Quantitative (Numerical)
+    -   Discrete
+    -   Continuous
+    
+<br>
+
+### Qualitative / Categorical Variable
+
+A variable is called **qualitative** if **each observation belongs** to a **set of distinct categories**
+
+-   Nominal : Categories are disconnected.
+
+    *Examples : Hair Color, Animal Species, ...*
+
+-   Ordinal: Categories are ranked
+
+    *Examples : Level of Education, ...*
+    
+<br>
+
+### Quantitative / Numerical Variable
+
+A variable is called **quantitative** if observations on it take numerical values that represent different magnitudes of the variable
+
+-   **Discrete** : the variable assume values in a countable set ("how many")
+
+    *Examples : Number of episode in a series, Grades, ...*
+
+-   **Continuous** : the variable assume values in a continuous set ("how much")
+
+    *Examples : Time, most physical measurements, ...*
+
+
+## Exploring Data {.scrollable}
+
+Before making statistical tests with your data it is essential to examine all your variables !
+
+Why ? To "listen" to the data :
+
+-   to catch mistakes
+-   to see patterns in the data
+-   to find violations of statistical assumptions
+-   to generate hypotheses
+-   ... and because if you don’t, you will have trouble later !
+
+### Numerical Summaries of Data
+
+-   **Central Tendency measures**. They are computed to give a "center" around which the measurements in the data are distributed.
+-   **Variation or Variability measures**. They describe "data spread" or how far away the measurements are from the center.
+-   **Relative Standing measures**. They describe the relative position of specific measurements in the data.
+
+### Mean(s)
+
+**The Mean**
+
+To calculate the average $\overline{X}$ of a set of observations, add their value and divide by the number of observations
+
+$$
+\overline{x}=\frac{X_1+X_2+X_3+\ldots+X_n}{n}=\frac{1}{n} \sum_{i=1}^n x_i
+$$
+
+### Other mean
+
+Weighted mean / Geometric mean / Harmonic mean / ...
+
+### Median
+
+-   **Median** : the exact middle value
+-   Calculation :
+    -   If there are an **odd number of observations**, find the middle value
+    -   If there are an **even number of observations**, find the middle two values and average them
+
+Example : $17, 19, 21, 22, 23, 23, 23, 38$. The Median is $$\dfrac{22+23}{2}=22.5$$
+
+### Which Location Measure Is Best ?
+
+::::: columns
+::: {.column width="50%"}
+-   Mean is best for symmetric distributions without outliers
+
+![](img/symmetrical_distribution.png)
+:::
+
+::: {.column width="50%"}
+-   Median is useful for skewed distributions or data with outliers
+
+![](img/skewed_distribution.png){width="70%"}
+:::
+:::::
+
+### Variance
+
+Average of squared deviations of values from the mean
+
+$$
+\sigma^2=\dfrac{\sum_\left(x_i-\bar{x}\right)^2}{n-1}
+$$ where $n$ is the the total number of observations
+
+-   Absolute values do not have nice mathematical properties
+-   Squares eliminate the negatives
+
+**Standard deviations are simply the square root of the variance**
+
+### Five Number Summary
+
+-   **Quartiles** divide data into 4 even parts
+
+    -   first quartile $Q_1=25$ th percentile
+
+    $25\%$ of data fall below it and $75\%$ above it
+
+    -   second quartile $Q_2=$ median $=50$ th percentile
+
+    -   third quartile $Q_3=75$ th percentile
+
+    $75 \%$ of data fall below it and 25% above it
+
+-   Interquartile Range $(I Q R)=Q_3-Q_1$
+
+**Five-Number Summary :** $\qquad \min , \quad Q_1, \quad \text { Median, } \quad Q_3, \quad \max$
+
+### Example 1
+
+For the 9 numbers: $$43, 35, 43, 33, 38, 53, 64, 27, 34$$ give the Five-Number Summary.
+
+### Example 2
+
+For the 10 numbers: $$43, 35, 43, 33, 38, 53, 64, 27, 34, 27$$ give the Five-Number Summary.
+
+### Remark : Careful !
+
+Statisticians don’t have a consensus on the calculation of quartiles. There are several formulas for quartiles.
+
+With R for example 1, we find
+
+$Q_1=34$ and $Q_2=43$.
+
+Don’t worry about the formula.
+
+Just keep in mind that quartiles divide data into 4 even parts.
+
+### Interesting Result
+
+Regardless of how the data are distributed, $75\%$ of values fall within $\sigma$ from the mean !
+
+![](img/Explained_Sigma_Mean.jpg)
+
+### Categorical / Qualitative variable(s)
+
+-   Ways to summarize of a single categorical variable
+    -   Frequency tables
+    -   Barplots, pie charts
+-   Ways to summarize of relationships between two categorical variables
+    -   two-way contingency tables
+    -   segmented barplots, standardized segmented barplots, mosaic plot
+
+### Two-Way Contingency Tables
+
+A table that summarizes data for two categorical variables is called a **contingency table**.
+
+Example : Numbers of vegetable produced wort by healthy and diseased
+
+|         | Healthy | Diseased | Tot  |
+|---------|:--------|---------:|:----:|
+| Carrots | 122     |      203 | 325  |
+| Salads  | 167     |      118 | 285  |
+| Onions  | 528     |      178 | 706  |
+| Spinach | 623     |      212 | 885  |
+| Sum     | 1490    |      711 | 2201 |
+
+# Probability and sampling
+
+coming !
+
+# Statistical tests
+
+## Statistical hypothesis tests {.scrollable}
+
+### The Hypotheses
+
+Two Competing Hypotheses :
+
+1. **Null hypothesis** H0 :
+
+The conservative hypothesis ; "There is nothing going on !"
+
+2. **Alternative hypothesis** H1 :
+
+"There is something going on"
+
+
+::: {.callout-important}
+The next step of hypothesis testing is to weigh the evidence !
+
+Could these data plausibly have happened by chance if the H0 was
+true?
+:::
+
+### Type 1 and Type 2 Errors
+
+In a hypothesis test, we make a decision about which of H0 or H1
+might be true, but our decision might be incorrect !
+
+![](img/type1-2-error.png)
+
+
+Type 1 Error ($\alpha$) $>$ Type 2 Error $(\beta)$ 
+
+$\to$ we fix $\alpha$, and try to minimize $\beta$
+
+Always being cautious in our decisions !
+
+### "Inside" a statistical hypothesis test
+
+- We collect data in our population 
+
+- We use the right test
+
+- We import our data in RStudio
+
+- We "write" the test we chose
+
+- And according to the **p-value** we get, we can accept or reject H0
+
+::: {.callout-tip}
+We need to learn which test to choose, how to choose it, and how to implement it on RStudio 
+:::
+
+## Chi2 test {.scrollable}
+
+$\to$ TD !
+
+## Binomial test {.scrollable}
+
+::: {.callout-important}
+We want to compare two percentages (or two numbers) with each other or with theoretical values 
+
+$\to$ **I do a binomial test**
+:::
+
+### Study case
+
+In this class :
+
+- how many students in this class ?
+- how many women / men ?
+
+```{r}
+#| echo: true
+women = 45
+men = 30
+```
+
+
+**The null hypothesis H0 :**
+
+In the world population we have around 50% women and 50% men. 
+
+Does the sample (P114) fit this theory ?
+
+```{r}
+#| echo: true
+#binom.test(women,men,p=0.5)
+```
+
+$\to$ What is the **p-value** ? What can we say about H0 ?
+
+## T test {.scrollable}
+
+::: {.callout-important}
+We want : 
+
+- to compare two means of samples in order to know if the two samples are from the same population ?
+
+- to compare a mean of a sample to the mean of the whole population 
+
+$\to$ We do a t test
+:::
+
+### Compare 2 samples
+
+- **Step 1** : check if the two variables are normally distributed (we still have to learn it !)
+
+- **Step 2** : We do a t test on RStudio
+
+```{r}
+#| echo: true
+x = c(1,3,2,3,2,5,3,4,2,4,4)  
+y = c(3,2,8,8,3,2,3,5,6,7,5) 
+t.test(x,y)
+```
+
+### Compare one sample to the mean of the whole population
+
+```{r}
+#| echo: true
+xx <- c(18,19,20,21,18,19,18,19,18,18,18,18,18,18,18)
+t.test(xx, mu=19)
+```
+
+## ANOVA {.scrollable}
+
+ANOVA (**AN**alysis **O**f **VA**riance) is a statistical test to determine whether two or more population means are different. 
+
+It is used to compare two or more groups to see if they are significantly different.
+
+In practice, 
+
+- t test is used to compare 2 groups
+
+- ANOVA generalizes the t-test beyond 2 groups, it is used to compare 3 or more groups
+
+```{r}
+#| echo: true
+library(tidyverse)
+library(palmerpenguins)
+head(penguins)
+summary(penguins)
+```
+
+
+```{r}
+#| echo: true
+ggplot(penguins, aes(x = species, y= flipper_length_mm)) +
+  geom_boxplot()
+```
+
+The question : 
+**Does species help explain flipper lenght ?**
+
+Assumptions :
+
+- The population from which samples are drawn should be **normally distributed**
+
+- **Independence** of cases : the sample cases should be independent of each other.
+  
+- **Homogeneity of variance** : Homogeneity means that the variance among the groups should be approximately equal.
+
+```{r}
+#| echo: true
+ggplot(penguins, aes(x = flipper_length_mm)) + 
+  geom_histogram() +
+  facet_wrap(~species, ncol =1)
+```
+
+
+
+```{r}
+#| echo: true
+penguins %>%
+  group_by(species) %>%
+  summarise(var(flipper_length_mm, na.rm = TRUE))
+```
+
+
+```{r}
+#| echo: true
+model = aov(flipper_length_mm ~ species, data = penguins)
+summary(model)
+```
+
+
+### Second example ANOVA {.scrollable}
+
+#### One way
+
+```{r}
+#| echo: true
+crop.data = read.csv("data_raw/crop.data.csv")
+head(crop.data)
+summary(crop.data)
+```
+
+
+```{r}
+#| echo: true
+one.way <- aov(yield ~ fertilizer, data = crop.data)
+summary(one.way)
+```
+
+In this one-way ANOVA setup, we test if fertilizer type has a significant impact on the final crop yield
+
+**Yes ! It does !**
+
+#### Two-way
+
+```{r}
+#| echo: true
+anova2way <- aov(yield ~ fertilizer + density, data = crop.data)
+summary(anova2way)
+```
+
+The two-way ANOVA : extension of the one-way ANOVA that examines the influence of two different categorical independent variables on one continuous dependent variable. 
+
+The two-way ANOVA not only aims at assessing the main effect of each independent variable but also if there is any interaction between them. 
+
+## Post hoc test {.scrollable}
+
+In order to find out exactly which groups are different from each other, we must conduct a **post hoc test**.
+
+- **The Tukey HSD test** : compare all groups to each other
+
+- **The Dunnett test** : compare with a reference group. 
+
+### The Tukey test
+
+```{r}
+#| echo: true
+TukeyHSD(model)
+```
+
+All three ajusted p-values are smaller than 0.05 !
+
+$\to$ We reject H0, which means that all species are significantly different in terms of flippers length
+
+```{r}
+#| echo: true
+plot(TukeyHSD(model))
+```
+
+### The Dunnett test
+
+Comparisons with a reference group.
+
+```{r}
+#| echo: true
+library(multcomp)
+post_dunnet <- glht(model,linfct = mcp(species = "Dunnett"))
+summary(post_dunnet)
+```
+
+
+
+
+## Test for Normality {.scrollable}
+
+1. Create a histogram
+
+2. Perform a Shapiro-Wilk Test
+
+3. Perform a Kolmogorov-Smirnov Test
+
+
+Produce some data
+
+```{r}
+#| echo: true
+set.seed(0)
+normal_data <- rnorm(500)
+non_normal_data <- rexp(500, rate=3)
+par(mfrow=c(1,2))
+```
+
+Create a Histogram
+
+::::: columns
+::: {.column width="50%"}
+
+```{r}
+#| echo: true
+hist(normal_data, col='steelblue', main='Normal')
+```
+
+:::
+::: {.column width="50%"}
+```{r}
+#| echo: true
+hist(non_normal_data, col='steelblue', main='Non-normal')
+```
+:::
+::::::
+
+### Shapiro-Wilk Test
+
+```{r}
+#| echo: true
+shapiro.test(normal_data)
+```
+
+
+
+```{r}
+#| echo: true
+shapiro.test(non_normal_data)
+```
+
+### Kolmogorov-Smirnov Test
+
+```{r}
+#| echo: true
+ks.test(normal_data, 'pnorm')
+```
+
+
+```{r}
+#| echo: true
+ks.test(non_normal_data, 'pnorm')
+```
+
+
+
+
+## Test for homogeneity of variances {.scrollable}
+
+
+
+
+
+Bartlett test
+
+levene test
+
+
+
+## Pearson correlation {.scrollable}
+
+...
+
+
+## Simple Linear regression {.scrollable}
+
+...
+
+
+
+
+## Multiple Linear regression {.scrollable}
+
+Few packages that are very useful to perform **multiple linear regression**
+
+```{r}
+#| echo: true
+library(tidyverse)
+library(GGally)
+library(broom)
+```
+
+We "produce" data (FYI)
+
+```{r}
+#| echo: true
+set.seed(2)
+x1 = runif(60,100,300)
+x2 = runif(60,20,120)
+y = 20 + 4*x1 - 3*x2 + rnorm(60,0,40)
+df = tibble(x1,x2,y)
+new_x1 = seq(from = 120, to = 300, length.out = 20)
+new_x2 = runif(20,30,110)
+new_data = tibble(x1 = new_x1, x2 = new_x2)
+```
+
+### The data
+
+```{r}
+#| echo: true
+df
+```
+
+### Assumptions
+
+Model of the form $y \sim \beta_0+\displaystyle\sum_{k=1}^p \beta_k x_k+\epsilon_i$
+
+- Assumes Linear relationship between $y$ and $x_1, x_2, \ldots, x_p$
+- Assumes the irreducible error ($\epsilon_i$) is normally distributed
+- Assumes homoscedacisity, that is $\epsilon_i$ does not depend on $x_1, x_2, \ldots, x_p$
+- In this model, the variables $x_i$ do not interact
+- Always watch out for outliers !
+
+### A first look at the data
+
+```{r}
+#| echo: true
+ggpairs(df)
+```
+
+### The model
+
+```{r}
+#| echo: true
+model = lm(y ~ x1 + x2, data = df)
+summary(model)
+```
+
+### Few graphs to undersand the model
+
+```{r}
+#| echo: true
+plot(model)
+```
+
+### Predictions
+
+```{r}
+#| echo: true
+new_data
+```
+
+
+$\to$ We want to "predict" the **y** according to these x1 and x2
+
+
+```{r}
+#| echo: true
+fit = predict(model,new_data)
+new_data$predict = fit
+new_data
+```
+
+
+
+## Nonparametric statistical tests {.scrollable}
+
+### Overview
+
+- **Parametric tests** have requirements about the nature or shape of the populations involved
+
+- **Nonparametric tests** do not require that samples come from populations with normal distributions or have any other particular distributions. 
+Nonparametric tests are called distribution-free tests.
+
+### The postive sides of Nonparametric tests
+
+- Nonparametric methods can be **applied to a wide variety of situations** because they do not have the more rigid requirements of the corresponding parametric methods. 
+
+- Unlike parametric methods, nonparametric methods can **often be applied to categorical data**.
+
+- Nonparametric methods usually involve **simpler computations** than the corresponding parametric methods.
+
+
+### The negative sides of Nonparametric tests
+
+- Nonparametric methods tend to **waste information**
+
+- Nonparametric tests are **not as efficient** as parametric tests
+
+::: {.callout-important}
+With a nonparametric test we need **stronger evidence** (such as a larger sample or greater differences) before we reject a null hypothesis.
+:::
+
+### Definitions
+
+- Data are **sorted** when they are arranged according to some criterion.
+
+- A **rank** is a number assigned to an individual sample item according to its order in the sorted list. The first item is assigned a rank of 1, the second is assigned a rank of 2, and so on.
+
+
+# Multivariate Analysis
+
+## What is multivariate analysis ?  {.scrollable}
+
+- Univariate statistics
+  - focus on a single variable of interest (at a time)
+  - estimate population parameters ( $\pi, \mu, \sigma^2, \ldots$ )
+  - comparison of two or more groups
+- Bivariate statistics
+  - focus on interdependencies of two variables
+  - correlation and co-occurrence
+
+<br>
+
+- Regression modelling
+  - predict single target variable ("dependent")
+  - based on multiple other variables ("independent")
+- Multivariate statistics
+  - combined effects of many variables
+  - correlations and distribution patterns
+  - often "unsupervised" : no target variable or comparison groups
+
+### Principal Component Analysis (PCA)
+
+- Intuition
+- Four definitions
+- Practical examples
+- Mathematical example
+- Case study
+
+### PCA - Goals
+
+1. **Dimension reduction** to a few dimensions while explaining most of the variance
+
+2. **Find one-dimensional** index that separates objects best
+
+### PCA - Intuition
+
+::: {.callout-note}
+Find low-dimensional projection with largest spread
+:::
+
+![](./img/pca-intution-1.png)
+
+![](./img/pca-intution-2.png)
+
+![](./img/pca-intution-3.png)
+
+- Dimension reduction : Only keep coordinate of first (few) **P**rincipal **C**omponent (PC)
+
+- Rotated basis :
+  - Vector 1 : Largest variance (1st PC)
+  - Vector 2 : Perpendicular (2nd PC)
+
+|                   | x1  | x2  |
+| :---------------- | :-- | :-- |
+| Std. Basis        | 0.3 | 0.5 |
+| PC Basis          | 0.7 | 0.1 |
+| After Dim. Reduc. | 0.7 | -   |
+
+
+### PCA - Otthogonal directions
+
+- **PC** 1 is the direction with largest variance
+
+- **PC** 2 is :
+  - perpendicular to PC 1
+  - again largest variance
+  
+- **PC** 3 is :
+  - perpendicular to PC 1, PC 2
+  - again largest variance
+
+- ...
+
+
+![](./img/pca-orthogonal-directions.png)
+
+### Which kinds of data ?
+
+**PCA** applies to data tables where :
+ - rows are considered as individuals 
+ - and columns as quantitative variables
+ 
+### Example : Dataset Iris
+
+::::: columns
+::: {.column width="50%"}
+
+```{r}
+#| echo: true
+data = iris
+data
+```
+
+:::
+
+::: {.column width="50%"}
+
+- 150 individuals (rows) : flowers
+- 5 variables 30 variables (columns) :
+  - 4 continuous variables
+  - 1 categorical variable
+
+:::
+::::::
+
+The data table can be seen as :
+
+- a set of rows 
+
+- OR a set of columns
+
+**Studying individuals** :
+
+- When can we say that 2 individuals are similar with respect to all the variables ?
+
+- If there are many individuals, is it possible to categorize them ?
+
+### The clouds of individuals
+
+- 1 individual = 1 row = 1 point in $\mathbb{R}^k$ (for iris, $k=5$)
+  - If $k=1$ : axial representation
+  - If $k=2$ : scatter plot
+  - If $k=3$ : 3D representation (more difficult)
+  - if $k=4$ : impossible to "see" 
+  
+- **Notion of similiarity** : Distance between indiduals i and j
+
+$$d^2\left(i, j\right)=\sum_{\ell=1}^k\left(x_{i \ell}-x_{j \ell}\right)^2$$
+
+::: {.callout-note}
+Studying the individuals  = Studying the shape of the clouds of individuals
+:::
+
+### Centering – standardizing data
+
+- Centering does not modify the shape of the cloud
+
+- Standardizing data is necessary if units are different between
+variables
+
+::: {.callout-note}
+Principal component analysis (PCA) = Studying the standardized data set
+:::
+
+### Fitting the cloud of individuals
+
+**PCA** searches for the best summary space for optimal visualization of the clouds of individuals.
+
+Viewpoint quality :
+
+- faithfully reproduce the cloud's shape
+
+- best representation of diversity, variability
+
+- doesn't distort distances between individuals
+
+How to quantify the quality of a viewpoint ?
+
+  notion of dispersion, of variability, also called **inertia**
+  
+  **Inertia** is the variance generalized to several dimensions.
+  
+## First example of PCA {.scrollable}
+
+### Data 
+
+|  | $P$ $\left(\text{cm}\right)$ | $T_{\text{max}}$ $\left(^\circ C\right)$ | $T_{\text{min}}$ $\left(^\circ C\right)$ |
+| :--- | :--- | :--- | :--- |
+| Ajaccio | 12,04 | 23,7 | 5,9 |
+| Brest | 17,18 | 15,5 | -1,8 |
+| Dunkerque | 11,83 | 13,1 | 2,8 |
+| Nancy | 6,23 | 13,5 | -2,4 |
+| Nice | 16,99 | 21,1 | 7,2 |
+| Toulouse | 3,87 | 20,3 | -0,9 |
+
+
+
+|  | $P$ $\left(\text{cm}\right)$ | $T_{\text{max}}$ $\left(^\circ C\right)$ | $T_{\text{min}}$ $\left(^\circ C\right)$ |
+| :--- | :--- | :--- | :--- |
+| Ajaccio | 12,04 | 23,7 | 5,9 |
+| Brest | 17,18 | 15,5 | -1,8 |
+| Dunkerque | 11,83 | 13,1 | 2,8 |
+| Nancy | 6,23 | 13,5 | -2,4 |
+| Nice | 16,99 | 21,1 | 7,2 |
+| Toulouse | 3,87 | 20,3 | -0,9 |
+| $\mu$ | 11,36 | 17,87 | 1,8 |
+| $\sigma$ | 4,98 | 4,04 | 3,76 |
+
+
+
+$$x_{i k}=\frac{x_{i k}-\overline{X_k}}{\sigma_k}$$
+
+|  | $P$ $\left(\text{cm}\right)$ | $T_{\text{max}}$ $\left(^\circ C\right)$ | $T_{\text{min}}$ $\left(^\circ C\right)$ |
+| :--- | :--- | :--- | :--- |
+| Ajaccio | 0,14 | 1,44 | 1,09 |
+| Brest | 1,17 | -0,59 | -0,96 |
+| Dunkerque | 0,10 | -1,18 | 0,27 |
+| Nancy | -1,03 | -1,08 | -1,12 |
+| Nice | 1,13 | 0,80 | 1,44 |
+| Toulouse | -1,50 | 0,60 | -0,72 |
+
+
+### Correlation Matrix
+
+|  | $P$ | $T_{\text{max}}$ | $T_{\text{min}}$ |
+| :--- | :---: | :---: | :---: |
+| $P$ | 1 | $r\left(P, T_{\text{max} }\right)$ | $r\left(P, T_{\text{min} }\right)$ |
+| $T_{\text{max} }$ | $r\left(T_{\text{max} }, P\right)$ | 1 | $r\left(T_{\text{max} }, T_{\text{min} }\right)$ |
+| $T_{\text{min} }$ | $r\left(T_{\text{min} }, P\right)$ | $r\left(T_{\text{min} }, T_{\text{max} }\right)$ | 1 |
+
+$$r\left(P, T_{\text{max} }\right) = r\left(T_{\text{max} }, P\right)$$
+
+
+$$C = \frac{1}{N} \ X_{cr}^T \ X_{cr}$$
+
+|  | $P$ | $T_{\text{max} }$ | $T_{\text{min} }$ |
+| :--- | :---: | :---: | :---: |
+| $P$ | 1 | 0,09 | 0,49 |
+| $T_{\text{max} }$ | 0,09 | 1 | 0,62 |
+| $T_{\text{min} }$ | 0,49 | 0,62 | 1 |
+
+
+### Eigenvalues and Eigenvectors
+
+$$C = 
+\begin{pmatrix}
+1 & 0.09 & 0.49 \\
+0.09 & 1 & 0.62 \\
+0.49 & 0.62 & 1
+\end{pmatrix}$$
+
+How do we do it now ?
+
+### Eigenvalues and Eigenvectors
+
+We find 
+
+- $\lambda_1 = 1,83\quad$ with $\quad v_1=\begin{pmatrix} 0.46 \\ 0.56 \\ 0.69 \end{pmatrix}$
+- $\lambda_2 = 0.92\quad$ with $\quad v_2=\begin{pmatrix} 0.79 \\ -0.61 \\ -0.03 \end{pmatrix}$
+- $\lambda_3 = 0.25\quad$ with $\quad v_3=\begin{pmatrix} 0.41 \\ 0.56 \\ -0.72 \end{pmatrix}$
+
+### Inertia (generalized variance)
+
+$$
+\mbox{Total inertia} = \sum \mbox{eigenvalues} \ = 3
+$$
+
+
+|  | Eigenvalue | Inertia (%) | Inertia Cumul. (%) |
+| :--- | :--- | :--- | :--- |
+| $\lambda_1$ | 1,83 | 61,17 | 61,17 |
+| $\lambda_2$ | 0,92 | 30,51 | 91,68 |
+| $\lambda_3$ | 0,25 | 8,32 | 100,00 |
+
+
+
+$$X_{cr} =\left[\begin{array}{rrr}0,14 & 1,44 & 1,09 \\ 1,17 & -0,59 & -0,96 \\ 0,10 & -1,18 & 0,27 \\ -1,03 & -1,08 & -1,12 \\ 1,13 & 0,80 & 1,44 \\ -1,50 & 0,60 & -0,72\end{array}\right]$$
+
+::::: columns
+::: {.column width="25%"}
+![](./img/acp-ex-1.png)
+:::
+::: {.column width="25%"}
+![](./img/acp-ex-2.png)
+:::
+::: {.column width="25%"}
+![](./img/acp-ex-3.png)
+:::
+::::::
+
+### Principal components 
+
+
+$$X_{cr} =\left[\begin{array}{rrr}0,14 & 1,44 & 1,09 \\ 1,17 & -0,59 & -0,96 \\ 0,10 & -1,18 & 0,27 \\ -1,03 & -1,08 & -1,12 \\ 1,13 & 0,80 & 1,44 \\ -1,50 & 0,60 & -0,72\end{array}\right]$$
+
+$$v_1=\begin{pmatrix} 0.46 \\ 0.56 \\ 0.69 \end{pmatrix} \qquad v_2=\begin{pmatrix} 0.79 \\ -0.61 \\ -0.03 \end{pmatrix}$$
+
+We do $X_{cr} v_1$ and $X_{cr} v_2$
+
+We get 
+$$\begin{pmatrix} 1,63 \\ -0,45 \\ -0,43 \\ -1,85 \\ 1,96 \\ -0,85 \end{pmatrix}$$
+and 
+$$\begin{pmatrix}-0,81 \\ 1,31 \\ 0,79 \\ -0,12 \\ 0,37 \\ -1,54\end{pmatrix}$$
+
+
+
+|  | $\mathrm{F}_1$ | $\mathrm{F}_2$ | $\mathrm{F}_3$ |
+| :--- | :--- | :--- | :--- |
+| Ajaccio | 1,63 | -0,81 | 0,07 |
+| Brest | -0,45 | 1,31 | 0,84 |
+| Dunkerque | -0,43 | 0,79 | -0,81 |
+| Nancy | -1,85 | -0,12 | -0,21 |
+| Nice | 1,96 | 0,37 | -0,13 |
+| Toulouse | -0,85 | -1,54 | 0,24 |
+| $\mu$ | 0 | 0 | 0 |
+| $\sigma^2$ | 1,83 | 0,92 | 0,25 |
+
+
+### Cercle de corrélation
+
+$r(P,F_1) = \mbox{First coordinate of } v_1 \times \sqrt{\lambda_1} = 0.62$ 
+
+|  | $F_1$ | $F_2$ | $F_3$ |
+| :--- | :---: | :---: | :---: |
+| $P$ | 0,62 | 0,76 | 0,21 |
+| $T_{\text{max} }$ | 0,76 | $-0,59$ | 0,28 |
+| $T_{\min }$ | 0,93 | $-0,03$ | $-0,36$ |
+
+
+
+
+

@@ -1,0 +1,157 @@
+**Weighted mean** : $\quad\quad\overline{X}=\dfrac{\sum_{i=1}^n w_i X_i}{\sum_{i=1}^n w_i}$
+
+- **Geometric mean** : $\quad\quad\overline{X}=\left(\prod_{i=1}^n X_i\right)^{\frac{1}{n}}$
+
+- **Harmonic mean** : $\quad\quad\overline{X}=\frac{n}{\sum_{i=1}^n \frac{1}{X_i}}$
+
+
+
+
+
+### Boxplots
+
+
+
+## 
+
+### Univariate statistics
+
+Going back with the dataset `iris`
+
+```{r}
+#| echo: true
+data(iris)
+```
+
+To get a global view
+
+```{r}
+#| echo: true
+summary(iris)
+```
+
+## 
+
+### Graphic Representations
+
+```{r}
+#| echo: true
+boxplot(iris$Sepal.Length, col = c("yellow"),main = "Boxplot", ylab = "Quantiles")
+```
+
+## 
+
+```{r}
+#| echo: true
+boxplot(iris[,c('Sepal.Length','Sepal.Width','Petal.Length','Petal.Width')],
+  col = c("yellow"),
+  main = paste("Boxplot"),
+  ylab = "Quantiles")
+```
+
+## 
+
+```{r}
+#| echo: true
+hist(iris$Sepal.Length,
+  col = c("orange"),
+  main = paste("Histogram for the (quantitative) variable Sepal.Length"),
+  ylab = "Frenquency",
+  xlab = "Sepal Length")
+```
+
+## 
+
+Now let's look the qualitative variable `Species`
+
+```{r}
+#| echo: true
+table_Species <- table(iris$Species)
+table_Species
+```
+
+```{r}
+#| echo: true
+prop.table(table_Species)
+```
+
+```{r}
+#| echo: true
+barplot(table_Species, col="orange")
+```
+
+### Bivariate statistics
+
+coming.
+
+# Part 2 - Probability
+
+## Chapter 1 - Randomnes
+
+### Random experiment
+
+An experiment is called **random** if
+
+-   it can be **repeated**
+-   it has **several** possible outcomes
+-   whose outcome is **unpredictable**
+
+Examples:
+
+-   rolling a six-sided die
+-   observing the disease status of a plant
+
+## 
+
+### Elementary Event
+
+An **elementary event** is a result of a random experiment.
+
+Examples:
+
+-   Getting a 3 when rolling a 6-sided die
+-   Observing a plant being sick
+
+### Sample Space
+
+The **Sample space** (denoted by $\Omega$) is the set of **all possible outcomes** (elementary events) of a random experiment.
+
+Example :
+
+-   Rolling a 6-sided die, $\Omega = \left\{1, 2, 3, 4, 5, 6 \right\}$
+
+## 
+
+### Property of a Sample Space
+
+A Sample Space $\Omega$ can be :
+
+-   a **finite** set
+-   a **countably** infinite set
+-   an **uncountably** infinite set
+
+Note :
+
+-   $\Omega$ is **discrete** : finite or countably infinite
+-   $\Omega$ is **continuous** : uncountably infinite
+
+## 
+
+### Event (Non-Elementary)
+
+A (Non-Elementary) Event is subset of $\Omega$.
+
+Example :
+
+$\to$ Event A : “Getting a result strictly greater than 4 when rolling a 6-sided die”
+
+$\to$ A=$\{5,6\}$
+
+#### Particular events
+
+-   The event $\Omega$ is certain
+-   The empty set $\emptyset$ is an impossible event
+
+# Part 3 - Estimation and Confidence Intervals
+
+

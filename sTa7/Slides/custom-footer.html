@@ -1,0 +1,20 @@
+<!-- Logo en haut à droite -->
+<img id="custom-footer-logo" src="img/Logo_ISTOM.png">
+
+<!-- Pagination en bas à droite -->
+<div id="custom-slide-number"></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const slideNumberDiv = document.getElementById("custom-slide-number");
+
+  function updateSlideNumber() {
+    const indices = Reveal.getIndices();
+    const slideNumber = indices.h + 1 + '/' + Reveal.getTotalSlides();
+    slideNumberDiv.innerText = slideNumber;
+  }
+
+  Reveal.on('slidechanged', updateSlideNumber);
+  updateSlideNumber();
+});
+</script>
