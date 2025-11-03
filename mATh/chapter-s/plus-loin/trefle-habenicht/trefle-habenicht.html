@@ -6,7 +6,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Antoine Géré">
 
 <title>Trèfle de Habenicht</title>
 <style>
@@ -82,12 +81,6 @@ window.Quarto = {
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Antoine Géré </p>
-          </div>
-  </div>
     
   
     
@@ -98,163 +91,14 @@ window.Quarto = {
 </header>
 
 
-<p>https://mathcurve.com/courbes2d/ornementales/ornementales.shtml</p>
-<p>L’équation polaire est <span class="math display">\[
-\rho = 1 +\cos\left(n\theta\right) + \sin^2\left(n\theta\right)
-\]</span></p>
-<p>La courbe est :</p>
-<iframe src="https://www.desmos.com/calculator/g8iyyrakaz" width="600" height="400" style="border: 1px solid #ccc;" frameborder="0">
-</iframe>
-<p>On se plave dans le plan orthonormé <span class="math inline">\((O, \vec{i}, \vec{j})\)</span>. Pour un paramètre <span class="math inline">\(\theta\)</span> réel, on pose</p>
-<p><span class="math display">\[
-\overrightarrow{u_{\theta}}=\cos \theta \vec{i}+\sin \theta \vec{j} \quad \text { et } \quad \overrightarrow{v_{\theta}}=-\sin \theta \vec{i}+\cos \theta \vec{j}=\overrightarrow{u_{\theta+\pi / 2}} \text {. }
-\]</span></p>
-<p><span class="math inline">\(M\)</span> étant un point du plan, on dit que [ <span class="math inline">\(r: \theta\)</span> ] est un couple de coordonnées polaires du point <span class="math inline">\(M\)</span> si et seulement si <span class="math inline">\(\overrightarrow{O M}=r \overrightarrow{u_{\theta}}\)</span>.</p>
-<p><span class="math display">\[
-M=[r: \theta] \Longleftrightarrow \overrightarrow{O M}=r \overrightarrow{u_{\theta}} \Longleftrightarrow M=O+r \overrightarrow{u_{\theta}} .
-\]</span></p>
+<p>Nous allons étudier une courbe définie par son équation polaire.</p>
+<section id="trèfle-de-habenicht" class="level2">
+<h2 class="anchored" data-anchor-id="trèfle-de-habenicht">Trèfle de Habenicht</h2>
+<p>Son équation polaire est <span class="math display">\[\rho = 1 +\cos\left(n\theta\right) + \sin^2\left(n\theta\right)\]</span></p>
+<p>Tracer le <em>Trèfle de Habenicht</em> pour <span class="math inline">\(n = 3\)</span> ou <span class="math inline">\(n = 4\)</span>, selon la chance que vous espérez ! 🍀</p>
+<p><strong>Indication</strong> :</p>
+<p>Un point <span class="math inline">\(M\)</span> de la courbe est repéré à l’aide des deux paramètres <span class="math inline">\(r\)</span> et <span class="math inline">\(\theta\)</span> tel que <span class="math display">\[\overrightarrow{O M}= r \ \overrightarrow{u_{\theta}}\]</span></p>
 <p><img src="https://cdn.mathpix.com/cropped/2025_10_30_af7e7d68bab7eb330d44g-24.jpg?height=418&amp;width=643&amp;top_left_y=2055&amp;top_left_x=451" class="img-fluid"> <img src="https://cdn.mathpix.com/cropped/2025_10_30_af7e7d68bab7eb330d44g-24.jpg?height=375&amp;width=478&amp;top_left_y=2095&amp;top_left_x=1119" class="img-fluid"></p>
-<section id="courbes-déquations-polaires" class="level3">
-<h3 class="anchored" data-anchor-id="courbes-déquations-polaires">5.2. Courbes d’équations polaires</h3>
-<p>La courbe d’équation polaire <span class="math inline">\(r=f(\theta)\)</span> est l’application suivante, où les coordonnées des points sont données en coordonnées polaires :</p>
-<p><span class="math display">\[
-\begin{array}{lllc}
-F: &amp; D &amp; \rightarrow &amp; \mathbb{R}^{2} \\
-&amp; \theta &amp; \mapsto &amp; M(\theta)=[r(\theta): \theta]=O+r(\theta) \vec{u}_{\theta}
-\end{array}
-\]</span></p>
-<p>ou encore, sous forme complexe, <span class="math inline">\(\theta \mapsto r(\theta) e^{\mathrm{i} \theta}\)</span>.</p>
-</section>
-<section id="exemple-18." class="level2">
-<h2 class="anchored" data-anchor-id="exemple-18.">Exemple 18.</h2>
-<p>Voici une spirale d’équation polaire <span class="math inline">\(r=\sqrt{\theta}\)</span>, définie pour <span class="math inline">\(\theta \in[0,+\infty[\)</span>. Par exemple pour <span class="math inline">\(\theta=0, r(\theta)=0\)</span>, donc l’origine appartient à la courbe <span class="math inline">\(\mathscr{C}\)</span>. Pour <span class="math inline">\(\theta=\frac{\pi}{2}, r(\theta)=\sqrt{\frac{\pi}{2}}\)</span>, donc <span class="math inline">\(M\left(\frac{\pi}{2}\right)= \left[\sqrt{\frac{\pi}{2}}: \frac{\pi}{2}\right]\)</span>, soit en coordonnées cartésiennes <span class="math inline">\(M\left(\frac{\pi}{2}\right)=(0,1,25 \ldots) \in \mathscr{C}\)</span>. Puis <span class="math inline">\(M(\pi)=[\sqrt{\pi}: \pi]=(-1,77 \ldots, 0) \in \mathscr{C}\)</span>, <span class="math inline">\(M(2 \pi)=[\sqrt{2 \pi}: 2 \pi]=[\sqrt{2 \pi}: 0]=(2,50 \ldots, 0) \in \mathscr{C}, \ldots\)</span> <img src="https://cdn.mathpix.com/cropped/2025_10_30_af7e7d68bab7eb330d44g-25.jpg?height=1066&amp;width=1089&amp;top_left_y=799&amp;top_left_x=485" class="img-fluid"></p>
-<p>Une telle équation ( <span class="math inline">\(r=f(\theta)\)</span> ) ressemble à une équation cartésienne ( <span class="math inline">\(y=f(x)\)</span> ). Mais la non unicité d’un couple de coordonnées polaires en fait un objet plus compliqué. Reprenons l’exemple de la spirale d’équation polaire <span class="math inline">\(r=\sqrt{\theta}\)</span>. Le point de coordonnées polaires [ <span class="math inline">\(\sqrt{\pi}\)</span> : <span class="math inline">\(\pi\)</span> ] est sur la spirale, mais aussi le point [ <span class="math inline">\(-\sqrt{\pi}: 2 \pi\)</span> ] ( <span class="math inline">\(\operatorname{car}[-\sqrt{\pi}: 2 \pi]=[\sqrt{\pi}: \pi]\)</span> ). Ainsi, si en cartésien on peut écrire <span class="math inline">\(M(x, y) \in \mathscr{C}_{f} \Longleftrightarrow y=f(x)\)</span>, ce n’est pas le cas en polaires, où l’on a seulement <span class="math inline">\(r=f(\theta) \Longrightarrow M[r: \theta] \in \mathscr{C}\)</span>. Pour avoir une équivalence, avec <span class="math inline">\(\mathscr{C}\)</span> la courbe d’équation polaire <span class="math inline">\(r=f(\theta)\)</span> et <span class="math inline">\(M\)</span> un point du plan, il faut écrire :</p>
-<p><span class="math display">\[
-M \in \mathscr{C} \Longleftrightarrow \begin{gathered}
-\text { il existe un couple }[r: \theta] \text { de coordonnées } \\
-\text { polaires de } M \text { tel que } r=f(\theta)
-\end{gathered}
-\]</span></p>
-<p>Remarque.</p>
-<ul>
-<li>Dans cette présentation, la lettre <span class="math inline">\(r\)</span> désigne à la fois la première des deux coordonnées polaires du point <span class="math inline">\([r: \theta]\)</span> et aussi la fonction <span class="math inline">\(\theta \mapsto r(\theta)\)</span>, cette confusion des notations étant résumée dans l’égalité <span class="math inline">\(r=r(\theta)\)</span>.</li>
-<li><span class="math inline">\(r(\theta)\)</span> n’est pas nécessairement la distance <span class="math inline">\(O M(\theta)\)</span> car la fonction <span class="math inline">\(r\)</span> peut tout à fait prendre des valeurs strictement négatives. La formule générale est <span class="math inline">\(O M(\theta)=|r(\theta)|\)</span>.</li>
-<li>Grâce aux relations usuelles entre les coordonnées cartésiennes et les coordonnées polaires d’un point, on peut à tout moment écrire une représentation polaire sous la forme d’une représentation paramétrique classique :</li>
-</ul>
-<p><span class="math display">\[
-\theta \mapsto\left\{\begin{array}{l}
-x(\theta)=r(\theta) \cos (\theta) \\
-y(\theta)=r(\theta) \sin (\theta)
-\end{array} .\right.
-\]</span></p>
-<section id="calcul-de-la-vitesse-en-polaires" class="level3">
-<h3 class="anchored" data-anchor-id="calcul-de-la-vitesse-en-polaires">5.3. Calcul de la vitesse en polaires</h3>
-<p>Pour pouvoir dériver un arc en coordonnées polaires, il faut d’abord savoir dériver le vecteur <span class="math inline">\(\overrightarrow{u_{\theta}}=\cos \theta \vec{i}+\sin \theta \vec{j}\)</span> en tant que fonction de <span class="math inline">\(\theta\)</span> :</p>
-<p><span class="math display">\[
-\begin{aligned}
-&amp; \frac{\mathrm{d} \overrightarrow{u_{\theta}}}{\mathrm{d} \theta}(\theta)=-\sin \theta \vec{i}+\cos \theta \vec{j}=\overrightarrow{v_{\theta}}=\overrightarrow{u_{\theta+\pi / 2}} \\
-&amp; \text { et } \quad \frac{\mathrm{d} \overrightarrow{v_{\theta}}}{\mathrm{d} \theta}(\theta)=\overrightarrow{u_{\theta+\pi / 2+\pi / 2}}=\overrightarrow{u_{\theta+\pi}}=-\overrightarrow{u_{\theta}}
-\end{aligned}
-\]</span></p>
-<p>En résumé, ils s’obtiennent par rotation d’angle <span class="math inline">\(+\frac{\pi}{2}\)</span> :</p>
-<p><span class="math display">\[
-\frac{\mathrm{d} \overrightarrow{u_{\theta}}}{\mathrm{d} \theta}=\overrightarrow{v_{\theta}} \quad \frac{\mathrm{d} \overrightarrow{v_{\theta}}}{\mathrm{d} \theta}=-\overrightarrow{u_{\theta}}
-\]</span></p>
-</section>
-<section id="tangente-en-un-point-distinct-de-lorigine" class="level3">
-<h3 class="anchored" data-anchor-id="tangente-en-un-point-distinct-de-lorigine">5.4. Tangente en un point distinct de l’origine</h3>
-<p>Soient <span class="math inline">\(r\)</span> une fonction dérivable sur un domaine <span class="math inline">\(D\)</span> de <span class="math inline">\(\mathbb{R}\)</span> à valeurs dans <span class="math inline">\(\mathbb{R}\)</span> et <span class="math inline">\(\mathscr{C}\)</span> la courbe d’équation polaire <span class="math inline">\(r=r(\theta)\)</span> ou encore de représentation polaire <span class="math inline">\(\theta \mapsto O+r(\theta) \overrightarrow{u_{\theta}}\)</span>.</p>
-<p>Théorème 5 (Tangente en un point distinct de l’origine).</p>
-<ol type="1">
-<li>Tout point de <span class="math inline">\(\mathscr{C}\)</span> distinct de l’origine <span class="math inline">\(O\)</span> est un point régulier.</li>
-<li><table class="caption-top">
-<colgroup>
-<col style="width: 100%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Si <span class="math inline">\(M(\theta) \neq O\)</span>, la tangente en <span class="math inline">\(M(\theta)\)</span> est dirigée par le vecteur</th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table></li>
-<li>L’angle <span class="math inline">\(\beta\)</span> entre le vecteur <span class="math inline">\(\overrightarrow{u_{\theta}}\)</span> et la tangente en <span class="math inline">\(M(\theta)\)</span> vérifie <span class="math inline">\(\tan (\beta)=\frac{r}{r^{\prime}}\)</span> si <span class="math inline">\(r^{\prime} \neq 0\)</span>, et <span class="math inline">\(\beta=\frac{\pi}{2}(\bmod \pi)\)</span> sinon. <img src="https://cdn.mathpix.com/cropped/2025_10_30_af7e7d68bab7eb330d44g-26.jpg?height=752&amp;width=1069&amp;top_left_y=1667&amp;top_left_x=493" class="img-fluid"></li>
-</ol>
-<p>Le repère <span class="math inline">\(\left(M(\theta), \overrightarrow{u_{\theta}}, \overrightarrow{v_{\theta}}\right)\)</span> est le repère polaire en <span class="math inline">\(M(\theta)\)</span>. Dans ce repère, les coordonnées du vecteur <span class="math inline">\(\frac{\overrightarrow{\mathrm{d} M}}{\mathrm{~d} \theta}\)</span> sont donc ( <span class="math inline">\(r^{\prime}, r\)</span> ). On note <span class="math inline">\(\beta\)</span> l’angle ( <span class="math inline">\(\overrightarrow{u_{\theta}}, \frac{\overrightarrow{\mathrm{d} M}}{\mathrm{~d} \theta}\)</span> ) et <span class="math inline">\(\alpha\)</span> l’angle ( <span class="math inline">\(\vec{i}, \frac{\overrightarrow{\mathrm{~d} M}}{\mathrm{~d} \theta}\)</span> ) de sorte que <span class="math inline">\(\alpha=\beta+\theta\)</span>.</p>
-<p>Démonstration.</p>
-<ul>
-<li>Comme <span class="math inline">\(M(\theta)=O+r(\theta) \overrightarrow{u_{\theta}}\)</span>, alors par la formule de dérivation d’un produit :</li>
-</ul>
-<p><span class="math display">\[
-\frac{\overrightarrow{\mathrm{d} M}}{\mathrm{~d} \theta}(\theta)=\frac{\mathrm{d} r(\theta)}{\mathrm{d} \theta} \overrightarrow{u_{\theta}}+r(\theta) \frac{\mathrm{d} \overrightarrow{u_{\theta}}}{\mathrm{d} \theta}=r^{\prime}(\theta) \overrightarrow{u_{\theta}}+r(\theta) \overrightarrow{v_{\theta}}
-\]</span></p>
-<ul>
-<li>Déterminons alors les éventuels points singuliers. Puisque les vecteurs <span class="math inline">\(\overrightarrow{u_{\theta}}\)</span> et <span class="math inline">\(\overrightarrow{v_{\theta}}\)</span> ne sont pas colinéaires,</li>
-</ul>
-<p><span class="math display">\[
-\frac{\overrightarrow{\mathrm{d} M}}{\mathrm{~d} \theta}(\theta)=\overrightarrow{0} \Longleftrightarrow r(\theta)=0 \text { et } r^{\prime}(\theta)=0
-\]</span></p>
-<p>Maintenant, comme <span class="math inline">\(r(\theta)=0 \Longleftrightarrow M(\theta)=O\)</span>, on en déduit que tout point distinct de l’origine est un point régulier.</p>
-<ul>
-<li>Comme <span class="math inline">\(\frac{\overrightarrow{\mathrm{d} M}}{\mathrm{~d} \theta}(\theta)=r^{\prime}(\theta) \overrightarrow{u_{\theta}}+r(\theta) \overrightarrow{v_{\theta}}\)</span> alors, dans le repère polaire <span class="math inline">\(\left(M(\theta), \overrightarrow{u_{\theta}}, \overrightarrow{v_{\theta}}\right)\)</span>, les coordonnées de <span class="math inline">\(\frac{\overrightarrow{\mathrm{d} M}}{\mathrm{~d} \theta}\)</span> sont <span class="math inline">\(\left(r^{\prime}, r\right)\)</span>. On a alors</li>
-</ul>
-<p><span class="math display">\[
-\cos \beta=\frac{r^{\prime}}{\sqrt{r^{2}+r^{\prime 2}}} \quad \text { et } \quad \sin \beta=\frac{r}{\sqrt{r^{2}+r^{\prime 2}}}
-\]</span></p>
-<p>Ces égalités définissent <span class="math inline">\(\beta\)</span> modulo <span class="math inline">\(2 \pi\)</span>. Ensuite, (puisque <span class="math inline">\(r \neq 0\)</span> ) on a <span class="math inline">\(\frac{1}{\tan \beta}=\frac{r^{\prime}}{r}\)</span>. On préfère retenir que, si de plus <span class="math inline">\(r^{\prime} \neq 0, \tan (\beta)=\frac{r}{r^{\prime}}\)</span>. Les deux dernières égalités déterminent <span class="math inline">\(\beta\)</span> modulo <span class="math inline">\(\pi\)</span>, ce qui est suffisant pour construire la tangente, mais insuffisant pour construire le vecteur <span class="math inline">\(\frac{\overrightarrow{\mathrm{d} M}}{\mathrm{~d} \theta}\)</span>.</p>
-</section>
-</section>
-<section id="exemple-19." class="level2">
-<h2 class="anchored" data-anchor-id="exemple-19.">Exemple 19.</h2>
-<p>Déterminer, au point <span class="math inline">\(M\left(\frac{\pi}{2}\right)\)</span>, la tangente à la courbe polaire :</p>
-<p><span class="math display">\[
-r=1-2 \cos \theta
-\]</span></p>
-</section>
-<section id="solution." class="level2">
-<h2 class="anchored" data-anchor-id="solution.">Solution.</h2>
-<p>On note <span class="math inline">\(\mathscr{C}\)</span> la courbe.</p>
-<ol type="1">
-<li>Première méthode. On détermine l’angle <span class="math inline">\(\left(\overrightarrow{u_{\theta}}, \overrightarrow{\mathrm{d} M}\right)\)</span> formé par la tangente avec la droite d’angle polaire <span class="math inline">\(\theta\)</span>. Comme <span class="math inline">\(r^{\prime}(\theta)=2 \sin \theta\)</span>, alors <span class="math inline">\(r^{\prime}\left(\frac{\pi}{2}\right)=2\)</span>. De plus, <span class="math inline">\(r\left(\frac{\pi}{2}\right)=1 \neq 0\)</span>. Donc,</li>
-</ol>
-<p><span class="math display">\[
-\tan \beta=\frac{r\left(\frac{\pi}{2}\right)}{r^{\prime}\left(\frac{\pi}{2}\right)}=\frac{1}{2}
-\]</span></p>
-<p>Ainsi, modulo <span class="math inline">\(\pi\)</span>,</p>
-<p><span class="math display">\[
-\beta=\arctan \left(\frac{1}{2}\right)=\frac{\pi}{2}-\arctan (2)
-\]</span></p>
-<p>L’angle polaire de la tangente en <span class="math inline">\(M\left(\frac{\pi}{2}\right)\)</span> est donc</p>
-<p><span class="math display">\[
-\alpha=\beta+\theta=\frac{\pi}{2}+\frac{\pi}{2}-\arctan (2)=\pi-\arctan (2) .
-\]</span></p>
-<ol start="2" type="1">
-<li>Seconde méthode. On calcule le vecteur dérivé, qui bien sûr dirige la tangente :</li>
-</ol>
-<p><span class="math display">\[
-\frac{\overrightarrow{\mathrm{d} M}}{\mathrm{~d} \theta}\left(\frac{\pi}{2}\right)=2 \cdot \overrightarrow{u_{\pi / 2}}+1 \cdot \overrightarrow{v_{\pi / 2}}=-\vec{i}+2 \vec{j}
-\]</span></p>
-<p>Comme la tangente passe par le point <span class="math inline">\(M\left(\frac{\pi}{2}\right)=\left[1: \frac{\pi}{2}\right]=(0,1)\)</span>, une équation cartésienne de cette tangente est donc <span class="math inline">\(2 \cdot(x-0)+1 \cdot(y-1)=0\)</span> ou encore <span class="math inline">\(y=-2 x+1\)</span>. <img src="https://cdn.mathpix.com/cropped/2025_10_30_af7e7d68bab7eb330d44g-28.jpg?height=840&amp;width=997&amp;top_left_y=197&amp;top_left_x=525" class="img-fluid"></p>
-<section id="tangente-à-lorigine" class="level3">
-<h3 class="anchored" data-anchor-id="tangente-à-lorigine">5.5. Tangente à l’origine</h3>
-<p>Supposons maintenant que, pour un certain réel <span class="math inline">\(\theta_{0}\)</span>, la courbe passe par l’origine <span class="math inline">\(O\)</span>. On suppose comme d’habitude que l’arc est localement simple, ce qui revient à dire qu’au voisinage de <span class="math inline">\(\theta_{0}\)</span>, la fonction <span class="math inline">\(r\)</span> ne s’annule qu’en <span class="math inline">\(\theta_{0}\)</span>.</p>
-<p>Théorème 6 (Tangente à l’origine). Si <span class="math inline">\(M\left(\theta_{0}\right)=O\)</span>, la tangente en <span class="math inline">\(M\left(\theta_{0}\right)\)</span> est la droite d’angle polaire <span class="math inline">\(\theta_{0}\)</span>. <img src="https://cdn.mathpix.com/cropped/2025_10_30_af7e7d68bab7eb330d44g-28.jpg?height=569&amp;width=563&amp;top_left_y=1439&amp;top_left_x=742" class="img-fluid"></p>
-<p>Une équation cartésienne de cette droite dans le repère ( <span class="math inline">\(O, \vec{i}, \vec{j}\)</span> ) est donc <span class="math inline">\(y=\tan \left(\theta_{0}\right) x\)</span>, si <span class="math inline">\(\theta_{0} \notin \frac{\pi}{2}+\pi \mathbb{Z}\)</span> et <span class="math inline">\(x=0\)</span>, si <span class="math inline">\(\theta_{0} \in \frac{\pi}{2}+\pi \mathbb{Z}\)</span>.</p>
-<p>Démonstration. Pour <span class="math inline">\(\theta \neq \theta_{0}\)</span>, le vecteur</p>
-<p><span class="math display">\[
-\frac{1}{r(\theta)} \overrightarrow{M\left(\theta_{0}\right) M(\theta)}=\frac{1}{r(\theta)} \overrightarrow{O M(\theta)}=\overrightarrow{u_{\theta}}
-\]</span></p>
-<p>dirige la droite <span class="math inline">\(\left(M\left(\theta_{0}\right) M(\theta)\right)\)</span>. Or, quand <span class="math inline">\(\theta\)</span> tend vers <span class="math inline">\(\theta_{0}, \overrightarrow{u_{\theta}}\)</span> tend vers <span class="math inline">\(\overrightarrow{u_{\theta_{0}}}\)</span>. Ainsi <span class="math inline">\(\overrightarrow{u_{\theta_{0}}}\)</span> est un vecteur directeur de la tangente, comme on le souhaitait. <span class="math inline">\(\square\)</span></p>
-</section>
-</section>
-<section id="remarque." class="level2">
-<h2 class="anchored" data-anchor-id="remarque.">Remarque.</h2>
-<p>En l’origine, on ne peut avoir qu’un point d’allure ordinaire ou un rebroussement de première espèce.</p>
-<ul>
-<li>Si <span class="math inline">\(r\)</span> s’annule en changeant de signe, le point <span class="math inline">\(M(\theta)\)</span> franchit l’origine en tournant dans le sens direct : c’est un point d’allure ordinaire.</li>
-<li>Si <span class="math inline">\(r\)</span> s’annule sans changer de signe en arrivant en <span class="math inline">\(O\)</span>, on rebrousse chemin en traversant la tangente (puisque l’on tourne toujours dans le même sens) : c’est un rebroussement de première espèce.</li>
-</ul>
 </section>
 
 </main>
