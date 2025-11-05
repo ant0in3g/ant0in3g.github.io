@@ -1,0 +1,29 @@
+---
+title: "Trèfle de Habenicht"
+format:
+  html:
+    toc: true
+editor: visual
+---
+
+Nous allons étudier une courbe définie par son équation polaire.
+
+## Étude proposée
+
+Son équation polaire est :  
+$$\rho = 1 +\cos\left(n\theta\right) + \sin^2\left(n\theta\right)$$
+
+Tracer le *Trèfle de Habenicht* pour $n = 3$ ou $n = 4$, selon la chance que vous espérez ! 🍀
+
+---
+
+## Solution pour $n=4$
+
+### Domaine d'étude de $\rho$
+
+L'équation polaire est alors  
+$$\rho = 1 +\cos\left(4\theta\right) + \sin^2\left(4\theta\right)$$
+
+On peut limiter l’étude à  
+$$D_3 = \left[0,\dfrac{\pi}{4}\right]$$
+

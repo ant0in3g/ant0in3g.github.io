@@ -1,22 +1,137 @@
 ---
 title: "Trèfle de Habenicht"
-format: html
+format:
+  html:
+    toc: true
 editor: visual
 ---
 
-Nous allons étudier une courbe définie par son équation polaire. 
 
-## Trèfle de Habenicht
+Nous allons étudier une courbe définie par son équation polaire.
 
-Son équation polaire est 
-$$\rho = 1 +\cos\left(n\theta\right) + \sin^2\left(n\theta\right)$$
+## Etude proposée
+
+Son équation polaire est $$\rho = 1 +\cos\left(n\theta\right) + \sin^2\left(n\theta\right)$$
 
 Tracer le *Trèfle de Habenicht* pour $n = 3$ ou $n = 4$, selon la chance que vous espérez ! 🍀
 
-**Indication** :
 
-Un point $M$ de la courbe est repéré à l'aide des deux paramètres $r$ et $\theta$ tel que 
-$$\overrightarrow{O M}= r \ \overrightarrow{u_{\theta}}$$
+## Solution pour $n=4$
 
-![](https://cdn.mathpix.com/cropped/2025_10_30_af7e7d68bab7eb330d44g-24.jpg?height=418&width=643&top_left_y=2055&top_left_x=451) ![](https://cdn.mathpix.com/cropped/2025_10_30_af7e7d68bab7eb330d44g-24.jpg?height=375&width=478&top_left_y=2095&top_left_x=1119)
+### Domaine d'étude de $\rho$
+
+L'équation polaire est alors
+$$\rho = 1 +\cos\left(4\theta\right) + \sin^2\left(4\theta\right)$$
+Le domaine de définition est $$D_1 = \mathbb{R}$$
+On a 
+$$\rho\left(\theta+\frac{\pi}{2}\right) = 1 +\cos\left(4\theta + 2\pi\right) + \sin^2\left(4\theta + 2\pi\right) = 1 +\cos\left(4\theta\right) + \sin^2\left(4\theta\right)=\rho\left(\theta\right)$$
+on peut alors affirmer que $\rho$ est périodique de période $\dfrac{\pi}{2}$. On peut limiter l'étude à un intervalle d'amplitude $\dfrac{\pi}{2}$. On completera par autant de rotations qu'il faut pour retomber sur l'arc de courbe initial.
+
+$$D_2 = \left[-\dfrac{\pi}{4},\dfrac{\pi}{4}\right]$$
+De plus on remarque que $\rho$ est paire en $\theta$, c'est à dire 
+$$\rho\left(-\theta\right)=\rho\left(\theta\right)$$
+Donc les point $M_1\left(\rho,\theta\right)$ et $M_2\left(\rho,-\theta\right)$ sont symétriques par rapport à l'axe des abscisses. On peut donc limiter l'étude à $$D_3 = \left[0,\dfrac{\pi}{4}\right]$$
+
+### Etude des variations de $\rho$
+
+On calcule la dérivée de $\rho$. On a 
+
+$$\rho\left(\theta\right)^\prime = 4\sin(4\theta) \left(2 \cos(4\theta) - 1 \right)$$
+Donc
+
+$$\rho\left(\theta\right)^\prime = 0 \ \Longleftrightarrow \theta = \left\{ 0 , \frac{\pi}{12} , \frac{\pi}{4} \right\}$$
+donc
+
+
+Donc $$\tan\left(V\right) = \frac{\rho}{\rho^\prime} = \frac{1 +\cos\left(4\theta\right) + \sin^2\left(4\theta\right)}{4\sin(4\theta) \left(2 \cos(4\theta) - 1 \right)}$$
+
+
+
+
+
+
+
+
+
+
+
+
+## Tracé sur R
+
+
+```{r}
+# Séquence d'angles
+theta <- seq(0, 2*pi, length.out = 1000)
+
+# Liste de valeurs de n
+n_values <- 1:5   # par exemple n = 1, 2, 3, 4, 5
+
+# Préparation du graphique
+plot(0, 0, type = "n", xlim = c(-6, 6), ylim = c(-6, 6),
+     xlab = "x", ylab = "y", asp = 1,
+     main = expression(r == 2 + 3*sin(4*theta*n)))
+grid()
+
+# Boucle sur les différentes valeurs de n
+colors <- rainbow(length(n_values))
+for (i in seq_along(n_values)) {
+  n <- n_values[i]
+  r <- 2 + 3 * sin(4 * theta * n)
+  x <- r * cos(theta)
+  y <- r * sin(theta)
+  lines(x, y, col = colors[i], lwd = 2)
+}
+
+legend("topright", legend = paste("n =", n_values),
+       col = colors, lwd = 2)
+
+library(ggplot2)
+
+library(gganimate)
+
+# Création des données pour plusieurs n
+theta <- seq(0, 2*pi, length.out = 500)
+n_values <- 1:10
+
+df <- do.call(rbind, lapply(n_values, function(n) {
+  r <- 2 + 3*sin(4*theta*n)
+  data.frame(
+    theta = theta,
+    n = n,
+    x = r*cos(theta),
+    y = r*sin(theta)
+  )
+}))
+
+# Création du graphique animé
+p <- ggplot(df, aes(x, y, group = n)) +
+  geom_path(color = "blue", linewidth = 1.2) +
+  coord_equal() +
+  labs(title = expression(r == 2 + 3*sin(4*theta*n)),
+       subtitle = "n = {frame_time}",
+       x = "x", y = "y") +
+  transition_time(n) +
+  ease_aes('linear')
+
+animate(p, fps = 10, nframes = 100, renderer = gifski_renderer())
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
