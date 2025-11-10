@@ -1,3 +1,4 @@
+- [[02.0002]](./corrections/02.0002.C.pdf)
 - [[02.0011]](./corrections/02.0011.C.pdf)
 - [[04.0001]](./corrections/04.0001.C.pdf)
 - [[04.0002]](./corrections/04.0002.C.pdf)

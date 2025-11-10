@@ -1,24 +1,20 @@
 ---
-title: "Trèfle de Habenicht"
+title: |
+  Trèfle de Habenicht
+  [![](img/LogoISTOMdc.png){width=0.6in}](https://istom.fr/) 
 format:
   html:
     toc: true
 editor: visual
 ---
 
+Nous allons étudier le Trèfle de Habenicht définie par son équation polaire. Son équation polaire est 
+$$\rho = 1 +\cos\left(n\theta\right) + \sin^2\left(n\theta\right)$$
+L'objectif est de tracer le *Trèfle de Habenicht* pour $n = 3$ ou $n = 4$, selon la chance que espérée ! 🍀
 
-Nous allons étudier une courbe définie par son équation polaire.
+Nous choisirons ici de travailler dans le cas $n=4$.
 
-## Etude proposée
-
-Son équation polaire est $$\rho = 1 +\cos\left(n\theta\right) + \sin^2\left(n\theta\right)$$
-
-Tracer le *Trèfle de Habenicht* pour $n = 3$ ou $n = 4$, selon la chance que vous espérez ! 🍀
-
-
-## Solution pour $n=4$
-
-### Domaine d'étude de $\rho$
+## Domaine d'étude
 
 L'équation polaire est alors
 $$\rho = 1 +\cos\left(4\theta\right) + \sin^2\left(4\theta\right)$$
@@ -32,7 +28,7 @@ De plus on remarque que $\rho$ est paire en $\theta$, c'est à dire
 $$\rho\left(-\theta\right)=\rho\left(\theta\right)$$
 Donc les point $M_1\left(\rho,\theta\right)$ et $M_2\left(\rho,-\theta\right)$ sont symétriques par rapport à l'axe des abscisses. On peut donc limiter l'étude à $$D_3 = \left[0,\dfrac{\pi}{4}\right]$$
 
-### Etude des variations de $\rho$
+## Etude des variations de $\rho$
 
 On calcule la dérivée de $\rho$. On a 
 
@@ -45,16 +41,10 @@ donc
 
 Donc $$\tan\left(V\right) = \frac{\rho}{\rho^\prime} = \frac{1 +\cos\left(4\theta\right) + \sin^2\left(4\theta\right)}{4\sin(4\theta) \left(2 \cos(4\theta) - 1 \right)}$$
 
+## Etudes des tangente
 
 
-
-
-
-
-
-
-
-
+## Tracé
 
 ## Tracé sur R
 
