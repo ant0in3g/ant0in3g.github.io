@@ -73,11 +73,11 @@ Pour ce semestre **optionnel**, nous nous intéresserons à la notion d'espace v
 - [La série d'exercices correspondante](https://www.molin-mathematiques.fr/exo/Espaces-vectoriels-exercices-BCPST)
 - [Une **magnifique** présentation à l'algèbre linéire en vidéo](https://youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab&si=MUOq7O2DJBcKh4R9)
 
-### Examens et corrections
+### [Examens et corrections](./mATh/examens.md/)
 
 Les sujets d'examens donnés sont disponible sur cette [page](./mATh/examens.md/).
 
-### Corrections supplémentaires
+### [Corrections supplémentaires](./mATh/corrections.md/)
 
 Vous pouvez trouver via ce [**lien**](./mATh/corrections.md/) les corrections manuscrites que je n'ai pas encore pris le temps de taper.
 
