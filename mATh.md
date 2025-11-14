@@ -27,8 +27,7 @@ Vous pouvez également vous exercer sur votre espace [jai20enmaths](https://www.
 ### Semestre 1
 
 1. [Fonctions à une variable réelle](./mATh/chapter-s/limit-conti-deriv/chapter-s.pdf)
-> test test test test test test test test test test test test test test test test test test test test
-> test test test test test test test test test test test test test test test test
+> Ce chapitre propose une révision des notions essentielles sur les fonctions d’une variable réelle : définitions, propriétés, variations, limites, continuité et dérivation. L’objectif est de consolider les outils nécessaires à l’étude et à la modélisation de phénomènes à l’aide de fonctions.
 2. [Fonctions usuelles](./mATh/chapter-s/fonctions-usuelles/chapter-s.pdf)
 3. [Nombres complexes](./mATh/chapter-s/nombres-complexes/chapter-s.pdf)
 4. [Suites numériques](./mATh/chapter-s/suites/chapter-s.pdf) 
