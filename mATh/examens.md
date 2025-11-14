@@ -4,7 +4,6 @@ Vous pouvez de nouveau retrouver via ce [lien](./corrections.md/) les correction
 
 ### Première année
 
-- [Examen 1A du lundi 13 octobre 2025](./examens/exam-math-S3-2025.10.13.pdf)
 - [Examen 1A du jeudi 22 mai 2025](./examens/exam-math-S2-2025.05.22.pdf)
 - [Examen 1A du lundi 12 mai 2025](./examens/exam-math-S2-2025.05.12.pdf)
 - [Examen 1A du lundi 31 mars 2025](./examens/exam-math-S2-2025.03.31.pdf)
@@ -17,6 +16,7 @@ Vous pouvez de nouveau retrouver via ce [lien](./corrections.md/) les correction
 
 ### Deuxième année
 
+- [Examen 1A du lundi 13 octobre 2025](./examens/exam-math-S3-2025.10.13.pdf)
 - [Examen 2A du jeudi 22 mai 2025](./examens/exam-math-S4-2025.05.22.pdf)
 - [Examen 2A du mardi 6 mai 2025](./examens/exam-math-S4-2025.05.06.pdf)
 - [Examen de rattrapage 2A du jeudi 24 avril 2025](./examens/exam-math-S4-2025.04.25.pdf)
