@@ -95,7 +95,6 @@
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="slides_en_files/libs/revealjs/dist/theme/quarto-2f366650f320edcfcf53d73c80250a32.css">
-  <link rel="stylesheet" href="styles.css">
   <link href="slides_en_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="slides_en_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="slides_en_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -247,12 +246,17 @@ Antoine Géré
 </tbody>
 </table>
 <p><br></p>
+<div class="columns">
+<div class="column" style="width:70%;">
 <ul>
 <li><strong>Lectures</strong> : no need to bring your personal computer</li>
 <li><strong>Tutorials</strong> : bring your personal computer</li>
 </ul>
 <p><br></p>
 <p><a href="https://ant0in3g.github.io/sTa7.html" class="uri">https://ant0in3g.github.io/sTa7.html</a> <span class="math inline">\(\to\)</span> look at your stickers !</p>
+</div><div class="column" style="width:30%;">
+<p><br> <a href="https://ant0in3g.github.io/sTa7.htm"><img data-src="img/webpage-antoine-gere.png" style="width:50.0%"></a></p>
+</div></div>
 </section>
 <section id="evaluations-and-group-projets" class="slide level2">
 <h2>Evaluations and Group projets</h2>
@@ -326,8 +330,8 @@ Antoine Géré
 <p><span class="math inline">\(\to\)</span> needed in the design, analysis, and interpretation of experiments !</p>
 </section>
 <section id="a-brief-intro-to-r-and-rstudio" class="slide level2 scrollable">
-<h2>A brief intro to R and RStudio</h2>
-<p><img data-src="img/R_RStudio_LogoS.png" style="width:70.0%"></p>
+<h2><img data-src="img/scroll.png" style="width:1.0%"> A brief intro to R and RStudio</h2>
+<p><img data-src="img/R_RStudio_LogoS.png" style="width:50.0%"></p>
 <ul>
 <li>Free open source language</li>
 <li>Built to do statistics</li>
@@ -364,6 +368,10 @@ Antoine Géré
 </div>
 </div>
 <p><br></p>
+<h3 id="basics-of-r-and-rstudio">Basics of R and RStudio</h3>
+<p>A very great video to learn the basics of <strong>R</strong></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/yZ0bV2Afkjc?si=noUaUWMekoOQOZfo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
 <h3 id="good-habits">Good habits</h3>
 <ul>
 <li>create a <strong>project</strong> on RStudio</li>
@@ -399,7 +407,7 @@ Antoine Géré
 <p><br></p>
 <h3 id="import-data-into-rstudio">Import DATA into RStudio</h3>
 <ul>
-<li>Data used for this class : <a href="https://istom-my.sharepoint.com/:x:/g/personal/a_gere_istom_fr/EW43vM6YV45LuPoLzg8oxlEB4bBEy3gdX2Cjh84sbcx-uQ?e=qTJp3O"><strong><code>Data.Lecture.xlsx</code></strong></a></li>
+<li>Data used for this class : <a href="https://github.com/ant0in3g/ant0in3g.github.io/blob/main/sTa7/Slides/data_raw/Data.Lecture.xlsx"><strong><code>Data.Lecture.xlsx</code></strong></a></li>
 </ul>
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
@@ -410,7 +418,8 @@ Antoine Géré
 <p><strong>Important</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>You can download it by clicking on <a href="https://istom-my.sharepoint.com/:x:/g/personal/a_gere_istom_fr/EW43vM6YV45LuPoLzg8oxlEB4bBEy3gdX2Cjh84sbcx-uQ?e=qTJp3O"><strong><code>Data.Lecture.xlsx</code></strong></a> !</strong></p>
+<p><strong>You can download it by clicking on <a href="https://github.com/ant0in3g/ant0in3g.github.io/blob/main/sTa7/Slides/data_raw/Data.Lecture.xlsx"><strong><code>Data.Lecture.xlsx</code></strong></a> !</strong></p>
+<p><img data-src="img/download-Data.Lecture.png" style="width:100.0%"></p>
 </div>
 </div>
 </div>
@@ -439,22 +448,8 @@ Antoine Géré
 </div>
 <p><br></p>
 </section>
-<section id="general-framework" class="slide level2 scrollable">
-<h2>General framework</h2>
-<div class="columns">
-<div class="column">
-<p><img data-src="img/global_view_stat.png" style="width:80.0%"></p>
-</div><div class="column">
-<p>What we are going to learn :</p>
-<ul>
-<li>Descriptive Statistics</li>
-<li>Probability theory</li>
-<li>Sample theory</li>
-<li>Inferential Statistics</li>
-</ul>
-</div></div>
-<p><br></p>
-<h3 id="statistical-variables">Statistical Variables</h3>
+<section id="exploring-data" class="slide level2 scrollable">
+<h2><img data-src="img/scroll.png" style="width:1.0%"> Exploring data</h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -471,6 +466,48 @@ Antoine Géré
 </div>
 </div>
 </div>
+<div class="columns">
+<div class="column" style="width:36%;">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Qualitative / Categorical Variable</strong></p>
+</div>
+<div class="callout-content">
+<p>A variable is called <strong>qualitative</strong> if <strong>each observation belongs</strong> to a <strong>set of distinct categories</strong></p>
+<ul>
+<li><p><strong>Nominal</strong> : Categories are disconnected. (<em>Examples : Hair Color, Animal Species, …</em>)</p></li>
+<li><p><strong>Ordinal</strong> : Categories are ranked (<em>Example : Level of Education, …</em>)</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:4%;">
+
+</div><div class="column" style="width:60%;">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Quantitative / Numerical Variable</strong></p>
+</div>
+<div class="callout-content">
+<p>A variable is called <strong>quantitative</strong> if observations on it take numerical values that represent different magnitudes of the variable</p>
+<ul>
+<li><p><strong>Discrete</strong> : the variable assume values in a countable set (<em>Examples : Number of episode in a series, Grades, …</em>)</p></li>
+<li><p><strong>Continuous</strong> : the variable assume values in a continuous set (<em>Examples : Time, most physical measurements, …</em>)</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div></div>
+<p><br></p>
+<p>In a dataset (sample of a population) we have measurements of variables for different individuals.</p>
 <ul>
 <li><strong>Unit / individual</strong> : A member of a population</li>
 <li><strong>Population</strong> : The collection of all individuals / units that we want to know more about</li>
@@ -478,52 +515,8 @@ Antoine Géré
 <li><strong>Modality</strong> : The distinct values or categories that the variable can take</li>
 </ul>
 <p><br></p>
-<h3 id="example">Example</h3>
-<p><strong>Variable</strong> : Grade in Statistics of ISTOM’s Students</p>
-<p><strong>Observations</strong> : <span class="math inline">\(18,14,16,11,12,15, \ldots\)</span></p>
-<ul>
-<li><strong>Unit / individual</strong> : single student</li>
-<li><strong>Population</strong> : all students of ISTOM</li>
-<li><strong>Sample</strong> : a class</li>
-<li><strong>Modality</strong> : [0 ; 20]</li>
-</ul>
-<p><br></p>
-<h3 id="types-of-variables">Types of variables</h3>
-<ul>
-<li>Qualitative (Categorical)
-<ul>
-<li>Nominal</li>
-<li>Ordinal</li>
-</ul></li>
-<li>Quantitative (Numerical)
-<ul>
-<li>Discrete</li>
-<li>Continuous</li>
-</ul></li>
-</ul>
-<p><br></p>
-<h3 id="qualitative-categorical-variable">Qualitative / Categorical Variable</h3>
-<p>A variable is called <strong>qualitative</strong> if <strong>each observation belongs</strong> to a <strong>set of distinct categories</strong></p>
-<ul>
-<li><p>Nominal : Categories are disconnected.</p>
-<p><em>Examples : Hair Color, Animal Species, …</em></p></li>
-<li><p>Ordinal: Categories are ranked</p>
-<p><em>Examples : Level of Education, …</em></p></li>
-</ul>
-<p><br></p>
-<h3 id="quantitative-numerical-variable">Quantitative / Numerical Variable</h3>
-<p>A variable is called <strong>quantitative</strong> if observations on it take numerical values that represent different magnitudes of the variable</p>
-<ul>
-<li><p><strong>Discrete</strong> : the variable assume values in a countable set (“how many”)</p>
-<p><em>Examples : Number of episode in a series, Grades, …</em></p></li>
-<li><p><strong>Continuous</strong> : the variable assume values in a continuous set (“how much”)</p>
-<p><em>Examples : Time, most physical measurements, …</em></p></li>
-</ul>
-</section>
-<section id="exploring-data" class="slide level2 scrollable">
-<h2>Exploring Data</h2>
-<p>Before making statistical tests with your data it is essential to examine all your variables !</p>
-<p>Why ? To “listen” to the data :</p>
+<p>Before making advanced statistics with our data it is essential to examine all our variables !</p>
+<p>Why ? To <em>“listen”</em> to the data :</p>
 <ul>
 <li>to catch mistakes</li>
 <li>to see patterns in the data</li>
@@ -531,162 +524,777 @@ Antoine Géré
 <li>to generate hypotheses</li>
 <li>… and because if you don’t, you will have trouble later !</li>
 </ul>
-<h3 id="numerical-summaries-of-data">Numerical Summaries of Data</h3>
+<p><br></p>
 <ul>
-<li><strong>Central Tendency measures</strong>. They are computed to give a “center” around which the measurements in the data are distributed.</li>
-<li><strong>Variation or Variability measures</strong>. They describe “data spread” or how far away the measurements are from the center.</li>
-<li><strong>Relative Standing measures</strong>. They describe the relative position of specific measurements in the data.</li>
+<li>We will recall notions of <strong>descriptive Statistics with R</strong><br>
+</li>
+<li>This has been written using this <a href="https://odr.inrae.fr/intranet/carto/cartowiki/index.php/Statistiques_descriptives_avec_R">webpage (INRAE)</a></li>
 </ul>
-<h3 id="means">Mean(s)</h3>
-<p><strong>The Mean</strong></p>
-<p>To calculate the average <span class="math inline">\(\overline{X}\)</span> of a set of observations, add their value and divide by the number of observations</p>
-<p><span class="math display">\[
-\overline{x}=\frac{X_1+X_2+X_3+\ldots+X_n}{n}=\frac{1}{n} \sum_{i=1}^n x_i
-\]</span></p>
-<h3 id="other-mean">Other mean</h3>
-<p>Weighted mean / Geometric mean / Harmonic mean / …</p>
-<h3 id="median">Median</h3>
+<p><br></p>
+<p>We will use the dataset <code>iris</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">data</span>(iris)</span>
+<span id="cb2-2"><a href=""></a><span class="fu">head</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1          5.1         3.5          1.4         0.2  setosa
+2          4.9         3.0          1.4         0.2  setosa
+3          4.7         3.2          1.3         0.2  setosa
+4          4.6         3.1          1.5         0.2  setosa
+5          5.0         3.6          1.4         0.2  setosa
+6          5.4         3.9          1.7         0.4  setosa</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">dim</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 150   5</code></pre>
+</div>
+</div>
+<p>There are 5 variables and 150 individuals.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>4 quantitative variables :</p>
 <ul>
-<li><strong>Median</strong> : the exact middle value</li>
-<li>Calculation :
-<ul>
-<li>If there are an <strong>odd number of observations</strong>, find the middle value</li>
-<li>If there are an <strong>even number of observations</strong>, find the middle two values and average them</li>
-</ul></li>
+<li><code>Sepal.Length</code></li>
+<li><code>Sepal.Width</code><br>
+</li>
+<li><code>Petal.Length</code><br>
+</li>
+<li><code>Petal.Width</code></li>
 </ul>
-<p>Example : <span class="math inline">\(17, 19, 21, 22, 23, 23, 23, 38\)</span>. The Median is <span class="math display">\[\dfrac{22+23}{2}=22.5\]</span></p>
-<h3 id="which-location-measure-is-best">Which Location Measure Is Best ?</h3>
+</div><div class="column" style="width:50%;">
+<p>1 qualitative variable :</p>
+<ul>
+<li><code>Species</code></li>
+</ul>
+<p><img data-src="img/iris.png" style="width:50.0%"></p>
+</div></div>
+</section>
+<section id="univariate-statistics" class="slide level2 scrollable">
+<h2><img data-src="img/scroll.png" style="width:1.0%"> Univariate statistics</h2>
+<p>To have a global view : <code>summary</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">summary</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
+ Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
+ 1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  
+ Median :5.800   Median :3.000   Median :4.350   Median :1.300  
+ Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199  
+ 3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800  
+ Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500  
+       Species  
+ setosa    :50  
+ versicolor:50  
+ virginica :50  
+                
+                
+                </code></pre>
+</div>
+</div>
+<p>The command <code>summary</code> gives us :</p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <ul>
-<li>Mean is best for symmetric distributions without outliers</li>
+<li>for the quantitative variables :
+<ul>
+<li>the minimum</li>
+<li>the 1st quartile</li>
+<li>the median</li>
+<li>the mean</li>
+<li>the 3rd quartile</li>
+<li>the maximum</li>
+</ul></li>
 </ul>
-<p><img data-src="img/symmetrical_distribution.png"></p>
 </div><div class="column" style="width:50%;">
 <ul>
-<li>Median is useful for skewed distributions or data with outliers</li>
+<li>for the qualitative variables :
+<ul>
+<li>the number of observations in each category</li>
+</ul></li>
 </ul>
-<p><img data-src="img/skewed_distribution.png" style="width:70.0%"></p>
 </div></div>
-<h3 id="variance">Variance</h3>
-<p>Average of squared deviations of values from the mean</p>
-<p><span class="math display">\[
-\sigma^2=\dfrac{\sum_\left(x_i-\bar{x}\right)^2}{n-1}
-\]</span> where <span class="math inline">\(n\)</span> is the the total number of observations</p>
+<p><strong>Using <code>describe</code> for data summaries</strong> :</p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="fu">library</span>(Hmisc)</span>
+<span id="cb8-2"><a href=""></a><span class="fu">describe</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>iris 
+
+ 5  Variables      150  Observations
+--------------------------------------------------------------------------------
+Sepal.Length 
+       n  missing distinct     Info     Mean  pMedian      Gmd      .05 
+     150        0       35    0.998    5.843      5.8   0.9462    4.600 
+     .10      .25      .50      .75      .90      .95 
+   4.800    5.100    5.800    6.400    6.900    7.255 
+
+lowest : 4.3 4.4 4.5 4.6 4.7, highest: 7.3 7.4 7.6 7.7 7.9
+--------------------------------------------------------------------------------
+Sepal.Width 
+       n  missing distinct     Info     Mean  pMedian      Gmd      .05 
+     150        0       23    0.992    3.057     3.05   0.4872    2.345 
+     .10      .25      .50      .75      .90      .95 
+   2.500    2.800    3.000    3.300    3.610    3.800 
+
+lowest : 2   2.2 2.3 2.4 2.5, highest: 3.9 4   4.1 4.2 4.4
+--------------------------------------------------------------------------------
+Petal.Length 
+       n  missing distinct     Info     Mean  pMedian      Gmd      .05 
+     150        0       43    0.998    3.758     3.65    1.979     1.30 
+     .10      .25      .50      .75      .90      .95 
+    1.40     1.60     4.35     5.10     5.80     6.10 
+
+lowest : 1   1.1 1.2 1.3 1.4, highest: 6.3 6.4 6.6 6.7 6.9
+--------------------------------------------------------------------------------
+Petal.Width 
+       n  missing distinct     Info     Mean  pMedian      Gmd      .05 
+     150        0       22     0.99    1.199      1.2   0.8676      0.2 
+     .10      .25      .50      .75      .90      .95 
+     0.2      0.3      1.3      1.8      2.2      2.3 
+
+lowest : 0.1 0.2 0.3 0.4 0.5, highest: 2.1 2.2 2.3 2.4 2.5
+--------------------------------------------------------------------------------
+Species 
+       n  missing distinct 
+     150        0        3 
+                                           
+Value          setosa versicolor  virginica
+Frequency          50         50         50
+Proportion      0.333      0.333      0.333
+--------------------------------------------------------------------------------</code></pre>
+</div>
+</div>
+<p><br></p>
 <ul>
-<li>Absolute values do not have nice mathematical properties</li>
-<li>Squares eliminate the negatives</li>
+<li>The <code>Hmisc</code> package provides the <code>describe</code> function to quickly summarize a dataset.</li>
 </ul>
-<p><strong>Standard deviations are simply the square root of the variance</strong></p>
-<h3 id="five-number-summary">Five Number Summary</h3>
+<div class="columns">
+<div class="column" style="width:55%;">
 <ul>
-<li><p><strong>Quartiles</strong> divide data into 4 even parts</p>
+<li>For <strong>quantitative variables</strong>, it reports :
 <ul>
-<li>first quartile <span class="math inline">\(Q_1=25\)</span> th percentile</li>
-</ul>
-<p><span class="math inline">\(25\%\)</span> of data fall below it and <span class="math inline">\(75\%\)</span> above it</p>
-<ul>
-<li><p>second quartile <span class="math inline">\(Q_2=\)</span> median <span class="math inline">\(=50\)</span> th percentile</p></li>
-<li><p>third quartile <span class="math inline">\(Q_3=75\)</span> th percentile</p></li>
-</ul>
-<p><span class="math inline">\(75 \%\)</span> of data fall below it and 25% above it</p></li>
-<li><p>Interquartile Range <span class="math inline">\((I Q R)=Q_3-Q_1\)</span></p></li>
-</ul>
-<p><strong>Five-Number Summary :</strong> <span class="math inline">\(\qquad \min , \quad Q_1, \quad \text { Median, } \quad Q_3, \quad \max\)</span></p>
-<h3 id="example-1">Example 1</h3>
-<p>For the 9 numbers: <span class="math display">\[43, 35, 43, 33, 38, 53, 64, 27, 34\]</span> give the Five-Number Summary.</p>
-<h3 id="example-2">Example 2</h3>
-<p>For the 10 numbers: <span class="math display">\[43, 35, 43, 33, 38, 53, 64, 27, 34, 27\]</span> give the Five-Number Summary.</p>
-<h3 id="remark-careful">Remark : Careful !</h3>
-<p>Statisticians don’t have a consensus on the calculation of quartiles. There are several formulas for quartiles.</p>
-<p>With R for example 1, we find</p>
-<p><span class="math inline">\(Q_1=34\)</span> and <span class="math inline">\(Q_2=43\)</span>.</p>
-<p>Don’t worry about the formula.</p>
-<p>Just keep in mind that quartiles divide data into 4 even parts.</p>
-<h3 id="interesting-result">Interesting Result</h3>
-<p>Regardless of how the data are distributed, <span class="math inline">\(75\%\)</span> of values fall within <span class="math inline">\(\sigma\)</span> from the mean !</p>
-<p><img data-src="img/Explained_Sigma_Mean.jpg"></p>
-<h3 id="categorical-qualitative-variables">Categorical / Qualitative variable(s)</h3>
-<ul>
-<li>Ways to summarize of a single categorical variable
-<ul>
-<li>Frequency tables</li>
-<li>Barplots, pie charts</li>
+<li>number of observations</li>
+<li>missing values</li>
+<li>mean</li>
+<li>quantiles (5%, 10%, 25%, 50%, 75%, 90%, 95%)</li>
+<li>5 lowest and 5 highest values</li>
 </ul></li>
-<li>Ways to summarize of relationships between two categorical variables
+</ul>
+</div><div class="column" style="width:45%;">
 <ul>
-<li>two-way contingency tables</li>
-<li>segmented barplots, standardized segmented barplots, mosaic plot</li>
+<li>For <strong>qualitative variables</strong>, it reports :
+<ul>
+<li>number of observations</li>
+<li>missing values</li>
+<li>number of modalities</li>
+<li>frequency and proportion of each modality</li>
 </ul></li>
 </ul>
-<h3 id="two-way-contingency-tables">Two-Way Contingency Tables</h3>
-<p>A table that summarizes data for two categorical variables is called a <strong>contingency table</strong>.</p>
-<p>Example : Numbers of vegetable produced wort by healthy and diseased</p>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th></th>
-<th style="text-align: left;">Healthy</th>
-<th style="text-align: right;">Diseased</th>
-<th style="text-align: center;">Tot</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Carrots</td>
-<td style="text-align: left;">122</td>
-<td style="text-align: right;">203</td>
-<td style="text-align: center;">325</td>
-</tr>
-<tr class="even">
-<td>Salads</td>
-<td style="text-align: left;">167</td>
-<td style="text-align: right;">118</td>
-<td style="text-align: center;">285</td>
-</tr>
-<tr class="odd">
-<td>Onions</td>
-<td style="text-align: left;">528</td>
-<td style="text-align: right;">178</td>
-<td style="text-align: center;">706</td>
-</tr>
-<tr class="even">
-<td>Spinach</td>
-<td style="text-align: left;">623</td>
-<td style="text-align: right;">212</td>
-<td style="text-align: center;">885</td>
-</tr>
-<tr class="odd">
-<td>Sum</td>
-<td style="text-align: left;">1490</td>
-<td style="text-align: right;">711</td>
-<td style="text-align: center;">2201</td>
-</tr>
-</tbody>
-</table>
+</div></div>
+<p><br></p>
+<h3 id="quantitative-variables">Quantitative variables</h3>
+<p>For each quantitative variable, it is also possible to obtain the following statistics separately.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>the sum of all the modalities in <code>Sepal.Length</code></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">sum</span>(iris<span class="sc">$</span>Sepal.Length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 876.5</code></pre>
+</div>
+</div>
+<ul>
+<li>the mean of the variable <code>Sepal.Length</code></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="fu">mean</span>(iris<span class="sc">$</span>Sepal.Length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.843333</code></pre>
+</div>
+</div>
+<ul>
+<li>the variance of the variable <code>Sepal.Length</code></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="fu">var</span>(iris<span class="sc">$</span>Sepal.Length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.6856935</code></pre>
+</div>
+</div>
+<ul>
+<li>the standard deviation of the variable <code>Sepal.Length</code></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="fu">sd</span>(iris<span class="sc">$</span>Sepal.Length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8280661</code></pre>
+</div>
+</div>
+<ul>
+<li>the minimum of the variable <code>Sepal.Length</code></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="fu">min</span>(iris<span class="sc">$</span>Sepal.Length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.3</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:8%;">
+
+</div><div class="column" style="width:42%;">
+<ul>
+<li>the maximum of the variable <code>Sepal.Length</code></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="fu">max</span>(iris<span class="sc">$</span>Sepal.Length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 7.9</code></pre>
+</div>
+</div>
+<ul>
+<li>the median of the variable <code>Sepal.Length</code></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a><span class="fu">median</span>(iris<span class="sc">$</span>Sepal.Length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.8</code></pre>
+</div>
+</div>
+<ul>
+<li>the quantiles of the variable <code>Sepal.Length</code></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a><span class="fu">quantile</span>(iris<span class="sc">$</span>Sepal.Length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  0%  25%  50%  75% 100% 
+ 4.3  5.1  5.8  6.4  7.9 </code></pre>
+</div>
+</div>
+<ul>
+<li>the number of modalities in the variable <code>Sepal.Length</code></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a><span class="fu">length</span>(iris<span class="sc">$</span>Sepal.Length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 150</code></pre>
+</div>
+</div>
+</div></div>
+<p><br></p>
+<p><strong>Chart representations</strong></p>
+<ul>
+<li>A first representation is to use a <strong>boxplot</strong><br>
+</li>
+<li>Graphical way to summarize a <strong>quantitative variable</strong></li>
+<li>Show its <strong>distribution, central tendency, and spread</strong>, including outliers.</li>
+</ul>
+<p>Components of a Boxplot :</p>
+<ol type="1">
+<li><strong>Median (Q2)</strong>
+<ul>
+<li>The line inside the box represents the <strong>median</strong> — the middle value of the data.<br>
+</li>
+<li>It divides the data into two equal sets.</li>
+</ul></li>
+<li><strong>Quartiles (Q1 and Q3)</strong>
+<ul>
+<li><strong>Q1 (bottom of the box)</strong>: 25% of the data is below this value.<br>
+</li>
+<li><strong>Q3 (top of the box)</strong>: 75% of the data is below this value.<br>
+</li>
+<li>The box shows the <strong>interquartile range (IQR = Q3 − Q1)</strong>, which contains the middle 50% of the data.</li>
+</ul></li>
+<li><strong>Whiskers</strong>
+<ul>
+<li>Lines extending from the box to the <strong>minimum and maximum values</strong> within a certain range (usually 1.5 × IQR from Q1 and Q3)</li>
+</ul></li>
+<li><strong>Outliers</strong>
+<ul>
+<li>Points outside the whiskers plotted individually.<br>
+</li>
+<li>Represent values that are unusually high or low compared to the rest of the data.</li>
+</ul></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a><span class="fu">boxplot</span>(iris<span class="sc">$</span>Sepal.Length, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"yellow"</span>),<span class="at">main =</span> <span class="st">"Boxplot"</span>, <span class="at">ylab =</span> <span class="st">"Sepal Length"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-14-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Also possible to represent many boxplot on the same plot</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a><span class="fu">boxplot</span>(iris[,<span class="fu">c</span>(<span class="st">'Sepal.Length'</span>,<span class="st">'Sepal.Width'</span>,<span class="st">'Petal.Length'</span>,<span class="st">'Petal.Width'</span>)],</span>
+<span id="cb29-2"><a href=""></a>        <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"yellow"</span>),                 <span class="co">#Pour la couleur</span></span>
+<span id="cb29-3"><a href=""></a>        <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">"Boxplot"</span>),     <span class="co">#Pour le titre</span></span>
+<span id="cb29-4"><a href=""></a>        <span class="at">ylab =</span> <span class="st">"Length and width"</span>)              <span class="co">#Pour le titre de l’axe des ordonnées</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-15-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>A usual graph is the <strong>histogram</strong>. It is a type of <strong>bar graph</strong> that represents the <strong>distribution of a quantitative variable</strong>.</p>
+<p><strong>Key Features</strong></p>
+<ul>
+<li><p><strong>Bins (Intervals)</strong>:<br>
+The x-axis is divided into continuous intervals called <strong>bins</strong>, each representing a <strong>range of values</strong>.</p></li>
+<li><p><strong>Frequency</strong>:<br>
+The y-axis shows the <strong>number of observations</strong> (frequency) in each bin.</p></li>
+<li><p><strong>Bars</strong>:<br>
+Each bin is represented by a <strong>bar</strong>.<br>
+The <strong>height of the bar</strong> corresponds to the <strong>frequency</strong>.<br>
+Bars <strong>touch each other</strong> because the data is continuous.</p></li>
+<li><p><strong>Distribution Shape</strong>:<br>
+A histogram helps visualize the shape of the data:</p>
+<ul>
+<li><strong>Symmetric</strong> or <strong>skewed</strong><br>
+</li>
+<li><strong>Uniform</strong> (flat)<br>
+</li>
+<li><strong>Bimodal</strong> (two peaks)<br>
+</li>
+<li><strong>Unimodal</strong> (one peak)</li>
+</ul></li>
+</ul>
+<p><strong>Why using an histogram ?</strong></p>
+<ul>
+<li>Understand the <strong>shape of the data</strong>.<br>
+</li>
+<li>Detect <strong>patterns, skewness, or clusters</strong>.<br>
+</li>
+<li>Identify <strong>outliers</strong> or unusual gaps.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href=""></a><span class="fu">hist</span>(iris<span class="sc">$</span>Sepal.Length, </span>
+<span id="cb30-2"><a href=""></a>      <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"orange"</span>),</span>
+<span id="cb30-3"><a href=""></a>      <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">"Histogramme pour la variable Sepal.Length"</span>),</span>
+<span id="cb30-4"><a href=""></a>      <span class="at">ylab =</span> <span class="st">"Effectifs"</span>,</span>
+<span id="cb30-5"><a href=""></a>      <span class="at">xlab =</span> <span class="st">"Longueur du sépale"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-16-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<h3 id="qualitative-variables">Qualitative variables</h3>
+<ul>
+<li>the command <code>table</code> summarize categorical data by counting the frequency of each unique value</li>
+<li>It creates a contingency table, which is very useful in statistics for understanding distributions</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href=""></a>table_Species<span class="ot">&lt;-</span><span class="fu">table</span>(iris<span class="sc">$</span>Species)</span>
+<span id="cb31-2"><a href=""></a>table_Species</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    setosa versicolor  virginica 
+        50         50         50 </code></pre>
+</div>
+</div>
+<p>The same with the proportions :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href=""></a><span class="fu">prop.table</span>(table_Species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    setosa versicolor  virginica 
+ 0.3333333  0.3333333  0.3333333 </code></pre>
+</div>
+</div>
+<p>and finally we can draw the bar plot for this variable</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href=""></a><span class="fu">barplot</span>(table_Species, <span class="at">main=</span><span class="st">"Barplot for the species"</span>, </span>
+<span id="cb35-2"><a href=""></a>        <span class="at">xlab=</span><span class="st">"Nombre d'iris"</span>,</span>
+<span id="cb35-3"><a href=""></a>        <span class="at">col=</span><span class="st">"orange"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-19-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="bivariate-statistics" class="slide level2 scrollable">
+<h2><img data-src="img/scroll.png" style="width:1.0%"> Bivariate statistics</h2>
+<ul>
+<li>Summarize and describe the relationship between two variables<br>
+</li>
+<li>Explore how one variable changes with respect to another</li>
+</ul>
+<p>Three types of situations :</p>
+<ol type="1">
+<li>Quantitative – Quantitative : Both variables are numeric</li>
+<li>Quantitative – Qualitative : One numeric, one categorical</li>
+<li>Qualitative – Qualitative : Both categorical</li>
+</ol>
+<h3 id="quantitative-vs-quantitative">Quantitative VS Quantitative</h3>
+<p>A <strong>scatter plot</strong> is one of the most commonly used tools to visualize the relationship between two quantitative variables.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href=""></a><span class="fu">plot</span>(iris<span class="sc">$</span>Sepal.Length,iris<span class="sc">$</span>Sepal.Width)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-20-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>It can give an idea of the relationship between the 2 variables.</p>
+<h3 id="quantitative-vs-qualitative">Quantitative VS Qualitative</h3>
+<p>The command <code>by</code> gives statistics summary for each modality of the qualitative variable</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href=""></a><span class="fu">by</span>(iris[,<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>], <span class="at">INDICES=</span>iris[,<span class="st">"Species"</span>], <span class="at">FUN=</span>summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>iris[, "Species"]: setosa
+  Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
+ Min.   :4.300   Min.   :2.300   Min.   :1.000   Min.   :0.100  
+ 1st Qu.:4.800   1st Qu.:3.200   1st Qu.:1.400   1st Qu.:0.200  
+ Median :5.000   Median :3.400   Median :1.500   Median :0.200  
+ Mean   :5.006   Mean   :3.428   Mean   :1.462   Mean   :0.246  
+ 3rd Qu.:5.200   3rd Qu.:3.675   3rd Qu.:1.575   3rd Qu.:0.300  
+ Max.   :5.800   Max.   :4.400   Max.   :1.900   Max.   :0.600  
+------------------------------------------------------------ 
+iris[, "Species"]: versicolor
+  Sepal.Length    Sepal.Width     Petal.Length   Petal.Width   
+ Min.   :4.900   Min.   :2.000   Min.   :3.00   Min.   :1.000  
+ 1st Qu.:5.600   1st Qu.:2.525   1st Qu.:4.00   1st Qu.:1.200  
+ Median :5.900   Median :2.800   Median :4.35   Median :1.300  
+ Mean   :5.936   Mean   :2.770   Mean   :4.26   Mean   :1.326  
+ 3rd Qu.:6.300   3rd Qu.:3.000   3rd Qu.:4.60   3rd Qu.:1.500  
+ Max.   :7.000   Max.   :3.400   Max.   :5.10   Max.   :1.800  
+------------------------------------------------------------ 
+iris[, "Species"]: virginica
+  Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
+ Min.   :4.900   Min.   :2.200   Min.   :4.500   Min.   :1.400  
+ 1st Qu.:6.225   1st Qu.:2.800   1st Qu.:5.100   1st Qu.:1.800  
+ Median :6.500   Median :3.000   Median :5.550   Median :2.000  
+ Mean   :6.588   Mean   :2.974   Mean   :5.552   Mean   :2.026  
+ 3rd Qu.:6.900   3rd Qu.:3.175   3rd Qu.:5.875   3rd Qu.:2.300  
+ Max.   :7.900   Max.   :3.800   Max.   :6.900   Max.   :2.500  </code></pre>
+</div>
+</div>
+<p>The <code>psych</code> package, using <code>describe</code>, allows to compute the following statistics :</p>
+<ul>
+<li><p>Number of observations</p></li>
+<li><p>Mean</p></li>
+<li><p>Standard deviation<br>
+</p></li>
+<li><p>Median</p></li>
+<li><p>Trimmed mean (calculated by removing the 5 smallest and 5 largest values)</p></li>
+<li><p>Median absolute deviation (robust measure of spread, defined as the median of the absolute differences between each value and the dataset’s median)</p></li>
+<li><p>Minimum<br>
+</p></li>
+<li><p>Maximum<br>
+</p></li>
+<li><p>Range (maximum − minimum)</p></li>
+<li><p>Skewness (measures the asymmetry of a distribution, indicating whether the data are skewed to the left (negative) or right (positive) )</p></li>
+<li><p>Kurtosis (measures the “tailedness” of a distribution, indicating whether data have heavy tails (outliers) or light tails compared to a normal distribution)</p></li>
+<li><p>Standard error (measures how much a sample mean is likely to vary from the true population mean)</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a><span class="fu">library</span>(psych)</span>
+<span id="cb39-2"><a href=""></a><span class="fu">describeBy</span>(iris, <span class="at">group=</span>iris<span class="sc">$</span>Species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ Descriptive statistics by group 
+group: setosa
+             vars  n mean   sd median trimmed  mad min max range skew kurtosis
+Sepal.Length    1 50 5.01 0.35    5.0    5.00 0.30 4.3 5.8   1.5 0.11    -0.45
+Sepal.Width     2 50 3.43 0.38    3.4    3.42 0.37 2.3 4.4   2.1 0.04     0.60
+Petal.Length    3 50 1.46 0.17    1.5    1.46 0.15 1.0 1.9   0.9 0.10     0.65
+Petal.Width     4 50 0.25 0.11    0.2    0.24 0.00 0.1 0.6   0.5 1.18     1.26
+Species         5 50 1.00 0.00    1.0    1.00 0.00 1.0 1.0   0.0  NaN      NaN
+               se
+Sepal.Length 0.05
+Sepal.Width  0.05
+Petal.Length 0.02
+Petal.Width  0.01
+Species      0.00
+------------------------------------------------------------ 
+group: versicolor
+             vars  n mean   sd median trimmed  mad min max range  skew kurtosis
+Sepal.Length    1 50 5.94 0.52   5.90    5.94 0.52 4.9 7.0   2.1  0.10    -0.69
+Sepal.Width     2 50 2.77 0.31   2.80    2.78 0.30 2.0 3.4   1.4 -0.34    -0.55
+Petal.Length    3 50 4.26 0.47   4.35    4.29 0.52 3.0 5.1   2.1 -0.57    -0.19
+Petal.Width     4 50 1.33 0.20   1.30    1.32 0.22 1.0 1.8   0.8 -0.03    -0.59
+Species         5 50 2.00 0.00   2.00    2.00 0.00 2.0 2.0   0.0   NaN      NaN
+               se
+Sepal.Length 0.07
+Sepal.Width  0.04
+Petal.Length 0.07
+Petal.Width  0.03
+Species      0.00
+------------------------------------------------------------ 
+group: virginica
+             vars  n mean   sd median trimmed  mad min max range  skew kurtosis
+Sepal.Length    1 50 6.59 0.64   6.50    6.57 0.59 4.9 7.9   3.0  0.11    -0.20
+Sepal.Width     2 50 2.97 0.32   3.00    2.96 0.30 2.2 3.8   1.6  0.34     0.38
+Petal.Length    3 50 5.55 0.55   5.55    5.51 0.67 4.5 6.9   2.4  0.52    -0.37
+Petal.Width     4 50 2.03 0.27   2.00    2.03 0.30 1.4 2.5   1.1 -0.12    -0.75
+Species         5 50 3.00 0.00   3.00    3.00 0.00 3.0 3.0   0.0   NaN      NaN
+               se
+Sepal.Length 0.09
+Sepal.Width  0.05
+Petal.Length 0.08
+Petal.Width  0.04
+Species      0.00</code></pre>
+</div>
+</div>
+<p>For each quantitative variable, possible to plot the boxplot for all the modalities of the qualitative variable.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href=""></a><span class="fu">boxplot</span>(iris<span class="sc">$</span>Sepal.Length <span class="sc">~</span> iris<span class="sc">$</span>Species,</span>
+<span id="cb41-2"><a href=""></a>        <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"yellow"</span>),</span>
+<span id="cb41-3"><a href=""></a>        <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">"Boxplot pour la variable Sepal.Length, par espèce d'iris"</span>),</span>
+<span id="cb41-4"><a href=""></a>        <span class="at">ylab =</span> <span class="st">"Quantiles"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-23-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<h3 id="qualitative-vs-qualitative">Qualitative VS Qualitative</h3>
+<p>First we create another qualitative variable for our example : <code>Sepal.Length_cat</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href=""></a>iris<span class="sc">$</span>Sepal.Length_cat[iris<span class="sc">$</span>Sepal.Length<span class="sc">&lt;=</span><span class="dv">5</span>]<span class="ot">&lt;-</span><span class="st">"petit"</span></span>
+<span id="cb42-2"><a href=""></a>iris<span class="sc">$</span>Sepal.Length_cat[iris<span class="sc">$</span>Sepal.Length<span class="sc">&lt;=</span><span class="dv">6</span> <span class="sc">&amp;</span> iris<span class="sc">$</span>Sepal.Length<span class="sc">&gt;</span><span class="dv">5</span>]<span class="ot">&lt;-</span><span class="st">"moyen"</span></span>
+<span id="cb42-3"><a href=""></a>iris<span class="sc">$</span>Sepal.Length_cat[iris<span class="sc">$</span>Sepal.Length<span class="sc">&gt;</span><span class="dv">6</span>]<span class="ot">&lt;-</span><span class="st">"grand"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now we have</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href=""></a><span class="fu">head</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species Sepal.Length_cat
+1          5.1         3.5          1.4         0.2  setosa            moyen
+2          4.9         3.0          1.4         0.2  setosa            petit
+3          4.7         3.2          1.3         0.2  setosa            petit
+4          4.6         3.1          1.5         0.2  setosa            petit
+5          5.0         3.6          1.4         0.2  setosa            petit
+6          5.4         3.9          1.7         0.4  setosa            moyen</code></pre>
+</div>
+</div>
+<p>We get contingency table with <code>table</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href=""></a>table_Species_Length<span class="ot">&lt;-</span><span class="fu">table</span>(iris<span class="sc">$</span>Species,iris<span class="sc">$</span>Sepal.Length_cat)</span>
+<span id="cb45-2"><a href=""></a>table_Species_Length</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            
+             grand moyen petit
+  setosa         0    22    28
+  versicolor    20    27     3
+  virginica     41     8     1</code></pre>
+</div>
+</div>
+<p>the sum for each modality of <code>Species</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href=""></a><span class="fu">margin.table</span>(table_Species_Length, <span class="dv">1</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    setosa versicolor  virginica 
+        50         50         50 </code></pre>
+</div>
+</div>
+<p>the sum for each modality of <code>Sepal.Length_cat</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href=""></a><span class="fu">margin.table</span>(table_Species_Length, <span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+grand moyen petit 
+   61    57    32 </code></pre>
+</div>
+</div>
+<p>the same with proportions (with respect to the total number of observations)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href=""></a><span class="fu">prop.table</span>(table_Species_Length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            
+                   grand       moyen       petit
+  setosa     0.000000000 0.146666667 0.186666667
+  versicolor 0.133333333 0.180000000 0.020000000
+  virginica  0.273333333 0.053333333 0.006666667</code></pre>
+</div>
+</div>
+<p>now with respect to the number of observations for each row</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href=""></a><span class="fu">prop.table</span>(table_Species_Length, <span class="dv">1</span>) <span class="co"># proportion sur l'effectif total de la ligne</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            
+             grand moyen petit
+  setosa      0.00  0.44  0.56
+  versicolor  0.40  0.54  0.06
+  virginica   0.82  0.16  0.02</code></pre>
+</div>
+</div>
+<p>and finally with respect to the number of each column</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href=""></a><span class="fu">prop.table</span>(table_Species_Length, <span class="dv">2</span>) <span class="co"># proportion sur l'effectif total de la colonne</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            
+                 grand     moyen     petit
+  setosa     0.0000000 0.3859649 0.8750000
+  versicolor 0.3278689 0.4736842 0.0937500
+  virginica  0.6721311 0.1403509 0.0312500</code></pre>
+</div>
+</div>
+<p>The gmodels package allows to create more advanced tables.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href=""></a><span class="fu">library</span>(gmodels)</span>
+<span id="cb57-2"><a href=""></a><span class="fu">CrossTable</span>(iris<span class="sc">$</span>Species,iris<span class="sc">$</span>Sepal.Length_cat,<span class="at">prop.chisq=</span><span class="cn">FALSE</span>,<span class="at">chisq=</span><span class="cn">FALSE</span>,<span class="at">expected=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ 
+   Cell Contents
+|-------------------------|
+|                       N |
+|           N / Row Total |
+|           N / Col Total |
+|         N / Table Total |
+|-------------------------|
+
+ 
+Total Observations in Table:  150 
+
+ 
+             | iris$Sepal.Length_cat 
+iris$Species |     grand |     moyen |     petit | Row Total | 
+-------------|-----------|-----------|-----------|-----------|
+      setosa |         0 |        22 |        28 |        50 | 
+             |     0.000 |     0.440 |     0.560 |     0.333 | 
+             |     0.000 |     0.386 |     0.875 |           | 
+             |     0.000 |     0.147 |     0.187 |           | 
+-------------|-----------|-----------|-----------|-----------|
+  versicolor |        20 |        27 |         3 |        50 | 
+             |     0.400 |     0.540 |     0.060 |     0.333 | 
+             |     0.328 |     0.474 |     0.094 |           | 
+             |     0.133 |     0.180 |     0.020 |           | 
+-------------|-----------|-----------|-----------|-----------|
+   virginica |        41 |         8 |         1 |        50 | 
+             |     0.820 |     0.160 |     0.020 |     0.333 | 
+             |     0.672 |     0.140 |     0.031 |           | 
+             |     0.273 |     0.053 |     0.007 |           | 
+-------------|-----------|-----------|-----------|-----------|
+Column Total |        61 |        57 |        32 |       150 | 
+             |     0.407 |     0.380 |     0.213 |           | 
+-------------|-----------|-----------|-----------|-----------|
+
+ </code></pre>
+</div>
+</div>
 </section></section>
+<section>
 <section id="probability-and-sampling" class="title-slide slide level1 center">
 <h1>Probability and sampling</h1>
 <p>coming !</p>
 </section>
-
+<section id="probability" class="slide level2 scrollable">
+<h2><img data-src="img/scroll.png" style="width:1.0%"> Probability</h2>
+<p>coming !</p>
+</section>
+<section id="sampling" class="slide level2 scrollable">
+<h2><img data-src="img/scroll.png" style="width:1.0%"> Sampling</h2>
+<p>coming !</p>
+</section></section>
 <section>
 <section id="statistical-tests" class="title-slide slide level1 center">
 <h1>Statistical tests</h1>
-
+<p><br></p>
+<ul>
+<li>Tools to decide if data supports an hypothesis<br>
+</li>
+<li>Compare observed results with what is expected under an hypothesis</li>
+<li>Help control errors</li>
+<li>Guide data-driven decisions</li>
+</ul>
 </section>
 <section id="statistical-hypothesis-tests" class="slide level2 scrollable">
-<h2>Statistical hypothesis tests</h2>
-<h3 id="the-hypotheses">The Hypotheses</h3>
+<h2><img data-src="img/scroll.png" style="width:1.0%"> Statistical hypothesis tests</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>A <strong>procedure</strong> to know if <strong>something has changed</strong> in a poputalion.</p>
+<p><br></p>
+<ul>
+<li>Collect a <strong>sample</strong> that is representative of the whole population.<br>
+</li>
+<li>State the <strong>hypothesis</strong> you want to test.</li>
+</ul>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<p><em>A very good video about statistical hypothesis testing.</em></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vVDahuv1bq8?si=mIvzP_JWAZEmAc3e" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+</div></div>
+<h3 id="the-hypothesis">The Hypothesis</h3>
 <p>Two Competing Hypotheses :</p>
 <ol type="1">
-<li><strong>Null hypothesis</strong> H0 :</li>
+<li><p><strong>Null hypothesis</strong> H0 :<br>
+The conservative hypothesis ; “There is nothing going on !”</p></li>
+<li><p><strong>Alternative hypothesis</strong> H1 :<br>
+“There is something going on”</p></li>
 </ol>
-<p>The conservative hypothesis ; “There is nothing going on !”</p>
-<ol start="2" type="1">
-<li><strong>Alternative hypothesis</strong> H1 :</li>
-</ol>
-<p>“There is something going on”</p>
+<p><br></p>
+<h3 id="type-1-and-type-2-errors">Type 1 and Type 2 Errors</h3>
+<p>In a hypothesis test, we make a decision about which of H0 or H1 might be true, but <strong>our decision might be incorrect</strong> !</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 36%">
+<col style="width: 33%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: center;">We fail to reject <span class="math inline">\(H_0\)</span></th>
+<th style="text-align: center;">We reject <span class="math inline">\(H_0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">In reality <span class="math inline">\(H_0\)</span> is true</td>
+<td style="text-align: center;"><span class="math inline">\(\checkmark\)</span></td>
+<td style="text-align: center;">Type 1 Error <span class="math inline">\(\alpha\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">In reality <span class="math inline">\(H_1\)</span> is true</td>
+<td style="text-align: center;">Type 2 Error <span class="math inline">\(\beta\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\checkmark\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<ul>
+<li><strong>Goal</strong> : Minimizing Type I error (<span class="math inline">\(\alpha\)</span>) and Type II error <span class="math inline">\((\beta)\)</span><br>
+</li>
+<li>Many ways to minimize a problem with 2 parameters.</li>
+</ul>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Type I error &gt; Type II error</strong></p>
+</div>
+<div class="callout-content">
+<p>Type I error (<span class="math inline">\(\alpha\)</span>) and Type II error <span class="math inline">\((\beta)\)</span> <strong>DO NOT HAVE THE SAME IMPACT</strong> on the situation being tested !!<br>
+Type I error (<span class="math inline">\(\alpha\)</span>) is way more harmful !</p>
+<p><strong>Therefore we fix <span class="math inline">\(\alpha\)</span> as small as we like, and try to minimize <span class="math inline">\(\beta\)</span>.</strong></p>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="inside-a-statistical-hypothesis-test">“Inside” a statistical hypothesis test</h3>
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -696,141 +1304,1440 @@ Antoine Géré
 <p><strong>Important</strong></p>
 </div>
 <div class="callout-content">
-<p>The next step of hypothesis testing is to weigh the evidence !</p>
-<p>Could these data plausibly have happened by chance if the H0 was true?</p>
+<p>The next step of hypothesis testing is to <strong>weigh the evidence</strong> !</p>
+<p>Could these data plausibly have happened <strong>by chance</strong> if the H0 was true ?</p>
 </div>
 </div>
 </div>
-<h3 id="type-1-and-type-2-errors">Type 1 and Type 2 Errors</h3>
-<p>In a hypothesis test, we make a decision about which of H0 or H1 might be true, but our decision might be incorrect !</p>
-
-<img data-src="img/type1-2-error.png" class="r-stretch"><p>Type 1 Error (<span class="math inline">\(\alpha\)</span>) <span class="math inline">\(&gt;\)</span> Type 2 Error <span class="math inline">\((\beta)\)</span></p>
-<p><span class="math inline">\(\to\)</span> we fix <span class="math inline">\(\alpha\)</span>, and try to minimize <span class="math inline">\(\beta\)</span></p>
-<p>Always being cautious in our decisions !</p>
-<h3 id="inside-a-statistical-hypothesis-test">“Inside” a statistical hypothesis test</h3>
+<p><br></p>
+<p><strong>The procedure</strong> :</p>
+<div class="columns">
+<div class="column" style="width:60%;">
 <ul>
 <li><p>We collect data in our population</p></li>
-<li><p>We use the right test</p></li>
 <li><p>We import our data in RStudio</p></li>
+<li><p>We use the right test</p></li>
 <li><p>We “write” the test we chose</p></li>
-<li><p>And according to the <strong>p-value</strong> we get, we can accept or reject H0</p></li>
+<li><p>And according to the <strong>p-value</strong> we get, we can accept or reject H0</p>
+<ul>
+<li>If <strong>p-value</strong> &gt; <span class="math inline">\(\alpha\)</span>, then we accept H0</li>
+<li>If <strong>p-value</strong> &lt; <span class="math inline">\(\alpha\)</span>, then we reject H0</li>
+</ul></li>
 </ul>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:30%;">
+<iframe width="315" height="560" src="https://www.youtube.com/embed/plj34_wNxLc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
+gyroscope; picture-in-picture;
+web-share" allowfullscreen="">
+</iframe>
+</div></div>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Tip</strong></p>
+<p><strong>What remains to be learned?</strong></p>
 </div>
 <div class="callout-content">
-<p>We need to learn which test to choose, how to choose it, and how to implement it on RStudio</p>
+<p>We now need to learn which test to choose, how to choose it, and how to implement it on RStudio.<br>
+cf.&nbsp;next slides</p>
 </div>
 </div>
 </div>
-</section>
-<section id="chi2-test" class="slide level2 scrollable">
-<h2>Chi2 test</h2>
-<p><span class="math inline">\(\to\)</span> TD !</p>
-</section>
-<section id="binomial-test" class="slide level2 scrollable">
-<h2>Binomial test</h2>
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Important</strong></p>
-</div>
-<div class="callout-content">
-<p>We want to compare two percentages (or two numbers) with each other or with theoretical values</p>
-<p><span class="math inline">\(\to\)</span> <strong>I do a binomial test</strong></p>
-</div>
-</div>
-</div>
-<h3 id="study-case">Study case</h3>
-<p>In this class :</p>
-<ul>
-<li>how many students in this class ?</li>
-<li>how many women / men ?</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>women <span class="ot">=</span> <span class="dv">45</span></span>
-<span id="cb2-2"><a href=""></a>men <span class="ot">=</span> <span class="dv">30</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><strong>The null hypothesis H0 :</strong></p>
-<p>In the world population we have around 50% women and 50% men.</p>
-<p>Does the sample (P114) fit this theory ?</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="co">#binom.test(women,men,p=0.5)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><span class="math inline">\(\to\)</span> What is the <strong>p-value</strong> ? What can we say about H0 ?</p>
-</section>
-<section id="t-test" class="slide level2 scrollable">
-<h2>T test</h2>
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Important</strong></p>
-</div>
-<div class="callout-content">
-<p>We want :</p>
-<ul>
-<li><p>to compare two means of samples in order to know if the two samples are from the same population ?</p></li>
-<li><p>to compare a mean of a sample to the mean of the whole population</p></li>
-</ul>
-<p><span class="math inline">\(\to\)</span> We do a t test</p>
-</div>
-</div>
-</div>
-<h3 id="compare-2-samples">Compare 2 samples</h3>
-<ul>
-<li><p><strong>Step 1</strong> : check if the two variables are normally distributed (we still have to learn it !)</p></li>
-<li><p><strong>Step 2</strong> : We do a t test on RStudio</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>x <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">4</span>)  </span>
-<span id="cb4-2"><a href=""></a>y <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">8</span>,<span class="dv">8</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">5</span>) </span>
-<span id="cb4-3"><a href=""></a><span class="fu">t.test</span>(x,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    Welch Two Sample t-test
+<p><br></p>
+<h3 id="example">Example</h3>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p>A first example of hypothesis testing within <strong>R</strong>.</p>
+<p>In this video, the author tackle two questions relating to R’s built-in <code>airquality data set</code>. We’ll view this set as a simple random sample of air quality measurements in New York City.</p>
+</div><div class="column" style="width:10%;">
 
-data:  x and y
-t = -2.2268, df = 15.006, p-value = 0.04169
-alternative hypothesis: true difference in means is not equal to 0
-95 percent confidence interval:
- -3.3805058 -0.0740397
-sample estimates:
-mean of x mean of y 
- 3.000000  4.727273 </code></pre>
+</div><div class="column" style="width:35%;">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/oNpfjcIf2Es?si=GqN20QketJmQFy8I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+</div></div>
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Questions</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>An official claims that the average wind speed in the city is 9 miles per hour. Is this plausible ?<br>
+</li>
+<li>A certain solar array will only be cost-effective if mean solar radiation is over 175 Langleys. Would it be a sound investment in light of this data?</li>
+</ul>
 </div>
 </div>
-<h3 id="compare-one-sample-to-the-mean-of-the-whole-population">Compare one sample to the mean of the whole population</h3>
+</div>
+<p><br></p>
+<p>Let’s go work on <strong>RStudio</strong>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>xx <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">18</span>,<span class="dv">19</span>,<span class="dv">20</span>,<span class="dv">21</span>,<span class="dv">18</span>,<span class="dv">19</span>,<span class="dv">18</span>,<span class="dv">19</span>,<span class="dv">18</span>,<span class="dv">18</span>,<span class="dv">18</span>,<span class="dv">18</span>,<span class="dv">18</span>,<span class="dv">18</span>,<span class="dv">18</span>)</span>
-<span id="cb6-2"><a href=""></a><span class="fu">t.test</span>(xx, <span class="at">mu=</span><span class="dv">19</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href=""></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb59-2"><a href=""></a><span class="fu">head</span>(airquality)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Ozone Solar.R Wind Temp Month Day
+1    41     190  7.4   67     5   1
+2    36     118  8.0   72     5   2
+3    12     149 12.6   74     5   3
+4    18     313 11.5   62     5   4
+5    NA      NA 14.3   56     5   5
+6    28      NA 14.9   66     5   6</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href=""></a><span class="fu">dim</span>(airquality)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 153   6</code></pre>
+</div>
+</div>
+<p>The dataset used here is called <code>airquality</code>. There are 6 variables and 153 individuals.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><code>Ozone</code><br>
+</li>
+<li><code>Solar.R</code><br>
+</li>
+<li><code>Wind</code></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><code>Temp</code></li>
+<li><code>Month</code><br>
+</li>
+<li><code>Day</code></li>
+</ul>
+</div></div>
+<h4 id="question-1">Question 1</h4>
+<p>In order to answer the first question, we look at <code>Wind</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href=""></a><span class="fu">qplot</span>(airquality<span class="sc">$</span>Wind, <span class="at">geom =</span> <span class="st">"histogram"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-34-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>H0 : the null hypotesis</strong></p>
+</div>
+<div class="callout-content">
+<p>Here the null hypotesis is that the average wind speed in the city is 9 miles per hour.</p>
+</div>
+</div>
+</div>
+<p>We will use here a <code>t.test</code>. We explain more about this test in next slides.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href=""></a><span class="fu">t.test</span>(airquality<span class="sc">$</span>Wind, <span class="at">mu =</span> <span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     One Sample t-test
 
-data:  xx
-t = -1.9743, df = 14, p-value = 0.06842
-alternative hypothesis: true mean is not equal to 19
+data:  airquality$Wind
+t = 3.3619, df = 152, p-value = 0.0009794
+alternative hypothesis: true mean is not equal to 9
 95 percent confidence interval:
- 18.02636 19.04031
+  9.394804 10.520229
 sample estimates:
 mean of x 
- 18.53333 </code></pre>
+ 9.957516 </code></pre>
+</div>
+</div>
+<p>We get a <strong>p-value</strong> <span class="math inline">\(\simeq \ 0.0010 \ \simeq \ 0.1 \% \ &lt; \alpha = 5 \%\)</span></p>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Conclusion</strong></p>
+</div>
+<div class="callout-content">
+<p>We can therefore reject H0.</p>
+<p>The average wind speed in the city is NOT 9 miles per hour.</p>
+</div>
+</div>
+</div>
+<p><br></p>
+<h4 id="question-2">Question 2</h4>
+<p>In order to answer the second question, we look at <code>Solar.R</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href=""></a><span class="fu">qplot</span>(airquality<span class="sc">$</span>Solar.R, <span class="at">geom =</span> <span class="st">"histogram"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-36-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>H0 : the null hypotesis</strong></p>
+</div>
+<div class="callout-content">
+<p>Here the null hypotesis is that the mean solar radiation is 175 Langleys.<br>
+And the alternative hypothesis H1 is that this mean is greater than 175 Langleys.</p>
+</div>
+</div>
+</div>
+<p>Again we will use here a <code>t.test</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href=""></a><span class="fu">t.test</span>(airquality<span class="sc">$</span>Solar.R, <span class="at">mu =</span> <span class="dv">175</span>, <span class="at">alternative =</span> <span class="st">"greater"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    One Sample t-test
+
+data:  airquality$Solar.R
+t = 1.4667, df = 145, p-value = 0.07232
+alternative hypothesis: true mean is greater than 175
+95 percent confidence interval:
+ 173.5931      Inf
+sample estimates:
+mean of x 
+ 185.9315 </code></pre>
+</div>
+</div>
+<p>We get a <strong>p-value</strong> <span class="math inline">\(\simeq \ 0.072 \ \simeq \ 7.2 \% \ &gt; \alpha = 5 \%\)</span></p>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Conclusion</strong></p>
+</div>
+<div class="callout-content">
+<p>We can therefore accept H0.</p>
+</div>
 </div>
 </div>
 </section>
+<section id="parametric-and-nonparametric-statistical-tests" class="slide level2 scrollable">
+<h2><img data-src="img/scroll.png" style="width:1.0%"> Parametric and nonparametric statistical tests</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li><p><strong>Parametric tests</strong> : requirements about the <strong>shape</strong> of the populations involved</p></li>
+<li><p><strong>Non-parametric tests</strong> do not require that samples come from populations with normal distributions or have any other particular distributions.</p></li>
+</ul>
+<p>Non-parametric tests are called distribution-free tests.</p>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<p><em>An interesting on the difference between parametric and non-parametric test.</em></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/welIUs2boQ8?si=qUHcIB0N6EuLE5IR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+</div></div>
+<p><br></p>
+<h3 id="parametric-tests-non-parametric-tests">Parametric tests &lt; Non-parametric tests</h3>
+<ul>
+<li><p>Nonparametric methods can be <strong>applied to a wide variety of situations</strong> because they do not have the more rigid requirements of the corresponding parametric methods.</p></li>
+<li><p>Unlike parametric methods, nonparametric methods can <strong>often be applied to categorical data</strong>.</p></li>
+<li><p>Nonparametric methods usually involve <strong>simpler computations</strong> than the corresponding parametric methods.</p></li>
+</ul>
+<p><br></p>
+<h3 id="parametric-tests-non-parametric-tests-1">Parametric tests &gt; Non-parametric tests</h3>
+<ul>
+<li><p>Nonparametric methods tend to <strong>waste information</strong></p></li>
+<li><p>Nonparametric tests are <strong>not as efficient</strong> as parametric tests</p></li>
+<li><p>With a nonparametric test we need <strong>stronger evidence</strong> (such as a larger sample or greater differences) before we reject a null hypothesis.</p></li>
+</ul>
+</section>
+<section id="chi-squared-tests" class="slide level2 scrollable">
+<h2><img data-src="img/scroll.png" style="width:1.0%"> Chi-squared tests</h2>
+<ul>
+<li><p>There are three types of Chi-squared tests.</p></li>
+<li><p>We write Chi-squared OR <span class="math inline">\(\chi^2\)</span>.</p></li>
+</ul>
+<p><br></p>
+<h3 id="chi2-goodness-of-fit-test"><img data-src="img/logo-stat.png" style="width:3.0%"> <span class="math inline">\(\chi^2\)</span> goodness-of-fit test</h3>
+<p><em>Non-parametric test</em></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Dependent variable</th>
+<th style="text-align: center;">/</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Independant variable</td>
+<td style="text-align: center;">Qualitative</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Asumption :</strong></p>
+<ul>
+<li>Observations must be independent</li>
+</ul>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>H0 : Null hypothesis</strong></p>
+</div>
+<div class="callout-content">
+<p>The population follows the specified distribution.</p>
+</div>
+</div>
+</div>
+<p><br></p>
+<h4 id="example-1">Example :</h4>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>The author tackle two goodness-of-fit problems using <strong>R</strong>.</p>
+<ul>
+<li>One with different proportions<br>
+</li>
+<li>One with same proportions</li>
+</ul>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/n5c11B5FJ24?si=hpfaWjXHjBlrp1OP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+</div></div>
+<p><br></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>1st problem</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>A college reports that
+<ul>
+<li><span class="math inline">\(50 \%\)</span> of the students in its statistics classes are freshmen,</li>
+<li><span class="math inline">\(30 \%\)</span> are sophomores,</li>
+<li><span class="math inline">\(10 \%\)</span> are juniors,</li>
+<li>and <span class="math inline">\(10 \%\)</span> are seniors.</li>
+</ul></li>
+</ul>
+<p>A simple random sample of <span class="math inline">\(65\)</span> such students has the following breakdown :</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Freshman</th>
+<th style="text-align: center;">Sophomore</th>
+<th style="text-align: center;">Junior</th>
+<th style="text-align: center;">Senior</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">28</td>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">4</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Question</strong></p>
+</div>
+<div class="callout-content">
+<p>Does this constitute sufficient evidence to doubt the percentages reported by the college ?</p>
+</div>
+</div>
+</div>
+<p>We define the variable <code>years</code> sample</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href=""></a>years <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">28</span>, <span class="dv">24</span>, <span class="dv">9</span>, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>then the proportions expected from what the college did report</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href=""></a>props <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.3</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p>Now we can perform our goodness-of-fit test.</p></li>
+<li><p>Here the null hypothesis is that the population follows the specified distribution, meaning the sample does agree with what the college did report.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href=""></a><span class="fu">chisq.test</span>(years, <span class="at">p =</span> props)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Chi-squared test for given probabilities
+
+data:  years
+X-squared = 3.5846, df = 3, p-value = 0.31</code></pre>
+</div>
+</div>
+<ul>
+<li><p>We get a <strong>p-value</strong> <span class="math inline">\(\simeq \ 0.31 \ \simeq \ 31 \% \ &gt; \alpha\)</span></p></li>
+<li><p>Therefore we can accept H0.</p></li>
+<li><p>The sample made do not constitute sufficient evidence to doubt the percentages reported by the college <br></p></li>
+</ul>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>2nd problem</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>200 rolls of a die result in the following distribution:</li>
+</ul>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">5</th>
+<th style="text-align: center;">6</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">28</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">22</td>
+<td style="text-align: center;">31</td>
+<td style="text-align: center;">38</td>
+<td style="text-align: center;">51</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Question</strong></p>
+</div>
+<div class="callout-content">
+<p>Should we conclude that the die is unfair ?</p>
+</div>
+</div>
+</div>
+<p>We define the variable <code>years</code> for the sample.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href=""></a>counts <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">28</span>, <span class="dv">30</span>, <span class="dv">22</span>, <span class="dv">31</span>, <span class="dv">38</span>, <span class="dv">51</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p>Given the theoretical proportion will be all the same, we do not need to define a vector for the proportions.</p></li>
+<li><p>Here H0 is that the die is fair.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href=""></a><span class="fu">chisq.test</span>(counts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Chi-squared test for given probabilities
+
+data:  counts
+X-squared = 15.22, df = 5, p-value = 0.009463</code></pre>
+</div>
+</div>
+<ul>
+<li><p>We get a <strong>p-value</strong> <span class="math inline">\(\simeq \ 0.001 \ \simeq \ 0.01 \% \ &lt; \alpha\)</span></p></li>
+<li><p>Therefore we can reject H0.</p></li>
+<li><p>According to this test we are going to say that the die is unfair.</p></li>
+</ul>
+<p><br></p>
+<h3 id="chi2-test-for-homogeneity"><img data-src="img/logo-stat.png" style="width:3.0%"> <span class="math inline">\(\chi^2\)</span> test for homogeneity</h3>
+<p><em>Non-parametric test</em></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Dependent variable</th>
+<th style="text-align: center;">Qualitative</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Independant variable</td>
+<td style="text-align: center;">Qualitative</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Asumption :</strong></p>
+<ul>
+<li>Each population is at least 10 times as large as its respective sample</li>
+<li>The expected frequency count for each value is at least 5</li>
+</ul>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>H0 : Null hypothesis</strong></p>
+</div>
+<div class="callout-content">
+<p>The distribution of the categorical variable is the same for each subgroup or population</p>
+</div>
+</div>
+</div>
+<p><br></p>
+<h4 id="example-2">Example :</h4>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p>The author tackle one <span class="math inline">\(\chi^2\)</span> test for homogeneity using <strong>R</strong>.</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Problem</strong></p>
+</div>
+<div class="callout-content">
+<p>A random sample of students at two universities resulted in the following distribution of fields of study:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">University</th>
+<th style="text-align: left;">Business</th>
+<th style="text-align: left;">Engineering</th>
+<th style="text-align: left;">Liberal arts</th>
+<th style="text-align: left;">Nursing</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: left;">64</td>
+<td style="text-align: left;">47</td>
+<td style="text-align: left;">145</td>
+<td style="text-align: left;">31</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: left;">41</td>
+<td style="text-align: left;">35</td>
+<td style="text-align: left;">174</td>
+<td style="text-align: left;">52</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:35%;">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/eQ9hHDDJj0M?si=ASL8lBrZX5hPVUqM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+</div></div>
+<p><br></p>
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Question</strong></p>
+</div>
+<div class="callout-content">
+<p>Is it safe to conclude that the populations of students in the two schools have different distributions of fields of study?</p>
+</div>
+</div>
+</div>
+<ul>
+<li><p>We define the vector <code>students</code>.</p></li>
+<li><p>From <code>students</code> we define the matrix <code>m</code></p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href=""></a>students <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">64</span>, <span class="dv">47</span>, <span class="dv">145</span>, <span class="dv">31</span>, <span class="dv">41</span>, <span class="dv">35</span>, <span class="dv">174</span>, <span class="dv">52</span>)</span>
+<span id="cb76-2"><a href=""></a>m <span class="ot">=</span> <span class="fu">matrix</span>(students, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb76-3"><a href=""></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3] [,4]
+[1,]   64   47  145   31
+[2,]   41   35  174   52</code></pre>
+</div>
+</div>
+<p>It’s optionnal, but can name the columns and rows.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href=""></a><span class="fu">colnames</span>(m) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Business"</span>, <span class="st">"Engineering"</span>, <span class="st">"Liberal arts"</span>, <span class="st">"Nursing"</span>)</span>
+<span id="cb78-2"><a href=""></a><span class="fu">rownames</span>(m) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>)</span>
+<span id="cb78-3"><a href=""></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Business Engineering Liberal arts Nursing
+A       64          47          145      31
+B       41          35          174      52</code></pre>
+</div>
+</div>
+<ul>
+<li><p>Now we can perform our <span class="math inline">\(\chi^2\)</span> test for homogenity.</p></li>
+<li><p>Here the null hypothesis H0 is that the populations of students in the two schools have the same distribution of fields of study.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href=""></a><span class="fu">chisq.test</span>(m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's Chi-squared test
+
+data:  m
+X-squared = 14.371, df = 3, p-value = 0.002441</code></pre>
+</div>
+</div>
+<ul>
+<li><p>We get a <strong>p-value</strong> <span class="math inline">\(\simeq \ 0.002 \ \simeq \ 0.2 \% \ &lt; \alpha\)</span></p></li>
+<li><p>Therefore we can reject H0.</p></li>
+<li><p>The populations of students in the two schools have different distributions of fields of study.</p></li>
+</ul>
+<p><br></p>
+<h3 id="chi2-test-for-independence"><img data-src="img/logo-stat.png" style="width:3.0%"> <span class="math inline">\(\chi^2\)</span> test for independence</h3>
+<p><em>Non-parametric test</em></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Dependent variable</th>
+<th style="text-align: center;">Qualitative</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Independant variable</td>
+<td style="text-align: center;">Qualitative</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Asumptions :</strong></p>
+<ul>
+<li>Observations must be independent</li>
+<li>Relatively large sample size</li>
+</ul>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>H0 : Null hypothesis</strong></p>
+</div>
+<div class="callout-content">
+<p>There is no association between the two variables.</p>
+</div>
+</div>
+</div>
+<p><br></p>
+<h4 id="example-3">Example :</h4>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>The author tackle a <span class="math inline">\(\chi^2\)</span> test for independence using <strong>R</strong>.</p>
+<p>The two variables are :</p>
+<ul>
+<li><p>the type of volunteer</p></li>
+<li><p>the amount of hours spend voluntering</p></li>
+</ul>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsDtYuwVzs?si=qphE7yoKYG1pVMjz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+</div></div>
+<p><br></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Problem</strong></p>
+</div>
+<div class="callout-content">
+<p>In a volunteer group, adults 21 and older volunteer from one to nine hours each week to spend time with a disabled senior citizen. The program recruits among :<br>
+- community college students,</p>
+<ul>
+<li><p>four-year college students,</p></li>
+<li><p>and nonstudents.</p></li>
+</ul>
+<p>In the table we have a sample of the adult volunteers and the number of hours they volunteer per week.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Type of Volunteer</th>
+<th style="text-align: left;">1-3 Hours</th>
+<th style="text-align: left;">4-6 Hours</th>
+<th style="text-align: left;">7-9 Hours</th>
+<th style="text-align: left;">Row Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Community College Students</td>
+<td style="text-align: left;">111</td>
+<td style="text-align: left;">96</td>
+<td style="text-align: left;">48</td>
+<td style="text-align: left;">255</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Four-Year College Students</td>
+<td style="text-align: left;">96</td>
+<td style="text-align: left;">133</td>
+<td style="text-align: left;">61</td>
+<td style="text-align: left;">290</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Nonstudents</td>
+<td style="text-align: left;">91</td>
+<td style="text-align: left;">150</td>
+<td style="text-align: left;">53</td>
+<td style="text-align: left;">294</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Column Total</td>
+<td style="text-align: left;">298</td>
+<td style="text-align: left;">379</td>
+<td style="text-align: left;">162</td>
+<td style="text-align: left;">839</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Question</strong></p>
+</div>
+<div class="callout-content">
+<p>Is the number of hours volunteered independent of the type of volunteer?</p>
+</div>
+</div>
+</div>
+<p>We define the variable <code>volunteers</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href=""></a>volunteers <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">111</span>, <span class="dv">96</span>, <span class="dv">48</span>, <span class="dv">96</span>, <span class="dv">133</span>, <span class="dv">61</span>, <span class="dv">91</span>, <span class="dv">150</span>, <span class="dv">53</span>), <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">nrow =</span> <span class="dv">3</span>)</span>
+<span id="cb82-2"><a href=""></a>volunteers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3]
+[1,]  111   96   48
+[2,]   96  133   61
+[3,]   91  150   53</code></pre>
+</div>
+</div>
+<p>We name the columns and the rows.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href=""></a><span class="fu">rownames</span>(volunteers) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Community College"</span>, <span class="st">"Four Year"</span>, <span class="st">"Nonstudent"</span>)</span>
+<span id="cb84-2"><a href=""></a><span class="fu">colnames</span>(volunteers) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"1-3 hours"</span>, <span class="st">"4-6 hours"</span>, <span class="st">"7-9 hours"</span>)</span>
+<span id="cb84-3"><a href=""></a>volunteers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                  1-3 hours 4-6 hours 7-9 hours
+Community College       111        96        48
+Four Year                96       133        61
+Nonstudent               91       150        53</code></pre>
+</div>
+</div>
+<ul>
+<li><p>Now we can perform our <span class="math inline">\(\chi^2\)</span> indendence test.</p></li>
+<li><p>Here the null hypothesis is that the two variables are independent.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href=""></a>model <span class="ot">=</span> <span class="fu">chisq.test</span>(volunteers)</span>
+<span id="cb86-2"><a href=""></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's Chi-squared test
+
+data:  volunteers
+X-squared = 12.991, df = 4, p-value = 0.01132</code></pre>
+</div>
+</div>
+<ul>
+<li><p>We get a <strong>p-value</strong> <span class="math inline">\(\simeq \ 0.01 \ \simeq \ 1 \% \ &lt; \alpha\)</span></p></li>
+<li><p>Therefore we can reject H0.</p></li>
+<li><p>It does look like, according to this sample, that the number of hours volunteered is dependent of the type of volunteer.</p></li>
+</ul>
+<p><br></p>
+</section>
+<section id="binomial-test" class="slide level2 scrollable">
+<h2><img data-src="img/scroll.png" style="width:1.0%"> Binomial test</h2>
+<p><em>Non-parametric test</em></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Dependent variable</th>
+<th style="text-align: center;">-</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Independant variable</td>
+<td style="text-align: center;">Qualitative (Binary)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Asumptions :</strong></p>
+<ul>
+<li>Random samples</li>
+<li>Independent observations</li>
+<li>The variable of interest is binary (only two possible outcomes)</li>
+<li>The number of trials is fixed</li>
+</ul>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>H0 : Null hypothesis</strong></p>
+</div>
+<div class="callout-content">
+<p>The population proportion of one outcome equals some claimed value.</p>
+</div>
+</div>
+</div>
+<p><br></p>
+<h4 id="example-4">Example :</h4>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li><p>The author tackle a binomial test to see if the proportion of leopards with a solid black coat color equals <span class="math inline">\(0.35\)</span>.</p></li>
+<li><p>We are going to do it using <strong>R</strong>.</p></li>
+</ul>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/iAnwcsOSBXs?si=TxIsL1SDwwfLZxkb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+</div></div>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:80%;">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Problem</strong></p>
+</div>
+<div class="callout-content">
+<p>According to a genetic model, <span class="math inline">\(35 \%\)</span> of a certain subspecies of leopards have a solid black coat color.</p>
+<ul>
+<li><p>We believe this rate is lower for leopards living in a wildlife refuge.</p></li>
+<li><p>So we randomly select 9 unrelated leopards and find that only 1 has a solid black coat.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:20%;">
+<p><img data-src="img/black_leopard.png" style="width:52.0%"></p>
+</div></div>
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Question</strong></p>
+</div>
+<div class="callout-content">
+<p>Is there enough evidence to suggest that the rate is lower than <span class="math inline">\(35\%\)</span> for leopards living in the refuge.</p>
+</div>
+</div>
+</div>
+<p>We define the variables</p>
+<ul>
+<li><p><code>leopards_sample</code></p></li>
+<li><p><code>leopards_black_coat</code></p></li>
+<li><p><code>model_proportion</code></p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href=""></a>leopards_sample <span class="ot">=</span> <span class="dv">9</span></span>
+<span id="cb88-2"><a href=""></a>leopards_black_coat <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb88-3"><a href=""></a>model_proportion <span class="ot">=</span> <span class="fl">0.35</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p>Now we can perform our binomial test</p></li>
+<li><p>Here the null hypothesis H0 is that the rate is equal to <span class="math inline">\(45 \%\)</span></p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href=""></a><span class="fu">binom.test</span>(leopards_black_coat, leopards_sample, <span class="at">p =</span> model_proportion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Exact binomial test
+
+data:  leopards_black_coat and leopards_sample
+number of successes = 1, number of trials = 9, p-value = 0.1747
+alternative hypothesis: true probability of success is not equal to 0.35
+95 percent confidence interval:
+ 0.002809137 0.482496515
+sample estimates:
+probability of success 
+             0.1111111 </code></pre>
+</div>
+</div>
+<ul>
+<li><p>We get a <strong>p-value</strong> <span class="math inline">\(\simeq \ 0.17 \ \simeq \ 17 \% \ &gt; \alpha\)</span></p></li>
+<li><p>Therefore we can accept H0.</p></li>
+<li><p>The rate of <span class="math inline">\(35 \%\)</span> given by the genetic model seems to be correct</p></li>
+</ul>
+<p><br></p>
+</section>
+<section id="tests-for-normality" class="slide level2 scrollable">
+<h2><img data-src="img/scroll.png" style="width:1.0%"> Tests for normality</h2>
+<p>To check for normality, :</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Graphical methods
+<ul>
+<li>Histogram</li>
+<li>Boxplot</li>
+<li>Density plot</li>
+<li>QQ plot</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>Statistical tests
+<ul>
+<li>Shapiro-Wilk test</li>
+<li>Kolmogorov-Smirnov test</li>
+</ul></li>
+</ul>
+</div></div>
+<p><br></p>
+<h3 id="graphical-method"><img data-src="img/logo-stat.png" style="width:3.0%"> Graphical method</h3>
+<p>First we load the required packages</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href=""></a><span class="fu">library</span>(ggpubr)</span>
+<span id="cb91-2"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb91-3"><a href=""></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb91-4"><a href=""></a><span class="fu">library</span>(palmerpenguins) <span class="co"># the dataset we are going to use</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Histogram, density plot</strong></p>
+</div>
+<div class="callout-content">
+<p>It gives an idea on the chance for the variable to be normal.</p>
+</div>
+</div>
+</div>
+<p>We can plot at the same time :</p>
+<ul>
+<li>the histogram</li>
+<li>the density plot</li>
+<li>the theoretical normal distribution density</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href=""></a>penguins.mean <span class="ot">=</span> <span class="fu">mean</span>(penguins<span class="sc">$</span>body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb92-2"><a href=""></a>penguins.sd <span class="ot">=</span> <span class="fu">sd</span>(penguins<span class="sc">$</span>body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb92-3"><a href=""></a></span>
+<span id="cb92-4"><a href=""></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> body_mass_g)) <span class="sc">+</span></span>
+<span id="cb92-5"><a href=""></a>  <span class="co"># Colors for the two curves</span></span>
+<span id="cb92-6"><a href=""></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Legend"</span>,</span>
+<span id="cb92-7"><a href=""></a>                     <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Density plot"</span> <span class="ot">=</span> <span class="st">"#3AC275"</span>,</span>
+<span id="cb92-8"><a href=""></a>                                <span class="st">"Theoretical normal distribution"</span> <span class="ot">=</span> <span class="st">"#FF59A9"</span>)) <span class="sc">+</span></span>
+<span id="cb92-9"><a href=""></a>  <span class="co"># Theretical curve</span></span>
+<span id="cb92-10"><a href=""></a>  <span class="fu">geom_line</span>(<span class="at">stat =</span> <span class="st">"function"</span>,</span>
+<span id="cb92-11"><a href=""></a>            <span class="at">fun =</span> dnorm, <span class="co">#normal distribution density function</span></span>
+<span id="cb92-12"><a href=""></a>            <span class="at">args =</span> <span class="fu">list</span>(<span class="at">mean =</span> penguins.mean, <span class="at">sd =</span> penguins.sd),</span>
+<span id="cb92-13"><a href=""></a>            <span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"Theoretical normal distribution"</span>),</span>
+<span id="cb92-14"><a href=""></a>            <span class="at">linewidth =</span> <span class="fl">1.8</span>) <span class="sc">+</span></span>
+<span id="cb92-15"><a href=""></a>  <span class="co"># Histogram</span></span>
+<span id="cb92-16"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(density)), <span class="co">#plot histogram using density, not counts</span></span>
+<span id="cb92-17"><a href=""></a>                <span class="at">na.rm =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb92-18"><a href=""></a>                <span class="at">bins =</span> <span class="dv">40</span>,</span>
+<span id="cb92-19"><a href=""></a>                <span class="at">alpha=</span><span class="fl">0.7</span>, </span>
+<span id="cb92-20"><a href=""></a>                <span class="at">fill=</span><span class="st">"#33AADE"</span>, </span>
+<span id="cb92-21"><a href=""></a>                <span class="at">color=</span><span class="st">"#332F61"</span>) <span class="sc">+</span></span>
+<span id="cb92-22"><a href=""></a>  <span class="co"># Density plot</span></span>
+<span id="cb92-23"><a href=""></a>  <span class="fu">geom_density</span>(<span class="at">na.rm =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb92-24"><a href=""></a>               <span class="at">alpha=</span><span class="fl">0.4</span>,</span>
+<span id="cb92-25"><a href=""></a>               <span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"Density plot"</span>),</span>
+<span id="cb92-26"><a href=""></a>               <span class="at">linewidth =</span> <span class="dv">1</span>,</span>
+<span id="cb92-27"><a href=""></a>               <span class="at">fill=</span><span class="st">"#7EA38F"</span>) <span class="sc">+</span></span>
+<span id="cb92-28"><a href=""></a>  <span class="co"># Title-s</span></span>
+<span id="cb92-29"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Histogram"</span>, <span class="at">x =</span> <span class="st">"Body mass (g)"</span>, <span class="at">y =</span> <span class="st">"Density"</span>) <span class="sc">+</span></span>
+<span id="cb92-30"><a href=""></a>  <span class="co"># Side legend</span></span>
+<span id="cb92-31"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"right"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-52-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The variable <code>body_mass_g</code> does not look like it follows a normal distribution.</p>
+<p><br></p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Boxplot (and violin plot)</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><strong>Boxplot</strong> : A normal distribution is symmetric, thus <strong>if</strong> :
+<ul>
+<li>the median line inside the box is roughly in the center of the box,</li>
+<li>and the length of the whiskers are roughly equal on both sides, <strong>then</strong> we might have a normal distribution</li>
+</ul></li>
+<li><strong>Violin plot</strong> :
+<ul>
+<li>The width at a given value represents the density (how many points are near that value).</li>
+<li>Wide sections <span class="math inline">\(\to\)</span> many observations.</li>
+<li>Narrow sections <span class="math inline">\(\to\)</span> few observations</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href=""></a><span class="fu">library</span>(ggpubr)</span>
+<span id="cb93-2"><a href=""></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb93-3"><a href=""></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb93-4"><a href=""></a></span>
+<span id="cb93-5"><a href=""></a><span class="co"># Remove rows with NA in body_mass_g</span></span>
+<span id="cb93-6"><a href=""></a>penguins_clean <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
+<span id="cb93-7"><a href=""></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(body_mass_g))</span>
+<span id="cb93-8"><a href=""></a></span>
+<span id="cb93-9"><a href=""></a><span class="co"># Create the plot</span></span>
+<span id="cb93-10"><a href=""></a><span class="fu">ggviolin</span>(penguins_clean, </span>
+<span id="cb93-11"><a href=""></a>         <span class="at">y =</span> <span class="st">"body_mass_g"</span>,</span>
+<span id="cb93-12"><a href=""></a>         <span class="at">fill =</span> <span class="st">"#00AFBB"</span>,</span>
+<span id="cb93-13"><a href=""></a>         <span class="at">add =</span> <span class="st">"boxplot"</span>,</span>
+<span id="cb93-14"><a href=""></a>         <span class="at">add.params =</span> <span class="fu">list</span>(<span class="at">fill =</span> <span class="st">"white"</span>)) <span class="sc">+</span></span>
+<span id="cb93-15"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"hhhhhh"</span>,</span>
+<span id="cb93-16"><a href=""></a>       <span class="at">y =</span> <span class="st">"qjmfsjd"</span>,</span>
+<span id="cb93-17"><a href=""></a>       <span class="at">x =</span> <span class="st">"lhqkfjs"</span>) <span class="sc">+</span></span>
+<span id="cb93-18"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb93-19"><a href=""></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">"point"</span>, <span class="at">shape =</span> <span class="dv">23</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">fill =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-53-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Same conclusion the variable <code>body_mass_g</code> does not look like it follows a normal distribution.</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>QQ plot</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>A Q–Q plot compares the quantiles of your data to the quantiles of a theoretical normal distribution.</li>
+<li>If the data are normally distributed, the points should fall roughly on a straight diagonal line.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href=""></a><span class="co"># Remove NA values from body_mass_g</span></span>
+<span id="cb94-2"><a href=""></a>body_mass <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(penguins<span class="sc">$</span>body_mass_g)</span>
+<span id="cb94-3"><a href=""></a></span>
+<span id="cb94-4"><a href=""></a><span class="co"># Create a QQ plot</span></span>
+<span id="cb94-5"><a href=""></a><span class="fu">ggqqplot</span>(body_mass,</span>
+<span id="cb94-6"><a href=""></a>         <span class="at">title =</span> <span class="st">"QQ Plot of Penguin Body Mass"</span>,</span>
+<span id="cb94-7"><a href=""></a>         <span class="at">xlab =</span> <span class="st">"Theoretical Quantiles"</span>,</span>
+<span id="cb94-8"><a href=""></a>         <span class="at">ylab =</span> <span class="st">"Sample Quantiles"</span>,</span>
+<span id="cb94-9"><a href=""></a>         <span class="at">color =</span> <span class="st">"blue"</span>,</span>
+<span id="cb94-10"><a href=""></a>         <span class="at">shape =</span> <span class="dv">19</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-54-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Again the ame conclusion, the variable <code>body_mass_g</code> does not look like it follows a normal distribution.</p>
+<p><br></p>
+<h3 id="shapiro-wilk-test"><img data-src="img/logo-stat.png" style="width:3.0%"> Shapiro-Wilk Test</h3>
+<p><em>Non-parametric test</em></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Dependent variable</th>
+<th style="text-align: center;">/</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Independant variable</td>
+<td style="text-align: center;">Quantitative</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Asumption :</strong></p>
+<ul>
+<li>The sample size is small to moderate (e.g.&nbsp;less than 2000 observations).</li>
+</ul>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>H0 : Null hypothesis</strong></p>
+</div>
+<div class="callout-content">
+<p>The sample comes from a normal distribution.</p>
+</div>
+</div>
+</div>
+<p><br></p>
+<h4 id="example-5">Example :</h4>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li><p>The author tackle Shapiro-Wilk Nnormality test using <strong>R</strong>.</p></li>
+<li><p>The data will be created directly in <strong>R</strong> using the comand <code>set.seed</code>.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">946322</span>) <span class="co"># generate random values</span></span>
+<span id="cb95-2"><a href=""></a>x1 <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb95-3"><a href=""></a>x2 <span class="ot">=</span> <span class="fu">runif</span>(<span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ppju5_XXzWc?si=cJ4O2tlcfQi7voyG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+</div></div>
+<p><br></p>
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Question</strong></p>
+</div>
+<div class="callout-content">
+<p>Are the two variables normally distributed ?</p>
+</div>
+</div>
+</div>
+<p>We apply a shapiro test for the two variables.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href=""></a><span class="fu">shapiro.test</span>(x1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  x1
+W = 0.98862, p-value = 0.5548</code></pre>
+</div>
+</div>
+<ul>
+<li><p>We get a <strong>p-value</strong> <span class="math inline">\(\simeq \ 0.55 \ \simeq \ 55 \% \ &gt; \alpha\)</span></p></li>
+<li><p>Therefore we can accept H0.</p></li>
+<li><p>The sample X1 does look like it is normally distributed</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href=""></a><span class="fu">shapiro.test</span>(x2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  x2
+W = 0.93307, p-value = 7.464e-05</code></pre>
+</div>
+</div>
+<ul>
+<li><p>We get a <strong>p-value</strong> <span class="math inline">\(\simeq \ 7.5 \ 10^{-5}  \ &gt; \alpha\)</span></p></li>
+<li><p>Therefore we can reject H0.</p></li>
+<li><p>The sample X2 does NOT look like it is normally distributed</p></li>
+</ul>
+<p><br></p>
+<h3 id="kolmogorov-smirnov-test"><img data-src="img/logo-stat.png" style="width:3.0%"> Kolmogorov-Smirnov Test</h3>
+<p><em>Non-parametric test</em></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Dependent variable</th>
+<th style="text-align: center;">/</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Independant variable</td>
+<td style="text-align: center;">Quantitative</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Asumption :</strong></p>
+<ul>
+<li>/</li>
+</ul>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>H0 : Null hypothesis</strong></p>
+</div>
+<div class="callout-content">
+<p>The sample comes from a normal distribution.</p>
+</div>
+</div>
+</div>
+<p><br></p>
+<h4 id="example-6">Example :</h4>
+<p>We create a variable Y :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href=""></a>Y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">8.43</span>, <span class="fl">8.70</span>, <span class="fl">11.27</span>, <span class="fl">12.92</span>, <span class="fl">13.05</span>, <span class="fl">13.05</span>, <span class="fl">13.17</span>, <span class="fl">13.44</span>, <span class="fl">13.89</span>, <span class="fl">18.90</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p>We are going to use the Kolmogorov-Smirnov test for an normal distribution.</p></li>
+<li><p>It is written like this :</p></li>
+</ul>
+<p><code>ks.test(Y, "pnorm", mean = mean(Y), sd = sd(Y))</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href=""></a><span class="fu">ks.test</span>(Y,<span class="st">"pnorm"</span>, <span class="at">mean =</span> <span class="fu">mean</span>(Y), <span class="at">sd =</span> <span class="fu">sd</span>(Y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Asymptotic one-sample Kolmogorov-Smirnov test
+
+data:  Y
+D = 0.23999, p-value = 0.6122
+alternative hypothesis: two-sided</code></pre>
+</div>
+</div>
+<ul>
+<li><p>We get a <strong>p-value</strong> <span class="math inline">\(\simeq \ 0.61 \ \simeq \ 61 \% \ &gt; \alpha\)</span></p></li>
+<li><p>Therefore we can accept H0.</p></li>
+<li><p>The sample Y does look like it is normally distributed</p></li>
+</ul>
+<p><br></p>
+</section>
+<section id="tests-for-homogeneity-of-variances" class="slide level2 scrollable">
+<h2><img data-src="img/scroll.png" style="width:1.0%"> Tests for homogeneity of variances</h2>
+<p>There are two main tests to test for homogeneity of variances.</p>
+<h3 id="levene-test"><img data-src="img/logo-stat.png" style="width:3.0%"> Levene test</h3>
+<p><em>Non-parametric test</em></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Dependent variable</th>
+<th style="text-align: center;">/</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Independant variable</td>
+<td style="text-align: center;">Quantitative</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Asumption :</strong></p>
+<ul>
+<li>The sample size is small to moderate (e.g.&nbsp;less than 2000 observations).</li>
+</ul>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>H0 : Null hypothesis</strong></p>
+</div>
+<div class="callout-content">
+<p>The sample comes from a normal distribution.</p>
+</div>
+</div>
+</div>
+<p><br></p>
+<h4 id="example-7">Example :</h4>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li><p>The author tackle Shapiro-Wilk Nnormality test using <strong>R</strong>.</p></li>
+<li><p>The data will be created directly in <strong>R</strong> using the comand <code>set.seed</code>.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">946322</span>) <span class="co"># generate random values</span></span>
+<span id="cb103-2"><a href=""></a>x1 <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb103-3"><a href=""></a>x2 <span class="ot">=</span> <span class="fu">runif</span>(<span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ppju5_XXzWc?si=cJ4O2tlcfQi7voyG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+</div></div>
+<p><br></p>
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Question</strong></p>
+</div>
+<div class="callout-content">
+<p>Are the two variables normally distributed ?</p>
+</div>
+</div>
+</div>
+<h3 id="bartlett-test"><img data-src="img/logo-stat.png" style="width:3.0%"> Bartlett test</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href=""></a>plantes <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
+<span id="cb104-2"><a href=""></a>  <span class="at">engrais =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>), <span class="at">each =</span> <span class="dv">6</span>),</span>
+<span id="cb104-3"><a href=""></a>  <span class="at">taille =</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">28</span>, <span class="dv">27</span>, <span class="dv">26</span>, <span class="dv">29</span>, <span class="dv">27</span>,</span>
+<span id="cb104-4"><a href=""></a>             <span class="dv">35</span>, <span class="dv">34</span>, <span class="dv">36</span>, <span class="dv">33</span>, <span class="dv">35</span>, <span class="dv">37</span>,</span>
+<span id="cb104-5"><a href=""></a>             <span class="dv">40</span>, <span class="dv">42</span>, <span class="dv">41</span>, <span class="dv">39</span>, <span class="dv">43</span>, <span class="dv">40</span>)</span>
+<span id="cb104-6"><a href=""></a>)</span>
+<span id="cb104-7"><a href=""></a><span class="fu">head</span>(plantes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  engrais taille
+1       A     25
+2       A     28
+3       A     27
+4       A     26
+5       A     29
+6       A     27</code></pre>
+</div>
+</div>
+</section>
+<section id="t-tests" class="slide level2 scrollable">
+<h2><img data-src="img/scroll.png" style="width:1.0%"> T-tests</h2>
+<h3 id="t-test-for-one-sample">T-test for one sample</h3>
+<p><em>Parametric test</em></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Dependent variable</th>
+<th>Quantitative (continuous)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Independant variable</td>
+<td>Qualitatite</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Asumptions :</strong></p>
+<ul>
+<li><p>Normality : dependent variables should be normally distributed within each group<br>
+<span class="math inline">\(\to\)</span> if not met : Mann-Whitney test</p></li>
+<li><p>Homogenity of variance</p></li>
+</ul>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>H0 : Null hypothesis</strong></p>
+</div>
+<div class="callout-content">
+<p>The sample mean is equal to the given reference value</p>
+</div>
+</div>
+</div>
+<p><strong>Example : </strong></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6_3cPhD3DVw?si=blrAB-dTzA1N6ErH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+<p>We collect a sample of 10 birth weight of sheep.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href=""></a>weight <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="fl">1.5</span>, <span class="dv">3</span>, <span class="fl">2.5</span>, <span class="fl">3.5</span>, <span class="dv">4</span>, <span class="fl">2.5</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="fl">1.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>There are not outliers.</p>
+<p>The null hypothesis H0 is : <span class="math inline">\(\mu = 3.5\)</span>, and we chose <span class="math inline">\(\alpha = 5 \%\)</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href=""></a><span class="fu">t.test</span>(weight, <span class="at">mu =</span> <span class="fl">3.5</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    One Sample t-test
+
+data:  weight
+t = -3.6122, df = 9, p-value = 0.00564
+alternative hypothesis: true mean is not equal to 3.5
+95 percent confidence interval:
+ 1.955063 3.144937
+sample estimates:
+mean of x 
+     2.55 </code></pre>
+</div>
+</div>
+<p>We get a <strong>p-value</strong> <span class="math inline">\(\simeq \ 0.006 \ \simeq \ 0.6 \% \ &lt; \alpha\)</span></p>
+<p>Therefore we can reject H0. The mean of the dataset if not equal to <span class="math inline">\(3.5\)</span>.</p>
+<p>We can ask ourselves if the mean of the dataset is less or greater than <span class="math inline">\(3.5\)</span>.</p>
+<p>The null hypothesis is just a bit different :</p>
+<p>H0 : <span class="math inline">\(\mu &lt; 3.5\)</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href=""></a><span class="fu">t.test</span>(weight, <span class="at">mu =</span> <span class="fl">3.5</span>, <span class="at">alternative =</span> <span class="st">"greater"</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    One Sample t-test
+
+data:  weight
+t = -3.6122, df = 9, p-value = 0.9972
+alternative hypothesis: true mean is greater than 3.5
+95 percent confidence interval:
+ 2.067899      Inf
+sample estimates:
+mean of x 
+     2.55 </code></pre>
+</div>
+</div>
+<p>We get a <strong>p-value</strong> <span class="math inline">\(\simeq \ 0.997 \ \simeq \ 99.7 \% \ &gt; \alpha\)</span></p>
+<p>Therefore we can accep H0. The mean of the dataset if less than <span class="math inline">\(3.5\)</span>.</p>
+</section>
+<section id="mann-whitney-test" class="slide level2 scrollable">
+<h2><img data-src="img/scroll.png" style="width:1.0%"> Mann-Whitney test</h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/C1L9rjGzR5U?si=B1hk242TXtRQT7Q3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+</section>
+<section id="wilcoxon-test" class="slide level2 scrollable">
+<h2><img data-src="img/scroll.png" style="width:1.0%"> Wilcoxon test</h2>
+</section>
 <section id="anova" class="slide level2 scrollable">
-<h2>ANOVA</h2>
+<h2><img data-src="img/scroll.png" style="width:1.0%"> ANOVA</h2>
 <p>ANOVA (<strong>AN</strong>alysis <strong>O</strong>f <strong>VA</strong>riance) is a statistical test to determine whether two or more population means are different.</p>
 <p>It is used to compare two or more groups to see if they are significantly different.</p>
 <p>In practice,</p>
@@ -839,9 +2746,9 @@ mean of x
 <li><p>ANOVA generalizes the t-test beyond 2 groups, it is used to compare 3 or more groups</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb8-2"><a href=""></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb8-3"><a href=""></a><span class="fu">head</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href=""></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb111-2"><a href=""></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb111-3"><a href=""></a><span class="fu">head</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 8
   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
@@ -854,7 +2761,7 @@ mean of x
 6 Adelie  Torgersen           39.3          20.6               190        3650
 # ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">summary</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href=""></a><span class="fu">summary</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      species          island    bill_length_mm  bill_depth_mm  
  Adelie   :152   Biscoe   :168   Min.   :32.10   Min.   :13.10  
@@ -875,12 +2782,12 @@ mean of x
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y=</span> flipper_length_mm)) <span class="sc">+</span></span>
-<span id="cb12-2"><a href=""></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href=""></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y=</span> flipper_length_mm)) <span class="sc">+</span></span>
+<span id="cb115-2"><a href=""></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-7-1.png" width="960"></p>
+<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-66-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -893,21 +2800,21 @@ mean of x
 <li><p><strong>Homogeneity of variance</strong> : Homogeneity means that the variance among the groups should be approximately equal.</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm)) <span class="sc">+</span> </span>
-<span id="cb13-2"><a href=""></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
-<span id="cb13-3"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>species, <span class="at">ncol =</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href=""></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm)) <span class="sc">+</span> </span>
+<span id="cb116-2"><a href=""></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb116-3"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>species, <span class="at">ncol =</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-8-1.png" width="960"></p>
+<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-67-1.png" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a>penguins <span class="sc">%&gt;%</span></span>
-<span id="cb14-2"><a href=""></a>  <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span></span>
-<span id="cb14-3"><a href=""></a>  <span class="fu">summarise</span>(<span class="fu">var</span>(flipper_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href=""></a>penguins <span class="sc">%&gt;%</span></span>
+<span id="cb117-2"><a href=""></a>  <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span></span>
+<span id="cb117-3"><a href=""></a>  <span class="fu">summarise</span>(<span class="fu">var</span>(flipper_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
   species   `var(flipper_length_mm, na.rm = TRUE)`
@@ -918,8 +2825,8 @@ mean of x
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a>model <span class="ot">=</span> <span class="fu">aov</span>(flipper_length_mm <span class="sc">~</span> species, <span class="at">data =</span> penguins)</span>
-<span id="cb16-2"><a href=""></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href=""></a>model <span class="ot">=</span> <span class="fu">aov</span>(flipper_length_mm <span class="sc">~</span> species, <span class="at">data =</span> penguins)</span>
+<span id="cb119-2"><a href=""></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             Df Sum Sq Mean Sq F value Pr(&gt;F)    
 species       2  52473   26237   594.8 &lt;2e-16 ***
@@ -929,11 +2836,11 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 2 observations deleted due to missingness</code></pre>
 </div>
 </div>
-<h3 class="scrollable" id="second-example-anova">Second example ANOVA</h3>
+<h3 class="scrollable" id="second-example-anova"><img data-src="img/scroll.png" style="width:1.0%"> Second example ANOVA</h3>
 <h4 id="one-way">One way</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a>crop.data <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"data_raw/crop.data.csv"</span>)</span>
-<span id="cb18-2"><a href=""></a><span class="fu">head</span>(crop.data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href=""></a>crop.data <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"data_raw/crop.data.csv"</span>)</span>
+<span id="cb121-2"><a href=""></a><span class="fu">head</span>(crop.data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  density block fertilizer    yield
 1       1     1          1 177.2287
@@ -943,7 +2850,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 5       1     1          1 177.1255
 6       2     2          1 176.7783</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="fu">summary</span>(crop.data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href=""></a><span class="fu">summary</span>(crop.data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    density        block        fertilizer     yield      
  Min.   :1.0   Min.   :1.00   Min.   :1    Min.   :175.4  
@@ -955,8 +2862,8 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a>one.way <span class="ot">&lt;-</span> <span class="fu">aov</span>(yield <span class="sc">~</span> fertilizer, <span class="at">data =</span> crop.data)</span>
-<span id="cb22-2"><a href=""></a><span class="fu">summary</span>(one.way)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb125"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href=""></a>one.way <span class="ot">&lt;-</span> <span class="fu">aov</span>(yield <span class="sc">~</span> fertilizer, <span class="at">data =</span> crop.data)</span>
+<span id="cb125-2"><a href=""></a><span class="fu">summary</span>(one.way)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            Df Sum Sq Mean Sq F value   Pr(&gt;F)    
 fertilizer   1   5.74   5.743   14.91 0.000207 ***
@@ -969,8 +2876,8 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <p><strong>Yes ! It does !</strong></p>
 <h4 id="two-way">Two-way</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a>anova2way <span class="ot">&lt;-</span> <span class="fu">aov</span>(yield <span class="sc">~</span> fertilizer <span class="sc">+</span> density, <span class="at">data =</span> crop.data)</span>
-<span id="cb24-2"><a href=""></a><span class="fu">summary</span>(anova2way)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb127"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href=""></a>anova2way <span class="ot">&lt;-</span> <span class="fu">aov</span>(yield <span class="sc">~</span> fertilizer <span class="sc">+</span> density, <span class="at">data =</span> crop.data)</span>
+<span id="cb127-2"><a href=""></a><span class="fu">summary</span>(anova2way)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            Df Sum Sq Mean Sq F value   Pr(&gt;F)    
 fertilizer   1  5.743   5.743   17.18 7.49e-05 ***
@@ -983,8 +2890,8 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <p>The two-way ANOVA : extension of the one-way ANOVA that examines the influence of two different categorical independent variables on one continuous dependent variable.</p>
 <p>The two-way ANOVA not only aims at assessing the main effect of each independent variable but also if there is any interaction between them.</p>
 </section>
-<section id="post-hoc-test" class="slide level2 scrollable">
-<h2>Post hoc test</h2>
+<section id="post-hoc-tests" class="slide level2 scrollable">
+<h2><img data-src="img/scroll.png" style="width:1.0%"> Post hoc tests</h2>
 <p>In order to find out exactly which groups are different from each other, we must conduct a <strong>post hoc test</strong>.</p>
 <ul>
 <li><p><strong>The Tukey HSD test</strong> : compare all groups to each other</p></li>
@@ -992,7 +2899,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </ul>
 <h3 id="the-tukey-test">The Tukey test</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a><span class="fu">TukeyHSD</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb129"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb129-1"><a href=""></a><span class="fu">TukeyHSD</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Tukey multiple comparisons of means
     95% family-wise confidence level
@@ -1009,15 +2916,21 @@ Gentoo-Chinstrap 21.363462 19.000841 23.726084     0</code></pre>
 <p>All three ajusted p-values are smaller than 0.05 !</p>
 <p><span class="math inline">\(\to\)</span> We reject H0, which means that all species are significantly different in terms of flippers length</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a><span class="fu">plot</span>(<span class="fu">TukeyHSD</span>(model))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
+<div class="sourceCode cell-code" id="cb131"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb131-1"><a href=""></a><span class="fu">plot</span>(<span class="fu">TukeyHSD</span>(model))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-74-1.png" width="960"></p>
+</figure>
 </div>
-<img data-src="slides_en_files/figure-revealjs/unnamed-chunk-15-1.png" width="960" class="r-stretch"><h3 id="the-dunnett-test">The Dunnett test</h3>
+</div>
+</div>
+<h3 id="the-dunnett-test">The Dunnett test</h3>
 <p>Comparisons with a reference group.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a><span class="fu">library</span>(multcomp)</span>
-<span id="cb29-2"><a href=""></a>post_dunnet <span class="ot">&lt;-</span> <span class="fu">glht</span>(model,<span class="at">linfct =</span> <span class="fu">mcp</span>(<span class="at">species =</span> <span class="st">"Dunnett"</span>))</span>
-<span id="cb29-3"><a href=""></a><span class="fu">summary</span>(post_dunnet)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb132"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href=""></a><span class="fu">library</span>(multcomp)</span>
+<span id="cb132-2"><a href=""></a>post_dunnet <span class="ot">&lt;-</span> <span class="fu">glht</span>(model,<span class="at">linfct =</span> <span class="fu">mcp</span>(<span class="at">species =</span> <span class="st">"Dunnett"</span>))</span>
+<span id="cb132-3"><a href=""></a><span class="fu">summary</span>(post_dunnet)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
      Simultaneous Tests for General Linear Hypotheses
@@ -1037,125 +2950,45 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 </div>
 </div>
 </section>
-<section id="test-for-normality" class="slide level2 scrollable">
-<h2>Test for Normality</h2>
-<ol type="1">
-<li><p>Create a histogram</p></li>
-<li><p>Perform a Shapiro-Wilk Test</p></li>
-<li><p>Perform a Kolmogorov-Smirnov Test</p></li>
-</ol>
-<p>Produce some data</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">0</span>)</span>
-<span id="cb31-2"><a href=""></a>normal_data <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">500</span>)</span>
-<span id="cb31-3"><a href=""></a>non_normal_data <span class="ot">&lt;-</span> <span class="fu">rexp</span>(<span class="dv">500</span>, <span class="at">rate=</span><span class="dv">3</span>)</span>
-<span id="cb31-4"><a href=""></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Create a Histogram</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a><span class="fu">hist</span>(normal_data, <span class="at">col=</span><span class="st">'steelblue'</span>, <span class="at">main=</span><span class="st">'Normal'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-18-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href=""></a><span class="fu">hist</span>(non_normal_data, <span class="at">col=</span><span class="st">'steelblue'</span>, <span class="at">main=</span><span class="st">'Non-normal'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-19-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-<h3 id="shapiro-wilk-test">Shapiro-Wilk Test</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a><span class="fu">shapiro.test</span>(normal_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    Shapiro-Wilk normality test
-
-data:  normal_data
-W = 0.9957, p-value = 0.1881</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href=""></a><span class="fu">shapiro.test</span>(non_normal_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    Shapiro-Wilk normality test
-
-data:  non_normal_data
-W = 0.84498, p-value &lt; 2.2e-16</code></pre>
-</div>
-</div>
-<h3 id="kolmogorov-smirnov-test">Kolmogorov-Smirnov Test</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href=""></a><span class="fu">ks.test</span>(normal_data, <span class="st">'pnorm'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    Asymptotic one-sample Kolmogorov-Smirnov test
-
-data:  normal_data
-D = 0.031951, p-value = 0.6871
-alternative hypothesis: two-sided</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href=""></a><span class="fu">ks.test</span>(non_normal_data, <span class="st">'pnorm'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    Asymptotic one-sample Kolmogorov-Smirnov test
-
-data:  non_normal_data
-D = 0.50026, p-value &lt; 2.2e-16
-alternative hypothesis: two-sided</code></pre>
-</div>
-</div>
+<section id="kruskal-wallis-test" class="slide level2 scrollable">
+<h2><img data-src="img/scroll.png" style="width:1.0%"> Kruskal-Wallis test</h2>
 </section>
-<section id="test-for-homogeneity-of-variances" class="slide level2 scrollable">
-<h2>Test for homogeneity of variances</h2>
-<p>Bartlett test</p>
-<p>levene test</p>
+<section id="friedman-test" class="slide level2 scrollable">
+<h2><img data-src="img/scroll.png" style="width:1.0%"> Friedman test</h2>
+</section>
+<section id="z-test" class="slide level2 scrollable">
+<h2><img data-src="img/scroll.png" style="width:1.0%"> Z-test</h2>
 </section>
 <section id="pearson-correlation" class="slide level2 scrollable">
-<h2>Pearson correlation</h2>
-<p>…</p>
+<h2><img data-src="img/scroll.png" style="width:1.0%"> Pearson correlation</h2>
+<p>coming</p>
 </section>
 <section id="simple-linear-regression" class="slide level2 scrollable">
-<h2>Simple Linear regression</h2>
-<p>…</p>
+<h2><img data-src="img/scroll.png" style="width:1.0%"> Simple Linear regression</h2>
+<p>coming</p>
 </section>
 <section id="multiple-linear-regression" class="slide level2 scrollable">
-<h2>Multiple Linear regression</h2>
+<h2><img data-src="img/scroll.png" style="width:1.0%"> Multiple Linear regression</h2>
 <p>Few packages that are very useful to perform <strong>multiple linear regression</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href=""></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb42-2"><a href=""></a><span class="fu">library</span>(GGally)</span>
-<span id="cb42-3"><a href=""></a><span class="fu">library</span>(broom)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb134"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href=""></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb134-2"><a href=""></a><span class="fu">library</span>(GGally)</span>
+<span id="cb134-3"><a href=""></a><span class="fu">library</span>(broom)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We “produce” data (FYI)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">2</span>)</span>
-<span id="cb43-2"><a href=""></a>x1 <span class="ot">=</span> <span class="fu">runif</span>(<span class="dv">60</span>,<span class="dv">100</span>,<span class="dv">300</span>)</span>
-<span id="cb43-3"><a href=""></a>x2 <span class="ot">=</span> <span class="fu">runif</span>(<span class="dv">60</span>,<span class="dv">20</span>,<span class="dv">120</span>)</span>
-<span id="cb43-4"><a href=""></a>y <span class="ot">=</span> <span class="dv">20</span> <span class="sc">+</span> <span class="dv">4</span><span class="sc">*</span>x1 <span class="sc">-</span> <span class="dv">3</span><span class="sc">*</span>x2 <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">60</span>,<span class="dv">0</span>,<span class="dv">40</span>)</span>
-<span id="cb43-5"><a href=""></a>df <span class="ot">=</span> <span class="fu">tibble</span>(x1,x2,y)</span>
-<span id="cb43-6"><a href=""></a>new_x1 <span class="ot">=</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">120</span>, <span class="at">to =</span> <span class="dv">300</span>, <span class="at">length.out =</span> <span class="dv">20</span>)</span>
-<span id="cb43-7"><a href=""></a>new_x2 <span class="ot">=</span> <span class="fu">runif</span>(<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">110</span>)</span>
-<span id="cb43-8"><a href=""></a>new_data <span class="ot">=</span> <span class="fu">tibble</span>(<span class="at">x1 =</span> new_x1, <span class="at">x2 =</span> new_x2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb135"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb135-1"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">2</span>)</span>
+<span id="cb135-2"><a href=""></a>x1 <span class="ot">=</span> <span class="fu">runif</span>(<span class="dv">60</span>,<span class="dv">100</span>,<span class="dv">300</span>)</span>
+<span id="cb135-3"><a href=""></a>x2 <span class="ot">=</span> <span class="fu">runif</span>(<span class="dv">60</span>,<span class="dv">20</span>,<span class="dv">120</span>)</span>
+<span id="cb135-4"><a href=""></a>y <span class="ot">=</span> <span class="dv">20</span> <span class="sc">+</span> <span class="dv">4</span><span class="sc">*</span>x1 <span class="sc">-</span> <span class="dv">3</span><span class="sc">*</span>x2 <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">60</span>,<span class="dv">0</span>,<span class="dv">40</span>)</span>
+<span id="cb135-5"><a href=""></a>df <span class="ot">=</span> <span class="fu">tibble</span>(x1,x2,y)</span>
+<span id="cb135-6"><a href=""></a>new_x1 <span class="ot">=</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">120</span>, <span class="at">to =</span> <span class="dv">300</span>, <span class="at">length.out =</span> <span class="dv">20</span>)</span>
+<span id="cb135-7"><a href=""></a>new_x2 <span class="ot">=</span> <span class="fu">runif</span>(<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">110</span>)</span>
+<span id="cb135-8"><a href=""></a>new_data <span class="ot">=</span> <span class="fu">tibble</span>(<span class="at">x1 =</span> new_x1, <span class="at">x2 =</span> new_x2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <h3 id="the-data">The data</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href=""></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb136"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href=""></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 60 × 3
       x1    x2     y
@@ -1184,19 +3017,19 @@ alternative hypothesis: two-sided</code></pre>
 </ul>
 <h3 id="a-first-look-at-the-data">A first look at the data</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href=""></a><span class="fu">ggpairs</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb138"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb138-1"><a href=""></a><span class="fu">ggpairs</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-27-1.png" width="960"></p>
+<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-79-1.png" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 <h3 id="the-model">The model</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href=""></a>model <span class="ot">=</span> <span class="fu">lm</span>(y <span class="sc">~</span> x1 <span class="sc">+</span> x2, <span class="at">data =</span> df)</span>
-<span id="cb47-2"><a href=""></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb139"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a href=""></a>model <span class="ot">=</span> <span class="fu">lm</span>(y <span class="sc">~</span> x1 <span class="sc">+</span> x2, <span class="at">data =</span> df)</span>
+<span id="cb139-2"><a href=""></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -1221,39 +3054,39 @@ F-statistic:  1220 on 2 and 57 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <h3 id="few-graphs-to-undersand-the-model">Few graphs to undersand the model</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href=""></a><span class="fu">plot</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb141"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb141-1"><a href=""></a><span class="fu">plot</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-29-1.png" width="960"></p>
+<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-81-1.png" width="960"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-29-2.png" width="960"></p>
+<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-81-2.png" width="960"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-29-3.png" width="960"></p>
+<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-81-3.png" width="960"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-29-4.png" width="960"></p>
+<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-81-4.png" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 <h3 id="predictions">Predictions</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href=""></a>new_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb142"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb142-1"><a href=""></a>new_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 20 × 2
       x1    x2
@@ -1282,9 +3115,9 @@ F-statistic:  1220 on 2 and 57 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <p><span class="math inline">\(\to\)</span> We want to “predict” the <strong>y</strong> according to these x1 and x2</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href=""></a>fit <span class="ot">=</span> <span class="fu">predict</span>(model,new_data)</span>
-<span id="cb52-2"><a href=""></a>new_data<span class="sc">$</span>predict <span class="ot">=</span> fit</span>
-<span id="cb52-3"><a href=""></a>new_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb144"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb144-1"><a href=""></a>fit <span class="ot">=</span> <span class="fu">predict</span>(model,new_data)</span>
+<span id="cb144-2"><a href=""></a>new_data<span class="sc">$</span>predict <span class="ot">=</span> fit</span>
+<span id="cb144-3"><a href=""></a>new_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 20 × 3
       x1    x2 predict
@@ -1311,79 +3144,14 @@ F-statistic:  1220 on 2 and 57 DF,  p-value: &lt; 2.2e-16</code></pre>
 20  300   80.6    996.</code></pre>
 </div>
 </div>
-</section>
-<section id="nonparametric-statistical-tests" class="slide level2 scrollable">
-<h2>Nonparametric statistical tests</h2>
-<h3 id="overview">Overview</h3>
-<ul>
-<li><p><strong>Parametric tests</strong> have requirements about the nature or shape of the populations involved</p></li>
-<li><p><strong>Nonparametric tests</strong> do not require that samples come from populations with normal distributions or have any other particular distributions. Nonparametric tests are called distribution-free tests.</p></li>
-</ul>
-<h3 id="the-postive-sides-of-nonparametric-tests">The postive sides of Nonparametric tests</h3>
-<ul>
-<li><p>Nonparametric methods can be <strong>applied to a wide variety of situations</strong> because they do not have the more rigid requirements of the corresponding parametric methods.</p></li>
-<li><p>Unlike parametric methods, nonparametric methods can <strong>often be applied to categorical data</strong>.</p></li>
-<li><p>Nonparametric methods usually involve <strong>simpler computations</strong> than the corresponding parametric methods.</p></li>
-</ul>
-<h3 id="the-negative-sides-of-nonparametric-tests">The negative sides of Nonparametric tests</h3>
-<ul>
-<li><p>Nonparametric methods tend to <strong>waste information</strong></p></li>
-<li><p>Nonparametric tests are <strong>not as efficient</strong> as parametric tests</p></li>
-</ul>
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Important</strong></p>
-</div>
-<div class="callout-content">
-<p>With a nonparametric test we need <strong>stronger evidence</strong> (such as a larger sample or greater differences) before we reject a null hypothesis.</p>
-</div>
-</div>
-</div>
-<h3 id="definitions">Definitions</h3>
-<ul>
-<li><p>Data are <strong>sorted</strong> when they are arranged according to some criterion.</p></li>
-<li><p>A <strong>rank</strong> is a number assigned to an individual sample item according to its order in the sorted list. The first item is assigned a rank of 1, the second is assigned a rank of 2, and so on.</p></li>
-</ul>
 </section></section>
 <section>
-<section id="multivariate-analysis" class="title-slide slide level1 center">
-<h1>Multivariate Analysis</h1>
+<section id="factor-analysis" class="title-slide slide level1 center">
+<h1>Factor analysis</h1>
 
 </section>
-<section id="what-is-multivariate-analysis" class="slide level2 scrollable">
-<h2>What is multivariate analysis ?</h2>
-<ul>
-<li>Univariate statistics
-<ul>
-<li>focus on a single variable of interest (at a time)</li>
-<li>estimate population parameters ( <span class="math inline">\(\pi, \mu, \sigma^2, \ldots\)</span> )</li>
-<li>comparison of two or more groups</li>
-</ul></li>
-<li>Bivariate statistics
-<ul>
-<li>focus on interdependencies of two variables</li>
-<li>correlation and co-occurrence</li>
-</ul></li>
-</ul>
-<p><br></p>
-<ul>
-<li>Regression modelling
-<ul>
-<li>predict single target variable (“dependent”)</li>
-<li>based on multiple other variables (“independent”)</li>
-</ul></li>
-<li>Multivariate statistics
-<ul>
-<li>combined effects of many variables</li>
-<li>correlations and distribution patterns</li>
-<li>often “unsupervised” : no target variable or comparison groups</li>
-</ul></li>
-</ul>
-<h3 id="principal-component-analysis-pca">Principal Component Analysis (PCA)</h3>
+<section id="principal-component-analysis" class="slide level2 scrollable">
+<h2><img data-src="img/scroll.png" style="width:1.0%"> Principal Component Analysis</h2>
 <ul>
 <li>Intuition</li>
 <li>Four definitions</li>
@@ -1469,8 +3237,8 @@ F-statistic:  1220 on 2 and 57 DF,  p-value: &lt; 2.2e-16</code></pre>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href=""></a>data <span class="ot">=</span> iris</span>
-<span id="cb54-2"><a href=""></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb146"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb146-1"><a href=""></a>data <span class="ot">=</span> iris</span>
+<span id="cb146-2"><a href=""></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
 1            5.1         3.5          1.4         0.2     setosa
@@ -1622,7 +3390,158 @@ F-statistic:  1220 on 2 and 57 DF,  p-value: &lt; 2.2e-16</code></pre>
 147          6.3         2.5          5.0         1.9  virginica
 148          6.5         3.0          5.2         2.0  virginica
 149          6.2         3.4          5.4         2.3  virginica
-150          5.9         3.0          5.1         1.8  virginica</code></pre>
+150          5.9         3.0          5.1         1.8  virginica
+    Sepal.Length_cat
+1              moyen
+2              petit
+3              petit
+4              petit
+5              petit
+6              moyen
+7              petit
+8              petit
+9              petit
+10             petit
+11             moyen
+12             petit
+13             petit
+14             petit
+15             moyen
+16             moyen
+17             moyen
+18             moyen
+19             moyen
+20             moyen
+21             moyen
+22             moyen
+23             petit
+24             moyen
+25             petit
+26             petit
+27             petit
+28             moyen
+29             moyen
+30             petit
+31             petit
+32             moyen
+33             moyen
+34             moyen
+35             petit
+36             petit
+37             moyen
+38             petit
+39             petit
+40             moyen
+41             petit
+42             petit
+43             petit
+44             petit
+45             moyen
+46             petit
+47             moyen
+48             petit
+49             moyen
+50             petit
+51             grand
+52             grand
+53             grand
+54             moyen
+55             grand
+56             moyen
+57             grand
+58             petit
+59             grand
+60             moyen
+61             petit
+62             moyen
+63             moyen
+64             grand
+65             moyen
+66             grand
+67             moyen
+68             moyen
+69             grand
+70             moyen
+71             moyen
+72             grand
+73             grand
+74             grand
+75             grand
+76             grand
+77             grand
+78             grand
+79             moyen
+80             moyen
+81             moyen
+82             moyen
+83             moyen
+84             moyen
+85             moyen
+86             moyen
+87             grand
+88             grand
+89             moyen
+90             moyen
+91             moyen
+92             grand
+93             moyen
+94             petit
+95             moyen
+96             moyen
+97             moyen
+98             grand
+99             moyen
+100            moyen
+101            grand
+102            moyen
+103            grand
+104            grand
+105            grand
+106            grand
+107            petit
+108            grand
+109            grand
+110            grand
+111            grand
+112            grand
+113            grand
+114            moyen
+115            moyen
+116            grand
+117            grand
+118            grand
+119            grand
+120            moyen
+121            grand
+122            moyen
+123            grand
+124            grand
+125            grand
+126            grand
+127            grand
+128            grand
+129            grand
+130            grand
+131            grand
+132            grand
+133            grand
+134            grand
+135            grand
+136            grand
+137            grand
+138            grand
+139            moyen
+140            grand
+141            grand
+142            grand
+143            moyen
+144            grand
+145            grand
+146            grand
+147            grand
+148            grand
+149            grand
+150            moyen</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
@@ -1699,9 +3618,7 @@ F-statistic:  1220 on 2 and 57 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>How to quantify the quality of a viewpoint ?</p>
 <p>notion of dispersion, of variability, also called <strong>inertia</strong></p>
 <p><strong>Inertia</strong> is the variance generalized to several dimensions.</p>
-</section>
-<section id="first-example-of-pca" class="slide level2 scrollable">
-<h2>First example of PCA</h2>
+<h3 id="first-example-of-pca">First example of PCA</h3>
 <h3 id="data">Data</h3>
 <table class="caption-top">
 <colgroup>
@@ -2102,12 +4019,26 @@ F-statistic:  1220 on 2 and 57 DF,  p-value: &lt; 2.2e-16</code></pre>
 </tr>
 </tbody>
 </table>
+</section>
+<section id="first-example-of-pca-1" class="slide level2 scrollable">
+<h2><img data-src="img/scroll.png" style="width:1.0%"> First example of PCA</h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/c_NvVOQK8kk?si=RDiZt_Dsc64xJfzt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+</section>
+<section id="hierarchical-clustering-analysis" class="slide level2 scrollable">
+<h2><img data-src="img/scroll.png" style="width:1.0%"> Hierarchical clustering analysis</h2>
+</section>
+<section id="first-example-of-hca" class="slide level2 scrollable">
+<h2><img data-src="img/scroll.png" style="width:1.0%"> First example of HCA</h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/r_bowNoNrg8?si=zr_8iHgz3cGvwcwb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
 
 </section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="img/Logo_ISTOM.png" class="slide-logo"></p>
 <div class="footer footer-default">
-
+<p><a href="https://ant0in3g.github.io/">Statistics and data analysis</a></p>
 </div>
 </div></div>
 
@@ -2139,7 +4070,7 @@ F-statistic:  1220 on 2 and 57 DF,  p-value: &lt; 2.2e-16</code></pre>
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'jumpToSlide': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true,"width":"normal","numbers":false},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -2160,7 +4091,7 @@ F-statistic:  1220 on 2 and 57 DF,  p-value: &lt; 2.2e-16</code></pre>
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: false,
+        slideNumber: 'c/t',
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',
@@ -2319,30 +4250,6 @@ F-statistic:  1220 on 2 and 57 DF,  p-value: &lt; 2.2e-16</code></pre>
         ]
       });
     </script>
-    document.addEventListener("DOMContentLoaded", function() {
-
-      const slideNumberDiv = document.getElementById("custom-slide-number");
-
-    
-
-      function updateSlideNumber() {
-
-        const indices = Reveal.getIndices();
-
-        const slideNumber = indices.h + 1 + '/' + Reveal.getTotalSlides();
-
-        slideNumberDiv.innerText = slideNumber;
-
-      }
-
-    
-
-      Reveal.on('slidechanged', updateSlideNumber);
-
-      updateSlideNumber();
-
-    });
-
     
 
     <script>
