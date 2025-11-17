@@ -73,7 +73,7 @@ Vous pouvez également vous exercer sur votre espace [jai20enmaths](https://www.
 Pour ce semestre **optionnel**, nous nous intéresserons à la notion d'espace vectoriel. Je n'ai pas encore terminé la rédaction d'une [introduction aux espaces vectoriels](./mATh/chapter-s/intro-espace-vect/chapter-s.pdf). Je vous propose donc ci-dessous quelques ressources de qualité :  
 - [Un cours sur les espaces vectoriels destiné à des étudiant-es de BCPST](https://www.molin-mathematiques.fr/cours/Espaces-vectoriels-cours-BCPST)  
 - [La série d'exercices correspondante](https://www.molin-mathematiques.fr/exo/Espaces-vectoriels-exercices-BCPST)
-- [Une **magnifique** présentation à l'algèbre linéire en vidéo](https://youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab&si=MUOq7O2DJBcKh4R9)
+- [Une **magnifique** présentation à l'algèbre linéaire en vidéo](https://youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab&si=MUOq7O2DJBcKh4R9)
 
 ### [Examens et corrections](./mATh/examens.md/)
 
