@@ -2555,26 +2555,26 @@ alternative hypothesis: two-sided</code></pre>
 </section>
 <section id="tests-for-homogeneity-of-variances" class="slide level2 scrollable">
 <h2><img data-src="img/scroll.png" style="width:1.0%"> Tests for homogeneity of variances</h2>
-<p>There are two main tests to test for homogeneity of variances.</p>
+<p>There are two main tests.</p>
 <h3 id="levene-test"><img data-src="img/logo-stat.png" style="width:3.0%"> Levene test</h3>
 <p><em>Non-parametric test</em></p>
 <table class="caption-top">
 <thead>
 <tr class="header">
 <th>Dependent variable</th>
-<th style="text-align: center;">/</th>
+<th style="text-align: center;">Quantitative</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Independant variable</td>
-<td style="text-align: center;">Quantitative</td>
+<td style="text-align: center;">Qualitative</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Asumption :</strong></p>
 <ul>
-<li>The sample size is small to moderate (e.g.&nbsp;less than 2000 observations).</li>
+<li>Independent observations</li>
 </ul>
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
@@ -2585,30 +2585,21 @@ alternative hypothesis: two-sided</code></pre>
 <p><strong>H0 : Null hypothesis</strong></p>
 </div>
 <div class="callout-content">
-<p>The sample comes from a normal distribution.</p>
+<p>The variance among groups is equal.</p>
 </div>
 </div>
 </div>
 <p><br></p>
 <h4 id="example-7">Example :</h4>
-<div class="columns">
-<div class="column" style="width:45%;">
-<ul>
-<li><p>The author tackle Shapiro-Wilk Nnormality test using <strong>R</strong>.</p></li>
-<li><p>The data will be created directly in <strong>R</strong> using the comand <code>set.seed</code>.</p></li>
-</ul>
+<p>We import the dataset <code>titanic.csv</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">946322</span>) <span class="co"># generate random values</span></span>
-<span id="cb103-2"><a href=""></a>x1 <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
-<span id="cb103-3"><a href=""></a>x2 <span class="ot">=</span> <span class="fu">runif</span>(<span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href=""></a>titanic.data <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"data_raw/titanic.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div><div class="column" style="width:10%;">
-
-</div><div class="column" style="width:45%;">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ppju5_XXzWc?si=cJ4O2tlcfQi7voyG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
-</iframe>
-</div></div>
-<p><br></p>
+<p>we load the required packages</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href=""></a><span class="fu">library</span>(car)</span>
+<span id="cb104-2"><a href=""></a><span class="fu">library</span>(carData)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <div class="callout callout-caution callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -2618,33 +2609,96 @@ alternative hypothesis: two-sided</code></pre>
 <p><strong>Question</strong></p>
 </div>
 <div class="callout-content">
-<p>Are the two variables normally distributed ?</p>
+<p>In the dataset <code>titanic</code>, do the two groups <code>dead</code>and <code>alive</code> have the same variance ?</p>
 </div>
 </div>
 </div>
-<h3 id="bartlett-test"><img data-src="img/logo-stat.png" style="width:3.0%"> Bartlett test</h3>
+<p>we perform our levene test</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href=""></a>plantes <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
-<span id="cb104-2"><a href=""></a>  <span class="at">engrais =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>), <span class="at">each =</span> <span class="dv">6</span>),</span>
-<span id="cb104-3"><a href=""></a>  <span class="at">taille =</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">28</span>, <span class="dv">27</span>, <span class="dv">26</span>, <span class="dv">29</span>, <span class="dv">27</span>,</span>
-<span id="cb104-4"><a href=""></a>             <span class="dv">35</span>, <span class="dv">34</span>, <span class="dv">36</span>, <span class="dv">33</span>, <span class="dv">35</span>, <span class="dv">37</span>,</span>
-<span id="cb104-5"><a href=""></a>             <span class="dv">40</span>, <span class="dv">42</span>, <span class="dv">41</span>, <span class="dv">39</span>, <span class="dv">43</span>, <span class="dv">40</span>)</span>
-<span id="cb104-6"><a href=""></a>)</span>
-<span id="cb104-7"><a href=""></a><span class="fu">head</span>(plantes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href=""></a><span class="fu">leveneTest</span>(age <span class="sc">~</span> survive, <span class="at">data =</span> titanic.data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  engrais taille
-1       A     25
-2       A     28
-3       A     27
-4       A     26
-5       A     29
-6       A     27</code></pre>
+<pre><code>Levene's Test for Homogeneity of Variance (center = median)
+       Df F value  Pr(&gt;F)  
+group   1  5.1144 0.02407 *
+      631                  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
+<ul>
+<li><p>We get a <strong>p-value</strong> <span class="math inline">\(\simeq \ 0.024 \ \simeq \ 2.4 \% \ &lt; \alpha\)</span></p></li>
+<li><p>Therefore we can reject H0.</p></li>
+<li><p>The two groups do not have the same variance.</p></li>
+</ul>
+<h3 id="bartlett-test"><img data-src="img/logo-stat.png" style="width:3.0%"> Bartlett test</h3>
+<p><em>Non-parametric test</em></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Dependent variable</th>
+<th style="text-align: center;">Quantitative</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Independant variable</td>
+<td style="text-align: center;">Qualitative</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Asumption :</strong></p>
+<ul>
+<li>It does not assume equal sample sizes across groups</li>
+</ul>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>H0 : Null hypothesis</strong></p>
+</div>
+<div class="callout-content">
+<p>The variance among groups is equal.</p>
+</div>
+</div>
+</div>
+<p><br></p>
+<h4 id="example-8">Example :</h4>
+<p>We use the same dataset <code>titanic</code>, but this time we change variable.</p>
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Question</strong></p>
+</div>
+<div class="callout-content">
+<p>In the dataset <code>titanic</code>, do the two groups <code>female</code>and <code>male</code> have the same variance ?</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href=""></a><span class="fu">bartlett.test</span>(age <span class="sc">~</span> sex, <span class="at">data =</span> titanic.data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Bartlett test of homogeneity of variances
+
+data:  age by sex
+Bartlett's K-squared = 0.049888, df = 1, p-value = 0.8233</code></pre>
+</div>
+</div>
+<ul>
+<li><p>We get a <strong>p-value</strong> <span class="math inline">\(\simeq \ 0.82 \ \simeq \ 8.2 \% \ &gt; \alpha\)</span></p></li>
+<li><p>Therefore we can accept H0.</p></li>
+<li><p>The two groups have the same variance.</p></li>
+</ul>
 </section>
 <section id="t-tests" class="slide level2 scrollable">
 <h2><img data-src="img/scroll.png" style="width:1.0%"> T-tests</h2>
-<h3 id="t-test-for-one-sample">T-test for one sample</h3>
+<p>There are different T-tests.</p>
+<h3 id="t-test-for-one-sample"><img data-src="img/logo-stat.png" style="width:3.0%"> T-test for one sample</h3>
 <p><em>Parametric test</em></p>
 <table class="caption-top">
 <thead>
@@ -2656,14 +2710,13 @@ alternative hypothesis: two-sided</code></pre>
 <tbody>
 <tr class="odd">
 <td>Independant variable</td>
-<td>Qualitatite</td>
+<td>-</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Asumptions :</strong></p>
 <ul>
-<li><p>Normality : dependent variables should be normally distributed within each group<br>
-<span class="math inline">\(\to\)</span> if not met : Mann-Whitney test</p></li>
+<li><p>Normality : dependent variables should be normally distributed within each group</p></li>
 <li><p>Homogenity of variance</p></li>
 </ul>
 <div class="callout callout-important callout-titled callout-style-default">
@@ -2679,17 +2732,18 @@ alternative hypothesis: two-sided</code></pre>
 </div>
 </div>
 </div>
-<p><strong>Example : </strong></p>
+<p><br></p>
+<h4 id="example-9">Example :</h4>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/6_3cPhD3DVw?si=blrAB-dTzA1N6ErH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
 </iframe>
 <p>We collect a sample of 10 birth weight of sheep.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href=""></a>weight <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="fl">1.5</span>, <span class="dv">3</span>, <span class="fl">2.5</span>, <span class="fl">3.5</span>, <span class="dv">4</span>, <span class="fl">2.5</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="fl">1.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href=""></a>weight <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="fl">1.5</span>, <span class="dv">3</span>, <span class="fl">2.5</span>, <span class="fl">3.5</span>, <span class="dv">4</span>, <span class="fl">2.5</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="fl">1.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>There are not outliers.</p>
 <p>The null hypothesis H0 is : <span class="math inline">\(\mu = 3.5\)</span>, and we chose <span class="math inline">\(\alpha = 5 \%\)</span>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href=""></a><span class="fu">t.test</span>(weight, <span class="at">mu =</span> <span class="fl">3.5</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href=""></a><span class="fu">t.test</span>(weight, <span class="at">mu =</span> <span class="fl">3.5</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     One Sample t-test
@@ -2710,7 +2764,7 @@ mean of x
 <p>The null hypothesis is just a bit different :</p>
 <p>H0 : <span class="math inline">\(\mu &lt; 3.5\)</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href=""></a><span class="fu">t.test</span>(weight, <span class="at">mu =</span> <span class="fl">3.5</span>, <span class="at">alternative =</span> <span class="st">"greater"</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href=""></a><span class="fu">t.test</span>(weight, <span class="at">mu =</span> <span class="fl">3.5</span>, <span class="at">alternative =</span> <span class="st">"greater"</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     One Sample t-test
@@ -2727,287 +2781,1055 @@ mean of x
 </div>
 <p>We get a <strong>p-value</strong> <span class="math inline">\(\simeq \ 0.997 \ \simeq \ 99.7 \% \ &gt; \alpha\)</span></p>
 <p>Therefore we can accep H0. The mean of the dataset if less than <span class="math inline">\(3.5\)</span>.</p>
+<p><br></p>
+<h3 id="independent-t-test"><img data-src="img/logo-stat.png" style="width:3.0%"> Independent t-test</h3>
+<p><em>Parametric test</em></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Dependent variable</th>
+<th>Quantitative (continuous)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Independant variable</td>
+<td>Qualitatite (2 groups)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Asumptions :</strong></p>
+<ul>
+<li><p>Normality : dependent variables should be normally distributed within each group<br>
+<span class="math inline">\(\to\)</span> if not met : Mann-Whitney test</p></li>
+<li><p>Homogenity of variance</p></li>
+<li><p>Does not assume equal sample sizes or equal variances between groups</p></li>
+<li><p>Assumes independent observations drawn from normally-distributed populations</p></li>
+<li><p>Robust against violations of normality when sample size is large</p></li>
+</ul>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>H0 : Null hypothesis</strong></p>
+</div>
+<div class="callout-content">
+<p>The groups have equal means.</p>
+</div>
+</div>
+</div>
+<p><br></p>
+<h4 id="example-10">Example :</h4>
+<p>We load the dataset <code>bocks</code> from the library <code>GLMsData</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href=""></a><span class="fu">library</span>(GLMsData)</span>
+<span id="cb114-2"><a href=""></a><span class="fu">data</span>(blocks)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>we perform our t-test</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href=""></a><span class="fu">t.test</span>(Number <span class="sc">~</span> Shape, <span class="at">data =</span> blocks)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  Number by Shape
+t = 7.4956, df = 77.669, p-value = 9.056e-11
+alternative hypothesis: true difference in means between group Cube and group Cylinder is not equal to 0
+95 percent confidence interval:
+ 1.96814 3.39186
+sample estimates:
+    mean in group Cube mean in group Cylinder 
+                  8.16                   5.48 </code></pre>
+</div>
+</div>
+<ul>
+<li><p>We get a <strong>p-value</strong> <span class="math inline">\(\simeq \ 9.05 \ 10^{-11} \ &lt; \alpha\)</span></p></li>
+<li><p>Therefore we can reject H0.</p></li>
+<li><p>The two groups do NOT have the same mean.</p></li>
+</ul>
+<h3 id="paired-t-test"><img data-src="img/logo-stat.png" style="width:3.0%"> Paired t-test</h3>
+<p><em>Parametric test</em></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Dependent variable</th>
+<th>Quantitative (continuous)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Independant variable</td>
+<td>Time point 1 or 2 /condition</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Asumptions :</strong></p>
+<ul>
+<li>Normality : dependent variables should be normally distributed within each group<br>
+<span class="math inline">\(\to\)</span> if not met : Wilcoxon test</li>
+</ul>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>H0 : Null hypothesis</strong></p>
+</div>
+<div class="callout-content">
+<p>The groups have equal means.</p>
+</div>
+</div>
+</div>
+<p><br></p>
+<h4 id="example-11">Example :</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href=""></a><span class="co"># Weight of the mice before treatment</span></span>
+<span id="cb117-2"><a href=""></a>before <span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">200.1</span>, <span class="fl">190.9</span>, <span class="fl">192.7</span>, <span class="dv">213</span>, <span class="fl">241.4</span>, <span class="fl">196.9</span>, <span class="fl">172.2</span>, <span class="fl">185.5</span>, <span class="fl">205.2</span>, <span class="fl">193.7</span>)</span>
+<span id="cb117-3"><a href=""></a><span class="co"># Weight of the mice after treatment</span></span>
+<span id="cb117-4"><a href=""></a>after <span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">392.9</span>, <span class="fl">393.2</span>, <span class="fl">345.1</span>, <span class="dv">393</span>, <span class="dv">434</span>, <span class="fl">427.9</span>, <span class="dv">422</span>, <span class="fl">383.9</span>, <span class="fl">392.3</span>, <span class="fl">352.2</span>)</span>
+<span id="cb117-5"><a href=""></a><span class="co"># Create a data frame</span></span>
+<span id="cb117-6"><a href=""></a>my_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( </span>
+<span id="cb117-7"><a href=""></a>                <span class="at">group =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"before"</span>, <span class="st">"after"</span>), <span class="at">each =</span> <span class="dv">10</span>),</span>
+<span id="cb117-8"><a href=""></a>                <span class="at">weight =</span> <span class="fu">c</span>(before,  after)</span>
+<span id="cb117-9"><a href=""></a>                )</span>
+<span id="cb117-10"><a href=""></a>my_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    group weight
+1  before  200.1
+2  before  190.9
+3  before  192.7
+4  before  213.0
+5  before  241.4
+6  before  196.9
+7  before  172.2
+8  before  185.5
+9  before  205.2
+10 before  193.7
+11  after  392.9
+12  after  393.2
+13  after  345.1
+14  after  393.0
+15  after  434.0
+16  after  427.9
+17  after  422.0
+18  after  383.9
+19  after  392.3
+20  after  352.2</code></pre>
+</div>
+</div>
+<p>we perfrom our paired t-test</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href=""></a><span class="fu">t.test</span>(before, after, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Paired t-test
+
+data:  before and after
+t = -20.883, df = 9, p-value = 6.2e-09
+alternative hypothesis: true mean difference is not equal to 0
+95 percent confidence interval:
+ -215.5581 -173.4219
+sample estimates:
+mean difference 
+        -194.49 </code></pre>
+</div>
+</div>
+<ul>
+<li><p>We get a <strong>p-value</strong> <span class="math inline">\(\simeq \ 6.2 \ 10^{-9} \ &lt; \alpha\)</span></p></li>
+<li><p>Therefore we can reject H0.</p></li>
+<li><p>The two groups do NOT have the same mean.</p></li>
+</ul>
 </section>
 <section id="mann-whitney-test" class="slide level2 scrollable">
 <h2><img data-src="img/scroll.png" style="width:1.0%"> Mann-Whitney test</h2>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/C1L9rjGzR5U?si=B1hk242TXtRQT7Q3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+<p><em>Non-parametric equivalent to the independent t-test</em></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Dependent variable</th>
+<th>Ordinal/ Continuous</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Independant variable</td>
+<td>Qualitative</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Asumption :</strong></p>
+<ul>
+<li>independent samples</li>
+</ul>
+<p>There are two types Mann-Whitney tests. If the distribution of scores for both groups have the same shape, the medians can be compared. If not, use the default test which compares the mean ranks</p>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>H0 : Null hypothesis</strong></p>
+</div>
+<div class="callout-content">
+<p>The median of the two groups are the same (if the distribution for both groups have the same shape), otherwise the mean ranks are the same.</p>
+</div>
+</div>
+</div>
+<p><br></p>
+<h4 id="example-12">Example :</h4>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MCD5K7oMoeg?si=ZEBe-TJXxesPrJyo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
 </iframe>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href=""></a>movieRating <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">"data_raw/95_Data_File.csv"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">","</span>)</span>
+<span id="cb121-2"><a href=""></a><span class="fu">head</span>(movieRating)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Male Female
+1 6.35   5.90
+2 6.54   6.28
+3 6.11   5.76
+4 6.97   6.66
+5 6.78   6.71
+6 5.83   5.58</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href=""></a><span class="fu">wilcox.test</span>(movieRating<span class="sc">$</span>Male,movieRating<span class="sc">$</span>Female, <span class="at">paired =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Wilcoxon rank sum test with continuity correction
+
+data:  movieRating$Male and movieRating$Female
+W = 255.5, p-value = 0.1368
+alternative hypothesis: true location shift is not equal to 0</code></pre>
+</div>
+</div>
+<ul>
+<li><p>We get a <strong>p-value</strong> <span class="math inline">\(\simeq \ 0.1368 \ &gt; \alpha\)</span></p></li>
+<li><p>Therefore we can accept H0.</p></li>
+<li><p>The two groups do have the same median.</p></li>
+</ul>
 </section>
 <section id="wilcoxon-test" class="slide level2 scrollable">
 <h2><img data-src="img/scroll.png" style="width:1.0%"> Wilcoxon test</h2>
+<p><em>Non-parametric equivalent to the paired t-test</em></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Dependent variable</th>
+<th>Ordinal/ Continuous</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Independant variable</td>
+<td>Time/ Condition</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Asumption :</strong> /</p>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>H0 : Null hypothesis</strong></p>
+</div>
+<div class="callout-content">
+<p>The is no median difference between the paired observations.</p>
+</div>
+</div>
+</div>
+<p><br></p>
+<h4 id="example-13">Example :</h4>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/SxSSbX5TY7c?si=ZaPdm68MLmWI61Iv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb125"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href=""></a>aluLevels <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">"data_raw/96_Data_File.csv"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">","</span>)</span>
+<span id="cb125-2"><a href=""></a><span class="fu">head</span>(aluLevels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          Clone August November
+1         Primo   12.6     12.7
+2      Raspalje    9.5     10.5
+3     Hazendans   16.5     15.3
+4     Hoogvorst   13.6     15.6
+5 Fritzi Pauley   13.3     11.1
+6  Balsam Spire    8.1     11.2</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb127"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href=""></a><span class="fu">wilcox.test</span>(aluLevels<span class="sc">$</span>August, aluLevels<span class="sc">$</span>November, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Wilcoxon signed rank exact test
+
+data:  aluLevels$August and aluLevels$November
+V = 16, p-value = 0.03979
+alternative hypothesis: true location shift is not equal to 0</code></pre>
+</div>
+</div>
+<ul>
+<li><p>We get a <strong>p-value</strong> <span class="math inline">\(\simeq \ 0.039 \ = \ 0.39 \% \ &gt; \alpha\)</span></p></li>
+<li><p>Therefore we can reject H0.</p></li>
+<li><p>The two groups do NOT have the same median.</p></li>
+</ul>
 </section>
 <section id="anova" class="slide level2 scrollable">
 <h2><img data-src="img/scroll.png" style="width:1.0%"> ANOVA</h2>
-<p>ANOVA (<strong>AN</strong>alysis <strong>O</strong>f <strong>VA</strong>riance) is a statistical test to determine whether two or more population means are different.</p>
-<p>It is used to compare two or more groups to see if they are significantly different.</p>
-<p>In practice,</p>
+<p><strong>AN</strong>alysis <strong>O</strong>f <strong>VA</strong>riance</p>
+<h3 id="one-way-anova"><img data-src="img/logo-stat.png" style="width:3.0%"> One-way ANOVA</h3>
+<p><em>Parametric test</em></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Dependent variable</th>
+<th>Continuous</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Independant variable</td>
+<td>Qualitatives (3+ groups)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Asumptions :</strong></p>
 <ul>
-<li><p>t test is used to compare 2 groups</p></li>
-<li><p>ANOVA generalizes the t-test beyond 2 groups, it is used to compare 3 or more groups</p></li>
+<li>Residuals should be normally distributed</li>
+</ul>
+<p><span class="math inline">\(\to\)</span> if not met : Kruskall-Wallis test</p>
+<ul>
+<li>Homogeneity of variance</li>
+</ul>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>H0 : Null hypothesis</strong></p>
+</div>
+<div class="callout-content">
+<p>The population means are all equal in the groups.</p>
+</div>
+</div>
+</div>
+<p><br></p>
+<h4 id="example-14">Example :</h4>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GokvYQiGdm0?si=XE0qla3upiCKBzv9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+<p>We load the required packages and the dataset <code>chickwts</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb129"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb129-1"><a href=""></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb129-2"><a href=""></a><span class="fu">head</span>(chickwts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  weight      feed
+1    179 horsebean
+2    160 horsebean
+3    136 horsebean
+4    227 horsebean
+5    217 horsebean
+6    168 horsebean</code></pre>
+</div>
+</div>
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Question</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Does the feed being used help explain the weights of chicken ?</strong></p>
+</div>
+</div>
+</div>
+<p>We first look for homogeneity of variance.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb131"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb131-1"><a href=""></a><span class="fu">library</span>(car)</span>
+<span id="cb131-2"><a href=""></a><span class="fu">leveneTest</span>(chickwts<span class="sc">$</span>weight <span class="sc">~</span> chickwts<span class="sc">$</span>feed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Levene's Test for Homogeneity of Variance (center = median)
+      Df F value Pr(&gt;F)
+group  5  0.7493 0.5896
+      65               </code></pre>
+</div>
+</div>
+<ul>
+<li><p>We get a <strong>p-value</strong> <span class="math inline">\(\simeq \ 0.59 \ = \ 59 \% \ &gt; \alpha\)</span></p></li>
+<li><p>Therefore we can accept H0.</p></li>
+<li><p>The groups do have the same variance</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href=""></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb111-2"><a href=""></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb111-3"><a href=""></a><span class="fu">head</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 8
-  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
-  &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
-1 Adelie  Torgersen           39.1          18.7               181        3750
-2 Adelie  Torgersen           39.5          17.4               186        3800
-3 Adelie  Torgersen           40.3          18                 195        3250
-4 Adelie  Torgersen           NA            NA                  NA          NA
-5 Adelie  Torgersen           36.7          19.3               193        3450
-6 Adelie  Torgersen           39.3          20.6               190        3650
-# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+<div class="sourceCode cell-code" id="cb133"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb133-1"><a href=""></a>model.ANOVA.OneWay <span class="ot">=</span> <span class="fu">aov</span>(chickwts<span class="sc">$</span>weight <span class="sc">~</span> chickwts<span class="sc">$</span>feed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href=""></a><span class="fu">summary</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>      species          island    bill_length_mm  bill_depth_mm  
- Adelie   :152   Biscoe   :168   Min.   :32.10   Min.   :13.10  
- Chinstrap: 68   Dream    :124   1st Qu.:39.23   1st Qu.:15.60  
- Gentoo   :124   Torgersen: 52   Median :44.45   Median :17.30  
-                                 Mean   :43.92   Mean   :17.15  
-                                 3rd Qu.:48.50   3rd Qu.:18.70  
-                                 Max.   :59.60   Max.   :21.50  
-                                 NA's   :2       NA's   :2      
- flipper_length_mm  body_mass_g       sex           year     
- Min.   :172.0     Min.   :2700   female:165   Min.   :2007  
- 1st Qu.:190.0     1st Qu.:3550   male  :168   1st Qu.:2007  
- Median :197.0     Median :4050   NA's  : 11   Median :2008  
- Mean   :200.9     Mean   :4202                Mean   :2008  
- 3rd Qu.:213.0     3rd Qu.:4750                3rd Qu.:2009  
- Max.   :231.0     Max.   :6300                Max.   :2009  
- NA's   :2         NA's   :2                                 </code></pre>
-</div>
-</div>
+<p>We need to check if the residuals are normally distributed</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href=""></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y=</span> flipper_length_mm)) <span class="sc">+</span></span>
-<span id="cb115-2"><a href=""></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-66-1.png" width="960"></p>
-</figure>
+<div class="sourceCode cell-code" id="cb134"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href=""></a><span class="fu">shapiro.test</span>(model.ANOVA.OneWay<span class="sc">$</span>residuals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  model.ANOVA.OneWay$residuals
+W = 0.98616, p-value = 0.6272</code></pre>
 </div>
 </div>
-</div>
-<p>The question : <strong>Does species help explain flipper lenght ?</strong></p>
-<p>Assumptions :</p>
 <ul>
-<li><p>The population from which samples are drawn should be <strong>normally distributed</strong></p></li>
-<li><p><strong>Independence</strong> of cases : the sample cases should be independent of each other.</p></li>
-<li><p><strong>Homogeneity of variance</strong> : Homogeneity means that the variance among the groups should be approximately equal.</p></li>
+<li><p>We get a <strong>p-value</strong> <span class="math inline">\(\simeq \ 0.63 \ = \ 63 \% \ &gt; \alpha\)</span></p></li>
+<li><p>Therefore we can accept H0.</p></li>
+<li><p>The residuals are normally distributed</p></li>
 </ul>
+<p>Now we can analyse the ANOVA result :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href=""></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm)) <span class="sc">+</span> </span>
-<span id="cb116-2"><a href=""></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
-<span id="cb116-3"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>species, <span class="at">ncol =</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-67-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href=""></a>penguins <span class="sc">%&gt;%</span></span>
-<span id="cb117-2"><a href=""></a>  <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span></span>
-<span id="cb117-3"><a href=""></a>  <span class="fu">summarise</span>(<span class="fu">var</span>(flipper_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb136"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href=""></a><span class="fu">summary</span>(model.ANOVA.OneWay)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 2
-  species   `var(flipper_length_mm, na.rm = TRUE)`
-  &lt;fct&gt;                                      &lt;dbl&gt;
-1 Adelie                                      42.8
-2 Chinstrap                                   50.9
-3 Gentoo                                      42.1</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href=""></a>model <span class="ot">=</span> <span class="fu">aov</span>(flipper_length_mm <span class="sc">~</span> species, <span class="at">data =</span> penguins)</span>
-<span id="cb119-2"><a href=""></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>             Df Sum Sq Mean Sq F value Pr(&gt;F)    
-species       2  52473   26237   594.8 &lt;2e-16 ***
-Residuals   339  14953      44                   
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-2 observations deleted due to missingness</code></pre>
-</div>
-</div>
-<h3 class="scrollable" id="second-example-anova"><img data-src="img/scroll.png" style="width:1.0%"> Second example ANOVA</h3>
-<h4 id="one-way">One way</h4>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href=""></a>crop.data <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"data_raw/crop.data.csv"</span>)</span>
-<span id="cb121-2"><a href=""></a><span class="fu">head</span>(crop.data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  density block fertilizer    yield
-1       1     1          1 177.2287
-2       2     2          1 177.5500
-3       1     3          1 176.4085
-4       2     4          1 177.7036
-5       1     1          1 177.1255
-6       2     2          1 176.7783</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href=""></a><span class="fu">summary</span>(crop.data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>    density        block        fertilizer     yield      
- Min.   :1.0   Min.   :1.00   Min.   :1    Min.   :175.4  
- 1st Qu.:1.0   1st Qu.:1.75   1st Qu.:1    1st Qu.:176.5  
- Median :1.5   Median :2.50   Median :2    Median :177.1  
- Mean   :1.5   Mean   :2.50   Mean   :2    Mean   :177.0  
- 3rd Qu.:2.0   3rd Qu.:3.25   3rd Qu.:3    3rd Qu.:177.4  
- Max.   :2.0   Max.   :4.00   Max.   :3    Max.   :179.1  </code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb125"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href=""></a>one.way <span class="ot">&lt;-</span> <span class="fu">aov</span>(yield <span class="sc">~</span> fertilizer, <span class="at">data =</span> crop.data)</span>
-<span id="cb125-2"><a href=""></a><span class="fu">summary</span>(one.way)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>            Df Sum Sq Mean Sq F value   Pr(&gt;F)    
-fertilizer   1   5.74   5.743   14.91 0.000207 ***
-Residuals   94  36.21   0.385                     
+<pre><code>              Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+chickwts$feed  5 231129   46226   15.37 5.94e-10 ***
+Residuals     65 195556    3009                     
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
-<p>In this one-way ANOVA setup, we test if fertilizer type has a significant impact on the final crop yield</p>
-<p><strong>Yes ! It does !</strong></p>
-<h4 id="two-way">Two-way</h4>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb127"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href=""></a>anova2way <span class="ot">&lt;-</span> <span class="fu">aov</span>(yield <span class="sc">~</span> fertilizer <span class="sc">+</span> density, <span class="at">data =</span> crop.data)</span>
-<span id="cb127-2"><a href=""></a><span class="fu">summary</span>(anova2way)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>            Df Sum Sq Mean Sq F value   Pr(&gt;F)    
-fertilizer   1  5.743   5.743   17.18 7.49e-05 ***
-density      1  5.122   5.122   15.32 0.000173 ***
-Residuals   93 31.089   0.334                     
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+<ul>
+<li><p>We get a <strong>p-value</strong> <span class="math inline">\(\simeq \ 5.94 . 10^{-10} \ &lt; \alpha\)</span></p></li>
+<li><p>Therefore we can reject H0.</p></li>
+<li><p>The mean are not the same all the groups.</p></li>
+<li><p>The feed being used help explain the weights of chicken, but we cannot say how.</p></li>
+</ul>
+<p><br></p>
+<h3 id="two-way-anova"><img data-src="img/logo-stat.png" style="width:3.0%"> Two-way ANOVA</h3>
+<p><em>Parametric test</em></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Dependent variable</th>
+<th>Continuous</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Independent variables</td>
+<td>2 qualitative (2+ levels within each)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Asumptions :</strong></p>
+<ul>
+<li><p>Residuals should be normally distributed</p></li>
+<li><p>Homogeneity of variance</p></li>
+</ul>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>H0 : Null hypothesis</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>The means (by one factor) of the groups being compared are the same</p></li>
+<li><p>The means (by the other factor) of the groups being compared are the same</p></li>
+<li><p>There is no interaction between the two factors</p></li>
+</ul>
 </div>
 </div>
+</div>
+<p><br></p>
 <p>The two-way ANOVA : extension of the one-way ANOVA that examines the influence of two different categorical independent variables on one continuous dependent variable.</p>
 <p>The two-way ANOVA not only aims at assessing the main effect of each independent variable but also if there is any interaction between them.</p>
+<p><br></p>
+<h4 id="example-15">Example :</h4>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7uR9c_yA0pE?si=9Hs_ZNtZoBhUbsII" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb138"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb138-1"><a href=""></a><span class="fu">head</span>(ToothGrowth)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   len supp dose
+1  4.2   VC  0.5
+2 11.5   VC  0.5
+3  7.3   VC  0.5
+4  5.8   VC  0.5
+5  6.4   VC  0.5
+6 10.0   VC  0.5</code></pre>
+</div>
+</div>
+<p>We first look for homogeneity of variance.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb140"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb140-1"><a href=""></a><span class="fu">library</span>(car)</span>
+<span id="cb140-2"><a href=""></a><span class="fu">leveneTest</span>(len <span class="sc">~</span> supp <span class="sc">*</span> <span class="fu">factor</span>(dose), <span class="at">data =</span> ToothGrowth)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Levene's Test for Homogeneity of Variance (center = median)
+      Df F value Pr(&gt;F)
+group  5  1.7086 0.1484
+      54               </code></pre>
+</div>
+</div>
+<ul>
+<li><p>We get a <strong>p-value</strong> <span class="math inline">\(\simeq \ 0.15 \ = \ 15 \% \ &gt; \alpha\)</span></p></li>
+<li><p>Therefore we can accept H0.</p></li>
+<li><p>We have the homogeneity of variance.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb142"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb142-1"><a href=""></a>model.ANOVA.TwoWay <span class="ot">=</span> <span class="fu">aov</span>(len <span class="sc">~</span> supp <span class="sc">*</span> <span class="fu">factor</span>(dose), <span class="at">data =</span> ToothGrowth)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We need to check if the residuals are normally distributed</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb143"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb143-1"><a href=""></a><span class="fu">shapiro.test</span>(model.ANOVA.TwoWay<span class="sc">$</span>residuals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  model.ANOVA.TwoWay$residuals
+W = 0.98499, p-value = 0.6694</code></pre>
+</div>
+</div>
+<ul>
+<li><p>We get a <strong>p-value</strong> <span class="math inline">\(\simeq \ 0.67 \ = \ 67 \% \ &gt; \alpha\)</span></p></li>
+<li><p>Therefore we can accept H0.</p></li>
+<li><p>The residuals are normally distributed</p></li>
+</ul>
+<p>Now we can analyse the Two-way ANOVA result :</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>                  Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+supp               1  205.4   205.4  15.572 0.000231 ***
+factor(dose)       2 2426.4  1213.2  92.000  &lt; 2e-16 ***
+supp:factor(dose)  2  108.3    54.2   4.107 0.021860 *  
+Residuals         54  712.1    13.2                     
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<ul>
+<li>We get the a <strong>p-value</strong> <span class="math inline">\(\simeq \ 0.000231 \ &lt; \alpha\)</span>
+<ul>
+<li>Therefore we can reject the first part of the null hypothesis, which is : <span class="math inline">\(\to\)</span> The means (by the factor <code>supp</code>) of the groups are NOT the same</li>
+</ul></li>
+<li>We get the a <strong>p-value</strong> <span class="math inline">\(\simeq \ 2 10^{-16} \ &lt; \alpha\)</span>
+<ul>
+<li>Therefore we can reject the second part of the null hypothesis, which is : <span class="math inline">\(\to\)</span> The means (by the factor <code>factor(dose)</code>) of the groups are NOT the same</li>
+</ul></li>
+<li>We get the a <strong>p-value</strong> <span class="math inline">\(\simeq \ 0.022 \ &lt; \alpha\)</span>
+<ul>
+<li>Therefore we can reject the third part of the null hypothesis, which is : <span class="math inline">\(\to\)</span> There IS an interaction between the two factors</li>
+</ul></li>
+</ul>
 </section>
 <section id="post-hoc-tests" class="slide level2 scrollable">
 <h2><img data-src="img/scroll.png" style="width:1.0%"> Post hoc tests</h2>
 <p>In order to find out exactly which groups are different from each other, we must conduct a <strong>post hoc test</strong>.</p>
 <ul>
-<li><p><strong>The Tukey HSD test</strong> : compare all groups to each other</p></li>
+<li><p><strong>The Tukey test</strong> : compare all groups to each other</p></li>
 <li><p><strong>The Dunnett test</strong> : compare with a reference group.</p></li>
 </ul>
-<h3 id="the-tukey-test">The Tukey test</h3>
+<h3 id="the-tukey-test"><img data-src="img/logo-stat.png" style="width:3.0%"> The Tukey test</h3>
+<p><em>Often follows a one-way ANOVA</em></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Dependent variable</th>
+<th>Continuous</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Independant variable</td>
+<td>Qualitatives (3+ groups)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Asumptions :</strong></p>
+<ul>
+<li><p>the observations are independent,</p></li>
+<li><p>normality of distribution,</p></li>
+<li><p>homogeneity of variance.</p></li>
+</ul>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>H0 : Null hypothesis</strong></p>
+</div>
+<div class="callout-content">
+<p>The means of the tested groups are equal</p>
+</div>
+</div>
+</div>
+<p><br></p>
+<h4 id="example-1-1">Example 1 :</h4>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hPUvqtmCu7Q?si=qdYrpFcTmkOniI7h" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb129"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb129-1"><a href=""></a><span class="fu">TukeyHSD</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb146"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb146-1"><a href=""></a>dietData <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">"data_raw/90_Data_File.csv"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">","</span>)</span>
+<span id="cb146-2"><a href=""></a><span class="fu">head</span>(dietData)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Diet Weight.Week.1 Weight.Week.8 Weight.Loss
+1    1            59            55           4
+2    1            61            55           6
+3    1            65            64           1
+4    1            65            62           3
+5    1            66            63           3
+6    1            67            65           2</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb148"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb148-1"><a href=""></a><span class="fu">leveneTest</span>(Weight.Loss <span class="sc">~</span> <span class="fu">factor</span>(Diet), <span class="at">data =</span> dietData)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Levene's Test for Homogeneity of Variance (center = median)
+      Df F value  Pr(&gt;F)  
+group  2  2.8097 0.06657 .
+      75                  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>therefore we have homogeneity of variance</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb150"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb150-1"><a href=""></a>anova.tukey <span class="ot">=</span> <span class="fu">aov</span>(Weight.Loss <span class="sc">~</span> <span class="fu">factor</span>(Diet), <span class="at">data =</span> dietData)</span>
+<span id="cb150-2"><a href=""></a><span class="fu">shapiro.test</span>(anova.tukey<span class="sc">$</span>residuals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  anova.tukey$residuals
+W = 0.98329, p-value = 0.3995</code></pre>
+</div>
+</div>
+<p>therefore we have normality</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb152"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb152-1"><a href=""></a>anova.tukey <span class="ot">=</span> <span class="fu">aov</span>(Weight.Loss <span class="sc">~</span> <span class="fu">factor</span>(Diet), <span class="at">data =</span> dietData)</span>
+<span id="cb152-2"><a href=""></a><span class="fu">summary</span>(anova.tukey)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             Df Sum Sq Mean Sq F value  Pr(&gt;F)   
+factor(Diet)  2   69.4    34.7   6.551 0.00239 **
+Residuals    75  397.3     5.3                   
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>therefore the means bewtween the groups are not the same</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb154"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb154-1"><a href=""></a><span class="fu">TukeyHSD</span>(anova.tukey)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Tukey multiple comparisons of means
     95% family-wise confidence level
 
-Fit: aov(formula = flipper_length_mm ~ species, data = penguins)
+Fit: aov(formula = Weight.Loss ~ factor(Diet), data = dietData)
 
-$species
-                      diff       lwr       upr p adj
-Chinstrap-Adelie  5.869887  3.586583  8.153191     0
-Gentoo-Adelie    27.233349 25.334376 29.132323     0
-Gentoo-Chinstrap 21.363462 19.000841 23.726084     0</code></pre>
+$`factor(Diet)`
+         diff        lwr      upr     p adj
+2-1 0.3796296 -1.1643251 1.923584 0.8270005
+3-1 2.1574074  0.6134526 3.701362 0.0036876
+3-2 1.7777778  0.2799216 3.275634 0.0159151</code></pre>
 </div>
 </div>
-<p>All three ajusted p-values are smaller than 0.05 !</p>
-<p><span class="math inline">\(\to\)</span> We reject H0, which means that all species are significantly different in terms of flippers length</p>
+<p>only the comparison between groups 3 and 1 do have a <strong>p-value</strong> that indicate they might have different means</p>
+<p><br></p>
+<h4 id="example-2-1">Example 2 :</h4>
+<p>We create our dataset</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb131"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb131-1"><a href=""></a><span class="fu">plot</span>(<span class="fu">TukeyHSD</span>(model))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb156"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb156-1"><a href=""></a><span class="co"># response variable</span></span>
+<span id="cb156-2"><a href=""></a>size <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">25</span>,<span class="dv">22</span>,<span class="dv">28</span>,<span class="dv">24</span>,<span class="dv">26</span>,<span class="dv">24</span>,<span class="dv">22</span>,<span class="dv">21</span>,<span class="dv">23</span>,<span class="dv">25</span>,<span class="dv">26</span>,<span class="dv">30</span>,<span class="dv">25</span>,<span class="dv">24</span>,<span class="dv">21</span>,<span class="dv">27</span>,<span class="dv">28</span>,<span class="dv">23</span>,<span class="dv">25</span>,<span class="dv">24</span>,<span class="dv">20</span>,<span class="dv">22</span>,<span class="dv">24</span>,<span class="dv">23</span>,<span class="dv">22</span>,<span class="dv">24</span>,<span class="dv">20</span>,<span class="dv">19</span>,<span class="dv">21</span>,<span class="dv">22</span>)</span>
+<span id="cb156-3"><a href=""></a></span>
+<span id="cb156-4"><a href=""></a><span class="co"># predictor variable</span></span>
+<span id="cb156-5"><a href=""></a>location <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(<span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"ForestA"</span>,<span class="dv">10</span>), <span class="fu">rep</span>(<span class="st">"ForestB"</span>,<span class="dv">10</span>), <span class="fu">rep</span>(<span class="st">"ForestC"</span>,<span class="dv">10</span>)))</span>
+<span id="cb156-6"><a href=""></a></span>
+<span id="cb156-7"><a href=""></a><span class="co"># dataframe</span></span>
+<span id="cb156-8"><a href=""></a>my.dataframe <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(size,location)</span>
+<span id="cb156-9"><a href=""></a><span class="fu">head</span>(my.dataframe)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  size location
+1   25  ForestA
+2   22  ForestA
+3   28  ForestA
+4   24  ForestA
+5   26  ForestA
+6   24  ForestA</code></pre>
+</div>
+</div>
+<p>we check the homegeniety of variance</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb158"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb158-1"><a href=""></a><span class="fu">leveneTest</span>(size <span class="sc">~</span> location, <span class="at">data =</span> my.dataframe)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Levene's Test for Homogeneity of Variance (center = median)
+      Df F value Pr(&gt;F)
+group  2  0.4919 0.6168
+      27               </code></pre>
+</div>
+</div>
+<p>according to the <strong>p-value</strong> we have the homogeneity of variance</p>
+<p>we check for the normality</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb160"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb160-1"><a href=""></a><span class="fu">shapiro.test</span>(size[<span class="dv">1-10</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  size[1 - 10]
+W = 0.97115, p-value = 0.5913</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb162"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb162-1"><a href=""></a><span class="fu">shapiro.test</span>(size[<span class="dv">11-20</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  size[11 - 20]
+W = 0.97115, p-value = 0.5913</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb164"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb164-1"><a href=""></a><span class="fu">shapiro.test</span>(size[<span class="dv">21-30</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  size[21 - 30]
+W = 0.97115, p-value = 0.5913</code></pre>
+</div>
+</div>
+<p>according to the <strong>p-values</strong> we have the normality</p>
+<p>we perform our one-way ANOVA</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb166"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb166-1"><a href=""></a>my.ANOVA <span class="ot">=</span> <span class="fu">aov</span>(size <span class="sc">~</span> location, <span class="at">data =</span> my.dataframe)</span>
+<span id="cb166-2"><a href=""></a><span class="fu">summary</span>(my.ANOVA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Df Sum Sq Mean Sq F value  Pr(&gt;F)   
+location     2  66.47   33.23    7.11 0.00331 **
+Residuals   27 126.20    4.67                   
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>according to the <strong>p-value</strong> the means of the groups are not equal</p>
+<p>we then perfrom our Tukey test</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb168"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb168-1"><a href=""></a><span class="fu">TukeyHSD</span>(my.ANOVA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = size ~ location, data = my.dataframe)
+
+$location
+                diff       lwr         upr     p adj
+ForestB-ForestA  1.3 -1.097245  3.69724537 0.3835917
+ForestC-ForestA -2.3 -4.697245  0.09724537 0.0619108
+ForestC-ForestB -3.6 -5.997245 -1.20275463 0.0025530</code></pre>
+</div>
+</div>
+<ul>
+<li><p>The output displays the results of all pairwise comparisons among the tested groups.</p></li>
+<li><p>The <strong>p-value</strong> for the comparison Forest B with Forest A is bigger than <span class="math inline">\(\alpha\)</span>.</p>
+<ul>
+<li>Therefore their means are equal</li>
+</ul></li>
+<li><p>The <strong>p-value</strong> for the other comparisons are smaller than <span class="math inline">\(\alpha\)</span>.</p>
+<ul>
+<li>Therefore their means are NOT equal</li>
+</ul></li>
+</ul>
+<p><br></p>
+<h3 id="the-dunnett-test"><img data-src="img/logo-stat.png" style="width:3.0%"> The Dunnett test</h3>
+<p><em>Often follows a one-way ANOVA</em></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Dependent variable</th>
+<th>Continuous</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Independant variable</td>
+<td>Qualitatives (3+ groups)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Asumptions :</strong></p>
+<ul>
+<li>Groups being compared must be independent</li>
+</ul>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>H0 : Null hypothesis</strong></p>
+</div>
+<div class="callout-content">
+<p>The means of the control group and any other groups are the equal</p>
+</div>
+</div>
+</div>
+<p><br></p>
+<h4 id="example-16">Example :</h4>
+<p>We go back with our example from the tukey test.</p>
+<p>We chose the forest A has a reference.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb170"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb170-1"><a href=""></a><span class="fu">library</span>(DescTools)</span>
+<span id="cb170-2"><a href=""></a><span class="fu">DunnettTest</span>(<span class="at">x =</span> my.dataframe<span class="sc">$</span>size, <span class="at">g =</span> my.dataframe<span class="sc">$</span>location)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  Dunnett's test for comparing several treatments with a control :  
+    95% family-wise confidence level
+
+$ForestA
+                diff     lwr.ci     upr.ci   pval    
+ForestB-ForestA  1.3 -0.9562769  3.5562769 0.3160    
+ForestC-ForestA -2.3 -4.5562769 -0.0437231 0.0453 *  
+
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<ul>
+<li>The <strong>p-value</strong> for the comparison Forest B with Forest A is bigger than <span class="math inline">\(\alpha\)</span>.
+<ul>
+<li>Therefore their means are equal</li>
+</ul></li>
+<li>The <strong>p-value</strong> for the comparison Forest C with Forest A is smaller than <span class="math inline">\(\alpha\)</span>.
+<ul>
+<li>Therefore their means are NOT equal</li>
+</ul></li>
+</ul>
+<p><br></p>
+</section>
+<section id="kruskal-wallis-test" class="slide level2 scrollable">
+<h2><img data-src="img/scroll.png" style="width:1.0%"> Kruskal-Wallis test</h2>
+<p><em>Non parametric equivalent to the one-way ANOVA</em></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Dependent variable</th>
+<th>Ordinal / Continuous</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Independant variable</td>
+<td>Qualitatives (3+ groups)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Asumptions :</strong></p>
+<ul>
+<li><p>the observations are independent</p></li>
+<li><p>similar sample size</p></li>
+</ul>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>H0 : Null hypothesis</strong></p>
+</div>
+<div class="callout-content">
+<p>The mean ranks of the groups are the same.</p>
+</div>
+</div>
+</div>
+<p><br></p>
+<h4 id="example-17">Example :</h4>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/NVlctlg_sIA?si=kVO0b7MILSJ2vjdX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb172"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb172-1"><a href=""></a>sprayData <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">"data_raw/97_Data_File.csv"</span>,</span>
+<span id="cb172-2"><a href=""></a>    <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">","</span>)</span>
+<span id="cb172-3"><a href=""></a><span class="fu">head</span>(sprayData)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Type.A Type.B Type.C Type.D Type.E Type.F
+1     10     11      0      3      3     11
+2      7     17      1      5      5      9
+3     20     21      7     12      3     15
+4     14     11      2      6      5     22
+5     14     16      3      4      3     15
+6     12     14      1      3      6     16</code></pre>
+</div>
+</div>
+<p>we perform our Kruskal-Wallis test</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb174"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb174-1"><a href=""></a>kwTest <span class="ot">=</span> <span class="fu">kruskal.test</span>(sprayData)</span>
+<span id="cb174-2"><a href=""></a>kwTest</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Kruskal-Wallis rank sum test
+
+data:  sprayData
+Kruskal-Wallis chi-squared = 54.691, df = 5, p-value = 1.511e-10</code></pre>
+</div>
+</div>
+<p>we get a very small <strong>p-value</strong>, therefore we can reject H0</p>
+</section>
+<section id="correlation-s-tests" class="slide level2 scrollable">
+<h2><img data-src="img/scroll.png" style="width:1.0%"> Correlation-s tests</h2>
+<p><em>Non parametric equivalent to the one-way ANOVA</em></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Dependent variable</th>
+<th>Continuous</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Independant variable</td>
+<td>Continuous</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Asumptions :</strong><br>
+</p>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>H0 : Null hypothesis</strong></p>
+</div>
+<div class="callout-content">
+<p>There is no linear relationship</p>
+</div>
+</div>
+</div>
+<p><br></p>
+<h4 id="example-18">Example :</h4>
+<p>We load the required packages</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb176"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb176-1"><a href=""></a><span class="fu">library</span>(<span class="st">"ggpubr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Correlation coefficient can be computed using the functions <code>cor</code> or <code>cor.test</code></p>
+<p>we can choose between 3 methods :</p>
+<ul>
+<li><code>pearson</code></li>
+<li><code>kendall</code></li>
+<li><code>spearman</code></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb177"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb177-1"><a href=""></a>my_data <span class="ot">&lt;-</span> mtcars</span>
+<span id="cb177-2"><a href=""></a><span class="fu">head</span>(my_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                   mpg cyl disp  hp drat    wt  qsec vs am gear carb
+Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
+</div>
+</div>
+<p>we plot our data</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb179"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb179-1"><a href=""></a><span class="fu">ggscatter</span>(my_data, <span class="at">x =</span> <span class="st">"mpg"</span>, <span class="at">y =</span> <span class="st">"wt"</span>, </span>
+<span id="cb179-2"><a href=""></a>          <span class="at">add =</span> <span class="st">"reg.line"</span>, <span class="at">conf.int =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb179-3"><a href=""></a>          <span class="at">cor.coef =</span> <span class="cn">TRUE</span>, <span class="at">cor.method =</span> <span class="st">"pearson"</span>,</span>
+<span id="cb179-4"><a href=""></a>          <span class="at">xlab =</span> <span class="st">"Miles/(US) gallon"</span>, <span class="at">ylab =</span> <span class="st">"Weight (1000 lbs)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-74-1.png" width="960"></p>
+<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-100-1.png" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
-<h3 id="the-dunnett-test">The Dunnett test</h3>
-<p>Comparisons with a reference group.</p>
+<p><strong>The Pearson correlation test</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb132"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href=""></a><span class="fu">library</span>(multcomp)</span>
-<span id="cb132-2"><a href=""></a>post_dunnet <span class="ot">&lt;-</span> <span class="fu">glht</span>(model,<span class="at">linfct =</span> <span class="fu">mcp</span>(<span class="at">species =</span> <span class="st">"Dunnett"</span>))</span>
-<span id="cb132-3"><a href=""></a><span class="fu">summary</span>(post_dunnet)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb180"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb180-1"><a href=""></a><span class="fu">cor.test</span>(my_data<span class="sc">$</span>wt, my_data<span class="sc">$</span>mpg, <span class="at">method =</span> <span class="st">"pearson"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
-     Simultaneous Tests for General Linear Hypotheses
+    Pearson's product-moment correlation
 
-Multiple Comparisons of Means: Dunnett Contrasts
-
-
-Fit: aov(formula = flipper_length_mm ~ species, data = penguins)
-
-Linear Hypotheses:
-                        Estimate Std. Error t value Pr(&gt;|t|)    
-Chinstrap - Adelie == 0   5.8699     0.9699   6.052 7.59e-09 ***
-Gentoo - Adelie == 0     27.2333     0.8067  33.760  &lt; 1e-10 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-(Adjusted p values reported -- single-step method)</code></pre>
+data:  my_data$wt and my_data$mpg
+t = -9.559, df = 30, p-value = 1.294e-10
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.9338264 -0.7440872
+sample estimates:
+       cor 
+-0.8676594 </code></pre>
 </div>
 </div>
-</section>
-<section id="kruskal-wallis-test" class="slide level2 scrollable">
-<h2><img data-src="img/scroll.png" style="width:1.0%"> Kruskal-Wallis test</h2>
-</section>
-<section id="friedman-test" class="slide level2 scrollable">
-<h2><img data-src="img/scroll.png" style="width:1.0%"> Friedman test</h2>
-</section>
-<section id="z-test" class="slide level2 scrollable">
-<h2><img data-src="img/scroll.png" style="width:1.0%"> Z-test</h2>
-</section>
-<section id="pearson-correlation" class="slide level2 scrollable">
-<h2><img data-src="img/scroll.png" style="width:1.0%"> Pearson correlation</h2>
-<p>coming</p>
-</section>
-<section id="simple-linear-regression" class="slide level2 scrollable">
-<h2><img data-src="img/scroll.png" style="width:1.0%"> Simple Linear regression</h2>
-<p>coming</p>
+<ul>
+<li>The <strong>p-value</strong> is less than <span class="math inline">\(\alpha\)</span></li>
+<li>We can conclude that <code>wt</code> and <code>mpg</code> are significantly correlated with a correlation coefficient of <span class="math inline">\(-0.87\)</span></li>
+</ul>
+<p><strong>Kendall rank correlation test</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb182"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb182-1"><a href=""></a><span class="fu">cor.test</span>(my_data<span class="sc">$</span>wt, my_data<span class="sc">$</span>mpg,  <span class="at">method=</span><span class="st">"kendall"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Kendall's rank correlation tau
+
+data:  my_data$wt and my_data$mpg
+z = -5.7981, p-value = 6.706e-09
+alternative hypothesis: true tau is not equal to 0
+sample estimates:
+       tau 
+-0.7278321 </code></pre>
+</div>
+</div>
+<p>same conclusion as the Pearson correlation test</p>
+<p><strong>Spearman rank correlation coefficient</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb184"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb184-1"><a href=""></a><span class="fu">cor.test</span>(my_data<span class="sc">$</span>wt, my_data<span class="sc">$</span>mpg,  <span class="at">method =</span> <span class="st">"spearman"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Spearman's rank correlation rho
+
+data:  my_data$wt and my_data$mpg
+S = 10292, p-value = 1.488e-11
+alternative hypothesis: true rho is not equal to 0
+sample estimates:
+      rho 
+-0.886422 </code></pre>
+</div>
+</div>
+<p>same conclusion as the previous correlation tests</p>
 </section>
 <section id="multiple-linear-regression" class="slide level2 scrollable">
 <h2><img data-src="img/scroll.png" style="width:1.0%"> Multiple Linear regression</h2>
 <p>Few packages that are very useful to perform <strong>multiple linear regression</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb134"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href=""></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb134-2"><a href=""></a><span class="fu">library</span>(GGally)</span>
-<span id="cb134-3"><a href=""></a><span class="fu">library</span>(broom)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb186"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb186-1"><a href=""></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb186-2"><a href=""></a><span class="fu">library</span>(GGally)</span>
+<span id="cb186-3"><a href=""></a><span class="fu">library</span>(broom)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We “produce” data (FYI)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb135"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb135-1"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">2</span>)</span>
-<span id="cb135-2"><a href=""></a>x1 <span class="ot">=</span> <span class="fu">runif</span>(<span class="dv">60</span>,<span class="dv">100</span>,<span class="dv">300</span>)</span>
-<span id="cb135-3"><a href=""></a>x2 <span class="ot">=</span> <span class="fu">runif</span>(<span class="dv">60</span>,<span class="dv">20</span>,<span class="dv">120</span>)</span>
-<span id="cb135-4"><a href=""></a>y <span class="ot">=</span> <span class="dv">20</span> <span class="sc">+</span> <span class="dv">4</span><span class="sc">*</span>x1 <span class="sc">-</span> <span class="dv">3</span><span class="sc">*</span>x2 <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">60</span>,<span class="dv">0</span>,<span class="dv">40</span>)</span>
-<span id="cb135-5"><a href=""></a>df <span class="ot">=</span> <span class="fu">tibble</span>(x1,x2,y)</span>
-<span id="cb135-6"><a href=""></a>new_x1 <span class="ot">=</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">120</span>, <span class="at">to =</span> <span class="dv">300</span>, <span class="at">length.out =</span> <span class="dv">20</span>)</span>
-<span id="cb135-7"><a href=""></a>new_x2 <span class="ot">=</span> <span class="fu">runif</span>(<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">110</span>)</span>
-<span id="cb135-8"><a href=""></a>new_data <span class="ot">=</span> <span class="fu">tibble</span>(<span class="at">x1 =</span> new_x1, <span class="at">x2 =</span> new_x2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb187"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb187-1"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">2</span>)</span>
+<span id="cb187-2"><a href=""></a>x1 <span class="ot">=</span> <span class="fu">runif</span>(<span class="dv">60</span>,<span class="dv">100</span>,<span class="dv">300</span>)</span>
+<span id="cb187-3"><a href=""></a>x2 <span class="ot">=</span> <span class="fu">runif</span>(<span class="dv">60</span>,<span class="dv">20</span>,<span class="dv">120</span>)</span>
+<span id="cb187-4"><a href=""></a>y <span class="ot">=</span> <span class="dv">20</span> <span class="sc">+</span> <span class="dv">4</span><span class="sc">*</span>x1 <span class="sc">-</span> <span class="dv">3</span><span class="sc">*</span>x2 <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">60</span>,<span class="dv">0</span>,<span class="dv">40</span>)</span>
+<span id="cb187-5"><a href=""></a>df <span class="ot">=</span> <span class="fu">tibble</span>(x1,x2,y)</span>
+<span id="cb187-6"><a href=""></a>new_x1 <span class="ot">=</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">120</span>, <span class="at">to =</span> <span class="dv">300</span>, <span class="at">length.out =</span> <span class="dv">20</span>)</span>
+<span id="cb187-7"><a href=""></a>new_x2 <span class="ot">=</span> <span class="fu">runif</span>(<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">110</span>)</span>
+<span id="cb187-8"><a href=""></a>new_data <span class="ot">=</span> <span class="fu">tibble</span>(<span class="at">x1 =</span> new_x1, <span class="at">x2 =</span> new_x2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<h3 id="the-data">The data</h3>
+<p>our dataset is</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb136"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href=""></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb188"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb188-1"><a href=""></a><span class="fu">head</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 60 × 3
-      x1    x2     y
-   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
- 1  137.  97.0  205.
- 2  240. 109.   737.
- 3  215.  82.5  603.
- 4  134.  46.0  423.
- 5  289. 106.   878.
- 6  289.  63.7  951.
- 7  126.  58.8  267.
- 8  267.  66.2  869.
- 9  194.  41.9  672.
-10  210.  26.6  744.
-# ℹ 50 more rows</code></pre>
+<pre><code># A tibble: 6 × 3
+     x1    x2     y
+  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1  137.  97.0  205.
+2  240. 109.   737.
+3  215.  82.5  603.
+4  134.  46.0  423.
+5  289. 106.   878.
+6  289.  63.7  951.</code></pre>
 </div>
 </div>
 <h3 id="assumptions">Assumptions</h3>
-<p>Model of the form <span class="math inline">\(y \sim \beta_0+\displaystyle\sum_{k=1}^p \beta_k x_k+\epsilon_i\)</span></p>
+<p>Model of the form</p>
+<p><span class="math display">\[y \sim \beta_0+\displaystyle\sum_{k=1}^p \beta_k x_k+\epsilon_i\]</span></p>
 <ul>
 <li>Assumes Linear relationship between <span class="math inline">\(y\)</span> and <span class="math inline">\(x_1, x_2, \ldots, x_p\)</span></li>
 <li>Assumes the irreducible error (<span class="math inline">\(\epsilon_i\)</span>) is normally distributed</li>
@@ -3017,19 +3839,19 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 </ul>
 <h3 id="a-first-look-at-the-data">A first look at the data</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb138"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb138-1"><a href=""></a><span class="fu">ggpairs</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb190"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb190-1"><a href=""></a><span class="fu">ggpairs</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-79-1.png" width="960"></p>
+<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-107-1.png" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 <h3 id="the-model">The model</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb139"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a href=""></a>model <span class="ot">=</span> <span class="fu">lm</span>(y <span class="sc">~</span> x1 <span class="sc">+</span> x2, <span class="at">data =</span> df)</span>
-<span id="cb139-2"><a href=""></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb191"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb191-1"><a href=""></a>model <span class="ot">=</span> <span class="fu">lm</span>(y <span class="sc">~</span> x1 <span class="sc">+</span> x2, <span class="at">data =</span> df)</span>
+<span id="cb191-2"><a href=""></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -3054,39 +3876,39 @@ F-statistic:  1220 on 2 and 57 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <h3 id="few-graphs-to-undersand-the-model">Few graphs to undersand the model</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb141"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb141-1"><a href=""></a><span class="fu">plot</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb193"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb193-1"><a href=""></a><span class="fu">plot</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-81-1.png" width="960"></p>
+<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-109-1.png" width="960"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-81-2.png" width="960"></p>
+<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-109-2.png" width="960"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-81-3.png" width="960"></p>
+<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-109-3.png" width="960"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-81-4.png" width="960"></p>
+<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-109-4.png" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 <h3 id="predictions">Predictions</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb142"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb142-1"><a href=""></a>new_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb194"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb194-1"><a href=""></a>new_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 20 × 2
       x1    x2
@@ -3115,9 +3937,9 @@ F-statistic:  1220 on 2 and 57 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <p><span class="math inline">\(\to\)</span> We want to “predict” the <strong>y</strong> according to these x1 and x2</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb144"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb144-1"><a href=""></a>fit <span class="ot">=</span> <span class="fu">predict</span>(model,new_data)</span>
-<span id="cb144-2"><a href=""></a>new_data<span class="sc">$</span>predict <span class="ot">=</span> fit</span>
-<span id="cb144-3"><a href=""></a>new_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb196"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb196-1"><a href=""></a>fit <span class="ot">=</span> <span class="fu">predict</span>(model,new_data)</span>
+<span id="cb196-2"><a href=""></a>new_data<span class="sc">$</span>predict <span class="ot">=</span> fit</span>
+<span id="cb196-3"><a href=""></a>new_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 20 × 3
       x1    x2 predict
@@ -3152,19 +3974,14 @@ F-statistic:  1220 on 2 and 57 DF,  p-value: &lt; 2.2e-16</code></pre>
 </section>
 <section id="principal-component-analysis" class="slide level2 scrollable">
 <h2><img data-src="img/scroll.png" style="width:1.0%"> Principal Component Analysis</h2>
-<ul>
-<li>Intuition</li>
-<li>Four definitions</li>
-<li>Practical examples</li>
-<li>Mathematical example</li>
-<li>Case study</li>
-</ul>
-<h3 id="pca---goals">PCA - Goals</h3>
+<h3 id="problem-3">Problem</h3>
+<p>We are working with a problem with way too many dimensions</p>
+<h3 id="goals">Goals</h3>
 <ol type="1">
 <li><p><strong>Dimension reduction</strong> to a few dimensions while explaining most of the variance</p></li>
 <li><p><strong>Find one-dimensional</strong> index that separates objects best</p></li>
 </ol>
-<h3 id="pca---intuition">PCA - Intuition</h3>
+<h3 id="intuition">Intuition</h3>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -3215,7 +4032,7 @@ F-statistic:  1220 on 2 and 57 DF,  p-value: &lt; 2.2e-16</code></pre>
 </tr>
 </tbody>
 </table>
-<h3 id="pca---otthogonal-directions">PCA - Otthogonal directions</h3>
+<h3 id="orthogonal-directions">Orthogonal directions</h3>
 <ul>
 <li><p><strong>PC</strong> 1 is the direction with largest variance</p></li>
 <li><p><strong>PC</strong> 2 is :</p>
@@ -3233,447 +4050,8 @@ F-statistic:  1220 on 2 and 57 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p><img data-src="./img/pca-orthogonal-directions.png"></p>
 <h3 id="which-kinds-of-data">Which kinds of data ?</h3>
 <p><strong>PCA</strong> applies to data tables where : - rows are considered as individuals - and columns as quantitative variables</p>
-<h3 id="example-dataset-iris">Example : Dataset Iris</h3>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb146"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb146-1"><a href=""></a>data <span class="ot">=</span> iris</span>
-<span id="cb146-2"><a href=""></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>    Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
-1            5.1         3.5          1.4         0.2     setosa
-2            4.9         3.0          1.4         0.2     setosa
-3            4.7         3.2          1.3         0.2     setosa
-4            4.6         3.1          1.5         0.2     setosa
-5            5.0         3.6          1.4         0.2     setosa
-6            5.4         3.9          1.7         0.4     setosa
-7            4.6         3.4          1.4         0.3     setosa
-8            5.0         3.4          1.5         0.2     setosa
-9            4.4         2.9          1.4         0.2     setosa
-10           4.9         3.1          1.5         0.1     setosa
-11           5.4         3.7          1.5         0.2     setosa
-12           4.8         3.4          1.6         0.2     setosa
-13           4.8         3.0          1.4         0.1     setosa
-14           4.3         3.0          1.1         0.1     setosa
-15           5.8         4.0          1.2         0.2     setosa
-16           5.7         4.4          1.5         0.4     setosa
-17           5.4         3.9          1.3         0.4     setosa
-18           5.1         3.5          1.4         0.3     setosa
-19           5.7         3.8          1.7         0.3     setosa
-20           5.1         3.8          1.5         0.3     setosa
-21           5.4         3.4          1.7         0.2     setosa
-22           5.1         3.7          1.5         0.4     setosa
-23           4.6         3.6          1.0         0.2     setosa
-24           5.1         3.3          1.7         0.5     setosa
-25           4.8         3.4          1.9         0.2     setosa
-26           5.0         3.0          1.6         0.2     setosa
-27           5.0         3.4          1.6         0.4     setosa
-28           5.2         3.5          1.5         0.2     setosa
-29           5.2         3.4          1.4         0.2     setosa
-30           4.7         3.2          1.6         0.2     setosa
-31           4.8         3.1          1.6         0.2     setosa
-32           5.4         3.4          1.5         0.4     setosa
-33           5.2         4.1          1.5         0.1     setosa
-34           5.5         4.2          1.4         0.2     setosa
-35           4.9         3.1          1.5         0.2     setosa
-36           5.0         3.2          1.2         0.2     setosa
-37           5.5         3.5          1.3         0.2     setosa
-38           4.9         3.6          1.4         0.1     setosa
-39           4.4         3.0          1.3         0.2     setosa
-40           5.1         3.4          1.5         0.2     setosa
-41           5.0         3.5          1.3         0.3     setosa
-42           4.5         2.3          1.3         0.3     setosa
-43           4.4         3.2          1.3         0.2     setosa
-44           5.0         3.5          1.6         0.6     setosa
-45           5.1         3.8          1.9         0.4     setosa
-46           4.8         3.0          1.4         0.3     setosa
-47           5.1         3.8          1.6         0.2     setosa
-48           4.6         3.2          1.4         0.2     setosa
-49           5.3         3.7          1.5         0.2     setosa
-50           5.0         3.3          1.4         0.2     setosa
-51           7.0         3.2          4.7         1.4 versicolor
-52           6.4         3.2          4.5         1.5 versicolor
-53           6.9         3.1          4.9         1.5 versicolor
-54           5.5         2.3          4.0         1.3 versicolor
-55           6.5         2.8          4.6         1.5 versicolor
-56           5.7         2.8          4.5         1.3 versicolor
-57           6.3         3.3          4.7         1.6 versicolor
-58           4.9         2.4          3.3         1.0 versicolor
-59           6.6         2.9          4.6         1.3 versicolor
-60           5.2         2.7          3.9         1.4 versicolor
-61           5.0         2.0          3.5         1.0 versicolor
-62           5.9         3.0          4.2         1.5 versicolor
-63           6.0         2.2          4.0         1.0 versicolor
-64           6.1         2.9          4.7         1.4 versicolor
-65           5.6         2.9          3.6         1.3 versicolor
-66           6.7         3.1          4.4         1.4 versicolor
-67           5.6         3.0          4.5         1.5 versicolor
-68           5.8         2.7          4.1         1.0 versicolor
-69           6.2         2.2          4.5         1.5 versicolor
-70           5.6         2.5          3.9         1.1 versicolor
-71           5.9         3.2          4.8         1.8 versicolor
-72           6.1         2.8          4.0         1.3 versicolor
-73           6.3         2.5          4.9         1.5 versicolor
-74           6.1         2.8          4.7         1.2 versicolor
-75           6.4         2.9          4.3         1.3 versicolor
-76           6.6         3.0          4.4         1.4 versicolor
-77           6.8         2.8          4.8         1.4 versicolor
-78           6.7         3.0          5.0         1.7 versicolor
-79           6.0         2.9          4.5         1.5 versicolor
-80           5.7         2.6          3.5         1.0 versicolor
-81           5.5         2.4          3.8         1.1 versicolor
-82           5.5         2.4          3.7         1.0 versicolor
-83           5.8         2.7          3.9         1.2 versicolor
-84           6.0         2.7          5.1         1.6 versicolor
-85           5.4         3.0          4.5         1.5 versicolor
-86           6.0         3.4          4.5         1.6 versicolor
-87           6.7         3.1          4.7         1.5 versicolor
-88           6.3         2.3          4.4         1.3 versicolor
-89           5.6         3.0          4.1         1.3 versicolor
-90           5.5         2.5          4.0         1.3 versicolor
-91           5.5         2.6          4.4         1.2 versicolor
-92           6.1         3.0          4.6         1.4 versicolor
-93           5.8         2.6          4.0         1.2 versicolor
-94           5.0         2.3          3.3         1.0 versicolor
-95           5.6         2.7          4.2         1.3 versicolor
-96           5.7         3.0          4.2         1.2 versicolor
-97           5.7         2.9          4.2         1.3 versicolor
-98           6.2         2.9          4.3         1.3 versicolor
-99           5.1         2.5          3.0         1.1 versicolor
-100          5.7         2.8          4.1         1.3 versicolor
-101          6.3         3.3          6.0         2.5  virginica
-102          5.8         2.7          5.1         1.9  virginica
-103          7.1         3.0          5.9         2.1  virginica
-104          6.3         2.9          5.6         1.8  virginica
-105          6.5         3.0          5.8         2.2  virginica
-106          7.6         3.0          6.6         2.1  virginica
-107          4.9         2.5          4.5         1.7  virginica
-108          7.3         2.9          6.3         1.8  virginica
-109          6.7         2.5          5.8         1.8  virginica
-110          7.2         3.6          6.1         2.5  virginica
-111          6.5         3.2          5.1         2.0  virginica
-112          6.4         2.7          5.3         1.9  virginica
-113          6.8         3.0          5.5         2.1  virginica
-114          5.7         2.5          5.0         2.0  virginica
-115          5.8         2.8          5.1         2.4  virginica
-116          6.4         3.2          5.3         2.3  virginica
-117          6.5         3.0          5.5         1.8  virginica
-118          7.7         3.8          6.7         2.2  virginica
-119          7.7         2.6          6.9         2.3  virginica
-120          6.0         2.2          5.0         1.5  virginica
-121          6.9         3.2          5.7         2.3  virginica
-122          5.6         2.8          4.9         2.0  virginica
-123          7.7         2.8          6.7         2.0  virginica
-124          6.3         2.7          4.9         1.8  virginica
-125          6.7         3.3          5.7         2.1  virginica
-126          7.2         3.2          6.0         1.8  virginica
-127          6.2         2.8          4.8         1.8  virginica
-128          6.1         3.0          4.9         1.8  virginica
-129          6.4         2.8          5.6         2.1  virginica
-130          7.2         3.0          5.8         1.6  virginica
-131          7.4         2.8          6.1         1.9  virginica
-132          7.9         3.8          6.4         2.0  virginica
-133          6.4         2.8          5.6         2.2  virginica
-134          6.3         2.8          5.1         1.5  virginica
-135          6.1         2.6          5.6         1.4  virginica
-136          7.7         3.0          6.1         2.3  virginica
-137          6.3         3.4          5.6         2.4  virginica
-138          6.4         3.1          5.5         1.8  virginica
-139          6.0         3.0          4.8         1.8  virginica
-140          6.9         3.1          5.4         2.1  virginica
-141          6.7         3.1          5.6         2.4  virginica
-142          6.9         3.1          5.1         2.3  virginica
-143          5.8         2.7          5.1         1.9  virginica
-144          6.8         3.2          5.9         2.3  virginica
-145          6.7         3.3          5.7         2.5  virginica
-146          6.7         3.0          5.2         2.3  virginica
-147          6.3         2.5          5.0         1.9  virginica
-148          6.5         3.0          5.2         2.0  virginica
-149          6.2         3.4          5.4         2.3  virginica
-150          5.9         3.0          5.1         1.8  virginica
-    Sepal.Length_cat
-1              moyen
-2              petit
-3              petit
-4              petit
-5              petit
-6              moyen
-7              petit
-8              petit
-9              petit
-10             petit
-11             moyen
-12             petit
-13             petit
-14             petit
-15             moyen
-16             moyen
-17             moyen
-18             moyen
-19             moyen
-20             moyen
-21             moyen
-22             moyen
-23             petit
-24             moyen
-25             petit
-26             petit
-27             petit
-28             moyen
-29             moyen
-30             petit
-31             petit
-32             moyen
-33             moyen
-34             moyen
-35             petit
-36             petit
-37             moyen
-38             petit
-39             petit
-40             moyen
-41             petit
-42             petit
-43             petit
-44             petit
-45             moyen
-46             petit
-47             moyen
-48             petit
-49             moyen
-50             petit
-51             grand
-52             grand
-53             grand
-54             moyen
-55             grand
-56             moyen
-57             grand
-58             petit
-59             grand
-60             moyen
-61             petit
-62             moyen
-63             moyen
-64             grand
-65             moyen
-66             grand
-67             moyen
-68             moyen
-69             grand
-70             moyen
-71             moyen
-72             grand
-73             grand
-74             grand
-75             grand
-76             grand
-77             grand
-78             grand
-79             moyen
-80             moyen
-81             moyen
-82             moyen
-83             moyen
-84             moyen
-85             moyen
-86             moyen
-87             grand
-88             grand
-89             moyen
-90             moyen
-91             moyen
-92             grand
-93             moyen
-94             petit
-95             moyen
-96             moyen
-97             moyen
-98             grand
-99             moyen
-100            moyen
-101            grand
-102            moyen
-103            grand
-104            grand
-105            grand
-106            grand
-107            petit
-108            grand
-109            grand
-110            grand
-111            grand
-112            grand
-113            grand
-114            moyen
-115            moyen
-116            grand
-117            grand
-118            grand
-119            grand
-120            moyen
-121            grand
-122            moyen
-123            grand
-124            grand
-125            grand
-126            grand
-127            grand
-128            grand
-129            grand
-130            grand
-131            grand
-132            grand
-133            grand
-134            grand
-135            grand
-136            grand
-137            grand
-138            grand
-139            moyen
-140            grand
-141            grand
-142            grand
-143            moyen
-144            grand
-145            grand
-146            grand
-147            grand
-148            grand
-149            grand
-150            moyen</code></pre>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<ul>
-<li>150 individuals (rows) : flowers</li>
-<li>5 variables 30 variables (columns) :
-<ul>
-<li>4 continuous variables</li>
-<li>1 categorical variable</li>
-</ul></li>
-</ul>
-</div></div>
-<p>The data table can be seen as :</p>
-<ul>
-<li><p>a set of rows</p></li>
-<li><p>OR a set of columns</p></li>
-</ul>
-<p><strong>Studying individuals</strong> :</p>
-<ul>
-<li><p>When can we say that 2 individuals are similar with respect to all the variables ?</p></li>
-<li><p>If there are many individuals, is it possible to categorize them ?</p></li>
-</ul>
-<h3 id="the-clouds-of-individuals">The clouds of individuals</h3>
-<ul>
-<li>1 individual = 1 row = 1 point in <span class="math inline">\(\mathbb{R}^k\)</span> (for iris, <span class="math inline">\(k=5\)</span>)
-<ul>
-<li>If <span class="math inline">\(k=1\)</span> : axial representation</li>
-<li>If <span class="math inline">\(k=2\)</span> : scatter plot</li>
-<li>If <span class="math inline">\(k=3\)</span> : 3D representation (more difficult)</li>
-<li>if <span class="math inline">\(k=4\)</span> : impossible to “see”</li>
-</ul></li>
-<li><strong>Notion of similiarity</strong> : Distance between indiduals i and j</li>
-</ul>
-<p><span class="math display">\[d^2\left(i, j\right)=\sum_{\ell=1}^k\left(x_{i \ell}-x_{j \ell}\right)^2\]</span></p>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Note</strong></p>
-</div>
-<div class="callout-content">
-<p>Studying the individuals = Studying the shape of the clouds of individuals</p>
-</div>
-</div>
-</div>
-<h3 id="centering-standardizing-data">Centering – standardizing data</h3>
-<ul>
-<li><p>Centering does not modify the shape of the cloud</p></li>
-<li><p>Standardizing data is necessary if units are different between variables</p></li>
-</ul>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Note</strong></p>
-</div>
-<div class="callout-content">
-<p>Principal component analysis (PCA) = Studying the standardized data set</p>
-</div>
-</div>
-</div>
-<h3 id="fitting-the-cloud-of-individuals">Fitting the cloud of individuals</h3>
-<p><strong>PCA</strong> searches for the best summary space for optimal visualization of the clouds of individuals.</p>
-<p>Viewpoint quality :</p>
-<ul>
-<li><p>faithfully reproduce the cloud’s shape</p></li>
-<li><p>best representation of diversity, variability</p></li>
-<li><p>doesn’t distort distances between individuals</p></li>
-</ul>
-<p>How to quantify the quality of a viewpoint ?</p>
-<p>notion of dispersion, of variability, also called <strong>inertia</strong></p>
-<p><strong>Inertia</strong> is the variance generalized to several dimensions.</p>
-<h3 id="first-example-of-pca">First example of PCA</h3>
-<h3 id="data">Data</h3>
-<table class="caption-top">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: left;"><span class="math inline">\(P\)</span> <span class="math inline">\(\left(\text{cm}\right)\)</span></th>
-<th style="text-align: left;"><span class="math inline">\(T_{\text{max}}\)</span> <span class="math inline">\(\left(^\circ C\right)\)</span></th>
-<th style="text-align: left;"><span class="math inline">\(T_{\text{min}}\)</span> <span class="math inline">\(\left(^\circ C\right)\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Ajaccio</td>
-<td style="text-align: left;">12,04</td>
-<td style="text-align: left;">23,7</td>
-<td style="text-align: left;">5,9</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Brest</td>
-<td style="text-align: left;">17,18</td>
-<td style="text-align: left;">15,5</td>
-<td style="text-align: left;">-1,8</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Dunkerque</td>
-<td style="text-align: left;">11,83</td>
-<td style="text-align: left;">13,1</td>
-<td style="text-align: left;">2,8</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Nancy</td>
-<td style="text-align: left;">6,23</td>
-<td style="text-align: left;">13,5</td>
-<td style="text-align: left;">-2,4</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Nice</td>
-<td style="text-align: left;">16,99</td>
-<td style="text-align: left;">21,1</td>
-<td style="text-align: left;">7,2</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Toulouse</td>
-<td style="text-align: left;">3,87</td>
-<td style="text-align: left;">20,3</td>
-<td style="text-align: left;">-0,9</td>
-</tr>
-</tbody>
-</table>
+<h3 id="example-19">Example :</h3>
+<p>The data :</p>
 <table class="caption-top">
 <colgroup>
 <col style="width: 25%">
@@ -3740,7 +4118,8 @@ F-statistic:  1220 on 2 and 57 DF,  p-value: &lt; 2.2e-16</code></pre>
 </tr>
 </tbody>
 </table>
-<p><span class="math display">\[x_{i k}=\frac{x_{i k}-\overline{X_k}}{\sigma_k}\]</span></p>
+<p>We can center and reduce this dataset using the relation</p>
+<p><span class="math display">\[x_{i k}=\frac{x_{i k}-\overline{X_k}}{\sigma_k}\]</span> we get</p>
 <table class="caption-top">
 <colgroup>
 <col style="width: 25%">
@@ -3795,7 +4174,9 @@ F-statistic:  1220 on 2 and 57 DF,  p-value: &lt; 2.2e-16</code></pre>
 </tr>
 </tbody>
 </table>
-<h3 id="correlation-matrix">Correlation Matrix</h3>
+<p>We call it <span class="math inline">\(X_{cr}\)</span></p>
+<p><span class="math display">\[X_{cr} =\left[\begin{array}{rrr}0,14 &amp; 1,44 &amp; 1,09 \\ 1,17 &amp; -0,59 &amp; -0,96 \\ 0,10 &amp; -1,18 &amp; 0,27 \\ -1,03 &amp; -1,08 &amp; -1,12 \\ 1,13 &amp; 0,80 &amp; 1,44 \\ -1,50 &amp; 0,60 &amp; -0,72\end{array}\right]\]</span></p>
+<p>we can define the <strong>correlation Matrix</strong></p>
 <table class="caption-top">
 <colgroup>
 <col style="width: 21%">
@@ -3832,8 +4213,9 @@ F-statistic:  1220 on 2 and 57 DF,  p-value: &lt; 2.2e-16</code></pre>
 </tr>
 </tbody>
 </table>
+<p>where <span class="math inline">\(r\)</span> are the correlations between 2 variables</p>
 <p><span class="math display">\[r\left(P, T_{\text{max} }\right) = r\left(T_{\text{max} }, P\right)\]</span></p>
-<p><span class="math display">\[C = \frac{1}{N} \ X_{cr}^T \ X_{cr}\]</span></p>
+<p><span class="math display">\[C = \frac{1}{N} \ X_{cr}^T \ X_{cr}\]</span> where here <span class="math inline">\(N=6\)</span>.</p>
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -3864,22 +4246,20 @@ F-statistic:  1220 on 2 and 57 DF,  p-value: &lt; 2.2e-16</code></pre>
 </tr>
 </tbody>
 </table>
-<h3 id="eigenvalues-and-eigenvectors">Eigenvalues and Eigenvectors</h3>
+<p>We write</p>
 <p><span class="math display">\[C =
 \begin{pmatrix}
 1 &amp; 0.09 &amp; 0.49 \\
 0.09 &amp; 1 &amp; 0.62 \\
 0.49 &amp; 0.62 &amp; 1
 \end{pmatrix}\]</span></p>
-<p>How do we do it now ?</p>
-<h3 id="eigenvalues-and-eigenvectors-1">Eigenvalues and Eigenvectors</h3>
-<p>We find</p>
+<p>we then look for eigenvalues and eigenvectors. We find</p>
 <ul>
 <li><span class="math inline">\(\lambda_1 = 1,83\quad\)</span> with <span class="math inline">\(\quad v_1=\begin{pmatrix} 0.46 \\ 0.56 \\ 0.69 \end{pmatrix}\)</span></li>
 <li><span class="math inline">\(\lambda_2 = 0.92\quad\)</span> with <span class="math inline">\(\quad v_2=\begin{pmatrix} 0.79 \\ -0.61 \\ -0.03 \end{pmatrix}\)</span></li>
 <li><span class="math inline">\(\lambda_3 = 0.25\quad\)</span> with <span class="math inline">\(\quad v_3=\begin{pmatrix} 0.41 \\ 0.56 \\ -0.72 \end{pmatrix}\)</span></li>
 </ul>
-<h3 id="inertia-generalized-variance">Inertia (generalized variance)</h3>
+<p>The <strong>Inertia</strong> (generalized variance) is given by</p>
 <p><span class="math display">\[
 \mbox{Total inertia} = \sum \mbox{eigenvalues} \ = 3
 \]</span></p>
@@ -3913,7 +4293,6 @@ F-statistic:  1220 on 2 and 57 DF,  p-value: &lt; 2.2e-16</code></pre>
 </tr>
 </tbody>
 </table>
-<p><span class="math display">\[X_{cr} =\left[\begin{array}{rrr}0,14 &amp; 1,44 &amp; 1,09 \\ 1,17 &amp; -0,59 &amp; -0,96 \\ 0,10 &amp; -1,18 &amp; 0,27 \\ -1,03 &amp; -1,08 &amp; -1,12 \\ 1,13 &amp; 0,80 &amp; 1,44 \\ -1,50 &amp; 0,60 &amp; -0,72\end{array}\right]\]</span></p>
 <div class="columns">
 <div class="column" style="width:25%;">
 <p><img data-src="./img/acp-ex-1.png"></p>
@@ -3922,18 +4301,17 @@ F-statistic:  1220 on 2 and 57 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div><div class="column" style="width:25%;">
 <p><img data-src="./img/acp-ex-3.png"></p>
 </div></div>
-<h3 id="principal-components">Principal components</h3>
-<p><span class="math display">\[X_{cr} =\left[\begin{array}{rrr}0,14 &amp; 1,44 &amp; 1,09 \\ 1,17 &amp; -0,59 &amp; -0,96 \\ 0,10 &amp; -1,18 &amp; 0,27 \\ -1,03 &amp; -1,08 &amp; -1,12 \\ 1,13 &amp; 0,80 &amp; 1,44 \\ -1,50 &amp; 0,60 &amp; -0,72\end{array}\right]\]</span></p>
-<p><span class="math display">\[v_1=\begin{pmatrix} 0.46 \\ 0.56 \\ 0.69 \end{pmatrix} \qquad v_2=\begin{pmatrix} 0.79 \\ -0.61 \\ -0.03 \end{pmatrix}\]</span></p>
-<p>We do <span class="math inline">\(X_{cr} v_1\)</span> and <span class="math inline">\(X_{cr} v_2\)</span></p>
-<p>We get <span class="math display">\[\begin{pmatrix} 1,63 \\ -0,45 \\ -0,43 \\ -1,85 \\ 1,96 \\ -0,85 \end{pmatrix}\]</span> and <span class="math display">\[\begin{pmatrix}-0,81 \\ 1,31 \\ 0,79 \\ -0,12 \\ 0,37 \\ -1,54\end{pmatrix}\]</span></p>
+<p><strong>Principal components</strong></p>
+<p>In order to get the principal components we compute</p>
+<p><span class="math display">\[F_1 = X_{cr} v_1 \quad \mbox{ and } \quad F_2 = X_{cr} v_2\]</span></p>
+<p>We get</p>
+<p><span class="math display">\[F_1 = \begin{pmatrix} 1,63 \\ -0,45 \\ -0,43 \\ -1,85 \\ 1,96 \\ -0,85 \end{pmatrix} \quad \mbox{ and } \quad F_2 = \begin{pmatrix}-0,81 \\ 1,31 \\ 0,79 \\ -0,12 \\ 0,37 \\ -1,54\end{pmatrix}\]</span> These two vectors form a plane which have <span class="math inline">\(~92 \%\)</span> of the (generalized) variance. We can represent the indivuals and the variables in this plane with the coorelation circle</p>
 <table class="caption-top">
 <thead>
 <tr class="header">
 <th style="text-align: left;"></th>
 <th style="text-align: left;"><span class="math inline">\(\mathrm{F}_1\)</span></th>
 <th style="text-align: left;"><span class="math inline">\(\mathrm{F}_2\)</span></th>
-<th style="text-align: left;"><span class="math inline">\(\mathrm{F}_3\)</span></th>
 </tr>
 </thead>
 <tbody>
@@ -3941,41 +4319,34 @@ F-statistic:  1220 on 2 and 57 DF,  p-value: &lt; 2.2e-16</code></pre>
 <td style="text-align: left;">Ajaccio</td>
 <td style="text-align: left;">1,63</td>
 <td style="text-align: left;">-0,81</td>
-<td style="text-align: left;">0,07</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Brest</td>
 <td style="text-align: left;">-0,45</td>
 <td style="text-align: left;">1,31</td>
-<td style="text-align: left;">0,84</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Dunkerque</td>
 <td style="text-align: left;">-0,43</td>
 <td style="text-align: left;">0,79</td>
-<td style="text-align: left;">-0,81</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Nancy</td>
 <td style="text-align: left;">-1,85</td>
 <td style="text-align: left;">-0,12</td>
-<td style="text-align: left;">-0,21</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Nice</td>
 <td style="text-align: left;">1,96</td>
 <td style="text-align: left;">0,37</td>
-<td style="text-align: left;">-0,13</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Toulouse</td>
 <td style="text-align: left;">-0,85</td>
 <td style="text-align: left;">-1,54</td>
-<td style="text-align: left;">0,24</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><span class="math inline">\(\mu\)</span></td>
-<td style="text-align: left;">0</td>
 <td style="text-align: left;">0</td>
 <td style="text-align: left;">0</td>
 </tr>
@@ -3983,11 +4354,9 @@ F-statistic:  1220 on 2 and 57 DF,  p-value: &lt; 2.2e-16</code></pre>
 <td style="text-align: left;"><span class="math inline">\(\sigma^2\)</span></td>
 <td style="text-align: left;">1,83</td>
 <td style="text-align: left;">0,92</td>
-<td style="text-align: left;">0,25</td>
 </tr>
 </tbody>
 </table>
-<h3 id="cercle-de-corrélation">Cercle de corrélation</h3>
 <p><span class="math inline">\(r(P,F_1) = \mbox{First coordinate of } v_1 \times \sqrt{\lambda_1} = 0.62\)</span></p>
 <table class="caption-top">
 <thead>
@@ -3995,43 +4364,199 @@ F-statistic:  1220 on 2 and 57 DF,  p-value: &lt; 2.2e-16</code></pre>
 <th style="text-align: left;"></th>
 <th style="text-align: center;"><span class="math inline">\(F_1\)</span></th>
 <th style="text-align: center;"><span class="math inline">\(F_2\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(F_3\)</span></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><span class="math inline">\(P\)</span></td>
-<td style="text-align: center;">0,62</td>
-<td style="text-align: center;">0,76</td>
-<td style="text-align: center;">0,21</td>
+<td style="text-align: center;"><span class="math inline">\(0,62\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0,76\)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><span class="math inline">\(T_{\text{max} }\)</span></td>
-<td style="text-align: center;">0,76</td>
+<td style="text-align: center;"><span class="math inline">\(0,76\)</span></td>
 <td style="text-align: center;"><span class="math inline">\(-0,59\)</span></td>
-<td style="text-align: center;">0,28</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><span class="math inline">\(T_{\min }\)</span></td>
 <td style="text-align: center;">0,93</td>
 <td style="text-align: center;"><span class="math inline">\(-0,03\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(-0,36\)</span></td>
 </tr>
 </tbody>
 </table>
+<p>Time to look at an example</p>
 </section>
-<section id="first-example-of-pca-1" class="slide level2 scrollable">
+<section id="first-example-of-pca" class="slide level2 scrollable">
 <h2><img data-src="img/scroll.png" style="width:1.0%"> First example of PCA</h2>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/c_NvVOQK8kk?si=RDiZt_Dsc64xJfzt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
 </iframe>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb198"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb198-1"><a href=""></a><span class="fu">data</span>(<span class="st">"iris"</span>)</span>
+<span id="cb198-2"><a href=""></a><span class="fu">head</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1          5.1         3.5          1.4         0.2  setosa
+2          4.9         3.0          1.4         0.2  setosa
+3          4.7         3.2          1.3         0.2  setosa
+4          4.6         3.1          1.5         0.2  setosa
+5          5.0         3.6          1.4         0.2  setosa
+6          5.4         3.9          1.7         0.4  setosa</code></pre>
+</div>
+</div>
+<p>we modify a bit the data for this example :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb200"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb200-1"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">111</span>)</span>
+<span id="cb200-2"><a href=""></a>ind <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">2</span>, <span class="fu">nrow</span>(iris),</span>
+<span id="cb200-3"><a href=""></a>              <span class="at">replace =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb200-4"><a href=""></a>              <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.8</span>, <span class="fl">0.2</span>))</span>
+<span id="cb200-5"><a href=""></a>training <span class="ot">&lt;-</span> iris[ind<span class="sc">==</span><span class="dv">1</span>,]</span>
+<span id="cb200-6"><a href=""></a>testing <span class="ot">&lt;-</span> iris[ind<span class="sc">==</span><span class="dv">2</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>let’s do the principal component analysis</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb201"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb201-1"><a href=""></a>pc <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(training[,<span class="sc">-</span><span class="dv">5</span>],</span>
+<span id="cb201-2"><a href=""></a>             <span class="at">center =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb201-3"><a href=""></a>            <span class="at">scale. =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb201-4"><a href=""></a><span class="fu">attributes</span>(pc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$names
+[1] "sdev"     "rotation" "center"   "scale"    "x"       
+
+$class
+[1] "prcomp"</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb203"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb203-1"><a href=""></a><span class="fu">print</span>(pc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Standard deviations (1, .., p=4):
+[1] 1.7173318 0.9403519 0.3843232 0.1371332
+
+Rotation (n x k) = (4 x 4):
+                    PC1         PC2        PC3        PC4
+Sepal.Length  0.5147163 -0.39817685  0.7242679  0.2279438
+Sepal.Width  -0.2926048 -0.91328503 -0.2557463 -0.1220110
+Petal.Length  0.5772530 -0.02932037 -0.1755427 -0.7969342
+Petal.Width   0.5623421 -0.08065952 -0.6158040  0.5459403</code></pre>
+</div>
+</div>
+<p>we have the principal components</p>
+<p>For making biplot need devtools package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb205"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb205-1"><a href=""></a><span class="fu">library</span>(ggbiplot)</span>
+<span id="cb205-2"><a href=""></a>g <span class="ot">&lt;-</span> <span class="fu">ggbiplot</span>(pc,</span>
+<span id="cb205-3"><a href=""></a>              <span class="at">obs.scale =</span> <span class="dv">1</span>,</span>
+<span id="cb205-4"><a href=""></a>              <span class="at">var.scale =</span> <span class="dv">1</span>,</span>
+<span id="cb205-5"><a href=""></a>              <span class="at">groups =</span> training<span class="sc">$</span>Species,</span>
+<span id="cb205-6"><a href=""></a>              <span class="at">ellipse =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb205-7"><a href=""></a>              <span class="at">circle =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb205-8"><a href=""></a>              <span class="at">ellipse.prob =</span> <span class="fl">0.68</span>)</span>
+<span id="cb205-9"><a href=""></a>g <span class="ot">&lt;-</span> g <span class="sc">+</span> <span class="fu">scale_color_discrete</span>(<span class="at">name =</span> <span class="st">''</span>)</span>
+<span id="cb205-10"><a href=""></a>g <span class="ot">&lt;-</span> g <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.direction =</span> <span class="st">'horizontal'</span>,</span>
+<span id="cb205-11"><a href=""></a>               <span class="at">legend.position =</span> <span class="st">'top'</span>)</span>
+<span id="cb205-12"><a href=""></a>g</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-116-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>PC1 explains about 73.7% and PC2 explained about 22.1% of variability.</p>
+<p>Arrows are closer to each other indicates the high correlation.</p>
+<p>For example correlation between Sepal Width vs other variables is weakly correlated.</p>
+<p>Another way interpreting the plot is PC1 is positively correlated with the variables Petal Length, Petal Width, and Sepal Length, and PC1 is negatively correlated with Sepal Width.</p>
+<p>PC2 is highly negatively correlated with Sepal Width.</p>
+<p>Bi plot is an important tool in PCA to understand what is going on in the dataset.</p>
 </section>
 <section id="hierarchical-clustering-analysis" class="slide level2 scrollable">
 <h2><img data-src="img/scroll.png" style="width:1.0%"> Hierarchical clustering analysis</h2>
+<p>cf.&nbsp;your notes</p>
 </section>
 <section id="first-example-of-hca" class="slide level2 scrollable">
 <h2><img data-src="img/scroll.png" style="width:1.0%"> First example of HCA</h2>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/r_bowNoNrg8?si=zr_8iHgz3cGvwcwb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
 </iframe>
+<p>we load the required packages</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb206"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb206-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb206-2"><a href=""></a><span class="fu">library</span>(NbClust)</span>
+<span id="cb206-3"><a href=""></a><span class="fu">library</span>(cluster) </span>
+<span id="cb206-4"><a href=""></a><span class="fu">library</span>(factoextra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>we load the data</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb207"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb207-1"><a href=""></a>data.cluster <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">"data_raw/food-bank.csv"</span>,<span class="at">header =</span> <span class="cn">FALSE</span>, <span class="at">sep =</span> <span class="st">","</span>)</span>
+<span id="cb207-2"><a href=""></a><span class="fu">head</span>(data.cluster)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       V1      V2
+1 0.04769 0.21150
+2 0.05249 0.02238
+3 0.10669 0.08343
+4 0.14947 0.10921
+5 0.18864 0.04716
+6 0.19818 0.15651</code></pre>
+</div>
+</div>
+<p>we plot the data in the basis (V1,V2)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb209"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb209-1"><a href=""></a><span class="fu">ggplot</span>(data.cluster)<span class="sc">+</span><span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>V1,<span class="at">y=</span>V2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-119-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>we want to cluster the coordinates</p>
+<p>we define the euclidean distance (it is a choice that makes sense in this case)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb210"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb210-1"><a href=""></a>dd <span class="ot">&lt;-</span> <span class="fu">dist</span>(<span class="fu">scale</span>(data.cluster[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]), <span class="at">method =</span> <span class="st">"euclidean"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>with <code>dd</code>we get the distance between every coodinates.</p>
+<p>we can now regroup the coordinates using the <code>ward.D2</code> method</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb211"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb211-1"><a href=""></a><span class="co"># hierarchical clustering</span></span>
+<span id="cb211-2"><a href=""></a>hc <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dd, <span class="at">method =</span> <span class="st">"ward.D2"</span>)</span>
+<span id="cb211-3"><a href=""></a><span class="fu">plot</span>(hc,<span class="at">hang =</span> <span class="sc">-</span><span class="dv">1</span>,<span class="at">labels =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-121-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><p>the graph with all the clusters is called a <strong>dendogram</strong></p></li>
+<li><p>we have to decide where to cut this dendogram to have groups to work with</p></li>
+<li><p>we plot the heights of this cluster analysis</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb212"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb212-1"><a href=""></a><span class="fu">barplot</span>(<span class="fu">diff</span>(hc<span class="sc">$</span>height))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-122-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>we will cut the tree at a given number of clusters and obtain the associated cluster for each observation</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb213"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb213-1"><a href=""></a><span class="fu">plot</span>(hc,<span class="at">hang =</span> <span class="sc">-</span><span class="dv">1</span>,<span class="at">labels =</span> F)</span>
+<span id="cb213-2"><a href=""></a><span class="fu">abline</span>(<span class="at">h=</span><span class="fu">mean</span>(hc<span class="sc">$</span>height[<span class="dv">38</span><span class="sc">:</span><span class="dv">39</span>]),<span class="at">col=</span><span class="dv">2</span>,<span class="at">lwd=</span><span class="dv">2</span>)</span>
+<span id="cb213-3"><a href=""></a><span class="fu">abline</span>(<span class="at">h=</span><span class="fu">mean</span>(hc<span class="sc">$</span>height[<span class="dv">36</span><span class="sc">:</span><span class="dv">37</span>]),<span class="at">col=</span><span class="dv">2</span>,<span class="at">lwd=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_en_files/figure-revealjs/unnamed-chunk-123-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
 
 </section></section>
     </div>
