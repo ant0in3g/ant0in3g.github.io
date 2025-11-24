@@ -9,7 +9,8 @@
 <link href="slides_fr_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.6.42">
 
-  <title>Elements de probabilités</title>
+  <meta name="author" content="Antoine Géré">
+  <title>Statistiques et analyse de données</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -126,603 +127,797 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Elements de probabilités</h1>
+  <h1 class="title">Statistiques et analyse de données</h1>
 
 <div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Antoine Géré 
+</div>
+</div>
 </div>
 
 </section>
 <section>
-<section id="notions-de-bases" class="title-slide slide level1 center">
-<h1>Notions de bases</h1>
+<section id="informations-générales" class="title-slide slide level1 center">
+<h1>Informations générales</h1>
 
 </section>
-<section id="expérience-aléatoire" class="slide level2">
-<h2>Expérience aléatoire</h2>
-<p>Une <strong>expérience aléatoire</strong> est une expérience :</p>
-<ul>
-<li>qui peut être répétée</li>
-<li>qui a plusieurs résultats possibles</li>
-<li>dont le résultat est imprévisible</li>
-</ul>
-<p>Exemples :</p>
-<ul>
-<li>lancé d’un dé à 6 faces</li>
-<li>observation du statut maladie d’une plantes</li>
-</ul>
-</section>
-<section id="évènement-élémentaire" class="slide level2">
-<h2>Évènement élémentaire</h2>
-<p>Un <strong>évènement élémentaire</strong> est le <strong>résultat d’une expérience aléatoire</strong>.</p>
-<p>Exemples :</p>
-<ul>
-<li>Obtenir 6 lors du lancé d’un dé à 6 faces</li>
-<li>Observé une plante malade</li>
-</ul>
-</section>
-<section id="ensemble-fondamental-univers" class="slide level2">
-<h2>Ensemble fondamental / Univers</h2>
-<p><strong>L’ensemble fondamental ou l’univers</strong> est l’ensemble de tous les résultats possibles (évènements élémentaires) d’une expérience aléatoire.</p>
-<p>Il est noté <span class="math inline">\(\Omega\)</span> (ou S).</p>
-<p><span class="math inline">\(\Omega\)</span> peut être :</p>
-<ul>
-<li>un ensemble fini (<span class="math inline">\(\Omega\)</span> discret)</li>
-<li>un ensemble infini dénombrable (<span class="math inline">\(\Omega\)</span> discret)</li>
-<li>un ensemble infini indénombrable (<span class="math inline">\(\Omega\)</span> continu)</li>
-</ul>
-</section>
-<section id="évènement-non-élémentaire" class="slide level2">
-<h2>Évènement (non élémentaire)</h2>
-<p>Un événement (non élémentaire) est un sous-ensemble de <span class="math inline">\(\Omega\)</span></p>
-<p>Exemple :</p>
-<p><strong>Si</strong> l’évènement A est « Obtenir un résultat strictement supérieur à 4 lors du lancé d’un dé à 6 faces »,</p>
-<p><strong>alors</strong> A = <span class="math inline">\(\{5,6\}\)</span></p>
-<p><strong>Évènements particuliers</strong> :</p>
-<ul>
-<li>L’évènement <strong>total</strong> <span class="math inline">\(\Omega\)</span> est certain</li>
-<li>L’ensemble <strong>vide</strong> <span class="math inline">\(\varnothing\)</span> est un évènement impossible</li>
-</ul>
-</section>
-<section id="opérations-sur-les-évènements" class="slide level2">
-<h2>Opérations sur les évènements</h2>
-<div class="columns">
-<div class="column" style="width:46%;">
-<h3 id="union">Union</h3>
-<p><img data-src="https://cdn.mathpix.com/cropped/2025_09_17_68f9d5d55601c91876fcg-07.jpg?height=324&amp;width=455&amp;top_left_y=151&amp;top_left_x=81"></p>
-<p>L’événement <span class="math inline">\(A \cup B\)</span> est réalisé dès que <span class="math inline">\(A\)</span> ou <span class="math inline">\(B\)</span> est réalisé.</p>
-</div><div class="column" style="width:4%;">
-
-</div><div class="column" style="width:50%;">
-<h3 id="intersection">Intersection</h3>
-<p><img data-src="https://cdn.mathpix.com/cropped/2025_09_17_68f9d5d55601c91876fcg-07.jpg?height=327&amp;width=451&amp;top_left_y=578&amp;top_left_x=85"></p>
-<p>L’événement <span class="math inline">\(A \cap B\)</span> est réalisé dès que <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> sont réalisés dans la même expérience.</p>
-</div></div>
-</section>
-<section id="section" class="slide level2">
-<h2></h2>
-<h3 id="complémentaire-de-a">Complémentaire de A</h3>
-
-<img data-src="https://cdn.mathpix.com/cropped/2025_09_17_68f9d5d55601c91876fcg-08.jpg?height=253&amp;width=503&amp;top_left_y=270&amp;top_left_x=81" style="width:50.0%" class="r-stretch"><p>L’événement <strong>complémentaire</strong> de <span class="math inline">\(A\)</span>, noté <span class="math inline">\(\bar{A}\)</span> contient tous les éléments de <span class="math inline">\(\Omega\)</span> qui ne sont pas dans <span class="math inline">\(A\)</span>.</p>
-<p>En particulier</p>
-<ul>
-<li><span class="math inline">\(\overline{A \cap B}=\bar{A} \cup \bar{B}\)</span></li>
-<li><span class="math inline">\(\overline{A \cup B}=\bar{A} \cap \bar{B}\)</span></li>
-</ul>
-</section>
-<section id="section-1" class="slide level2">
-<h2></h2>
-<h3 id="évènements-incompatibles">Évènements incompatibles</h3>
-<p>A et B sont dits incompatibles si <span class="math inline">\(A \cap B=\varnothing\)</span></p>
-<h3 id="système-complet-dévènements">Système complet d’évènements</h3>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>Toute partition de <span class="math inline">\(\Omega\)</span>, c’est à dire tout ensemble d’évènement <span class="math inline">\(\left(A_{i}\right)\)</span> tel que</p>
-<ul>
-<li><span class="math inline">\(A_{i} \neq \varnothing\)</span></li>
-<li><span class="math inline">\(\forall i \neq j, A_{i} \cap A_{j}=\varnothing\)</span></li>
-<li><span class="math inline">\(\bigcup_{i} A_{i}=\Omega\)</span></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p><img data-src="https://cdn.mathpix.com/cropped/2025_09_17_68f9d5d55601c91876fcg-09.jpg?height=285&amp;width=421&amp;top_left_y=638&amp;top_left_x=716"></p>
-</div></div>
-</section></section>
-<section>
-<section id="probabilité" class="title-slide slide level1 center">
-<h1>Probabilité</h1>
-
-</section>
-<section id="probabilité-1" class="slide level2">
-<h2>Probabilité</h2>
-<p>On appelle probabilité</p>
-<p><span class="math display">\[P : \Omega \to [0,1]\]</span> tel que</p>
-<ul>
-<li><span class="math inline">\(P(\Omega)=1\)</span></li>
-<li><strong>Si</strong> A et B sont incompatibles, <strong>alors</strong> <span class="math display">\[P(A \cup B)=P(A)+P(B)\]</span></li>
-</ul>
-</section>
-<section id="section-2" class="slide level2">
-<h2></h2>
-<h3 id="propriétés">Propriétés</h3>
-<ul>
-<li><span class="math inline">\(P(\Omega)=1 \quad \text { (définition) }\)</span></li>
-<li><span class="math inline">\(P(\varnothing)=0\)</span></li>
-<li><span class="math inline">\(P(A) \leq 1\)</span></li>
-<li><span class="math inline">\(P(\bar{A})=1-P(A)\)</span></li>
-<li>Pour 2 évènements <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span>, <span class="math display">\[P(A \cup B)=P(A)+P(B)-P(A \cap B)\]</span></li>
-</ul>
-</section>
-<section id="section-3" class="slide level2">
-<h2></h2>
-<h3 id="probabilité-sur-un-ensemble-omega-fini">Probabilité sur un ensemble <span class="math inline">\(\Omega\)</span> fini</h3>
-<p><span class="math display">\[\Omega=\left\{\omega_{1} ; \omega_{2} ; \ldots ; \omega_{n}\right\}\]</span> Pour définir une probabilité sur <span class="math inline">\(\Omega\)</span> il suffit de se donner <span class="math inline">\(n\)</span> nombres réels <span class="math inline">\(p_{i}\)</span> tels que</p>
-<p><span class="math display">\[\forall i, p_{i} \geq 0 \quad \mbox{et} \quad \sum_{i=1}^{n} p_{i}=1\]</span></p>
-<p>Les <span class="math inline">\(p_{i}\)</span> sont les probabilités des évènements élémentaires <span class="math inline">\(\left\{\omega_{i}\right\}\)</span></p>
-</section>
-<section id="section-4" class="slide level2">
-<h2></h2>
-<p>La probabilité d’un évènement A quelconque est la somme des probabilités des évènements élémentaires qui constituent A.</p>
-<h3 id="cas-particulier-de-léquiprobabilité">Cas particulier de l’équiprobabilité</h3>
-<p>Tous les évènements élémentaires ont la <strong>même probabilité</strong>.</p>
-<p>Les probabilités des évènements élémentaires <span class="math inline">\(\omega_i\)</span> sont <span class="math inline">\(p_{1}=p_{2}=\ldots=p_{n}=\dfrac{1}{n}\)</span></p>
-<p><span class="math display">\[
-P(A)=\frac{\text { nombre de cas favorables à la réalisation de } A}{\text { nombre de cas possibles de l'ensemble } \Omega}
-\]</span></p>
-<p><span class="math inline">\(\to\)</span> problèmes de dénombrement</p>
-</section></section>
-<section>
-<section id="probabilité-conditionnelle" class="title-slide slide level1 center">
-<h1>Probabilité conditionnelle</h1>
-
-</section>
-<section id="probabilité-conditionnelle-1" class="slide level2">
-<h2>Probabilité conditionnelle</h2>
-<p>Soit <span class="math inline">\(B\)</span> un évènement de probabilité <strong>non nulle</strong></p>
-<p>Pour tout évènement <span class="math inline">\(A\)</span>, on appelle <strong>probabilité conditionnelle de A</strong> sachant que B est réalisé</p>
-<p><span class="math display">\[
-P(A \mid B)=\frac{P(A \cap B)}{P(B)}
-\]</span></p>
-<p><span class="math inline">\(P(A|B)\)</span> vérifie toutes les propriétés des probabilités, en particulier</p>
-</section>
-<section id="section-5" class="slide level2">
-<h2></h2>
-<h3 id="formules-des-probabilités-composées">Formules des probabilités composées</h3>
-<p>De la définition des probabilités conditionnelles, on déduit</p>
-<p><span class="math display">\[
-P(A \cap B)=P(B) \times P(A \mid B)
-\]</span></p>
-<p>De même <span class="math display">\[P(B \cap A)=P(A) \times P(B \mid A)\]</span> Or, <span class="math inline">\(P(A \cap B)=P(B \cap A)\)</span> Donc <span class="math display">\[P(A \cap B)= P(A \mid B) \times P(B) = P(B \mid A) \times P(A)\]</span></p>
-<p><span class="math inline">\(\to\)</span> Généralisation possible pour <span class="math inline">\(n\)</span> évènements</p>
-</section>
-<section id="section-6" class="slide level2">
-<h2></h2>
-<h3 id="formule-des-probabilités-totales">Formule des probabilités totales</h3>
-<p>On considère une partition de <span class="math inline">\(\Omega\)</span> en 2.</p>
-<p><span class="math inline">\(A\)</span> et <span class="math inline">\(\bar{A}\)</span> forment un système complet d’évènements.</p>
-<p>Pour tout évènement <span class="math inline">\(B\)</span> :</p>
-<p><span class="math display">\[P(B)=P(B \mid A) \times P(A)+P(B \mid \bar{A}) \times P(\bar{A})\]</span></p>
-<p><span class="math inline">\(\to\)</span> Généralisation possible pour <span class="math inline">\(n\)</span> évènements</p>
-</section>
-<section id="section-7" class="slide level2">
-<h2></h2>
-<h3 id="démonstration">Démonstration</h3>
-<div class="columns">
-<div class="column" style="width:60%;">
-<ul>
-<li><span class="math inline">\(B=B \cap \Omega=B \cap(A \cup \bar{A})\)</span></li>
-<li><span class="math inline">\(B=(B \cap A) \cup(B \cap \bar{A})\)</span></li>
-<li><span class="math inline">\(B \cap A\)</span> et <span class="math inline">\(B \cap \bar{A}\)</span> sont incompatibles donc <span class="math inline">\(P(B)=P(B \cap A)+P(B \cap \bar{A})\)</span></li>
-</ul>
-</div><div class="column" style="width:40%;">
-<p><img data-src="https://cdn.mathpix.com/cropped/2025_09_17_68f9d5d55601c91876fcg-22.jpg?height=245&amp;width=475&amp;top_left_y=464&amp;top_left_x=720"></p>
-</div></div>
-<p>Donc on applique la formule des probabilités composées et on obtient <span class="math display">\[P(B)=P(B \mid A) \times P(A)+P(B \mid \bar{A}) \times P(\bar{A})\]</span></p>
-</section>
-<section id="le-théorème-de-bayes" class="slide level2">
-<h2>Le théorème de Bayes</h2>
-<h3 id="énoncé-du-théorème-dans-le-cas-général">Énoncé du théorème dans le cas général</h3>
-<p>Soient <span class="math inline">\(\left\{A_{1} ; A_{2} ; \ldots ; A_{n}\right\}\)</span> un système complet d’évènements et <span class="math inline">\(B\)</span> un évènement de probabilité non nulle.</p>
-<p>Pour tout <span class="math inline">\(j\)</span> on a :</p>
-<p><span class="math display">\[P\left(A_{j} \mid B\right)=\frac{P\left(A_{j}\right) \times P\left(B \mid A_{j}\right)}{P(B)}\]</span> donc <span class="math display">\[P\left(A_{j} \mid B\right) = \frac{P\left(A_{j}\right) \times P\left(B \mid A_{j}\right)}{\sum_{i=1}^{n} P\left(A_{i}\right) \times P\left(B \mid A_{i}\right)}\]</span></p>
-</section>
-<section id="section-8" class="slide level2">
-<h2></h2>
-<h3 id="exemple-dapplication">Exemple d’application :</h3>
-<p>Etude d’une maladie sur des pieds de tomates sur une exploitation maraichere.</p>
-<p>On connait :</p>
-<ul>
-<li>la probabilité de cette maladie <span class="math inline">\(P(M)\)</span></li>
-<li>la probabilité qu’un test diagnostique soit positif pour des pieds de tomates malades <span class="math inline">\(P\left(T^{+} \mid M\right)\)</span></li>
-<li>la probabilité qu’un test diagnostique soit positif pour des pieds de tomates sains <span class="math inline">\(P\left(T^{+} \mid \bar{M}\right)\)</span></li>
-</ul>
-<p><strong>Objectif</strong> : Calculer <span class="math inline">\(P\left(M \mid T^{+}\right)\)</span></p>
-</section></section>
-<section>
-<section id="indépendance" class="title-slide slide level1 center">
-<h1>Indépendance</h1>
-
-</section>
-<section id="indépendance-de-2-évènements" class="slide level2">
-<h2>Indépendance de 2 évènements</h2>
-<p>Deux évènements <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> de probabilité non nulle sont <strong>indépendants</strong> (relativement à la probabilité P) ssi <span class="math display">\[P(A \mid B)=P(A)\]</span></p>
-<p>De la même façon <span class="math display">\[P(B \mid A)=P(B)\]</span></p>
-<p>Ou autrement dit <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> sont indépendants (relativement à la probabilité P) ssi <span class="math display">\[P(A \cap B)=P(A) \times P(B)\]</span></p>
-</section>
-<section id="section-9" class="slide level2">
-<h2></h2>
-<h3 id="théorème">Théorème</h3>
-<p>Les affirmations suivantes sont équivalentes</p>
-<ul>
-<li><span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> sont <strong>indépendants</strong></li>
-<li><span class="math inline">\(A\)</span> et <span class="math inline">\(\bar{B}\)</span> sont <strong>indépendants</strong></li>
-<li><span class="math inline">\(\bar{A}\)</span> et <span class="math inline">\(B\)</span> sont <strong>indépendants</strong></li>
-<li><span class="math inline">\(\bar{A}\)</span> et <span class="math inline">\(\bar{B}\)</span> sont <strong>indépendants</strong></li>
-</ul>
-</section>
-<section id="indépendance-et-incompatibilité" class="slide level2">
-<h2>Indépendance et incompatibilité</h2>
-<p>Deux notions différentes !</p>
-<ul>
-<li><span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> incompatibles : <span class="math inline">\(A \cap B=\varnothing\)</span></li>
-</ul>
-<p>Ne fait pas intervenir la probabilité</p>
-<ul>
-<li><span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> indépendants : <span class="math inline">\(P(A \cap B)=P(A) \times P(B)\)</span></li>
-</ul>
-</section>
-<section id="section-10" class="slide level2">
-<h2></h2>
-<p><strong>Question</strong> :</p>
-<p>Deux évènements de probabilité non nulle incompatibles sont-ils indépendants ?</p>
-<ul>
-<li>On a <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> incompatibles : <span class="math inline">\(A \cap B=\varnothing\)</span>, donc <span class="math inline">\(P(A \cap B)=0\)</span></li>
-<li>Or, <span class="math inline">\(P(A) \neq 0\)</span> et <span class="math inline">\(P(B) \neq 0\)</span>, donc <span class="math inline">\(P(A) \times P(B) \neq 0\)</span></li>
-<li>Donc <span class="math inline">\(P(A \cap B) \neq P(A) \times P(B)\)</span></li>
-</ul>
-<p><strong>Conclusion</strong> :</p>
-<p><span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> ne sont pas indépendants</p>
-<p><strong>Deux évènements de probabilité non nulle incompatibles ne sont donc pas indépendants.</strong></p>
-</section>
-<section id="épreuves-expériences-indépendantes" class="slide level2">
-<h2>Épreuves / Expériences indépendantes</h2>
-<p>On parle d’<strong>épreuves indépendantes</strong> lorsque le résultat d’une des épreuves n’a aucune influence sur les résultats des autres épreuves.</p>
-<h3 id="propriété">Propriété</h3>
-<p>Lors d’une répétition de n épreuves indépendantes, la probabilités d’une issue est égale au poduit des probabilité de chacunes des issues du n épreuves indépendantes</p>
-</section>
-<section id="section-11" class="slide level2">
-<h2></h2>
-<h3 id="application-en-statistique">Application en statistique</h3>
-<p>Constitution de n-échantillons (cf chapitre suivant “Estimation et intervalle de confiance”)</p>
-<p><strong>Exemple :</strong></p>
-<p>Réalisation de 5 lancés d’une pièce équilibrée.</p>
-<p><span class="math inline">\(F_{i}\)</span> : «Obtenir face au i-ème lancé »</p>
-<p>La probabilité <span class="math inline">\(p\)</span> d’obtenir 5 fois face :</p>
-<p><span class="math display">\[P\left(F_{1} \cap F_{2} \cap F_{3} \cap F_{4} \cap F_{5}\right)\]</span></p>
-<p>Les 5 lancés sont indépendants :</p>
-<p><span class="math display">\[p=P\left(F_{1}\right) P\left(F_{2}\right) P\left(F_{3}\right) P\left(F_{4}\right) P\left(F_{5}\right) \\
-p=\left(\frac{1}{2}\right)^{5}\]</span></p>
-</section></section>
-<section>
-<section id="variable-aléatoire" class="title-slide slide level1 center">
-<h1>Variable aléatoire</h1>
-
-</section>
-<section id="section-12" class="slide level2">
-<h2></h2>
-<p>Soit <span class="math inline">\(\Omega\)</span> l’ensemble fondamental des résultats d’une expérience aléatoire. L’attribution d’un nombre à chaque résultat de l’expérience permet de définir une variable aléatoire.</p>
-<div class="columns">
-<div class="column" style="width:40%;">
-<p><img data-src="https://cdn.mathpix.com/cropped/2025_09_17_68f9d5d55601c91876fcg-35.jpg?height=341&amp;width=480&amp;top_left_y=388&amp;top_left_x=80"></p>
-</div><div class="column" style="width:60%;">
-<ul>
-<li>À chaque événement élémentaire <span class="math inline">\(\omega\)</span> correspond un nombre réel <span class="math inline">\(x\)</span>.</li>
-<li><span class="math inline">\(x\)</span> : réalisation de la variable <span class="math inline">\(X\)</span> pour l’événement <span class="math inline">\(\omega\)</span></li>
-<li>Attention, pas forcément autant de valeurs possibles <span class="math inline">\(x\)</span> que d’événements élémentaires <span class="math inline">\(\omega\)</span></li>
-</ul>
-</div></div>
-</section>
-<section id="section-13" class="slide level2">
-<h2></h2>
-<h3 id="exemple-1-lancé-dun-dé-à-6-faces">Exemple 1 : lancé d’un dé à 6 faces</h3>
-<ul>
-<li>Expérience aléatoire : lancé d’un dé à 6 faces</li>
-<li>Univers des événements élémentaires possibles : <span class="math inline">\(\{1 ; 2 ; 3 ; 4 ; 5 ; 6\}\)</span></li>
-<li>Valeurs possibles pour la va : <span class="math inline">\(\{1 ; 2 ; 3 ; 4 ; 5 ; 6\}\)</span></li>
-</ul>
-<h3 id="exemple-2">Exemple 2 :</h3>
-<ul>
-<li>Expérience aléatoire : détermination de l’infection d’une maladie sur des plantes</li>
-<li>Univers des possibles : {positif; négatif}</li>
-<li>Valeurs possibles pour la va : <span class="math inline">\(\{0 ; 1\}\)</span> (codage arbitraire)</li>
-</ul>
-</section>
-<section id="section-14" class="slide level2">
-<h2></h2>
-<h3 id="définition">Définition</h3>
-<p>Une variable aléatoire sur <span class="math inline">\(\Omega\)</span> est une application <span class="math display">\[X: \Omega \rightarrow \mathbb{R}\]</span> tel que <span class="math inline">\(\forall(a, b) \in \mathbb{R} \quad X^{-1}([a, b])\)</span> est un évènement</p>
-<h3 id="notations">Notations</h3>
-<ul>
-<li>Les va sont notées avec des lettres majuscules : <span class="math inline">\(X, Y, \ldots\)</span></li>
-<li>Les valeurs possibles ou réalisations d’une va sont notées avec des lettres minuscules : <span class="math inline">\(x_{i}, a, z, \ldots\)</span></li>
-</ul>
-</section>
-<section id="section-15" class="slide level2">
-<h2></h2>
-<h3 id="deux-types-de-variables-aléatoires">Deux types de variables aléatoires</h3>
-<p><strong>Une variable aléatoire est variable quantitative.</strong></p>
-<ul>
-<li><strong>Variable aléatoire discrète</strong></li>
-</ul>
-<p>Elle prend un nombre fini ou infini dénombrable de valeurs possibles.</p>
-<ul>
-<li><strong>Variable aléatoire continue</strong></li>
-</ul>
-<p>Elle prend un nombre infini indénombrable de valeurs possibles.</p>
-</section>
-<section id="cas-des-variables-aléatoires-discrètes" class="slide level2">
-<h2>Cas des variables aléatoires discrètes</h2>
-<h3 id="définition-1">Définition</h3>
-<p>Soit <span class="math inline">\(X\)</span> une variable aléatoire discrète. Sa loi de probabilité est déterminée par</p>
-<ul>
-<li>I’ensemble des valeurs possibles <span class="math inline">\(x_{i}(i \in I\)</span>, fini ou infini dénombrable)</li>
-<li>les probabilités <span class="math inline">\(p_{i}=\mathrm{P}\left(X=x_{i}\right)\)</span></li>
-</ul>
-<h3 id="propriétés-1">Propriétés</h3>
-<ul>
-<li><span class="math inline">\(\forall i \in I\)</span>, <span class="math inline">\(\ P\left(X=x_{i}\right) \geq 0\)</span></li>
-<li><span class="math inline">\(\sum_{i \in I} \mathrm{P}\left(X=x_{i}\right)=\sum_{i \in I} p_{i}=1\)</span></li>
-</ul>
-</section>
-<section id="section-16" class="slide level2">
-<h2></h2>
-<h3 id="exemple-de-loi-de-probabilité-discrète">Exemple de loi de probabilité discrète</h3>
-<ul>
-<li>Hypothèse : Proba. d’avoir un veau mal pour une vache (<span class="math inline">\(0.5\)</span>)</li>
-</ul>
-<p>Distribution de probabilité ou loi de probabilité du nombre de femmelle dans un deux vélages consecutifs :</p>
+<section id="organisation" class="slide level2">
+<h2>Organisation</h2>
+<p><br></p>
 <table class="caption-top">
 <thead>
 <tr class="header">
-<th style="text-align: left;">événements possibles</th>
-<th style="text-align: center;">MM</th>
-<th style="text-align: center;">MF ou FM</th>
-<th style="text-align: center;">FF</th>
+<th></th>
+<th style="text-align: center;">S2</th>
+<th style="text-align: center;">S3</th>
+<th style="text-align: center;">S4</th>
+<th style="text-align: center;">S5</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">valeurs possibles</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">2</td>
+<td>Cours magistraux</td>
+<td style="text-align: center;">8 (12h)</td>
+<td style="text-align: center;">8 (12h)</td>
+<td style="text-align: center;">8 (12h)</td>
+<td style="text-align: center;">8 (12h)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">probabilités</td>
-<td style="text-align: center;"><span class="math inline">\(1 / 4\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(1 / 2\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(1 / 4\)</span></td>
+<td>Travaux dirigés</td>
+<td style="text-align: center;">8 (12h)</td>
+<td style="text-align: center;">8 (12h)</td>
+<td style="text-align: center;">8 (12h)</td>
+<td style="text-align: center;">8 (12h)</td>
+</tr>
+<tr class="odd">
+<td>tot.</td>
+<td style="text-align: center;">16 (24h)</td>
+<td style="text-align: center;">16 (24h)</td>
+<td style="text-align: center;">16 (24h)</td>
+<td style="text-align: center;">16 (24h)</td>
 </tr>
 </tbody>
 </table>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:70%;">
 <ul>
-<li><span class="math inline">\(\mathrm{P}(X=0)=\mathrm{P}(G \cap G)=\mathrm{P}(G) \times \mathrm{P}(G)\)</span> (indépendance)</li>
-<li><span class="math inline">\(\mathrm{P}(X=1)=\mathrm{P}((G \cap F) \cup(F \cap G))=\mathrm{P}(G \cap F)+\mathrm{P}(F \cap G)\)</span> (incompatibilité)</li>
+<li><strong>Cours magistraux</strong> : pas besoin d’apporter son ordinateur</li>
+<li><strong>Travaux dirigés </strong> : venir avec son ordinateur</li>
+</ul>
+<p><br></p>
+<p><a href="https://ant0in3g.github.io/sTa7.html" class="uri">https://ant0in3g.github.io/sTa7.html</a> <span class="math inline">\(\to\)</span> check votre sticker !</p>
+</div><div class="column" style="width:30%;">
+<p><br> <a href="https://ant0in3g.github.io/sTa7.htm"><img data-src="img/webpage-antoine-gere.png" style="width:50.0%"></a></p>
+</div></div>
+</section>
+<section id="evaluations-et-projets-de-groupe" class="slide level2">
+<h2>Evaluations et projets de groupe</h2>
+<p><br><br></p>
+<div class="columns">
+<div class="column" style="width:32%;">
+<h3 id="evaluations">Evaluations</h3>
+<p>Pour chaque semestre :</p>
+<ul>
+<li>Un examen de mi-semestre (1h30)</li>
+<li>Un examen final (1h30)</li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:62%;">
+<h3 id="projets-de-groupe">Projets de groupe</h3>
+<ul>
+<li><p><strong>Semester 2 :</strong></p>
+<div style="text-align:center;">
+<p><a href="https://ant0in3g.github.io/sTa7/PASD/PASD.html"><strong>P</strong>remière <strong>A</strong>nalyse en <strong>S</strong>tatistique <strong>D</strong>escriptive (PASD)</a></p>
+</div></li>
+<li><p><strong>Semester 4 :</strong></p>
+<div style="text-align:center;">
+<p><a href="https://ant0in3g.github.io/sTa7/PEAD/PEAD.html"><strong>P</strong>remière <strong>E</strong>xpérience en <strong>A</strong>nalyse de <strong>D</strong>onnées (PEAD)</a></p>
+</div></li>
+<li><p><strong>Semester 6 :</strong></p>
+<div style="text-align:center;">
+<p><a href="https://ant0in3g.github.io/sTa7/PIDEx/PIDEx.html"><strong>P</strong>rojet d’<strong>I</strong>nitiation à la <strong>D</strong>émarche <strong>Ex</strong>périmentale (PIDEx)</a></p>
+</div></li>
+</ul>
+</div></div>
+</section>
+<section id="resources-et-dossier-onedrive" class="slide level2">
+<h2>Resources et dossier OneDrive</h2>
+<h3 id="resources">Resources</h3>
+<ul>
+<li><p><a href="https://ant0in3g.github.io/sTa7/Slides/slides_fr.html">Slides du cours</a></p></li>
+<li><p><a href="https://ant0in3g.github.io/sTa7/LectureStat/index.html">Cours complet de Statistiques et analyse de données</a> (en construction)</p></li>
+<li><p><a href="https://ant0in3g.github.io/sTa7/td-s.html">Travaux dirigés</a></p></li>
+<li><p><a href="https://ant0in3g.github.io/sTa7/examens.html">Sujets d’examens corrigées des années passées</a></p></li>
+<li><p><a href="https://www.statlearning.com/">An Introduction to Statistical Learning from the Stanford University</a> with a <a href="https://www.youtube.com/playlist?list=PLoROMvodv4rOzrYsAxzQyHb8n_RWNuS1e">YouTube playlist</a> of the lectures</p></li>
+</ul>
+<h3 id="dossier-onedrive-partagé">Dossier OneDrive partagé</h3>
+<p><em>Un dossier OneDrive a été partagé à chaque étudiant</em></p>
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>To Do !</strong></p>
+</div>
+<div class="callout-content">
+<p><a href="https://ant0in3g.github.io/sTa7/orga.html">Synchronisez ce dossier sur votre ordinateur <strong>OU</strong> créez un raccourci sur votre propre OneDrive</a></p>
+</div>
+</div>
+</div>
+</section></section>
+<section id="introduction-aux-statistiques-avec-r" class="title-slide slide level1 center">
+<h1>Introduction aux statistiques avec R</h1>
+<p>coming !</p>
+</section>
+
+<section id="statistiques-descriptives" class="title-slide slide level1 center">
+<h1>Statistiques descriptives</h1>
+<p>coming !</p>
+</section>
+
+<section id="notions-de-probabilités" class="title-slide slide level1 center">
+<h1>Notions de probabilités</h1>
+
+</section>
+
+<section>
+<section id="echantillonnage-et-estimation" class="title-slide slide level1 center">
+<h1>Echantillonnage et estimation</h1>
+
+</section>
+<section id="notions-sur-léchantillonnage" class="slide level2">
+<h2>Notions sur l’échantillonnage</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="https://cdn.mathpix.com/cropped/2025_11_21_646963429fc1da9e8990g-08.jpg?height=630&amp;width=706&amp;top_left_y=131&amp;top_left_x=281"></p>
+<p><strong>Population</strong> <span class="math inline">\(\ \to \ \)</span> proportion vert : 10/30</p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<ul>
+<li><p>Le choix d’une taille de l’échantillon n’est pas simple</p></li>
+<li><p>Plus il y a d’individus, plus le degré de précision de l’enquête sera fort</p></li>
+<li><p>Les contraintes pratiques nous obligent à limiter le nombre d’individus</p></li>
+<li><p>2 types de méthodes d’échantillonnage :</p>
+<ul>
+<li>échantillonnage probabiliste</li>
+<li>échantillonnage NON probabiliste</li>
+</ul></li>
+<li><p>Objectif : le plus représentatif <strong>possible</strong> !</p></li>
+</ul>
+</div></div>
+</section>
+<section id="les-méthodes-déchantillonnage-probabilistes" class="slide level2 scrollable">
+<h2><img data-src="img/scroll.png" style="width:1.0%"> Les méthodes d’échantillonnage probabilistes</h2>
+<p><br></p>
+<p><strong>Exemple utilisé pour illustrer ces méthodes :</strong></p>
+<ul>
+<li><p>Il y a environ <strong>3 millions étudiants</strong> en France.</p></li>
+<li><p>On souhaite savoir si les étudiants sont <strong>satifaits ou non de leur formation</strong>.</p></li>
+<li><p>Ne pouvant pas accéder à tous les étudiants, on décide de <strong>former un échantillon</strong> de 100 000 étudiants (taille arbitraire) le plus représentatif possible.</p></li>
+</ul>
+<p><br></p>
+<h3 id="échantillonnage-aléatoire-simple">Échantillonnage aléatoire simple</h3>
+<ul>
+<li><p>Tous les individus ont une chance égale d’être sélectionné.</p></li>
+<li><p><strong>Constitution de l’échantillon</strong> :</p>
+<ul>
+<li>échantillonnage aléatoire simple “sans remise” : <strong>cas le plus courrant</strong></li>
+</ul>
+<p><span class="math inline">\(\to\)</span> quand on sélectionne uniquement des individus différents</p>
+<ul>
+<li>échantillonnage aléatoire simple “avec remise” : si l’on n’a <strong>pas accès à beaucoup d’individus</strong></li>
+</ul>
+<p><span class="math inline">\(\to\)</span> quand un ou plusieurs individus peuvent être sélectionnés plusieurs fois</p></li>
+</ul>
+<p><br></p>
+<p><strong>Exemple</strong> :</p>
+<p>Avec un échantillonnage aléatoire simple avec remise, on sélectionne les 100 000 étudiants <strong>au hasard</strong> parmi les 3 millions.</p>
+<p><br></p>
+<p><br></p>
+<h3 id="échantillonnage-systématique">Échantillonnage systématique</h3>
+<ul>
+<li><strong>Constitution de l’échantillon</strong> :
+<ul>
+<li>on numérote tous les individus de la population (dans l’ordre que l’on veut)</li>
+<li>on tire un individu au hasard parmi les premiers numéros, disons le <span class="math inline">\(i\)</span>-ème</li>
+<li>on se fixe un écart de <span class="math inline">\(m\)</span> individus</li>
+<li>on compléte l’échantillon en prenant les individus correspondants aux numéros :
+<ul>
+<li><span class="math inline">\(i+m\)</span></li>
+<li><span class="math inline">\(i+2 m\)</span></li>
+<li><span class="math inline">\(i+3 m\)</span></li>
+<li>et ainsi de suite</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><br></p>
+<p><strong>Exemple</strong> :</p>
+<ul>
+<li><p>On numérote tous les étudiants</p></li>
+<li><p>On choisit, par exemple, le troisième de la liste</p></li>
+<li><p>On se fixe un écart de 200</p></li>
+<li><p>On complète l’échantillon les étudiants numérotés</p>
+<ul>
+<li>203<br>
+</li>
+<li>403<br>
+</li>
+<li>603</li>
+<li>et ainsi de suite jusqu’au 100 000-ème étudiant</li>
+</ul></li>
+</ul>
+<p><br></p>
+<p><br></p>
+<h3 id="échantillonnage-aléatoire-avec-probabilité-inégale">Échantillonnage aléatoire avec probabilité inégale</h3>
+<p>L’échantillonnage aléatoire avec probabilités inégales part du principe que certains individus ont plus ou moins de chances d’être sélectionnés</p>
+<p><br></p>
+<p><strong>Exemple</strong> :</p>
+<ul>
+<li><p>On peut, par exemple, pondérer la probabilité de sélectionner un étudiant en fonction de la taille de son université</p></li>
+<li><p>On peut alors accorder plus d’importance aux étudiants des petites universités pour augmenter leurs chances de figurer dans l’échantillon</p></li>
+</ul>
+<p><br></p>
+<p><br></p>
+<h3 id="échantillonnage-stratifié">Échantillonnage stratifié</h3>
+<ul>
+<li><p>Une strate est un groupe homogène d’individus dans une population</p></li>
+<li><p><strong>Si</strong> la population peut se diviser en plusieurs strates pertinentes dans le contexte, <strong>alors</strong> il est judicieux de les prendre en compte pour constituer un échantillon le plus représentatif possible.</p></li>
+<li><p>L’échantillonnage stratifié consiste à faire :</p>
+<ul>
+<li>un échantillonnage aléatoire simple (sans remise) <strong>dans chaque strate</strong>,</li>
+<li>et de combiner tous les échantillons obtenus pour constituer l’échantillon final</li>
+</ul></li>
+</ul>
+<p><br></p>
+<p><strong>Exemple</strong> :</p>
+<ul>
+<li><p>On peut différencier les étudiants de Licence ou en Master</p></li>
+<li><p>Avec un échantillonnage aléatoire simple sans remise, on peut constituer :</p>
+<ul>
+<li><p>un échantillon dans la strate des étudiants en Licence, disons de taille 70 000</p></li>
+<li><p>et un autre dans la strate des étudiants en Master, disons 30 000</p></li>
+</ul></li>
+<li><p>L’échantillon final est constitué de ces deux échantillons.</p></li>
+</ul>
+<p><br></p>
+<p><br></p>
+<h3 id="échantillonnage-par-grappes">Échantillonnage par grappes</h3>
+<ul>
+<li>Si la population se divise en plusieurs groupes d’individus, l’échantillonnage en grappes consiste à :
+<ul>
+<li>choisir au hasard plusieurs de ces groupes</li>
+<li>une fois un groupe sélectionné, on considère <strong>tous ses individus</strong></li>
+<li>l’échantillon est donc l’ensemble des individus des groupes sélectionnés</li>
+</ul></li>
+<li>Préférable de choisir un grand nombre de petits groupes, plutôt qu’un petit nombre de gros groupes</li>
+</ul>
+<p><br></p>
+<p><strong>Exemple</strong> :</p>
+<ul>
+<li><p>On sélectionne au hasard quelques universités</p></li>
+<li><p>On considère tous les étudiants de celles-ci</p></li>
+<li><p>Le nombre d’universités sélectionnées est de telle sorte à ce que la taille de l’échantillon ne soit pas trop éloignée de 100 000</p></li>
+</ul>
+<p><br></p>
+<p><br></p>
+<h3 id="échantillonnage-à-deux-degrés">Échantillonnage à deux degrés</h3>
+<ul>
+<li><p>L’échantillonnage à deux degrés est une version “améliorée” de l’échantillonnage en grappes</p></li>
+<li><p><strong>Constitution de l’échantillon</strong> :</p>
+<ul>
+<li>on choisit au hasard des groupes</li>
+<li>dans chacun des groupes choisis, on sélectionne des individus avec une méthode probabiliste</li>
+</ul></li>
+<li><p><strong>Avantages</strong> :</p>
+<ul>
+<li>Plus souple sur le nombre de groupes à choisir</li>
+<li>On peut aller à plus de deux degrés en continuant le processus de sélection des individus.</li>
+</ul></li>
+</ul>
+<p><br></p>
+<p><strong>Exemple</strong> :</p>
+<ul>
+<li><p>On sélectionne au hasard quelques universités</p></li>
+<li><p>On effectue un échantillonnage aléatoire simple des étudiants dans chacune de ces universités.</p></li>
+<li><p>L’échantillon final se compose de tous les individus finalement sélectionnés.</p></li>
+<li><p>On s’arrange pour que la taille de l’échantillon ne soit pas trop éloigné de 100 000</p></li>
+</ul>
+<p><br></p>
+<p><br></p>
+<h3 id="échantillonnage-à-deux-phases">Échantillonnage à deux phases</h3>
+<ul>
+<li>L’échantillonnage à deux phases permet :
+<ul>
+<li>de révéler des strates inconnues au premier abord,</li>
+<li>de les utiliser pour obtenir un échantillon représentatif.</li>
+</ul></li>
+<li><strong>Constitution de l’échantillon</strong> :
+<ul>
+<li>on choisit au hasard des individus (comme avec un échantillonnage aléatoire simple)</li>
+<li>on pose une (ou plusieurs) question discriminante à ces individus</li>
+<li>on sélectionne les individus en fonction de leurs réponses (on choisit uniquement les individus qui ont formulé une certaine réponse, ou on crée des strates dans l’échantillon déjà formé, et on poursuit avec un sondage stratifié ou autre, etc.).</li>
+</ul></li>
+</ul>
+<p><br></p>
+<p><strong>Exemple</strong> :</p>
+<ul>
+<li>Avec un échantillonnage aléatoire simple, on forme
+<ul>
+<li><p>un premier échantillon d’étudiants,</p></li>
+<li><p><strong>puis</strong> on leur pose une unique question : “Avez-vous été assidus pendant les cours?”</p></li>
+<li><p>On ne conserve que les étudiants qui ont répondu “oui”</p></li>
+<li><p>On peut alors concentrer l’enquête de satisfaction de la formation que sur eux</p></li>
+</ul></li>
 </ul>
 </section>
-<section id="fonction-de-répartition-cas-discret" class="slide level2">
-<h2>Fonction de répartition : cas discret</h2>
-<h3 id="définition-2">Définition</h3>
-<p>On appelle fonction de répartition de <span class="math inline">\(X\)</span> toute fonction <span class="math inline">\(F\)</span> telle que pour tout <span class="math inline">\(t \in \mathbb{R}\)</span>, <span class="math display">\[F(t)=\mathrm{P}(X \leq t)\]</span></p>
-<h3 id="interprétation">Interprétation</h3>
-<p>La fonction de répartition correspond à la distribution des probabilités cumulées</p>
+<section id="les-méthodes-déchantillonnage-non-probabilistes" class="slide level2 scrollable">
+<h2><img data-src="img/scroll.png" style="width:1.0%"> Les méthodes d’échantillonnage NON probabilistes</h2>
+<p><br></p>
+<p><strong>Exemple utilisé pour illustrer ces méthodes :</strong></p>
+<ul>
+<li><p>Il y a environ <strong>3 millions étudiants</strong> en France.</p></li>
+<li><p>On souhaite savoir si les étudiants sont <strong>satifaits ou non de leur formation</strong>.</p></li>
+<li><p>Ne pouvant pas accéder à tous les étudiants, on décide de <strong>former un échantillon</strong> de 100 000 étudiants (taille arbitraire) le plus représentatif possible.</p></li>
+</ul>
+<p><br></p>
+<h3 id="échantillonnage-de-commodité-ou-à-laveuglette">Échantillonnage de commodité ou à l’aveuglette</h3>
+<p>L’échantillonnage de commodité ou à l’aveuglette consiste à sélectionner les individus dont on a immédiatement accès, sans discrimination particulière.</p>
+<p><br></p>
+<p><strong>Exemple</strong> :</p>
+<ul>
+<li><p>On va dans les universités les plus proche</p></li>
+<li><p>On demande aux étudiants que l’on croise s’ils sont contents ou non de leur formation.</p></li>
+<li><p>On constitu ainsi un échantillon de taille 100 000 sans trop de problème</p></li>
+</ul>
+<p><br></p>
+<p><br></p>
+<h3 id="échantillonnage-volontaire">Échantillonnage volontaire</h3>
+<ul>
+<li><p>L’échantillonnage volontaire considère les individus qui sont volontaires pour participer à l’enquête</p></li>
+<li><p>Les individus se sélectionnent eux-mêmes.</p></li>
+<li><p>Il peut y avoir une récompense en jeu.</p></li>
+</ul>
+<p><br></p>
+<p><strong>Exemple</strong> :</p>
+<ul>
+<li>Un café est offert aux 100 000 premiers étudiants de France qui répondront à la question :</li>
+</ul>
+<p>“Êtes-vous contents de votre formation ?”</p>
+<p><br></p>
+<p><br></p>
+<h3 id="échantillonnage-au-jugé">Échantillonnage au jugé</h3>
+<ul>
+<li><p>L’échantillonnage au jugé consiste à sélectionner uniquement les individus qui semblent être dans le cœur de cible de l’enquête.</p></li>
+<li><p>Il repose sur des critères subjectifs et des idées préconçues.</p></li>
+</ul>
+<p><br></p>
+<p><strong>Exemple</strong> :</p>
+<ul>
+<li><p>On va dans les universités les plus proche</p></li>
+<li><p>On demande aux étudiants que l’on croise et qui paraissent sérieux s’ils sont contents ou non de leur formation.</p></li>
+</ul>
+<p><span class="math inline">\(\to\)</span> très subjectif !</p>
+<ul>
+<li>On constitue ainsi un échantillon de taille 100 000 sans trop de problème</li>
+</ul>
+<p><span class="math inline">\(\to\)</span> pas représentatif de l’ensemble des étudiants de France</p>
+<p><br></p>
+<p><br></p>
+<h3 id="échantillonnage-par-quotas">Échantillonnage par quotas</h3>
+<ul>
+<li><p>L’échantillonnage par quotas repose sur un résultat statistique déjà connu sur la répartition de la population</p>
+<p><strong>OU</strong> sur un quota d’individus que l’on impose</p></li>
+<li><p>Partant d’une taille d’échantillon choisie, l’idée est de former un échantillon d’individus dont l’appartenance aux groupes respecte ces pourcentages</p></li>
+<li><p>Il n’y a pas de règle sur la méthode pour choisir les individus, du moment que les quotas sont respectés</p></li>
+</ul>
+<p><br></p>
+<p><strong>Exemple</strong> :</p>
+<ul>
+<li><p>On sait qu’il y a :</p>
+<ul>
+<li><span class="math inline">\(~ 70 \%\)</span> étudiants en Licence</li>
+<li>et <span class="math inline">\(~ 30 \%\)</span> d’étudiants en Master</li>
+</ul></li>
+<li><p>On se fixe une taille d’échantillon de 100 000</p></li>
+<li><p>On sélectionne :</p>
+<ul>
+<li><span class="math inline">\(100 000 \times 0.7 = 70 000\)</span> étudiants en Licence</li>
+<li>et <span class="math inline">\(100 000 \times 0.3 = 30 000\)</span> étudiants en Master</li>
+<li>La sélection de ces étudiants peut se faire comme on veut</li>
+</ul></li>
+</ul>
+<p><br></p>
+<p><br></p>
+<h3 id="échantillonnage-boule-de-neige-ou-de-réseaux">Échantillonnage boule de neige ou de réseaux</h3>
+<ul>
+<li><p>Lorsque l’on s’intéresse à une population très spécifique, on peut utiliser l’échantillonnage boule de neige</p></li>
+<li><p>Cela consiste à interroger des individus par la méthode au jugé, puis d’interroger leur connaissances (amis, collègues, etc.)</p></li>
+</ul>
 </section>
-<section id="section-17" class="slide level2">
-<h2></h2>
-<h3 id="retour-sur-lexemple">Retour sur l’exemple</h3>
-<div class="columns">
-<div class="column" style="width:35%;">
+<section id="estimateurs-et-estimations" class="slide level2 scrollable">
+<h2><img data-src="img/scroll.png" style="width:1.0%"> Estimateurs et estimations</h2>
+<p><br></p>
+<h3 id="première-approche">Première approche</h3>
+<p><br></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Échantillon statistique</strong></p>
+</div>
+<div class="callout-content">
+<p>On ne considère plus des individus mais des variables aléatoires :</p>
+<ul>
+<li><p>échantillon statistique de taille <span class="math inline">\(n\)</span> :</p>
+<p>ensemble de <span class="math inline">\(n\)</span> variables aléatoires ( <span class="math inline">\(X_1 ; X_2 ; \ldots ; X_n\)</span> )</p></li>
+<li><p>valeurs observées de l’échantillon : ( <span class="math inline">\(x_1 ; x_2 ; \ldots ; x_n\)</span> )</p></li>
+</ul>
+</div>
+</div>
+</div>
+<p><br></p>
+<p><strong>Notation :</strong></p>
+<ul>
+<li><p><span class="math inline">\(\theta=\)</span> le paramètre à estimer</p></li>
+<li><p><span class="math inline">\(\theta: \mu, \sigma, \pi\)</span>, médiane, …</p></li>
+</ul>
+<p><br></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Estimateur</strong></p>
+</div>
+<div class="callout-content">
+<p>Un estimateur de <span class="math inline">\(\theta\)</span> est une variable aléatoire exprimée en fonction des variables aléatoires d’échantillon <span class="math inline">\(X_{i}\)</span> :</p>
+<p><span class="math display">\[T = f\left(X_{1} ; X_{2} ; \ldots ; X_{n}\right)\]</span></p>
+</div>
+</div>
+</div>
+<p><br></p>
+<p><strong>Exemple :</strong> Cas de <span class="math inline">\(M\)</span>, l’estimateur de <span class="math inline">\(\mu\)</span> (la moyenne dans la population)</p>
+<p><span class="math display">\[M=\frac{X_{1}+X_{2}+\ldots+X_{n}}{n}\]</span></p>
+<p><br></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Estimation</strong></p>
+</div>
+<div class="callout-content">
+<p>Une estimation de <span class="math inline">\(\theta\)</span> est un nombre calculé en fonction des valeurs <span class="math inline">\(x_{i}\)</span> observées dans l’echantillon : <span class="math inline">\(t=f\left(x_{1} ; x_{2} ; \ldots ; x_{n}\right)\)</span></p>
+</div>
+</div>
+</div>
+<p><br></p>
+<p><strong>Exemple :</strong> Cas de l’estimation de <span class="math inline">\(\mu\)</span></p>
+<p><span class="math display">\[m=\frac{x_{1}+x_{2}+\ldots+x_{n}}{n}\]</span></p>
+<p><br></p>
+<p><strong>ATTENTION :</strong> Ne pas confondre estimation, estimateur et le paramètre à estimer !</p>
+<ul>
+<li><p>Le paramètre à estimer <span class="math inline">\(\theta\)</span> est inconnu</p></li>
+<li><p>Soit <span class="math inline">\(T\)</span> un estimateur de <span class="math inline">\(\theta\)</span></p>
+<ul>
+<li><span class="math inline">\(T\)</span> est une variable aléatoire</li>
+<li>Un échantillon <span class="math inline">\(\to\)</span> calcul d’une valeur <span class="math inline">\(t\)</span>, réalisation de <span class="math inline">\(T\)</span><br>
+</li>
+<li><span class="math inline">\(t\)</span> est une estimation de <span class="math inline">\(\theta\)</span> calculée à partir d’un échantillon donné</li>
+</ul></li>
+</ul>
+<p><br></p>
+<p><strong>Notations </strong></p>
 <table class="caption-top">
 <thead>
 <tr class="header">
-<th style="text-align: center;">Valeurs possibles</th>
-<th style="text-align: center;">Probabilités</th>
+<th style="text-align: center;">nom</th>
+<th style="text-align: center;">paramètre théorique</th>
+<th style="text-align: center;">estimateur</th>
+<th style="text-align: center;">estimation</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">0,25</td>
+<td style="text-align: center;">moyenne</td>
+<td style="text-align: center;"><span class="math inline">\(\mu\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(M\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(m\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">0,5</td>
+<td style="text-align: center;">variance</td>
+<td style="text-align: center;"><span class="math inline">\(\sigma^{2}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(S^{2}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(s^{2}\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">2</td>
-<td style="text-align: center;">0,25</td>
+<td style="text-align: center;">ecart type</td>
+<td style="text-align: center;"><span class="math inline">\(\sigma\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(S\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(s\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">frequence</td>
+<td style="text-align: center;"><span class="math inline">\(\pi\)</span></td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">f</td>
 </tr>
 </tbody>
 </table>
-</div><div class="column" style="width:10%;">
-
-</div><div class="column" style="width:55%;">
-<p><span class="math display">\[
-\begin{array}{cl}
-t&lt;0 &amp; \mathrm{P}(X \leq t)=0 \\
-t=0 &amp; \mathrm{P}(X \leq t)=0,25 \\
-0&lt;t&lt;1 &amp; \mathrm{P}(X \leq t)=0,25 \\
-t=1 &amp; \mathrm{P}(X \leq t)=0,75 \\
-1&lt;t&lt;2 &amp; \mathrm{P}(X \leq t)=0,75 \\
-t=2 &amp; \mathrm{P}(X \leq t)=1 \\
-t&gt;2 &amp; \mathrm{P}(X \leq t)=1
-\end{array}
-\]</span></p>
-</div></div>
-</section>
-<section id="section-18" class="slide level2">
-<h2></h2>
-<p>On a alors :</p>
-<p><img data-src="https://cdn.mathpix.com/cropped/2025_09_17_68f9d5d55601c91876fcg-42.jpg?height=331&amp;width=510&amp;top_left_y=578&amp;top_left_x=80"> <img data-src="https://cdn.mathpix.com/cropped/2025_09_17_68f9d5d55601c91876fcg-42.jpg?height=332&amp;width=516&amp;top_left_y=578&amp;top_left_x=646"></p>
-</section>
-<section id="section-19" class="slide level2">
-<h2></h2>
-<h3 id="propriétés-2">Propriétés</h3>
+<p><br></p>
+<h3 id="qualité-dun-estimateur">Qualité d’un estimateur</h3>
+<p><br></p>
 <ul>
-<li><span class="math inline">\(\forall t \in \mathbb{R}\)</span>, &nbsp;&nbsp;<span class="math inline">\(0 \leq F(t) \leq 1\)</span></li>
-<li>F est croissante</li>
-<li><span class="math inline">\(\lim _{x \rightarrow-\infty} F(x)=0\)</span></li>
-<li><span class="math inline">\(\lim _{x \rightarrow+\infty} F(x)=1\)</span></li>
+<li><p><strong>Biais d’un estimateur :</strong></p>
+<ul>
+<li>Biais d’un estimateur <span class="math inline">\(=E(T)-\theta\)</span></li>
+<li>Estimateur non biaisé : <span class="math inline">\(E(T) = \theta\)</span></li>
+</ul></li>
 </ul>
-<p>Dans le cas discret, F est une fonction «en marches d’escalier» Calcul de probabilités</p>
+<p><br></p>
+<ul>
+<li><p><strong>Variance d’un estimateur :</strong></p>
+<ul>
+<li><strong>Si</strong> <span class="math inline">\(\operatorname{var}(T)\)</span> est faible, <strong>Alors</strong> les estimations sont peu dispersées</li>
+</ul></li>
+</ul>
+<p><br></p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Erreur quadratique moyenne</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>L’erreur quadratique moyenne (<span class="math inline">\(EQM\)</span>) est une <strong>mesure de la qualité d’un modèle de prédiction</strong></p></li>
+<li><p>Elle est utilisée pour évaluer la différence entre les valeurs prévues par un modèle et les valeurs réelles observées</p></li>
+</ul>
+</div>
+</div>
+</div>
+<ul>
+<li><p><strong>Erreur quadratique moyenne :</strong></p>
+<ul>
+<li><p>On peut montrer que <span class="math inline">\(E Q M=\operatorname{var}(T)+\)</span> biais <span class="math inline">\(^{2}\)</span></p></li>
+<li><p>Un bon estimateur a une <span class="math inline">\(EQM\)</span> la plus faible possible <span class="math display">\[E Q M \xrightarrow[n \rightarrow+\infty] { } 0\]</span></p></li>
+</ul></li>
+</ul>
+<p><br></p>
+<p><img data-src="https://cdn.mathpix.com/cropped/2025_11_21_646963429fc1da9e8990g-16.jpg?height=700&amp;width=1010&amp;top_left_y=133&amp;top_left_x=130"></p>
+</section>
+<section id="estimation-de-lespérance" class="slide level2 scrollable">
+<h2><img data-src="img/scroll.png" style="width:1.0%"> Estimation de l’espérance</h2>
+<p><span class="math inline">\(M\)</span> : moyenne d’échantillon ou moyenne empirique (parfois notée <span class="math inline">\(\overline{X}\)</span> )</p>
+<p><span class="math display">\[M = \frac{X_{1}+X_{2}+\ldots+X_{n}}{n}\]</span></p>
+<p><span class="math inline">\(M\)</span> et les <span class="math inline">\(X_{i}\)</span> sont des variables aléatoires</p>
+<p><br></p>
+<h3 id="loi-de-m-estimateur-de-lespérance">Loi de M , estimateur de l’espérance</h3>
+<p><img data-src="https://cdn.mathpix.com/cropped/2025_11_21_646963429fc1da9e8990g-18.jpg?height=517&amp;width=462&amp;top_left_y=175&amp;top_left_x=77"> <img data-src="https://cdn.mathpix.com/cropped/2025_11_21_646963429fc1da9e8990g-18.jpg?height=502&amp;width=704&amp;top_left_y=175&amp;top_left_x=552"></p>
+<p><span class="math inline">\(n\)</span> est la taille des échantillons</p>
+<p><br></p>
+<p><strong>Plusieurs situations possibles :</strong></p>
+<ul>
+<li><p>Si les <span class="math inline">\(X_{i}\)</span> suivent une loi normale<br>
+<span class="math inline">\(M\)</span> est une combinaison linéaire de variables aléatoires Gaussiennes<br>
+<span class="math display">\[M \rightarrow \mathcal{N}\left(\mu_{M}, \sigma_{M}\right)\]</span></p></li>
+<li><p>Si les <span class="math inline">\(X_{i}\)</span> ne suivent pas une loi normale</p>
+<ul>
+<li><p>Si <span class="math inline">\(n \geq 30\)</span>, application du Théorème central-limite <span class="math display">\[M \rightsquigarrow \mathcal{N}\left(\mu_{M}, \sigma_{M}\right)\]</span></p></li>
+<li><p>Si <span class="math inline">\(n&lt;30\)</span>, on ne peut rien dire</p></li>
+</ul></li>
+</ul>
+<p><br></p>
+<h3 id="expression-de-mu_m-et-sigma_m">Expression de <span class="math inline">\(\mu_{M}\)</span> et <span class="math inline">\(\sigma_{M}\)</span></h3>
+<p>On sait que</p>
+<p><span class="math display">\[E(a X+b Y)=a \times E(X)+b \times E(Y)\]</span></p>
+<p>Ici on a</p>
+<p><span class="math display">\[\begin{gathered}
+\mathrm{E}(M)=\mathrm{E}\left(\frac{X_{1}+X_{2}+\ldots+X_{n}}{n}\right) \\
+\mathrm{E}(M)=\frac{1}{n} \times \mathrm{E}\left(X_{1}+X_{2}+\ldots+X_{n}\right) \\
+\mathrm{E}(M)=\frac{1}{n}\bigg(\mathrm{E}\left(X_{1}\right)+\mathrm{E}\left(X_{2}\right)+\ldots+\mathrm{E}\left(X_{n}\right)\bigg) \\
+\mathrm{E}(M)=\frac{1}{n} \times n \mu=\mu
+\end{gathered}\]</span></p>
+<p>On a donc</p>
+<p><span class="math display">\[\mathrm{E}(X)=\mu\]</span></p>
+<p>de plus on sait que <span class="math display">\[\operatorname{var}\left(a X+b Y\right)=a^{2} \times \operatorname{var}(X)+b^{2} \times \operatorname{var}(Y)\]</span></p>
+<p>Ici on a</p>
+<p><span class="math display">\[\begin{gathered}
+\operatorname{var}(M) = \operatorname{var}\left(\frac{X_{1}+X_{2}+\ldots+X_{n}}{n}\right) \\
+\operatorname{var}(M) = \frac{1}{n^{2}} \times \operatorname{var}\left(X_{1}+X_{2}+\ldots+X_{n}\right) \\
+\operatorname{var}(M) = \frac{1}{n^{2}}  \times\left(\operatorname{var}\left(X_{1}\right)+\operatorname{var}\left(X_{2}\right)+\cdots+\operatorname{var}\left(X_{n}\right)\right) \\
+\operatorname{var}(M) =\frac{1}{n^{2}} \times n \sigma^{2} \\
+\operatorname{var}(M) =\frac{\sigma^{2}}{n}
+\end{gathered}\]</span></p>
+<p>On a donc</p>
+<p><span class="math display">\[
+  \operatorname{var}(M)= \sigma_M^2 =\frac{\sigma^{2}}{n}
+\]</span> <br></p>
+<h3 id="qualité-de-lestimateur-m">Qualité de l’estimateur <span class="math inline">\(M\)</span></h3>
+<p>On a</p>
+<p><span class="math display">\[
+  \mathrm{E}(M)=\mu \qquad \text { et } \qquad \operatorname{var}(M)=\frac{\sigma^{2}}{n} \qquad \text { et } \qquad \sigma_{M}=\frac{\sigma}{\sqrt{n}} = SEM
+\]</span> où <span class="math inline">\(SEM\)</span> : Standard Error of the Mean</p>
+<p>De plus l’<strong>absence de biais</strong> signifie :</p>
+<p><span class="math display">\[\mbox{Biais } = \mathrm{E}(M) - \mu = 0\]</span> <strong>Erreur quadratique moyenne</strong></p>
+<p><span class="math display">\[EQM = \operatorname{var}(M)+ \mbox{ biais}^{2} = \frac{\sigma^{2}}{n}+0\]</span> Donc</p>
+<p><span class="math display">\[\lim _{n \rightarrow+\infty} EQM =0\]</span></p>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Conclusion</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math inline">\(M\)</span> est un «bon» estimateur de l’espérance !</p>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="intervalle-de-fluctuation-de-m">Intervalle de fluctuation de M</h3>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Principe</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>On se place dans le cas où <span class="math display">\[M \rightarrow \ (ou \rightsquigarrow) \ \ \mathcal{N}\left(\mu,\frac{\sigma}{\sqrt{n}}\right)\]</span></p>
+<p>La loi de <span class="math inline">\(M\)</span> est donc connue</p></li>
+<li><p>On cherche un intervalle centré sur <span class="math inline">\(\mu\)</span> qui a une probabilité <span class="math inline">\(1-\alpha\)</span> de contenir une réalisation de <span class="math inline">\(M\)</span></p></li>
+</ul>
+<p><span class="math display">\[
+I F_{1-\alpha}(M)=\left[b_{i n f} ; b_{\text {sup }}\right] \quad \text { tel que } \quad \mathrm{P}\left(b_{i n f} \leq M \leq b_{\text {sup }}\right)=1-\alpha
+\]</span></p>
+<ul>
+<li><span class="math inline">\(\alpha=\)</span> risque (que la valeur ne soit pas dans l’intervalle). Classiquement <span class="math inline">\(\alpha = 0.05 = 5 \%\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+<p><img data-src="https://cdn.mathpix.com/cropped/2025_11_21_646963429fc1da9e8990g-23.jpg?height=245&amp;width=1181&amp;top_left_y=631&amp;top_left_x=33"></p>
+</section>
+<section id="estimation-de-la-variance" class="slide level2 scrollable">
+<h2><img data-src="img/scroll.png" style="width:1.0%"> Estimation de la variance</h2>
+<h3 id="variance-dun-échantillon">Variance d’un échantillon</h3>
+<ul>
+<li><p>Échantillon : <span class="math display">\[7 \ ; \ 11 \ ; \ 12 \ ; \ 12 \ ; \ 14 \ ; \ 19 \ ; \ 20 \ ; \ 20 \ ; \ 32 \ ; \ 41\]</span></p></li>
+<li><p>Variance de l’échantillon :</p></li>
+</ul>
+<p><span class="math display">\[s_{e}^{2}=\dfrac{\displaystyle\sum_{i=1}^{10}\left(x_{i}-m\right)^{2}}{10}\]</span></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Question : Est-ce un bon estimateur de la variance <span class="math inline">\(\sigma^{2}\)</span> ?</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math display">\[S_{e}^{2} = \frac{1}{n} \sum_{i}\left(X_{i}-M\right)^{2}\]</span></p>
+</div>
+</div>
+</div>
+<p>On peut montrer que</p>
+<p><span class="math display">\[\mathrm{E}\left(S_{e}^{2}\right)=\frac{(n-1)}{n} \sigma^{2}\]</span></p>
+<p>L’estimateur <span class="math inline">\(S_{e}^{2}\)</span> est donc un estimateur biaisé !</p>
+<p><br></p>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Définition d’un estimateur non biaisé de la variance</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math display">\[S^{2}=\frac{1}{n-1} \sum_{i=1}^{n}\left(X_{i}-M\right)^{2}=\frac{1}{n-1}\left(\sum_{i=1}^{n} X_{i}^{2}-n \times M^{2}\right)\]</span></p>
+</div>
+</div>
+</div>
+<ul>
+<li>Estimation de la variance de la population à partir d’un échantillon :</li>
+</ul>
+<p><span class="math display">\[
+s^{2}=\frac{1}{n-1}\left(\sum_{i=1}^{n}\left(x_{i}-m\right)^{2}\right)=\frac{1}{n-1}\left(\sum_{i=1}^{n} x_{i}^{2}-n \times m^{2}\right)
+\]</span></p>
+<p><strong>Attention à ne pas confondre :</strong></p>
+<ul>
+<li><p>la variance descriptive : <span class="math display">\[s_{e}^{2}=\frac{S C E}{n} \rightarrow \ \ \mbox{ statistiques descriptives}\]</span></p></li>
+<li><p>l’estimation de la variance de la population réalisée à partir d’un échantillon : <span class="math display">\[s^{2}=\frac{S C E}{n-1} \rightarrow \ \ \mbox{ statistiques inférentielles}\]</span> avec <span class="math display">\[SCE = \sum_{i=1}^{n}\left(x_{i}-m\right)^{2}=\sum_{i=1}^{n} x_{i}^{2}-n \times m^{2}\]</span></p></li>
+</ul>
+</section>
+<section id="estimation-dune-proportion" class="slide level2 scrollable">
+<h2><img data-src="img/scroll.png" style="width:1.0%"> Estimation d’une proportion</h2>
+<ul>
+<li>Soit <span class="math inline">\(X\)</span> une variable aléatoire modélisant le caractére d’une population
+<ul>
+<li><span class="math inline">\(X=1\)</span> : le caractère est validé</li>
+<li>on a <span class="math inline">\(\mathrm{P}(X=1)=\pi\)</span></li>
+<li><span class="math inline">\(\displaystyle X \rightarrow \operatorname{Bern}(\pi)\)</span></li>
+</ul></li>
+</ul>
+<p><br></p>
+<ul>
+<li>Soit <span class="math inline">\(S_{n}\)</span> une variable aléatoire le caractére dans un échantillon de taille <span class="math inline">\(n\)</span>
+<ul>
+<li><span class="math inline">\(\displaystyle S_n=\sum_{i=1}^{n} X_{i}\)</span></li>
+<li><span class="math inline">\(\displaystyle S_{n} \rightarrow \mathcal{B}(n, \pi)\)</span></li>
+</ul></li>
+</ul>
+<p><br></p>
+<ul>
+<li><p><span class="math inline">\(F\)</span> est une variable aléatoire modélisant la proportion du caractère considéré <span class="math display">\[\displaystyle \mathrm{F}=\frac{S_{n}}{n}=\frac{\displaystyle\sum_{i=1}^{n} X_{i}}{n}\]</span> <br></p></li>
+<li><p>Loi de <span class="math inline">\(F\)</span> <span class="math inline">\(\mathrm{F} = \dfrac{S_{n}}{n}\)</span>, avec <span class="math inline">\(S_{n} \rightarrow \mathcal{B}(n, \pi)\)</span></p></li>
+<li><p>Si <span class="math inline">\(n \geq 30\)</span> et <span class="math inline">\(n \pi \geq 5\)</span> et <span class="math inline">\(n(1-\pi) \geq 5\)</span>, alors<br>
+<span class="math display">\[S_{n} \ \rightsquigarrow \ \mathcal{N}\left(n \pi, \sqrt{n \pi(1-\pi)}\right)\]</span></p></li>
+<li><p><span class="math inline">\(F\)</span> suit approximativement une loi normale</p></li>
+<li><p>Espérance et variance de <span class="math inline">\(F\)</span></p></li>
+</ul>
 <p><span class="math display">\[
 \begin{gathered}
-\mathrm{P}\left(X=x_{i}\right)=\mathrm{P}\left(X \leq x_{i}\right)-\mathrm{P}\left(X \leq x_{i-1}\right) \\
-\mathrm{P}\left(X=x_{i}\right)=F\left(x_{i}\right)-F\left(x_{i-1}\right)
+\mathrm{E}(\mathrm{~F})=\mathrm{E}\left(\frac{S_{n}}{n}\right)=\frac{1}{n} \times \mathrm{E}\left(S_{n}\right)=\frac{1}{n} \times n \pi=\pi \\
+\operatorname{var}(\mathrm{F})=\operatorname{var}\left(\frac{S_{n}}{n}\right)=\frac{1}{n^{2}} \times \operatorname{var}\left(S_{n}\right)=\frac{1}{n^{2}} \times n \pi(1-\pi)=\frac{\pi \times(1-\pi)}{n}
 \end{gathered}
 \]</span></p>
-</section>
-<section id="cas-des-variables-aléatoires-continues" class="slide level2">
-<h2>Cas des variables aléatoires continues</h2>
-<h3 id="problème">Problème</h3>
-<p>L’ensemble des valeurs possibles de <span class="math inline">\(X\)</span> est infini indénombrable</p>
+<p><br></p>
+<h3 id="qualité-de-lestimateur-f">Qualité de l’estimateur <span class="math inline">\(F\)</span></h3>
+<p><span class="math display">\[
+  \mathrm{E}(\mathrm{~F})=\pi \qquad \text { et } \qquad \operatorname{var}(\mathrm{F})=\frac{\pi \times(1-\pi)}{n}
+\]</span></p>
 <ul>
-<li>On ne peut définir la loi de probabilité par l’ensemble des <span class="math inline">\(\left(x_{i}, p_{i}\right)\)</span></li>
-<li>En général, <span class="math inline">\(\forall i, \mathrm{P}\left(X=x_{i}\right)=p_{i}=0\)</span></li>
+<li>Absence de biais : <span class="math inline">\(\mbox{Biais } = \mathrm{E}(\mathrm{F})-\pi=0\)</span></li>
+<li>Erreur quadratique moyenne <span class="math inline">\(EQM = \operatorname{var}(F) + \mbox{ biais}^{2} = \frac{\pi \times(1-\pi)}{n} + 0\)</span><br>
+Donc <span class="math display">\[\lim_{n \rightarrow+\infty} E Q M=0\]</span> <strong>Conclusion :</strong></li>
 </ul>
-</section>
-<section id="section-20" class="slide level2">
-<h2></h2>
-<h3 id="densité-de-probabilité">Densité de probabilité</h3>
-<p>On appelle densité de probabilité (ddp) toute fonction <span class="math inline">\(f\)</span> telle que :</p>
+<p><span class="math inline">\(F\)</span> est un « bon» estimateur d’une proportion</p>
+<h3 id="intervalle-de-fluctuation-de-f">Intervalle de fluctuation de <span class="math inline">\(F\)</span></h3>
 <ul>
-<li><span class="math inline">\(\forall x \in \mathbb{R}, f(x) \geq 0\)</span></li>
-<li><span class="math inline">\(\displaystyle\int_{-\infty}^{+\infty} f(x) d x=1\)</span> (aire sous la courbe égale à 1 )</li>
+<li><p>On se place dans le cas où <span class="math display">\[\mathrm{F} \rightsquigarrow \mathcal{N}\left(\pi, \sqrt{\frac{\pi(1-\pi)}{n}}\right)\]</span> On approxime la loi de F par une loi parfaitement connue</p></li>
+<li><p>On cherche un intervalle centré sur <span class="math inline">\(\pi\)</span> qui a une probabilité <span class="math inline">\(1-\alpha\)</span> de contenir une réalisation de <span class="math inline">\(F\)</span></p></li>
 </ul>
-<div class="columns">
-<div class="column" style="width:60%;">
-<h3 id="probabilité-dun-intervalle">Probabilité d’un intervalle</h3>
 <p><span class="math display">\[
-\mathrm{P}(a \leq X \leq b)=\int_{a}^{b} f(x) d x
+I F_{1-\alpha}(\mathrm{F})=\left[b_{i n f} ; b_{\text {sup }}\right] \quad \text { tel que } \quad \mathrm{P}\left(b_{i n f} \leq \mathrm{F} \leq b_{\text {sup }}\right)=1-\alpha
 \]</span></p>
-</div><div class="column" style="width:40%;">
-<p><img data-src="https://cdn.mathpix.com/cropped/2025_09_17_68f9d5d55601c91876fcg-44.jpg?height=273&amp;width=418&amp;top_left_y=663&amp;top_left_x=724"></p>
-</div></div>
+<p><img data-src="https://cdn.mathpix.com/cropped/2025_11_21_646963429fc1da9e8990g-34.jpg?height=269&amp;width=1176&amp;top_left_y=676&amp;top_left_x=43"></p>
+<p><br></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cU5cJlCVAM8?si=RO-2QWjOdh54KV8z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
 </section>
-<section id="fonction-de-répartition-cas-continu" class="slide level2">
-<h2>Fonction de répartition : cas continu</h2>
-<p><strong>Même définition que dans le cas discret</strong></p>
-<p>On appelle fonction de répartition de <span class="math inline">\(X\)</span> toute fonction <span class="math inline">\(F\)</span> telle que <span class="math inline">\(\forall x \in \mathbb{R}, F(x)=\mathrm{P}(X \leq x)\)</span></p>
-<p><strong>Cas continu</strong> : la fonction de répartition est continue et non plus en marches d’escalier !</p>
-<div class="columns">
-<div class="column" style="width:40%;">
-<p>On a <span class="math display">\[F(x)=\int_{-\infty}^{x} f(t) d t\]</span></p>
-</div><div class="column" style="width:60%;">
-<p>d’où</p>
-<p><span class="math display">\[\mathrm{P}(a \leq X \leq b)=\int_{a}^{b} f(t) d t=F(b)-F(a)\]</span></p>
-</div></div>
-</section>
-<section id="section-21" class="slide level2">
-<h2></h2>
-<p><strong>Espérance = moyenne théorique</strong></p>
-<p>Elle renseigne sur la position des valeurs possibles sur une échelle.</p>
-<p><strong>Définition dans le cas d’une va discrète</strong> :</p>
-<p><span class="math display">\[\mathrm{E}(X)=\sum_{i} x_{i} \times P\left(X=x_{i}\right)=\sum_{i} x_{i} \times p_{i}\]</span></p>
-<p><strong>Définition dans le cas d’une va continue</strong> <span class="math display">\[
-\mathrm{E}(X)=\int_{-\infty}^{+\infty} x f(x) d x
-\]</span></p>
-</section>
-<section id="section-22" class="slide level2">
-<h2></h2>
-<h3 id="propriété-de-lespérance">Propriété de l’espérance</h3>
-<p><strong>Linéarité</strong></p>
-<p>Soient <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> deux va et <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> des nombres réels :</p>
-<p><span class="math display">\[
-\begin{gathered}
-\mathrm{E}(a X+b)=a \mathrm{E}(X)+b \\
-\mathrm{E}(X+Y)=\mathrm{E}(X)+\mathrm{E}(Y)
-\end{gathered}
-\]</span></p>
-<p><strong>Variable centrée</strong></p>
-<ul>
-<li>Si <span class="math inline">\(\mathrm{E}(X)=0\)</span> alors <span class="math inline">\(X\)</span> est une <strong>va centrée</strong></li>
-<li>la va <span class="math inline">\(Y=X-\mathrm{E}(X)\)</span> est la va centrée associée à <span class="math inline">\(X\)</span></li>
-</ul>
-</section>
-<section id="variance-dune-va" class="slide level2">
-<h2>Variance d’une va</h2>
-<h3 id="rappel-variance-dune-distribution">Rappel : variance d’une distribution</h3>
-
-<img data-src="https://cdn.mathpix.com/cropped/2025_09_17_68f9d5d55601c91876fcg-48.jpg?height=257&amp;width=498&amp;top_left_y=173&amp;top_left_x=115" class="r-stretch"><p>La variance d’une distribution mesure sa dispersion autour de sa moyenne</p>
-<h3 id="définition-cas-discret-ou-continu">Définition (cas discret ou continu)</h3>
-<p>Soit <span class="math inline">\(X\)</span> une va.</p>
-<p>La variance de <span class="math inline">\(X\)</span> se note <span class="math inline">\(\operatorname{var}(X)\)</span> ou <span class="math inline">\(\sigma_{X}^{2}\)</span> et est définie par :</p>
-<p><span class="math display">\[
-\sigma_X^2=\mathrm{E}\left((X-\mathrm{E}(X))^{2}\right)
-\]</span></p>
-</section>
-<section id="section-23" class="slide level2">
-<h2></h2>
-<p>Autre formule équivalente, plus pratique pour les calculs</p>
-<p><span class="math display">\[
-\sigma_X^2=\mathrm{E}\left(X^{2}\right)-\mathrm{E}(X)^{2}
-\]</span></p>
-<h3 id="propriétés-dune-variance">Propriétés d’une variance</h3>
-<ul>
-<li>Une variance est toujours positive (ou nulle)</li>
-<li>La variance n’est pas linéaire !</li>
-<li>Si <span class="math inline">\(\operatorname{var}(X)=1\)</span> alors <span class="math inline">\(X\)</span> est une va réduite</li>
-</ul>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><span class="math display">\[
-\begin{gathered}
-\operatorname{var}(a X)=a^{2} \operatorname{var}(X) \\
-\operatorname{var}(X+b)=\operatorname{var}(X)
-\end{gathered}
-\]</span></p>
-</div><div class="column" style="width:50%;">
-<p><span class="math display">\[
-\begin{gathered}
-\operatorname{var}(a X+b)=a^{2} \operatorname{var}(X) \\
-\operatorname{var}(X+Y)=\operatorname{var}(X)+\operatorname{var}(Y)
-\\+2 \operatorname{cov}(X, Y)
-\end{gathered}
-\]</span></p>
-</div></div>
-</section>
-<section id="écart-type-dune-variable-aléatoire" class="slide level2">
-<h2>Écart-type d’une variable aléatoire</h2>
-<h3 id="définition-3">Définition</h3>
-<p>Soit <span class="math inline">\(X\)</span> une va. L’écart-type de <span class="math inline">\(X\)</span> se note <span class="math inline">\(\sigma_{X}\)</span> et se définit par :</p>
-<p><span class="math display">\[
-\sigma_{X}=\sqrt{\operatorname{var}(X)}
-\]</span></p>
-<p>Intérêt : mesure de dispersion dans la même unité de mesure que <span class="math inline">\(X\)</span></p>
-</section>
-<section id="section-24" class="slide level2">
-<h2></h2>
-<h3 id="variable-centrée-réduite">Variable centrée réduite</h3>
-<p>Soit <span class="math inline">\(X\)</span> une variable aléatoire d’espérance <span class="math inline">\(\mathrm{E}(X)\)</span> et d’écart-type <span class="math inline">\(\sigma_{X}\)</span></p>
-<p><span class="math display">\[
-Z=\frac{X-E(X)}{\sigma_{X}}
-\]</span></p>
-<p><span class="math inline">\(Z\)</span> est la variable aléatoire centrée réduite associée à <span class="math inline">\(X\)</span></p>
-<ul>
-<li><span class="math inline">\(\displaystyle\mathrm{E}(Z)=\mathrm{E}\left(\frac{X-E(X)}{\sigma_{X}}\right)=\frac{1}{\sigma_{X}} \times(\mathrm{E}(X)-\mathrm{E}(X))=0\)</span></li>
-<li><span class="math inline">\(\displaystyle\operatorname{var}(Z)=\sigma_{Z}^{2}=\frac{1}{\sigma_{X}^{2}} \times \operatorname{var}(X-\mathrm{E}(X))=1\)</span></li>
-</ul>
+<section id="estimation-par-intervalle-de-confiance" class="slide level2">
+<h2>Estimation par intervalle de confiance</h2>
 </section></section>
-<section id="lois-classiques" class="title-slide slide level1 center">
-<h1>Lois classiques</h1>
-<ul>
-<li>Lois discrètes : Bernoulli et binomiale</li>
-<li>Lois continues : loi normale</li>
-</ul>
+<section id="tests-statistiques" class="title-slide slide level1 center">
+<h1>Tests statistiques</h1>
+<p>coming !</p>
+</section>
+
+<section id="analyse-factorielle" class="title-slide slide level1 center">
+<h1>Analyse factorielle</h1>
+<p>coming !</p>
 
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="img/Logo_ISTOM.png" class="slide-logo"></p>
 <div class="footer footer-default">
-
+<p><a href="https://ant0in3g.github.io/">Statistiques et analyse de données</a></p>
 </div>
 </div></div>
 
@@ -754,7 +949,7 @@ Z=\frac{X-E(X)}{\sigma_{X}}
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'jumpToSlide': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true,"width":"normal","numbers":false},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -775,7 +970,7 @@ Z=\frac{X-E(X)}{\sigma_{X}}
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: false,
+        slideNumber: 'c/t',
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',
@@ -900,9 +1095,9 @@ Z=\frac{X-E(X)}{\sigma_{X}}
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
-        width: 1050,
+        width: 1600,
 
-        height: 700,
+        height: 900,
 
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
