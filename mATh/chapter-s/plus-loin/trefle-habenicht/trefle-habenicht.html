@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Antoine Géré">
 
-<title>Trèfle de Habenicht </title>
+<title>Trèfle de Habenicht</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -105,14 +106,14 @@ window.Quarto = {
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
   <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">Table des matières</h2>
    
   <ul>
   <li><a href="#domaine-détude" id="toc-domaine-détude" class="nav-link active" data-scroll-target="#domaine-détude">Domaine d’étude</a></li>
+  <li><a href="#calcul-de-rhoprime" id="toc-calcul-de-rhoprime" class="nav-link" data-scroll-target="#calcul-de-rhoprime">Calcul de <span class="math inline">\(\rho^\prime\)</span></a></li>
   <li><a href="#etude-des-variations-de-rho" id="toc-etude-des-variations-de-rho" class="nav-link" data-scroll-target="#etude-des-variations-de-rho">Etude des variations de <span class="math inline">\(\rho\)</span></a></li>
-  <li><a href="#etudes-des-tangente" id="toc-etudes-des-tangente" class="nav-link" data-scroll-target="#etudes-des-tangente">Etudes des tangente</a></li>
+  <li><a href="#etude-des-tangentes-à-la-courbe" id="toc-etude-des-tangentes-à-la-courbe" class="nav-link" data-scroll-target="#etude-des-tangentes-à-la-courbe">Etude des tangentes à la courbe</a></li>
   <li><a href="#tracé" id="toc-tracé" class="nav-link" data-scroll-target="#tracé">Tracé</a></li>
-  <li><a href="#tracé-sur-r" id="toc-tracé-sur-r" class="nav-link" data-scroll-target="#tracé-sur-r">Tracé sur R</a></li>
   </ul>
 </nav>
 </div>
@@ -120,14 +121,26 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><p>Trèfle de Habenicht <a href="https://istom.fr/"><img src="img/LogoISTOMdc.png" class="img-fluid" style="width:0.6in"></a></p></h1>
+<h1 class="title">Trèfle de Habenicht</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Antoine Géré <a href="mailto:a.gere@istom.fr" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">27 novembre 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -137,53 +150,90 @@ window.Quarto = {
 </header>
 
 
-<p>Nous allons étudier le Trèfle de Habenicht définie par son équation polaire. Son équation polaire est <span class="math display">\[\rho = 1 +\cos\left(n\theta\right) + \sin^2\left(n\theta\right)\]</span> L’objectif est de tracer le <em>Trèfle de Habenicht</em> pour <span class="math inline">\(n = 3\)</span> ou <span class="math inline">\(n = 4\)</span>, selon la chance que espérée ! 🍀</p>
-<p>Nous choisirons ici de travailler dans le cas <span class="math inline">\(n=4\)</span>.</p>
+<hr>
+<p>Nous allons étudier le Trèfle de Habenicht définie par son équation polaire. Son équation polaire est <span class="math display">\[\rho = 1 +\cos\left(n\theta\right) + \sin^2\left(n\theta\right)\]</span> L’objectif est de tracer le <em>Trèfle de Habenicht</em> pour <span class="math inline">\(n = 3\)</span> ou <span class="math inline">\(n = 4\)</span>, selon la chance espérée ! 🍀</p>
+<p>Nous choisirons ici de travailler dans le cas “chanceux” 🍀 <span class="math inline">\(n=4\)</span>❗️</p>
 <section id="domaine-détude" class="level2">
 <h2 class="anchored" data-anchor-id="domaine-détude">Domaine d’étude</h2>
-<p>L’équation polaire est alors <span class="math display">\[\rho = 1 +\cos\left(4\theta\right) + \sin^2\left(4\theta\right)\]</span> Le domaine de définition est <span class="math display">\[D_1 = \mathbb{R}\]</span> On a <span class="math display">\[\rho\left(\theta+\frac{\pi}{2}\right) = 1 +\cos\left(4\theta + 2\pi\right) + \sin^2\left(4\theta + 2\pi\right) = 1 +\cos\left(4\theta\right) + \sin^2\left(4\theta\right)=\rho\left(\theta\right)\]</span> on peut alors affirmer que <span class="math inline">\(\rho\)</span> est périodique de période <span class="math inline">\(\dfrac{\pi}{2}\)</span>. On peut limiter l’étude à un intervalle d’amplitude <span class="math inline">\(\dfrac{\pi}{2}\)</span>. On completera par autant de rotations qu’il faut pour retomber sur l’arc de courbe initial.</p>
+<p>L’équation polaire est alors <span class="math display">\[\rho = 1 +\cos\left(4\theta\right) + \sin^2\left(4\theta\right)\]</span> Le domaine de définition est <span class="math display">\[D_1 = \mathbb{R}\]</span></p>
+<p>On remarque que <span class="math inline">\(\rho\)</span> est périodique de période <span class="math inline">\(\dfrac{\pi}{2}\)</span>. En effet on peut écire</p>
+<p><span class="math display">\[\begin{align*}
+\rho\left(\theta+\frac{\pi}{2}\right)
+&amp;= 1 +\cos\left(4\theta + 2\pi\right) + \sin^2\left(4\theta + 2\pi\right) \\
+&amp;= 1 +\cos\left(4\theta\right) + \sin^2\left(4\theta\right) \\
+&amp;=\rho\left(\theta\right)
+\end{align*}\]</span></p>
+<p>On peut alors limiter l’étude à un intervalle d’amplitude <span class="math inline">\(\dfrac{\pi}{2}\)</span>. On completera par autant de rotations qu’il faut pour retomber sur l’arc de courbe initial.</p>
 <p><span class="math display">\[D_2 = \left[-\dfrac{\pi}{4},\dfrac{\pi}{4}\right]\]</span> De plus on remarque que <span class="math inline">\(\rho\)</span> est paire en <span class="math inline">\(\theta\)</span>, c’est à dire <span class="math display">\[\rho\left(-\theta\right)=\rho\left(\theta\right)\]</span> Donc les point <span class="math inline">\(M_1\left(\rho,\theta\right)\)</span> et <span class="math inline">\(M_2\left(\rho,-\theta\right)\)</span> sont symétriques par rapport à l’axe des abscisses. On peut donc limiter l’étude à <span class="math display">\[D_3 = \left[0,\dfrac{\pi}{4}\right]\]</span></p>
+</section>
+<section id="calcul-de-rhoprime" class="level2">
+<h2 class="anchored" data-anchor-id="calcul-de-rhoprime">Calcul de <span class="math inline">\(\rho^\prime\)</span></h2>
+<p>On calcule la dérivée de <span class="math inline">\(\rho\)</span>. On a</p>
+<p><span class="math display">\[\rho\left(\theta\right)^\prime = 4\sin(4\theta) \left(2 \cos(4\theta) - 1 \right)\]</span></p>
+<p>Donc</p>
+<p><span class="math display">\[\rho\left(\theta\right)^\prime = 0 \ \Longleftrightarrow \theta = \left\{ 0 , \frac{\pi}{12} , \frac{\pi}{4} \right\}\]</span></p>
 </section>
 <section id="etude-des-variations-de-rho" class="level2">
 <h2 class="anchored" data-anchor-id="etude-des-variations-de-rho">Etude des variations de <span class="math inline">\(\rho\)</span></h2>
-<p>On calcule la dérivée de <span class="math inline">\(\rho\)</span>. On a</p>
-<p><span class="math display">\[\rho\left(\theta\right)^\prime = 4\sin(4\theta) \left(2 \cos(4\theta) - 1 \right)\]</span> Donc</p>
-<p><span class="math display">\[\rho\left(\theta\right)^\prime = 0 \ \Longleftrightarrow \theta = \left\{ 0 , \frac{\pi}{12} , \frac{\pi}{4} \right\}\]</span> donc</p>
-<p>Donc <span class="math display">\[\tan\left(V\right) = \frac{\rho}{\rho^\prime} = \frac{1 +\cos\left(4\theta\right) + \sin^2\left(4\theta\right)}{4\sin(4\theta) \left(2 \cos(4\theta) - 1 \right)}\]</span></p>
+<p><img src="img/tableau_de_variation.png" class="img-fluid"></p>
 </section>
-<section id="etudes-des-tangente" class="level2">
-<h2 class="anchored" data-anchor-id="etudes-des-tangente">Etudes des tangente</h2>
+<section id="etude-des-tangentes-à-la-courbe" class="level2">
+<h2 class="anchored" data-anchor-id="etude-des-tangentes-à-la-courbe">Etude des tangentes à la courbe</h2>
+<p>On peut à présent étudier les tangentes particulière en <span class="math display">\[\theta = \left\{ 0, \ \dfrac{\pi}{12}, \ \dfrac{\pi}{4}\right\}\]</span></p>
+<p><img src="img/angle_tangente_corube.png" class="img-fluid" style="width:60.0%"></p>
+<p>C’est langle <span class="math inline">\(V\)</span> (défini sur la figure ci-dessus) qui nous interesse. On a</p>
+<p><span class="math display">\[\tan\left(V\right) = \frac{\rho}{\rho^\prime}\]</span></p>
+<p>Donc</p>
+<p><span class="math display">\[\lim_{\theta \to 0 } \tan\left(V\right) = + \infty\]</span></p>
+<p><span class="math display">\[\lim_{\theta \to \frac{\pi}{12} } \tan\left(V\right) = + \infty\]</span></p>
+<p><span class="math display">\[\lim_{\theta \to \frac{\pi}{4}} \tan\left(V\right) = 0\]</span></p>
+<p>On a donc</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;"><span class="math inline">\(\rho\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\theta\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(V\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(M_0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{\pi}{2}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(M_1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{9}{4}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{\pi}{12}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{\pi}{12}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(M_2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{\pi}{4}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="tracé" class="level2">
 <h2 class="anchored" data-anchor-id="tracé">Tracé</h2>
-</section>
-<section id="tracé-sur-r" class="level2">
-<h2 class="anchored" data-anchor-id="tracé-sur-r">Tracé sur R</h2>
+<p>On trace cette corube avec <strong>R</strong>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Séquence d'angles</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">2</span><span class="sc">*</span>pi, <span class="at">length.out =</span> <span class="dv">1000</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Liste de valeurs de n</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>n_values <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>   <span class="co"># par exemple n = 1, 2, 3, 4, 5</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Préparation du graphique</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="at">type =</span> <span class="st">"n"</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">6</span>, <span class="dv">6</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">6</span>, <span class="dv">6</span>),</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"x"</span>, <span class="at">ylab =</span> <span class="st">"y"</span>, <span class="at">asp =</span> <span class="dv">1</span>,</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="fu">expression</span>(r <span class="sc">==</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span><span class="sc">*</span><span class="fu">sin</span>(<span class="dv">4</span><span class="sc">*</span>theta<span class="sc">*</span>n)))</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">grid</span>()</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Boucle sur les différentes valeurs de n</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>colors <span class="ot">&lt;-</span> <span class="fu">rainbow</span>(<span class="fu">length</span>(n_values))</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(n_values)) {</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> n_values[i]</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  r <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span> <span class="sc">*</span> <span class="fu">sin</span>(<span class="dv">4</span> <span class="sc">*</span> theta <span class="sc">*</span> n)</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> r <span class="sc">*</span> <span class="fu">cos</span>(theta)</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">&lt;-</span> r <span class="sc">*</span> <span class="fu">sin</span>(theta)</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lines</span>(x, y, <span class="at">col =</span> colors[i], <span class="at">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topright"</span>, <span class="at">legend =</span> <span class="fu">paste</span>(<span class="st">"n ="</span>, n_values),</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> colors, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">2</span><span class="sc">*</span>pi, <span class="at">length.out =</span> <span class="dv">1000</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>rho <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="fu">cos</span>(<span class="dv">4</span><span class="sc">*</span>theta) <span class="sc">+</span> <span class="fu">sin</span>(<span class="dv">4</span><span class="sc">*</span>theta)<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> rho <span class="sc">*</span> <span class="fu">cos</span>(theta)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> rho <span class="sc">*</span> <span class="fu">sin</span>(theta)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y, </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">type=</span><span class="st">"l"</span>, </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">asp=</span><span class="dv">1</span>,  </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span><span class="st">"Trèfle de Habenicht pour n=4"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -191,39 +241,30 @@ window.Quarto = {
 </figure>
 </div>
 </div>
+</div>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gganimate)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">2</span><span class="sc">*</span>pi, <span class="at">length.out =</span> <span class="dv">1000</span>)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Création des données pour plusieurs n</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">2</span><span class="sc">*</span>pi, <span class="at">length.out =</span> <span class="dv">500</span>)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>n_values <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>rho <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="fu">cos</span>(<span class="dv">4</span><span class="sc">*</span>theta) <span class="sc">+</span> <span class="fu">sin</span>(<span class="dv">4</span><span class="sc">*</span>theta)<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">theta =</span> theta, <span class="at">rho =</span> rho)</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, <span class="fu">lapply</span>(n_values, <span class="cf">function</span>(n) {</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  r <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span><span class="sc">*</span><span class="fu">sin</span>(<span class="dv">4</span><span class="sc">*</span>theta<span class="sc">*</span>n)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">theta =</span> theta,</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> n,</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> r<span class="sc">*</span><span class="fu">cos</span>(theta),</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> r<span class="sc">*</span><span class="fu">sin</span>(theta)</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>}))</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Création du graphique animé</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y, <span class="at">group =</span> n)) <span class="sc">+</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_path</span>(<span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_equal</span>() <span class="sc">+</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">expression</span>(r <span class="sc">==</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span><span class="sc">*</span><span class="fu">sin</span>(<span class="dv">4</span><span class="sc">*</span>theta<span class="sc">*</span>n)),</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"n = {frame_time}"</span>,</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"x"</span>, <span class="at">y =</span> <span class="st">"y"</span>) <span class="sc">+</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transition_time</span>(n) <span class="sc">+</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ease_aes</span>(<span class="st">'linear'</span>)</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="fu">animate</span>(p, <span class="at">fps =</span> <span class="dv">10</span>, <span class="at">nframes =</span> <span class="dv">100</span>, <span class="at">renderer =</span> <span class="fu">gifski_renderer</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> theta, <span class="at">y =</span> rho)) <span class="sc">+</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_path</span>(<span class="at">color =</span> <span class="st">"#1f77b4"</span>, <span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">"x"</span>) <span class="sc">+</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Trèfle de Habenicht pour n=4"</span>, <span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="trefle-habenicht_files/figure-html/unnamed-chunk-1-1.gif" class="img-fluid figure-img"></p>
+<p><img src="trefle-habenicht_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -232,6 +273,56 @@ window.Quarto = {
 
 </main>
 <!-- /main column -->
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+
+  // essaie plusieurs sélecteurs possibles pour trouver le TOC
+
+  const toc =
+
+    document.querySelector(".quarto-toc-container") ||
+
+    document.querySelector(".toc") ||
+
+    document.querySelector("nav#TOC") ||
+
+    document.querySelector(".sidebar nav");
+
+
+
+  if (toc) {
+
+    // Ajouter le logo avant le TOC
+
+    const logo = document.createElement("img");
+
+    logo.src = "img/Logo_simple_ISTOM_Couleurs_HD.png";
+
+    logo.style.cssText = "float:left;height:40px; margin-bottom: 1rem;";
+
+    toc.parentNode.insertBefore(logo, toc);
+
+    
+
+    // S'assurer que le TOC est sous le logo
+
+    toc.style.clear = "both";
+
+
+
+    toc.appendChild(div);
+
+  } else {
+
+    console.warn("TOC non trouvé — vérifie le thème ou la structure HTML");
+
+  }
+
+});
+
+</script>
+
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -275,12 +366,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Copié");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
+      button.setAttribute("data-bs-title", "Copié");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",

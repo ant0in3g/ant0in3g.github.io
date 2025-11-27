@@ -1,0 +1,25 @@
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // essaie plusieurs sélecteurs possibles pour trouver le TOC
+  const toc =
+    document.querySelector(".quarto-toc-container") ||
+    document.querySelector(".toc") ||
+    document.querySelector("nav#TOC") ||
+    document.querySelector(".sidebar nav");
+
+  if (toc) {
+    // Ajouter le logo avant le TOC
+    const logo = document.createElement("img");
+    logo.src = "img/Logo_simple_ISTOM_Couleurs_HD.png";
+    logo.style.cssText = "float:left;height:40px; margin-bottom: 1rem;";
+    toc.parentNode.insertBefore(logo, toc);
+    
+    // S'assurer que le TOC est sous le logo
+    toc.style.clear = "both";
+
+    toc.appendChild(div);
+  } else {
+    console.warn("TOC non trouvé — vérifie le thème ou la structure HTML");
+  }
+});
+</script>
