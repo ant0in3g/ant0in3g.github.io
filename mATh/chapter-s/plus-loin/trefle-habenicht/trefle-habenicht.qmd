@@ -91,7 +91,7 @@ On a donc
 
 ## Tracé
 
-On trace cette corube avec **R**.
+On trace cette courbe avec **R**.
 
 
 ```{r}
