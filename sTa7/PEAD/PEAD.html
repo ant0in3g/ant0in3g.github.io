@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Azanma Renaud Florentin, Inès Shili-Touzi et Antoine Géré">
-<meta name="dcterms.date" content="2025-10-08">
 
 <title>Première Expérience en Analyse de Données </title>
 <style>
@@ -44,18 +42,19 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
   <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">Table des matières</h2>
    
   <ul>
   <li><a href="#présentation" id="toc-présentation" class="nav-link active" data-scroll-target="#présentation">Présentation</a></li>
   <li><a href="#thématique" id="toc-thématique" class="nav-link" data-scroll-target="#thématique">Thématique</a></li>
   <li><a href="#progression" id="toc-progression" class="nav-link" data-scroll-target="#progression">Progression</a>
   <ul class="collapse">
-  <li><a href="#step-1---motiver-votre-travail" id="toc-step-1---motiver-votre-travail" class="nav-link" data-scroll-target="#step-1---motiver-votre-travail">Step 1 - Motiver votre travail</a></li>
-  <li><a href="#step-2---bases-de-données" id="toc-step-2---bases-de-données" class="nav-link" data-scroll-target="#step-2---bases-de-données">Step 2 - Bases de données</a></li>
+  <li><a href="#step-1---bases-de-données" id="toc-step-1---bases-de-données" class="nav-link" data-scroll-target="#step-1---bases-de-données">Step 1 - Bases de données</a></li>
+  <li><a href="#step-2---motiver-votre-travail" id="toc-step-2---motiver-votre-travail" class="nav-link" data-scroll-target="#step-2---motiver-votre-travail">Step 2 - Motiver votre travail</a></li>
   <li><a href="#step-3---statistique-descriptive" id="toc-step-3---statistique-descriptive" class="nav-link" data-scroll-target="#step-3---statistique-descriptive">Step 3 - Statistique descriptive</a></li>
-  <li><a href="#step-4---etablir-une-problématique" id="toc-step-4---etablir-une-problématique" class="nav-link" data-scroll-target="#step-4---etablir-une-problématique">Step 4 - Etablir une problématique</a></li>
+  <li><a href="#step-4---entretien-autour-dune-problématique" id="toc-step-4---entretien-autour-dune-problématique" class="nav-link" data-scroll-target="#step-4---entretien-autour-dune-problématique">Step 4 - Entretien autour d’une problématique</a></li>
   <li><a href="#step-5---tests-statistiques" id="toc-step-5---tests-statistiques" class="nav-link" data-scroll-target="#step-5---tests-statistiques">Step 5 - Tests statistiques</a></li>
+  <li><a href="#step-6---mise-en-forme-dune-synthèse" id="toc-step-6---mise-en-forme-dune-synthèse" class="nav-link" data-scroll-target="#step-6---mise-en-forme-dune-synthèse">Step 6 - Mise en forme d’une synthèse</a></li>
   </ul></li>
   <li><a href="#ressources" id="toc-ressources" class="nav-link" data-scroll-target="#ressources">Ressources</a></li>
   </ul>
@@ -73,16 +72,18 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     <div>
-    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading">Auteur·rice·s</div>
     <div class="quarto-title-meta-contents">
-             <p>Azanma Renaud Florentin, Inès Shili-Touzi et Antoine Géré </p>
+             <p>Azanma Renaud Florentin <a href="mailto:r.azanma@istom.fr" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+             <p>Inès Shili-Touzi <a href="mailto:a.gere@istom.fr" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+             <p>Antoine Géré <a href="mailto:i.shilitouzi@istom.fr" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
           </div>
   </div>
     
     <div>
-    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 8, 2025</p>
+      <p class="date">28 novembre 2025</p>
     </div>
   </div>
   
@@ -114,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 </div>
 <div id="second-column" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="https://ant0in3g.github.io/sTa7/TutoRetRStudio/index.html"><img src="img/R_RStudio_LogoS-rbg.png" class="img-fluid"></a></p>
+<p><img src="img/R_RStudio_LogoS-rbg.png" class="img-fluid"></p>
 </div>
 </div>
 </div>
@@ -158,36 +159,10 @@ Thématique 2025-2026
    text-align: right;
 }
 </style>
-<section id="step-1---motiver-votre-travail" class="level3">
-<h3 class="anchored" data-anchor-id="step-1---motiver-votre-travail">Step 1 - Motiver votre travail</h3>
+<section id="step-1---bases-de-données" class="level3">
+<h3 class="anchored" data-anchor-id="step-1---bases-de-données">Step 1 - Bases de données</h3>
 <div class="flushright">
-<p><strong>?? 2026</strong></p>
-</div>
-<p>Travail à faire :</p>
-<ul>
-<li><p>effectuer une recherche bibliographique sur la thématique du coton afin de motiver votre travail</p></li>
-<li><p>identifier 2 variables (au maximum) à travers des base de données open source, ce afin de comprendre le contexte de cette culture à travers des chiffres.</p></li>
-</ul>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Travail pour le ?? 2026.
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Nous vous demandons de vous organiser en groupes de travail en respectant vos groupes de TD. Pour chaque groupe de TD, nous devrons avoir 5 groupes de 4 étudiants et 1 groupe de 3 étudiants.</p>
-<p>Merci aux délégués de nous envoyer le tableau définitif avec nom et prénom des étudiants par sous groupes.</p>
-<p>Ce travail doit être fait pour au plus tard le 04 avril</p>
-</div>
-</div>
-</section>
-<section id="step-2---bases-de-données" class="level3">
-<h3 class="anchored" data-anchor-id="step-2---bases-de-données">Step 2 - Bases de données</h3>
-<div class="flushright">
-<p><strong>?? 2026</strong></p>
+<p><strong>Vendredi 28 Novembre 2026</strong></p>
 </div>
 <div>
 
@@ -195,21 +170,23 @@ Travail pour le ?? 2026.
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<p>Les bases de données ont été difusées à chaque <a href="https://istom-my.sharepoint.com/:t:/g/personal/a_gere_istom_fr/EZb1PCGBectIme-Y0ce8lJ0BduKhzCd0B02njVM2HAK15A?e=Yc78du">groupe</a> :</p>
+<p>Les bases de données ont été difusées à chaque <a href="">groupe</a> :</p>
 <p><br></p>
 <ul>
-<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-01_Bedari?csf=1&amp;web=1&amp;e=Bbaaxj">Groupe 1 - Bedari</a></li>
-<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-02_Bereke_Centre?csf=1&amp;web=1&amp;e=dsTXw5">Groupe 2 - Bereke Centre</a></li>
-<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-03_Beroubouay_Est?csf=1&amp;web=1&amp;e=WhpXh6">Groupe 3 - Beroubouay Est</a></li>
-<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-04_Bokobouerou?csf=1&amp;web=1&amp;e=zVU3jS">Groupe 4 - Bokobouerou</a></li>
-<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-05_Gamia_Est?csf=1&amp;web=1&amp;e=zO4Upd">Groupe 5 - Gamia Est</a></li>
-<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-06_Guessou_Nord?csf=1&amp;web=1&amp;e=1TeGUV">Groupe 6 - Guessou Nord</a></li>
-<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-07_Hangar_Peuhl?csf=1&amp;web=1&amp;e=VR9edS">Groupe 7 - Hangar Peuhl</a></li>
-<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-08_Ina_Gando?csf=1&amp;web=1&amp;e=1rlkoO">Groupe 8 - Ina Gando</a></li>
-<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-09_Kossou?csf=1&amp;web=1&amp;e=fIR90f">Groupe 9 - Kossou</a></li>
-<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-10_Pedarou?csf=1&amp;web=1&amp;e=AapMfT">Groupe 10 - Pedarou</a></li>
+<li><a href="">Groupe 1 - Bedari</a></li>
+<li><a href="">Groupe 2 - Bereke Centre</a></li>
+<li><a href="">Groupe 3 - Beroubouay Est</a></li>
+<li><a href="">Groupe 4 - Bokobouerou</a></li>
+<li><a href="">Groupe 5 - Gamia Est</a></li>
+<li><a href="">Groupe 6 - Guessou Nord</a></li>
+<li><a href="">Groupe 7 - Hangar Peuhl</a></li>
+<li><a href="">Groupe 8 - Ina Gando</a></li>
+<li><a href="">Groupe 9 - Kossou</a></li>
+<li><a href="">Groupe 10 - Pedarou</a></li>
 </ul>
 <p>Il vous est demandé de vous concentrer dans un premier temps sur l’année 2024.</p>
+<p><br></p>
+<p><strong>Votre dossier est un espace de travail, tous vos documents doivent y être déposé.</strong></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><a href="https://en.wikipedia.org/wiki/Benin"><img src="img/carte_benin.jpg" class="img-fluid"></a></p>
@@ -222,18 +199,18 @@ Travail pour le ?? 2026.
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Travail pour le ?? 2026.
+Travail à faire.
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Il vous est demandé de préparer votre base de données, comme sur cet <a href="https://istom-my.sharepoint.com/:x:/g/personal/a_gere_istom_fr/ETxcHfcs0gVDpaTqtPL31WUBc4jJSIc1LxH249iwu8TchA?e=BRLsFm">exemple</a>.</p>
+<p>Il vous est demandé de synchroniser votre base de données sur votre ordinateur personel, comme indiqué à ce <a href="https://ant0in3g.github.io/sTa7/orga.html">lien</a>.</p>
 </div>
 </div>
 </section>
-<section id="step-3---statistique-descriptive" class="level3">
-<h3 class="anchored" data-anchor-id="step-3---statistique-descriptive">Step 3 - Statistique descriptive</h3>
+<section id="step-2---motiver-votre-travail" class="level3">
+<h3 class="anchored" data-anchor-id="step-2---motiver-votre-travail">Step 2 - Motiver votre travail</h3>
 <div class="flushright">
-<p><strong>?? 2026</strong></p>
+<p><strong>Vendredi 28 Novembre 2026</strong></p>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -241,15 +218,32 @@ Travail pour le ?? 2026.
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Travail pour le ?? 2026.
+Travail pour février 2026.
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Il vous est demandé d’effectuer</p>
-<ul>
-<li>une analyse statistique descriptive univariée pour 2 variables de votre choix</li>
-<li>une analyse statistique descriptive bivariée pour 2 couples de variables de votre choix</li>
-</ul>
+<p>Réaliser une étude bibliographique sur la filière coton afin de justifier et contextualiser votre travail.</p>
+<p>La recherche devra être menée de manière progressive, en commençant par une analyse à l’échelle mondiale, puis en se focalisant sur la situation en Afrique, avant de terminer par le cas spécifique du Bénin.</p>
+<p>L’objectif est d’obtenir une vision globale de l’état actuel de la filière coton ainsi que des principaux enjeux économiques, sociaux et environnementaux associés.</p>
+</div>
+</div>
+</section>
+<section id="step-3---statistique-descriptive" class="level3">
+<h3 class="anchored" data-anchor-id="step-3---statistique-descriptive">Step 3 - Statistique descriptive</h3>
+<div class="flushright">
+<p><strong>Vendredi 28 Novembre 2026</strong></p>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Travail pour février 2026.
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>À partir de votre base de données, vous devez réaliser une analyse statistique descriptive, à la fois univariée et multivariée, afin de mettre en évidence les caractéristiques principales du jeu de données et de comprendre les dynamiques qui y sont présentes.</p>
 </div>
 </div>
 <p>Vous trouverez ci-dessous quelques ressources pour le traitement statistiques de données avec R sur RStudio.</p>
@@ -260,13 +254,32 @@ Travail pour le ?? 2026.
 <li><a href="https://helios2.mi.parisdescartes.fr/~vperduca/cours/programmation/R2_stat_desc_graphs.pdf">ressource paris descartes</a></li>
 </ul>
 </section>
-<section id="step-4---etablir-une-problématique" class="level3">
-<h3 class="anchored" data-anchor-id="step-4---etablir-une-problématique">Step 4 - Etablir une problématique</h3>
-<p>A la suite de votre analyse statistique descriptive, il vous est demandé de formuler une problématique, que vous devrez comuniquer à Mme Shili-Touzi.</p>
+<section id="step-4---entretien-autour-dune-problématique" class="level3">
+<h3 class="anchored" data-anchor-id="step-4---entretien-autour-dune-problématique">Step 4 - Entretien autour d’une problématique</h3>
+<div class="flushright">
+<p><strong>Prenière séance PEAD – Février 2026</strong></p>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Travail pour février 2026.
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Vous présenterez votre revue bibliographique et votre analyse statistique descriptive à Mme Shili-Touzi lors d’une rencontre d’environ 30 minutes, prévue en février 2026, afin d’échanger avec elle et de préciser la problématique à retenir.</p>
+</div>
+</div>
 </section>
 <section id="step-5---tests-statistiques" class="level3">
 <h3 class="anchored" data-anchor-id="step-5---tests-statistiques">Step 5 - Tests statistiques</h3>
-<p>Réaliser des tests statistiques sur RStudio afin de répondre à votre problématique.</p>
+<p>more details coming soon.</p>
+</section>
+<section id="step-6---mise-en-forme-dune-synthèse" class="level3">
+<h3 class="anchored" data-anchor-id="step-6---mise-en-forme-dune-synthèse">Step 6 - Mise en forme d’une synthèse</h3>
+<p>more details coming soon.</p>
 </section>
 </section>
 <section id="ressources" class="level2">
@@ -327,12 +340,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Copié");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
+      button.setAttribute("data-bs-title", "Copié");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",
