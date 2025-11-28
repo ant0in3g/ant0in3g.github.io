@@ -33,6 +33,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="PEAD_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="PEAD_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="PEAD_files/libs/bootstrap/bootstrap-1bc8a17f135ab3d594c857e9f48e611b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="PEAD_files/libs/quarto-diagram/mermaid.min.js"></script>
+<script src="PEAD_files/libs/quarto-diagram/mermaid-init.js"></script>
+<link href="PEAD_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 </head>
@@ -46,7 +49,10 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#présentation" id="toc-présentation" class="nav-link active" data-scroll-target="#présentation">Présentation</a></li>
-  <li><a href="#thématique" id="toc-thématique" class="nav-link" data-scroll-target="#thématique">Thématique</a></li>
+  <li><a href="#thématique" id="toc-thématique" class="nav-link" data-scroll-target="#thématique">Thématique</a>
+  <ul class="collapse">
+  <li><a href="#filière-du-coton-et-présentation-de-la-thèse" id="toc-filière-du-coton-et-présentation-de-la-thèse" class="nav-link" data-scroll-target="#filière-du-coton-et-présentation-de-la-thèse">Filière du coton et présentation de la thèse</a></li>
+  </ul></li>
   <li><a href="#progression" id="toc-progression" class="nav-link" data-scroll-target="#progression">Progression</a>
   <ul class="collapse">
   <li><a href="#step-1---bases-de-données" id="toc-step-1---bases-de-données" class="nav-link" data-scroll-target="#step-1---bases-de-données">Step 1 - Bases de données</a></li>
@@ -132,7 +138,7 @@ Thématique 2025-2026
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Pour cette année, nous avons choisi de travailler avec vous sur la culture du <strong>coton</strong> dans le contexte agricole du Benin. Les données sont issues du travail de thèse de Azanma Renaud Florentin.</p>
+<p>Pour cette année, nous avons choisi de travailler avec vous sur la culture du <strong>coton</strong> dans le contexte agricole du Benin. <strong>Les données sont issues du travail de thèse de Azanma Renaud Florentin</strong>.</p>
 </div>
 </div>
 <div>
@@ -151,14 +157,74 @@ Thématique 2025-2026
 </div>
 </div>
 </div>
+<p><br></p>
+<section id="filière-du-coton-et-présentation-de-la-thèse" class="level3">
+<h3 class="anchored" data-anchor-id="filière-du-coton-et-présentation-de-la-thèse">Filière du coton et présentation de la thèse</h3>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-fig-width="6" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-mermaid" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mermaid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-mermaid">flowchart TD
+    A[Producteurs] --&gt; B{Coopératives}
+    B --&gt; C(Union communale&lt;br&gt; de coopératives)
+    C --&gt; D(Fédération&lt;br&gt;nationale)
+    D --&gt; E(AIC)
+    B --&gt; G[Usines] ---&gt; E(AIC)
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mermaid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Organisation de la filière coton au Bénin. L’AIC désigne l’association interprofessionnelle du coton.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p>La thèse de Renaud s’inscrit dans le cadre de la filière cotonnière au Bénin. Elle est menée conjointement à l’<strong>Université de Parakou</strong> et à l’<strong>ISTOM</strong>.</p>
+<p><strong>Titre de la thèse</strong></p>
+<p><em>Analyse et caractérisation des systèmes de culture du coton à haute performance pour une conception de systèmes plus durables et économiquement viables au Bénin.</em></p>
+<p><strong>Encadrants</strong></p>
+<ul>
+<li>Prof.&nbsp;Hugues Kossi BAIMEY – Université de Parakou</li>
+<li>Marc Oswald – ISTOM</li>
+<li>Ines SHILI-TOUZI – ISTOM</li>
+</ul>
+<p><strong>Défis majeurs de la filière</strong></p>
+<ul>
+<li>Assurer une amélioration durable de la fertilité des sols et des rendements en coton.</li>
+<li>Réduire l’usage des engrais et pesticides chimiques afin de limiter les impacts environnementaux.</li>
+<li>Adapter les systèmes de production cotonniers aux changements climatiques.</li>
+</ul>
+</div>
+</div>
+<p><strong>Objectifs et positionnement de la thèse</strong></p>
+<ul>
+<li>Caractériser les systèmes agricoles cotonniers à haute productivité</li>
+<li>Identifier et analyser les exploitations les plus performantes</li>
+</ul>
+<p><strong>Pourquoi se concentrer sur les exploitations à haute performance ?</strong></p>
+<p>Les exploitations à haute performance représentent un potentiel encore peu exploité au Bénin :</p>
+<ul>
+<li><p>Selon la litérature certaines exploitations atteignent des rendements presque doublés (jusqu’à 2000 kg/ha ou plus) (Westerberg et al., 2017 ; Aifa, 2022).</p></li>
+<li><p>Ces exploitations restent marginales et peu étudiées, mais elles sont considérées comme des modèles de production au sein des coopératives cotonnières.</p></li>
+<li><p>Les pratiques mises en œuvre par ces agriculteurs méritent d’être analysées pour :</p>
+<ul>
+<li>Identifier les pratiques les plus performantes, tant sur le plan économique qu’agro-environnemental.</li>
+<li>Comprendre les facteurs de réussite et les stratégies permettant de maintenir ces performances dans le temps.</li>
+</ul></li>
+</ul>
+<p><strong>Finalité</strong></p>
+<p>Les résultats visent à <strong>concevoir des systèmes de culture du coton durables et économiquement viables</strong>, capables de répondre aux principaux défis de la filière cotonnière au Bénin.</p>
+</section>
 </section>
 <section id="progression" class="level2">
 <h2 class="anchored" data-anchor-id="progression">Progression</h2>
-<style>
-.flushright {
-   text-align: right;
-}
-</style>
 <section id="step-1---bases-de-données" class="level3">
 <h3 class="anchored" data-anchor-id="step-1---bases-de-données">Step 1 - Bases de données</h3>
 <div class="flushright">
@@ -170,21 +236,21 @@ Thématique 2025-2026
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<p>Les bases de données ont été difusées à chaque <a href="">groupe</a> :</p>
+<p>Les bases de données ont été difusées à chaque <a href="https://istom-my.sharepoint.com/:t:/g/personal/a_gere_istom_fr/IQCW9TwhgXnLSJnvmNHHvJSdARwxw-c_GTzAmCvFOlW9BOs?e=Ak3x8E">groupe</a> :</p>
 <p><br></p>
 <ul>
-<li><a href="">Groupe 1 - Bedari</a></li>
-<li><a href="">Groupe 2 - Bereke Centre</a></li>
-<li><a href="">Groupe 3 - Beroubouay Est</a></li>
-<li><a href="">Groupe 4 - Bokobouerou</a></li>
-<li><a href="">Groupe 5 - Gamia Est</a></li>
-<li><a href="">Groupe 6 - Guessou Nord</a></li>
-<li><a href="">Groupe 7 - Hangar Peuhl</a></li>
-<li><a href="">Groupe 8 - Ina Gando</a></li>
-<li><a href="">Groupe 9 - Kossou</a></li>
-<li><a href="">Groupe 10 - Pedarou</a></li>
+<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-01_Bedari?csf=1&amp;web=1&amp;e=5HiZk7">Groupe 1 - Bedari</a></li>
+<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-02_Bereke_Centre?csf=1&amp;web=1&amp;e=LnPqxO">Groupe 2 - Bereke Centre</a></li>
+<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-03_Beroubouay_Est?csf=1&amp;web=1&amp;e=L2Crbg">Groupe 3 - Beroubouay Est</a></li>
+<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-04_Bokobouerou?csf=1&amp;web=1&amp;e=OpTSTu">Groupe 4 - Bokobouerou</a></li>
+<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-05_Gamia_Est?csf=1&amp;web=1&amp;e=UUAknO">Groupe 5 - Gamia Est</a></li>
+<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-06_Hangar_Peulh?csf=1&amp;web=1&amp;e=7mV3gm">Groupe 6 - Hangar Peuh</a></li>
+<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-07_Ina_Gando?csf=1&amp;web=1&amp;e=BUelTb">Groupe 7 - Ina Gando</a></li>
+<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-08_Kassarou?csf=1&amp;web=1&amp;e=54edNL">Groupe 8 - Kassarou</a></li>
+<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-09_Kossou?csf=1&amp;web=1&amp;e=j7Tm0C">Groupe 9 - Kossou</a></li>
+<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-10_Pedarou?csf=1&amp;web=1&amp;e=rMg0HP">Groupe 10 - Pedarou</a></li>
+<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-11_Sissigourou?csf=1&amp;web=1&amp;e=kzOUby">Groupe 11 - Sissigourou</a></li>
 </ul>
-<p>Il vous est demandé de vous concentrer dans un premier temps sur l’année 2024.</p>
 <p><br></p>
 <p><strong>Votre dossier est un espace de travail, tous vos documents doivent y être déposé.</strong></p>
 </div>
@@ -206,6 +272,59 @@ Travail à faire.
 <p>Il vous est demandé de synchroniser votre base de données sur votre ordinateur personel, comme indiqué à ce <a href="https://ant0in3g.github.io/sTa7/orga.html">lien</a>.</p>
 </div>
 </div>
+<p><br></p>
+<section id="elaboration-des-bases-de-données" class="level4">
+<h4 class="anchored" data-anchor-id="elaboration-des-bases-de-données">Elaboration des bases de données</h4>
+<p><strong>Bases de données par coopératives</strong></p>
+<ul>
+<li>Référencement selon la carte administrative.<br>
+</li>
+<li>Intégration des données issues des sondages réalisés dans les coopératives.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><strong>Objectifs du sondage</strong></p>
+<ul>
+<li>Évaluer la dynamique de production des cotonculteurs.</li>
+<li>Identifier les différents profils de bons producteurs de coton.</li>
+<li>Comprendre la diversité des exploitations cotonnières dans la zone d’étude.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div><div class="column" style="width:55%;">
+<p><img src="img/sondage_coop_3.png" class="img-fluid" width="300"></p>
+</div>
+</div>
+<p><strong>Données utilisées</strong></p>
+<ul>
+<li>Cahiers de 79 coopératives sur 83 de la commune de Bembèrèkè (11 ont été choisies).</li>
+<li>Cahiers de crédits intrants : quantités d’engrais, herbicides, insecticides, et superficies en coton.</li>
+<li>Cahiers d’achats de coton-graine : production, prix des intrants, revenus et dettes.</li>
+</ul>
+<p><strong>Zone de sondage : Bembèrèkè</strong></p>
+<ul>
+<li>Située entre 8°30’ et 10°45’ de latitude Nord.</li>
+<li>Climat soudano-sahélien avec une seule saison des pluies de 80 à 110 jours.</li>
+<li>Pluviométrie annuelle : 600 à 950 mm.</li>
+<li>Cultures dominantes : céréales (maïs, sorgho, mil), coton, soja et igname.</li>
+<li>Deuxième zone de production de coton du pays.</li>
+<li>Terres cultivées généralement peu fertiles et très sensibles au lessivage.</li>
+<li>481 coopératives recensées (AIC, 2019).</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><strong>Constitution de la base de données</strong></p>
+<ul>
+<li>Collecte et photographie des différents cahiers des coopératives.</li>
+<li>Sélection de 11 coopératives sur la base de la disponibilité des cahiers couvrant les trois dernières campagnes cotonnières (2022, 2023 et 2024).</li>
+<li>Saisie des données des cahiers dans Excel pour traitement et analyse.</li>
+</ul>
+</div><div class="column" style="width:60%;">
+<p>&nbsp;</p>
+<p><img src="img/sondage_coop_5.png" class="img-fluid" width="320"></p>
+</div>
+</div>
+</section>
 </section>
 <section id="step-2---motiver-votre-travail" class="level3">
 <h3 class="anchored" data-anchor-id="step-2---motiver-votre-travail">Step 2 - Motiver votre travail</h3>
@@ -293,6 +412,9 @@ Travail pour février 2026.
 <li><p><a href="https://data.worldbank.org/">World Bank Open Data</a></p></li>
 <li><p><a href="https://ec.europa.eu/eurostat/data/database">Eurostat</a></p></li>
 </ul>
+<p><br></p>
+<hr>
+<p><span class="smallcaps">Mise en forme par Antoine Géré.</span></p>
 </section>
 
 </main>
