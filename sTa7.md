@@ -20,7 +20,7 @@ Vous retrouverez [**ici**](sTa7/orga.md) l'organisation de ce cours.
 >
 > - 2ème année : [**P**remière **E**xpérience en **A**nalyse de **D**onnées (PEAD)](./sTa7/PEAD/PEAD.html)
 >
-> - 3ème année : [**P**rojet d'**I**nitiation à la **D**émarche **Ex**périmentale (PIDEx)](./sTa7/PIDEx/PIDEx.html)
+> - 3ème année : [**P**rojet d'**I**nitiation à la **D**émarche **Ex**périmentale (PIDEx)](./sTa7/PIDEx/index.html)
 >
 > Les **sujets d'examens** donnés sont disponible sur cette [**page**](./sTa7/examens.md/)
 >
