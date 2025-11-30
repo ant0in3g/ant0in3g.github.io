@@ -37,6 +37,35 @@ ul.task-list li input[type="checkbox"] {
 <script src="PEAD_files/libs/quarto-diagram/mermaid-init.js"></script>
 <link href="PEAD_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -81,15 +110,15 @@ ul.task-list li input[type="checkbox"] {
     <div class="quarto-title-meta-heading">Auteur·rice·s</div>
     <div class="quarto-title-meta-contents">
              <p>Azanma Renaud Florentin <a href="mailto:r.azanma@istom.fr" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
-             <p>Inès Shili-Touzi <a href="mailto:a.gere@istom.fr" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
-             <p>Antoine Géré <a href="mailto:i.shilitouzi@istom.fr" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+             <p>Inès Shili-Touzi <a href="mailto:i.shilitouzi@istom.fr" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+             <p>Antoine Géré <a href="mailto:a.gere@istom.fr" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
           </div>
   </div>
     
     <div>
     <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">28 novembre 2025</p>
+      <p class="date">30 novembre 2025</p>
     </div>
   </div>
   
@@ -331,6 +360,21 @@ Travail à faire.
 <div class="flushright">
 <p><strong>Vendredi 28 Novembre 2026</strong></p>
 </div>
+<p>Pour la rédaction de votre étude bibliographique, vous utiliserez <strong>Quarto</strong> avec <strong>RStudio</strong>.</p>
+<p>Une première vidéo vous présente <strong>Quarto</strong> : son rôle, son fonctionnement et la manière de créer et organiser un document (structure, sections, export en PDF/HTML, etc.).</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/w5vBoaN6t-M?si=Ict_6VCCX6KU4QJ2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+<p>Une deuxième vidéo explique <strong>comment gérer les citations et la bibliographie</strong> (fichier <code>.bib</code>, insertion de références, format des citations dans le texte, génération automatique de la bibliographie).</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/w3X76e_tZr8?si=Gpl_B4sKzmcsbImc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+<p><strong>Quelques bases de Quarto :</strong></p>
+<ul>
+<li>Un document Quarto porte l’extension <code>.qmd</code> (Quarto Markdown).</li>
+<li>Il commence par un en-tête (YAML) où l’on définit le titre, l’auteur, la date et le format de sortie (HTML, PDF, Word…). <span class="math inline">\(\to\)</span> <strong>déjà fait !</strong></li>
+<li>Le texte est rédigé en <strong>Markdown</strong> (titres avec #, listes, tableaux, etc.)</li>
+<li>Le code R peut être inséré dans des <em>chunks</em> pour produire des graphiques ou des analyses.</li>
+<li>Les références bibliographiques sont gérées à partir d’un fichier <code>.bib</code>.</li>
+</ul>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
