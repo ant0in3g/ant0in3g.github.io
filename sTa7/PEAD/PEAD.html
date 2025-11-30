@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Première Expérience en Analyse de Données </title>
+<title>Première Expérience en Analyse de Données</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -99,7 +99,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><p>Première Expérience en Analyse de Données <a href="https://istom.fr/"><img src="img/LogoISTOMdc.png" class="img-fluid" style="width:0.6in"></a></p></h1>
+<h1 class="title">Première Expérience en Analyse de Données</h1>
 </div>
 
 
@@ -109,7 +109,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Auteur·rice·s</div>
     <div class="quarto-title-meta-contents">
-             <p>Azanma Renaud Florentin <a href="mailto:r.azanma@istom.fr" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+             <p>Renaud Florentin Azanma <a href="mailto:r.azanma@istom.fr" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
              <p>Inès Shili-Touzi <a href="mailto:i.shilitouzi@istom.fr" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
              <p>Antoine Géré <a href="mailto:a.gere@istom.fr" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
           </div>
@@ -167,7 +167,7 @@ Thématique 2025-2026
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Pour cette année, nous avons choisi de travailler avec vous sur la culture du <strong>coton</strong> dans le contexte agricole du Benin. <strong>Les données sont issues du travail de thèse de Azanma Renaud Florentin</strong>.</p>
+<p>Pour cette année, nous avons choisi de travailler avec vous sur la culture du <strong>coton</strong> dans le contexte agricole du Benin. <strong>Les données sont issues du travail de thèse de Renaud Florentin Azanma</strong>.</p>
 </div>
 </div>
 <div>
@@ -413,6 +413,7 @@ Travail pour février 2026.
 <ul>
 <li><p><a href="https://youtu.be/NG94JHsh9oA?feature=shared">vidéo youtube interessante</a></p></li>
 <li><p><a href="https://odr.inrae.fr/intranet/carto/cartowiki/index.php/Statistiques_descriptives_avec_R">ressource inrae</a></p></li>
+<li><p><a href="https://delladata.fr/decrire-description-descriptives/">tTutoriel analyse statistique descriptive avec R</a></p></li>
 <li><p><a href="https://larmarange.github.io/analyse-R/statistique-bivariee.html">page du site web analyse-R</a></p></li>
 <li><p><a href="https://helios2.mi.parisdescartes.fr/~vperduca/cours/programmation/R2_stat_desc_graphs.pdf">ressource paris descartes</a></p></li>
 <li><p><a href="https://r-graph-gallery.com/">The R Graph Gallery</a></p></li>
@@ -464,6 +465,136 @@ Travail pour février 2026.
 
 </main>
 <!-- /main column -->
+<style>
+
+.pdf-download-in-toc {
+
+  text-align: center;
+
+  margin-top: 1rem;
+
+}
+
+
+
+.pdf-download-in-toc a {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.4em;
+
+  padding: 0.4em 0.8em;
+
+  background-color: #f5f5f5;
+
+  border-radius: 8px;
+
+  text-decoration: none;
+
+  font-size: 0.9em;
+
+  color: #333;
+
+  transition: background-color 0.2s ease;
+
+}
+
+
+
+.pdf-download-in-toc a:hover {
+
+  background-color: #e0e0e0;
+
+}
+
+
+
+.pdf-download-in-toc svg {
+
+  width: 18px;
+
+  height: 18px;
+
+  fill: currentColor;
+
+}
+
+</style>
+
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+
+  // essaie plusieurs sélecteurs possibles pour trouver le TOC
+
+  const toc =
+
+    document.querySelector(".quarto-toc-container") ||
+
+    document.querySelector(".toc") ||
+
+    document.querySelector("nav#TOC") ||
+
+    document.querySelector(".sidebar nav");
+
+
+
+  if (toc) {
+
+    // Ajouter le logo avant le TOC
+
+    const logo = document.createElement("img");
+
+    logo.src = "img/Logo_simple_ISTOM_Couleurs_HD.png";
+
+    logo.style.cssText = "float:left;height:60px; margin-bottom: 1rem;";
+
+    toc.parentNode.insertBefore(logo, toc);
+
+    
+
+    // S'assurer que le TOC est sous le logo
+
+    toc.style.clear = "both";
+
+
+
+    // Ajouter le bouton PDF
+
+    const div = document.createElement("div");
+
+    div.className = "pdf-download-in-toc";
+
+    div.innerHTML = `
+
+      <a href="doc/Presentation_Renaud_ISTOM_VF2.pdf" target="_blank">
+
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+
+          <path d="M12 16l4-5h-3V4h-2v7H8l4 5zm8 2H4v2h16v-2z"/>
+
+        </svg>
+
+        Présentation Renaud</a>
+
+    `;
+
+    toc.appendChild(div);
+
+  } else {
+
+    console.warn("TOC non trouvé — vérifie le thème ou la structure HTML");
+
+  }
+
+});
+
+</script>
+
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
