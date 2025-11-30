@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Timeline — PIDEx</title>
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --accent:#6ee7b7; --muted:#94a3b8; --glass: rgba(255,255,255,0.04);
+      --card-radius:16px;
+    }
+    *{box-sizing:border-box}
+    body{font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0; 
+  background: #f9fafb;
+  color: #111827; -webkit-font-smoothing:antialiased}
+    .wrap{max-width:980px;margin:20px auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    h1{font-size:20px;margin:0 0 2px 0}
+    p.lead{margin:0;color:#1f2937}
+
+    .controls{display:flex;gap:8px;align-items:center}
+    .btn{background:var(--accent);color:#072023;border:none;padding:8px 12px;border-radius:10px;font-weight:600;cursor:pointer}
+    .btn.ghost{background:transparent;color:var(--accent);border:1px solid rgba(110,231,183,0.12)}
+
+    .timeline{position:relative;margin-top:28px;padding-left:28px}
+    .timeline:before{content:"";position:absolute;left:12px;top:0;bottom:0;width:4px;background:linear-gradient(180deg, #40825C, transparent);border-radius:4px}
+
+    .item{position:relative;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:14px 16px;margin:18px 0;border-radius:12px;border:1px solid rgba(255,255,255,0.03);box-shadow: 0 6px 18px rgba(2,6,23,0.6)}
+    .item .dot{position:absolute;left:-36px;top:18px;width:44px;height:44px;border-radius:12px;background:var(--card);display:flex;align-items:center;justify-content:center;border:4px solid var(--glass)}
+    .item .dot span{font-size:14px;color:#00D147;font-weight:700}
+    .item h3{margin:0 0 6px 0;font-size:16px}
+    .meta{font-size:13px;color:#4b5563;margin-bottom:8px}
+    .desc{color:#374151;font-size:14px;line-height:1.45}
+    a.link{color:#1d4ed8;font-weight:600;text-decoration:none}
+
+    /* small */
+    @media (max-width:640px){.wrap{margin:18px;padding:16px} .item{padding:12px} .item .dot{left:-46px}}
+
+    /* print */
+    @media print{body{background:white;color:black} .timeline:before{background:#bbb} .btn,.controls{display:none}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <p class="lead">Vue chronologique des étapes importantes</p>
+      </div>
+    </header>
+
+    <main>
+      <section class="timeline" id="timeline">
+
+        <article class="item">
+          <div class="dot"><span>1</span></div>
+          <h3>Présentation de l'exercice PIDEx</h3>
+          <div class="meta">Lundi 6 octobre 2025</div>
+          <div class="desc">Présentation générale de l'exercice PIDEx en amphithéâtre — objectifs, livrables et calendrier.</div>
+        </article>
+
+        <article class="item">
+          <div class="dot"><span>2</span></div>
+          <h3>Composition des groupes</h3>
+          <div class="meta">Vendredi 10 octobre 2025</div>
+          <div class="desc">Annonce et publication officielle de la composition des groupes de travail.</div>
+        </article>
+
+        <article class="item">
+          <div class="dot"><span>3</span></div>
+          <h3>Intervention — Bibliothèque Universitaire d'Angers</h3>
+          <div class="meta">Date : à définir</div>
+          <div class="desc">Session d'initiation à la recherche documentaire, ressources numériques et dépôt institutionnel. (Coordination avec la BU d'Angers)</div>
+        </article>
+
+        <article class="item">
+          <div class="dot"><span>4</span></div>
+          <h3>Dépôt de la note bibliographique</h3>
+          <div class="meta">Vendredi 14 novembre 2025</div>
+          <div class="desc">Remise de la note bibliographique via le formulaire de dépôt — <a class="link" href="https://forms.office.com/e/AFGtGmLds6" target="_blank" rel="noopener">Lien pour le dépôt</a>.</div>
+        </article>
+
+        <article class="item">
+          <div class="dot"><span>…</span></div>
+          <h3>Étapes suivantes</h3>
+          <div class="meta">Autres jalons</div>
+          <div class="desc">Ajoutez ici d'autres étapes (réunions intermédiaires, soutenances, livrables finaux, etc.).</div>
+        </article>
+
+      </section>
+    </main>
+
+  </div>
+
+  <script>
+    // Téléchargement simple du HTML actuel
+    document.getElementById('downloadBtn').addEventListener('click', ()=>{
+      const html = '<!doctype html>\n' + document.documentElement.outerHTML;
+      const blob = new Blob([html], {type: 'text/html'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'timeline-pidex.html';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    });
+
+    document.getElementById('printBtn').addEventListener('click', ()=> window.print());
+  </script>
+</body>
+</html>
