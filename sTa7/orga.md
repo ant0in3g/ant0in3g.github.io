@@ -2,14 +2,30 @@
 
 ### Table des matières
 
- - [Semestre 1](#semestre-1)
- - [Semestre 2](#semestre-2)
- - [Semestre 3](#semestre-3)
- - [Semestre 4](#semestre-4)
- - [Semestre 5 (optionnel)](#semestre-5)
- - [Examens et corrections](#examens-et-corrections)
- - [Corrections supplémentaires](#corrections-supplémentaires)
- - [Pour aller plus loin](#pour-aller-plus-loin)
+- [Organisation pratique](#organisation-pratique)
+  - [Table des matières](#table-des-matières)
+  - [Dossier OneDrive](#dossier-onedrive)
+    - [Étapes de synchronisation d’un dossier partagé OneDrive sur Windows ou Mac](#-étapes-de-synchronisation-dun-dossier-partagé-onedrive-sur-windows-ou-mac)
+    - [Usage si vous travaillez sur un ordinateur de l'école](#usage-si-vous-travaillez-sur-un-ordinateur-de-lécole)
+    - [Convention sur la synchronisation des documents et dossiers sur OneDrive](#convention-sur-la-synchronisation-des-documents-et-dossiers-sur-onedrive)
+  - [Tutorial à R et RStudio](#tutorial-à-r-et-rstudio)
+    - [Installation de R](#installation-de-r)
+    - [Installation de RStudio](#installation-de-rstudio)
+    - [Configuration de RStudio](#configuration-de-rstudio)
+    - [Les projets avec RStudio](#les-projets-avec-rstudio)
+    - [Script R](#script-r)
+    - [Script Quarto](#script-quarto)
+    - [Obtenir de l’aide sur R](#obtenir-de-laide-sur-r)
+    - [Quelques premières notions](#quelques-premières-notions)
+    - [Les différents types de données](#les-différents-types-de-données)
+    - [Importer des données dans RStudio](#importer-des-données-dans-rstudio)
+    - [Modifier et exporter des données importées dans RStudio](#modifier-et-exporter-des-données-importées-dans-rstudio)
+    - [Les fonctions](#les-fonctions)
+    - [Conditions, boucles](#conditions-boucles)
+      - [If ... Else](#if--else)
+      - [Nested If](#nested-if)
+      - [AND, OR](#and-or)
+      - [Loops](#loops)
 
 ### Dossier OneDrive
 
