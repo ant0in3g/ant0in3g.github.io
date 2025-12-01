@@ -1,4 +1,4 @@
-
+## Organisation pratique 
 
 ### Table des matières
 
@@ -11,13 +11,15 @@
  - [Corrections supplémentaires](#corrections-supplémentaires)
  - [Pour aller plus loin](#pour-aller-plus-loin)
 
+### Dossier OneDrive
+
 Afin de faciliter notre travail en travaux dirigés, je vous partage un dossier OneDrive.
 
 ![image](./img/onedrive-orga.png)  
 
 Il vous est demandé de synchroniser ce dossier OneDrive sur votre ordinateur personel.nnnn
 
-###  Étapes de synchronisation d’un dossier partagé OneDrive sur Windows ou Mac
+####  Étapes de synchronisation d’un dossier partagé OneDrive sur Windows ou Mac
 
 <iframe width="448" height="252" src="https://www.youtube.com/embed/8WC7iClUH3k?si=Na52qqPlQ4LC4wWx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -45,13 +47,13 @@ Il vous est demandé de synchroniser ce dossier OneDrive sur votre ordinateur pe
 - Dans le menu de gauche, il va apparaitre une rubrique ISTOM
 - Le fichier sera alors présent dans cette rubrique ISTOM
 
-### Usage si vous travaillez sur un ordinateur de l'école
+#### Usage si vous travaillez sur un ordinateur de l'école
 
 Si vous travaillez sur un ordinateur de l'école, dans ce cas il est plus pratique de créer un raccourci du dossier partagé sur votre OneDrive ISTOM. La démarche à suivre est très bien expliquée sur cette vidéo.
 
 <iframe width="448" height="252" src="https://www.youtube.com/embed/BiirNtobNxE?si=wIsy5cV5-5UH9b7R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-### Convention sur la synchronisation des documents et dossiers sur OneDrive
+#### Convention sur la synchronisation des documents et dossiers sur OneDrive
 
 ![image](./img/convention-OneDrive.png)  
 
