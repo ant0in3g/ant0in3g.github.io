@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -30,7 +50,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./protocole.html" rel="next">
+<link href="./experiments.html" rel="next">
 <link href="./demarche_scientifique.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -173,14 +193,20 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./protocole.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Protocole expérimentaml</span></a>
+  <a href="./experiments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Expériences</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data_analysis.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Analyse des données</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./poster.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Poster scientifique</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -276,6 +302,14 @@ window.Quarto = {
 <p>La forme doit être la même que celle utilisée dans l’exemple de note bibliographique (voir ce document), c’est-à-dire avec un titre explicite qui peut différer du sujet proposé au lancement du PIDEx, les noms et prénoms des auteurs, leur appartenance professionnelle avec un indice numérique, 5 mots-clés maximum, et deux colonnes de rédaction. Les références bibliographiques peuvent être proposées sur une seule colonne. Concernant les mots-clés, il s’agit de termes qui ont un objectif d’optimisation du référencement du document dans les moteurs de recherche. Ils doivent donc être pertinents pour que votre production scientifique soit facilement retrouvée par des personnes qui s’intéressent à votre sujet. 4 pages maximum sans les annexes et la bibliographie sont imposées pour la rédaction de la note bibliographique. Il s’agira de préciser également le nombre de références bibliographiques en langue anglaise utilisées, sur le nombre total de références, et d’associer l’équivalent en pourcentage.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
+<div id="ref-knuth84" class="csl-entry" role="listitem">
+Knuth, D. E. (1984). <a href="https://doi.org/10.1093/comjnl/27.2.97">Literate Programming</a>. <em>Comput. J.</em> <em>27</em>: 97‑111.
+</div>
+<div id="ref-kobayashi2015scientific" class="csl-entry" role="listitem">
+Kobayashi, K. D., et Perez, K. (2015). A scientific poster is not a scientific article. <em>Hawaii International Conference on Education. Honolulu</em> : 1520‑1530.
+</div>
+</div>
 </section>
 </section>
 
@@ -704,8 +738,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./protocole.html" class="pagination-link" aria-label="Protocole expérimentaml">
-        <span class="nav-page-text">Protocole expérimentaml</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./experiments.html" class="pagination-link" aria-label="Expériences">
+        <span class="nav-page-text">Expériences</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
