@@ -202,7 +202,7 @@ Antoine Géré
 </div>
 </div>
 
-  <p class="date">2 déc. 2025</p>
+  <p class="date">4 déc. 2025</p>
 </section>
 <section>
 <section id="informations-générales" class="title-slide slide level1 center">
@@ -441,8 +441,387 @@ A_n^p &amp; =n(n-1) \cdots(n-p+1) \\
 <p><em>Exemple :</em></p>
 <p><span class="math display">\[\binom{7}{3} = 35\]</span></p>
 </section>
+<section id="expériences-aléatoires-ensembles-et-evenements" class="slide level2 scrollable">
+<h2><img data-src="img/scroll.png" style="width:1.0%"> Expériences aléatoires, ensembles et evenements</h2>
+<p><br></p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition : Expérience aléatoire</strong></p>
+</div>
+<div class="callout-content">
+<p>Une expérience aléatoire est une expérience :</p>
+<ul>
+<li>qui peut être répété</li>
+<li>qui a plusieurs résultats possibles</li>
+<li>dont le résultat est imprévisible</li>
+</ul>
+</div>
+</div>
+</div>
+<p><em>Exemples :</em></p>
+<ul>
+<li>lancé d’un dé à 6 faces</li>
+<li>observation de l’état de germination d’une plante</li>
+</ul>
+<p><br></p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition : Évènement élémentaire</strong></p>
+</div>
+<div class="callout-content">
+<p>Un évènement élémentaire est le résultat d’une expérience aléatoire</p>
+</div>
+</div>
+</div>
+<p><em>Exemples :</em></p>
+<ul>
+<li>Obtenir 3 lors du lancé d’un dé à 6 faces</li>
+<li>Être germée</li>
+</ul>
+<p><br></p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition : Ensemble fondamental - Univers</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Ensemble de tous les résultats possibles (évènements élémentaires) d’une expérience aléatoire.</li>
+<li>On le note <span class="math inline">\(\Omega\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+<p>*Exemple :** lancé d’un dé à 6 faces, <span class="math inline">\(\Omega=\{1,2,3,4,5,6\}\)</span></p>
+<p><br></p>
+<p><strong>Propriété</strong></p>
+<ul>
+<li><p><span class="math inline">\(\Omega\)</span> peut être :</p>
+<ul>
+<li><p>un ensemble fini</p>
+<p>Exemple : état de la germination, <span class="math inline">\(\Omega=\{\)</span> <code>germée</code>, <code>Non germée</code> <span class="math inline">\(\}\)</span></p></li>
+<li><p>un ensemble infini dénombrable</p>
+<p>Exemple : nombre de lancés avant d’obtenir face, <span class="math inline">\(\Omega=\{1,2, \ldots\}\)</span></p></li>
+<li><p>un ensemble infini indénombrable</p>
+<p>Exemple : mesure du taux d’humidité dans un laboratoire</p></li>
+</ul></li>
+<li><p><span class="math inline">\(\Omega\)</span> discret : <span class="math inline">\(\Omega\)</span> fini ou infini dénombrable</p></li>
+<li><p><span class="math inline">\(\Omega\)</span> continu : <span class="math inline">\(\Omega\)</span> infini indénombrable</p></li>
+</ul>
+<p><br></p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition : Évènement (non élémentaire)</strong></p>
+</div>
+<div class="callout-content">
+<p>Un événement (non élémentaire) est un sous-ensemble de <span class="math inline">\(\Omega\)</span>.</p>
+</div>
+</div>
+</div>
+<p><em>Exemple :</em></p>
+<ul>
+<li>Un évènement A «Obtenir un résultat strictement supérieur à 4 lors du lancé d’un dé à 6 faces» <span class="math display">\[A=\{5,6\}\]</span></li>
+</ul>
+<p><br></p>
+<p><strong>Évènements particuliers :</strong></p>
+<ul>
+<li><p>L’évènement total <span class="math inline">\(\Omega\)</span> est certain :</p></li>
+<li><p>L’ensemble vide <span class="math inline">\(\varnothing\)</span> est un évènement impossible</p></li>
+</ul>
+<p><br></p>
+<h3 id="opérations-sur-les-évènements">Opérations sur les évènements</h3>
+<h4 id="union">Union</h4>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p><img data-src="https://cdn.mathpix.com/cropped/02caab93-9c5c-4511-875e-b6bae110c235-07.jpg?height=320&amp;width=447&amp;top_left_y=153&amp;top_left_x=84"></p>
+</div><div class="column" style="width:70%;">
+<ul>
+<li><p><strong>Notation :</strong> <span class="math inline">\(A \cup B\)</span></p></li>
+<li><p><strong>Définition :</strong> l’événement <span class="math inline">\(A \cup B\)</span> est réalisé dès que <span class="math inline">\(A\)</span> ou <span class="math inline">\(B\)</span> est réalisé</p></li>
+</ul>
+</div></div>
+<p><br></p>
+<h4 id="intersection">Intersection</h4>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p><img data-src="https://cdn.mathpix.com/cropped/02caab93-9c5c-4511-875e-b6bae110c235-07.jpg?height=325&amp;width=449&amp;top_left_y=579&amp;top_left_x=86"></p>
+</div><div class="column" style="width:70%;">
+<ul>
+<li><strong>Notation :</strong> <span class="math inline">\(A \cap B\)</span></li>
+<li><strong>Définition :</strong> l’événement <span class="math inline">\(A \cap B\)</span> est réalisé dès que <span class="math inline">\(A\)</span> est <span class="math inline">\(B\)</span> sont réalisés dans la même expérience</li>
+</ul>
+</div></div>
+<p><br></p>
+<h4 id="complémentaire">Complémentaire</h4>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p><img data-src="https://cdn.mathpix.com/cropped/2025_09_17_68f9d5d55601c91876fcg-08.jpg?height=253&amp;width=503&amp;top_left_y=270&amp;top_left_x=81"></p>
+</div><div class="column" style="width:70%;">
+<p>L’événement <strong>complémentaire</strong> de <span class="math inline">\(A\)</span>, noté <span class="math inline">\(\overline{A}\)</span> contient tous les éléments de <span class="math inline">\(\Omega\)</span> qui ne sont pas dans <span class="math inline">\(A\)</span>.</p>
+<p>En particulier</p>
+<ul>
+<li><span class="math inline">\(\overline{A \cap B}=\overline{A} \cup \overline{B}\)</span></li>
+<li><span class="math inline">\(\overline{A \cup B}=\overline{A} \cap \overline{B}\)</span></li>
+</ul>
+</div></div>
+<p><br></p>
+<h4 id="évènements-incompatibles">Évènements incompatibles</h4>
+<p>A et B sont dits incompatibles si <span class="math inline">\(A \cap B=\varnothing\)</span></p>
+<p><br></p>
+<h4 id="système-complet-dévènements">Système complet d’évènements</h4>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p><img data-src="https://cdn.mathpix.com/cropped/02caab93-9c5c-4511-875e-b6bae110c235-09.jpg?height=288&amp;width=425&amp;top_left_y=638&amp;top_left_x=714"></p>
+</div><div class="column" style="width:70%;">
+<p>On appelle système complet d’évènements toute partition de <span class="math inline">\(\Omega\)</span>, c’est à dire tout ensemble d’évènement ( <span class="math inline">\(A_{i}\)</span> ) tel que :</p>
+<ul>
+<li>Pour tout <span class="math inline">\(i\)</span>, on a <span class="math inline">\(A_{i} \neq \varnothing\)</span></li>
+<li>Pour tout <span class="math inline">\(i, j\)</span>, on a <span class="math inline">\(A_{i} \cap A_{j}=\varnothing\)</span> (évènements 2 à 2 incompatibles)<br>
+</li>
+<li><span class="math inline">\(\bigcup_{i} A_{i}= A_1 \cup A_2 \cup \dots = \Omega\)</span></li>
+</ul>
+</div></div>
+</section>
 <section id="introduction-aux-probabilités" class="slide level2 scrollable">
 <h2><img data-src="img/scroll.png" style="width:1.0%"> Introduction aux probabilités</h2>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition</strong></p>
+</div>
+<div class="callout-content">
+<p>On appelle <strong>probabilité</strong> sur <span class="math inline">\(\Omega\)</span>, une application <span class="math inline">\(P\)</span> qui à tout évènement <span class="math inline">\(A\)</span> de <span class="math inline">\(\Omega\)</span>, associe un réel <span class="math inline">\(\mathrm{P}(A)\)</span> positif ou nul tel que :</p>
+<ul>
+<li><span class="math inline">\(\mathrm{P}(\Omega)=1\)</span></li>
+<li>Si A et B sont incompatibles alors <span class="math inline">\(\mathrm{P}(A \cup B)=\mathrm{P}(A)+\mathrm{P}(B)\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+<p><br></p>
+<p><strong>Propriétés :</strong></p>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p><img data-src="https://cdn.mathpix.com/cropped/02caab93-9c5c-4511-875e-b6bae110c235-12.jpg?height=231&amp;width=472&amp;top_left_y=184&amp;top_left_x=70"></p>
+</div><div class="column" style="width:70%;">
+<p><span class="math display">\[
+\begin{gathered}
+\mathrm{P}(A)=\frac{\text { Surface de } \mathrm{A}}{\text { Surface de } \Omega} \\
+\mathrm{P}(\Omega)=1(\text { définition }) \quad \mathrm{P}(\varnothing)=0
+\end{gathered}
+\]</span></p>
+</div></div>
+<ul>
+<li><p><span class="math inline">\(\mathrm{P}(A) \leq 1\)</span></p></li>
+<li><p>Si <span class="math inline">\(A_{1}, A_{2}, \ldots A_{n}\)</span> sont <span class="math inline">\(n\)</span> évènements incompatibles 2 à 2 alors <span class="math display">\[\mathrm{P}\left(A_{1} \cup A_{2} \cup \ldots \cup A_{n}\right)=\sum_{i=1}^{n} \mathrm{P}\left(A_{i}\right)\]</span></p></li>
+<li><p><span class="math inline">\(\mathrm{P}(\overline{A})=1-\mathrm{P}(A)\)</span></p></li>
+<li><p>Pour 2 évènements <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span>, <span class="math display">\[\mathrm{P}(A \cup B)=\mathrm{P}(A)+\mathrm{P}(B)-\mathrm{P}(A \cap B)\]</span></p></li>
+</ul>
+</section>
+<section id="probabilité-conditionnelle" class="slide level2 scrollable">
+<h2><img data-src="img/scroll.png" style="width:1.0%"> Probabilité conditionnelle</h2>
+<p>Soit <span class="math inline">\(B\)</span> un évènement de probabilité non nulle</p>
+<p><br></p>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Probabilité conditionnelle</strong></p>
+</div>
+<div class="callout-content">
+<p>Pour tout évènement <span class="math inline">\(A\)</span>, on appelle probabilité conditionnelle de <span class="math inline">\(A\)</span> sachant que <span class="math inline">\(B\)</span> est réalisé le réel <span class="math inline">\(\mathrm{P}(A \mid B)\)</span> défini par : <span class="math display">\[\mathrm{P}(A \mid B)=\frac{\mathrm{P}(A \cap B)}{\mathrm{P}(B)}\]</span></p>
+</div>
+</div>
+</div>
+<p><em>Exemples :</em></p>
+<ul>
+<li><p>Probabilité, pour un vache (B), d’avoir un veau male (A)</p></li>
+<li><p>Probabilité d’avoir un fort rendement (A) sachant que le taux de pricipitation est faible</p></li>
+</ul>
+<p><br></p>
+<p><strong>Propriétés :</strong></p>
+<p>Une probabilité conditionnelle vérifie toutes les propriétés des probabilités, en particulier</p>
+<ul>
+<li><span class="math inline">\(\mathrm{P}(\Omega \mid B)=1\)</span></li>
+<li><span class="math inline">\(\mathrm{P}(\varnothing \mid B)=0\)</span></li>
+<li><span class="math inline">\(\mathrm{P}(\overline{A} \mid B)=1-\mathrm{P}(A \mid B)\)</span></li>
+<li><span class="math inline">\(\mathrm{P}\left(A_{1} \cup A_{2} \mid B\right)=\mathrm{P}\left(A_{1} \mid B\right)+\mathrm{P}\left(A_{2} \mid B\right)-\mathrm{P}\left(A_{1} \cap A_{2} \mid B\right)\)</span></li>
+</ul>
+<p><br></p>
+<p><strong>De la définition des probabilités conditionnelles, on déduit :</strong></p>
+<p><span class="math display">\[
+\mathrm{P}(A \cap B)=\mathrm{P}(B) \times \mathrm{P}(A \mid B)
+\]</span></p>
+<p><br></p>
+<h3 id="partition-de-omega-en-2">Partition de <span class="math inline">\(\Omega\)</span> en 2</h3>
+<p><span class="math inline">\(A\)</span> et <span class="math inline">\(\overline{A}\)</span> forment un système complet d’évènements.</p>
+<p>Pour tout évènement <span class="math inline">\(B\)</span> on peut écrire <span class="math display">\[\mathrm{P}(B)=\mathrm{P}(B \mid A) \times \mathrm{P}(A)+\mathrm{P}(B \mid \overline{A}) \times \mathrm{P}(\overline{A})\]</span></p>
+<h4 id="démonstration">Démonstration :</h4>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p><img data-src="https://cdn.mathpix.com/cropped/02caab93-9c5c-4511-875e-b6bae110c235-22.jpg?height=240&amp;width=476&amp;top_left_y=468&amp;top_left_x=718"></p>
+</div><div class="column" style="width:70%;">
+<p><span class="math display">\[
+\begin{aligned}
+&amp; B=B \cap \Omega=B \cap(A \cup \overline{A}) \\
+&amp; B=(B \cap A) \cup(B \cap \overline{A})
+\end{aligned}
+\]</span></p>
+<p><span class="math inline">\(B \cap A\)</span> et <span class="math inline">\(B \cap \overline{A}\)</span> sont incompatibles donc <span class="math display">\[\mathrm{P}(B)=\mathrm{P}(B \cap A)+\mathrm{P}(B \cap \overline{A})\]</span></p>
+</div></div>
+<p>On applique la formule des probabilités composées et on obtient</p>
+<p><span class="math display">\[
+\mathrm{P}(B)=\mathrm{P}(B \mid A) \times \mathrm{P}(A)+\mathrm{P}(B \mid \overline{A}) \times \mathrm{P}(\overline{A})
+\]</span></p>
+<p><br></p>
+<h3 id="le-théorème-de-bayes">Le théorème de Bayes</h3>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Astuce</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>Soient <span class="math inline">\(\left\{A_{1} ; A_{2} ; \ldots ; A_{n}\right\}\)</span> un système complet d’évènements et <span class="math inline">\(B\)</span> un évènement de probabilité non nulle.</p></li>
+<li><p>Pour tout <span class="math inline">\(j \in\{1 ; 2 ; \ldots ; n\}\)</span>, on a :</p></li>
+</ul>
+<p><span class="math display">\[
+\mathrm{P}\left(A_{j} \mid B\right)=\frac{\mathrm{P}\left(A_{j}\right) \times \mathrm{P}\left(B \mid A_{j}\right)}{\mathrm{P}(B)}=\frac{\mathrm{P}\left(A_{j}\right) \times \mathrm{P}\left(B \mid A_{j}\right)}{\sum_{i=1}^{n} \mathrm{P}\left(A_{i}\right) \times \mathrm{P}\left(B \mid A_{i}\right)}
+\]</span></p>
+</div>
+</div>
+</div>
+<p><br></p>
+<h4 id="exemple-dapplication">Exemple d’application</h4>
+<ul>
+<li><p>Etude du comportement des vaches en stabulation</p></li>
+<li><p><span class="math inline">\(C\)</span> : La variable indicatrice de l’évènement <code>La vache est en colère</code></p></li>
+<li><p><span class="math inline">\(M\)</span> : La variable indicatrice de l’évènement <code>La vache meugle</code></p></li>
+</ul>
+<p>On a :</p>
+<ul>
+<li><p>la probabilité que la vache meugle sachant qu’elle est en colère est de <span class="math inline">\(90 \%\)</span></p></li>
+<li><p>la probabilité que la vache meugle sachant qu’elle n’est pas en colère est de <span class="math inline">\(25 \%\)</span></p></li>
+</ul>
+<p>On veu</p>
+<p><span class="math display">\[\begin{align*}
+P(C\mid M)
+&amp;= \frac{P(M\mid C) \ P(C)}{P(M\mid C) P(C) + P(M \mid C) P(C)} \\
+&amp;= \frac{0.9 \times 0.33}{0.9 \times 0.33+0.25 \times 0.67} \\
+P(C\mid M) &amp;= 0.64
+\end{align*}\]</span></p>
+<p>donc la vache ayant meuglé, on estime la probabilité qu’lle ait été en colère à <span class="math inline">\(64 \%\)</span></p>
+</section>
+<section id="indépendance" class="slide level2 scrollable">
+<h2><img data-src="img/scroll.png" style="width:1.0%"> Indépendance</h2>
+<h3 id="définition-1">Définition 1</h3>
+<p>Deux évènements <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> de probabilité non nulle sont indépendants (relativement à la probabilité <span class="math inline">\(P\)</span>) si et seulement si</p>
+<p><span class="math display">\[
+\mathrm{P}(A \mid B)=\mathrm{P}(A)
+\]</span></p>
+<p>La réalisation d’un des évènements n’a pas d’influence sur la probabilité de réalisation de l’autre évènement</p>
+<h3 id="définition-2">Définition 2</h3>
+<p>Deux évènements <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> de probabilité non nulle sont indépendants (relativement à la probabilité <span class="math inline">\(P\)</span>) si et seulement si</p>
+<p><span class="math display">\[
+\mathrm{P}(A \cap B)=\mathrm{P}(A) \times \mathrm{P}(B)
+\]</span></p>
+<h3 id="théorème">Théorème</h3>
+<p><span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> indépendants <span class="math inline">\(\Leftrightarrow A\)</span> et <span class="math inline">\(\overline{B}\)</span> indépendants <span class="math inline">\(\Leftrightarrow \overline{A}\)</span> et <span class="math inline">\(B\)</span> indépendants <span class="math inline">\(\Leftrightarrow \overline{A}\)</span> et <span class="math inline">\(\overline{B}\)</span> indépendants</p>
+<h3 id="épreuves-indépendantes">Épreuves indépendantes</h3>
+<ul>
+<li><p>On parlera d’épreuves indépendantes lorsque le résultat d’une des épreuves n’a aucune influence sur les résultats des autres épreuves</p></li>
+<li><p>Utile pour la constitution de n -échantillons</p></li>
+</ul>
+</section>
+<section id="variables-aléatoires-définitions" class="slide level2 scrollable">
+<h2><img data-src="img/scroll.png" style="width:1.0%"> Variables aléatoires définitions</h2>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:35%;">
+<p><img data-src="https://cdn.mathpix.com/cropped/02caab93-9c5c-4511-875e-b6bae110c235-35.jpg?height=301&amp;width=462&amp;top_left_y=421&amp;top_left_x=82"></p>
+</div><div class="column" style="width:65%;">
+<ul>
+<li><p>À chaque événement élémentaire <span class="math inline">\(\omega\)</span> correspond un nombre réel <span class="math inline">\(x\)</span>.</p></li>
+<li><p><span class="math inline">\(x\)</span> est la réalisation de la variable <span class="math inline">\(X\)</span> pour l’événement <span class="math inline">\(\omega\)</span></p></li>
+<li><p>Il n’y a pas obligatoirement autant de valeurs possibles <span class="math inline">\(x\)</span> que d’événements élémentaires !</p></li>
+</ul>
+</div></div>
+<p><br></p>
+<p><strong>Notations :</strong></p>
+<ul>
+<li><p>Les variables aléatoires sont notées avec des lettres majuscules : <span class="math inline">\(X, Y, Z, \ldots\)</span></p></li>
+<li><p>Les valeurs possibles ou réalisations d’une variable aléatoire sont notées avec des lettres minuscules : <span class="math inline">\(x_i, a, z, \ldots\)</span></p></li>
+</ul>
+<p><br></p>
+<p><strong>Propriétés :</strong></p>
+<p>Si <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> sont des variables aléatoires définies sur <span class="math inline">\(\Omega\)</span> alors :</p>
+<ul>
+<li><p><span class="math inline">\(X+Y\)</span> est une variable aléatoire</p></li>
+<li><p><span class="math inline">\(X \times Y\)</span> est une variable aléatoire</p></li>
+<li><p><span class="math inline">\(\forall \lambda \in \mathbb{R}, \lambda X\)</span> est une variables aléatoires</p></li>
+</ul>
+<p><br></p>
+<h3 id="deux-types-de-variables-aléatoires">Deux types de variables aléatoires</h3>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Variable aléatoire discrète</strong></p>
+</div>
+<div class="callout-content">
+<p>Elle prend un nombre fini ou infini dénombrable de valeurs possibles</p>
+</div>
+</div>
+</div>
+<p><em>Exemples :</em></p>
+<ul>
+<li><p>Résultat d’un lancé de dé</p></li>
+<li><p>Nombre d’arosage fait sur une culture</p></li>
+</ul>
+<p><br></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Variable aléatoire continue</strong></p>
+</div>
+<div class="callout-content">
+<p>Elle prend un nombre infini indénombrable de valeurs possibles</p>
+</div>
+</div>
+</div>
+<p><em>Exemples :</em></p>
+<ul>
+<li><p>Taux d’humidité</p></li>
+<li><p>Poids des pommes récoltées</p></li>
+</ul>
 </section>
 <section id="variables-aléatoires-discrètes" class="slide level2 scrollable">
 <h2><img data-src="img/scroll.png" style="width:1.0%"> Variables aléatoires discrètes</h2>
@@ -1249,6 +1628,194 @@ A_n^p &amp; =n(n-1) \cdots(n-p+1) \\
 </section>
 <section id="estimateurs-et-estimations" class="slide level2 scrollable">
 <h2><img data-src="img/scroll.png" style="width:1.0%"> Estimateurs et estimations</h2>
+<h3 id="estimateur-et-estimations-ponctuelles">Estimateur et estimations ponctuelles</h3>
+<ul>
+<li><span class="math inline">\(\theta\)</span> désigne le paramètre à estimer</li>
+<li><span class="math inline">\(\theta: \mu, \sigma, \pi\)</span>, médiane, …</li>
+<li>Soit <span class="math inline">\(T\)</span> un estimateur de <span class="math inline">\(\theta\)</span></li>
+</ul>
+<div class="callout callout-caution callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Estimateur</strong></p>
+</div>
+<div class="callout-content">
+<p>Un estimateur de <span class="math inline">\(\theta\)</span>, noté <span class="math inline">\(T\)</span>, est une variable aléatoire exprimée en fonction des variables aléatoires d’échantillon <span class="math inline">\(X_{i}\)</span>. On a donc : <span class="math display">\[T=f\left(X_{1} ; X_{2} ; \ldots ; X_{n}\right)\]</span></p>
+</div>
+</div>
+</div>
+<p><em>Exemple :</em> cas de <span class="math inline">\(M\)</span>, l’estimateur de <span class="math inline">\(\mu\)</span></p>
+<p><span class="math display">\[
+M=\frac{X_{1}+X_{2}+\ldots+X_{n}}{n}
+\]</span></p>
+<div class="callout callout-caution callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Estimation</strong></p>
+</div>
+<div class="callout-content">
+<p>Une estimation de <span class="math inline">\(\theta\)</span> est un nombre calculé en fonction des valeurs <span class="math inline">\(x_{i}\)</span> observées dans l’echantillon. On a donc <span class="math display">\[t=f\left(x_{1} ; x_{2} ; \ldots ; x_{n}\right)\]</span></p>
+</div>
+</div>
+</div>
+<p><em>Exemple :</em> cas de l’estimation de <span class="math inline">\(\mu\)</span></p>
+<p><span class="math display">\[
+m=\frac{x_{1}+x_{2}+\ldots+x_{n}}{n}
+\]</span></p>
+<p><br></p>
+<p><strong>Notations :</strong></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">paramètre théorique</th>
+<th style="text-align: center;">estimateur</th>
+<th style="text-align: center;">estimation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mu\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(M\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(m\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\sigma^{2}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(S^{2}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(s^{2}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\sigma\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(S\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(s\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\pi\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(P\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(p\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h3 id="qualité-dun-estimateur">Qualité d’un estimateur</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h4 id="biais-dun-estimateur">Biais d’un estimateur</h4>
+<p>Le biais d’un estimateur <span class="math inline">\(T\)</span> de <span class="math inline">\(\theta\)</span> est défini par <span class="math display">\[b(T) = E(T) - \theta\]</span></p>
+<h4 id="variance-dun-estimateur">Variance d’un estimateur</h4>
+<p>Plus la variance d’un estimateur <span class="math inline">\(T\)</span>, notée <span class="math inline">\(\operatorname{var}(T)\)</span>, est faible, plus les estimations sont peu dispersées !</p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="img/qualite_estimateur.png"></p>
+</div></div>
+<p><br></p>
+<h4 id="erreur-quadratique-moyenne">Erreur quadratique moyenne</h4>
+<ul>
+<li><p>L’erreur quadratique moyenne d’un estimateur <span class="math inline">\(T\)</span> de <span class="math inline">\(\theta\)</span> est défini par <span class="math display">\[EQM(T) = \operatorname{var}(T) + b(T)^2\]</span></p></li>
+<li><p>Un bon estimateur a une erreur quadratique moyenne la plus faible possible, idéalement <span class="math display">\[E Q M \xrightarrow[n \rightarrow+\infty]{ } 0\]</span></p></li>
+</ul>
+<p><br></p>
+<h3 id="estimateur-de-lespérance-mu">Estimateur de l’espérance <span class="math inline">\(\mu\)</span></h3>
+<p>Moyenne d’échantillon ou moyenne empirique</p>
+<p><span class="math inline">\(M\)</span> : moyenne d’échantillon ou moyenne empirique (parfois notée <span class="math inline">\(\overline{X}\)</span> )</p>
+<p><span class="math display">\[M=\frac{X_{1}+X_{2}+\ldots+X_{n}}{n}\]</span></p>
+<h4 id="expression-de-mu_m">Expression de <span class="math inline">\(\mu_{M}\)</span></h4>
+<p>On sait que</p>
+<p><span class="math display">\[
+\mathrm{E}(a X+b Y)=a \times \mathrm{E}(X)+b \times \mathrm{E}(Y)
+\]</span></p>
+<p>On peut donc écrire</p>
+<p><span class="math display">\[
+\begin{gathered}
+\mathrm{E}(M)=\mathrm{E}\left(\frac{X_{1}+X_{2}+\ldots+X_{n}}{n}\right) \\
+\mathrm{E}(M)=\frac{1}{n} \times \mathrm{E}\left(X_{1}+X_{2}+\ldots+X_{n}\right) \\
+\mathrm{E}(M)=\frac{1}{n}\left(\mathrm{E}\left(X_{1}\right)+\mathrm{E}\left(X_{2}\right)+\ldots+\mathrm{E}\left(X_{n}\right)\right) \\
+\mathrm{E}(M)=\frac{1}{n} \times n \mu \\
+\mathrm{E}(M)=\mu
+\end{gathered}
+\]</span></p>
+<h4 id="expression-de-sigma_m">Expression de <span class="math inline">\(\sigma_{M}\)</span></h4>
+<p>On sait que si <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> sont 2 variables aléatoires indépendantes : <span class="math display">\[
+\operatorname{var}(a X+b Y)=a^{2} \times \operatorname{var}(X)+b^{2} \times \operatorname{var}(Y)
+\]</span></p>
+<p>donc</p>
+<p><span class="math display">\[
+\begin{gathered}
+\operatorname{var}(M)=\operatorname{var}\left(\frac{X_{1}+X_{2}+\ldots+X_{n}}{n}\right) \\
+\operatorname{var}(M)=\frac{1}{n^{2}} \times \operatorname{var}\left(X_{1}+X_{2}+\ldots+X_{n}\right)
+\end{gathered}
+\]</span> de plus comme les variables sont indépendantes on a <span class="math display">\[
+\begin{gathered}
+\operatorname{var}(M)=\frac{1}{n^{2}} \times\left(\operatorname{var}\left(X_{1}\right)+\operatorname{var}\left(X_{2}\right)+\cdots+\operatorname{var}\left(X_{n}\right)\right) \\
+\operatorname{var}(M)=\frac{1}{n^{2}} \times n \sigma^{2} \\
+\operatorname{var}(M)=\frac{\sigma^{2}}{n}
+\end{gathered}
+\]</span></p>
+<h4 id="qualité-de-lestimateur-m">Qualité de l’estimateur <span class="math inline">\(M\)</span></h4>
+<p>On a donc</p>
+<p><span class="math display">\[
+\mathrm{E}(M)=\mu \quad \text { et } \quad \operatorname{var}(M)=\frac{\sigma^{2}}{n} \quad \text { et } \quad \sigma_{M}=\frac{\sigma}{\sqrt{n}}
+\]</span></p>
+<p>On a <span class="math display">\[EQM(M) = \operatorname{var}(M) + b(M)^2 = \frac{\sigma^{2}}{n}+0 = \frac{\sigma^{2}}{n}\]</span> donc</p>
+<p><span class="math display">\[\lim _{n \rightarrow+\infty} EQM(M) =0\]</span></p>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math inline">\(M\)</span> est donc un bon estimateur de l’espérance</p>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="estimateur-de-la-variance">Estimateur de la variance</h3>
+<ul>
+<li><p>Soit <span class="math inline">\(X\)</span> une variable aléatoire modélisant le statut de germination d’une graine</p></li>
+<li><p>Soit <span class="math inline">\(S_{n}\)</span> une variable aléatoire modélisant le nombre de graines germées parmi un ensemble de <span class="math inline">\(n\)</span> graines. <span class="math display">\[S n=\sum_{i=1}^{n} X_{i} \quad S_{n}\]</span></p></li>
+<li><p><span class="math inline">\(F\)</span> est une variable aléatoire modélisant la proportion de graines germées <span class="math display">\[\mathrm{F}=\frac{S_{n}}{n}=\frac{\sum_{i=1}^{n} X_{i}}{n}\]</span></p></li>
+</ul>
+<p>On admet que <span class="math inline">\(F\)</span> suit approximativement une loi normale.</p>
+<p><span class="math display">\[
+\begin{gathered}
+\mathrm{E}(\mathrm{~F})=\mathrm{E}\left(\frac{S_{n}}{n}\right)=\frac{1}{n} \times \mathrm{E}\left(S_{n}\right)=\frac{1}{n} \times n \pi=\pi \\
+\operatorname{var}(\mathrm{F})=\operatorname{var}\left(\frac{S_{n}}{n}\right)=\frac{1}{n^{2}} \times \operatorname{var}\left(S_{n}\right)=\frac{1}{n^{2}} \times n \pi(1-\pi)=\frac{\pi \times(1-\pi)}{n}
+\end{gathered}
+\]</span></p>
+<h4 id="qualité-de-lestimateur-f">Qualité de l’estimateur F</h4>
+<p>On a</p>
+<p><span class="math display">\[
+\mathrm{E}(\mathrm{~F})=\pi \quad \text { et } \quad \operatorname{var}(\mathrm{F})=\frac{\pi \times(1-\pi)}{n}
+\]</span></p>
+<p>d’où</p>
+<p><span class="math display">\[\begin{gathered}
+EQM(F) = \operatorname{var}(F) + b(F)^2 \\
+EQM(F) = \operatorname{var}(F) + \mathrm{E}(\mathrm{F})-\pi \\
+EQM(F) = \frac{\pi \times(1-\pi)}{n} + \pi - \pi \\
+EQM(F) = \frac{\pi \times(1-\pi)}{n}
+\end{gathered}\]</span></p>
+<p>On a donc</p>
+<p><span class="math display">\[\lim _{n \rightarrow+\infty} EQM(F) =0\]</span></p>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math inline">\(F\)</span> est donc un bon estimateur d’une proportion</p>
+</div>
+</div>
+</div>
 </section>
 <section id="estimations-en-pratique" class="slide level2 scrollable">
 <h2><img data-src="img/scroll.png" style="width:1.0%"> Estimations en pratique</h2>
