@@ -202,7 +202,7 @@ Antoine Géré
 </div>
 </div>
 
-  <p class="date">4 déc. 2025</p>
+  <p class="date">5 déc. 2025</p>
 </section>
 <section>
 <section id="informations-générales" class="title-slide slide level1 center">
@@ -455,7 +455,7 @@ A_n^p &amp; =n(n-1) \cdots(n-p+1) \\
 <div class="callout-content">
 <p>Une expérience aléatoire est une expérience :</p>
 <ul>
-<li>qui peut être répété</li>
+<li>qui peut être répétée</li>
 <li>qui a plusieurs résultats possibles</li>
 <li>dont le résultat est imprévisible</li>
 </ul>
@@ -503,7 +503,7 @@ A_n^p &amp; =n(n-1) \cdots(n-p+1) \\
 </div>
 </div>
 </div>
-<p>*Exemple :** lancé d’un dé à 6 faces, <span class="math inline">\(\Omega=\{1,2,3,4,5,6\}\)</span></p>
+<p><em>Exemple :</em> lancé d’un dé à 6 faces, <span class="math inline">\(\Omega=\{1,2,3,4,5,6\}\)</span></p>
 <p><br></p>
 <p><strong>Propriété</strong></p>
 <ul>
@@ -649,14 +649,14 @@ A_n^p &amp; =n(n-1) \cdots(n-p+1) \\
 <p><strong>Probabilité conditionnelle</strong></p>
 </div>
 <div class="callout-content">
-<p>Pour tout évènement <span class="math inline">\(A\)</span>, on appelle probabilité conditionnelle de <span class="math inline">\(A\)</span> sachant que <span class="math inline">\(B\)</span> est réalisé le réel <span class="math inline">\(\mathrm{P}(A \mid B)\)</span> défini par : <span class="math display">\[\mathrm{P}(A \mid B)=\frac{\mathrm{P}(A \cap B)}{\mathrm{P}(B)}\]</span></p>
+<p>Pour tout évènement <span class="math inline">\(A\)</span>, on appelle probabilité conditionnelle de <span class="math inline">\(A\)</span> sachant que <span class="math inline">\(B\)</span> est réalisé, le réel <span class="math inline">\(\mathrm{P}(A \mid B)\)</span> défini par : <span class="math display">\[\mathrm{P}(A \mid B)=\frac{\mathrm{P}(A \cap B)}{\mathrm{P}(B)}\]</span></p>
 </div>
 </div>
 </div>
 <p><em>Exemples :</em></p>
 <ul>
 <li><p>Probabilité, pour un vache (B), d’avoir un veau male (A)</p></li>
-<li><p>Probabilité d’avoir un fort rendement (A) sachant que le taux de pricipitation est faible</p></li>
+<li><p>Probabilité d’avoir un fort rendement (A) sachant que le taux de précipitation est faible</p></li>
 </ul>
 <p><br></p>
 <p><strong>Propriétés :</strong></p>
@@ -729,8 +729,8 @@ A_n^p &amp; =n(n-1) \cdots(n-p+1) \\
 <p>On veu</p>
 <p><span class="math display">\[\begin{align*}
 P(C\mid M)
-&amp;= \frac{P(M\mid C) \ P(C)}{P(M\mid C) P(C) + P(M \mid C) P(C)} \\
-&amp;= \frac{0.9 \times 0.33}{0.9 \times 0.33+0.25 \times 0.67} \\
+&amp;= \frac{P(M\mid C) \ P(C)}{P(M\mid C) P(C) + P(M \mid C) P(C)} \\[4pt]
+&amp;= \frac{0.9 \times 0.33}{0.9 \times 0.33+0.25 \times 0.67} \\[5pt]
 P(C\mid M) &amp;= 0.64
 \end{align*}\]</span></p>
 <p>donc la vache ayant meuglé, on estime la probabilité qu’lle ait été en colère à <span class="math inline">\(64 \%\)</span></p>
@@ -1776,33 +1776,33 @@ m=\frac{x_{1}+x_{2}+\ldots+x_{n}}{n}
 </div>
 </div>
 <p><br></p>
-<h3 id="estimateur-de-la-variance">Estimateur de la variance</h3>
+<h3 id="estimateur-dune-proportion">Estimateur d’une proportion</h3>
 <ul>
 <li><p>Soit <span class="math inline">\(X\)</span> une variable aléatoire modélisant le statut de germination d’une graine</p></li>
-<li><p>Soit <span class="math inline">\(S_{n}\)</span> une variable aléatoire modélisant le nombre de graines germées parmi un ensemble de <span class="math inline">\(n\)</span> graines. <span class="math display">\[S n=\sum_{i=1}^{n} X_{i} \quad S_{n}\]</span></p></li>
-<li><p><span class="math inline">\(F\)</span> est une variable aléatoire modélisant la proportion de graines germées <span class="math display">\[\mathrm{F}=\frac{S_{n}}{n}=\frac{\sum_{i=1}^{n} X_{i}}{n}\]</span></p></li>
+<li><p>Soit <span class="math inline">\(S_{n}\)</span> une variable aléatoire modélisant le nombre de graines germées parmi un ensemble de <span class="math inline">\(n\)</span> graines. <span class="math display">\[S_n=\sum_{i=1}^{n} X_{i}\]</span></p></li>
+<li><p><span class="math inline">\(P\)</span> est une variable aléatoire modélisant la proportion de graines germées <span class="math display">\[P=\frac{S_{n}}{n}=\frac{\sum_{i=1}^{n} X_{i}}{n}\]</span></p></li>
 </ul>
-<p>On admet que <span class="math inline">\(F\)</span> suit approximativement une loi normale.</p>
+<p>On admet que <span class="math inline">\(P\)</span> suit approximativement une loi normale.</p>
 <p><span class="math display">\[
 \begin{gathered}
-\mathrm{E}(\mathrm{~F})=\mathrm{E}\left(\frac{S_{n}}{n}\right)=\frac{1}{n} \times \mathrm{E}\left(S_{n}\right)=\frac{1}{n} \times n \pi=\pi \\
-\operatorname{var}(\mathrm{F})=\operatorname{var}\left(\frac{S_{n}}{n}\right)=\frac{1}{n^{2}} \times \operatorname{var}\left(S_{n}\right)=\frac{1}{n^{2}} \times n \pi(1-\pi)=\frac{\pi \times(1-\pi)}{n}
+\mathrm{E}(P)=\mathrm{E}\left(\frac{S_{n}}{n}\right)=\frac{1}{n} \times \mathrm{E}\left(S_{n}\right)=\frac{1}{n} \times n \pi=\pi \\
+\operatorname{var}(P)=\operatorname{var}\left(\frac{S_{n}}{n}\right)=\frac{1}{n^{2}} \times \operatorname{var}\left(S_{n}\right)=\frac{1}{n^{2}} \times n \pi(1-\pi)=\frac{\pi \times(1-\pi)}{n}
 \end{gathered}
 \]</span></p>
-<h4 id="qualité-de-lestimateur-f">Qualité de l’estimateur F</h4>
+<h4 id="qualité-de-lestimateur-p">Qualité de l’estimateur <span class="math inline">\(P\)</span></h4>
 <p>On a</p>
 <p><span class="math display">\[
-\mathrm{E}(\mathrm{~F})=\pi \quad \text { et } \quad \operatorname{var}(\mathrm{F})=\frac{\pi \times(1-\pi)}{n}
+\mathrm{E}(P)=\pi \quad \text { et } \quad \operatorname{var}(P)=\frac{\pi \times(1-\pi)}{n}
 \]</span></p>
 <p>d’où</p>
 <p><span class="math display">\[\begin{gathered}
-EQM(F) = \operatorname{var}(F) + b(F)^2 \\
-EQM(F) = \operatorname{var}(F) + \mathrm{E}(\mathrm{F})-\pi \\
-EQM(F) = \frac{\pi \times(1-\pi)}{n} + \pi - \pi \\
-EQM(F) = \frac{\pi \times(1-\pi)}{n}
+EQM(P) = \operatorname{var}(F) + b(F)^2 \\
+EQM(P) = \operatorname{var}(F) + \mathrm{E}(\mathrm{F})-\pi \\
+EQM(P) = \frac{\pi \times(1-\pi)}{n} + \pi - \pi \\
+EQM(P) = \frac{\pi \times(1-\pi)}{n}
 \end{gathered}\]</span></p>
 <p>On a donc</p>
-<p><span class="math display">\[\lim _{n \rightarrow+\infty} EQM(F) =0\]</span></p>
+<p><span class="math display">\[\lim _{n \rightarrow+\infty} EQM(P) =0\]</span></p>
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -1847,7 +1847,7 @@ EQM(F) = \frac{\pi \times(1-\pi)}{n}
 <h3 id="estimation-ponctuelle">Estimation ponctuelle</h3>
 <ul>
 <li><p><span class="math inline">\(\mu = m\)</span></p></li>
-<li><p><span class="math inline">\(\pi = f\)</span></p></li>
+<li><p><span class="math inline">\(\pi = p\)</span></p></li>
 <li><p><span class="math inline">\(\sigma = \sqrt{\dfrac{n}{n-1}} \ s\)</span></p></li>
 </ul>
 <h4 id="exemple">Exemple :</h4>
