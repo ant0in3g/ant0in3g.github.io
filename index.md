@@ -28,7 +28,7 @@ En construction / [phd thesis](https://github.com/ant0in3g/Ph.D.-thesis/blob/mai
 
 ## Divers
 
-Quelques projets divers à venir, dont un [dashboard quarto](./fftri/docs/dashboard.html) pour suivre le championnat de france de duathlon organisé par la fédération française de triathlon.
+Quelques projets divers à venir, dont un [dashboard quarto](/fftri/dashboard.html) pour suivre le championnat de france de duathlon organisé par la fédération française de triathlon.
 
 ## Contact
 
