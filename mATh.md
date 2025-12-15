@@ -30,6 +30,8 @@ Vous pouvez également vous exercer sur votre espace [jai20enmaths](https://www.
 > Ce chapitre propose une révision des notions essentielles sur les fonctions d’une variable réelle : définitions, propriétés, variations, limites, continuité et dérivation. L’objectif est de consolider les outils nécessaires à l’étude et à la modélisation de phénomènes à l’aide de fonctions.  
 > Voici la [feuille de travaux dirigés](./mATh/chapter-s/limit-conti-deriv/td-exos.pdf).
 2. [Fonctions usuelles](./mATh/chapter-s/fonctions-usuelles/chapter-s.pdf)
+> Ce chapitre explore les fonctions usuelles, tant leur rôle est essentiel dans la résolution de problèmes dans tous les domaines scientifiques.
+> Voici la [feuille de travaux dirigés](./mATh/chapter-s/fonctions-usuelles/td-exos.pdf).
 3. [Nombres complexes](./mATh/chapter-s/nombres-complexes/chapter-s.pdf)
 4. [Suites numériques](./mATh/chapter-s/suites/chapter-s.pdf) 
 
