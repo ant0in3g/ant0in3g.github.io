@@ -18,4 +18,4 @@ Voici la liste des cours bientôt disponible.
 
 #### Field Theory
 
-#### [Un cours sur l'énergie](sTa7/divers/slides_energie.html)
+#### [Un cours sur l'énergie](en3rgiE/slides.html)
