@@ -4,6 +4,7 @@ Vous pouvez de nouveau retrouver via ce [lien](./corrections.md/) les correction
 
 ### Première année
 
+- [Devoir 1A pour le jeudi 8 janvier 2026](./examens/exam-math-S1-2026.01.08.pdf)
 - [Examen 1A du mercredi 26 novembre 2025](./examens/exam-math-S1-2025.11.26.pdf)
 - [Examen 1A du jeudi 22 mai 2025](./examens/exam-math-S2-2025.05.22.pdf)
 - [Examen 1A du lundi 12 mai 2025](./examens/exam-math-S2-2025.05.12.pdf)
