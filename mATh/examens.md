@@ -18,6 +18,8 @@ Vous pouvez de nouveau retrouver via ce [lien](./corrections.md/) les correction
 
 ### Deuxième année
 
+
+- [Examen 2A du lundi 15 décembre 2025](./examens/exam-math-S3-2025.12.15.pdf)
 - [Examen 2A du lundi 13 octobre 2025](./examens/exam-math-S3-2025.10.13.pdf)
 - [Examen 2A du jeudi 22 mai 2025](./examens/exam-math-S4-2025.05.22.pdf)
 - [Examen 2A du mardi 6 mai 2025](./examens/exam-math-S4-2025.05.06.pdf)
