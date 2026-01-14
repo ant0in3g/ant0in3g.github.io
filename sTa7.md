@@ -22,7 +22,7 @@ Vous retrouverez [**ici**](sTa7/orga.md) l'organisation de ce cours.
 >
 > - 3ème année : [**P**rojet d'**I**nitiation à la **D**émarche **Ex**périmentale (PIDEx)](./sTa7/PIDEx/index.html)
 >
-> Les **sujets d'examens** donnés sont disponible sur cette [**page**](./sTa7/examens.md/)
+> Les [**sujets d'examens**](./sTa7/examens.md/) donnés sont disponible sur cette [**page**](./sTa7/examens.md/)
 >
 > La page des [**corrections**](./sTa7/corrections.md/) des examens et travaux dirigés
 >
