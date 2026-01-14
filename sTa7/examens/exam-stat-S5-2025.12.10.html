@@ -1,0 +1,2258 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Antoine Géré">
+
+<title>Examen de statistiques et analyse de données</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="exam-stat-S5-2025.12.10_files/libs/clipboard/clipboard.min.js"></script>
+<script src="exam-stat-S5-2025.12.10_files/libs/quarto-html/quarto.js"></script>
+<script src="exam-stat-S5-2025.12.10_files/libs/quarto-html/popper.min.js"></script>
+<script src="exam-stat-S5-2025.12.10_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="exam-stat-S5-2025.12.10_files/libs/quarto-html/anchor.min.js"></script>
+<link href="exam-stat-S5-2025.12.10_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="exam-stat-S5-2025.12.10_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="exam-stat-S5-2025.12.10_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="exam-stat-S5-2025.12.10_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="exam-stat-S5-2025.12.10_files/libs/bootstrap/bootstrap-1bc8a17f135ab3d594c857e9f48e611b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table des matières</h2>
+   
+  <ul>
+  <li><a href="#exercice-1" id="toc-exercice-1" class="nav-link active" data-scroll-target="#exercice-1">Exercice 1</a></li>
+  <li><a href="#exercice-2" id="toc-exercice-2" class="nav-link" data-scroll-target="#exercice-2">Exercice 2</a></li>
+  <li><a href="#références" id="toc-références" class="nav-link" data-scroll-target="#références">Références</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Examen de statistiques et analyse de données</h1>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Auteur·rice</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Antoine Géré </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Promotion 114
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">10 décembre 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<hr>
+<ul>
+<li>Document(s) autorisé(s) : <strong>Non</strong></li>
+<li>Calculatrice autorisée : <strong>Oui</strong></li>
+<li>Remarques :
+<ul>
+<li>Les exercices sont indépendants.</li>
+<li>Il sera tenu compte de la propreté de votre copie, ainsi que de la clarté et de la qualité de la rédaction et du raisonnement.</li>
+<li>Ne pas écrire avec un crayon papier, sauf pour dessiner et/ou annoter des croquis, le cas échéant.</li>
+<li>Utiliser les notations indiquées dans le texte et justifier toutes vos réponses.</li>
+</ul></li>
+</ul>
+<hr>
+<section id="exercice-1" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="exercice-1">Exercice 1</h2>
+<p>Le coucou européen ne couve pas ses propres oeufs, mais les dépose dans les nids d’oiseaux d’autres espèces. Des études antérieures ont montré que les coucous ont parfois évolué pour pondre des oeufs dont la couleur est similaire à celle des oeufs de l’espèce hôte.</p>
+<p>Est-ce également le cas pour la taille des oeufs ? Les coucous pondent-ils des oeufs de taille similaire à ceux de leurs hôtes ?</p>
+<p><img src="img/oeufs_coucou.png" class="img-fluid" style="width:60.0%"></p>
+<p>Le fichier de données est <code>cuckooeggs.csv</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>cuckooeggs <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"data_raw/cuckooeggs.csv"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(cuckooeggs)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   host_species egg_length
+1 Hedge Sparrow      20.85
+2 Hedge Sparrow      21.65
+3 Hedge Sparrow      22.05
+4 Hedge Sparrow      22.85
+5 Hedge Sparrow      23.05
+6 Hedge Sparrow      23.05</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cuckooeggs)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> host_species         egg_length   
+ Length:120         Min.   :19.65  
+ Class :character   1st Qu.:21.85  
+ Mode  :character   Median :22.35  
+                    Mean   :22.46  
+                    3rd Qu.:23.25  
+                    Max.   :25.05  </code></pre>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+1. Le fichier de données
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Présentez le fichier de données en indiquant le nombre de variables, leur type ainsi que leurs principales caractéristiques.</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+1. Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Le jeu de données cuckooeggs contient :</p>
+<ul>
+<li><p>120 observations (lignes)</p></li>
+<li><p>2 variables :</p></li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 23%">
+<col style="width: 60%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>host_species</code></td>
+<td>qualitative (facteur)</td>
+<td>Espèce hôte où le coucou a pondu</td>
+</tr>
+<tr class="even">
+<td><code>egg_length</code></td>
+<td>quantitative continue</td>
+<td>Longueur de l’œuf (en mm)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Caractéristiques principales de <code>host_species</code> :
+<ul>
+<li>6 modalités :
+<ul>
+<li>Hedge Sparrow</li>
+<li>Meadow Pipit</li>
+<li>Pied Wagtail</li>
+<li>Robin</li>
+<li>Tree Pipit</li>
+<li>Wren</li>
+</ul></li>
+</ul></li>
+<li>Caractéristiques principales de <code>egg_length</code> :
+<ul>
+<li>minimum : 19.65 mm</li>
+<li>maximum : 25.05 mm</li>
+<li>moyenne : 22.46 mm</li>
+<li>médiane : 22.35 mm</li>
+</ul></li>
+</ul>
+<p>Les données sont adaptées à une analyse comparative de moyennes entre groupes.</p>
+</div>
+</div>
+</div>
+<p>Nous traçons quelques graphiques ci-dessous.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cuckooeggs, <span class="fu">aes</span>(<span class="at">x =</span> egg_length)) <span class="sc">+</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">10</span>, <span class="at">fill =</span> <span class="st">"lightblue"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">facet_wrap</span>(<span class="sc">~</span> host_species, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="at">title =</span> <span class="st">""</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="at">x =</span> <span class="st">"Longueur (mm)"</span>, <span class="at">y =</span> <span class="st">"Fréquence"</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="exam-stat-S5-2025.12.10_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+2. Interprétation des graphes ci-dessus
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>Comment se nomme ce type de graphe ?</li>
+<li>Décrivez les différences visibles entre les distributions des longueurs d’oeufs selon les espèces hôtes.</li>
+<li>Les variances semblent-elles comparables ?</li>
+<li>Les distributions paraissent-elles approximativement normales ?</li>
+<li>Les moyennes semblent-elles clairement différentes ?</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+2. Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Il s’agit d’un ensemble d’histogrammes, un pour chaque espère hôte.</p>
+<ul>
+<li><p>L’axe des abscisses représente des classes de valeurs de la longueur des œufs (en millimètres)</p></li>
+<li><p>L’axe des ordonnées représente la fréquence (nombre d’observations par classe)</p></li>
+<li><p>Contrairement à un diagramme en baton, les classes sont continues, ce qui est caractéristique des histogrammes</p></li>
+</ul>
+<hr>
+<ul>
+<li><p>Différences de position (centre de la distribution)</p>
+<ul>
+<li><p>On observe que les histogrammes ne sont pas centrés au même endroit.</p></li>
+<li><p>Les distributions associées à <code>Hedge Sparrow</code> et <code>Tree Pipit</code> sont centrées autour de valeurs relativement élevées (autour de 23 mm).</p></li>
+<li><p>À l’inverse, la distribution correspondant à <code>Wren</code> est clairement décalée vers la gauche, avec des valeurs majoritairement comprises entre 20 et 22 mm.</p></li>
+<li><p>Les espèces <code>Meadow Pipit</code>, <code>Pied Wagtail</code> et <code>Robin</code> occupent une position intermédiaire.</p></li>
+<li><p>Cela suggère que la taille moyenne des œufs varie selon l’espèce hôte.</p></li>
+</ul></li>
+<li><p>Différences de dispersion (étalement des distributions)</p>
+<ul>
+<li><p>Certaines espèces présentent une distribution plus concentrée (barres regroupées sur un intervalle étroit). D’autres montrent un étalement légèrement plus large, traduisant une plus grande variabilité.</p></li>
+<li><p>Aucun histogramme ne montre cependant une dispersion extrêmement plus grande ou plus petite que les autres. Les largeurs des distributions restent globalement comparables. Cela suggère que les variances entre groupes sont relativement proches, sans hétérogénéité flagrante.</p></li>
+</ul></li>
+<li><p>Différences de forme</p>
+<ul>
+<li><p>Toutes les distributions semblent unimodales (un seul pic principal).</p></li>
+<li><p>Les formes sont globalement symétriques, ou très légèrement asymétriques.</p></li>
+<li><p>Aucune distribution ne présente de bimodalité (deux pics), ou de valeurs “aberrantes” clairement visibles.</p></li>
+</ul></li>
+<li><p>On observe que <code>Hedge Sparrow</code> et <code>Tree Pipit</code> présentent des plages de valeurs très proches. En revanche, la distribution de <code>Wren</code> chevauche moins celles des autres espèces. Cela suggère que toutes les différences ne seront pas nécessairement significatives, mais que certaines espèces (notamment Wren) pourraient se distinguer nettement.</p></li>
+</ul>
+<hr>
+<p>Les variances semblent comparables. En effet :</p>
+<ul>
+<li><p>L’étendue des valeurs (distance entre minimum et maximum) est similaire entre espèces.</p></li>
+<li><p>La largeur des histogrammes (nombre de classes occupées) ne varie pas fortement.</p></li>
+<li><p>Aucun groupe ne montre une dispersion particulièrement élevée ou faible.</p></li>
+<li><p>Ces observations suggèrent une homogénéité des variances, condition importante pour l’ANOVA. Cependant une simple observation graphique ne permet pas de conclure définitivement, mais elle constitue une première validation qualitative avant un test, comme le test de Levene.</p></li>
+</ul>
+<hr>
+<p>Les distributions paraissent approximativement normales, en effet :</p>
+<ul>
+<li><p>Les histogrammes ont une forme globalement en cloche.</p></li>
+<li><p>La majorité des observations se situe autour d’une valeur centrale.</p></li>
+<li><p>Les fréquences diminuent progressivement lorsqu’on s’éloigne du centre.</p></li>
+<li><p>Les “queues” gauche et droite ne semblent ni très longues ni très asymétriques.</p></li>
+<li><p>Même si la normalité n’est pas parfaite (ce qui est courant en données biologiques), les distributions semblent compatibles avec une hypothèse de normalité approximative. La normalité requise pour certains test, comme l’ANOVA, concerne surtout les résidus du modèle, et non nécessairement chaque groupe pris séparément.</p></li>
+</ul>
+<hr>
+<p>Les moyennes semblent différentes, mais pas toutes de manière évidente. En effet :</p>
+<ul>
+<li><p>La moyenne de <code>Wren</code> apparaît nettement plus faible que celles des autres espèces.</p></li>
+<li><p>Les moyennes de <code>Hedge Sparrow</code>, <code>Tree Pipit</code> et <code>Pied Wagtail</code> semblent proches les unes des autres.</p></li>
+<li><p>Certaines différences sont legeres et difficiles à quantifier visuellement.</p></li>
+<li><p>On peut donc conclure qu’il existe des indices visuels de différences de moyennes, mais que l’ampleur de ces différences ne peut être évaluée précisément sans un test statistique.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<p>On demande à <strong>R</strong> de nous donner les moyennes et les écarts types de la longueur des oeufs pour chacune des espèces hotes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>stats <span class="ot">&lt;-</span> cuckooeggs <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">group_by</span>(host_species) <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="at">Moyenne =</span> <span class="fu">mean</span>(egg_length),</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="at">Ecart_type =</span> <span class="fu">sd</span>(egg_length),</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="at">n =</span> <span class="fu">n</span>()</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>stats</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  host_species  Moyenne Ecart_type     n
+  &lt;chr&gt;           &lt;dbl&gt;      &lt;dbl&gt; &lt;int&gt;
+1 Hedge Sparrow    23.1      1.07     14
+2 Meadow Pipit     22.3      0.921    45
+3 Pied Wagtail     22.9      1.07     15
+4 Robin            22.6      0.685    16
+5 Tree Pipit       23.1      0.901    15
+6 Wren             21.1      0.744    15</code></pre>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+3. Interprétation du tableau descriptif
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>Quelle espèce hôte présente les œufs les plus grands en moyenne ?</li>
+<li>Quelle espèce présente les œufs les plus petits en moyenne ?</li>
+<li>Les différences de moyennes vous semblent-elles importantes ?</li>
+<li>Les écarts-types semblent-ils homogènes ?</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+3. Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Le tableau présenté résume, pour chaque espèce hôte, des statistiques descriptives essentielles de la longueur des œufs de coucou (la moyenne, l’écart-type et la taille d’échantillon). Ces statistiques permettent de :</p>
+<ul>
+<li><p>comparer la tendance centrale entre groupes,</p></li>
+<li><p>évaluer la variabilité intra-groupe,</p></li>
+<li><p>apprécier la fiabilité des estimations (via les tailles d’échantillon).</p></li>
+</ul>
+<hr>
+<p>Les espèces qui présentent les plus grandes longueurs moyennes d’œufs sont <code>Hedge Sparrow</code> et <code>Tree Pipit</code> avec en moyenne des longueurs de 23,1 mm.</p>
+<hr>
+<p>L’espèce qui présentent les œufs les plus petits en moyenne est <code>Wren</code> avec en moyenne des longueurs de 21,1 mm. Cette moyenne est nettement inférieure à celle de toutes les autres espèces. L’écart avec les espèces aux plus grandes moyennes est d’environ 2 mm, ce qui est substantiel à l’échelle de la longueur totale d’un œuf (10 %). Cela indique que les œufs pondus dans les nids de Wren sont significativement plus petits.</p>
+<hr>
+<p>L’écart maximal observé entre espèces est <span class="math display">\[23,1 ~\mbox{ mm } \ − \ 21,1 ~\mbox{ mm } \ = \ 2,0 ~\mbox{ mm }\]</span></p>
+<p>Cet écart représente environ 9 % de la longueur moyenne d’un œuf, ce qui n’est pas négligeable. Les écarts-types sont de l’ordre de 0,7 à 1,1 mm. Un écart de 2 mm correspond donc à environ 2 à 3 écarts-types. Une différence de cette importance est potentiellement statistiquement significative.</p>
+<hr>
+<p>Les valeurs observées sont :</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Espèce</th>
+<th>Écart-type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Hedge Sparrow</td>
+<td>1,07</td>
+</tr>
+<tr class="even">
+<td>Meadow Pipit</td>
+<td>0,92</td>
+</tr>
+<tr class="odd">
+<td>Pied Wagtail</td>
+<td>1,07</td>
+</tr>
+<tr class="even">
+<td>Robin</td>
+<td>0,69</td>
+</tr>
+<tr class="odd">
+<td>Tree Pipit</td>
+<td>0,90</td>
+</tr>
+<tr class="even">
+<td>Wren</td>
+<td>0,74</td>
+</tr>
+</tbody>
+</table>
+<p>Tous les écarts-types sont compris entre 0,69 et 1,07 mm. Le rapport entre le plus grand et le plus petit écart-type est :</p>
+<p><span class="math display">\[\frac{1,07}{0,69} \approx 1,55 \]</span></p>
+<p>En pratique, un ratio inférieur à 2 est souvent considéré comme acceptable. Aucune espèce ne présente une variabilité particulièrement élevée. Les dispersions sont comparables, même si elles ne sont pas strictement identiques. On peut donc raisonnablement supposer une homogénéité des variances, condition essentielle différents test comme l’ANOVA.</p>
+<p>L’homogénéité des variances n’exige pas une égalité parfaite, mais une similarité raisonnable des dispersions entre groupes.</p>
+</div>
+</div>
+</div>
+<p>On se propose, afin de savoir si les coucous pondent des oeufs de tailles différentes selon l’espèce hôte, de réaliser un <strong>T-test</strong>.</p>
+<p><code>t.test(egg_length ~ host_species, data = cuckooeggs)</code></p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+4. Interprétation d’une erreur
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Expliquez la raison pour laquelle ce <code>t.test</code> ne fonctionne pas dans ce cas précis.</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+4. Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Le t-test de Student est un test paramétrique destiné à comparer la moyenne d’une variable quantitative entre deux groupes. Il existe plusieurs variantes :</p>
+<ul>
+<li><p><code>t.test</code> à un échantillon</p></li>
+<li><p><code>t.test</code> pour échantillons indépendants (2 groupes)</p></li>
+<li><p><code>t.test</code> apparié</p></li>
+</ul>
+<p>Dans tous les cas, le t-test est conçu pour comparer exactement deux groupes. Or dans notre étude :</p>
+<ul>
+<li><p>Variable dépendante : <code>egg_length</code> (quantitative continue) <span class="math inline">\(\to\)</span> possède 6 modalités distinctes !</p></li>
+<li><p>Variable explicative : <code>host_species</code> (qualitative nominale)</p></li>
+</ul>
+<p>Le modèle demandé par <code>egg_length ~ host_species</code> implique donc une comparaison entre 6 groupes !</p>
+<p>Le <code>t-test</code> calcule une statistique <code>t</code> basée sur la différence entre deux moyennes et compare cette différence à la variabilité intra-groupe. Avec plus de deux groupes il n’existe pas de différence unique à tester. Il faudrait comparer toutes les paires possibles. Dans notre cas : <span class="math display">\[\binom{6}{2}=15 \text { comparaisons }\]</span> Ce n’est pratique, de plus en mulitpliant les <code>t-test</code> on multiplie egalement l’erreur toujours commiselors d’un test statistique. Chaque t-test est réalisé avec un risque <span class="math inline">\(\alpha\)</span> (souvent pris à 5 %). Avec 15 tests indépendants la probabilité de faire au moins une erreur de type I augmente fortement. Le risque global devient largement supérieur à 5 %.</p>
+</div>
+</div>
+</div>
+<p>On tente alors de réaliser une ANOVA.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+5. Conditions d’application de l’ANOVA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>Rappelez les conditions nécessaires à l’ANOVA à un facteur.</li>
+<li>En vous appuyant sur les histogrammes et le tableau des moyennes et écarts types, indiquez si elles sont raisonnablement satisfaites.</li>
+<li>Rappelez l’hypothèse nulle pour l’ANOVA</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+5. Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>L’ANOVA repose sur un certain nombre d’hypothèses, dont la validité est nécessaire pour que le test statistique soit fiable :</p>
+<ul>
+<li><p><strong>Indépendance</strong> des observations. Chaque observation (ici chaque œuf de coucou) doit être indépendante des autres. Si deux œufs dans le même nid sont dépendants, les résultats pourraient être biaisés. En pratique s’assurer que les mesures proviennent de différents nids ou individus.</p></li>
+<li><p><strong>Normalité des résidus</strong>. Les résidus du modèle (différence entre chaque observation et la moyenne du groupe) doivent suivre une loi normale.</p></li>
+<li><p><strong>Homogénéité des variances</strong>. Les variances des groupes doivent être approximativement égales.</p></li>
+</ul>
+<hr>
+<ul>
+<li><p><strong>Indépendance</strong>. Chaque observation représente la longueur d’un œuf de coucou dans un nid donné. Les données semblent provenir de différents nids et espèces, donc on peut raisonnablement supposer l’indépendance.</p></li>
+<li><p><strong>Normalité des résidus</strong>. Les histogrammes par espèce montrent des distributions unimodales et symétriques, sans valeurs aberrantes extrêmes. La normalité exacte sera testée plus tard par Shapiro-Wilk, mais visuellement, les conditions de normalité semblent raisonnablement respectées.</p></li>
+<li><p><strong>Homogénéité des variances</strong>. Les écarts-types par groupe varient entre 0,685 et 1,07 mm. Les variances (écart-type au carré) sont donc proches les unes des autres. Comme déjà vu le rapport entre la plus grande et la plus petite variance est d’environ 1,55 (inférieur à 2), ce qui est généralement acceptable. Les histogrammes montrent des étalements similaires pour tous les groupes. Visuellement la condition d’homogénéité des variances semble respectée.</p></li>
+</ul>
+<hr>
+<p>L’hypothèse nulle pour l’ANOVA est :</p>
+<p><strong>Toutes les espèces hôtes recoivent des oeufs de coucou de même longueur en moyenne.</strong></p>
+</div>
+</div>
+</div>
+<p>Sur conseil d’un collaborateur on réalise un <code>leveneTest</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(egg_length <span class="sc">~</span> host_species, <span class="at">data =</span> cuckooeggs)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in leveneTest.default(y = y, group = group, ...): group coerced to
+factor.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Levene's Test for Homogeneity of Variance (center = median)
+       Df F value Pr(&gt;F)
+group   5  0.6397 0.6698
+      114               </code></pre>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+6. Levene test
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>Donner l’hypothèse nulle pour ce test.</li>
+<li>Interpréter ce test, que pouvez vous en conclure ?</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+6. Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Le Levene Test est un test paramétrique destiné à vérifier l’égalité des variances entre plusieurs groupes. L’hypothèse nulle pour ce test est :</p>
+<p><strong>Toutes les variances des groupes sont égales.</strong></p>
+<p>Ou encore les variances de longueurs d’oeufs sont égales. Le test p = 0,6698. Comme la p-value est largement supérieure à 0,05, nous ne acceptons l’hypyhèse nulle <span class="math inline">\(H_0\)</span>. Les variances sont donc considérées comme homogènes.</p>
+</div>
+</div>
+</div>
+<p>Ce collaborateur nous recommande vivement d’effectuer un <code>shapiro.test</code>. Nous en réalisons donc plusieurs.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">by</span>(cuckooeggs<span class="sc">$</span>egg_length, cuckooeggs<span class="sc">$</span>host_species, shapiro.test)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>cuckooeggs$host_species: Hedge Sparrow
+
+    Shapiro-Wilk normality test
+
+data:  dd[x, ]
+W = 0.94843, p-value = 0.5366
+
+------------------------------------------------------------ 
+cuckooeggs$host_species: Meadow Pipit
+
+    Shapiro-Wilk normality test
+
+data:  dd[x, ]
+W = 0.93006, p-value = 0.009424
+
+------------------------------------------------------------ 
+cuckooeggs$host_species: Pied Wagtail
+
+    Shapiro-Wilk normality test
+
+data:  dd[x, ]
+W = 0.96471, p-value = 0.7736
+
+------------------------------------------------------------ 
+cuckooeggs$host_species: Robin
+
+    Shapiro-Wilk normality test
+
+data:  dd[x, ]
+W = 0.95212, p-value = 0.5239
+
+------------------------------------------------------------ 
+cuckooeggs$host_species: Tree Pipit
+
+    Shapiro-Wilk normality test
+
+data:  dd[x, ]
+W = 0.89772, p-value = 0.08786
+
+------------------------------------------------------------ 
+cuckooeggs$host_species: Wren
+
+    Shapiro-Wilk normality test
+
+data:  dd[x, ]
+W = 0.93295, p-value = 0.3019</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>anova_res <span class="ot">&lt;-</span> <span class="fu">aov</span>(egg_length <span class="sc">~</span> host_species, <span class="at">data =</span> cuckooeggs)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(<span class="fu">residuals</span>(anova_res))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  residuals(anova_res)
+W = 0.9804, p-value = 0.07761</code></pre>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+7. Shapiro test
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>Donnez l’hypothèse nulle pour le <code>shapiro.test</code>.</li>
+<li>Interprétez chacun de ces <code>shapiro.test</code>.</li>
+<li>Etaient ils tous nécessaire ?</li>
+<li>Que pouvez vous en conclure pour l’ANOVA ?</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+7. Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>L’hypothèse nulle du Shapiro-Wilk test est :</p>
+<p><strong>Les données suivent une distribution normale.</strong></p>
+<p>En pratique :</p>
+<ul>
+<li><p>si la p-value &gt; 0,05, on considère que l’hypothèse nulle est accepté et que la normalité donc est acceptée</p></li>
+<li><p>si la p-value &lt; 0,05, on considère que l’hypothèse nulle est rejeté et que la normalité est rejetée</p></li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 12%">
+<col style="width: 64%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Espèce</th>
+<th>p-value</th>
+<th>Interprétation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Hedge Sparrow</td>
+<td>0,537</td>
+<td>p &gt; 0,05 → <span class="math inline">\(H_0\)</span> acceptée → normalité acceptée</td>
+</tr>
+<tr class="even">
+<td>Meadow Pipit</td>
+<td>0,009</td>
+<td>p &lt; 0,05 → <span class="math inline">\(H_0\)</span> rejetée → normalité rejetée</td>
+</tr>
+<tr class="odd">
+<td>Pied Wagtail</td>
+<td>0,774</td>
+<td>p &gt; 0,05 → <span class="math inline">\(H_0\)</span> acceptée → normalité acceptée</td>
+</tr>
+<tr class="even">
+<td>Robin</td>
+<td>0,524</td>
+<td>p &gt; 0,05 → <span class="math inline">\(H_0\)</span> acceptée → normalité acceptée</td>
+</tr>
+<tr class="odd">
+<td>Tree Pipit</td>
+<td>0,088</td>
+<td>p &gt; 0,05 → <span class="math inline">\(H_0\)</span> acceptée → normalité acceptée</td>
+</tr>
+<tr class="even">
+<td>Wren</td>
+<td>0,302</td>
+<td>p &gt; 0,05 → <span class="math inline">\(H_0\)</span> acceptée → normalité acceptée</td>
+</tr>
+</tbody>
+</table>
+<p><code>Meadow Pipit</code> présente une p-value &lt; 0,05, donc la distribution sera considérée comme non normale. Les autres espèces n’indiquent aucune violation significative de normalité.</p>
+<hr>
+<p>Shapiro-Wilk sur les résidus de l’ANOVA</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(<span class="fu">residuals</span>(anova_res))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  residuals(anova_res)
+W = 0.9804, p-value = 0.07761</code></pre>
+</div>
+</div>
+<p>On obtient p-value = 0,078 &gt; 0.05. L’hypothèse nulle est acceptée, donc la normalité est acceptée.</p>
+<hr>
+<p>L’ANOVA repose sur la normalité des résidus, pas nécessairement des groupes pris séparément. Un groupe peut être légèrement non normal (ex : <code>Meadow Pipit</code>), mais si les résidus globaux sont normaux, l’ANOVA reste valide. Tester chaque groupe séparément est utile pour l’inspection exploratoire, mais ce n’est pas la condition clé pour l’ANOVA.</p>
+<p>Si les résidus ne sont pas normaux, les p-values de l’ANOVA peuvent être inexactes, le risque d’erreur de type I (faux positif) peut augmenter. Cependant, l’ANOVA est robuste aux violations légères, surtout avec des échantillons de taille raisonnable (ici entre 15 et50 individus par groupe).</p>
+<hr>
+<p>D’apres la question 6 on a montré l’homogénité des variances, et on vient de vérifié la normalité des risidus. L’ANOVA peut donc être appliquée de manière fiable.</p>
+</div>
+</div>
+</div>
+<p>Une fois nos <code>shapiro.test</code> réalisés, un autre collaborateur examine notre travail et nous indique qu’il aurait été pertinent de produire un <code>qqplot</code>. Nous tentons alors de tracer ce graphique.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(<span class="fu">residuals</span>(anova_res))</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(<span class="fu">residuals</span>(anova_res))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="exam-stat-S5-2025.12.10_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+8. Q-Q plot
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>Rappelez la définition d’un q-q plot et expliquez en quoi l’observation de ce collaborateur était pertinente.</li>
+<li>Analysez et interprétez ce graphique.</li>
+<li>Ces résultats concordent-ils avec le test de Shapiro précédemment effectué ?</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+8. Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Un Q-Q plot est un graphique permettant de comparer les quantiles observés des données (des résidus ici) et les quantiles théoriques d’une loi normale.</p>
+<ul>
+<li><p>Sur l’axe X : quantiles théoriques d’une loi normale</p></li>
+<li><p>Sur l’axe Y : quantiles observés des résidus</p></li>
+<li><p>Si les points se rapprochent d’une droite diagonale, cela indique que les données suivent approximativement une loi normale</p></li>
+<li><p>Les écarts significatifs par rapport à la droite indiquent des déviations à la normalité (asymétrie, queues longues, outliers)</p></li>
+<li><p>Il permet de compléter le Shapiro-Wilk test par une inspection visuelle</p></li>
+<li><p>Le Q-Q plot est particulièrement utile car il permet de détecter des déviations légères ou des outliers que les tests statistiques seuls pourraient ne pas révéler</p></li>
+<li><p>Les tests de normalité (Shapiro-Wilk) sont sensibles au nombre d’observations, pour de grands échantillons des écarts mineurs peuvent rendre le test significatif, pour de petits échantillons des écarts importants peuvent ne pas être détectés. Le Q-Q plot fournit une inspection visuelle complémentaire.</p></li>
+</ul>
+<hr>
+<p>Ici les points suivent assez bien la droite diagonale. Quelques écarts peuvent apparaître aux extrémités, ce qui est courant dans les données biologiques. Les écarts légers aux extrémités correspondent aux queues de distribution (valeurs extrêmes légèrement plus petites ou plus grandes que prévu). Aucune déviation majeure n’est visible.</p>
+<hr>
+<p>Le Shapiro-Wilk test sur les résidus avait permis d’accepté l’hypothése de nomalité. Le Q-Q plot confirme visuellement cette conclusion.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova_res)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+host_species   5  42.94   8.588   10.39 3.15e-08 ***
+Residuals    114  94.25   0.827                     
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+9. Résultat de l’ANOVA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>D’après les résultats de l’ANOVA, peut-on conclure que l’effet de l’espèce hôte sur la taille des œufs est statistiquement significatif ?</li>
+<li>L’ANOVA permet-elle de déterminer exactement quelles espèces présentent des effets différents ?</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+9. Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>On obtient une p-value égale à <span class="math inline">\(3,15 \times 10^{-8}\)</span>. Cette valeur est extrêmement inférieure aux seuils usuels de 0,05. On rejette très fortement l’hypothèse nulle. Oui, l’effet de l’espèce hôte sur la taille des œufs de coucou est hautement statistiquement significatif. Autrement dit il est extrêmement improbable que les différences observées de longueur d’œufs soient dues uniquement au hasard. L’espèce hôte explique une partie significative de la variabilité observée.</p>
+<hr>
+<p>L’ANOVA met en évidence un effet global significatif de l’espèce hôte sur la longueur des œufs de coucou. Cependant, elle ne permet pas d’identifier quelles espèces diffèrent entre elles. Un test post-hoc est donc nécessaire pour comparer les moyennes deux à deux.</p>
+</div>
+</div>
+</div>
+<p>Toujours le même collaborateur nous parle déffecteuer un test post hoc. On le réalise sans trop savoir ce que l’on est en train de tester.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>tukey <span class="ot">&lt;-</span> <span class="fu">TukeyHSD</span>(anova_res)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>tukey</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = egg_length ~ host_species, data = cuckooeggs)
+
+$host_species
+                                  diff          lwr         upr     p adj
+Meadow Pipit-Hedge Sparrow -0.82253968 -1.629133605 -0.01594576 0.0428621
+Pied Wagtail-Hedge Sparrow -0.21809524 -1.197559436  0.76136896 0.9872190
+Robin-Hedge Sparrow        -0.54642857 -1.511003196  0.41814605 0.5726153
+Tree Pipit-Hedge Sparrow   -0.03142857 -1.010892769  0.94803563 0.9999990
+Wren-Hedge Sparrow         -1.99142857 -2.970892769 -1.01196437 0.0000006
+Pied Wagtail-Meadow Pipit   0.60444444 -0.181375330  1.39026422 0.2324603
+Robin-Meadow Pipit          0.27611111 -0.491069969  1.04329219 0.9021876
+Tree Pipit-Meadow Pipit     0.79111111  0.005291337  1.57693089 0.0474619
+Wren-Meadow Pipit          -1.16888889 -1.954708663 -0.38306911 0.0004861
+Robin-Pied Wagtail         -0.32833333 -1.275604766  0.61893810 0.9155004
+Tree Pipit-Pied Wagtail     0.18666667 -0.775762072  1.14909541 0.9932186
+Wren-Pied Wagtail          -1.77333333 -2.735762072 -0.81090459 0.0000070
+Tree Pipit-Robin            0.51500000 -0.432271433  1.46227143 0.6159630
+Wren-Robin                 -1.44500000 -2.392271433 -0.49772857 0.0003183
+Wren-Tree Pipit            -1.96000000 -2.922428738 -0.99757126 0.0000006</code></pre>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+10. Test post-hoc - Tukey test
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>Rappelez l’objectif d’un test post-hoc après une ANOVA.</li>
+<li>D’après les résultats du test de Tukey, quelles paires d’espèces présentent des différences significatives ?</li>
+<li>Quelles conclusions peut-on tirer de ces résultats ?</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+10. Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Après avoir mis en évidence, grâce à l’ANOVA, un effet global significatif de l’espèce hôte sur la longueur des œufs de coucou, il est nécessaire d’aller plus loin dans l’analyse afin de comprendre quelles espèces diffèrent réellement entre elles.</p>
+<p>C’est précisément le rôle d’un test post-hoc, ici le test de Tukey.</p>
+<p>Un test post-hoc permet de comparer toutes les paires de groupes deux à deux, tout en contrôlant le risque global d’erreur de type I (fausse détection de différences). Sans correction post-hoc, multiplier les comparaisons augmenterait artificiellement le risque de conclure à tort.</p>
+<p>Le test de Tukey est particulièrement adapté lorsque toutes les comparaisons par paires sont d’intérêt, les tailles d’échantillons sont comparables, et les variances sont homogènes (condition vérifiée par le test de Levene).</p>
+<p>Les paires pour lesquelles la différence est statistiquement significative :</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 23%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Comparaison</th>
+<th>Différence de moyennes (mm)</th>
+<th>IC 95 %</th>
+<th>p-value ajustée</th>
+<th>Interprétation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Meadow Pipit – Hedge Sparrow</td>
+<td>−0,82</td>
+<td>[−1,63 ; −0,02]</td>
+<td>0,043</td>
+<td>Hedge Sparrow &gt; Meadow Pipit</td>
+</tr>
+<tr class="even">
+<td>Tree Pipit – Meadow Pipit</td>
+<td>+0,79</td>
+<td>[0,01 ; 1,58]</td>
+<td>0,047</td>
+<td>Tree Pipit &gt; Meadow Pipit</td>
+</tr>
+<tr class="odd">
+<td>Wren – Hedge Sparrow</td>
+<td>−1,99</td>
+<td>[−2,97 ; −1,01]</td>
+<td>&lt; 10⁻⁶</td>
+<td>Wren ≪ Hedge Sparrow</td>
+</tr>
+<tr class="even">
+<td>Wren – Meadow Pipit</td>
+<td>−1,17</td>
+<td>[−1,95 ; −0,38]</td>
+<td>4,9 × 10⁻⁴</td>
+<td>Wren ≪ Meadow Pipit</td>
+</tr>
+<tr class="odd">
+<td>Wren – Pied Wagtail</td>
+<td>−1,77</td>
+<td>[−2,74 ; −0,81]</td>
+<td>7 × 10⁻⁶</td>
+<td>Wren ≪ Pied Wagtail</td>
+</tr>
+<tr class="even">
+<td>Wren – Robin</td>
+<td>−1,45</td>
+<td>[−2,39 ; −0,50]</td>
+<td>3,2 × 10⁻⁴</td>
+<td>Wren ≪ Robin</td>
+</tr>
+<tr class="odd">
+<td>Wren – Tree Pipit</td>
+<td>−1,96</td>
+<td>[−2,92 ; −1,00]</td>
+<td>&lt; 10⁻⁶</td>
+<td>Wren ≪ Tree Pipit</td>
+</tr>
+</tbody>
+</table>
+<p>Toutes les comparaisons impliquant Wren sont significatives.</p>
+<p>Ci-dessous les paires pour lesquelles la comparaison est non significative.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Comparaison</th>
+<th>p-value ajustée</th>
+<th>Conclusion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Hedge Sparrow – Tree Pipit</td>
+<td>1,00</td>
+<td>Pas de différence</td>
+</tr>
+<tr class="even">
+<td>Hedge Sparrow – Pied Wagtail</td>
+<td>0,99</td>
+<td>Pas de différence</td>
+</tr>
+<tr class="odd">
+<td>Hedge Sparrow – Robin</td>
+<td>0,57</td>
+<td>Pas de différence</td>
+</tr>
+<tr class="even">
+<td>Meadow Pipit – Pied Wagtail</td>
+<td>0,23</td>
+<td>Pas de différence</td>
+</tr>
+<tr class="odd">
+<td>Meadow Pipit – Robin</td>
+<td>0,90</td>
+<td>Pas de différence</td>
+</tr>
+<tr class="even">
+<td>Pied Wagtail – Robin</td>
+<td>0,92</td>
+<td>Pas de différence</td>
+</tr>
+<tr class="odd">
+<td>Pied Wagtail – Tree Pipit</td>
+<td>0,99</td>
+<td>Pas de différence</td>
+</tr>
+<tr class="even">
+<td>Robin – Tree Pipit</td>
+<td>0,62</td>
+<td>Pas de différence</td>
+</tr>
+</tbody>
+</table>
+<p>Ce tableau résume les résultats sous forme de groupes homogènes.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 32%">
+<col style="width: 45%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Groupe</th>
+<th>Espèces</th>
+<th>Interprétation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Groupe A (œufs les plus grands)</td>
+<td>Hedge Sparrow, Tree Pipit, Pied Wagtail, Robin</td>
+<td>Moyennes élevées, pas de différences significatives entre elles</td>
+</tr>
+<tr class="even">
+<td>Groupe B (intermédiaire)</td>
+<td>Meadow Pipit</td>
+<td>Moyenne légèrement plus faible</td>
+</tr>
+<tr class="odd">
+<td>Groupe C (œufs les plus petits)</td>
+<td>Wren</td>
+<td>Moyenne significativement plus faible que toutes les autres</td>
+</tr>
+</tbody>
+</table>
+<p>Le test post-hoc de Tukey permet de comparer les moyennes deux à deux tout en contrôlant le risque d’erreur lié aux comparaisons multiples. Les résultats montrent que l’espèce Wren se distingue significativement de toutes les autres, avec des œufs de coucou significativement plus petits. D’autres différences plus modestes sont observées entre Meadow Pipit et certaines espèces. En revanche, plusieurs espèces présentent des moyennes statistiquement similaires. Ces résultats indiquent que la taille des œufs de coucou dépend finement de l’espèce hôte, ce qui suggère une adaptation évolutive.</p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="exercice-2" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="exercice-2">Exercice 2</h2>
+<p>Le jeu de données utilisé dans cet examen est inspiré d’une étude publiée dans la revue Cell, <span class="citation" data-cites="petropoulos2016single">Petropoulos et al. (<a href="#ref-petropoulos2016single" role="doc-biblioref">2016</a>)</span>, où des chercheurs ont mesuré l’activité de nombreux gènes dans des cellules provenant d’embryons humains très précoces. Leur objectif était d’observer comment les cellules évoluent au cours du développement et comment elles se différencient en plusieurs types cellulaires.</p>
+<p>Pour notre exercice, nous utilisons une version simplifiée de ce type de données. Le fichier contient :</p>
+<ul>
+<li><p>300 gènes (chaque ligne correspond à un gène différent)</p></li>
+<li><p>12 échantillons (chaque colonne correspond à une condition biologique), représentant différents jours de développement et différents types de cellules :</p>
+<ul>
+<li>Exemples : Day_5_EPI, Day_5_TE, Day_6_PE, etc.</li>
+</ul></li>
+<li><p>Les variables du fichier sont donc :</p>
+<ul>
+<li><p>Gene : nom du gène</p></li>
+<li><p>12 variables quantitatives (une par condition), correspondant à l’expression du gène dans chaque échantillon (mesure numérique)</p></li>
+</ul></li>
+</ul>
+<p>L’objectif de l’Analyse en composantes principales est d’identifier les grands axes qui résument les principales différences d’expression entre ces 12 conditions, et de visualiser si certaines conditions se regroupent selon des profils similaires.</p>
+<p>Le fichier de données est <code>mmc3.xlsx</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>data  <span class="ot">=</span> <span class="fu">read_excel</span>(<span class="st">"data_raw/mmc3.xlsx"</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 13
+  Gene    Day_3 Day_4 Pre_Day_5 Day_5_EPI Day_5_PE Day_5_TE Day_6_EPI Day_6__PE
+  &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+1 SEPT6     1.5   0         0.2       2.2      0.6      0.3       9.8       0.7
+2 AARS2     2.3  13.8      17.3      44.1     19.5      8.5      21.8       7.5
+3 ABCG2     0.2   0.3       7.6       3.3     10.4     35.1      23        54  
+4 ABHD12B   5.8  11        16.7      33.3     17       12.3      57.4      18.3
+5 ABHD6     0.8   4.2       9.7       7.5     29.2      8.1      11.8      14.8
+6 ACE       0.3  17.5      10.3      15.4      6.7      3.9      11.1       1.3
+# ℹ 4 more variables: Day_6_TE &lt;dbl&gt;, Day_7_EPI &lt;dbl&gt;, Day_7_PE &lt;dbl&gt;,
+#   Day_7_TE &lt;dbl&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>var.quanti <span class="ot">=</span> <span class="fu">sapply</span>(data, is.numeric)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>data.quanti <span class="ot">=</span> data[, var.quanti]</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data.quanti)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 12
+  Day_3 Day_4 Pre_Day_5 Day_5_EPI Day_5_PE Day_5_TE Day_6_EPI Day_6__PE Day_6_TE
+  &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+1   1.5   0         0.2       2.2      0.6      0.3       9.8       0.7      0.4
+2   2.3  13.8      17.3      44.1     19.5      8.5      21.8       7.5      4.8
+3   0.2   0.3       7.6       3.3     10.4     35.1      23        54       71.3
+4   5.8  11        16.7      33.3     17       12.3      57.4      18.3      9.8
+5   0.8   4.2       9.7       7.5     29.2      8.1      11.8      14.8      8.8
+6   0.3  17.5      10.3      15.4      6.7      3.9      11.1       1.3      0.8
+# ℹ 3 more variables: Day_7_EPI &lt;dbl&gt;, Day_7_PE &lt;dbl&gt;, Day_7_TE &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+1. Question théorique
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>Combien de gènes et de conditions contient le jeu de données ?</li>
+<li>Quelles sont les variables quantitatives ?</li>
+<li>Pourquoi est-il important de distinguer les variables quantitatives et qualitatives avant l’analyse ?</li>
+<li>Expliquez en quelques phrases l’objectif de l’ACP. Pourquoi cette méthode est-elle utilisée ?</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+1. Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Le jeu de données est structuré sous forme de tableau où :</p>
+<ul>
+<li><p>Chaque ligne correspond à un gène</p></li>
+<li><p>Chaque colonne correspond à une variable</p></li>
+</ul>
+<p>À partir de la description et de l’aperçu avec <code>head(data)</code>, on observe :</p>
+<ul>
+<li><p>300 lignes, ce qui signifie que 300 gènes distincts sont analysés</p></li>
+<li><p>13 colonnes au total, parmi lesquelles :</p>
+<ul>
+<li><p>1 colonne qualitative : Gene (nom du gène)</p></li>
+<li><p>12 colonnes quantitatives correspondant aux conditions biologiques. Ces 12 conditions représentent :</p>
+<ul>
+<li>Différents jours de développement embryonnaire (Day 3 à Day 7)</li>
+<li>Différents types cellulaires :
+<ul>
+<li>EPI (Epiblaste)</li>
+<li>PE (Primitive Endoderm)</li>
+<li>TE (Trophectoderme)</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<p>Le jeu de données contient donc 300 gènes (individus statistiques) décrits par 12 conditions biologiques (variables quantitatives).</p>
+<hr>
+<p>Les variables quantitatives sont celles qui sont de type numérique, qui représentent des mesures continues, et peuvent être comparées par des opérations mathématiques (moyenne, variance, corrélation). Dans ce jeu de données, il s’agit des 12 colonnes évoquées plus haut :</p>
+<p><code>Day_3</code>, <code>Day_4</code>, <code>Pre_Day_5</code>, <code>Day_5_EPI</code>, <code>Day_5_PE</code>, <code>Day_5_TE</code>, <code>Day_6_EPI</code>, <code>Day_6_PE</code>, <code>Day_6_TE</code>, <code>Day_7_EPI</code>, <code>Day_7_PE</code> et <code>Day_7_TE</code>.</p>
+<p>Chaque valeur numérique correspond à un niveau d’expression génique mesuré pour un gène donné dans une condition biologique précise.</p>
+<hr>
+<p>L’Analyse en Composantes Principales est une méthode algébrique. Elle repose sur :</p>
+<ul>
+<li><p>Le calcul de variances</p></li>
+<li><p>Le calcul de covariances ou de corrélations</p></li>
+<li><p>La diagonalisation d’une matrice numérique</p></li>
+</ul>
+<p>Ces concepts mathématiques n’ont de sens que pour des variables quantitatives. Conséquences si cette distinction n’est pas faite, inclure une variable qualitative dans une ACP entraînerait une impossibilité mathématique ! Cette sélection garantit la validité statistique de l’analyse.</p>
+<hr>
+<p>L’Analyse en Composantes Principales vise à résumer l’information contenue dans un grand nombre de variables corrélées par un petit nombre de variables non corrélées, appelées composantes principales. Plus précisément, cette analyse permet de :</p>
+<ul>
+<li><p>Réduire la dimension des données</p></li>
+<li><p>Conserver un maximum de variance</p></li>
+<li><p>Identifier les structures dominantes</p></li>
+<li><p>Faciliter la visualisation et l’interprétation de corrlations entre variables</p></li>
+</ul>
+<p>Cette analyse est particulièrement adaptée ici car il y a un grand nombre de variables, les 12 conditions biologiques fortement dépendantes biologiquement (mêmes processus de développement). On s’attend donc à de fortes corrélations, ce qui est une situation idéale pour l’ACP. L’étude ne cherche pas à tester une hypothèse précise, mais à :</p>
+<ul>
+<li><p>Explorer les données</p></li>
+<li><p>Détecter des tendances</p></li>
+<li><p>Mettre en évidence des regroupements</p></li>
+</ul>
+<p>L’ACP est une méthode exploratoire non supervisée, parfaitement adaptée à cet objectif. Dans ce contexte, l’ACP doit permettre de :</p>
+<ul>
+<li>Identifier si les conditions se regroupent :
+<ul>
+<li>Par jour de développement</li>
+<li>Par type cellulaire</li>
+</ul></li>
+<li>Comprendre quels ensembles de conditions :
+<ul>
+<li>Partagent des profils d’expression similaires</li>
+<li>S’opposent sur certains axes</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>Matrice.Correlation <span class="ot">&lt;-</span> <span class="fu">cor</span>(data.quanti, <span class="at">use =</span> <span class="st">"complete.obs"</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(Matrice.Correlation, </span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">method =</span> <span class="st">"color"</span>, </span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="st">"upper"</span>, </span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">order =</span> <span class="st">"hclust"</span>,</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">tl.col =</span> <span class="st">"black"</span>, </span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">tl.srt =</span> <span class="dv">45</span>, </span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">addCoef.col =</span> <span class="st">"black"</span>,</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">cl.pos =</span> <span class="st">"n"</span>,</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">cl.cex =</span> <span class="fl">1.2</span>,</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">addCoefasPercent =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">number.cex =</span> <span class="fl">0.8</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="exam-stat-S5-2025.12.10_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>data.quanti <span class="ot">=</span> data[, var.quanti]</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+2. Matrice de corrélation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>Quelles conditions semblent fortement corrélées ? Quelles conditions semblent peu corrélées ?</li>
+<li>Que peut-on déduire de ces corrélations pour l’analyse en composantes principales ?</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+2. Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Les conditions qui montrent des valeurs proches de 100 dans la matrice sont fortement corrélées.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 80%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Conditions fortement corrélées</th>
+<th>Interprétation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Day_6_EPI et Day_7_EPI</td>
+<td>Même type cellulaire (EPI) à des jours consécutifs</td>
+</tr>
+<tr class="even">
+<td>Day_5_TE et Day_6_TE</td>
+<td>Même type cellulaire (EPI) à des jours consécutifs</td>
+</tr>
+<tr class="odd">
+<td>Day_5_PE et Day_6_PE</td>
+<td>Même type cellulaire (EPI) à des jours consécutifs</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>Ces cellules continuent leur programme de développement spécifique.</p></li>
+<li><p>Les gènes exprimés dans un type cellulaire donné restent actifs à des niveaux comparables au cours des jours successifs.</p></li>
+</ul>
+<hr>
+<p>Les conditions qui montrent des valeurs proches de 0 dans la matrice sont faiblement corrélées.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 82%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Conditions faiblement corrélées</th>
+<th>Interprétation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Day_3 et Day_7_TE</td>
+<td>Gènes exprimés très différemment ; changement de programme de développement</td>
+</tr>
+<tr class="even">
+<td>Day_3 et Day_5_PE</td>
+<td>Profils biologiques distincts.</td>
+</tr>
+<tr class="odd">
+<td>EPI vs TE ou PE</td>
+<td>Très différents</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>Les variables fortement corrélées apportent la même information (exemple : Day_6_EPI et Day_7_EPI). Pour une ACP, cette redondance est utile. L’ACP combine les variables corrélées pour créer un axe principal. Cela permet de résumer l’information avec moins de composantes.</p>
+<ul>
+<li><p>L’axe 1 de l’ACP capturera probablement la variation commune à ces jours consécutifs pour un type cellulaire.</p></li>
+<li><p>Les variables faiblement corrélées ou négativement corrélées introduisent des axes supplémentaires.</p></li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 46%">
+<col style="width: 53%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Observation</th>
+<th>Implication pour l’ACP</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Corrélation forte entre conditions similaires</td>
+<td>Ces variables seront résumées par le même axe principal</td>
+</tr>
+<tr class="even">
+<td>Corrélation faible entre types cellulaires ou jours éloignés</td>
+<td>Ces différences seront capturées par des axes secondaires</td>
+</tr>
+<tr class="odd">
+<td>Bloc de corrélations</td>
+<td>Permet d’identifier des groupes biologiques cohérents avant l’ACP</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>data.CR <span class="ot">&lt;-</span> <span class="fu">scale</span>(data.quanti,<span class="at">center =</span> <span class="cn">TRUE</span>,<span class="at">scale=</span><span class="cn">TRUE</span>)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>pca.data <span class="ot">&lt;-</span> <span class="fu">PCA</span>(data.CR, <span class="at">graph =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>vp <span class="ot">=</span> pca.data<span class="sc">$</span>eig</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>vp</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         eigenvalue percentage of variance cumulative percentage of variance
+comp 1  7.585892122            63.21576768                          63.21577
+comp 2  2.217238058            18.47698382                          81.69275
+comp 3  0.873147907             7.27623255                          88.96898
+comp 4  0.776224795             6.46853996                          95.43752
+comp 5  0.293172253             2.44310211                          97.88063
+comp 6  0.097438066             0.81198388                          98.69261
+comp 7  0.072100242             0.60083535                          99.29345
+comp 8  0.046325556             0.38604630                          99.67949
+comp 9  0.016444017             0.13703347                          99.81653
+comp 10 0.013633402             0.11361169                          99.93014
+comp 11 0.005016309             0.04180257                          99.97194
+comp 12 0.003367273             0.02806061                         100.00000</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(vp[, <span class="dv">2</span>], </span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">names.arg=</span><span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(vp), </span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">""</span>,</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"Composantes principales"</span>,</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Pourcentage de variance expliquée"</span>,</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span><span class="st">"steelblue"</span>)</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(vp), </span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>      vp[, <span class="dv">2</span>], </span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">type=</span><span class="st">"b"</span>, </span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">pch=</span><span class="dv">19</span>, </span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">col =</span> <span class="st">"black"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="exam-stat-S5-2025.12.10_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+3. Variance expliquée
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>Que représente la variance expliquée par chaque composante principale ?</li>
+<li>Combien de composantes principales retiendriez-vous pour représenter l’essentiel de l’information ? Justifiez votre réponse.</li>
+<li>Quelle proportion de variance est expliquée par les deux premières composantes ?</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+3. Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-26" class="callout-26-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Dans une ACP, chaque composante principale est une combinaison linéaire des variables originales.</p>
+<ul>
+<li><p>La première composante principale (Dim 1) est construite pour maximiser la variance totale des données projetées sur cette dimension.</p></li>
+<li><p>La deuxième composante principale (Dim 2) maximise la variance restante sous contrainte d’orthogonalité à la première composante principale.</p></li>
+<li><p>Et ainsi de suite pour les axes suivants.</p></li>
+</ul>
+<p>La variance expliquée par une composante principale correspond à :</p>
+<p><span class="math display">\[\text{Variance expliquée de Dim i} = \frac{\text{valeur propre (eigenvalue) de Dim i}}{\text{somme des valeurs propres}} \times 100\]</span></p>
+<p>La valeur propre (eigenvalue) mesure la quantité de variance capturée par l’axe. Plus la valeur propre est grande, plus l’axe est informative.</p>
+<p>Ici chaque axe représente un profil d’expression génétique combiné :</p>
+<ul>
+<li><p>Dim 1 : direction qui distingue les conditions les plus différentes</p></li>
+<li><p>Dim 2 : direction qui capture le deuxième contraste le plus important</p></li>
+</ul>
+<p>La variance expliquée indique combien de l’information totale (différences d’expression entre conditions) est conservée sur cet axe. Exemple : si Dim 1 explique 63 %, cela signifie que 63 % de la variabilité totale entre conditions est résumée sur ce seul axe.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Composante</th>
+<th>Eigenvalue</th>
+<th>% Variance</th>
+<th>% Cumulée</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Dim 1</td>
+<td>7.586</td>
+<td>63.2 %</td>
+<td>63.2 %</td>
+</tr>
+<tr class="even">
+<td>Dim 2</td>
+<td>2.217</td>
+<td>18.5 %</td>
+<td>81.7 %</td>
+</tr>
+<tr class="odd">
+<td>Dim 3</td>
+<td>0.873</td>
+<td>7.3 %</td>
+<td>88.97 %</td>
+</tr>
+<tr class="even">
+<td>Dim 4</td>
+<td>0.776</td>
+<td>6.47 %</td>
+<td>95.44 %</td>
+</tr>
+<tr class="odd">
+<td>Dim 5</td>
+<td>0.293</td>
+<td>2.44 %</td>
+<td>97.88 %</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>Dim 1 (63 %) : capture la majeure partie de la variation, probablement liée aux différences temporelles globales et aux types cellulaires majeurs</p></li>
+<li><p>Dim 2 (18.5 %) : capture les différences secondaires,</p></li>
+<li><p>Axes suivants (&lt;10 %) : capturent des variations mineures, bruit ou différences très spécifiques</p></li>
+</ul>
+<hr>
+<p>Seules les composantes avec une valeur propre &gt; 1 sont considérées comme significatives. Ici :</p>
+<ul>
+<li>Dim 1 : 7.586 → OK</li>
+<li>Dim 2 : 2.217 → OK</li>
+<li>Dim 3 : 0.873 &lt; 1 → moins informative</li>
+</ul>
+<p>On peut utiliser le critère du coude (scree plot). Il suffit d’observer le point où la courbe se stabilise (diminution rapide → “coudé”). Ici le coude est évident après Dim 2, les axes suivants apportent peu de variance.</p>
+<p>On peut également utiliser un critère de variance cumulée, c’est à dire retenir des axes qui expliquent 80 % ou plus de la variance. Ici les 2 premiers axes expliquent 63.2 + 18.5 ≈ 81.7 %. Cela est suffisant pour résumer l’information principale dans 2 axes.</p>
+<hr>
+<p>La proportion de variance expliquée par les deux premières composantes principales est 63.2 + 18.5 = 81.7 %. Plus de 80 % de l’information totale est conservée dans un plan 2D. Cela justifie la visualisation des individus et des variables sur un plan factoriel. Les axes 1 et 2 suffisent pour mettre en évidence les structures principales des données (regroupements, oppositions, profils dominants)</p>
+<hr>
+<p>Synthèse :</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 74%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Question</th>
+<th>Réponse détaillée</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Que représente la variance expliquée ?</td>
+<td>La proportion de la variation totale capturée par chaque axe. Plus elle est grande, plus l’axe est informatif.</td>
+</tr>
+<tr class="even">
+<td>Combien de composantes retenir ?</td>
+<td>2 axes principaux. Justification : valeur propre &gt;1, coude du scree plot, variance cumulée &gt;80 %.</td>
+</tr>
+<tr class="odd">
+<td>Variance cumulée Dim1+Dim2</td>
+<td>81.7 % → suffisant pour une bonne représentation des données.</td>
+</tr>
+<tr class="even">
+<td>Utilité</td>
+<td>Résumer la majorité de l’information, visualiser les relations entre gènes et conditions, réduire le bruit.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_var</span>(pca.data, </span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">col.var =</span> <span class="st">"cos2"</span>,</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">gradient.cols =</span> <span class="fu">c</span>(<span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>, <span class="st">"#FC4E07"</span>),</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">title =</span> <span class="st">"Cercle de Corrélation des Variables (cos2)"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="exam-stat-S5-2025.12.10_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+4. Cercle de corrélation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>Identifiez deux variables fortement corrélées et deux variables faiblement corrélées.</li>
+<li>Que signifie la longueur et l’orientation des flèches ?</li>
+<li>Quelles variables ont une contribution importante sur l’axe 2?</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+4. Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-28" class="callout-28-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Le cercle de corrélation est un outil graphique qui permet de visualiser :</p>
+<ul>
+<li><p>La relation entre variables quantitatives et les axes principaux</p></li>
+<li><p>Les corrélations entre variables</p></li>
+<li><p>La contribution de chaque variable à chaque axe</p></li>
+</ul>
+<hr>
+<p>Deux variables sont fortement corrélées si leurs flèches sont proches et orientées suivant la même direction. L’angle entre elles est proche de 0°.</p>
+<p>Exemples attendus dans ce jeu de données :</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 77%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variables fortement corrélées</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Day_6_EPI</code> et <code>Day_7_EPI</code></td>
+<td>Même type cellulaire, jours consécutifs → profils d’expression similaires</td>
+</tr>
+<tr class="even">
+<td><code>Day_5_TE</code> et <code>Day_6_TE</code></td>
+<td>Même type cellulaire TE → corrélation positive élevée</td>
+</tr>
+</tbody>
+</table>
+<p>Deux variables sont faiblement corrélées si leurs flèches sont perpendiculaires (angle ≈ 90°).</p>
+<p>Exemples attendus :</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 81%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variables faiblement corrélées</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Day_3</code> et <code>Day_7_TE</code></td>
+<td>Jour très éloigné et type cellulaire différent → profils indépendants</td>
+</tr>
+<tr class="even">
+<td><code>Day_4</code> et <code>Day_6_PE</code></td>
+<td>Flèches orthogonales → absence de corrélation linéaire</td>
+</tr>
+</tbody>
+</table>
+<p>La longueur des flèches représente la qualité de représentation sur le plan factoriel.</p>
+<ul>
+<li><p>Longue flèche → la variable est bien représentée, proche du plan choisi (Dim1 × Dim2)</p></li>
+<li><p>Courte flèche → variable mal représentée, sa variance est surtout sur d’autres axes</p></li>
+</ul>
+<p>Exemple pratique :</p>
+<ul>
+<li><p><code>Day_6_EPI</code> : longue flèche → forte contribution aux axes principaux</p></li>
+<li><p><code>Day_7_PE</code> : courte flèche → beaucoup de variance sur axes non représentés (Dim3, Dim4…)</p></li>
+</ul>
+<hr>
+<p>L’orientation des flèches, vue par l’angle entre flèches traduit la corrélation entre variables :</p>
+<ul>
+<li><p>Angle proche de 0° → corrélation positive forte</p></li>
+<li><p>Angle proche de 180° → corrélation négative forte</p></li>
+<li><p>Angle proche de 90° → variables indépendantes</p></li>
+</ul>
+<p>Ici les flèches proches traduisent des types cellulaires avec profils similaires, et des flèches perpendiculaires traduisent des types cellulaires différents ou jours éloignés.</p>
+<hr>
+<p>Sur le cercle de corrélation <code>Day_3</code> et <code>Day_4</code> ont des flèches longues et fortement orientées verticalement (Dim 2). Cela indique qu’elles contribuent de manière significative à l’axe 2.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pca.data<span class="sc">$</span>ind<span class="sc">$</span>coord)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       Dim.1       Dim.2       Dim.3         Dim.4       Dim.5
+1 -0.8860388 -0.05653948 -0.05987579  0.0326202352  0.03833300
+2 -0.6057873  0.10852636 -0.12243416 -0.0690008780 -0.10503767
+3 -0.3699260 -0.31957924  0.03212768  0.1043982993  0.31567397
+4 -0.5063049  0.11052344 -0.11409912 -0.1403434496  0.02666491
+5 -0.6891486 -0.07722587 -0.02877404  0.0005839167 -0.07581851
+6 -0.7792027  0.06145232 -0.06881027  0.0769645114 -0.05851516</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_ind</span>(pca.data,  <span class="at">col.ind=</span><span class="st">"cos2"</span>) <span class="sc">+</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_gradient2</span>(<span class="at">low=</span><span class="st">"blue"</span>, <span class="at">mid=</span><span class="st">"white"</span>, <span class="at">high=</span><span class="st">"red"</span>, <span class="at">midpoint=</span><span class="fl">0.50</span>) <span class="sc">+</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="exam-stat-S5-2025.12.10_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrer les individus avec cos² &gt; 50%</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>ind_cos2 <span class="ot">&lt;-</span> <span class="fu">apply</span>(pca.data<span class="sc">$</span>ind<span class="sc">$</span>cos2, <span class="dv">1</span>, max) <span class="sc">&gt;</span> <span class="fl">0.5</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrer les variables avec cos² &gt; 50%</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>var_cos2 <span class="ot">&lt;-</span> <span class="fu">apply</span>(pca.data<span class="sc">$</span>var<span class="sc">$</span>cos2, <span class="dv">1</span>, max) <span class="sc">&gt;</span> <span class="fl">0.5</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer un graphique combiné des individus et des variables</span></span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_biplot</span>(pca.data,</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">select.ind =</span> <span class="fu">list</span>(<span class="at">cos2 =</span> <span class="fl">0.5</span>), <span class="co"># Sélectionner les individus avec cos² &gt; 50%</span></span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">select.var =</span> <span class="fu">list</span>(<span class="at">cos2 =</span> <span class="fl">0.5</span>), <span class="co"># Sélectionner les variables avec cos² &gt; 50%</span></span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>                <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="co"># Éviter le chevauchement des étiquettes</span></span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>                <span class="at">title =</span> <span class="st">"Biplot des Individus et des Variables (cos² &gt; 50%)"</span>,</span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>                <span class="at">col.ind =</span> <span class="st">"blue"</span>, <span class="co"># Couleur des individus</span></span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>                <span class="at">col.var =</span> <span class="st">"red"</span>, <span class="co"># Couleur des variables</span></span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>                <span class="at">geom.ind =</span> <span class="st">"point"</span>  </span>
+<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="exam-stat-S5-2025.12.10_files/figure-html/unnamed-chunk-17-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+5. Représentation des individus
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Que révèle la position des individus sur le plan des deux premiers axes (proximité, similarité, groupes, outliers) ?</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+5. Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-30" class="callout-30-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Nous analysons la position des individus (gènes) sur le plan des deux premières composantes principales de l’ACP (Dim1 et Dim2) afin de comprendre leur similarité, la formation de groupes et la présence d’outliers.</p>
+<ul>
+<li><p>Deux gènes <strong>proches</strong> dans le plan ont des <strong>profils d’expression similaires</strong> sur les 12 conditions.</p></li>
+<li><p>La <strong>distance euclidienne</strong> dans le plan factoriel reflète la similarité après réduction de dimension.</p></li>
+<li><p>Gènes éloignés : expression spécifique ou extrême dans certaines conditions. Peuvent représenter des <strong>marqueurs spécifiques</strong> ou des variations expérimentales.</p></li>
+<li><p>Le <strong>cos²</strong> mesure la qualité de représentation d’un gène sur le plan Dim1 × Dim2 :</p>
+<ul>
+<li><p>cos² &gt; 0.5 → bien représenté, interprétation fiable (on a uniquement représenté ces individus)</p></li>
+<li><p>cos² faible → beaucoup de variance sur d’autres axes</p></li>
+</ul></li>
+</ul>
+<p>En conclusion, la projection des gènes sur le plan factoriel permet de <strong>visualiser la structure globale des profils d’expression</strong>, d’identifier des <strong>groupes cohérents</strong>, et de mettre en évidence les <strong>gènes spécifiques ou outliers</strong>, tout en restant justifiée par la variance expliquée et le cos².</p>
+<p>Ici beaucoup de points sont concentrés proche de l’origine, sachant que cos² &gt; 0.5. La position est bien représentée sur ce plan. Autrement dit, la position à proximité de l’origine est fiable, pas un artefact dû au choix du plan. La plupart des individus (genes) ont donc une expression relativement constante à travers les conditions.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="références" class="level2 unnumbered">
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Références</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-petropoulos2016single" class="csl-entry" role="listitem">
+Petropoulos, S., Edsgärd, D., Reinius, B., Deng, Q., Panula, S. P., Codeluppi, S., Reyes, A. P., Linnarsson, S., Sandberg, R., et Lanner, F. (2016). Single-cell RNA-seq reveals lineage and X chromosome dynamics in human preimplantation embryos. <em>Cell</em> <em>165</em>: 1012‑1026.
+</div>
+</div></section></div></main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copié");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copié");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
