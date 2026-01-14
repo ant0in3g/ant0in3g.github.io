@@ -18,4 +18,4 @@ Vous pouvez de nouveau retrouver via ce [lien](./corrections.md) les corrections
 
 ### Troisième année
 
-- [Examen 3A du mercredi 10 décembre 2025](./examens/exam-stat-S5-2025.12.10.html)jjj
+- [Examen 3A du mercredi 10 décembre 2025](./examens/exam-stat-S5-2025.12.10.html)
