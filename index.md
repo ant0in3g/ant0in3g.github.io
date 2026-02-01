@@ -8,7 +8,7 @@
 
 >*You have to dance beautifully in the box that you're comfortable dancing in. My box was to be extremely ambitious within the sport of basketball. Your box is different than mine. Everybody has their own. It's your job to try to perfect it and make it as beautiful of a canvas as you can make it. And if you have done that, then you have lived a successful life. You have lived with Mamba Mentality.*
 >
->*[Kobe Bryant](https://en.wikipedia.org/wiki/Kobe_Bryant) 
+>*[Kobe Bryant](https://en.wikipedia.org/wiki/Kobe_Bryant)* 
 
 ## Enseignements
 
