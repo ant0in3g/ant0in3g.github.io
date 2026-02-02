@@ -1,10 +1,10 @@
 ## [Travaux dirigés](./td-s.md)
 
-> [Installation et prise en main de R et RStudio]() &#x1f1eb;&#x1f1f7;  
+> [Installation et prise en main de R et RStudio (coming)]() &#x1f1eb;&#x1f1f7;  
 
-> [Une initiation à R sous RStudio]() &#x1f1eb;&#x1f1f7;  
+> [Une initiation à R sous RStudio (coming)]() &#x1f1eb;&#x1f1f7;  
 
-> [Un peu de stat sur RStudio]() &#x1f1eb;&#x1f1f7;  
+> [Un peu de stat sur RStudio (coming)]() &#x1f1eb;&#x1f1f7;  
 
 > [Use of Basic Tests within RStudio (coming)]() &#x1f1ec;&#x1f1e7; &#x1f1fa;&#x1f1f8;
 
