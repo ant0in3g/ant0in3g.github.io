@@ -14,6 +14,5 @@
 > [Premier exemple d'une ACP sur R](./td-lab/acp-ex-r.html) &#x1f1eb;&#x1f1f7;  
 > *Un premier exemple d'une ACP. Vous apprendrez les différentes étapes à respecter, et surtout à analyser vos résultats.*
 
-
-
+----
 
