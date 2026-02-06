@@ -10,7 +10,7 @@ Vous retrouverez [**ici** l'organisation de ce cours](sTa7/orga.md).
 >
 > [**Cours complet de Statistiques et analyse de données** (en construction)](sTa7/LectureStat/index.html) &#x1f1eb;&#x1f1f7;
 >
-> [**Travaux dirigés** -- **R Data Analytics Lab**](sTa7/td-s.md) &#x1f1eb;&#x1f1f7; &#x1f1ec;&#x1f1e7; &#x1f1fa;&#x1f1f8;
+> [**Travaux dirigés** -- **R Lab**](sTa7/td-s.md) &#x1f1eb;&#x1f1f7; &#x1f1ec;&#x1f1e7; &#x1f1fa;&#x1f1f8;
 >
 > [La page des **E**nseignements de **M**éthodes et **O**utils **A**ppliqués (**EMOA**) en statistiques et analyse de données](sTa7/EMOA.md)
 >
