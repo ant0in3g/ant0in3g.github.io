@@ -37,7 +37,6 @@ Quelques projets divers à venir, dont un [dashboard quarto](/fftri/dashboard.ht
 - **LinkedIn** : [https://linkedin.com/in/antoine-gere](http://linkedin.com/in/antoine-gere)
 - **arXiv** : [https://arxiv.org/gere-antoine](https://arxiv.org/search/?searchtype=author&query=G%C3%A9r%C3%A9,+Antoine)
 
-<br>
 
 >*You have to dance beautifully in the box that you're comfortable dancing in. My box was to be extremely ambitious within the sport of basketball. Your box is different than mine. Everybody has their own. It's your job to try to perfect it and make it as beautiful of a canvas as you can make it. And if you have done that, then you have lived a successful life. You have lived with Mamba Mentality.*
 >
