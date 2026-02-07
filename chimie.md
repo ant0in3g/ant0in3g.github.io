@@ -2,7 +2,7 @@
 
 Référent : [Antoine Géré](mailto:a.gere@istom.fr)
 
-Enseignante : [Oksana Toma](mailto:o.toma-ext@istom.fr)
+Enseignante : [Daniel Martin](mailto:d.martin-ext@istom.fr)
 
 > [**Ressources pour le cours de Chimie**](https://istom-my.sharepoint.com/:f:/g/personal/a_gere_istom_fr/Ev-CFz0MwyFEu7_siUrL9-cB9h53aKkiT-g3GtduxWtaVw?e=ebGbf9)
 
