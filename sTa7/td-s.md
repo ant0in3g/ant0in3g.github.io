@@ -1,5 +1,7 @@
 ## [Travaux dirigés](./td-s.md)
 
+Les bases de données utilisées sont disponible via ce [lien]().
+
 > [Installation et prise en main de R et RStudio (coming)]() &#x1f1eb;&#x1f1f7;  
 
 > [Une initiation à R sous RStudio (coming)]() &#x1f1eb;&#x1f1f7;  
