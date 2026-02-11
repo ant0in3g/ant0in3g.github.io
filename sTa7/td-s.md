@@ -1,6 +1,6 @@
 ## [Travaux dirigés](./td-s.md)
 
-Les bases de données utilisées sont disponible via ce [lien]().
+Les bases de données utilisées sont disponible via ce [lien](https://github.com/ant0in3g/ant0in3g.github.io/tree/main/sTa7/td-lab/data_raw).
 
 > [Installation et prise en main de R et RStudio (coming)]() &#x1f1eb;&#x1f1f7;  
 
