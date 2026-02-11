@@ -1,4 +1,4 @@
-## [Travaux dirigés](./td-s.md)
+## [Travaux dirigés -- R Lab](./td-s.md)
 
 Les bases de données utilisées sont disponible via ce [lien](https://github.com/ant0in3g/ant0in3g.github.io/tree/main/sTa7/td-lab/data_raw).
 
