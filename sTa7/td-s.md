@@ -8,7 +8,7 @@ Les bases de données utilisées sont disponible via ce [lien](https://github.co
 > [Un peu de stat sur RStudio (coming)]() &#x1f1eb;&#x1f1f7;  
 
 > [Premier exemple d'une ACP sur R](./td-lab/acp-ex-r.html) &#x1f1eb;&#x1f1f7;  
-> *Un premier exemple d'une ACP. Vous apprendrez les différentes étapes à respecter, et surtout à analyser vos résultats.*
+> *Plongez dans l’univers de l’analyse en composantes principales (ACP) avec un exemple concret sur des données de décathlon. Découvrez comment transformer, explorer et visualiser vos données pour révéler les relations entre les performances des athlètes. Apprenez à interpréter les axes principaux et à découvrir des patterns grâce à R.*
 
 
 ----
