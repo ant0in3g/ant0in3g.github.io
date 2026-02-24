@@ -11,6 +11,7 @@ Vous pouvez de nouveau retrouver via ce [lien](./corrections.md) les corrections
 
 ### Deuxième année
 
+- [Examen 2A du mercredi 21 janvier 2026](./examens/exam-stat-S3-2026.01.21.pdf)
 - [Examen 2A du vendredi 12 décembre 2025](./examens/exam-stat-S3-2025.12.12.pdf)
 - [Examen 2A du lundi 28 avril 2025](./examens/exam-stat-S4-2025.04.29.pdf)
 
@@ -18,4 +19,6 @@ Vous pouvez de nouveau retrouver via ce [lien](./corrections.md) les corrections
 
 ### Troisième année
 
+- [Examen 3A du jedui 22 janvier 2026](./examens/exam-stat-S5-2026.01.22.pdf)
+- [Examen 3A du mercredi 10 décembre 2025](./examens/exam-stat-S5-2025.12.10.html)
 - [Examen 3A du mercredi 10 décembre 2025](./examens/exam-stat-S5-2025.12.10.html)
