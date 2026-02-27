@@ -41,7 +41,7 @@
 
 ### Modélisation
 
-> [L'Écologie du Paysage au Service de l'Apiculture : De la Cartographie à la Modélisation Prédictive]()
+> [L'Écologie du Paysage au Service de l'Apiculture : De la Cartographie à la Modélisation Prédictive]() &#x1F4BB; &#x1f1eb;&#x1f1f7;  
 > *Plongez au coeur de l'écologie du paysage avec cette étude de cas en Bosnie-Herzégovine, dédiée à la gestion des ressources mellifères. Vous développerez une expertise technique en articulant trois piliers : le diagnostic de la structure paysagère (fragmentation et connectivité), la conception d'un échantillonnage botanique adaptatif fondé sur la phénologie, et la modélisation prospective pour prédire l'évolution de l'occupation du sol.  À travers la manipulation avancée de données vectorielles sous R, vous apprendrez à transformer des inventaires statiques en outils de planification dynamique, faisant de vous un analyste capable de projeter les dynamiques territoriales à l'horizon 2026.*
 
 ----
