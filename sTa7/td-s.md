@@ -17,6 +17,9 @@
 > [L'énigme des oeufs de coucou : une analyse comparative]() &#x1F4BB; &#x1f1eb;&#x1f1f7;  
 > *Le coucou européen est un maître de la supercherie : il dépose ses oeufs dans les nids d'autres espèces. Mais pour ne pas être démasqué, le coucou adapte-t-il la taille de ses oeufs à celle de son hôte ? Dans cet exercice, vous allez mener une enquête statistique complète pour résoudre ce mystère. De la simple exploration graphique à l'analyse de variance (ANOVA), vérifiez si la "signature" de l'espèce hôte influence réellement la longueur des oeufs pondus. Une plongée dans les données pour distinguer le hasard de l'évolution !*
 
+> [L'incidence de la malaria en Éthiopie : Une évaluation statistique de l'influence des pratiques agricoles]() &#x1F4BB; &#x1f1eb;&#x1f1f7;  
+> *En Éthiopie, l'expansion de la culture du maïs coïncide-t-elle avec une recrudescence de la malaria ? Dans cet exercice, vous endossez le rôle de l'analyste pour répondre à cette problématique de santé publique. Armé de vos outils, vous allez explorer la relation entre production agricole et incidence de la maladie. Votre mission : valider la rigueur de vos modèles, naviguer entre les écueils des hypothèses statistiques (ANOVA, transformations logarithmiques, tests post-hoc) et débusquer les différences significatives cachées derrière les données de terrain.* 
+
 ### Analyse Factorielle
 
 > [Premier exemple d'une ACP sur R](./td-lab/acp-ex-r.html) &#x1F4BB; &#x1f1eb;&#x1f1f7;  
