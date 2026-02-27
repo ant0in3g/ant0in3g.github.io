@@ -6,7 +6,7 @@
 
 ### Statistique Descriptive et Data Cleaning
 
-> []() :writing_hand: &#x1f1eb;&#x1f1f7;  
+> [Fondements de l'Analyse Statitique Univariée]() &#x270D;&#xFE0F;&#x200D;&#x1F3FD;&#xFE0F; &#x1f1eb;&#x1f1f7;  
 > *Cette série d'exercices constitue le socle indispensable à toute démarche statistique. Vous explorerez les propriétés des distributions univariées. L'objectif est de maîtriser rigoureusement le passage de la donnée brute à la mesure statistique : définition des types de variables, construction de tables de fréquences, et leur exploitation. Ici, la calculatrice est un outil, mais la logique mathématique est votre seule méthode.*
 
 > [Étude en statistique descriptive : du jeu de données Iris aux indicateurs mondiaux du bonheur]() &#x1F4BB; &#x1f1eb;&#x1f1f7;  
