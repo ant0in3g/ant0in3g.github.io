@@ -9,6 +9,9 @@
 > [Fondements de l'Analyse Statitique Univariée]() &#x270D;&#xFE0F;&#x200D;&#x1F3FD;&#xFE0F; &#x1f1eb;&#x1f1f7;  
 > *Cette série d'exercices constitue le socle indispensable à toute démarche statistique. Vous explorerez les propriétés des distributions univariées. L'objectif est de maîtriser rigoureusement le passage de la donnée brute à la mesure statistique : définition des types de variables, construction de tables de fréquences, et leur exploitation. Ici, la calculatrice est un outil, mais la logique mathématique est votre seule méthode.*
 
+> [Fondements de l'Analyse Statistique Bivariée]() &#x270D;&#xFE0F;&#x200D;&#x1F3FD;&#xFE0F; &#x1f1eb;&#x1f1f7;  
+> *L’analyse bivariée dépasse la simple observation pour explorer la dynamique entre deux variables. Cette série d'exercices se concentre sur la nature des liens statistiques : de la mesure de la covariance à l'interprétation du coefficient de corrélation. En calculant manuellement chaque terme, vous étudierez comment la variation conjointe de deux grandeurs définit leur dépendance. L'objectif est de démontrer, par le calcul, comment quantifier l'intensité et la direction d'une relation.*
+
 > [Étude en statistique descriptive : du jeu de données Iris aux indicateurs mondiaux du bonheur]() &#x1F4BB; &#x1f1eb;&#x1f1f7;  
 > *Il vous est proposé une exploration méthodologique de la statistique descriptive appliquée d'abord au jeu de données de référence iris intégré à R. La démarche est ensuite étendue au fichier World-Happiness-2015 pour confronter ces techniques de visualisation (distributions, corrélations et comparaisons de groupes) à des données socio-économiques mondiales réelles.*
 
