@@ -31,5 +31,10 @@
 > [Décrypter le transcriptome : L'art de la réduction de dimension]() &#x1F4BB; &#x1f1eb;&#x1f1f7;  
 > *Face à une montagne de données biologiques, des milliers de gènes exprimés sur plusieurs jours et types cellulaires, le cerveau humain sature. Comment transformer ce chaos numérique en une carte lisible ? Dans cet exercice, vous ne vous contentez pas d'analyser : vous explorez. À travers la matrice de corrélation et la puissance de l'Analyse en Composantes Principales (ACP), vous allez apprendre à simplifier la complexité, identifier des profils d'expression "signatures" et faire émerger des structures cachées au coeur du développement cellulaire. Prêt à réduire la dimension pour révéler l'essentiel ?*
 
+### Classification, Clustering
+
+> [coming]() &#x1F4BB; &#x1f1eb;&#x1f1f7;  
+> *coming*
+
 ----
 
