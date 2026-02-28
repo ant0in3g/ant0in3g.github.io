@@ -17,7 +17,7 @@
 
 ### Statistique Inférentielle
 
-> [L'énigme des oeufs de coucou : une analyse comparative](./td-lab/td_coucou_files/) &#x1F4BB; &#x1f1eb;&#x1f1f7;  
+> [L'énigme des oeufs de coucou : une analyse comparative](./td-lab/td_coucou.html) &#x1F4BB; &#x1f1eb;&#x1f1f7;  
 > *Le coucou européen est un maître de la supercherie : il dépose ses oeufs dans les nids d'autres espèces. Mais pour ne pas être démasqué, le coucou adapte-t-il la taille de ses oeufs à celle de son hôte ? Dans cet exercice, vous allez mener une enquête statistique complète pour résoudre ce mystère. De la simple exploration graphique à l'analyse de variance (ANOVA), vérifiez si la "signature" de l'espèce hôte influence réellement la longueur des oeufs pondus. Une plongée dans les données pour distinguer le hasard de l'évolution !*
 
 > [L'incidence de la malaria en Éthiopie : Une évaluation statistique de l'influence des pratiques agricoles](./td-lab/td_etiopia_malaria_tests.html) &#x1F4BB; &#x1f1eb;&#x1f1f7;  
