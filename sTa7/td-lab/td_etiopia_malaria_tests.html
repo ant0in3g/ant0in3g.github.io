@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Antoine Géré">
+
+<title>Facteurs agricoles et propagation du paludisme</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="td_etiopia_malaria_tests_files/libs/clipboard/clipboard.min.js"></script>
+<script src="td_etiopia_malaria_tests_files/libs/quarto-html/quarto.js"></script>
+<script src="td_etiopia_malaria_tests_files/libs/quarto-html/popper.min.js"></script>
+<script src="td_etiopia_malaria_tests_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="td_etiopia_malaria_tests_files/libs/quarto-html/anchor.min.js"></script>
+<link href="td_etiopia_malaria_tests_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="td_etiopia_malaria_tests_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="td_etiopia_malaria_tests_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="td_etiopia_malaria_tests_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="td_etiopia_malaria_tests_files/libs/bootstrap/bootstrap-1bc8a17f135ab3d594c857e9f48e611b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table des matières</h2>
+   
+  <ul>
+  <li><a href="#exercice-1---facteurs-agricoles-et-propagation-du-paludisme" id="toc-exercice-1---facteurs-agricoles-et-propagation-du-paludisme" class="nav-link active" data-scroll-target="#exercice-1---facteurs-agricoles-et-propagation-du-paludisme">Exercice 1 - Facteurs agricoles et propagation du paludisme</a>
+  <ul>
+  <li><a href="#analyse-descriptive" id="toc-analyse-descriptive" class="nav-link" data-scroll-target="#analyse-descriptive">Analyse descriptive</a></li>
+  <li><a href="#tests-statistiques" id="toc-tests-statistiques" class="nav-link" data-scroll-target="#tests-statistiques">Tests statistiques</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Facteurs agricoles et propagation du paludisme</h1>
+<p class="subtitle lead">Étude de l’impact potentiel du rendement du maïs sur le taux de malaria</p>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Auteur·rice</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Antoine Géré <a href="mailto:a.gere@istom.fr" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            <a href="https://www.istom.fr/">ISTOM</a>
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">28 février 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<hr>
+<section id="exercice-1---facteurs-agricoles-et-propagation-du-paludisme" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="exercice-1---facteurs-agricoles-et-propagation-du-paludisme">Exercice 1 - Facteurs agricoles et propagation du paludisme</h2>
+<p>Les packages qui seront utiles dans cet exercice.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(FactoMineR)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(remotes)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(FSA)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Le pollen du maïs (<em>Zea mays</em>) constitue une source de nourriture pour les larves de moustiques de l’espèce <em>Anopheles arabiensis</em>, principal vecteur de la malaria en Éthiopie. La production de maïs a augmenté de manière substantielle dans certaines régions d’Éthiopie ces dernières années et, sur la même période la malaria s’est étendu à de nouvelles zones où la maladie était auparavant rare. Cela soulève la question suivante :</p>
+<p><strong>L’augmentation de la culture du maïs est-elle en partie responsable de l’augmentation de la malaria en Éthiopie ?</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/corn_ethiopia.jpg" class="img-fluid figure-img" data-scale="50%"></p>
+<figcaption><a href="https://www.flickr.com/photos/cimmyt/5433665413/">Image by Flickr/CIMMYT</a></figcaption>
+</figure>
+</div>
+<p>Une approche consiste à rechercher une association entre la production de maïs et l’incidence de la malaria dans différents sites géographiquement dispersés (<span class="citation" data-cites="kebede2005new">Kebede et al. (<a href="#ref-kebede2005new" role="doc-biblioref">2005</a>)</span>).</p>
+<p>Le jeu de données « <code>malaria vs maize.csv</code> » contient des informations sur plusieurs variables :</p>
+<ul>
+<li><p><code>village</code> : nom du village où les mesures ont été réalisées (ils sont tous différents)</p></li>
+<li><p><code>maize_yield</code> : niveau de production de maïs (<code>Low</code>, <code>Medium</code>, <code>High</code>)</p></li>
+<li><p><code>mean_elevation_m</code> : altitude du village</p></li>
+<li><p><code>person.years</code> : nombre d’habitants dans le village recensé</p></li>
+<li><p><code>number_malaria_cases</code> : nombre de cas de malaria recensé dans le village</p></li>
+<li><p><code>incidence_rate_per_ten_thousand</code> : taux d’incidence de la malaria pour 10 000 habitants</p></li>
+</ul>
+<p><strong>On cherche à déterminer s’il existe une association statistique entre la culture du maïs et le taux d’incidence de la malaria.</strong></p>
+<section id="analyse-descriptive" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="analyse-descriptive">Analyse descriptive</h3>
+<p>On importe la base de données sur <strong>R</strong> afin de réaliser quelques analyses descriptives.</p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data_ethiopia <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"data_raw/malaria_vs_maize.csv"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_ethiopia)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          village maize_yield mean_elevation_m person.years
+1           Gulim        High             2050        23458
+2          Denbun        High             2050        20630
+3           Wadra        High             2050        12805
+4 Zalimashebekuma        High             2050        16857
+5      Adel Agata        High             2050        12805
+6     Fetamsantom        High             2050        18333
+  number_malaria_cases incidence_rate_per_ten_thousand
+1                  683                             291
+2                   88                              43
+3                  170                             133
+4                  370                             219
+5                  226                             176
+6                  552                             301</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(data_ethiopia)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   19 obs. of  6 variables:
+ $ village                        : chr  "Gulim" "Denbun" "Wadra" "Zalimashebekuma" ...
+ $ maize_yield                    : chr  "High" "High" "High" "High" ...
+ $ mean_elevation_m               : int  2050 2050 2050 2050 2050 2050 2050 2050 2200 2200 ...
+ $ person.years                   : int  23458 20630 12805 16857 12805 18333 18384 16063 12079 26223 ...
+ $ number_malaria_cases           : int  683 88 170 370 226 552 857 395 71 218 ...
+ $ incidence_rate_per_ten_thousand: int  291 43 133 219 176 301 466 246 59 83 ...</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_ethiopia)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   village          maize_yield        mean_elevation_m  person.years  
+ Length:19          Length:19          Min.   :2050     Min.   :10960  
+ Class :character   Class :character   1st Qu.:2050     1st Qu.:12975  
+ Mode  :character   Mode  :character   Median :2200     Median :16857  
+                                       Mean   :2155     Mean   :16590  
+                                       3rd Qu.:2200     3rd Qu.:18359  
+                                       Max.   :2450     Max.   :26223  
+ number_malaria_cases incidence_rate_per_ten_thousand
+ Min.   :  5.0        Min.   :  3.0                  
+ 1st Qu.: 68.5        1st Qu.: 39.0                  
+ Median :170.0        Median : 83.0                  
+ Mean   :224.6        Mean   :129.4                  
+ 3rd Qu.:298.0        3rd Qu.:197.5                  
+ Max.   :857.0        Max.   :466.0                  </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_ethiopia<span class="sc">$</span>maize_yield)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  High    Low Medium 
+     8      6      5 </code></pre>
+</div>
+</div>
+<p><br></p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+1. Le fichier de données
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Présentez le fichier de données en indiquant le nombre de variables, leur nom, leur type ainsi que leurs principales caractéristiques.</p>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_ethiopia, <span class="fu">aes</span>(<span class="at">x =</span> incidence_rate_per_ten_thousand)) <span class="sc">+</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">10</span>, <span class="at">fill =</span> <span class="st">"lightblue"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> maize_yield, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">""</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Taux d’incidence de la malaria pour 10 000 habitants"</span>, </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Fréquence"</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="td_etiopia_malaria_tests_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><br></p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+2. Interprétation des histogrammes ci-dessus
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>Les variances semblent-elles comparables ? Justifiez votre réponse.</li>
+<li>Les distributions paraissent-elles approximativement normales ? Justifiez votre réponse.</li>
+<li>Les moyennes semblent-elles clairement différentes ? Justifiez votre réponse</li>
+</ol>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>stats <span class="ot">&lt;-</span> data_ethiopia <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(maize_yield) <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Moyenne =</span> <span class="fu">mean</span>(incidence_rate_per_ten_thousand),</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">Ecart_type =</span> <span class="fu">sd</span>(incidence_rate_per_ten_thousand),</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> <span class="fu">n</span>()</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>stats</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 4
+  maize_yield Moyenne Ecart_type     n
+  &lt;chr&gt;         &lt;dbl&gt;      &lt;dbl&gt; &lt;int&gt;
+1 High          234.       126.      8
+2 Low            17.7       17.1     6
+3 Medium         95.4       41.4     5</code></pre>
+</div>
+</div>
+<p><br></p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+3. Interprétation du tableau descriptif
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>Quel rendement a en moyenne le plus haut taux d’incidence de malaria pour 10 000 habitants ?</li>
+<li>Quel rendement a en moyenne le plus bas taux d’incidence de malaria pour 10 000 habitants ?</li>
+<li>Les variances semblent-elles comparables ? Justifier votre réponse.</li>
+</ol>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="tests-statistiques" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="tests-statistiques">Tests statistiques</h3>
+<p><br></p>
+<p>Nous nous proposons de réaliser des tests statistiques afin de déterminer quel rendement a en moyenne le plus d’impact sur le taux d’incidence de la malaria pour 10 000 habitants.</p>
+<p>Avant de se lancer, il nous est proposé de vérifier l’indépendance de la variable <code>maize_yield</code>. On réalise pour cela un test du <span class="math inline">\(\chi^2\)</span> d’indépendance.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(<span class="fu">table</span>(data_ethiopia<span class="sc">$</span>maize_yield))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Chi-squared test for given probabilities
+
+data:  table(data_ethiopia$maize_yield)
+X-squared = 0.73684, df = 2, p-value = 0.6918</code></pre>
+</div>
+</div>
+<p><br></p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+4. Indépendance
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>Donnez l’hypothèse nulle pour le test du <span class="math inline">\(\chi^2\)</span> d’indépendance.</li>
+<li>Interprétez le résultat de ce test du <span class="math inline">\(\chi^2\)</span>.</li>
+</ol>
+</div>
+</div>
+<p><br></p>
+<p>On se propose de réaliser un <code>t.test</code> afin de déterminer s’il existe une association statistique entre la culture du maïs et le taux d’incidence de la malaria.</p>
+<p><code>t.test(incidence_rate_per_ten_thousand ~ maize_yield, data = data_ethiopia)</code></p>
+<p><br></p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+5. T-test
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>Donnez l’hypothèse nulle pour le <code>t.test</code>.</li>
+<li>Expliquez la raison pour laquelle ce <code>t.test</code> ne fonctionne pas dans ce cas précis.</li>
+</ol>
+</div>
+</div>
+<p><br></p>
+<p>L’ANOVA est un choix logique de méthode pour tester les différences de taux moyens de malaria pour des niveaux de production de maïs différents.</p>
+<p><br></p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+6. ANOVA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>Donnez l’hypothèse nulle pour l’ANOVA.</li>
+<li>Donnez les conditions d’application pour l’ANOVA.</li>
+</ol>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(incidence_rate_per_ten_thousand <span class="sc">~</span> maize_yield, <span class="at">data =</span> data_ethiopia)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Levene's Test for Homogeneity of Variance (center = median)
+      Df F value  Pr(&gt;F)  
+group  2  3.9662 0.03991 *
+      16                  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>anova_model <span class="ot">&lt;-</span> <span class="fu">aov</span>(incidence_rate_per_ten_thousand <span class="sc">~</span> maize_yield, data_ethiopia)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(<span class="fu">residuals</span>(anova_model))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  residuals(anova_model)
+W = 0.88211, p-value = 0.02337</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova_model)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+maize_yield  2 168844   84422   11.23 0.000898 ***
+Residuals   16 120294    7518                     
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p><br></p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+7. Violation des hypothèses
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>Interprétez le <code>leveneTest</code>.</li>
+<li>Interprétez le <code>shapiro.test</code>.</li>
+<li>Ces données semblent-elles conformes aux hypothèses de l’ANOVA ? Justifiez votre réponse.</li>
+<li>Quelle information nous donne l’ANOVA ? Est-ce que cette information est exploitable ?</li>
+</ol>
+</div>
+</div>
+<p><br></p>
+<p>Afin de pouvoir utiliser l’ANOVA, on se propose de calculer le logarithme du taux d’incidence et d’effectuer le test sur ces données transformées.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>data_ethiopia<span class="sc">$</span>log_incidence <span class="ot">&lt;-</span> <span class="fu">log</span>(data_ethiopia<span class="sc">$</span>incidence_rate_per_ten_thousand)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(log_incidence <span class="sc">~</span> maize_yield, <span class="at">data =</span> data_ethiopia)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Levene's Test for Homogeneity of Variance (center = median)
+      Df F value  Pr(&gt;F)  
+group  2  3.4689 0.05604 .
+      16                  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>anova_log <span class="ot">&lt;-</span> <span class="fu">aov</span>(log_incidence <span class="sc">~</span> maize_yield, data_ethiopia)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(<span class="fu">residuals</span>(anova_log))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  residuals(anova_log)
+W = 0.97606, p-value = 0.8875</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova_log)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+maize_yield  2  29.49  14.744   22.22 2.41e-05 ***
+Residuals   16  10.62   0.663                     
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p><br></p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+8. Transformation des données
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>Les données transformées par le logarithme respectent-elles mieux les hypothèses de l’ANOVA que les données non transformées ?</li>
+<li>Interprétez le résultat de cette ANOVA.</li>
+<li>L’ANOVA permet-elle de déterminer exactement quelles productions de maïs, ont des effets différents sur le taux d’incidence ?</li>
+</ol>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>tukey <span class="ot">&lt;-</span> <span class="fu">TukeyHSD</span>(anova_log)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>tukey</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = log_incidence ~ maize_yield, data = data_ethiopia)
+
+$maize_yield
+                  diff        lwr        upr     p adj
+Low-High    -2.8949350 -4.0300404 -1.7598295 0.0000180
+Medium-High -0.7881599 -1.9863742  0.4100543 0.2365763
+Medium-Low   2.1067751  0.8340678  3.3794823 0.0016001</code></pre>
+</div>
+</div>
+<p><br></p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+9. Transformation des données
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>Rappelez l’objectif d’un test post-hoc après une ANOVA.</li>
+<li>Quelles conclusions peut-on tirer de ces résultats ?</li>
+</ol>
+</div>
+</div>
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Les références</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-kebede2005new" class="csl-entry" role="listitem">
+Kebede, A., McCANN, J. C., Kiszewski, A. E., et Ye-Ebiyo, Y. (2005). New evidence of the effects of agro-ecologic change on malaria transmission. <em>The American journal of tropical medicine and hygiene</em> <em>73</em>: 676‑680.
+</div>
+</div></section></div></main>
+<!-- /main column -->
+<style>
+
+.pdf-download-in-toc {
+
+  text-align: center;
+
+  margin-top: 1rem;
+
+}
+
+
+
+.pdf-download-in-toc a {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.4em;
+
+  padding: 0.4em 0.8em;
+
+  background-color: #f5f5f5;
+
+  border-radius: 8px;
+
+  text-decoration: none;
+
+  font-size: 0.9em;
+
+  color: #333;
+
+  transition: background-color 0.2s ease;
+
+}
+
+
+
+.pdf-download-in-toc a:hover {
+
+  background-color: #e0e0e0;
+
+}
+
+
+
+.pdf-download-in-toc svg {
+
+  width: 18px;
+
+  height: 18px;
+
+  fill: currentColor;
+
+}
+
+</style>
+
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+
+  // essaie plusieurs sélecteurs possibles pour trouver le TOC
+
+  const toc =
+
+    document.querySelector(".quarto-toc-container") ||
+
+    document.querySelector(".toc") ||
+
+    document.querySelector("nav#TOC") ||
+
+    document.querySelector(".sidebar nav");
+
+
+
+  if (toc) {
+
+    // Ajouter le logo avant le TOC
+
+    const logo = document.createElement("img");
+
+    logo.src = "img/Logo_simple_ISTOM_Couleurs_HD.png"; // adapte si besoin
+
+    logo.alt = "Logo ISTOM";
+
+    logo.style.cssText = "display:block;height:70px;margin:0 0 1rem 1rem";
+
+    
+
+    toc.parentNode.insertBefore(logo, toc);
+
+    
+
+    // S'assurer que le TOC est sous le logo
+
+    toc.style.clear = "both";
+
+
+
+    // Ajouter le bouton PDF
+
+    //const div = document.createElement("div");
+
+    //div.className = "pdf-download-in-toc";
+
+    //div.innerHTML = `
+
+      //<a href="doc/FROMAGEOT_Clementine_MFE_P111_2025.pdf" target="_blank">
+
+        //<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+
+          //<path d="M12 16l4-5h-3V4h-2v7H8l4 5zm8 2H4v2h16v-2z"/>
+
+        //</svg>
+
+        //Mémoire C. Fromageot
+
+      //</a>
+
+    //`;
+
+    //toc.appendChild(div);
+
+  } else {
+
+    console.warn("TOC non trouvé — vérifie le thème ou la structure HTML");
+
+  }
+
+});
+
+</script>
+
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copié");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copié");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

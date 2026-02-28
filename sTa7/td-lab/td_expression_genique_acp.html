@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Antoine Géré">
+
+<title>Décrypter le transcriptome : L’art de la réduction de dimension</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="td_expression_genique_acp_files/libs/clipboard/clipboard.min.js"></script>
+<script src="td_expression_genique_acp_files/libs/quarto-html/quarto.js"></script>
+<script src="td_expression_genique_acp_files/libs/quarto-html/popper.min.js"></script>
+<script src="td_expression_genique_acp_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="td_expression_genique_acp_files/libs/quarto-html/anchor.min.js"></script>
+<link href="td_expression_genique_acp_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="td_expression_genique_acp_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="td_expression_genique_acp_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="td_expression_genique_acp_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="td_expression_genique_acp_files/libs/bootstrap/bootstrap-1bc8a17f135ab3d594c857e9f48e611b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table des matières</h2>
+   
+  <ul>
+  <li><a href="#exercice-1---décrypter-le-transcriptome" id="toc-exercice-1---décrypter-le-transcriptome" class="nav-link active" data-scroll-target="#exercice-1---décrypter-le-transcriptome">Exercice 1 - Décrypter le transcriptome</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Décrypter le transcriptome : L’art de la réduction de dimension</h1>
+<p class="subtitle lead">Analyse en composantes principales des profils d’expression génique</p>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Auteur·rice</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Antoine Géré <a href="mailto:a.gere@istom.fr" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            <a href="https://www.istom.fr/">ISTOM</a>
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">28 février 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<hr>
+<section id="exercice-1---décrypter-le-transcriptome" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="exercice-1---décrypter-le-transcriptome">Exercice 1 - Décrypter le transcriptome</h2>
+<p>Les packages qui seront utiles pour cet exercice.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(FactoMineR)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(remotes)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Le jeu de données utilisé dans cet examen est inspiré d’une étude publiée dans la revue Cell, <span class="citation" data-cites="petropoulos2016single">Petropoulos et al. (<a href="#ref-petropoulos2016single" role="doc-biblioref">2016</a>)</span>, où des chercheurs ont mesuré l’activité de nombreux gènes dans des cellules provenant d’embryons humains très précoces. Leur objectif était d’observer comment les cellules évoluent au cours du développement et comment elles se différencient en plusieurs types cellulaires.</p>
+<p>Pour notre exercice, nous utilisons une version simplifiée de ce type de données. Le fichier contient :</p>
+<ul>
+<li><p>300 gènes (chaque ligne correspond à un gène différent)</p></li>
+<li><p>12 échantillons (chaque colonne correspond à une condition biologique), représentant différents jours de développement et différents types de cellules :</p>
+<ul>
+<li>Exemples : Day_5_EPI, Day_5_TE, Day_6_PE, etc.</li>
+</ul></li>
+<li><p>Les variables du fichier sont donc :</p>
+<ul>
+<li><p>Gene : nom du gène</p></li>
+<li><p>12 variables quantitatives (une par condition), correspondant à l’expression du gène dans chaque échantillon (mesure numérique)</p></li>
+</ul></li>
+</ul>
+<p>L’objectif de l’Analyse en composantes principales est d’identifier les grands axes qui résument les principales différences d’expression entre ces 12 conditions, et de visualiser si certaines conditions se regroupent selon des profils similaires.</p>
+<p>Le fichier de données est <code>mmc3.xlsx</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data  <span class="ot">=</span> <span class="fu">read_excel</span>(<span class="st">"data_raw/mmc3.xlsx"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 13
+  Gene    Day_3 Day_4 Pre_Day_5 Day_5_EPI Day_5_PE Day_5_TE Day_6_EPI Day_6__PE
+  &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+1 SEPT6     1.5   0         0.2       2.2      0.6      0.3       9.8       0.7
+2 AARS2     2.3  13.8      17.3      44.1     19.5      8.5      21.8       7.5
+3 ABCG2     0.2   0.3       7.6       3.3     10.4     35.1      23        54  
+4 ABHD12B   5.8  11        16.7      33.3     17       12.3      57.4      18.3
+5 ABHD6     0.8   4.2       9.7       7.5     29.2      8.1      11.8      14.8
+6 ACE       0.3  17.5      10.3      15.4      6.7      3.9      11.1       1.3
+# ℹ 4 more variables: Day_6_TE &lt;dbl&gt;, Day_7_EPI &lt;dbl&gt;, Day_7_PE &lt;dbl&gt;,
+#   Day_7_TE &lt;dbl&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>var.quanti <span class="ot">=</span> <span class="fu">sapply</span>(data, is.numeric)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>data.quanti <span class="ot">=</span> data[, var.quanti]</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data.quanti)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 12
+  Day_3 Day_4 Pre_Day_5 Day_5_EPI Day_5_PE Day_5_TE Day_6_EPI Day_6__PE Day_6_TE
+  &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+1   1.5   0         0.2       2.2      0.6      0.3       9.8       0.7      0.4
+2   2.3  13.8      17.3      44.1     19.5      8.5      21.8       7.5      4.8
+3   0.2   0.3       7.6       3.3     10.4     35.1      23        54       71.3
+4   5.8  11        16.7      33.3     17       12.3      57.4      18.3      9.8
+5   0.8   4.2       9.7       7.5     29.2      8.1      11.8      14.8      8.8
+6   0.3  17.5      10.3      15.4      6.7      3.9      11.1       1.3      0.8
+# ℹ 3 more variables: Day_7_EPI &lt;dbl&gt;, Day_7_PE &lt;dbl&gt;, Day_7_TE &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+1. Question théorique
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>Combien de gènes et de conditions contient le jeu de données ?</li>
+<li>Quelles sont les variables quantitatives ?</li>
+<li>Pourquoi est-il important de distinguer les variables quantitatives et qualitatives avant l’analyse ?</li>
+<li>Expliquez en quelques phrases l’objectif de l’ACP. Pourquoi cette méthode est-elle utilisée ?</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+1. Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Le jeu de données est structuré sous forme de tableau où :</p>
+<ul>
+<li><p>Chaque ligne correspond à un gène</p></li>
+<li><p>Chaque colonne correspond à une variable</p></li>
+</ul>
+<p>À partir de la description et de l’aperçu avec <code>head(data)</code>, on observe :</p>
+<ul>
+<li><p>300 lignes, ce qui signifie que 300 gènes distincts sont analysés</p></li>
+<li><p>13 colonnes au total, parmi lesquelles :</p>
+<ul>
+<li><p>1 colonne qualitative : Gene (nom du gène)</p></li>
+<li><p>12 colonnes quantitatives correspondant aux conditions biologiques. Ces 12 conditions représentent :</p>
+<ul>
+<li>Différents jours de développement embryonnaire (Day 3 à Day 7)</li>
+<li>Différents types cellulaires :
+<ul>
+<li>EPI (Epiblaste)</li>
+<li>PE (Primitive Endoderm)</li>
+<li>TE (Trophectoderme)</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<p>Le jeu de données contient donc 300 gènes (individus statistiques) décrits par 12 conditions biologiques (variables quantitatives).</p>
+<hr>
+<p>Les variables quantitatives sont celles qui sont de type numérique, qui représentent des mesures continues, et peuvent être comparées par des opérations mathématiques (moyenne, variance, corrélation). Dans ce jeu de données, il s’agit des 12 colonnes évoquées plus haut :</p>
+<p><code>Day_3</code>, <code>Day_4</code>, <code>Pre_Day_5</code>, <code>Day_5_EPI</code>, <code>Day_5_PE</code>, <code>Day_5_TE</code>, <code>Day_6_EPI</code>, <code>Day_6_PE</code>, <code>Day_6_TE</code>, <code>Day_7_EPI</code>, <code>Day_7_PE</code> et <code>Day_7_TE</code>.</p>
+<p>Chaque valeur numérique correspond à un niveau d’expression génique mesuré pour un gène donné dans une condition biologique précise.</p>
+<hr>
+<p>L’Analyse en Composantes Principales est une méthode algébrique. Elle repose sur :</p>
+<ul>
+<li><p>Le calcul de variances</p></li>
+<li><p>Le calcul de covariances ou de corrélations</p></li>
+<li><p>La diagonalisation d’une matrice numérique</p></li>
+</ul>
+<p>Ces concepts mathématiques n’ont de sens que pour des variables quantitatives. Conséquences si cette distinction n’est pas faite, inclure une variable qualitative dans une ACP entraînerait une impossibilité mathématique ! Cette sélection garantit la validité statistique de l’analyse.</p>
+<hr>
+<p>L’Analyse en Composantes Principales vise à résumer l’information contenue dans un grand nombre de variables corrélées par un petit nombre de variables non corrélées, appelées composantes principales. Plus précisément, cette analyse permet de :</p>
+<ul>
+<li><p>Réduire la dimension des données</p></li>
+<li><p>Conserver un maximum de variance</p></li>
+<li><p>Identifier les structures dominantes</p></li>
+<li><p>Faciliter la visualisation et l’interprétation de corrlations entre variables</p></li>
+</ul>
+<p>Cette analyse est particulièrement adaptée ici car il y a un grand nombre de variables, les 12 conditions biologiques fortement dépendantes biologiquement (mêmes processus de développement). On s’attend donc à de fortes corrélations, ce qui est une situation idéale pour l’ACP. L’étude ne cherche pas à tester une hypothèse précise, mais à :</p>
+<ul>
+<li><p>Explorer les données</p></li>
+<li><p>Détecter des tendances</p></li>
+<li><p>Mettre en évidence des regroupements</p></li>
+</ul>
+<p>L’ACP est une méthode exploratoire non supervisée, parfaitement adaptée à cet objectif. Dans ce contexte, l’ACP doit permettre de :</p>
+<ul>
+<li>Identifier si les conditions se regroupent :
+<ul>
+<li>Par jour de développement</li>
+<li>Par type cellulaire</li>
+</ul></li>
+<li>Comprendre quels ensembles de conditions :
+<ul>
+<li>Partagent des profils d’expression similaires</li>
+<li>S’opposent sur certains axes</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Matrice.Correlation <span class="ot">&lt;-</span> <span class="fu">cor</span>(data.quanti, <span class="at">use =</span> <span class="st">"complete.obs"</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(Matrice.Correlation, </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">method =</span> <span class="st">"color"</span>, </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="st">"upper"</span>, </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">order =</span> <span class="st">"hclust"</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">tl.col =</span> <span class="st">"black"</span>, </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">tl.srt =</span> <span class="dv">45</span>, </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">addCoef.col =</span> <span class="st">"black"</span>,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">cl.pos =</span> <span class="st">"n"</span>,</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">cl.cex =</span> <span class="fl">1.2</span>,</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">addCoefasPercent =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">number.cex =</span> <span class="fl">0.8</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="td_expression_genique_acp_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>data.quanti <span class="ot">=</span> data[, var.quanti]</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+2. Matrice de corrélation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>Quelles conditions semblent fortement corrélées ? Quelles conditions semblent peu corrélées ?</li>
+<li>Que peut-on déduire de ces corrélations pour l’analyse en composantes principales ?</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+2. Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Les conditions qui montrent des valeurs proches de 100 dans la matrice sont fortement corrélées.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Conditions fortement corrélées</th>
+<th>Interprétation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Day_6_EPI et Day_7_EPI</td>
+<td>Même type cellulaire (EPI) à des jours consécutifs</td>
+</tr>
+<tr class="even">
+<td>Day_5_TE et Day_6_TE</td>
+<td>Même type cellulaire (EPI) à des jours consécutifs</td>
+</tr>
+<tr class="odd">
+<td>Day_5_PE et Day_6_PE</td>
+<td>Même type cellulaire (EPI) à des jours consécutifs</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>Ces cellules continuent leur programme de développement spécifique.</p></li>
+<li><p>Les gènes exprimés dans un type cellulaire donné restent actifs à des niveaux comparables au cours des jours successifs.</p></li>
+</ul>
+<hr>
+<p>Les conditions qui montrent des valeurs proches de 0 dans la matrice sont faiblement corrélées.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Conditions faiblement corrélées</th>
+<th>Interprétation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Day_3 et Day_7_TE</td>
+<td>Gènes exprimés très différemment ; changement de programme de développement</td>
+</tr>
+<tr class="even">
+<td>Day_3 et Day_5_PE</td>
+<td>Profils biologiques distincts.</td>
+</tr>
+<tr class="odd">
+<td>EPI vs TE ou PE</td>
+<td>Très différents</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>Les variables fortement corrélées apportent la même information (exemple : Day_6_EPI et Day_7_EPI). Pour une ACP, cette redondance est utile. L’ACP combine les variables corrélées pour créer un axe principal. Cela permet de résumer l’information avec moins de composantes.</p>
+<ul>
+<li><p>L’axe 1 de l’ACP capturera probablement la variation commune à ces jours consécutifs pour un type cellulaire.</p></li>
+<li><p>Les variables faiblement corrélées ou négativement corrélées introduisent des axes supplémentaires.</p></li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Observation</th>
+<th>Implication pour l’ACP</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Corrélation forte entre conditions similaires</td>
+<td>Ces variables seront résumées par le même axe principal</td>
+</tr>
+<tr class="even">
+<td>Corrélation faible entre types cellulaires ou jours éloignés</td>
+<td>Ces différences seront capturées par des axes secondaires</td>
+</tr>
+<tr class="odd">
+<td>Bloc de corrélations</td>
+<td>Permet d’identifier des groupes biologiques cohérents avant l’ACP</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>data.CR <span class="ot">&lt;-</span> <span class="fu">scale</span>(data.quanti,<span class="at">center =</span> <span class="cn">TRUE</span>,<span class="at">scale=</span><span class="cn">TRUE</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>pca.data <span class="ot">&lt;-</span> <span class="fu">PCA</span>(data.CR, <span class="at">graph =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>vp <span class="ot">=</span> pca.data<span class="sc">$</span>eig</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>vp</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         eigenvalue percentage of variance cumulative percentage of variance
+comp 1  7.585892122            63.21576768                          63.21577
+comp 2  2.217238058            18.47698382                          81.69275
+comp 3  0.873147907             7.27623255                          88.96898
+comp 4  0.776224795             6.46853996                          95.43752
+comp 5  0.293172253             2.44310211                          97.88063
+comp 6  0.097438066             0.81198388                          98.69261
+comp 7  0.072100242             0.60083535                          99.29345
+comp 8  0.046325556             0.38604630                          99.67949
+comp 9  0.016444017             0.13703347                          99.81653
+comp 10 0.013633402             0.11361169                          99.93014
+comp 11 0.005016309             0.04180257                          99.97194
+comp 12 0.003367273             0.02806061                         100.00000</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(vp[, <span class="dv">2</span>], </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">names.arg=</span><span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(vp), </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">""</span>,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"Composantes principales"</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Pourcentage de variance expliquée"</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span><span class="st">"steelblue"</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(vp), </span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>      vp[, <span class="dv">2</span>], </span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">type=</span><span class="st">"b"</span>, </span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">pch=</span><span class="dv">19</span>, </span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">col =</span> <span class="st">"black"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="td_expression_genique_acp_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+3. Variance expliquée
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>Que représente la variance expliquée par chaque composante principale ?</li>
+<li>Combien de composantes principales retiendriez-vous pour représenter l’essentiel de l’information ? Justifiez votre réponse.</li>
+<li>Quelle proportion de variance est expliquée par les deux premières composantes ?</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+3. Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Dans une ACP, chaque composante principale est une combinaison linéaire des variables originales.</p>
+<ul>
+<li><p>La première composante principale (Dim 1) est construite pour maximiser la variance totale des données projetées sur cette dimension.</p></li>
+<li><p>La deuxième composante principale (Dim 2) maximise la variance restante sous contrainte d’orthogonalité à la première composante principale.</p></li>
+<li><p>Et ainsi de suite pour les axes suivants.</p></li>
+</ul>
+<p>La variance expliquée par une composante principale correspond à :</p>
+<p><span class="math display">\[\text{Variance expliquée de Dim i} = \frac{\text{valeur propre (eigenvalue) de Dim i}}{\text{somme des valeurs propres}} \times 100\]</span></p>
+<p>La valeur propre (eigenvalue) mesure la quantité de variance capturée par l’axe. Plus la valeur propre est grande, plus l’axe est informative.</p>
+<p>Ici chaque axe représente un profil d’expression génétique combiné :</p>
+<ul>
+<li><p>Dim 1 : direction qui distingue les conditions les plus différentes</p></li>
+<li><p>Dim 2 : direction qui capture le deuxième contraste le plus important</p></li>
+</ul>
+<p>La variance expliquée indique combien de l’information totale (différences d’expression entre conditions) est conservée sur cet axe. Exemple : si Dim 1 explique 63 %, cela signifie que 63 % de la variabilité totale entre conditions est résumée sur ce seul axe.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Composante</th>
+<th>Eigenvalue</th>
+<th>% Variance</th>
+<th>% Cumulée</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Dim 1</td>
+<td>7.586</td>
+<td>63.2 %</td>
+<td>63.2 %</td>
+</tr>
+<tr class="even">
+<td>Dim 2</td>
+<td>2.217</td>
+<td>18.5 %</td>
+<td>81.7 %</td>
+</tr>
+<tr class="odd">
+<td>Dim 3</td>
+<td>0.873</td>
+<td>7.3 %</td>
+<td>88.97 %</td>
+</tr>
+<tr class="even">
+<td>Dim 4</td>
+<td>0.776</td>
+<td>6.47 %</td>
+<td>95.44 %</td>
+</tr>
+<tr class="odd">
+<td>Dim 5</td>
+<td>0.293</td>
+<td>2.44 %</td>
+<td>97.88 %</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>Dim 1 (63 %) : capture la majeure partie de la variation, probablement liée aux différences temporelles globales et aux types cellulaires majeurs</p></li>
+<li><p>Dim 2 (18.5 %) : capture les différences secondaires,</p></li>
+<li><p>Axes suivants (&lt;10 %) : capturent des variations mineures, bruit ou différences très spécifiques</p></li>
+</ul>
+<hr>
+<p>Seules les composantes avec une valeur propre &gt; 1 sont considérées comme significatives. Ici :</p>
+<ul>
+<li>Dim 1 : 7.586 → OK</li>
+<li>Dim 2 : 2.217 → OK</li>
+<li>Dim 3 : 0.873 &lt; 1 → moins informative</li>
+</ul>
+<p>On peut utiliser le critère du coude (scree plot). Il suffit d’observer le point où la courbe se stabilise (diminution rapide → “coudé”). Ici le coude est évident après Dim 2, les axes suivants apportent peu de variance.</p>
+<p>On peut également utiliser un critère de variance cumulée, c’est à dire retenir des axes qui expliquent 80 % ou plus de la variance. Ici les 2 premiers axes expliquent 63.2 + 18.5 ≈ 81.7 %. Cela est suffisant pour résumer l’information principale dans 2 axes.</p>
+<hr>
+<p>La proportion de variance expliquée par les deux premières composantes principales est 63.2 + 18.5 = 81.7 %. Plus de 80 % de l’information totale est conservée dans un plan 2D. Cela justifie la visualisation des individus et des variables sur un plan factoriel. Les axes 1 et 2 suffisent pour mettre en évidence les structures principales des données (regroupements, oppositions, profils dominants)</p>
+<hr>
+<p>Synthèse :</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Question</th>
+<th>Réponse détaillée</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Que représente la variance expliquée ?</td>
+<td>La proportion de la variation totale capturée par chaque axe. Plus elle est grande, plus l’axe est informatif.</td>
+</tr>
+<tr class="even">
+<td>Combien de composantes retenir ?</td>
+<td>2 axes principaux. Justification : valeur propre &gt;1, coude du scree plot, variance cumulée &gt;80 %.</td>
+</tr>
+<tr class="odd">
+<td>Variance cumulée Dim1+Dim2</td>
+<td>81.7 % → suffisant pour une bonne représentation des données.</td>
+</tr>
+<tr class="even">
+<td>Utilité</td>
+<td>Résumer la majorité de l’information, visualiser les relations entre gènes et conditions, réduire le bruit.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_var</span>(pca.data, </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">col.var =</span> <span class="st">"cos2"</span>,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">gradient.cols =</span> <span class="fu">c</span>(<span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>, <span class="st">"#FC4E07"</span>),</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">title =</span> <span class="st">"Cercle de Corrélation des Variables (cos2)"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="td_expression_genique_acp_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+4. Cercle de corrélation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>Identifiez deux variables fortement corrélées et deux variables faiblement corrélées.</li>
+<li>Que signifie la longueur et l’orientation des flèches ?</li>
+<li>Quelles variables ont une contribution importante sur l’axe 2?</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+4. Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Le cercle de corrélation est un outil graphique qui permet de visualiser :</p>
+<ul>
+<li><p>La relation entre variables quantitatives et les axes principaux</p></li>
+<li><p>Les corrélations entre variables</p></li>
+<li><p>La contribution de chaque variable à chaque axe</p></li>
+</ul>
+<hr>
+<p>Deux variables sont fortement corrélées si leurs flèches sont proches et orientées suivant la même direction. L’angle entre elles est proche de 0°.</p>
+<p>Exemples attendus dans ce jeu de données :</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variables fortement corrélées</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Day_6_EPI</code> et <code>Day_7_EPI</code></td>
+<td>Même type cellulaire, jours consécutifs → profils d’expression similaires</td>
+</tr>
+<tr class="even">
+<td><code>Day_5_TE</code> et <code>Day_6_TE</code></td>
+<td>Même type cellulaire TE → corrélation positive élevée</td>
+</tr>
+</tbody>
+</table>
+<p>Deux variables sont faiblement corrélées si leurs flèches sont perpendiculaires (angle ≈ 90°).</p>
+<p>Exemples attendus :</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variables faiblement corrélées</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Day_3</code> et <code>Day_7_TE</code></td>
+<td>Jour très éloigné et type cellulaire différent → profils indépendants</td>
+</tr>
+<tr class="even">
+<td><code>Day_4</code> et <code>Day_6_PE</code></td>
+<td>Flèches orthogonales → absence de corrélation linéaire</td>
+</tr>
+</tbody>
+</table>
+<p>La longueur des flèches représente la qualité de représentation sur le plan factoriel.</p>
+<ul>
+<li><p>Longue flèche → la variable est bien représentée, proche du plan choisi (Dim1 × Dim2)</p></li>
+<li><p>Courte flèche → variable mal représentée, sa variance est surtout sur d’autres axes</p></li>
+</ul>
+<p>Exemple pratique :</p>
+<ul>
+<li><p><code>Day_6_EPI</code> : longue flèche → forte contribution aux axes principaux</p></li>
+<li><p><code>Day_7_PE</code> : courte flèche → beaucoup de variance sur axes non représentés (Dim3, Dim4…)</p></li>
+</ul>
+<hr>
+<p>L’orientation des flèches, vue par l’angle entre flèches traduit la corrélation entre variables :</p>
+<ul>
+<li><p>Angle proche de 0° → corrélation positive forte</p></li>
+<li><p>Angle proche de 180° → corrélation négative forte</p></li>
+<li><p>Angle proche de 90° → variables indépendantes</p></li>
+</ul>
+<p>Ici les flèches proches traduisent des types cellulaires avec profils similaires, et des flèches perpendiculaires traduisent des types cellulaires différents ou jours éloignés.</p>
+<hr>
+<p>Sur le cercle de corrélation <code>Day_3</code> et <code>Day_4</code> ont des flèches longues et fortement orientées verticalement (Dim 2). Cela indique qu’elles contribuent de manière significative à l’axe 2.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pca.data<span class="sc">$</span>ind<span class="sc">$</span>coord)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       Dim.1       Dim.2       Dim.3         Dim.4       Dim.5
+1 -0.8860388 -0.05653948 -0.05987579  0.0326202352  0.03833300
+2 -0.6057873  0.10852636 -0.12243416 -0.0690008780 -0.10503767
+3 -0.3699260 -0.31957924  0.03212768  0.1043982993  0.31567397
+4 -0.5063049  0.11052344 -0.11409912 -0.1403434496  0.02666491
+5 -0.6891486 -0.07722587 -0.02877404  0.0005839167 -0.07581851
+6 -0.7792027  0.06145232 -0.06881027  0.0769645114 -0.05851516</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_ind</span>(pca.data,  <span class="at">col.ind=</span><span class="st">"cos2"</span>) <span class="sc">+</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_gradient2</span>(<span class="at">low=</span><span class="st">"blue"</span>, <span class="at">mid=</span><span class="st">"white"</span>, <span class="at">high=</span><span class="st">"red"</span>, <span class="at">midpoint=</span><span class="fl">0.50</span>) <span class="sc">+</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="td_expression_genique_acp_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrer les individus avec cos² &gt; 50%</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>ind_cos2 <span class="ot">&lt;-</span> <span class="fu">apply</span>(pca.data<span class="sc">$</span>ind<span class="sc">$</span>cos2, <span class="dv">1</span>, max) <span class="sc">&gt;</span> <span class="fl">0.5</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrer les variables avec cos² &gt; 50%</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>var_cos2 <span class="ot">&lt;-</span> <span class="fu">apply</span>(pca.data<span class="sc">$</span>var<span class="sc">$</span>cos2, <span class="dv">1</span>, max) <span class="sc">&gt;</span> <span class="fl">0.5</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer un graphique combiné des individus et des variables</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_biplot</span>(pca.data,</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">select.ind =</span> <span class="fu">list</span>(<span class="at">cos2 =</span> <span class="fl">0.5</span>), <span class="co"># Sélectionner les individus avec cos² &gt; 50%</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">select.var =</span> <span class="fu">list</span>(<span class="at">cos2 =</span> <span class="fl">0.5</span>), <span class="co"># Sélectionner les variables avec cos² &gt; 50%</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>                <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="co"># Éviter le chevauchement des étiquettes</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>                <span class="at">title =</span> <span class="st">"Biplot des Individus et des Variables (cos² &gt; 50%)"</span>,</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>                <span class="at">col.ind =</span> <span class="st">"blue"</span>, <span class="co"># Couleur des individus</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>                <span class="at">col.var =</span> <span class="st">"red"</span>, <span class="co"># Couleur des variables</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>                <span class="at">geom.ind =</span> <span class="st">"point"</span>  </span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="td_expression_genique_acp_files/figure-html/unnamed-chunk-7-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+5. Représentation des individus
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Que révèle la position des individus sur le plan des deux premiers axes (proximité, similarité, groupes, outliers) ?</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+5. Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Nous analysons la position des individus (gènes) sur le plan des deux premières composantes principales de l’ACP (Dim1 et Dim2) afin de comprendre leur similarité, la formation de groupes et la présence d’outliers.</p>
+<ul>
+<li><p>Deux gènes <strong>proches</strong> dans le plan ont des <strong>profils d’expression similaires</strong> sur les 12 conditions.</p></li>
+<li><p>La <strong>distance euclidienne</strong> dans le plan factoriel reflète la similarité après réduction de dimension.</p></li>
+<li><p>Gènes éloignés : expression spécifique ou extrême dans certaines conditions. Peuvent représenter des <strong>marqueurs spécifiques</strong> ou des variations expérimentales.</p></li>
+<li><p>Le <strong>cos²</strong> mesure la qualité de représentation d’un gène sur le plan Dim1 × Dim2 :</p>
+<ul>
+<li><p>cos² &gt; 0.5 → bien représenté, interprétation fiable (on a uniquement représenté ces individus)</p></li>
+<li><p>cos² faible → beaucoup de variance sur d’autres axes</p></li>
+</ul></li>
+</ul>
+<p>En conclusion, la projection des gènes sur le plan factoriel permet de <strong>visualiser la structure globale des profils d’expression</strong>, d’identifier des <strong>groupes cohérents</strong>, et de mettre en évidence les <strong>gènes spécifiques ou outliers</strong>, tout en restant justifiée par la variance expliquée et le cos².</p>
+<p>Ici beaucoup de points sont concentrés proche de l’origine, sachant que cos² &gt; 0.5. La position est bien représentée sur ce plan. Autrement dit, la position à proximité de l’origine est fiable, pas un artefact dû au choix du plan. La plupart des individus (genes) ont donc une expression relativement constante à travers les conditions.</p>
+</div>
+</div>
+</div>
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Les références</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-petropoulos2016single" class="csl-entry" role="listitem">
+Petropoulos, S., Edsgärd, D., Reinius, B., Deng, Q., Panula, S. P., Codeluppi, S., Reyes, A. P., Linnarsson, S., Sandberg, R., et Lanner, F. (2016). Single-cell RNA-seq reveals lineage and X chromosome dynamics in human preimplantation embryos. <em>Cell</em> <em>165</em>: 1012‑1026.
+</div>
+</div></section></div></main>
+<!-- /main column -->
+<style>
+
+.pdf-download-in-toc {
+
+  text-align: center;
+
+  margin-top: 1rem;
+
+}
+
+
+
+.pdf-download-in-toc a {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.4em;
+
+  padding: 0.4em 0.8em;
+
+  background-color: #f5f5f5;
+
+  border-radius: 8px;
+
+  text-decoration: none;
+
+  font-size: 0.9em;
+
+  color: #333;
+
+  transition: background-color 0.2s ease;
+
+}
+
+
+
+.pdf-download-in-toc a:hover {
+
+  background-color: #e0e0e0;
+
+}
+
+
+
+.pdf-download-in-toc svg {
+
+  width: 18px;
+
+  height: 18px;
+
+  fill: currentColor;
+
+}
+
+</style>
+
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+
+  // essaie plusieurs sélecteurs possibles pour trouver le TOC
+
+  const toc =
+
+    document.querySelector(".quarto-toc-container") ||
+
+    document.querySelector(".toc") ||
+
+    document.querySelector("nav#TOC") ||
+
+    document.querySelector(".sidebar nav");
+
+
+
+  if (toc) {
+
+    // Ajouter le logo avant le TOC
+
+    const logo = document.createElement("img");
+
+    logo.src = "img/Logo_simple_ISTOM_Couleurs_HD.png"; // adapte si besoin
+
+    logo.alt = "Logo ISTOM";
+
+    logo.style.cssText = "display:block;height:70px;margin:0 0 1rem 1rem";
+
+    
+
+    toc.parentNode.insertBefore(logo, toc);
+
+    
+
+    // S'assurer que le TOC est sous le logo
+
+    toc.style.clear = "both";
+
+
+
+    // Ajouter le bouton PDF
+
+    //const div = document.createElement("div");
+
+    //div.className = "pdf-download-in-toc";
+
+    //div.innerHTML = `
+
+      //<a href="doc/FROMAGEOT_Clementine_MFE_P111_2025.pdf" target="_blank">
+
+        //<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+
+          //<path d="M12 16l4-5h-3V4h-2v7H8l4 5zm8 2H4v2h16v-2z"/>
+
+        //</svg>
+
+        //Mémoire C. Fromageot
+
+      //</a>
+
+    //`;
+
+    //toc.appendChild(div);
+
+  } else {
+
+    console.warn("TOC non trouvé — vérifie le thème ou la structure HTML");
+
+  }
+
+});
+
+</script>
+
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copié");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copié");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
