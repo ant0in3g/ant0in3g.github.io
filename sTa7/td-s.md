@@ -23,6 +23,9 @@
 > [L'incidence de la malaria en Éthiopie : Une évaluation statistique de l'influence des pratiques agricoles](./td-lab/td_etiopia_malaria_tests.html) &#x1F4BB; &#x1f1eb;&#x1f1f7;  
 > *En Éthiopie, l'expansion de la culture du maïs coïncide-t-elle avec une recrudescence de la malaria ? Dans cet exercice, vous endossez le rôle de l'analyste pour répondre à cette problématique de santé publique. Armé de vos outils, vous allez explorer la relation entre production agricole et incidence de la maladie. Votre mission : valider la rigueur de vos modèles, naviguer entre les écueils des hypothèses statistiques (ANOVA, transformations logarithmiques, tests post-hoc) et débusquer les différences significatives cachées derrière les données de terrain.* 
 
+> [Biostimulants vs Salinité : Mission survie pour Allium ascalonicum (coming)]() &#x1F4BB; &#x1f1eb;&#x1f1f7;  
+> *Face au changement climatique et à la salinisation des sols, les extraits d'algues sont-ils la solution ? Utilisez les outils statistiques pour déterminer si le biostimulant compense réellement le stress salin sur la croissance des échalotes.*
+
 ### Analyse Factorielle
 
 > [Analyse exploratoire des performances du décathlon](./td-lab/td_decathlon.html) &#x1F4BB; &#x1f1eb;&#x1f1f7;  
