@@ -39,6 +39,11 @@
 > [coming]() &#x1F4BB; &#x1f1eb;&#x1f1f7;  
 > *coming*
 
+### Traitement statistique de données sensorielles
+
+> [coming]() &#x1F4BB; &#x1f1eb;&#x1f1f7;  
+> *coming*
+
 ### Modélisation
 
 > [L'Écologie du Paysage au Service de l'Apiculture : De la Cartographie à la Modélisation Prédictive (coming)]() &#x1F4BB; &#x1f1eb;&#x1f1f7;  
