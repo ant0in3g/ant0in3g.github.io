@@ -68,23 +68,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="td_Iris_World_Happiness_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="td_Iris_World_Happiness_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="td_Iris_World_Happiness_files/libs/bootstrap/bootstrap-1bc8a17f135ab3d594c857e9f48e611b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<link href="td_Iris_World_Happiness_files/libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<link href="td_Iris_World_Happiness_files/libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
 
 <script src="td_Iris_World_Happiness_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 
-<script src="td_Iris_World_Happiness_files/libs/plotly-binding-4.10.4/plotly.js"></script>
+<script src="td_Iris_World_Happiness_files/libs/plotly-binding-4.12.0/plotly.js"></script>
 
 <script src="td_Iris_World_Happiness_files/libs/typedarray-0.1/typedarray.min.js"></script>
 
 <script src="td_Iris_World_Happiness_files/libs/jquery-3.5.1/jquery.min.js"></script>
 
-<link href="td_Iris_World_Happiness_files/libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<link href="td_Iris_World_Happiness_files/libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
 
-<script src="td_Iris_World_Happiness_files/libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+<script src="td_Iris_World_Happiness_files/libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
 
-<link href="td_Iris_World_Happiness_files/libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+<link href="td_Iris_World_Happiness_files/libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet">
 
-<script src="td_Iris_World_Happiness_files/libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+<script src="td_Iris_World_Happiness_files/libs/plotly-main-2.25.2/plotly-latest.min.js"></script>
 
 
 
@@ -155,7 +155,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">28 février 2026</p>
+      <p class="date">11 mars 2026</p>
     </div>
   </div>
   
@@ -606,7 +606,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb61-7"><a href="#cb61-7" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(iris_miss))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Sepal.Length  Sepal.Width Petal.Length  Petal.Width      Species 
-          14           15           14           18           14 </code></pre>
+          11           18           19           12           15 </code></pre>
 </div>
 </div>
 <p>Nous avons à présent le décompte des valeurs manquantes pour chaque variable.</p>
@@ -637,11 +637,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb63-20"><a href="#cb63-20" aria-hidden="true" tabindex="-1"></a>Analyse.Missing.Values</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             Nombre Proportion
-Sepal.Length     14 0.09333333
-Sepal.Width      15 0.10000000
-Petal.Length     14 0.09333333
-Petal.Width      18 0.12000000
-Species          14 0.09333333</code></pre>
+Sepal.Length     11 0.07333333
+Sepal.Width      18 0.12000000
+Petal.Length     19 0.12666667
+Petal.Width      12 0.08000000
+Species          15 0.10000000</code></pre>
 </div>
 </div>
 <p>Ce tableau permet de décider si une variable doit être supprimée (souvent si &gt; 50% de manques) ou imputée.</p>
@@ -656,11 +656,11 @@ Species          14 0.09333333</code></pre>
 <pre><code># A tibble: 5 × 3
   variable     n_miss pct_miss
   &lt;chr&gt;         &lt;int&gt;    &lt;num&gt;
-1 Petal.Width      18    12   
-2 Sepal.Width      15    10   
-3 Sepal.Length     14     9.33
-4 Petal.Length     14     9.33
-5 Species          14     9.33</code></pre>
+1 Petal.Length     19    12.7 
+2 Sepal.Width      18    12   
+3 Species          15    10   
+4 Petal.Width      12     8   
+5 Sepal.Length     11     7.33</code></pre>
 </div>
 </div>
 <ul>
@@ -717,11 +717,11 @@ Species          14 0.09333333</code></pre>
 <pre><code>
  Variables sorted by number of missings: 
      Variable      Count
-  Petal.Width 0.12000000
-  Sepal.Width 0.10000000
- Sepal.Length 0.09333333
- Petal.Length 0.09333333
-      Species 0.09333333</code></pre>
+ Petal.Length 0.12666667
+  Sepal.Width 0.12000000
+      Species 0.10000000
+  Petal.Width 0.08000000
+ Sepal.Length 0.07333333</code></pre>
 </div>
 </div>
 </div>
@@ -904,14 +904,22 @@ Species          14 0.09333333</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(iris_miss)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  Sepal.Length    Sepal.Width     Petal.Length   Petal.Width          Species  
- Min.   :4.300   Min.   :2.000   Min.   :1.00   Min.   :0.100   setosa    :45  
- 1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.60   1st Qu.:0.300   versicolor:45  
- Median :5.800   Median :3.000   Median :4.25   Median :1.300   virginica :46  
- Mean   :5.854   Mean   :3.056   Mean   :3.73   Mean   :1.211   NA's      :14  
- 3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.10   3rd Qu.:1.800                  
- Max.   :7.900   Max.   :4.400   Max.   :6.90   Max.   :2.500                  
- NA's   :14      NA's   :15      NA's   :14     NA's   :18                     </code></pre>
+<pre><code>  Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
+ Min.   :4.300   Min.   :2.000   Min.   :1.100   Min.   :0.100  
+ 1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.500   1st Qu.:0.300  
+ Median :5.700   Median :3.000   Median :4.400   Median :1.300  
+ Mean   :5.814   Mean   :3.063   Mean   :3.773   Mean   :1.192  
+ 3rd Qu.:6.400   3rd Qu.:3.400   3rd Qu.:5.150   3rd Qu.:1.800  
+ Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500  
+ NA's   :11      NA's   :18      NA's   :19      NA's   :12     
+       Species  
+ setosa    :46  
+ versicolor:43  
+ virginica :46  
+ NA's      :15  
+                
+                
+                </code></pre>
 </div>
 </div>
 <p>La fonction <code>summary()</code> est sans doute l’outil le plus polyvalent de R pour obtenir un aperçu statistique rapide de vos données. Sa particularité est qu’elle s’adapte à la nature des informations que vous lui soumettez. Sur les variables numériques (Quantitatives) elle affiche :</p>
@@ -1087,22 +1095,22 @@ N: 150
 
                     Petal.Length   Petal.Width   Sepal.Length   Sepal.Width
 ----------------- -------------- ------------- -------------- -------------
-             Mean           3.73          1.21           5.85          3.06
-          Std.Dev           1.73          0.76           0.81          0.43
-              Min           1.00          0.10           4.30          2.00
-               Q1           1.60          0.30           5.10          2.80
-           Median           4.25          1.30           5.80          3.00
-               Q3           5.10          1.80           6.40          3.30
+             Mean           3.77          1.19           5.81          3.06
+          Std.Dev           1.80          0.76           0.81          0.44
+              Min           1.10          0.10           4.30          2.00
+               Q1           1.50          0.30           5.10          2.80
+           Median           4.40          1.30           5.70          3.00
+               Q3           5.20          1.80           6.40          3.40
               Max           6.90          2.50           7.90          4.40
-              MAD           1.85          1.04           0.89          0.30
-              IQR           3.50          1.50           1.30          0.50
-               CV           0.47          0.63           0.14          0.14
-         Skewness          -0.28         -0.11           0.39          0.35
+              MAD           1.78          1.04           0.89          0.37
+              IQR           3.65          1.50           1.30          0.60
+               CV           0.48          0.63           0.14          0.14
+         Skewness          -0.25         -0.09           0.29          0.34
       SE.Skewness           0.21          0.21           0.21          0.21
-         Kurtosis          -1.40         -1.34          -0.53          0.33
-          N.Valid         136.00        132.00         136.00        135.00
+         Kurtosis          -1.46         -1.34          -0.63          0.11
+          N.Valid         131.00        138.00         139.00        132.00
                 N         150.00        150.00         150.00        150.00
-        Pct.Valid          90.67         88.00          90.67         90.00</code></pre>
+        Pct.Valid          87.33         92.00          92.67         88.00</code></pre>
 </div>
 </div>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
@@ -1139,10 +1147,10 @@ N: 150
 <div class="cell quarto-layout-panel" data-layout-ncol="5">
 <div class="quarto-layout-row">
 <div class="cell-output cell-output-stdout quarto-layout-cell" style="flex-basis: 20.0%;justify-content: flex-start;">
-<pre><code>[1] 5.853676</code></pre>
+<pre><code>[1] 5.813669</code></pre>
 </div>
 <div class="cell-output cell-output-stdout quarto-layout-cell" style="flex-basis: 20.0%;justify-content: flex-start;">
-<pre><code>[1] 0.811757</code></pre>
+<pre><code>[1] 0.8142927</code></pre>
 </div>
 <div class="cell-output cell-output-stdout quarto-layout-cell" style="flex-basis: 20.0%;justify-content: flex-start;">
 <pre><code>[1] 4.3</code></pre>
@@ -1151,7 +1159,7 @@ N: 150
 <pre><code>[1] 7.9</code></pre>
 </div>
 <div class="cell-output cell-output-stdout quarto-layout-cell" style="flex-basis: 20.0%;justify-content: flex-start;">
-<pre><code>[1] 5.8</code></pre>
+<pre><code>[1] 5.7</code></pre>
 </div>
 </div>
 <div class="quarto-layout-row">
@@ -1515,37 +1523,94 @@ Column Total |        54 |        60 |        36 |       150 |
  </code></pre>
 </div>
 </div>
-<p>En haut à gauche <code>CrossTable</code> affiche un petit guide pour nous aider à lire chaque cellules.</p>
-<p>On peut également tracer un Treemap. C’est une méthode de visualisation spatiale qui permet de représenter des données hiérarchiques sous forme de rectangles imbriqués. Dans ce graphique, nous divisons d’abord l’espace total en trois zones de surfaces, correspondant aux trois espèces d’Iris (pour <code>Species</code>, n = 50 pour chacune). Chaque zone est ensuite compartimentée selon la taille des sépales (<code>Sepal.Size</code>), offrant ainsi une vue immédiate de la distribution des mesures au sein de chaque groupe botanique.</p>
+<p>En haut à gauche <code>CrossTable</code> affiche un petit guide pour nous aider à lire chaque cellules.<br>
+<br>
+</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb128"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb128-1"><a href="#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb128-2"><a href="#cb128-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(treemapify)</span>
-<span id="cb128-3"><a href="#cb128-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb128-4"><a href="#cb128-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb128-5"><a href="#cb128-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Préparation des données</span></span>
-<span id="cb128-6"><a href="#cb128-6" aria-hidden="true" tabindex="-1"></a>data_treemap <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span></span>
-<span id="cb128-7"><a href="#cb128-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species, Sepal.Size) <span class="sc">%&gt;%</span></span>
-<span id="cb128-8"><a href="#cb128-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">nb =</span> <span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">'drop'</span>)</span>
-<span id="cb128-9"><a href="#cb128-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb128-10"><a href="#cb128-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Tracé du Treemap hiérarchique</span></span>
-<span id="cb128-11"><a href="#cb128-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_treemap, </span>
-<span id="cb128-12"><a href="#cb128-12" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">area =</span> nb,</span>
-<span id="cb128-13"><a href="#cb128-13" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill =</span> Species,</span>
-<span id="cb128-14"><a href="#cb128-14" aria-hidden="true" tabindex="-1"></a>           <span class="at">subgroup =</span> Species, <span class="co"># Niveau 1 : Les Espèces</span></span>
-<span id="cb128-15"><a href="#cb128-15" aria-hidden="true" tabindex="-1"></a>           <span class="at">subgroup2 =</span> Sepal.Size, <span class="co"># Niveau 2 : Les Tailles</span></span>
-<span id="cb128-16"><a href="#cb128-16" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> Sepal.Size)) <span class="sc">+</span> </span>
-<span id="cb128-17"><a href="#cb128-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_treemap</span>(<span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb128-18"><a href="#cb128-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_treemap_subgroup_border</span>(<span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb128-19"><a href="#cb128-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_treemap_subgroup2_border</span>(<span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb128-20"><a href="#cb128-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_treemap_text</span>(<span class="at">colour =</span> <span class="st">"white"</span>, <span class="at">place =</span> <span class="st">"centre"</span>, <span class="at">grow =</span> <span class="cn">FALSE</span>, <span class="at">size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
-<span id="cb128-21"><a href="#cb128-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>) <span class="sc">+</span></span>
-<span id="cb128-22"><a href="#cb128-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Division hiérarchique : Espèces &gt; Tailles de Sépales"</span>) <span class="sc">+</span></span>
-<span id="cb128-23"><a href="#cb128-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb128-24"><a href="#cb128-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"right"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb128-2"><a href="#cb128-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb128-3"><a href="#cb128-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> iris, </span>
+<span id="cb128-4"><a href="#cb128-4" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">fill =</span> Petal.Size)) <span class="sc">+</span> </span>
+<span id="cb128-5"><a href="#cb128-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"stack"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
 <p><img src="td_Iris_World_Happiness_files/figure-html/unnamed-chunk-53-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><br>
+</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb129"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb129-1"><a href="#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> iris, </span>
+<span id="cb129-2"><a href="#cb129-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">fill =</span> Petal.Size)) <span class="sc">+</span> </span>
+<span id="cb129-3"><a href="#cb129-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="td_Iris_World_Happiness_files/figure-html/unnamed-chunk-54-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> iris, </span>
+<span id="cb130-2"><a href="#cb130-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">fill =</span> Petal.Size)) <span class="sc">+</span> </span>
+<span id="cb130-3"><a href="#cb130-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">preserve =</span> <span class="st">"single"</span>))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="td_Iris_World_Happiness_files/figure-html/unnamed-chunk-55-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><br>
+</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb131"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb131-1"><a href="#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> iris, </span>
+<span id="cb131-2"><a href="#cb131-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">fill =</span> Petal.Size)) <span class="sc">+</span> </span>
+<span id="cb131-3"><a href="#cb131-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>) <span class="sc">+</span></span>
+<span id="cb131-4"><a href="#cb131-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Proportion"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="td_Iris_World_Happiness_files/figure-html/unnamed-chunk-56-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>On peut également tracer un Treemap. C’est une méthode de visualisation spatiale qui permet de représenter des données hiérarchiques sous forme de rectangles imbriqués. Dans ce graphique, nous divisons d’abord l’espace total en trois zones de surfaces, correspondant aux trois espèces d’Iris (pour <code>Species</code>, n = 50 pour chacune). Chaque zone est ensuite compartimentée selon la taille des sépales (<code>Sepal.Size</code>), offrant ainsi une vue immédiate de la distribution des mesures au sein de chaque groupe botanique.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb132"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href="#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb132-2"><a href="#cb132-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(treemapify)</span>
+<span id="cb132-3"><a href="#cb132-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb132-4"><a href="#cb132-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb132-5"><a href="#cb132-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Préparation des données</span></span>
+<span id="cb132-6"><a href="#cb132-6" aria-hidden="true" tabindex="-1"></a>data_treemap <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span></span>
+<span id="cb132-7"><a href="#cb132-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species, Sepal.Size) <span class="sc">%&gt;%</span></span>
+<span id="cb132-8"><a href="#cb132-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">nb =</span> <span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">'drop'</span>)</span>
+<span id="cb132-9"><a href="#cb132-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb132-10"><a href="#cb132-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Tracé du Treemap hiérarchique</span></span>
+<span id="cb132-11"><a href="#cb132-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_treemap, </span>
+<span id="cb132-12"><a href="#cb132-12" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">area =</span> nb,</span>
+<span id="cb132-13"><a href="#cb132-13" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill =</span> Species,</span>
+<span id="cb132-14"><a href="#cb132-14" aria-hidden="true" tabindex="-1"></a>           <span class="at">subgroup =</span> Species, <span class="co"># Niveau 1 : Les Espèces</span></span>
+<span id="cb132-15"><a href="#cb132-15" aria-hidden="true" tabindex="-1"></a>           <span class="at">subgroup2 =</span> Sepal.Size, <span class="co"># Niveau 2 : Les Tailles</span></span>
+<span id="cb132-16"><a href="#cb132-16" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> Sepal.Size)) <span class="sc">+</span> </span>
+<span id="cb132-17"><a href="#cb132-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_treemap</span>(<span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb132-18"><a href="#cb132-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_treemap_subgroup_border</span>(<span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb132-19"><a href="#cb132-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_treemap_subgroup2_border</span>(<span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb132-20"><a href="#cb132-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_treemap_text</span>(<span class="at">colour =</span> <span class="st">"white"</span>, <span class="at">place =</span> <span class="st">"centre"</span>, <span class="at">grow =</span> <span class="cn">FALSE</span>, <span class="at">size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
+<span id="cb132-21"><a href="#cb132-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>) <span class="sc">+</span></span>
+<span id="cb132-22"><a href="#cb132-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Division hiérarchique : Espèces &gt; Tailles de Sépales"</span>) <span class="sc">+</span></span>
+<span id="cb132-23"><a href="#cb132-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb132-24"><a href="#cb132-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"right"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="td_Iris_World_Happiness_files/figure-html/unnamed-chunk-57-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1557,7 +1622,7 @@ Column Total |        54 |        60 |        36 |       150 |
 <p>Avant de visualiser les données, il est essentiel d’observer les chiffres. Nous utilisons deux méthodes pour segmenter les statistiques par espèce.</p>
 <p>L’approche standard avec <code>by()</code>. C’est la qui permet d’appliquer une fonction à chaque sous-groupe.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb129"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb129-1"><a href="#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="fu">by</span>(iris[,<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>], <span class="at">INDICES=</span>iris[,<span class="st">"Species"</span>], <span class="at">FUN=</span>summary)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb133"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb133-1"><a href="#cb133-1" aria-hidden="true" tabindex="-1"></a><span class="fu">by</span>(iris[,<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>], <span class="at">INDICES=</span>iris[,<span class="st">"Species"</span>], <span class="at">FUN=</span>summary)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>iris[, "Species"]: setosa
   Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
@@ -1589,8 +1654,8 @@ iris[, "Species"]: virginica
 </div>
 <p>Pour une analyse plus fine (incluant l’écart-type, l’erreur standard, le skewness et le kurtosis), la fonction <code>describeBy</code> du package <code>psych</code> offre un tableau plus complet.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb131"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb131-1"><a href="#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
-<span id="cb131-2"><a href="#cb131-2" aria-hidden="true" tabindex="-1"></a><span class="fu">describeBy</span>(iris, <span class="at">group=</span>iris<span class="sc">$</span>Species)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb135"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb135-1"><a href="#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
+<span id="cb135-2"><a href="#cb135-2" aria-hidden="true" tabindex="-1"></a><span class="fu">describeBy</span>(iris, <span class="at">group=</span>iris<span class="sc">$</span>Species)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
  Descriptive statistics by group 
@@ -1663,14 +1728,14 @@ Sepal.Size       -0.22 0.09</code></pre>
 </div>
 <p>On peut ensuite visualiser la dispersion avec des boxplot. Le graphique en boîte à moustaches (<code>boxplot</code>) permet de visualiser la médiane et l’étendue interquartile. Il est particulièrement efficace pour détecter visuellement les outliers et comparer la position centrale des groupes.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb133"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb133-1"><a href="#cb133-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(iris<span class="sc">$</span>Sepal.Length <span class="sc">~</span> iris<span class="sc">$</span>Species,</span>
-<span id="cb133-2"><a href="#cb133-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"yellow"</span>),</span>
-<span id="cb133-3"><a href="#cb133-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">"Boxplot pour la variable Sepal.Length, par espèce d'iris"</span>),</span>
-<span id="cb133-4"><a href="#cb133-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Quantiles"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb137"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb137-1"><a href="#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(iris<span class="sc">$</span>Sepal.Length <span class="sc">~</span> iris<span class="sc">$</span>Species,</span>
+<span id="cb137-2"><a href="#cb137-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"yellow"</span>),</span>
+<span id="cb137-3"><a href="#cb137-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">"Boxplot pour la variable Sepal.Length, par espèce d'iris"</span>),</span>
+<span id="cb137-4"><a href="#cb137-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Quantiles"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="td_Iris_World_Happiness_files/figure-html/unnamed-chunk-56-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="td_Iris_World_Happiness_files/figure-html/unnamed-chunk-60-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1678,57 +1743,57 @@ Sepal.Size       -0.22 0.09</code></pre>
 <p>Le Violin Plot surpasse le boxplot en révélant la “silhouette” réelle des données : sa hauteur montre l’étendue des valeurs, tandis que sa largeur indique la densité de probabilité. Il permet de repérer instantanément des phénomènes invisibles autrement, comme une concentration extrême autour d’une valeur ou la présence de plusieurs pics (multimodalité).</p>
 <p>Sur le dataset Iris, cet outil souligne les contrastes biologiques : le violon des Setosa, bas et trapu, confirme des sépales courts et très homogènes. À l’inverse, celui des Virginica, plus étiré, trahit une plus grande diversité de tailles. C’est le graphique idéal pour valider que chaque espèce possède sa propre structure de population, au-delà de sa simple moyenne.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb134"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb134-2"><a href="#cb134-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb134-3"><a href="#cb134-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> iris, </span>
-<span id="cb134-4"><a href="#cb134-4" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Sepal.Length, <span class="at">fill =</span> Species)) <span class="sc">+</span> </span>
-<span id="cb134-5"><a href="#cb134-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
-<span id="cb134-6"><a href="#cb134-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution de la longueur des sépales par espèce"</span>,</span>
-<span id="cb134-7"><a href="#cb134-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Visualisation par graphique en violon"</span>,</span>
-<span id="cb134-8"><a href="#cb134-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Espèce"</span>,</span>
-<span id="cb134-9"><a href="#cb134-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Longueur du Sépale (cm)"</span>) <span class="sc">+</span></span>
-<span id="cb134-10"><a href="#cb134-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb138"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb138-1"><a href="#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb138-2"><a href="#cb138-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-3"><a href="#cb138-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> iris, </span>
+<span id="cb138-4"><a href="#cb138-4" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Sepal.Length, <span class="at">fill =</span> Species)) <span class="sc">+</span> </span>
+<span id="cb138-5"><a href="#cb138-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
+<span id="cb138-6"><a href="#cb138-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution de la longueur des sépales par espèce"</span>,</span>
+<span id="cb138-7"><a href="#cb138-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Visualisation par graphique en violon"</span>,</span>
+<span id="cb138-8"><a href="#cb138-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Espèce"</span>,</span>
+<span id="cb138-9"><a href="#cb138-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Longueur du Sépale (cm)"</span>) <span class="sc">+</span></span>
+<span id="cb138-10"><a href="#cb138-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="td_Iris_World_Happiness_files/figure-html/unnamed-chunk-57-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="td_Iris_World_Happiness_files/figure-html/unnamed-chunk-61-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Pour une analyse plus avancées, nous pouvons superposer ici le violon (pour la forme) et le boxplot (pour les indicateurs précis). Nous enrichissons également le graphique en affichant la taille de l’échantillon (n) directement sur l’axe des abscisses, garantissant ainsi la transparence statistique sur la représentativité des groupes.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb135"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb135-1"><a href="#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb135-2"><a href="#cb135-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb135-3"><a href="#cb135-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(hrbrthemes)</span>
-<span id="cb135-4"><a href="#cb135-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis)</span>
-<span id="cb135-5"><a href="#cb135-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb135-6"><a href="#cb135-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcul de la taille de l'échantillon par espèce</span></span>
-<span id="cb135-7"><a href="#cb135-7" aria-hidden="true" tabindex="-1"></a>sample_size <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> </span>
-<span id="cb135-8"><a href="#cb135-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span> </span>
-<span id="cb135-9"><a href="#cb135-9" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarize</span>(<span class="at">num =</span> <span class="fu">n</span>())</span>
-<span id="cb135-10"><a href="#cb135-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb135-11"><a href="#cb135-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Construction du graphique</span></span>
-<span id="cb135-12"><a href="#cb135-12" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
-<span id="cb135-13"><a href="#cb135-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(sample_size, <span class="at">by =</span> <span class="st">"Species"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb135-14"><a href="#cb135-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">myaxis =</span> <span class="fu">paste0</span>(Species, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>, <span class="st">"n="</span>, num)) <span class="sc">%&gt;%</span></span>
-<span id="cb135-15"><a href="#cb135-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> myaxis, <span class="at">y =</span> Sepal.Length, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
-<span id="cb135-16"><a href="#cb135-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_violin</span>(<span class="at">width =</span> <span class="fl">1.0</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb135-17"><a href="#cb135-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb135-18"><a href="#cb135-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_viridis</span>(<span class="at">discrete =</span> <span class="cn">TRUE</span>, <span class="at">option =</span> <span class="st">"D"</span>) <span class="sc">+</span></span>
-<span id="cb135-19"><a href="#cb135-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_ipsum</span>(<span class="at">base_family =</span> <span class="st">"sans"</span>) <span class="sc">+</span></span>
-<span id="cb135-20"><a href="#cb135-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
-<span id="cb135-21"><a href="#cb135-21" aria-hidden="true" tabindex="-1"></a>      <span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
-<span id="cb135-22"><a href="#cb135-22" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>, <span class="at">face =</span> <span class="st">"bold"</span>)) <span class="sc">+</span></span>
-<span id="cb135-23"><a href="#cb135-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
-<span id="cb135-24"><a href="#cb135-24" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="st">"Distribution de la longueur des sépales par espèce"</span>,</span>
-<span id="cb135-25"><a href="#cb135-25" aria-hidden="true" tabindex="-1"></a>      <span class="at">subtitle =</span> <span class="st">"Combinaison d'un graphique en violon et d'une boîte à moustaches"</span>,</span>
-<span id="cb135-26"><a href="#cb135-26" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> <span class="st">""</span>,</span>
-<span id="cb135-27"><a href="#cb135-27" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> <span class="st">"Longueur du Sépale (cm)"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb139"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a href="#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb139-2"><a href="#cb139-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb139-3"><a href="#cb139-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(hrbrthemes)</span>
+<span id="cb139-4"><a href="#cb139-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis)</span>
+<span id="cb139-5"><a href="#cb139-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb139-6"><a href="#cb139-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcul de la taille de l'échantillon par espèce</span></span>
+<span id="cb139-7"><a href="#cb139-7" aria-hidden="true" tabindex="-1"></a>sample_size <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> </span>
+<span id="cb139-8"><a href="#cb139-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span> </span>
+<span id="cb139-9"><a href="#cb139-9" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarize</span>(<span class="at">num =</span> <span class="fu">n</span>())</span>
+<span id="cb139-10"><a href="#cb139-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb139-11"><a href="#cb139-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Construction du graphique</span></span>
+<span id="cb139-12"><a href="#cb139-12" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb139-13"><a href="#cb139-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(sample_size, <span class="at">by =</span> <span class="st">"Species"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb139-14"><a href="#cb139-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">myaxis =</span> <span class="fu">paste0</span>(Species, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>, <span class="st">"n="</span>, num)) <span class="sc">%&gt;%</span></span>
+<span id="cb139-15"><a href="#cb139-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> myaxis, <span class="at">y =</span> Sepal.Length, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
+<span id="cb139-16"><a href="#cb139-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_violin</span>(<span class="at">width =</span> <span class="fl">1.0</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb139-17"><a href="#cb139-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb139-18"><a href="#cb139-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_viridis</span>(<span class="at">discrete =</span> <span class="cn">TRUE</span>, <span class="at">option =</span> <span class="st">"D"</span>) <span class="sc">+</span></span>
+<span id="cb139-19"><a href="#cb139-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_ipsum</span>(<span class="at">base_family =</span> <span class="st">"sans"</span>) <span class="sc">+</span></span>
+<span id="cb139-20"><a href="#cb139-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
+<span id="cb139-21"><a href="#cb139-21" aria-hidden="true" tabindex="-1"></a>      <span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb139-22"><a href="#cb139-22" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>, <span class="at">face =</span> <span class="st">"bold"</span>)) <span class="sc">+</span></span>
+<span id="cb139-23"><a href="#cb139-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
+<span id="cb139-24"><a href="#cb139-24" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="st">"Distribution de la longueur des sépales par espèce"</span>,</span>
+<span id="cb139-25"><a href="#cb139-25" aria-hidden="true" tabindex="-1"></a>      <span class="at">subtitle =</span> <span class="st">"Combinaison d'un graphique en violon et d'une boîte à moustaches"</span>,</span>
+<span id="cb139-26"><a href="#cb139-26" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb139-27"><a href="#cb139-27" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> <span class="st">"Longueur du Sépale (cm)"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="td_Iris_World_Happiness_files/figure-html/unnamed-chunk-58-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="td_Iris_World_Happiness_files/figure-html/unnamed-chunk-62-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1738,11 +1803,11 @@ Sepal.Size       -0.22 0.09</code></pre>
 <h4 class="anchored" data-anchor-id="deux-variables-quantitatives">Deux variables quantitatives</h4>
 <p>Nous choisissons l’étude bivariée de la longueur et de la largeur des sépales. Nous commencons avec un nuage de points (Scatter Plot).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb136"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href="#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(iris<span class="sc">$</span>Sepal.Length,iris<span class="sc">$</span>Sepal.Width)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb140"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb140-1"><a href="#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(iris<span class="sc">$</span>Sepal.Length,iris<span class="sc">$</span>Sepal.Width)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="td_Iris_World_Happiness_files/figure-html/unnamed-chunk-59-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="td_Iris_World_Happiness_files/figure-html/unnamed-chunk-63-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1755,7 +1820,7 @@ Sepal.Size       -0.22 0.09</code></pre>
 <li><p>Si <code>cor()</code> donne une valeur tres proche de -1, alors la corrélation est négative parfaite (si la longueur augmente, la largeur diminue).</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb137"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb137-1"><a href="#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(iris<span class="sc">$</span>Sepal.Length,iris<span class="sc">$</span>Sepal.Width,<span class="at">method=</span><span class="st">"pearson"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb141"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb141-1"><a href="#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(iris<span class="sc">$</span>Sepal.Length,iris<span class="sc">$</span>Sepal.Width,<span class="at">method=</span><span class="st">"pearson"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -0.1175698</code></pre>
 </div>
@@ -1763,25 +1828,25 @@ Sepal.Size       -0.22 0.09</code></pre>
 <p>La corrélation est donc très faible.</p>
 <p>On peut améliorer ce code avec le package <code>ggplot2</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb139"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a href="#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb139-2"><a href="#cb139-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(hrbrthemes)</span>
-<span id="cb139-3"><a href="#cb139-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb139-4"><a href="#cb139-4" aria-hidden="true" tabindex="-1"></a>cor_val <span class="ot">&lt;-</span> <span class="fu">cor</span>(iris<span class="sc">$</span>Sepal.Length, iris<span class="sc">$</span>Sepal.Width)</span>
-<span id="cb139-5"><a href="#cb139-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb139-6"><a href="#cb139-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Sepal.Width)) <span class="sc">+</span></span>
-<span id="cb139-7"><a href="#cb139-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"#69b3a2"</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb139-8"><a href="#cb139-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb139-9"><a href="#cb139-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb139-10"><a href="#cb139-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Analyse bivariée : Sépales (Longueur vs Largeur)"</span>,</span>
-<span id="cb139-11"><a href="#cb139-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="fu">paste</span>(<span class="st">"Coefficient de corrélation de Pearson :"</span>, <span class="fu">round</span>(cor_val, <span class="dv">3</span>)),</span>
-<span id="cb139-12"><a href="#cb139-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Longueur du Sépale (cm)"</span>,</span>
-<span id="cb139-13"><a href="#cb139-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Largeur du Sépale (cm)"</span></span>
-<span id="cb139-14"><a href="#cb139-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb139-15"><a href="#cb139-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum</span>(<span class="at">base_family =</span> <span class="st">"sans"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb143"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb143-1"><a href="#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb143-2"><a href="#cb143-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(hrbrthemes)</span>
+<span id="cb143-3"><a href="#cb143-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb143-4"><a href="#cb143-4" aria-hidden="true" tabindex="-1"></a>cor_val <span class="ot">&lt;-</span> <span class="fu">cor</span>(iris<span class="sc">$</span>Sepal.Length, iris<span class="sc">$</span>Sepal.Width)</span>
+<span id="cb143-5"><a href="#cb143-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb143-6"><a href="#cb143-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Sepal.Width)) <span class="sc">+</span></span>
+<span id="cb143-7"><a href="#cb143-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"#69b3a2"</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb143-8"><a href="#cb143-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb143-9"><a href="#cb143-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb143-10"><a href="#cb143-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Analyse bivariée : Sépales (Longueur vs Largeur)"</span>,</span>
+<span id="cb143-11"><a href="#cb143-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="fu">paste</span>(<span class="st">"Coefficient de corrélation de Pearson :"</span>, <span class="fu">round</span>(cor_val, <span class="dv">3</span>)),</span>
+<span id="cb143-12"><a href="#cb143-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Longueur du Sépale (cm)"</span>,</span>
+<span id="cb143-13"><a href="#cb143-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Largeur du Sépale (cm)"</span></span>
+<span id="cb143-14"><a href="#cb143-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb143-15"><a href="#cb143-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum</span>(<span class="at">base_family =</span> <span class="st">"sans"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="td_Iris_World_Happiness_files/figure-html/unnamed-chunk-61-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="td_Iris_World_Happiness_files/figure-html/unnamed-chunk-65-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1792,25 +1857,25 @@ Sepal.Size       -0.22 0.09</code></pre>
 <p>Il est importer de remarque que le coefficient de corrélation est tres tres faible.</p>
 <p>On peut essayer un autre couple de variables. Par exemple, la longueur du pétale avec sa surface.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb140"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb140-1"><a href="#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb140-2"><a href="#cb140-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(hrbrthemes)</span>
-<span id="cb140-3"><a href="#cb140-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb140-4"><a href="#cb140-4" aria-hidden="true" tabindex="-1"></a>cor_val <span class="ot">&lt;-</span> <span class="fu">cor</span>(iris<span class="sc">$</span>Petal.Length, iris<span class="sc">$</span>Petal.Surface)</span>
-<span id="cb140-5"><a href="#cb140-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb140-6"><a href="#cb140-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Petal.Length, <span class="at">y =</span> Petal.Surface)) <span class="sc">+</span></span>
-<span id="cb140-7"><a href="#cb140-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"#69b3a2"</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb140-8"><a href="#cb140-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb140-9"><a href="#cb140-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb140-10"><a href="#cb140-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Analyse bivariée : Sépales (Longueur vs Largeur)"</span>,</span>
-<span id="cb140-11"><a href="#cb140-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="fu">paste</span>(<span class="st">"Coefficient de corrélation de Pearson :"</span>, <span class="fu">round</span>(cor_val, <span class="dv">3</span>)),</span>
-<span id="cb140-12"><a href="#cb140-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Longueur du Sépale (cm)"</span>,</span>
-<span id="cb140-13"><a href="#cb140-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Largeur du Sépale (cm)"</span></span>
-<span id="cb140-14"><a href="#cb140-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb140-15"><a href="#cb140-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum</span>(<span class="at">base_family =</span> <span class="st">"sans"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb144"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb144-1"><a href="#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb144-2"><a href="#cb144-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(hrbrthemes)</span>
+<span id="cb144-3"><a href="#cb144-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb144-4"><a href="#cb144-4" aria-hidden="true" tabindex="-1"></a>cor_val <span class="ot">&lt;-</span> <span class="fu">cor</span>(iris<span class="sc">$</span>Petal.Length, iris<span class="sc">$</span>Petal.Surface)</span>
+<span id="cb144-5"><a href="#cb144-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb144-6"><a href="#cb144-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Petal.Length, <span class="at">y =</span> Petal.Surface)) <span class="sc">+</span></span>
+<span id="cb144-7"><a href="#cb144-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"#69b3a2"</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb144-8"><a href="#cb144-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb144-9"><a href="#cb144-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb144-10"><a href="#cb144-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Analyse bivariée : Sépales (Longueur vs Largeur)"</span>,</span>
+<span id="cb144-11"><a href="#cb144-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="fu">paste</span>(<span class="st">"Coefficient de corrélation de Pearson :"</span>, <span class="fu">round</span>(cor_val, <span class="dv">3</span>)),</span>
+<span id="cb144-12"><a href="#cb144-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Longueur du Sépale (cm)"</span>,</span>
+<span id="cb144-13"><a href="#cb144-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Largeur du Sépale (cm)"</span></span>
+<span id="cb144-14"><a href="#cb144-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb144-15"><a href="#cb144-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum</span>(<span class="at">base_family =</span> <span class="st">"sans"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="td_Iris_World_Happiness_files/figure-html/unnamed-chunk-62-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="td_Iris_World_Happiness_files/figure-html/unnamed-chunk-66-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1818,33 +1883,33 @@ Sepal.Size       -0.22 0.09</code></pre>
 <p>Cette fois le coéfficient de corrélation est tres proche de 1. Normal, <code>Petal.Surface</code> a été calculée à partir de <code>Petal.Length</code>.</p>
 <p>Pour comprendre comment l’ensemble des variables quantitaitives du jeu de données interagissent les unes avec les autres, il est nécessaire de passer à une vision systémique. La matrice de corrélation répond à ce besoin en automatisant le calcul du coefficient de Pearson pour toutes les combinaisons possibles de variables, deux à deux.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb141"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb141-1"><a href="#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Charger les packages</span></span>
-<span id="cb141-2"><a href="#cb141-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb141-3"><a href="#cb141-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb145"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb145-1"><a href="#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Charger les packages</span></span>
+<span id="cb145-2"><a href="#cb145-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb145-3"><a href="#cb145-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb142"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb142-1"><a href="#cb142-1" aria-hidden="true" tabindex="-1"></a>var.quanti <span class="ot">=</span> <span class="fu">sapply</span>(iris, is.numeric)</span>
-<span id="cb142-2"><a href="#cb142-2" aria-hidden="true" tabindex="-1"></a>data.quanti <span class="ot">=</span> iris[, var.quanti]</span>
-<span id="cb142-3"><a href="#cb142-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb142-4"><a href="#cb142-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculer la matrice de corrélation</span></span>
-<span id="cb142-5"><a href="#cb142-5" aria-hidden="true" tabindex="-1"></a>Matrice.Correlation <span class="ot">&lt;-</span> <span class="fu">cor</span>(data.quanti, <span class="at">use =</span> <span class="st">"complete.obs"</span>)</span>
-<span id="cb142-6"><a href="#cb142-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb142-7"><a href="#cb142-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer la heatmap de corrélation avec des coefficients plus visibles</span></span>
-<span id="cb142-8"><a href="#cb142-8" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(Matrice.Correlation, </span>
-<span id="cb142-9"><a href="#cb142-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">method =</span> <span class="st">"color"</span>, </span>
-<span id="cb142-10"><a href="#cb142-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="st">"upper"</span>, </span>
-<span id="cb142-11"><a href="#cb142-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">order =</span> <span class="st">"hclust"</span>,</span>
-<span id="cb142-12"><a href="#cb142-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">tl.col =</span> <span class="st">"black"</span>, </span>
-<span id="cb142-13"><a href="#cb142-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">tl.srt =</span> <span class="dv">45</span>, </span>
-<span id="cb142-14"><a href="#cb142-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">addCoef.col =</span> <span class="st">"black"</span>, <span class="co"># Couleur des coefficients</span></span>
-<span id="cb142-15"><a href="#cb142-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">cl.pos =</span> <span class="st">"n"</span>, <span class="co"># Position de la légende de couleur</span></span>
-<span id="cb142-16"><a href="#cb142-16" aria-hidden="true" tabindex="-1"></a>         <span class="at">cl.cex =</span> <span class="fl">1.2</span>, <span class="co"># Taille de la légende de couleur</span></span>
-<span id="cb142-17"><a href="#cb142-17" aria-hidden="true" tabindex="-1"></a>         <span class="at">addCoefasPercent =</span> <span class="cn">TRUE</span>, <span class="co"># Afficher les coefficients en pourcentage</span></span>
-<span id="cb142-18"><a href="#cb142-18" aria-hidden="true" tabindex="-1"></a>         <span class="at">number.cex =</span> <span class="fl">0.8</span>) <span class="co"># Taille des chiffres des coefficients</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb146"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb146-1"><a href="#cb146-1" aria-hidden="true" tabindex="-1"></a>var.quanti <span class="ot">=</span> <span class="fu">sapply</span>(iris, is.numeric)</span>
+<span id="cb146-2"><a href="#cb146-2" aria-hidden="true" tabindex="-1"></a>data.quanti <span class="ot">=</span> iris[, var.quanti]</span>
+<span id="cb146-3"><a href="#cb146-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb146-4"><a href="#cb146-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculer la matrice de corrélation</span></span>
+<span id="cb146-5"><a href="#cb146-5" aria-hidden="true" tabindex="-1"></a>Matrice.Correlation <span class="ot">&lt;-</span> <span class="fu">cor</span>(data.quanti, <span class="at">use =</span> <span class="st">"complete.obs"</span>)</span>
+<span id="cb146-6"><a href="#cb146-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb146-7"><a href="#cb146-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer la heatmap de corrélation avec des coefficients plus visibles</span></span>
+<span id="cb146-8"><a href="#cb146-8" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(Matrice.Correlation, </span>
+<span id="cb146-9"><a href="#cb146-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">method =</span> <span class="st">"color"</span>, </span>
+<span id="cb146-10"><a href="#cb146-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="st">"upper"</span>, </span>
+<span id="cb146-11"><a href="#cb146-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">order =</span> <span class="st">"hclust"</span>,</span>
+<span id="cb146-12"><a href="#cb146-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">tl.col =</span> <span class="st">"black"</span>, </span>
+<span id="cb146-13"><a href="#cb146-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">tl.srt =</span> <span class="dv">45</span>, </span>
+<span id="cb146-14"><a href="#cb146-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">addCoef.col =</span> <span class="st">"black"</span>, <span class="co"># Couleur des coefficients</span></span>
+<span id="cb146-15"><a href="#cb146-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">cl.pos =</span> <span class="st">"n"</span>, <span class="co"># Position de la légende de couleur</span></span>
+<span id="cb146-16"><a href="#cb146-16" aria-hidden="true" tabindex="-1"></a>         <span class="at">cl.cex =</span> <span class="fl">1.2</span>, <span class="co"># Taille de la légende de couleur</span></span>
+<span id="cb146-17"><a href="#cb146-17" aria-hidden="true" tabindex="-1"></a>         <span class="at">addCoefasPercent =</span> <span class="cn">TRUE</span>, <span class="co"># Afficher les coefficients en pourcentage</span></span>
+<span id="cb146-18"><a href="#cb146-18" aria-hidden="true" tabindex="-1"></a>         <span class="at">number.cex =</span> <span class="fl">0.8</span>) <span class="co"># Taille des chiffres des coefficients</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="td_Iris_World_Happiness_files/figure-html/unnamed-chunk-64-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="td_Iris_World_Happiness_files/figure-html/unnamed-chunk-68-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1856,93 +1921,93 @@ Sepal.Size       -0.22 0.09</code></pre>
 <p>On peut bien entendu aller au dela du cas bivarié. Le nuage de points ci-desous offre une lecture plus globale de la structure du dataset Iris. En croisant la longueur et la largeur des sépales sur les axes cartésiens, nous utilisons la couleur pour distinguer les trois espèces. L’intérêt de ce tracé est de montrer la réalité brute des données : on observe ainsi la zone de transition naturelle entre Versicolor et Virginica, tout en confirmant le décrochage net des Setosa, qui occupent une niche morphologique isolée avec des sépales plus courts mais nettement plus larges.</p>
 <p>On a analysé 3 variables ensembles : <code>Sepal.Length</code>, <code>Sepal.Width</code>, <code>Species</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb143"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb143-1"><a href="#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb143-2"><a href="#cb143-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(hrbrthemes)</span>
-<span id="cb143-3"><a href="#cb143-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb143-4"><a href="#cb143-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb143-5"><a href="#cb143-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcul des moyennes pour chaque espèce</span></span>
-<span id="cb143-6"><a href="#cb143-6" aria-hidden="true" tabindex="-1"></a>centroids <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span></span>
-<span id="cb143-7"><a href="#cb143-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
-<span id="cb143-8"><a href="#cb143-8" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarize</span>(<span class="at">Sepal.Length =</span> <span class="fu">mean</span>(Sepal.Length),</span>
-<span id="cb143-9"><a href="#cb143-9" aria-hidden="true" tabindex="-1"></a>                   <span class="at">Sepal.Width =</span> <span class="fu">mean</span>(Sepal.Width))</span>
-<span id="cb143-10"><a href="#cb143-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb143-11"><a href="#cb143-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Construction du graphique</span></span>
-<span id="cb143-12"><a href="#cb143-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Sepal.Width, <span class="at">color =</span> Species)) <span class="sc">+</span></span>
-<span id="cb143-13"><a href="#cb143-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">2.5</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
-<span id="cb143-14"><a href="#cb143-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> centroids, <span class="at">size =</span> <span class="dv">6</span>, <span class="at">shape =</span> <span class="dv">18</span>) <span class="sc">+</span></span>
-<span id="cb143-15"><a href="#cb143-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Set1"</span>) <span class="sc">+</span></span>
-<span id="cb143-16"><a href="#cb143-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb143-17"><a href="#cb143-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Analyse spatiale des sépales par espèce"</span>,</span>
-<span id="cb143-18"><a href="#cb143-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Nuage de points brut avec marqueurs de moyenne (losanges)"</span>,</span>
-<span id="cb143-19"><a href="#cb143-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Longueur du Sépale (cm)"</span>,</span>
-<span id="cb143-20"><a href="#cb143-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Largeur du Sépale (cm)"</span>,</span>
-<span id="cb143-21"><a href="#cb143-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Espèce"</span></span>
-<span id="cb143-22"><a href="#cb143-22" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb143-23"><a href="#cb143-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum</span>(<span class="at">base_family =</span> <span class="st">"sans"</span>) <span class="sc">+</span></span>
-<span id="cb143-24"><a href="#cb143-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"right"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb147"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb147-1"><a href="#cb147-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb147-2"><a href="#cb147-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(hrbrthemes)</span>
+<span id="cb147-3"><a href="#cb147-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb147-4"><a href="#cb147-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb147-5"><a href="#cb147-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcul des moyennes pour chaque espèce</span></span>
+<span id="cb147-6"><a href="#cb147-6" aria-hidden="true" tabindex="-1"></a>centroids <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span></span>
+<span id="cb147-7"><a href="#cb147-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
+<span id="cb147-8"><a href="#cb147-8" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarize</span>(<span class="at">Sepal.Length =</span> <span class="fu">mean</span>(Sepal.Length),</span>
+<span id="cb147-9"><a href="#cb147-9" aria-hidden="true" tabindex="-1"></a>                   <span class="at">Sepal.Width =</span> <span class="fu">mean</span>(Sepal.Width))</span>
+<span id="cb147-10"><a href="#cb147-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb147-11"><a href="#cb147-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Construction du graphique</span></span>
+<span id="cb147-12"><a href="#cb147-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Sepal.Width, <span class="at">color =</span> Species)) <span class="sc">+</span></span>
+<span id="cb147-13"><a href="#cb147-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">2.5</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb147-14"><a href="#cb147-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> centroids, <span class="at">size =</span> <span class="dv">6</span>, <span class="at">shape =</span> <span class="dv">18</span>) <span class="sc">+</span></span>
+<span id="cb147-15"><a href="#cb147-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Set1"</span>) <span class="sc">+</span></span>
+<span id="cb147-16"><a href="#cb147-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb147-17"><a href="#cb147-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Analyse spatiale des sépales par espèce"</span>,</span>
+<span id="cb147-18"><a href="#cb147-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Nuage de points brut avec marqueurs de moyenne (losanges)"</span>,</span>
+<span id="cb147-19"><a href="#cb147-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Longueur du Sépale (cm)"</span>,</span>
+<span id="cb147-20"><a href="#cb147-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Largeur du Sépale (cm)"</span>,</span>
+<span id="cb147-21"><a href="#cb147-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Espèce"</span></span>
+<span id="cb147-22"><a href="#cb147-22" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb147-23"><a href="#cb147-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum</span>(<span class="at">base_family =</span> <span class="st">"sans"</span>) <span class="sc">+</span></span>
+<span id="cb147-24"><a href="#cb147-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"right"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="td_Iris_World_Happiness_files/figure-html/unnamed-chunk-65-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="td_Iris_World_Happiness_files/figure-html/unnamed-chunk-69-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>On peut tenter une exploration tridimensionnelle de Iris. En projetant simultanément la longueur des sépales (x), leur largeur (y) et la longueur des pétales (z), ce graphique en 3D permet une visualisation interactive est particulièrement révélatrice : elle met en évidence que l’espèce Setosa forme un “nuage” de points totalement isolé dans l’espace, tandis que les espèces Versicolor et Virginica, bien que proches, occupent des strates distinctes selon l’angle de vue choisi.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb144"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb144-1"><a href="#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span>
-<span id="cb144-2"><a href="#cb144-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb144-3"><a href="#cb144-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Création du graphique 3D</span></span>
-<span id="cb144-4"><a href="#cb144-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_ly</span>(<span class="at">data =</span> iris, </span>
-<span id="cb144-5"><a href="#cb144-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="sc">~</span>Sepal.Length, </span>
-<span id="cb144-6"><a href="#cb144-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="sc">~</span>Sepal.Width, </span>
-<span id="cb144-7"><a href="#cb144-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">z =</span> <span class="sc">~</span>Petal.Length, </span>
-<span id="cb144-8"><a href="#cb144-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="sc">~</span>Species,   </span>
-<span id="cb144-9"><a href="#cb144-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">colors =</span> <span class="fu">c</span>(<span class="st">'#69b3a2'</span>, <span class="st">'#404080'</span>, <span class="st">'#ff7f0e'</span>),</span>
-<span id="cb144-10"><a href="#cb144-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">type =</span> <span class="st">"scatter3d"</span>, </span>
-<span id="cb144-11"><a href="#cb144-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">mode =</span> <span class="st">"markers"</span>,</span>
-<span id="cb144-12"><a href="#cb144-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">marker =</span> <span class="fu">list</span>(<span class="at">size =</span> <span class="dv">5</span>, <span class="at">opacity =</span> <span class="fl">0.8</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb144-13"><a href="#cb144-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layout</span>(</span>
-<span id="cb144-14"><a href="#cb144-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Exploration 3D des dimensions d'Iris"</span>,</span>
-<span id="cb144-15"><a href="#cb144-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">scene =</span> <span class="fu">list</span>(</span>
-<span id="cb144-16"><a href="#cb144-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">xaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">'Long. Sépale'</span>),</span>
-<span id="cb144-17"><a href="#cb144-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">yaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">'Larg. Sépale'</span>),</span>
-<span id="cb144-18"><a href="#cb144-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">zaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">'Long. Pétale'</span>)</span>
-<span id="cb144-19"><a href="#cb144-19" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb144-20"><a href="#cb144-20" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb148"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb148-1"><a href="#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span>
+<span id="cb148-2"><a href="#cb148-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb148-3"><a href="#cb148-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Création du graphique 3D</span></span>
+<span id="cb148-4"><a href="#cb148-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_ly</span>(<span class="at">data =</span> iris, </span>
+<span id="cb148-5"><a href="#cb148-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="sc">~</span>Sepal.Length, </span>
+<span id="cb148-6"><a href="#cb148-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="sc">~</span>Sepal.Width, </span>
+<span id="cb148-7"><a href="#cb148-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">z =</span> <span class="sc">~</span>Petal.Length, </span>
+<span id="cb148-8"><a href="#cb148-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="sc">~</span>Species,   </span>
+<span id="cb148-9"><a href="#cb148-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">colors =</span> <span class="fu">c</span>(<span class="st">'#69b3a2'</span>, <span class="st">'#404080'</span>, <span class="st">'#ff7f0e'</span>),</span>
+<span id="cb148-10"><a href="#cb148-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">type =</span> <span class="st">"scatter3d"</span>, </span>
+<span id="cb148-11"><a href="#cb148-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">mode =</span> <span class="st">"markers"</span>,</span>
+<span id="cb148-12"><a href="#cb148-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">marker =</span> <span class="fu">list</span>(<span class="at">size =</span> <span class="dv">5</span>, <span class="at">opacity =</span> <span class="fl">0.8</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb148-13"><a href="#cb148-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layout</span>(</span>
+<span id="cb148-14"><a href="#cb148-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Exploration 3D des dimensions d'Iris"</span>,</span>
+<span id="cb148-15"><a href="#cb148-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">scene =</span> <span class="fu">list</span>(</span>
+<span id="cb148-16"><a href="#cb148-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">xaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">'Long. Sépale'</span>),</span>
+<span id="cb148-17"><a href="#cb148-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">yaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">'Larg. Sépale'</span>),</span>
+<span id="cb148-18"><a href="#cb148-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">zaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">'Long. Pétale'</span>)</span>
+<span id="cb148-19"><a href="#cb148-19" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb148-20"><a href="#cb148-20" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-c340db565d3fd13564e6" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-c340db565d3fd13564e6">{"x":{"visdat":{"dad8234bcaa":["function () ","plotlyVisDat"]},"cur_data":"dad8234bcaa","attrs":{"dad8234bcaa":{"x":{},"y":{},"z":{},"mode":"markers","marker":{"size":5,"opacity":0.80000000000000004},"color":{},"colors":["#69b3a2","#404080","#ff7f0e"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Exploration 3D des dimensions d'Iris","scene":{"xaxis":{"title":"Long. Sépale"},"yaxis":{"title":"Larg. Sépale"},"zaxis":{"title":"Long. Pétale"}},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[5.0999999999999996,4.9000000000000004,4.7000000000000002,4.5999999999999996,5,5.4000000000000004,4.5999999999999996,5,4.4000000000000004,4.9000000000000004,5.4000000000000004,4.7999999999999998,4.7999999999999998,4.2999999999999998,5.7999999999999998,5.7000000000000002,5.4000000000000004,5.0999999999999996,5.7000000000000002,5.0999999999999996,5.4000000000000004,5.0999999999999996,4.5999999999999996,5.0999999999999996,4.7999999999999998,5,5,5.2000000000000002,5.2000000000000002,4.7000000000000002,4.7999999999999998,5.4000000000000004,5.2000000000000002,5.5,4.9000000000000004,5,5.5,4.9000000000000004,4.4000000000000004,5.0999999999999996,5,4.5,4.4000000000000004,5,5.0999999999999996,4.7999999999999998,5.0999999999999996,4.5999999999999996,5.2999999999999998,5],"y":[3.5,3,3.2000000000000002,3.1000000000000001,3.6000000000000001,3.8999999999999999,3.3999999999999999,3.3999999999999999,2.8999999999999999,3.1000000000000001,3.7000000000000002,3.3999999999999999,3,3,4,4.4000000000000004,3.8999999999999999,3.5,3.7999999999999998,3.7999999999999998,3.3999999999999999,3.7000000000000002,3.6000000000000001,3.2999999999999998,3.3999999999999999,3,3.3999999999999999,3.5,3.3999999999999999,3.2000000000000002,3.1000000000000001,3.3999999999999999,4.0999999999999996,4.2000000000000002,3.1000000000000001,3.2000000000000002,3.5,3.6000000000000001,3,3.3999999999999999,3.5,2.2999999999999998,3.2000000000000002,3.5,3.7999999999999998,3,3.7999999999999998,3.2000000000000002,3.7000000000000002,3.2999999999999998],"z":[1.3999999999999999,1.3999999999999999,1.3,1.5,1.3999999999999999,1.7,1.3999999999999999,1.5,1.3999999999999999,1.5,1.5,1.6000000000000001,1.3999999999999999,1.1000000000000001,1.2,1.5,1.3,1.3999999999999999,1.7,1.5,1.7,1.5,1,1.7,1.8999999999999999,1.6000000000000001,1.6000000000000001,1.5,1.3999999999999999,1.6000000000000001,1.6000000000000001,1.5,1.5,1.3999999999999999,1.5,1.2,1.3,1.3999999999999999,1.3,1.5,1.3,1.3,1.3,1.6000000000000001,1.8999999999999999,1.3999999999999999,1.6000000000000001,1.3999999999999999,1.5,1.3999999999999999],"mode":"markers","marker":{"color":"rgba(105,179,162,1)","size":5,"opacity":0.80000000000000004,"line":{"color":"rgba(105,179,162,1)"}},"type":"scatter3d","name":"setosa","textfont":{"color":"rgba(105,179,162,1)"},"error_y":{"color":"rgba(105,179,162,1)"},"error_x":{"color":"rgba(105,179,162,1)"},"line":{"color":"rgba(105,179,162,1)"},"frame":null},{"x":[7,6.4000000000000004,6.9000000000000004,5.5,6.5,5.7000000000000002,6.2999999999999998,4.9000000000000004,6.5999999999999996,5.2000000000000002,5,5.9000000000000004,6,6.0999999999999996,5.5999999999999996,6.7000000000000002,5.5999999999999996,5.7999999999999998,6.2000000000000002,5.5999999999999996,5.9000000000000004,6.0999999999999996,6.2999999999999998,6.0999999999999996,6.4000000000000004,6.5999999999999996,6.7999999999999998,6.7000000000000002,6,5.7000000000000002,5.5,5.5,5.7999999999999998,6,5.4000000000000004,6,6.7000000000000002,6.2999999999999998,5.5999999999999996,5.5,5.5,6.0999999999999996,5.7999999999999998,5,5.5999999999999996,5.7000000000000002,5.7000000000000002,6.2000000000000002,5.0999999999999996,5.7000000000000002],"y":[3.2000000000000002,3.2000000000000002,3.1000000000000001,2.2999999999999998,2.7999999999999998,2.7999999999999998,3.2999999999999998,2.3999999999999999,2.8999999999999999,2.7000000000000002,2,3,2.2000000000000002,2.8999999999999999,2.8999999999999999,3.1000000000000001,3,2.7000000000000002,2.2000000000000002,2.5,3.2000000000000002,2.7999999999999998,2.5,2.7999999999999998,2.8999999999999999,3,2.7999999999999998,3,2.8999999999999999,2.6000000000000001,2.3999999999999999,2.3999999999999999,2.7000000000000002,2.7000000000000002,3,3.3999999999999999,3.1000000000000001,2.2999999999999998,3,2.5,2.6000000000000001,3,2.6000000000000001,2.2999999999999998,2.7000000000000002,3,2.8999999999999999,2.8999999999999999,2.5,2.7999999999999998],"z":[4.7000000000000002,4.5,4.9000000000000004,4,4.5999999999999996,4.5,4.7000000000000002,3.2999999999999998,4.5999999999999996,3.8999999999999999,3.5,4.2000000000000002,4,4.7000000000000002,3.6000000000000001,4.4000000000000004,4.5,4.0999999999999996,4.5,3.8999999999999999,4.7999999999999998,4,4.9000000000000004,4.7000000000000002,4.2999999999999998,4.4000000000000004,4.7999999999999998,5,4.5,3.5,3.7999999999999998,3.7000000000000002,3.8999999999999999,5.0999999999999996,4.5,4.5,4.7000000000000002,4.4000000000000004,4.0999999999999996,4,4.4000000000000004,4.5999999999999996,4,3.2999999999999998,4.2000000000000002,4.2000000000000002,4.2000000000000002,4.2999999999999998,3,4.0999999999999996],"mode":"markers","marker":{"color":"rgba(64,64,128,1)","size":5,"opacity":0.80000000000000004,"line":{"color":"rgba(64,64,128,1)"}},"type":"scatter3d","name":"versicolor","textfont":{"color":"rgba(64,64,128,1)"},"error_y":{"color":"rgba(64,64,128,1)"},"error_x":{"color":"rgba(64,64,128,1)"},"line":{"color":"rgba(64,64,128,1)"},"frame":null},{"x":[6.2999999999999998,5.7999999999999998,7.0999999999999996,6.2999999999999998,6.5,7.5999999999999996,4.9000000000000004,7.2999999999999998,6.7000000000000002,7.2000000000000002,6.5,6.4000000000000004,6.7999999999999998,5.7000000000000002,5.7999999999999998,6.4000000000000004,6.5,7.7000000000000002,7.7000000000000002,6,6.9000000000000004,5.5999999999999996,7.7000000000000002,6.2999999999999998,6.7000000000000002,7.2000000000000002,6.2000000000000002,6.0999999999999996,6.4000000000000004,7.2000000000000002,7.4000000000000004,7.9000000000000004,6.4000000000000004,6.2999999999999998,6.0999999999999996,7.7000000000000002,6.2999999999999998,6.4000000000000004,6,6.9000000000000004,6.7000000000000002,6.9000000000000004,5.7999999999999998,6.7999999999999998,6.7000000000000002,6.7000000000000002,6.2999999999999998,6.5,6.2000000000000002,5.9000000000000004],"y":[3.2999999999999998,2.7000000000000002,3,2.8999999999999999,3,3,2.5,2.8999999999999999,2.5,3.6000000000000001,3.2000000000000002,2.7000000000000002,3,2.5,2.7999999999999998,3.2000000000000002,3,3.7999999999999998,2.6000000000000001,2.2000000000000002,3.2000000000000002,2.7999999999999998,2.7999999999999998,2.7000000000000002,3.2999999999999998,3.2000000000000002,2.7999999999999998,3,2.7999999999999998,3,2.7999999999999998,3.7999999999999998,2.7999999999999998,2.7999999999999998,2.6000000000000001,3,3.3999999999999999,3.1000000000000001,3,3.1000000000000001,3.1000000000000001,3.1000000000000001,2.7000000000000002,3.2000000000000002,3.2999999999999998,3,2.5,3,3.3999999999999999,3],"z":[6,5.0999999999999996,5.9000000000000004,5.5999999999999996,5.7999999999999998,6.5999999999999996,4.5,6.2999999999999998,5.7999999999999998,6.0999999999999996,5.0999999999999996,5.2999999999999998,5.5,5,5.0999999999999996,5.2999999999999998,5.5,6.7000000000000002,6.9000000000000004,5,5.7000000000000002,4.9000000000000004,6.7000000000000002,4.9000000000000004,5.7000000000000002,6,4.7999999999999998,4.9000000000000004,5.5999999999999996,5.7999999999999998,6.0999999999999996,6.4000000000000004,5.5999999999999996,5.0999999999999996,5.5999999999999996,6.0999999999999996,5.5999999999999996,5.5,4.7999999999999998,5.4000000000000004,5.5999999999999996,5.0999999999999996,5.0999999999999996,5.9000000000000004,5.7000000000000002,5.2000000000000002,5,5.2000000000000002,5.4000000000000004,5.0999999999999996],"mode":"markers","marker":{"color":"rgba(255,127,14,1)","size":5,"opacity":0.80000000000000004,"line":{"color":"rgba(255,127,14,1)"}},"type":"scatter3d","name":"virginica","textfont":{"color":"rgba(255,127,14,1)"},"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"line":{"color":"rgba(255,127,14,1)"},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-cf781ecf0a654bd7d27e" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-cf781ecf0a654bd7d27e">{"x":{"visdat":{"116c0123d2573":["function () ","plotlyVisDat"]},"cur_data":"116c0123d2573","attrs":{"116c0123d2573":{"x":{},"y":{},"z":{},"mode":"markers","marker":{"size":5,"opacity":0.80000000000000004},"color":{},"colors":["#69b3a2","#404080","#ff7f0e"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Exploration 3D des dimensions d'Iris","scene":{"xaxis":{"title":"Long. Sépale"},"yaxis":{"title":"Larg. Sépale"},"zaxis":{"title":"Long. Pétale"}},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[5.0999999999999996,4.9000000000000004,4.7000000000000002,4.5999999999999996,5,5.4000000000000004,4.5999999999999996,5,4.4000000000000004,4.9000000000000004,5.4000000000000004,4.7999999999999998,4.7999999999999998,4.2999999999999998,5.7999999999999998,5.7000000000000002,5.4000000000000004,5.0999999999999996,5.7000000000000002,5.0999999999999996,5.4000000000000004,5.0999999999999996,4.5999999999999996,5.0999999999999996,4.7999999999999998,5,5,5.2000000000000002,5.2000000000000002,4.7000000000000002,4.7999999999999998,5.4000000000000004,5.2000000000000002,5.5,4.9000000000000004,5,5.5,4.9000000000000004,4.4000000000000004,5.0999999999999996,5,4.5,4.4000000000000004,5,5.0999999999999996,4.7999999999999998,5.0999999999999996,4.5999999999999996,5.2999999999999998,5],"y":[3.5,3,3.2000000000000002,3.1000000000000001,3.6000000000000001,3.8999999999999999,3.3999999999999999,3.3999999999999999,2.8999999999999999,3.1000000000000001,3.7000000000000002,3.3999999999999999,3,3,4,4.4000000000000004,3.8999999999999999,3.5,3.7999999999999998,3.7999999999999998,3.3999999999999999,3.7000000000000002,3.6000000000000001,3.2999999999999998,3.3999999999999999,3,3.3999999999999999,3.5,3.3999999999999999,3.2000000000000002,3.1000000000000001,3.3999999999999999,4.0999999999999996,4.2000000000000002,3.1000000000000001,3.2000000000000002,3.5,3.6000000000000001,3,3.3999999999999999,3.5,2.2999999999999998,3.2000000000000002,3.5,3.7999999999999998,3,3.7999999999999998,3.2000000000000002,3.7000000000000002,3.2999999999999998],"z":[1.3999999999999999,1.3999999999999999,1.3,1.5,1.3999999999999999,1.7,1.3999999999999999,1.5,1.3999999999999999,1.5,1.5,1.6000000000000001,1.3999999999999999,1.1000000000000001,1.2,1.5,1.3,1.3999999999999999,1.7,1.5,1.7,1.5,1,1.7,1.8999999999999999,1.6000000000000001,1.6000000000000001,1.5,1.3999999999999999,1.6000000000000001,1.6000000000000001,1.5,1.5,1.3999999999999999,1.5,1.2,1.3,1.3999999999999999,1.3,1.5,1.3,1.3,1.3,1.6000000000000001,1.8999999999999999,1.3999999999999999,1.6000000000000001,1.3999999999999999,1.5,1.3999999999999999],"mode":"markers","marker":{"color":"rgba(105,179,162,1)","size":5,"opacity":0.80000000000000004,"line":{"color":"rgba(105,179,162,1)"}},"type":"scatter3d","name":"setosa","textfont":{"color":"rgba(105,179,162,1)"},"error_y":{"color":"rgba(105,179,162,1)"},"error_x":{"color":"rgba(105,179,162,1)"},"line":{"color":"rgba(105,179,162,1)"},"frame":null},{"x":[7,6.4000000000000004,6.9000000000000004,5.5,6.5,5.7000000000000002,6.2999999999999998,4.9000000000000004,6.5999999999999996,5.2000000000000002,5,5.9000000000000004,6,6.0999999999999996,5.5999999999999996,6.7000000000000002,5.5999999999999996,5.7999999999999998,6.2000000000000002,5.5999999999999996,5.9000000000000004,6.0999999999999996,6.2999999999999998,6.0999999999999996,6.4000000000000004,6.5999999999999996,6.7999999999999998,6.7000000000000002,6,5.7000000000000002,5.5,5.5,5.7999999999999998,6,5.4000000000000004,6,6.7000000000000002,6.2999999999999998,5.5999999999999996,5.5,5.5,6.0999999999999996,5.7999999999999998,5,5.5999999999999996,5.7000000000000002,5.7000000000000002,6.2000000000000002,5.0999999999999996,5.7000000000000002],"y":[3.2000000000000002,3.2000000000000002,3.1000000000000001,2.2999999999999998,2.7999999999999998,2.7999999999999998,3.2999999999999998,2.3999999999999999,2.8999999999999999,2.7000000000000002,2,3,2.2000000000000002,2.8999999999999999,2.8999999999999999,3.1000000000000001,3,2.7000000000000002,2.2000000000000002,2.5,3.2000000000000002,2.7999999999999998,2.5,2.7999999999999998,2.8999999999999999,3,2.7999999999999998,3,2.8999999999999999,2.6000000000000001,2.3999999999999999,2.3999999999999999,2.7000000000000002,2.7000000000000002,3,3.3999999999999999,3.1000000000000001,2.2999999999999998,3,2.5,2.6000000000000001,3,2.6000000000000001,2.2999999999999998,2.7000000000000002,3,2.8999999999999999,2.8999999999999999,2.5,2.7999999999999998],"z":[4.7000000000000002,4.5,4.9000000000000004,4,4.5999999999999996,4.5,4.7000000000000002,3.2999999999999998,4.5999999999999996,3.8999999999999999,3.5,4.2000000000000002,4,4.7000000000000002,3.6000000000000001,4.4000000000000004,4.5,4.0999999999999996,4.5,3.8999999999999999,4.7999999999999998,4,4.9000000000000004,4.7000000000000002,4.2999999999999998,4.4000000000000004,4.7999999999999998,5,4.5,3.5,3.7999999999999998,3.7000000000000002,3.8999999999999999,5.0999999999999996,4.5,4.5,4.7000000000000002,4.4000000000000004,4.0999999999999996,4,4.4000000000000004,4.5999999999999996,4,3.2999999999999998,4.2000000000000002,4.2000000000000002,4.2000000000000002,4.2999999999999998,3,4.0999999999999996],"mode":"markers","marker":{"color":"rgba(64,64,128,1)","size":5,"opacity":0.80000000000000004,"line":{"color":"rgba(64,64,128,1)"}},"type":"scatter3d","name":"versicolor","textfont":{"color":"rgba(64,64,128,1)"},"error_y":{"color":"rgba(64,64,128,1)"},"error_x":{"color":"rgba(64,64,128,1)"},"line":{"color":"rgba(64,64,128,1)"},"frame":null},{"x":[6.2999999999999998,5.7999999999999998,7.0999999999999996,6.2999999999999998,6.5,7.5999999999999996,4.9000000000000004,7.2999999999999998,6.7000000000000002,7.2000000000000002,6.5,6.4000000000000004,6.7999999999999998,5.7000000000000002,5.7999999999999998,6.4000000000000004,6.5,7.7000000000000002,7.7000000000000002,6,6.9000000000000004,5.5999999999999996,7.7000000000000002,6.2999999999999998,6.7000000000000002,7.2000000000000002,6.2000000000000002,6.0999999999999996,6.4000000000000004,7.2000000000000002,7.4000000000000004,7.9000000000000004,6.4000000000000004,6.2999999999999998,6.0999999999999996,7.7000000000000002,6.2999999999999998,6.4000000000000004,6,6.9000000000000004,6.7000000000000002,6.9000000000000004,5.7999999999999998,6.7999999999999998,6.7000000000000002,6.7000000000000002,6.2999999999999998,6.5,6.2000000000000002,5.9000000000000004],"y":[3.2999999999999998,2.7000000000000002,3,2.8999999999999999,3,3,2.5,2.8999999999999999,2.5,3.6000000000000001,3.2000000000000002,2.7000000000000002,3,2.5,2.7999999999999998,3.2000000000000002,3,3.7999999999999998,2.6000000000000001,2.2000000000000002,3.2000000000000002,2.7999999999999998,2.7999999999999998,2.7000000000000002,3.2999999999999998,3.2000000000000002,2.7999999999999998,3,2.7999999999999998,3,2.7999999999999998,3.7999999999999998,2.7999999999999998,2.7999999999999998,2.6000000000000001,3,3.3999999999999999,3.1000000000000001,3,3.1000000000000001,3.1000000000000001,3.1000000000000001,2.7000000000000002,3.2000000000000002,3.2999999999999998,3,2.5,3,3.3999999999999999,3],"z":[6,5.0999999999999996,5.9000000000000004,5.5999999999999996,5.7999999999999998,6.5999999999999996,4.5,6.2999999999999998,5.7999999999999998,6.0999999999999996,5.0999999999999996,5.2999999999999998,5.5,5,5.0999999999999996,5.2999999999999998,5.5,6.7000000000000002,6.9000000000000004,5,5.7000000000000002,4.9000000000000004,6.7000000000000002,4.9000000000000004,5.7000000000000002,6,4.7999999999999998,4.9000000000000004,5.5999999999999996,5.7999999999999998,6.0999999999999996,6.4000000000000004,5.5999999999999996,5.0999999999999996,5.5999999999999996,6.0999999999999996,5.5999999999999996,5.5,4.7999999999999998,5.4000000000000004,5.5999999999999996,5.0999999999999996,5.0999999999999996,5.9000000000000004,5.7000000000000002,5.2000000000000002,5,5.2000000000000002,5.4000000000000004,5.0999999999999996],"mode":"markers","marker":{"color":"rgba(255,127,14,1)","size":5,"opacity":0.80000000000000004,"line":{"color":"rgba(255,127,14,1)"}},"type":"scatter3d","name":"virginica","textfont":{"color":"rgba(255,127,14,1)"},"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"line":{"color":"rgba(255,127,14,1)"},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>On peut tracer un nuage de points enrichi qui permet d’explorer simultanément quatre dimensions du jeu de données Iris. Au-delà des axes classiques (longueur et largeur des sépales), nous intégrons la largeur des pétales via la taille des points et l’espèce via la forme et la transparence. Cette approche multidimensionnelle vise à identifier des corrélations complexes et des regroupements naturels (clusters) au sein de la population de fleurs.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb145"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb145-1"><a href="#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb145-2"><a href="#cb145-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(hrbrthemes)</span>
-<span id="cb145-3"><a href="#cb145-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb145-4"><a href="#cb145-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, </span>
-<span id="cb145-5"><a href="#cb145-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> Sepal.Width, </span>
-<span id="cb145-6"><a href="#cb145-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">shape =</span> Species,</span>
-<span id="cb145-7"><a href="#cb145-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">alpha =</span> Species,</span>
-<span id="cb145-8"><a href="#cb145-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">size =</span> Petal.Width)) <span class="sc">+</span> </span>
-<span id="cb145-9"><a href="#cb145-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"#69b3a2"</span>) <span class="sc">+</span> </span>
-<span id="cb145-10"><a href="#cb145-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb145-11"><a href="#cb145-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Combinaison : Forme, Taille et Transparence"</span>,</span>
-<span id="cb145-12"><a href="#cb145-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Analyse multidimensionnelle du dataset Iris"</span>,</span>
-<span id="cb145-13"><a href="#cb145-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Longueur du Sépale"</span>,</span>
-<span id="cb145-14"><a href="#cb145-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Largeur du Sépale"</span>,</span>
-<span id="cb145-15"><a href="#cb145-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="st">"Largeur Pétale"</span>,</span>
-<span id="cb145-16"><a href="#cb145-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">shape =</span> <span class="st">"Espèce"</span>,</span>
-<span id="cb145-17"><a href="#cb145-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="st">"Espèce"</span></span>
-<span id="cb145-18"><a href="#cb145-18" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb145-19"><a href="#cb145-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum</span>(<span class="at">base_family =</span> <span class="st">"sans"</span>) <span class="sc">+</span></span>
-<span id="cb145-20"><a href="#cb145-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_alpha_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="fl">0.4</span>, <span class="fl">0.7</span>, <span class="fl">1.0</span>)) <span class="sc">+</span></span>
-<span id="cb145-21"><a href="#cb145-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># permet d'ajuster la taille des points pour plus de lisibilité</span></span>
-<span id="cb145-22"><a href="#cb145-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">8</span>))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb149"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb149-1"><a href="#cb149-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb149-2"><a href="#cb149-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(hrbrthemes)</span>
+<span id="cb149-3"><a href="#cb149-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-4"><a href="#cb149-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, </span>
+<span id="cb149-5"><a href="#cb149-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> Sepal.Width, </span>
+<span id="cb149-6"><a href="#cb149-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">shape =</span> Species,</span>
+<span id="cb149-7"><a href="#cb149-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">alpha =</span> Species,</span>
+<span id="cb149-8"><a href="#cb149-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">size =</span> Petal.Width)) <span class="sc">+</span> </span>
+<span id="cb149-9"><a href="#cb149-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"#69b3a2"</span>) <span class="sc">+</span> </span>
+<span id="cb149-10"><a href="#cb149-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb149-11"><a href="#cb149-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Combinaison : Forme, Taille et Transparence"</span>,</span>
+<span id="cb149-12"><a href="#cb149-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Analyse multidimensionnelle du dataset Iris"</span>,</span>
+<span id="cb149-13"><a href="#cb149-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Longueur du Sépale"</span>,</span>
+<span id="cb149-14"><a href="#cb149-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Largeur du Sépale"</span>,</span>
+<span id="cb149-15"><a href="#cb149-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="st">"Largeur Pétale"</span>,</span>
+<span id="cb149-16"><a href="#cb149-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">shape =</span> <span class="st">"Espèce"</span>,</span>
+<span id="cb149-17"><a href="#cb149-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="st">"Espèce"</span></span>
+<span id="cb149-18"><a href="#cb149-18" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb149-19"><a href="#cb149-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum</span>(<span class="at">base_family =</span> <span class="st">"sans"</span>) <span class="sc">+</span></span>
+<span id="cb149-20"><a href="#cb149-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_alpha_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="fl">0.4</span>, <span class="fl">0.7</span>, <span class="fl">1.0</span>)) <span class="sc">+</span></span>
+<span id="cb149-21"><a href="#cb149-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># permet d'ajuster la taille des points pour plus de lisibilité</span></span>
+<span id="cb149-22"><a href="#cb149-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">8</span>))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="td_Iris_World_Happiness_files/figure-html/unnamed-chunk-67-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="td_Iris_World_Happiness_files/figure-html/unnamed-chunk-71-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -2010,8 +2075,8 @@ Sepal.Size       -0.22 0.09</code></pre>
 </div>
 <p>Pour importer le jeu de données :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb146"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb146-1"><a href="#cb146-1" aria-hidden="true" tabindex="-1"></a>happiness <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"data_raw/World-Happiness-2015.csv"</span>)</span>
-<span id="cb146-2"><a href="#cb146-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(happiness)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb150"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb150-1"><a href="#cb150-1" aria-hidden="true" tabindex="-1"></a>happiness <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"data_raw/World-Happiness-2015.csv"</span>)</span>
+<span id="cb150-2"><a href="#cb150-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(happiness)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      Country         Region Happiness.Rank Happiness.Score Standard.Error
 1 Switzerland Western Europe              1           7.587        0.03411
