@@ -50,14 +50,42 @@ document.addEventListener("DOMContentLoaded", function() {
     // Ajouter le bouton PDF
     const div = document.createElement("div");
     div.className = "pdf-download-in-toc";
+    div.style.textAlign = "left"; // Force l'alignement à gauche
     div.innerHTML = `
-      <a href="doc/Presentation_Renaud_ISTOM_VF2.pdf" target="_blank">
+      <a href="doc/Articles.pdf" target="_blank">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path d="M12 16l4-5h-3V4h-2v7H8l4 5zm8 2H4v2h16v-2z"/>
         </svg>
-        Présentation Renaud</a>
+        Présentations Renaud</a>
     `;
     toc.appendChild(div);
+    
+    // 3. Ajouter le DEUXIÈME bouton (Planning / Projet)
+    const div2 = document.createElement("div");
+    div2.className = "pdf-download-in-toc";
+    div2.style.textAlign = "left"; // Force l'alignement à gauche
+    div2.innerHTML = `
+      <a href="doc/Planning_Projet_PEAD.pdf" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width:18px; vertical-align:middle;">
+          <path d="M12 16l4-5h-3V4h-2v7H8l4 5zm8 2H4v2h16v-2z"/>
+        </svg>
+        Articles</a>
+    `;
+    toc.appendChild(div2);
+    
+     // 3. Ajouter le DEUXIÈME bouton (Planning / Projet)
+    const div3 = document.createElement("div");
+    div3.className = "pdf-download-in-toc";
+    div3.style.textAlign = "left"; // Force l'alignement à gauche
+    div3.innerHTML = `
+      <a href="doc/Itineraire_technique_du_cotonnier_et_mecanisation_agricole.pdf" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width:18px; vertical-align:middle;">
+          <path d="M12 16l4-5h-3V4h-2v7H8l4 5zm8 2H4v2h16v-2z"/>
+        </svg>
+        Itinéraire technique</a>
+    `;
+    toc.appendChild(div3);
+    
   } else {
     console.warn("TOC non trouvé — vérifie le thème ou la structure HTML");
   }
