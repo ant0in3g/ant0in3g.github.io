@@ -37,35 +37,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="PEAD_files/libs/quarto-diagram/mermaid-init.js"></script>
 <link href="PEAD_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -78,18 +49,20 @@ window.Quarto = {
    
   <ul>
   <li><a href="#présentation" id="toc-présentation" class="nav-link active" data-scroll-target="#présentation">Présentation</a></li>
-  <li><a href="#thématique" id="toc-thématique" class="nav-link" data-scroll-target="#thématique">Thématique</a>
+  <li><a href="#cadre-thématique" id="toc-cadre-thématique" class="nav-link" data-scroll-target="#cadre-thématique">Cadre thématique</a>
   <ul class="collapse">
   <li><a href="#filière-du-coton-et-présentation-de-la-thèse" id="toc-filière-du-coton-et-présentation-de-la-thèse" class="nav-link" data-scroll-target="#filière-du-coton-et-présentation-de-la-thèse">Filière du coton et présentation de la thèse</a></li>
+  <li><a href="#elaboration-des-bases-de-données" id="toc-elaboration-des-bases-de-données" class="nav-link" data-scroll-target="#elaboration-des-bases-de-données">Elaboration des bases de données</a></li>
   </ul></li>
   <li><a href="#progression" id="toc-progression" class="nav-link" data-scroll-target="#progression">Progression</a>
   <ul class="collapse">
+  <li><a href="#timeline" id="toc-timeline" class="nav-link" data-scroll-target="#timeline">Timeline</a></li>
   <li><a href="#step-1---bases-de-données" id="toc-step-1---bases-de-données" class="nav-link" data-scroll-target="#step-1---bases-de-données">Step 1 - Bases de données</a></li>
-  <li><a href="#step-2---motiver-votre-travail" id="toc-step-2---motiver-votre-travail" class="nav-link" data-scroll-target="#step-2---motiver-votre-travail">Step 2 - Motiver votre travail</a></li>
-  <li><a href="#step-3---statistique-descriptive" id="toc-step-3---statistique-descriptive" class="nav-link" data-scroll-target="#step-3---statistique-descriptive">Step 3 - Statistique descriptive</a></li>
-  <li><a href="#step-4---entretien-autour-dune-problématique" id="toc-step-4---entretien-autour-dune-problématique" class="nav-link" data-scroll-target="#step-4---entretien-autour-dune-problématique">Step 4 - Entretien autour d’une problématique</a></li>
-  <li><a href="#step-5---tests-statistiques" id="toc-step-5---tests-statistiques" class="nav-link" data-scroll-target="#step-5---tests-statistiques">Step 5 - Tests statistiques</a></li>
-  <li><a href="#step-6---mise-en-forme-dune-synthèse" id="toc-step-6---mise-en-forme-dune-synthèse" class="nav-link" data-scroll-target="#step-6---mise-en-forme-dune-synthèse">Step 6 - Mise en forme d’une synthèse</a></li>
+  <li><a href="#step-2---mise-en-contexte" id="toc-step-2---mise-en-contexte" class="nav-link" data-scroll-target="#step-2---mise-en-contexte">Step 2 - Mise en contexte</a></li>
+  <li><a href="#step-3---cadrage-et-objectifs" id="toc-step-3---cadrage-et-objectifs" class="nav-link" data-scroll-target="#step-3---cadrage-et-objectifs">Step 3 - Cadrage et objectifs</a></li>
+  <li><a href="#step-4---lanalyse-statistique" id="toc-step-4---lanalyse-statistique" class="nav-link" data-scroll-target="#step-4---lanalyse-statistique">Step 4 - L’analyse statistique</a></li>
+  <li><a href="#step-6---mise-en-forme" id="toc-step-6---mise-en-forme" class="nav-link" data-scroll-target="#step-6---mise-en-forme">Step 6 - Mise en forme</a></li>
+  <li><a href="#step-7---clôture-et-soutenance" id="toc-step-7---clôture-et-soutenance" class="nav-link" data-scroll-target="#step-7---clôture-et-soutenance">Step 7 - Clôture et Soutenance</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -117,7 +90,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">27 février 2026</p>
+      <p class="date">12 mars 2026</p>
     </div>
   </div>
   
@@ -144,12 +117,12 @@ window.Quarto = {
 <li><p>interpréter vos résultats afin de dégager des conclusions et une vision critique</p></li>
 </ul>
 </div><div class="column" style="width:60%&quot;;">
-<p>&nbsp; <img src="img/R_RStudio_LogoS-rbg.png" class="img-fluid"></p>
+<p><img src="img/R_RStudio_LogoS-rbg.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
-<section id="thématique" class="level2">
-<h2 class="anchored" data-anchor-id="thématique">Thématique</h2>
+<section id="cadre-thématique" class="level2">
+<h2 class="anchored" data-anchor-id="cadre-thématique">Cadre thématique</h2>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -252,59 +225,8 @@ Figure&nbsp;1: Organisation de la filière coton au Bénin. L’AIC désigne l�
 </div>
 </div>
 </section>
-</section>
-<section id="progression" class="level2">
-<h2 class="anchored" data-anchor-id="progression">Progression</h2>
-<section id="step-1---bases-de-données" class="level3">
-<h3 class="anchored" data-anchor-id="step-1---bases-de-données">Step 1 - Bases de données</h3>
-<div class="flushright">
-<p><strong>Vendredi 28 Novembre 2026</strong></p>
-</div>
-<div>
-
-</div>
-<div class="quarto-layout-panel" data-layout-ncol="2">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<p>Les bases de données ont été difusées à chaque <a href="https://istom-my.sharepoint.com/:t:/g/personal/a_gere_istom_fr/IQCW9TwhgXnLSJnvmNHHvJSdARwxw-c_GTzAmCvFOlW9BOs?e=Ak3x8E">groupe</a> :</p>
-<p><br></p>
-<ul>
-<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-01_Bedari?csf=1&amp;web=1&amp;e=5HiZk7">Groupe 1 - Bedari</a></li>
-<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-02_Bereke_Centre?csf=1&amp;web=1&amp;e=LnPqxO">Groupe 2 - Bereke Centre</a></li>
-<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-03_Beroubouay_Est?csf=1&amp;web=1&amp;e=L2Crbg">Groupe 3 - Beroubouay Est</a></li>
-<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-04_Bokobouerou?csf=1&amp;web=1&amp;e=OpTSTu">Groupe 4 - Bokobouerou</a></li>
-<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-05_Gamia_Est?csf=1&amp;web=1&amp;e=UUAknO">Groupe 5 - Gamia Est</a></li>
-<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-06_Hangar_Peulh?csf=1&amp;web=1&amp;e=7mV3gm">Groupe 6 - Hangar Peuh</a></li>
-<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-07_Ina_Gando?csf=1&amp;web=1&amp;e=BUelTb">Groupe 7 - Ina Gando</a></li>
-<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-08_Kassarou?csf=1&amp;web=1&amp;e=54edNL">Groupe 8 - Kassarou</a></li>
-<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-09_Kossou?csf=1&amp;web=1&amp;e=j7Tm0C">Groupe 9 - Kossou</a></li>
-<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-10_Pedarou?csf=1&amp;web=1&amp;e=rMg0HP">Groupe 10 - Pedarou</a></li>
-<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-11_Sissigourou?csf=1&amp;web=1&amp;e=kzOUby">Groupe 11 - Sissigourou</a></li>
-</ul>
-<p><br></p>
-<p><strong>Votre dossier est un espace de travail, tous vos documents doivent y être déposé.</strong></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="https://en.wikipedia.org/wiki/Benin"><img src="img/carte_benin.jpg" class="img-fluid"></a></p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Travail à faire.
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Il vous est demandé de synchroniser votre base de données sur votre ordinateur personel, comme indiqué à ce <a href="https://ant0in3g.github.io/sTa7/orga.html">lien</a>.</p>
-</div>
-</div>
-<p><br></p>
-<section id="elaboration-des-bases-de-données" class="level4">
-<h4 class="anchored" data-anchor-id="elaboration-des-bases-de-données">Elaboration des bases de données</h4>
+<section id="elaboration-des-bases-de-données" class="level3">
+<h3 class="anchored" data-anchor-id="elaboration-des-bases-de-données">Elaboration des bases de données</h3>
 <p><strong>Bases de données par coopératives</strong></p>
 <ul>
 <li>Référencement selon la carte administrative.<br>
@@ -355,81 +277,172 @@ Travail à faire.
 </div>
 </section>
 </section>
-<section id="step-2---motiver-votre-travail" class="level3">
-<h3 class="anchored" data-anchor-id="step-2---motiver-votre-travail">Step 2 - Motiver votre travail</h3>
+<section id="progression" class="level2">
+<h2 class="anchored" data-anchor-id="progression">Progression</h2>
+<section id="timeline" class="level3">
+<h3 class="anchored" data-anchor-id="timeline">Timeline</h3>
+
+
+<div class="timeline-container" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 800px; margin: auto; padding: 20px;">
+    
+    
+    <div class="timeline" style="position: relative; border-left: 4px solid #3498db; padding-left: 30px; margin-left: 20px;">
+        
+        <div class="event" style="margin-bottom: 30px; position: relative;">
+            <div style="position: absolute; width: 16px; height: 16px; background: #3498db; border-radius: 50%; left: -40px; top: 5px; border: 3px solid #fff;"></div>
+            <strong style="color: #3498db; font-size: 0.9em;">JUSQU'AU 27 MARS</strong>
+            <h3 style="margin: 5px 0; color: #2c3e50;" class="anchored">Step 1 &amp; 2 : Mise en contexte</h3>
+            <p style="margin: 5px 0; color: #7f8c8d; font-size: 0.95em;">Étude bibliographique et statistiques descriptives. <strong>Livrable :</strong> Données nettoyées et exploration initiale.</p>
+        </div>
+
+        <div class="event" style="margin-bottom: 30px; position: relative;">
+            <div style="position: absolute; width: 16px; height: 16px; background: #2ecc71; border-radius: 50%; left: -40px; top: 5px; border: 3px solid #fff;"></div>
+            <strong style="color: #2ecc71; font-size: 0.9em;">03 AVRIL</strong>
+            <h3 style="margin: 5px 0; color: #2c3e50;" class="anchored">Cadrage et objectifs</h3>
+            <p style="margin: 5px 0; color: #7f8c8d; font-size: 0.95em;">Validation définitive de la problématique et formulation des hypothèses de recherche.</p>
+        </div>
+
+        <div class="event" style="margin-bottom: 30px; position: relative;">
+            <div style="position: absolute; width: 16px; height: 16px; background: #e67e22; border-radius: 50%; left: -40px; top: 5px; border: 3px solid #fff;"></div>
+            <strong style="color: #e67e22; font-size: 0.9em;">AVRIL (MOIS COMPLET)</strong>
+            <h3 style="margin: 5px 0; color: #2c3e50;" class="anchored">L'analyse statistique</h3>
+            <p style="margin: 5px 0; color: #7f8c8d; font-size: 0.95em;">Analyses approfondies sur <strong>RStudio</strong> (tests d'inférence, corrélations) en lien avec les cours de statistiques.</p>
+        </div>
+
+        <div class="event" style="margin-bottom: 30px; position: relative;">
+            <div style="position: absolute; width: 16px; height: 16px; background: #9b59b6; border-radius: 50%; left: -40px; top: 5px; border: 3px solid #fff;"></div>
+            <strong style="color: #9b59b6; font-size: 0.9em;">DERNIÈRE SEMAINE D'AVRIL</strong>
+            <h3 style="margin: 5px 0; color: #2c3e50;" class="anchored">Mise en forme</h3>
+            <p style="margin: 5px 0; color: #7f8c8d; font-size: 0.95em;">Production du rapport Word via <strong>Quarto</strong> et création du support de présentation PowerPoint.</p>
+        </div>
+
+        <div class="event" style="margin-bottom: 10px; position: relative;">
+            <div style="position: absolute; width: 16px; height: 16px; background: #e74c3c; border-radius: 50%; left: -40px; top: 5px; border: 3px solid #fff;"></div>
+            <strong style="color: #e74c3c; font-size: 0.9em;">PREMIÈRE SEMAINE DE MAI</strong>
+            <h3 style="margin: 5px 0; color: #2c3e50;" class="anchored">Cloture et Soutenance</h3>
+            <p style="margin: 5px 0; color: #7f8c8d; font-size: 0.95em;">Dépôt du manuscrit final et présentation orale de 15 minutes (10' exposé + 5' questions).</p>
+        </div>
+    </div>
+</div>
+
+
+</section>
+<section id="step-1---bases-de-données" class="level3">
+<h3 class="anchored" data-anchor-id="step-1---bases-de-données">Step 1 - Bases de données</h3>
 <div class="flushright">
 <p><strong>Vendredi 28 Novembre 2026</strong></p>
 </div>
-<p>Pour la rédaction de votre étude bibliographique, vous utiliserez <strong>Quarto</strong> avec <strong>RStudio</strong>. Cet outil vous sera présenté en séance de TD.</p>
-<p><strong>Quelques bases de Quarto :</strong></p>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p>Les bases de données ont été difusées à chaque <a href="https://istom-my.sharepoint.com/:t:/g/personal/a_gere_istom_fr/IQCW9TwhgXnLSJnvmNHHvJSdARwxw-c_GTzAmCvFOlW9BOs?e=Ak3x8E" class="external" target="_blank">groupe</a> :</p>
+<p><br></p>
 <ul>
-<li>Un document Quarto porte l’extension <code>.qmd</code> (Quarto Markdown).</li>
-<li>Il commence par un en-tête (YAML) où l’on définit le titre, l’auteur, la date et le format de sortie (HTML, PDF, Word…). <span class="math inline">\(\to\)</span> <strong>déjà fait !</strong></li>
-<li>Le texte est rédigé en <strong>Markdown</strong> (titres avec #, listes, tableaux, etc.)</li>
-<li>Le code R peut être inséré dans des <em>chunks</em> pour produire des graphiques ou des analyses.</li>
-<li>Les références bibliographiques sont gérées à partir d’un fichier <code>.bib</code>.</li>
+<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-01_Bedari?csf=1&amp;web=1&amp;e=5HiZk7" class="external" target="_blank">Groupe 1 - Bedari</a></li>
+<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-02_Bereke_Centre?csf=1&amp;web=1&amp;e=LnPqxO" class="external" target="_blank">Groupe 2 - Bereke Centre</a></li>
+<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-03_Beroubouay_Est?csf=1&amp;web=1&amp;e=L2Crbg" class="external" target="_blank">Groupe 3 - Beroubouay Est</a></li>
+<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-04_Bokobouerou?csf=1&amp;web=1&amp;e=OpTSTu" class="external" target="_blank">Groupe 4 - Bokobouerou</a></li>
+<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-05_Gamia_Est?csf=1&amp;web=1&amp;e=UUAknO" class="external" target="_blank">Groupe 5 - Gamia Est</a></li>
+<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-06_Hangar_Peulh?csf=1&amp;web=1&amp;e=7mV3gm" class="external" target="_blank">Groupe 6 - Hangar Peuh</a></li>
+<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-07_Ina_Gando?csf=1&amp;web=1&amp;e=BUelTb" class="external" target="_blank">Groupe 7 - Ina Gando</a></li>
+<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-08_Kassarou?csf=1&amp;web=1&amp;e=54edNL" class="external" target="_blank">Groupe 8 - Kassarou</a></li>
+<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-09_Kossou?csf=1&amp;web=1&amp;e=j7Tm0C" class="external" target="_blank">Groupe 9 - Kossou</a></li>
+<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-10_Pedarou?csf=1&amp;web=1&amp;e=rMg0HP" class="external" target="_blank">Groupe 10 - Pedarou</a></li>
+<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/Gr-11_Sissigourou?csf=1&amp;web=1&amp;e=kzOUby" class="external" target="_blank">Groupe 11 - Sissigourou</a></li>
 </ul>
+<p><br></p>
+<p><strong>Votre dossier est un espace de travail, tous vos documents doivent y être déposé.</strong></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="https://en.wikipedia.org/wiki/Benin"><img src="img/carte_benin.jpg" class="img-fluid"></a></p>
+</div>
+</div>
+</div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Travail pour février 2026.
+Travail à faire .
 </div>
 </div>
 <div class="callout-body-container callout-body">
+<p>Il vous est demandé de <strong>synchroniser</strong> votre base de données sur votre ordinateur personel, comme indiqué à ce <a href="https://ant0in3g.github.io/sTa7/orga.html">lien</a>.</p>
+</div>
+</div>
+</section>
+<section id="step-2---mise-en-contexte" class="level3">
+<h3 class="anchored" data-anchor-id="step-2---mise-en-contexte">Step 2 - Mise en contexte</h3>
+<div class="flushright">
+<p><strong>Vendredi 27 Mars 2026</strong></p>
+</div>
+<p><em>Objectif : Savoir de quoi on parle et avoir des données propres.</em></p>
+<p><strong>Étude bibliographique :</strong></p>
 <p>Réaliser une étude bibliographique sur la filière coton afin de justifier et contextualiser votre travail.</p>
 <p>La recherche devra être menée de manière progressive, en commençant par une analyse à l’échelle mondiale, puis en se focalisant sur la situation en Afrique, avant de terminer par le cas spécifique du Bénin.</p>
 <p>L’objectif est d’obtenir une vision globale de l’état actuel de la filière coton ainsi que des principaux enjeux économiques, sociaux et environnementaux associés.</p>
-</div>
-</div>
-</section>
-<section id="step-3---statistique-descriptive" class="level3">
-<h3 class="anchored" data-anchor-id="step-3---statistique-descriptive">Step 3 - Statistique descriptive</h3>
-<div class="flushright">
-<p><strong>Vendredi 28 Novembre 2026</strong></p>
-</div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Travail pour février 2026.
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<p><strong>Étude exploratoire :</strong></p>
 <p>À partir de votre base de données, vous devez réaliser une analyse statistique descriptive, à la fois univariée et multivariée, afin de mettre en évidence les caractéristiques principales du jeu de données et de comprendre les dynamiques qui y sont présentes.</p>
-</div>
-</div>
+<p>Ce travail sera réalisé sur R.</p>
+<p><strong>Livrable intermédiaire :</strong></p>
+<p>Votre analyse sera synthétisée via <a href="https://youtu.be/w5vBoaN6t-M?si=3hh6w7fFhsJyAcRn" class="external" target="_blank">Quarto</a>, un outil de pointe en science des données qui permet de fusionner vos explications textuelles, vos codes R et vos résultats au sein d’un même document. L’intérêt majeur de ce format réside dans la reproductibilité de vos recherches : toute modification de vos données ou de vos calculs mettra automatiquement à jour vos graphiques et vos tableaux, garantissant ainsi une rigueur scientifique et un rendu professionnel incluant une gestion automatisée de la bibliographie.</p>
+<p>Pour faciliter votre montée en compétence, je mettrai en forme la première phase de votre étude sur ce support afin de vous fournir un modèle structuré que vous pourrez vous approprier et compléter de manière autonome pour la suite du projet.</p>
 </section>
-<section id="step-4---entretien-autour-dune-problématique" class="level3">
-<h3 class="anchored" data-anchor-id="step-4---entretien-autour-dune-problématique">Step 4 - Entretien autour d’une problématique</h3>
+<section id="step-3---cadrage-et-objectifs" class="level3">
+<h3 class="anchored" data-anchor-id="step-3---cadrage-et-objectifs">Step 3 - Cadrage et objectifs</h3>
 <div class="flushright">
-<p><strong>Prenière séance PEAD – Février 2026</strong></p>
+<p><strong>Vendredi 3 Avril 2026</strong></p>
 </div>
+<p><em>Objectif : Passer du “on regarde les données” à “on répond à une question”.</em></p>
+<p><strong>Validation des problématiques :</strong></p>
+<p>À partir de votre analyse exploratoire et de votre travail bibliographique, vous définirez un ou plusieurs axes de travails.</p>
+<p>L’objectif est d’identifier, d’analyser les “bons” producteurs, selon des critère que vous difinirez.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Travail pour février 2026.
+Information
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Vous présenterez votre revue bibliographique et votre analyse statistique descriptive à Mme Shili-Touzi lors d’une rencontre d’environ 30 minutes, prévue en février 2026, afin d’échanger avec elle et de préciser la problématique à retenir.</p>
+<p>Vous validerez votre problématique avec Mme Shili-Touzi lors d’un entretien par groupe. Deux entretiens maximum seront accordés à chaque groupe.</p>
+<p>Ne pas hésiter à poser vos question par mail également.</p>
 </div>
 </div>
 </section>
-<section id="step-5---tests-statistiques" class="level3">
-<h3 class="anchored" data-anchor-id="step-5---tests-statistiques">Step 5 - Tests statistiques</h3>
-<p>more details coming soon.</p>
+<section id="step-4---lanalyse-statistique" class="level3">
+<h3 class="anchored" data-anchor-id="step-4---lanalyse-statistique">Step 4 - L’analyse statistique</h3>
+<div class="flushright">
+<p><strong>Avril 2026</strong></p>
+</div>
+<p>L’objectif de ce mois d’avril est de transformer vos données nettoyées en résultats scientifiques concrets répondant à votre problématique.</p>
+<p>Ce travail analytique sera réalisé exclusivement sur RStudio et constituera une <strong>mise en application directe de vos cours de statistiques</strong>.</p>
+<p>Chaque test choisi devra être justifié par la nature de vos variables, des questions auxquelles vous souhaitez répondre et par la vérification de vos conditions d’application, exactement comme vu en cours.</p>
 </section>
-<section id="step-6---mise-en-forme-dune-synthèse" class="level3">
-<h3 class="anchored" data-anchor-id="step-6---mise-en-forme-dune-synthèse">Step 6 - Mise en forme d’une synthèse</h3>
-<p>more details coming soon.</p>
+<section id="step-6---mise-en-forme" class="level3">
+<h3 class="anchored" data-anchor-id="step-6---mise-en-forme">Step 6 - Mise en forme</h3>
+<div class="flushright">
+<p><strong>Fin avril 2026</strong></p>
+</div>
+<p>L’objectif de cette ultime étape est de passer de l’analyse brute à une communication scientifique de qualité.</p>
+<p>Vous devrez produire un rendu complet et intégré sur Quarto, capable de générer automatiquement un fichier Word parfaitement structuré (incluant introduction, méthodologie, résultats commentés et bibliographie).</p>
+<p>En parallèle, vous préparerez une présentation PowerPoint synthétique.</p>
+<p>L’enjeu est ici de démontrer votre capacité à vulgariser des résultats complexes.</p>
+</section>
+<section id="step-7---clôture-et-soutenance" class="level3">
+<h3 class="anchored" data-anchor-id="step-7---clôture-et-soutenance">Step 7 - Clôture et Soutenance</h3>
+<div class="flushright">
+<p><strong>Début mai 2026</strong></p>
+</div>
+<p>Cette phase marque l’aboutissement de votre projet avec le rendu final de votre manuscrit Word, intégralement généré via Quarto. Ce document devra démontrer votre maîtrise de la chaîne de traitement de données, de la bibliographie à l’interprétation statistique.</p>
+<p>Le point d’orgue sera votre soutenance orale de 15 minutes : un exercice de synthèse où vous disposerez de 10 minutes pour exposer votre démarche et vos résultats majeurs, suivies de 5 minutes d’échanges avec le jury.</p>
+<p>Ce sera l’occasion de défendre vos conclusions, de justifier vos choix méthodologiques et de montrer la pertinence de votre regard critique sur les enjeux de la filière coton au Bénin.</p>
 <p><br></p>
 <hr>
 <p><span class="smallcaps">Mise en forme par Antoine Géré.</span></p>
