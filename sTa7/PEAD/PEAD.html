@@ -90,7 +90,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">12 mars 2026</p>
+      <p class="date">13 mars 2026</p>
     </div>
   </div>
   
@@ -361,6 +361,69 @@ Figure&nbsp;1: Organisation de la filière coton au Bénin. L’AIC désigne l�
 </div>
 </div>
 </div>
+<p>Le jeu de données comprend 26 variables documentant l’activité de production cotonnière sur trois campagnes successives (2022, 2023, 2024). Les données brutes, incluant des valeurs manquantes (NA), sont archivées dans le dossier data_raw.</p>
+<p><strong>Identification de l’Exploitant</strong></p>
+<ul>
+<li><p><code>Numero_Individu</code> : Identifiant numérique unique attribué à chaque exploitant pour faciliter le traitement statistique.</p></li>
+<li><p><code>Individu</code> : Nom et prénom de l’exploitant.</p></li>
+</ul>
+<p><strong>Indicateurs d’Activité (Variables Binaires)</strong></p>
+<p>Pour chaque année (<code>Recolte_2022</code>, <code>Recolte_2023</code>, <code>Recolte_2024</code>), la donnée est codée ainsi :</p>
+<ul>
+<li><p><code>1</code> : Une récolte a été réalisée.</p></li>
+<li><p><code>0</code> : Aucune récolte n’a eu lieu.</p></li>
+</ul>
+<p><strong>Variables de Production et Intrants (Répétées par année)</strong></p>
+<p>Chaque campagne dispose de 7 variables spécifiques :</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Variable</th>
+<th style="text-align: left;">Unité</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>Superficie</code></td>
+<td style="text-align: left;">Hectare (ha)</td>
+<td style="text-align: left;">Surface totale emblavée</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Production</code></td>
+<td style="text-align: left;">Kilogramme (kg)</td>
+<td style="text-align: left;">Quantité de coton récoltée</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Valeur_Production</code></td>
+<td style="text-align: left;">Franc CFA</td>
+<td style="text-align: left;">Revenu brut de la récolte</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Herbicide</code></td>
+<td style="text-align: left;">Franc CFA</td>
+<td style="text-align: left;">Coût total investi en herbicides</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Engrais</code></td>
+<td style="text-align: left;">Franc CFA</td>
+<td style="text-align: left;">Coût total investi en engrais</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Insecticide</code></td>
+<td style="text-align: left;">Franc CFA</td>
+<td style="text-align: left;">Coût total investi en insecticides</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Dette_Intrants</code></td>
+<td style="text-align: left;">Franc CFA</td>
+<td style="text-align: left;">Montant des crédits liés aux intrants</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Note sur la qualité des données</strong></p>
+<p>Certaines variables présentent un taux élevé de valeurs manquantes (NA). Ce point fera l’objet d’un traitement spécifique lors de la phase d’analyse exploratoire pour décider de l’imputation ou de l’exclusion de certaines observations.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -387,6 +450,77 @@ Travail à faire .
 <p>L’objectif est d’obtenir une vision globale de l’état actuel de la filière coton ainsi que des principaux enjeux économiques, sociaux et environnementaux associés.</p>
 <p><strong>Étude exploratoire :</strong></p>
 <p>À partir de votre base de données, vous devez réaliser une analyse statistique descriptive, à la fois univariée et multivariée, afin de mettre en évidence les caractéristiques principales du jeu de données et de comprendre les dynamiques qui y sont présentes.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Référentiel Économique des Intrants
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ce guide vous permet de convertir les valeurs monétaires (F CFA) en quantités physiques (Litres, Sacs, Flacons).</p>
+<ul>
+<li><p><em>Insecticides</em> (Protection des cultures) : Le montant saisi correspond au cumul des flacons achetés. Un flacon de 125 ml coute 3 500 F CFA.</p></li>
+<li><p><em>Engrais</em> (Nutrition des sols) : Le montant cumulé intègre trois types d’engrais (Sacs de 50 kg) :</p>
+<ul>
+<li><p>Urée : 15 000 F CFA / sac</p></li>
+<li><p>Super Simple Phosphate (SSP) : 14 000 F CFA / sac</p></li>
+<li><p>NPKSB : 17 000 F CFA / sac</p></li>
+<li><p>Calcul moyen : Utilisez la valeur de 15 333 F CFA / sac de 50 kg pour vos estimations globales de volume.</p></li>
+</ul></li>
+<li><p><em>Herbicides</em> (Désherbage) : Les herbicides sont souvent utilisés en mélanges (Glyphosate 3 500 F / L ; Pré-levée : 7 500 F / hectare ; Post-levée : 8 500 F / hectare). Pour vos calculs, vous pouvez opter soit rester avec la valeur monétaire ou considérer un prix moyen de 6 500 F CFA le litre.</p></li>
+</ul>
+</div>
+</div>
+<p>Pour enrichir votre analyse et donner du sens aux chiffres bruts, il est fortement conseillé de définir de nouveaux indicateurs. Vous pouvez, par exemple, utiliser les suggestions d’indicateurs présentés ci-dessous :</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Indicateur</th>
+<th style="text-align: left;">Calcul</th>
+<th style="text-align: left;">Intérêt de l’analyse</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Rendement</td>
+<td style="text-align: left;">Production / Superficie</td>
+<td style="text-align: left;">Mesurer l’efficacité agronomique (kg/ha).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bilan financier</td>
+<td style="text-align: left;">Valeur_Prod - Dette_Intrants</td>
+<td style="text-align: left;">Estimer le revenu réel après remboursement.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Charge à l’hectare</td>
+<td style="text-align: left;">Engrais / Superficie</td>
+<td style="text-align: left;">Évaluer le niveau d’investissement technique par ha.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ratio de production</td>
+<td style="text-align: left;">Production / Engrais</td>
+<td style="text-align: left;">Calculer le kg de coton produit par CFA investi.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Taux d’endettement</td>
+<td style="text-align: left;">Dette / Valeur_Prod</td>
+<td style="text-align: left;">Mesurer la part du revenu absorbée par les crédits.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Évolution Rendement</td>
+<td style="text-align: left;">Variation (%) entre années</td>
+<td style="text-align: left;">Analyser la progression de la performance.</td>
+</tr>
+</tbody>
+</table>
 <p>Ce travail sera réalisé sur R.</p>
 <p><strong>Livrable intermédiaire :</strong></p>
 <p>Votre analyse sera synthétisée via <a href="https://youtu.be/w5vBoaN6t-M?si=3hh6w7fFhsJyAcRn" class="external" target="_blank">Quarto</a>, un outil de pointe en science des données qui permet de fusionner vos explications textuelles, vos codes R et vos résultats au sein d’un même document. L’intérêt majeur de ce format réside dans la reproductibilité de vos recherches : toute modification de vos données ou de vos calculs mettra automatiquement à jour vos graphiques et vos tableaux, garantissant ainsi une rigueur scientifique et un rendu professionnel incluant une gestion automatisée de la bibliographie.</p>
