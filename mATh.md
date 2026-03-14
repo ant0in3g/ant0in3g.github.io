@@ -33,7 +33,7 @@ Vous pouvez également vous exercer sur votre espace [jai20enmaths](https://www.
 > Ce chapitre explore les fonctions usuelles, tant leur rôle est essentiel dans la résolution de problèmes dans tous les domaines scientifiques.
 > Voici la [feuille de travaux dirigés](./mATh/chapter-s/fonctions-usuelles/td-exos.pdf).
 3. [Nombres complexes](./mATh/chapter-s/nombres-complexes/chapter-s.pdf)
-> Ce chapitre explore la notion de nombre complexe, des bases à des applications plus avancées notamment en géométrie.
+> Ce chapitre explore la notion de nombre complexe, des bases à des applications plus avancées notamment en géométrie.   
 > Voici la [feuille de travaux dirigés](./mATh/chapter-s/nombres-complexes/td-exos.pdf).
 4. [Suites numériques](./mATh/chapter-s/suites/chapter-s.pdf) 
 
