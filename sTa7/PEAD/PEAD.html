@@ -90,7 +90,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">13 mars 2026</p>
+      <p class="date">14 mars 2026</p>
     </div>
   </div>
   
@@ -188,7 +188,7 @@ Figure&nbsp;1: Organisation de la filière coton au Bénin. L’AIC désigne l�
 <ul>
 <li>Prof.&nbsp;Hugues Kossi BAIMEY – Université de Parakou</li>
 <li>Marc Oswald – ISTOM</li>
-<li>Ines SHILI-TOUZI – ISTOM</li>
+<li>Inès SHILI-TOUZI – ISTOM</li>
 </ul>
 <p><strong>Défis majeurs de la filière</strong></p>
 <ul>
@@ -361,7 +361,7 @@ Figure&nbsp;1: Organisation de la filière coton au Bénin. L’AIC désigne l�
 </div>
 </div>
 </div>
-<p>Le jeu de données comprend 26 variables documentant l’activité de production cotonnière sur trois campagnes successives (2022, 2023, 2024). Les données brutes, incluant des valeurs manquantes (NA), sont archivées dans le dossier data_raw.</p>
+<p>Le jeu de données comprend 26 variables documentant l’activité de production cotonnière sur trois campagnes successives (2022, 2023, 2024). Les données brutes, incluant des valeurs manquantes (<code>NA</code>), sont archivées dans le dossier <code>data_raw</code>.</p>
 <p><strong>Identification de l’Exploitant</strong></p>
 <ul>
 <li><p><code>Numero_Individu</code> : Identifiant numérique unique attribué à chaque exploitant pour faciliter le traitement statistique.</p></li>
@@ -387,7 +387,7 @@ Figure&nbsp;1: Organisation de la filière coton au Bénin. L’AIC désigne l�
 <tr class="odd">
 <td style="text-align: left;"><code>Superficie</code></td>
 <td style="text-align: left;">Hectare (ha)</td>
-<td style="text-align: left;">Surface totale emblavée</td>
+<td style="text-align: left;">Surface totale cultivée</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>Production</code></td>
@@ -423,7 +423,7 @@ Figure&nbsp;1: Organisation de la filière coton au Bénin. L’AIC désigne l�
 </table>
 <p><br></p>
 <p><strong>Note sur la qualité des données</strong></p>
-<p>Certaines variables présentent un taux élevé de valeurs manquantes (NA). Ce point fera l’objet d’un traitement spécifique lors de la phase d’analyse exploratoire pour décider de l’imputation ou de l’exclusion de certaines observations.</p>
+<p>Certaines variables présentent un taux élevé de valeurs manquantes (<code>NA</code>). Ce point fera l’objet d’un traitement spécifique lors de la phase d’analyse exploratoire pour décider de l’imputation ou de l’exclusion de certaines observations.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -434,7 +434,7 @@ Travail à faire .
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Il vous est demandé de <strong>synchroniser</strong> votre base de données sur votre ordinateur personel, comme indiqué à ce <a href="https://ant0in3g.github.io/sTa7/orga.html">lien</a>.</p>
+<p>Il vous est demandé de <strong>synchroniser</strong> votre base de données sur votre ordinateur personel, comme indiqué à ce <a href="https://ant0in3g.github.io/sTa7/orga.html" class="external" target="_blank">lien</a>.</p>
 </div>
 </div>
 </section>
@@ -470,7 +470,7 @@ Référentiel Économique des Intrants
 <li><p>NPKSB : 17 000 F CFA / sac</p></li>
 <li><p>Calcul moyen : Utilisez la valeur de 15 333 F CFA / sac de 50 kg pour vos estimations globales de volume.</p></li>
 </ul></li>
-<li><p><em>Herbicides</em> (Désherbage) : Les herbicides sont souvent utilisés en mélanges (Glyphosate 3 500 F / L ; Pré-levée : 7 500 F / hectare ; Post-levée : 8 500 F / hectare). Pour vos calculs, vous pouvez opter soit rester avec la valeur monétaire ou considérer un prix moyen de 6 500 F CFA le litre.</p></li>
+<li><p><em>Herbicides</em> (Désherbage) : Les herbicides sont souvent utilisés en mélanges (Glyphosate 3 500 F / L ; Pré-levée : 7 500 F / hectare ; Post-levée : 8 500 F / hectare). Pour vos calculs, vous pouvez soit choisir de rester avec la valeur monétaire, soit considérer un prix moyen de 6 500 F CFA le litre.</p></li>
 </ul>
 </div>
 </div>
@@ -483,39 +483,39 @@ Référentiel Économique des Intrants
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Indicateur</th>
+<th style="text-align: left;">Indicateur par année</th>
 <th style="text-align: left;">Calcul</th>
 <th style="text-align: left;">Intérêt de l’analyse</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Rendement</td>
+<td style="text-align: left;"><code>Rendement</code></td>
 <td style="text-align: left;">Production / Superficie</td>
 <td style="text-align: left;">Mesurer l’efficacité agronomique (kg/ha).</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Bilan financier</td>
+<td style="text-align: left;"><code>Bilan_financier</code></td>
 <td style="text-align: left;">Valeur_Prod - Dette_Intrants</td>
 <td style="text-align: left;">Estimer le revenu réel après remboursement.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Charge à l’hectare</td>
-<td style="text-align: left;">Engrais / Superficie</td>
+<td style="text-align: left;"><code>Charge_ha</code></td>
+<td style="text-align: left;">Intrants / Superficie</td>
 <td style="text-align: left;">Évaluer le niveau d’investissement technique par ha.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Ratio de production</td>
-<td style="text-align: left;">Production / Engrais</td>
+<td style="text-align: left;"><code>Ratio_prod</code></td>
+<td style="text-align: left;">Production / Intrants</td>
 <td style="text-align: left;">Calculer le kg de coton produit par CFA investi.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Taux d’endettement</td>
+<td style="text-align: left;"><code>Taux_dettes</code></td>
 <td style="text-align: left;">Dette / Valeur_Prod</td>
 <td style="text-align: left;">Mesurer la part du revenu absorbée par les crédits.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Évolution Rendement</td>
+<td style="text-align: left;"><code>Evol_Rendement</code></td>
 <td style="text-align: left;">Variation (%) entre années</td>
 <td style="text-align: left;">Analyser la progression de la performance.</td>
 </tr>
@@ -524,7 +524,24 @@ Référentiel Économique des Intrants
 <p>Ce travail sera réalisé sur R.</p>
 <p><strong>Livrable intermédiaire :</strong></p>
 <p>Votre analyse sera synthétisée via <a href="https://youtu.be/w5vBoaN6t-M?si=3hh6w7fFhsJyAcRn" class="external" target="_blank">Quarto</a>, un outil de pointe en science des données qui permet de fusionner vos explications textuelles, vos codes R et vos résultats au sein d’un même document. L’intérêt majeur de ce format réside dans la reproductibilité de vos recherches : toute modification de vos données ou de vos calculs mettra automatiquement à jour vos graphiques et vos tableaux, garantissant ainsi une rigueur scientifique et un rendu professionnel incluant une gestion automatisée de la bibliographie.</p>
-<p>Pour faciliter votre montée en compétence, je mettrai en forme la première phase de votre étude sur ce support afin de vous fournir un modèle structuré que vous pourrez vous approprier et compléter de manière autonome pour la suite du projet.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Mise en garde
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Afin de faciliter votre montée en compétence, je mettrai en forme sur Quarto cette étape de votre étude. Ce modèle structuré vous servira de base technique que vous pourrez vous approprier et compléter de manière autonome pour la suite du projet.</p>
+<p>Pour cette étape, vos livrables sont donc les suivants :</p>
+<ul>
+<li><p>Un document Word synthétisant votre étude bibliographique.</p></li>
+<li><p>Un script R complet détaillant votre analyse exploratoire.</p></li>
+</ul>
+</div>
+</div>
 </section>
 <section id="step-3---cadrage-et-objectifs" class="level3">
 <h3 class="anchored" data-anchor-id="step-3---cadrage-et-objectifs">Step 3 - Cadrage et objectifs</h3>
@@ -557,7 +574,7 @@ Information
 </div>
 <p>L’objectif de ce mois d’avril est de transformer vos données nettoyées en résultats scientifiques concrets répondant à votre problématique.</p>
 <p>Ce travail analytique sera réalisé exclusivement sur RStudio et constituera une <strong>mise en application directe de vos cours de statistiques</strong>.</p>
-<p>Chaque test choisi devra être justifié par la nature de vos variables, des questions auxquelles vous souhaitez répondre et par la vérification de vos conditions d’application, exactement comme vu en cours.</p>
+<p>Chaque test choisi devra être justifié par la nature de vos variables, les questions auxquelles vous souhaiterez répondre et par la vérification des conditions d’application, exactement comme vu en cours.</p>
 </section>
 <section id="step-6---mise-en-forme" class="level3">
 <h3 class="anchored" data-anchor-id="step-6---mise-en-forme">Step 6 - Mise en forme</h3>
@@ -565,7 +582,7 @@ Information
 <p><strong>Fin avril 2026</strong></p>
 </div>
 <p>L’objectif de cette ultime étape est de passer de l’analyse brute à une communication scientifique de qualité.</p>
-<p>Vous devrez produire un rendu complet et intégré sur Quarto, capable de générer automatiquement un fichier Word parfaitement structuré (incluant introduction, méthodologie, résultats commentés et bibliographie).</p>
+<p>Vous devrez produire un rendu complet et intégré sur Quarto, capable de générer automatiquement un fichier Word parfaitement structuré (incluant introduction, bibliographie, méthodologie, résultats commentés et conclusion).</p>
 <p>En parallèle, vous préparerez une présentation PowerPoint synthétique.</p>
 <p>L’enjeu est ici de démontrer votre capacité à vulgariser des résultats complexes.</p>
 </section>
