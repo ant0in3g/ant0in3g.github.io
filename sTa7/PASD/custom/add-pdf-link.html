@@ -1,0 +1,25 @@
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Cherche le conteneur de la table des matières (TOC)
+  const toc =
+    document.querySelector(".quarto-toc-container") ||
+    document.querySelector(".toc") ||
+    document.querySelector("nav#TOC") ||
+    document.querySelector(".sidebar nav");
+
+  if (toc) {
+    // 1. Création de l'élément image pour le logo
+    const logo = document.createElement("img");
+    logo.src = "img/Logo_simple_ISTOM_Couleurs_HD.png";
+    
+    // 2. Style du logo (alignement et marges)
+    logo.style.cssText = "float:left; height:60px; margin-bottom: 1rem;";
+    
+    // 3. Insertion du logo juste avant la TOC
+    toc.parentNode.insertBefore(logo, toc);
+    
+    // 4. Force le contenu suivant (la TOC) à s'afficher sous le logo
+    toc.style.clear = "both";
+  }
+});
+</script>
