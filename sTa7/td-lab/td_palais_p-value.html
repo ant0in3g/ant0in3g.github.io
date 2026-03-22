@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Antoine Géré">
+
+<title>Du palais à la p-value</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="td_palais_p-value_files/libs/clipboard/clipboard.min.js"></script>
+<script src="td_palais_p-value_files/libs/quarto-html/quarto.js"></script>
+<script src="td_palais_p-value_files/libs/quarto-html/popper.min.js"></script>
+<script src="td_palais_p-value_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="td_palais_p-value_files/libs/quarto-html/anchor.min.js"></script>
+<link href="td_palais_p-value_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="td_palais_p-value_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="td_palais_p-value_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="td_palais_p-value_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="td_palais_p-value_files/libs/bootstrap/bootstrap-1bc8a17f135ab3d594c857e9f48e611b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="td_palais_p-value_files/libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+
+<script src="td_palais_p-value_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<link href="td_palais_p-value_files/libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+
+<script src="td_palais_p-value_files/libs/datatables-binding-0.34.0/datatables.js"></script>
+
+<script src="td_palais_p-value_files/libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+
+<link href="td_palais_p-value_files/libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+
+<link href="td_palais_p-value_files/libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+
+<script src="td_palais_p-value_files/libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+
+<link href="td_palais_p-value_files/libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet">
+
+<script src="td_palais_p-value_files/libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
+
+<link href="td_palais_p-value_files/libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet">
+
+<script src="td_palais_p-value_files/libs/selectize-0.12.0/selectize.min.js"></script>
+
+<link href="td_palais_p-value_files/libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+
+<script src="td_palais_p-value_files/libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table des matières</h2>
+   
+  <ul>
+  <li><a href="#sujets-de-mesures" id="toc-sujets-de-mesures" class="nav-link active" data-scroll-target="#sujets-de-mesures">Sujets de mesures</a></li>
+  <li><a href="#dispersion-des-résultats" id="toc-dispersion-des-résultats" class="nav-link" data-scroll-target="#dispersion-des-résultats">Dispersion des résultats</a></li>
+  <li><a href="#tests-discriminatifs" id="toc-tests-discriminatifs" class="nav-link" data-scroll-target="#tests-discriminatifs">Tests discriminatifs</a>
+  <ul>
+  <li><a href="#test-duo-trio" id="toc-test-duo-trio" class="nav-link" data-scroll-target="#test-duo-trio">Test Duo-trio</a>
+  <ul class="collapse">
+  <li><a href="#principe-et-protocole" id="toc-principe-et-protocole" class="nav-link" data-scroll-target="#principe-et-protocole">Principe et Protocole</a></li>
+  <li><a href="#avantages-et-indications" id="toc-avantages-et-indications" class="nav-link" data-scroll-target="#avantages-et-indications">Avantages et Indications</a></li>
+  <li><a href="#exploitation-statistique" id="toc-exploitation-statistique" class="nav-link" data-scroll-target="#exploitation-statistique">Exploitation Statistique</a></li>
+  <li><a href="#application" id="toc-application" class="nav-link" data-scroll-target="#application">Application</a></li>
+  </ul></li>
+  <li><a href="#test-triangulaire" id="toc-test-triangulaire" class="nav-link" data-scroll-target="#test-triangulaire">Test triangulaire</a></li>
+  <li><a href="#test-p-parmi-n" id="toc-test-p-parmi-n" class="nav-link" data-scroll-target="#test-p-parmi-n">Test p parmi n</a></li>
+  </ul></li>
+  <li><a href="#tests-descriptifs" id="toc-tests-descriptifs" class="nav-link" data-scroll-target="#tests-descriptifs">Tests descriptifs</a></li>
+  <li><a href="#test-de-classement" id="toc-test-de-classement" class="nav-link" data-scroll-target="#test-de-classement">Test de classement</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Du palais à la p-value</h1>
+<p class="subtitle lead">Une première immersion dans l’analyse sensorielle</p>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Auteur·rice</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Antoine Géré <a href="mailto:a.gere@istom.fr" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            <a href="https://www.istom.fr/">ISTOM</a>
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">22 mars 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<hr>
+<div class="columns">
+<div class="column" style="width:70%;">
+<p>L’<strong>Analyse Sensorielle</strong> regroupe l’ensemble des protocoles scientifiques permettant de mesurer et d’interpréter les propriétés organoleptiques d’un produit. Contrairement aux outils de mesure classiques, l’Analyse Sensorielle place l’etre humain et ses sens au coeur du disposititif de mesure.</p>
+<p>Émergée dans les années 1960 aux États-Unis, cette discipline est devenue le complément indispensable des analyses physico-chimiques traditionnelles. Elle permet de valider ce qu’aucune machine ne peut totalement quantifier : la perception globale et le plaisir de l’utilisateur.</p>
+</div><div class="column" style="width:30%;">
+<p><img src="img/analyse_senso.jpg" class="img-fluid" style="width:90.0%"></p>
+</div>
+</div>
+<section id="sujets-de-mesures" class="level2">
+<h2 class="anchored" data-anchor-id="sujets-de-mesures">Sujets de mesures</h2>
+<p>En analyse sensorielle, les tests sont réalisés par des personnes que l’on nomme sujets. On va chercher chez ces sujets certaines caractéristiques :</p>
+<ul>
+<li><p><strong>fiabilité</strong> : aptitude à donner des mesures très voisine lors de l’application du même signal d’entrée</p></li>
+<li><p><strong>répétabilité</strong> : réponses fidèles quand l’analyse sensorielle est faite dans les mêmes conditions (même salle, mêmes tests…)</p></li>
+<li><p><strong>reproductibilité</strong> : répétition faite en faisant varier certaines conditions d’une répétition à l’autre (lieux, résultats inter laboratoires…)</p></li>
+<li><p><strong>justesse</strong> : moyenne des indications données et très voisine de la valeur vraie de la grandeur à mesurer</p></li>
+</ul>
+</section>
+<section id="dispersion-des-résultats" class="level2">
+<h2 class="anchored" data-anchor-id="dispersion-des-résultats">Dispersion des résultats</h2>
+<p>La variabilité observée lors d’une évaluation sensorielle provient de deux sources principales : le produit lui-même et le facteur humain (les sujets).</p>
+<ul>
+<li><p>La <strong>variabilité liée aux produits</strong></p>
+<ul>
+<li><p>Pour obtenir des conclusions fiables, il est crucial de maîtriser la représentativité des échantillons.</p></li>
+<li><p>On cherche à présenter des produits identiques au sein d’un même lot pour ne mesurer que la différence voulue.</p></li>
+</ul></li>
+<li><p>La <strong>variabilité liée aux sujets</strong> (Facteur Humain)</p>
+<ul>
+<li><p>La variance inter-individuelle (entre les sujets), elle reflète les différences de perception ou d’utilisation de l’échelle d’un juge à l’autre.</p></li>
+<li><p>La variance intra-individuelle (au sein d’un même sujet), elle mesure le manque de répétabilité d’un juge (sa capacité à donner la même réponse pour un même produit lors de deux séances différentes).</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="tests-discriminatifs" class="level2">
+<h2 class="anchored" data-anchor-id="tests-discriminatifs">Tests discriminatifs</h2>
+<p>Les <strong>tests discriminatifs</strong> sont utilisés si l’enjeu est simplement de détecter une différence entre des échantillons,</p>
+<p>Ils ont pour mission exclusive de déceler la présence ou l’absence d’une différence sensorielle entre deux produits. Elles sont particulièrement indiquées lorsque les écarts sont supposés faibles ou inconnus.</p>
+<p>Si ces tests permettent de dire si une différence existe, ils ne permettent en aucun cas de la nommer (identifier sa nature) ni de la mesurer (quantifier son intensité).</p>
+<section id="test-duo-trio" class="level3">
+<h3 class="anchored" data-anchor-id="test-duo-trio">Test Duo-trio</h3>
+<section id="principe-et-protocole" class="level4">
+<h4 class="anchored" data-anchor-id="principe-et-protocole">Principe et Protocole</h4>
+<p>Le test Duo-Trio est une épreuve de différence où l’on présente au juge un échantillon identifié comme Témoin (R), suivi de deux échantillons codés (A et B). L’un des deux échantillons codés est identique au témoin.</p>
+<p>La mission du juge est de répondre à la question : <strong>« Lequel de ces deux échantillons est identique au témoin ? »</strong></p>
+<p>Il existe quatre ordres de présentation possibles, selon que le témoin est le produit A ou le produit B :</p>
+<ul>
+<li><p>Si A est le témoin : A (témoin) suivi de {A, B} ou A (témoin) suivi de {B, A}.</p></li>
+<li><p>Si B est le témoin : B (témoin) suivi de {A, B} ou B (témoin) suivi de {B, A}.</p></li>
+</ul>
+<p>Contrairement au test triangulaire (cf prochain paragraphe), le choix s’effectue ici entre seulement deux options :</p>
+<ul>
+<li><p>Probabilité de succès par hasard (p) : 1/2 (soit 50 %).</p></li>
+<li><p>Probabilité d’échec par hasard (q) : 1/2 (soit 50 %).</p></li>
+</ul>
+</section>
+<section id="avantages-et-indications" class="level4">
+<h4 class="anchored" data-anchor-id="avantages-et-indications">Avantages et Indications</h4>
+<p>Le test Duo-Trio est souvent privilégié dans les situations suivantes :</p>
+<p>Ce test est adapté pour les produits complexes ou agressifs. Comme le sujet connaît déjà la référence (le témoin), l’effort cognitif et sensoriel est moindre, ce qui limite la saturation.</p>
+</section>
+<section id="exploitation-statistique" class="level4">
+<h4 class="anchored" data-anchor-id="exploitation-statistique">Exploitation Statistique</h4>
+<p><strong>Définition de l’Hypothèse Nulle ( <span class="math inline">\(H_0\)</span> )</strong></p>
+<p>L’hypothèse nulle postule qu’il n’y a aucune différence sensorielle perceptible entre l’échantillon témoin <span class="math inline">\((R)\)</span> et les échantillons présentés. En d’autres termes les deux produits sont identiques, la probabilité de désigner l’échantillon correct est uniquement due au hasard. D’un point de vue purement statstatistique : <span class="math display">\[H_0 \ : \  p= 1/2\]</span></p>
+<p><strong>Définition de l’Hypothèse Alternative ( <span class="math inline">\(H_1\)</span> )</strong></p>
+<p>C’est l’hypothèse que nous cherchez généralement à prouver. Elle postule qu’il existe une différence réelle. En d’autres termes les produits sont perçus comme différents, la probabilité de réussite est significativement supérieure au hasard. D’un point de vue purement statistique : <span class="math display">\[H_1 \ : \ p &gt; 1/ 2\]</span></p>
+<p>Les résultats sont analysés via la loi binomiale. On compare le nombre de réponses correctes observées au nombre minimal requis pour atteindre une significativité statistique (souvent fixée à <span class="math inline">\(\alpha= 5\%\)</span>).</p>
+</section>
+<section id="application" class="level4">
+<h4 class="anchored" data-anchor-id="application">Application</h4>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>Le <strong>Bissap Istomien</strong> est une boisson emblématique appréciée les étudiant-es. Afin d’améliorer la recette, nous testons l’ajout subtil de <strong>vanille</strong>. L’objectif est de déterminer si cet ajout crée une différence gustative perceptible.</p>
+<p>Nous allons utiliser le Test Duo-Trio :</p>
+<ul>
+<li><p>Le sujet goûte un échantillon de référence.</p></li>
+<li><p>Il goûte ensuite deux échantillons codés, dont l’un est identique à l’échantillon de référence</p></li>
+<li><p>Question posée : <strong>Lequel des deux échantillons codés est identique au témoin ?</strong></p></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p><img src="img/bissap.jpg" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Test Duo-Trio en pratique
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>L’objectif de l’étude</strong> est de déterminer s’il existe une différence gustative perceptible entre les deux recettes de Bissap suiavntes :</p>
+<ul>
+<li><p>Produit A : Recette classique.</p></li>
+<li><p>Produit B : Recette avec ajout de vanille.</p></li>
+</ul>
+<p>Nous utilisons un <strong>test Duo-Trio</strong>. Chaque sujet reçoit un plateau de trois échantillons.</p>
+<ul>
+<li><p>Un témoin : Il est identifié. Pour cette étude, le témoin peut être soit A, soit B.</p></li>
+<li><p>Les Échantillons prtent des des codes . L’un est identique au témoin, l’autre est différent.</p></li>
+<li><p>Consigne donnée au juge : « Goûtez le témoin à gauche, puis les deux échantillons codés. Lequel des deux échantillons codés est identique au témoin ? »</p></li>
+</ul>
+<p><strong>La base de données</strong> simule les réponses de 60 étudiants de l’ISTOM. Elle contient les variables suivantes :</p>
+<ul>
+<li><p><code>id</code> : Identifiant unique du sujet</p></li>
+<li><p><code>ordre</code> : La séquence de présentation (ex: A-AB signifie que le témoin est A, suivi des verres A puis B).</p></li>
+<li><p><code>expertise</code> : Profil du sujet (Expert ou Novice).</p></li>
+<li><p><code>fatigue</code> : Auto-évaluation de l’état de fatigue du sujet (1 à 5).</p></li>
+<li><p><code>reussite</code> : Résultat (reussi ou echec).</p></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code pour générer nos données
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Nombre de sujets</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>n_sujets <span class="ot">=</span> <span class="dv">60</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Témoin (R), Échantillon A (identique à R), Échantillon B (différent)</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>ordres_possibles <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"R-AB"</span>, <span class="st">"R-BA"</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Création du jeu de donnée</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>data_duotrio <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span>n_sujets,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="co">#temoin = sample(c("A", "B"), n_sujets, replace = TRUE),</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">ordre =</span> <span class="fu">sample</span>(ordres_possibles, n_sujets, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">expertise =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Expert"</span>, <span class="st">"Novice"</span>), n_sujets, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>)),</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">fatigue =</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, n_sujets, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="co"># Score de fatigue auto-déclaré</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulation des résultats (Loi Binomiale) </span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Les experts ont 75% de réussite et les novices 45%</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>data_duotrio<span class="sc">$</span>reussite <span class="ot">=</span> <span class="fu">mapply</span>(<span class="cf">function</span>(exp) {</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  p_reussite <span class="ot">=</span> <span class="fu">ifelse</span>(exp <span class="sc">==</span> <span class="st">"Expert"</span>, <span class="fl">0.75</span>, <span class="fl">0.45</span>)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ifelse</span>(<span class="fu">rbinom</span>(<span class="dv">1</span>, <span class="dv">1</span>, p_reussite)<span class="sc">==</span><span class="dv">1</span>,<span class="st">"reussi"</span>,<span class="st">"echec"</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  }, </span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  data_duotrio<span class="sc">$</span>expertise)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DT)</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="fu">datatable</span>(data_duotrio, </span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>          <span class="at">filter =</span> <span class="st">'top'</span>, </span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>          <span class="at">options =</span> <span class="fu">list</span>(<span class="at">pageLength =</span> <span class="dv">10</span>, <span class="at">autoWidth =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>          <span class="at">caption =</span> <span class="st">"Base de données complète"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-c86864160d6d855a80d9" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-c86864160d6d855a80d9">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td><\/td>\n  <td data-type=\"integer\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1\" data-max=\"60\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"integer\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1\" data-max=\"5\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","caption":"<caption>Base de données Bissap (Nature vs Vanille)<\/caption>","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60"],[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60],["B-AB","B-AB","B-AB","A-BA","B-AB","A-BA","A-BA","A-BA","B-AB","A-AB","B-BA","A-BA","A-BA","A-AB","A-BA","B-AB","B-BA","A-AB","B-AB","B-AB","A-AB","B-BA","A-AB","A-AB","A-AB","B-AB","B-BA","A-BA","B-AB","A-BA","A-AB","A-BA","B-AB","B-BA","A-BA","A-AB","B-AB","B-AB","A-AB","B-BA","B-AB","B-BA","A-BA","A-AB","B-AB","A-AB","A-AB","A-BA","B-AB","B-AB","B-BA","A-AB","B-AB","A-AB","B-AB","B-BA","A-BA","A-AB","A-BA","A-AB"],["Novice","Novice","Novice","Novice","Expert","Novice","Expert","Expert","Novice","Novice","Novice","Novice","Novice","Novice","Novice","Novice","Novice","Novice","Novice","Novice","Novice","Novice","Novice","Novice","Novice","Novice","Expert","Expert","Expert","Novice","Novice","Novice","Novice","Novice","Novice","Novice","Novice","Novice","Novice","Novice","Novice","Novice","Novice","Expert","Novice","Expert","Expert","Novice","Novice","Novice","Expert","Novice","Novice","Expert","Novice","Novice","Novice","Expert","Novice","Novice"],[5,3,2,5,5,3,2,2,2,4,2,2,4,4,1,3,3,1,3,5,2,3,2,5,5,3,4,4,4,5,3,1,2,1,2,5,3,4,4,1,4,1,3,4,3,5,4,4,4,1,2,3,4,3,1,5,5,2,3,5],["reussi","reussi","reussi","reussi","reussi","reussi","echec","reussi","echec","reussi","echec","reussi","echec","reussi","echec","reussi","echec","echec","echec","reussi","reussi","echec","reussi","reussi","echec","reussi","reussi","reussi","echec","echec","echec","echec","echec","reussi","echec","reussi","reussi","reussi","reussi","echec","reussi","reussi","reussi","echec","echec","echec","reussi","reussi","echec","echec","reussi","reussi","reussi","reussi","reussi","reussi","reussi","reussi","echec","reussi"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>id<\/th>\n      <th>ordre<\/th>\n      <th>expertise<\/th>\n      <th>fatigue<\/th>\n      <th>reussite<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"autoWidth":true,"columnDefs":[{"className":"dt-right","targets":[1,4]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"id","targets":1},{"name":"ordre","targets":2},{"name":"expertise","targets":3},{"name":"fatigue","targets":4},{"name":"reussite","targets":5}],"order":[],"orderClasses":false,"orderCellsTop":true}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>n_sujets</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 60</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>n_reussi <span class="ot">=</span> <span class="fu">sum</span>(data_duotrio<span class="sc">$</span>reussite <span class="sc">==</span> <span class="st">"reussi"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>n_reussi</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 37</code></pre>
+</div>
+</div>
+<p>Il n’est pas suffisant de simplement observer le nombre personnes qui ont réussi (ici <code>n_reussi</code> sur 60) pour conclure. Est-ce que ces 27 personnes ont réellement senti la vanille, ou ont-elles simplement eu de la chance ?</p>
+<p>Le test binomial exact est l’outil statistique qui permet de trancher. Il compare nos résultats réels à ce que le hasard pur aurait produit (une chance sur deux pour ce test Duo-Trio). On cherche à savoir si la proportion de bonnes réponses est significativement supérieure à 50 %.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">binom.test</span>(n_reussi, n_sujets, <span class="at">p =</span> <span class="fl">0.5</span>, <span class="at">alternative =</span> <span class="st">"greater"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Exact binomial test
+
+data:  n_reussi and n_sujets
+number of successes = 37, number of trials = 60, p-value = 0.04623
+alternative hypothesis: true probability of success is greater than 0.5
+95 percent confidence interval:
+ 0.5024333 1.0000000
+sample estimates:
+probability of success 
+             0.6166667 </code></pre>
+</div>
+</div>
+<p>Le panel a correctement identifié l’échantillon 37 fois sur 60. Cela représente un taux de succès de 61,6 %. On constate une nette progression par rapport au hasard théorique (50 %).</p>
+<p>On peut lire que la <strong>p-value = 0.04623</strong>. C’est le chiffre pivot !</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Interprétation de la p-value
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pour qu’un test soit statistiquement significatif, la p-value doit être inférieure au seuil <span class="math inline">\(\alpha\)</span> fixé.</p>
+</div>
+</div>
+<p>On fixe ici <span class="math inline">\(\alpha\)</span> à <span class="math inline">\(5\%\)</span>. On peut lire que 0,04623 est inférieur à 0,05. Ce qui signifie qu’il y a moins de 5 % de chances que ce résultat soit dû au pur hasard. On rejette donc l’hypothèse nulle (H0).</p>
+<p>Il est également donné l’intervalle de confiance à <span class="math inline">\(95\%\)</span>. La borne inférieure de l’intervalle est de 0,502 (soit 50,2 %). Comme cette valeur est supérieure à 0,50, cela confirme statistiquement que la capacité de détection du panel est supérieure au hasard, même si c’est de peu.</p>
+<p><strong>Conclusion</strong> : Le test Duo-Trio est significatif. Avec un risque d’erreur inférieur à <span class="math inline">\(5\%\)</span>, nous pouvons affirmer que l’ajout de vanille dans le Bissap Istomien crée une différence gustative perceptible par les étudiants. Bien que la différence soit fine (le taux de réussite est de 61,6 %), elle est statistiquement validée. La recette à la vanille est donc officiellement distinguable de la recette classique.</p>
+<p><strong>Pour aller plus loin :</strong></p>
+<p>Au-delà de la simple réussite, nous pouvons chercher à quantifier la force de la différence perçue entre le Bissap classique et le Bissap vanille. On mesure la distance sensorielle, notée <span class="math inline">\(d^\prime\)</span>. On commence à renter dans un aspect plus descriptif.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sensR)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">discrim</span>(n_reussi, n_sujets, <span class="at">method =</span> <span class="st">"duotrio"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Estimates for the duotrio discrimination protocol with 37 correct
+answers in 60 trials. One-sided p-value and 95 % two-sided confidence
+intervals are based on the 'exact' binomial test. 
+
+        Estimate Std. Error Lower  Upper
+pc        0.6167    0.06277   0.5 0.7393
+pd        0.2333    0.12554   0.0 0.4786
+d-prime   1.2198    0.38701   0.0 1.9530
+
+Result of difference test:
+'exact' binomial test:  p-value = 0.04623 
+Alternative hypothesis: d-prime is greater than 0 </code></pre>
+</div>
+</div>
+<p>Le <span class="math inline">\(d^\prime\)</span> est un indice de sensibilité indépendant de la taille du panel. Il se comme suit :</p>
+<ul>
+<li><p><span class="math inline">\(d^\prime = 0\)</span> : Les produits sont indiscernables. L’ajout de vanille est totalement invisible.</p></li>
+<li><p><span class="math inline">\(d^\prime \simeq 1\)</span> : La différence est faible. Seuls les juges les plus sensibles ou les experts ont une chance de détecter la vanille.</p></li>
+<li><p><span class="math inline">\(d^\prime &gt; 2\)</span> : La différence est très nette. La vanille modifie profondément le profil aromatique du bissap.</p></li>
+</ul>
+<p>Dans notre cas <span class="math inline">\(d^\prime \simeq 1.22\)</span>. La valeur obtenue indique une faible différence. L’ajout de vanille est perceptible, mais ce n’est pas une explosion de saveur qui est évidente pour n’importe quel goûteur.</p>
+<ul>
+<li><p>La valeur de <code>Std. Error</code> est de <span class="math inline">\(0.387\)</span>. C’est l’écart-type de l’erreur. Plus ce chiffre est petit, plus l’estimation du <span class="math inline">\(d^\prime\)</span> est précise.</p></li>
+<li><p>Les valeurs <code>Lower</code> et <code>Upper</code> de <span class="math inline">\(0.0\)</span> et <span class="math inline">\(1.95\)</span>, représentent l’intervalle de confiance à 95 %. Il nous dit que le “vrai” <span class="math inline">\(d^\prime\)</span> de la population se situe probablement entre <span class="math inline">\(0\)</span> et <span class="math inline">\(1.95\)</span>.</p></li>
+<li><p>Les autres indicateurs :</p>
+<ul>
+<li><p><code>pc = 0.6167</code> : C’est la proportion de choix corrects (37/60). Environ 62 % des juges ont bien répondu.</p></li>
+<li><p><code>pd = 0.2333</code> : C’est la “proportion de détecteurs réels”. Cela suggère que seul environ 23 % du panel a réellement perçu la différence, tandis que les autres ont réussi soit par chance, soit grâce à une intuition très légère.</p></li>
+</ul></li>
+</ul>
+<p><strong>L’effet de l’Expertise et de la la Fatigue</strong></p>
+<p>Le profil des sujets est une des variables la plus critique. Dans notre simulation, les experts réussissent mieux que les novices. On cherche à savoir si la vanille est un “marqueur d’expert”.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tableau de contigence Expertise / Réussite</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>table_expertise <span class="ot">&lt;-</span> <span class="fu">table</span>(data_duotrio<span class="sc">$</span>expertise, data_duotrio<span class="sc">$</span>reussite)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>table_expertise</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        
+         echec reussi
+  Expert     4      8
+  Novice    19     29</code></pre>
+</div>
+</div>
+<p>Après avoir validé que la vanille est globalement perçue, nous cherchons à savoir si cette perception est réservée aux palais entraînés. Nous croisons donc la variable expertise avec la reussite via un test du Chi-deux d’indépendance.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Test du Chi-deux pour voir si l'expertise influence la réussite</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(table_expertise)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's Chi-squared test with Yates' continuity correction
+
+data:  table_expertise
+X-squared = 0.0044066, df = 1, p-value = 0.9471</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Il est préférable d'utiliser un test de Fisher ici car il y auniquement 4 expert qui ont échoué</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fisher.test</span>(table_expertise)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Fisher's Exact Test for Count Data
+
+data:  table_expertise
+p-value = 0.7524
+alternative hypothesis: true odds ratio is not equal to 1
+95 percent confidence interval:
+ 0.1476496 3.3678686
+sample estimates:
+odds ratio 
+ 0.7665369 </code></pre>
+</div>
+</div>
+<p>Le test du Chi-deux donne une p-value de <code>0.947</code>, ce qui est très loin du seuil de 0,05. Le test de Fisher donne une p-value de <code>0.7524</code>, ce qui est également bien supérieur à 0.005</p>
+<p>L’expertise n’a pas d’influence significative sur la capacité à détecter la vanille dans le bissap pour cette étude. La différence de recette semble donc être perçue de la même manière par un consommateur novice que par un expert.</p>
+<p>La fatigue sensorielle est l’ennemi du test Duo-Trio (surtout avec des produits intenses comme le bissap). Un juge fatigué répondra plus souvent au hasard.</p>
+<p>Le graphique ci-dessus présente la proportion de réussite selon le niveau de fatigue des juges.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_duotrio, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(fatigue), <span class="at">fill =</span> reussite)) <span class="sc">+</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>) <span class="sc">+</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Impact de la fatigue sur la performance"</span>,</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Niveau de fatigue (1 à 5)"</span>, <span class="at">y =</span> <span class="st">"Proportion"</span>) <span class="sc">+</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="td_palais_p-value_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>On observe une tendance surprenante : le taux de reussite semble croître avec le niveau de fatigue. Alors que la théorie suggère que la fatigue sensorielle mène à des réponses aléatoires (50 % de réussite), nos résultats montrent que les sujets les plus fatigués (niveaux 4 et 5) affichent les meilleures performances de détection.</p>
+<p><strong>Conclusion</strong> : Ce résultat suggère que dans le cadre du Bissap Istomien, la fatigue n’a pas été un frein à la discrimination. Cela peut s’expliquer par un surcroît de concentration des sujets fatigués ou par une saturation des saveurs dominantes du bissap, facilitant ainsi la perception de la note vanillée par contraste.</p>
+<p>Nous avons analysé l’expertise et la fatigue séparément. Cependant, dans la réalité, un juge peut être à la fois expert et fatigué, ou novice et reposé.</p>
+<p>Pour savoir quel facteur influence réellement la détection de la vanille, nous utilisons un Modèle Linéaire Généralisé (GLM). Comme notre variable à expliquer est binaire (Réussite ou Échec), nous utilisons une régression logistique (famille binomiale).</p>
+<p><strong>L’objectif est d’isoler l’effet de la fatigue tout en “neutralisant” l’effet de l’expertise, et inversement.</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Conversion de réussite en binaire (1 pour reussi, 0 pour echec)</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>data_duotrio<span class="sc">$</span>succes_num <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(data_duotrio<span class="sc">$</span>reussite <span class="sc">==</span> <span class="st">"reussi"</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Modèle GLM</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>modele <span class="ot">&lt;-</span> <span class="fu">glm</span>(succes_num <span class="sc">~</span> expertise <span class="sc">+</span> fatigue, <span class="at">data =</span> data_duotrio, <span class="at">family =</span> binomial)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modele)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = succes_num ~ expertise + fatigue, family = binomial, 
+    data = data_duotrio)
+
+Coefficients:
+                Estimate Std. Error z value Pr(&gt;|z|)  
+(Intercept)      -0.5237     0.9327  -0.561    0.574  
+expertiseNovice  -0.1590     0.6965  -0.228    0.819  
+fatigue           0.3640     0.2120   1.717    0.086 .
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 79.881  on 59  degrees of freedom
+Residual deviance: 76.623  on 57  degrees of freedom
+AIC: 82.623
+
+Number of Fisher Scoring iterations: 4</code></pre>
+</div>
+</div>
+<p>L’estimation ne donne pas directement une probabilité, mais un Log-Odds (le logarithme du rapport de chances).</p>
+<ul>
+<li><p>L’Intercept (<code>−0.5237</code>) : C’est la valeur de la réussite quand toutes les autres variables sont à zéro. Ici, elle est négative, ce qui signifie qu’un “Expert” avec une “Fatigue” de 0 aurait une probabilité de réussite inférieure à 50 %.</p></li>
+<li><p>expertiseNovice (<code>−0.1590</code>) : Le signe négatif indique que passer d’Expert à Novice diminue les chances de réussite. Cependant, la valeur est très proche de 0, ce qui montre un faible impact.</p></li>
+<li><p>fatigue (<code>+0.3640</code>) : Le signe positif est l’élément clé. Chaque point de fatigue supplémentaire sur l’échelle de 1 à 5 “pousse” le sujet vers la réussite. Mathématiquement, cela augmente l’Odds de réussite d’environ <span class="math inline">\(e^{0.36} \simeq 1.43\)</span> (soit +43 % de chances par point de fatigue).</p></li>
+</ul>
+<p>La <code>Std. Error</code> est l’indice de précision.</p>
+<p>La <code>z value</code> est le score de test. Plus sa valeur absolue est élevée, plus le résultat est statistiquement solide. Ici, seul le score de la fatigue (1.717) s’approche de cette zone de confiance.</p>
+<p><strong>La probabilité critique <code>Pr(&gt;|z|)</code> est la p-value du modèle !</strong></p>
+</section>
+</section>
+<section id="test-triangulaire" class="level3">
+<h3 class="anchored" data-anchor-id="test-triangulaire">Test triangulaire</h3>
+<p>coming.</p>
+</section>
+<section id="test-p-parmi-n" class="level3">
+<h3 class="anchored" data-anchor-id="test-p-parmi-n">Test p parmi n</h3>
+<p>coming</p>
+</section>
+</section>
+<section id="tests-descriptifs" class="level2">
+<h2 class="anchored" data-anchor-id="tests-descriptifs">Tests descriptifs</h2>
+<p>Les <strong>tests descriptifs</strong> permettent de caractériser précisément la nature et l’intensité des caractéristiques sensoriels.</p>
+</section>
+<section id="test-de-classement" class="level2">
+<h2 class="anchored" data-anchor-id="test-de-classement">Test de classement</h2>
+<p>coming</p>
+</section>
+
+</main>
+<!-- /main column -->
+<style>
+
+.pdf-download-in-toc {
+
+  text-align: center;
+
+  margin-top: 1rem;
+
+}
+
+
+
+.pdf-download-in-toc a {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.4em;
+
+  padding: 0.4em 0.8em;
+
+  background-color: #f5f5f5;
+
+  border-radius: 8px;
+
+  text-decoration: none;
+
+  font-size: 0.9em;
+
+  color: #333;
+
+  transition: background-color 0.2s ease;
+
+}
+
+
+
+.pdf-download-in-toc a:hover {
+
+  background-color: #e0e0e0;
+
+}
+
+
+
+.pdf-download-in-toc svg {
+
+  width: 18px;
+
+  height: 18px;
+
+  fill: currentColor;
+
+}
+
+</style>
+
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+
+  // essaie plusieurs sélecteurs possibles pour trouver le TOC
+
+  const toc =
+
+    document.querySelector(".quarto-toc-container") ||
+
+    document.querySelector(".toc") ||
+
+    document.querySelector("nav#TOC") ||
+
+    document.querySelector(".sidebar nav");
+
+
+
+  if (toc) {
+
+    // Ajouter le logo avant le TOC
+
+    const logo = document.createElement("img");
+
+    logo.src = "img/Logo_simple_ISTOM_Couleurs_HD.png"; // adapte si besoin
+
+    logo.alt = "Logo ISTOM";
+
+    logo.style.cssText = "display:block;height:70px;margin:0 0 1rem 1rem";
+
+    
+
+    toc.parentNode.insertBefore(logo, toc);
+
+    
+
+    // S'assurer que le TOC est sous le logo
+
+    toc.style.clear = "both";
+
+
+
+    // Ajouter le bouton PDF
+
+    //const div = document.createElement("div");
+
+    //div.className = "pdf-download-in-toc";
+
+    //div.innerHTML = `
+
+      //<a href="doc/FROMAGEOT_Clementine_MFE_P111_2025.pdf" target="_blank">
+
+        //<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+
+          //<path d="M12 16l4-5h-3V4h-2v7H8l4 5zm8 2H4v2h16v-2z"/>
+
+        //</svg>
+
+        //Mémoire C. Fromageot
+
+      //</a>
+
+    //`;
+
+    //toc.appendChild(div);
+
+  } else {
+
+    console.warn("TOC non trouvé — vérifie le thème ou la structure HTML");
+
+  }
+
+});
+
+</script>
+
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copié");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copié");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

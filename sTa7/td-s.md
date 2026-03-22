@@ -44,7 +44,7 @@
 
 ### Traitement statistique de données sensorielles
 
-> [coming]() &#x1F4BB; &#x1f1eb;&#x1f1f7;  
+> [Statistiques Sensorielles : Du palais à la p-value (en construction)](Apprenez à transformer des perceptions humaines subjectives en données scientifiques rigoureuses à travers des exemple concrets) &#x1F4BB; &#x1f1eb;&#x1f1f7;  
 > *coming*
 
 ### Modélisation
