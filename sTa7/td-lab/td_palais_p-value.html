@@ -501,11 +501,14 @@ odds ratio
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_duotrio, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(fatigue), <span class="at">fill =</span> reussite)) <span class="sc">+</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>) <span class="sc">+</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Impact de la fatigue sur la performance"</span>,</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Niveau de fatigue (1 à 5)"</span>, <span class="at">y =</span> <span class="st">"Proportion"</span>) <span class="sc">+</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_duotrio, </span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(fatigue), <span class="at">fill =</span> reussite)) <span class="sc">+</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>) <span class="sc">+</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Impact de la fatigue sur la performance"</span>,</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Niveau de fatigue (1 à 5)"</span>, </span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Proportion"</span>) <span class="sc">+</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -517,47 +520,6 @@ odds ratio
 <p>On observe une tendance surprenante : le taux de reussite semble croître avec le niveau de fatigue. Alors que la théorie suggère que la fatigue sensorielle mène à des réponses aléatoires (50 % de réussite), nos résultats montrent que les sujets les plus fatigués (niveaux 4 et 5) affichent les meilleures performances de détection.</p>
 <p><strong>Conclusion</strong> : Ce résultat suggère que dans le cadre du Bissap Istomien, la fatigue n’a pas été un frein à la discrimination. Cela peut s’expliquer par un surcroît de concentration des sujets fatigués ou par une saturation des saveurs dominantes du bissap, facilitant ainsi la perception de la note vanillée par contraste.</p>
 <p>Nous avons analysé l’expertise et la fatigue séparément. Cependant, dans la réalité, un juge peut être à la fois expert et fatigué, ou novice et reposé.</p>
-<p>Pour savoir quel facteur influence réellement la détection de la vanille, nous utilisons un Modèle Linéaire Généralisé (GLM). Comme notre variable à expliquer est binaire (Réussite ou Échec), nous utilisons une régression logistique (famille binomiale).</p>
-<p><strong>L’objectif est d’isoler l’effet de la fatigue tout en “neutralisant” l’effet de l’expertise, et inversement.</strong></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Conversion de réussite en binaire (1 pour reussi, 0 pour echec)</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>data_duotrio<span class="sc">$</span>succes_num <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(data_duotrio<span class="sc">$</span>reussite <span class="sc">==</span> <span class="st">"reussi"</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Modèle GLM</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>modele <span class="ot">&lt;-</span> <span class="fu">glm</span>(succes_num <span class="sc">~</span> expertise <span class="sc">+</span> fatigue, <span class="at">data =</span> data_duotrio, <span class="at">family =</span> binomial)</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modele)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-glm(formula = succes_num ~ expertise + fatigue, family = binomial, 
-    data = data_duotrio)
-
-Coefficients:
-                Estimate Std. Error z value Pr(&gt;|z|)  
-(Intercept)      -0.5237     0.9327  -0.561    0.574  
-expertiseNovice  -0.1590     0.6965  -0.228    0.819  
-fatigue           0.3640     0.2120   1.717    0.086 .
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-(Dispersion parameter for binomial family taken to be 1)
-
-    Null deviance: 79.881  on 59  degrees of freedom
-Residual deviance: 76.623  on 57  degrees of freedom
-AIC: 82.623
-
-Number of Fisher Scoring iterations: 4</code></pre>
-</div>
-</div>
-<p>L’estimation ne donne pas directement une probabilité, mais un Log-Odds (le logarithme du rapport de chances).</p>
-<ul>
-<li><p>L’Intercept (<code>−0.5237</code>) : C’est la valeur de la réussite quand toutes les autres variables sont à zéro. Ici, elle est négative, ce qui signifie qu’un “Expert” avec une “Fatigue” de 0 aurait une probabilité de réussite inférieure à 50 %.</p></li>
-<li><p>expertiseNovice (<code>−0.1590</code>) : Le signe négatif indique que passer d’Expert à Novice diminue les chances de réussite. Cependant, la valeur est très proche de 0, ce qui montre un faible impact.</p></li>
-<li><p>fatigue (<code>+0.3640</code>) : Le signe positif est l’élément clé. Chaque point de fatigue supplémentaire sur l’échelle de 1 à 5 “pousse” le sujet vers la réussite. Mathématiquement, cela augmente l’Odds de réussite d’environ <span class="math inline">\(e^{0.36} \simeq 1.43\)</span> (soit +43 % de chances par point de fatigue).</p></li>
-</ul>
-<p>La <code>Std. Error</code> est l’indice de précision.</p>
-<p>La <code>z value</code> est le score de test. Plus sa valeur absolue est élevée, plus le résultat est statistiquement solide. Ici, seul le score de la fatigue (1.717) s’approche de cette zone de confiance.</p>
-<p><strong>La probabilité critique <code>Pr(&gt;|z|)</code> est la p-value du modèle !</strong></p>
 </section>
 </section>
 <section id="test-triangulaire" class="level3">
