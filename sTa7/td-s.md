@@ -44,7 +44,7 @@
 
 ### Traitement statistique de données sensorielles
 
-> [Statistiques Sensorielles : Du palais à la p-value (en construction)](./td-lab/td_palais_p-value.html) &#x1F4BB; &#x1f1eb;&#x1f1f7;  
+> [Du palais à la p-value (en construction)](./td-lab/td_palais_p-value.html) &#x1F4BB; &#x1f1eb;&#x1f1f7;  
 > *Apprenez à transformer des perceptions humaines subjectives en données scientifiques rigoureuses à travers des exemples concrets.*
 
 ### Modélisation
