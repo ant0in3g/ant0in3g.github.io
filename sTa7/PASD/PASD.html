@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -55,7 +89,16 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#sécurité-alimentaire-et-nutrition" id="toc-sécurité-alimentaire-et-nutrition" class="nav-link" data-scroll-target="#sécurité-alimentaire-et-nutrition">Sécurité alimentaire et nutrition</a></li>
   <li><a href="#démographie" id="toc-démographie" class="nav-link" data-scroll-target="#démographie">Démographie</a></li>
   </ul></li>
-  <li><a href="#coming" id="toc-coming" class="nav-link" data-scroll-target="#coming">coming</a></li>
+  <li><a href="#de-la-donnée-au-dashboard" id="toc-de-la-donnée-au-dashboard" class="nav-link" data-scroll-target="#de-la-donnée-au-dashboard">De la donnée au Dashboard</a>
+  <ul>
+  <li><a href="#ecosystème-quarto" id="toc-ecosystème-quarto" class="nav-link" data-scroll-target="#ecosystème-quarto">Ecosystème Quarto</a></li>
+  <li><a href="#en-tête" id="toc-en-tête" class="nav-link" data-scroll-target="#en-tête">En-tête</a></li>
+  <li><a href="#structure-globale" id="toc-structure-globale" class="nav-link" data-scroll-target="#structure-globale">Structure globale</a></li>
+  <li><a href="#loading-packages" id="toc-loading-packages" class="nav-link" data-scroll-target="#loading-packages">Loading packages</a></li>
+  <li><a href="#importation-des-données" id="toc-importation-des-données" class="nav-link" data-scroll-target="#importation-des-données">Importation des données</a></li>
+  <li><a href="#préparation-et-nettoyage-des-données" id="toc-préparation-et-nettoyage-des-données" class="nav-link" data-scroll-target="#préparation-et-nettoyage-des-données">Préparation et nettoyage des données</a></li>
+  <li><a href="#construction" id="toc-construction" class="nav-link" data-scroll-target="#construction">construction</a></li>
+  </ul></li>
   </ul>
 </nav>
 </div>
@@ -81,7 +124,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">15 mars 2026</p>
+      <p class="date">25 mars 2026</p>
     </div>
   </div>
   
@@ -143,23 +186,32 @@ Visualisation du rendu final
 </section>
 <section id="dossier-de-travail" class="level2">
 <h2 class="anchored" data-anchor-id="dossier-de-travail">Dossier de travail</h2>
-<p>Vous pouvez retrouver via ce <a href="">lien</a> la liste des groupes.</p>
+<p>Vous pouvez retrouver via ce <a href="https://istom-my.sharepoint.com/:t:/g/personal/a_gere_istom_fr/IQBM0RP-I14IRZhdwr9SVF0ZAbDrOTkwNu8ngiuMb2NG0c0?e=iToDLE">lien</a> la liste des groupes.</p>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" style="width:20%;">
 <ul>
-<li><a href="">Groupe 1 -</a></li>
-<li><a href="">Groupe 2 -</a></li>
-<li><a href="">Groupe 3 -</a></li>
-<li><a href="">Groupe 4 -</a></li>
-<li><a href="">Groupe 5 -</a></li>
+<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PASD/PASD_Gr-01?csf=1&amp;web=1&amp;e=TZuBpw">Groupe 1</a></li>
+<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PASD/PASD_Gr-02?csf=1&amp;web=1&amp;e=AnG6QG">Groupe 2</a></li>
 </ul>
-</div><div class="column" style="width:50%;">
+</div><div class="column" style="width:20%;">
 <ul>
-<li><a href="">Groupe 6 -</a></li>
-<li><a href="">Groupe 7 -</a></li>
-<li><a href="">Groupe 8 -</a></li>
-<li><a href="">Groupe 9 -</a></li>
-<li><a href="">Groupe 10 -</a></li>
+<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PASD/PASD_Gr-03?csf=1&amp;web=1&amp;e=cu2vNj">Groupe 3</a></li>
+<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PASD/PASD_Gr-04?csf=1&amp;web=1&amp;e=lWuxp6">Groupe 4</a></li>
+</ul>
+</div><div class="column" style="width:20%;">
+<ul>
+<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PASD/PASD_Gr-04?csf=1&amp;web=1&amp;e=lWuxp6">Groupe 5</a></li>
+<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PASD/PASD_Gr-06?csf=1&amp;web=1&amp;e=qqajNK">Groupe 6</a></li>
+</ul>
+</div><div class="column" style="width:20%;">
+<ul>
+<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PASD/PASD_Gr-07?csf=1&amp;web=1&amp;e=WEJixh">Groupe 7</a></li>
+<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PASD/PASD_Gr-08?csf=1&amp;web=1&amp;e=gvUgdG">Groupe 8</a></li>
+</ul>
+</div><div class="column" style="width:20%;">
+<ul>
+<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PASD/PASD_Gr-09?csf=1&amp;web=1&amp;e=dfGKSz">Groupe 9</a></li>
+<li><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PASD/PASD_Gr-10?csf=1&amp;web=1&amp;e=3XTNte">Groupe 10</a></li>
 </ul>
 </div>
 </div>
@@ -277,14 +329,253 @@ Travail à faire .
 </tr>
 </tbody>
 </table>
+<p><br></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Sauvegarde des bases de données
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Les bases de données récupérées sur <a href="https://www.fao.org/faostat/fr/#home" class="external">FAOSTAT</a> doivent être sauvegader dans le dossier <code>data_raw</code> de votre dossier OneDrive de ce projet PASD. Vous utiliserez les dénominations suivantes :</p>
+<ul>
+<li><p>la base de données issues de <em>Production</em> sera renommée <code>production.csv</code></p></li>
+<li><p>la base de données issues de <em>Valeur de la production</em> sera renommée <code>valeur_production.csv</code></p></li>
+<li><p>la base de données issues de <em>Sécurité alimentaire et nutrition</em> sera renommée <code>securite_alimentaire.csv</code></p></li>
+<li><p>la base de données issues de <em>Démographie</em> sera renommée <code>demographie.csv</code></p></li>
+</ul>
+</div>
+</div>
 </section>
 </section>
-<section id="coming" class="level2">
-<h2 class="anchored" data-anchor-id="coming">coming</h2>
-<p>coming</p>
+<section id="de-la-donnée-au-dashboard" class="level2">
+<h2 class="anchored" data-anchor-id="de-la-donnée-au-dashboard">De la donnée au Dashboard</h2>
+<p>Ouvrez le fichier <code>dashboard.qmd</code> déjà présent dans votre dossier OneDrive partagé. Nous allons apprendre à construire un dashboard pour illustrer votre travail en statistique descriptive sur R à partir des bases de données récupérées sur <a href="https://www.fao.org/faostat/fr/#home" class="external">FAOSTAT</a>.</p>
+<p>L’intérêt d’utiliser Quarto pour ce travail est multiple :</p>
+<ul>
+<li><p>La fiabilité des résultats : Contrairement à un copier-coller manuel dans Excel ou PowerPoint, Quarto lie directement votre code d’analyse à vos graphiques. Cela garantit qu’aucune erreur de manipulation n’est introduite entre le calcul et l’affichage.</p></li>
+<li><p>La synthèse multidimensionnelle : Vous transformez des données brutes éparpillées en une interface structurée. Quarto permet de regrouper sur une seule page des indicateurs variés (agronomiques, animaux, économiques et démographiques) pour offrir une vue d’ensemble immédiate.</p></li>
+<li><p>Un support d’aide à la décision : En tant qu’étudiants à l’ISTOM, vous apprenez à produire un document “prêt à l’emploi”. Quarto génère un fichier HTML élégant et figé, facilement consultable sur n’importe quel support, idéal pour présenter un diagnostic territorial clair et définitif.</p></li>
+</ul>
+<section id="ecosystème-quarto" class="level3">
+<h3 class="anchored" data-anchor-id="ecosystème-quarto">Ecosystème Quarto</h3>
+<p>Quarto est un outil pour la réalisation de publication technique et scientifique. Pour un ingénieur, c’est l’outil idéal pour transformer une analyse de données brute en un support de communication professionnel et structuré.</p>
+<p>Contrairement à un simple script R, un fichier Quarto (<code>.qmd</code>) est un document hybride qui repose sur trois piliers fondamentaux :</p>
+<ul>
+<li><p>L’en-tête <code>YAML</code> : Situé tout en haut entre les balises <code>---</code>, il définit la “carte d’identité” de votre document (titre, auteur, format de sortie comme dashboard)</p></li>
+<li><p>Le <code>Markdown</code> : C’est le texte narratif. II permet de structurer votre analyse avec des titres, des listes et des commentaires, sans nécessiter de connaissances en code.</p></li>
+<li><p>Les <code>Chunks</code> de code : Ce sont les blocs de code R, à insérer avec le bouton <img src="img/notebook-insert-chunk.png" class="img-fluid">) qui exécutent vos calculs et génèrent vos graphiques à partir des données FAOSTAT.</p></li>
+</ul>
+<p>Dans le cadre de ce travail, Quarto va vous permettre de compiler ces trois éléments pour générer un dashboard. Une interface visuelle organisée en lignes et colonnes, capable de résumer en un coup d’œil les enjeux de souveraineté alimentaire de nos deux pays d’étude.</p>
+</section>
+<section id="en-tête" class="level3">
+<h3 class="anchored" data-anchor-id="en-tête">En-tête</h3>
+<p>Pour commencer il est nécessaire d’éditer le fichier <code>.qmd</code> avec un en-tête spécifique. Je vous invite à copie-coller le code suivant :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"Première Analyse en Statistique Descriptive"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>format<span class="sc">:</span> </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  dashboard<span class="sc">:</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    logo<span class="sc">:</span> img<span class="sc">/</span>Logo_simple_ISTOM_Couleurs_HD.png</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    theme<span class="sc">:</span> [sandstone, theme<span class="sc">/</span>custom.scss]</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    nav<span class="sc">-</span>buttons<span class="sc">:</span> [link<span class="dv">-45</span>deg]</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    github<span class="sc">:</span> https<span class="sc">:</span><span class="er">//</span>github.com<span class="sc">/</span>votre<span class="sc">-</span>depot</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>fig<span class="sc">-</span>width<span class="sc">:</span> <span class="dv">10</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>fig<span class="sc">-</span>asp<span class="sc">:</span> <span class="fl">0.4</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>editor_options<span class="sc">:</span> </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  chunk_output_type<span class="sc">:</span> console</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="structure-globale" class="level3">
+<h3 class="anchored" data-anchor-id="structure-globale">Structure globale</h3>
+<p>Après avoir configuré votre en-tête (<code>YAML</code>), nous allons structurer l’interface de navigation. La Sidebar est un élément clé du dashboard : elle reste visible sur tous les onglets et permet d’afficher des informations contextuelles ou les crédits du projet.</p>
+<p>Il vous suffit de copier et coller le bloc de code ci-dessous juste après les tirets de fermeture <code>---</code> de votre en-tête dans un chunk R, inséré avec le bouton <img src="img/notebook-insert-chunk.png" class="img-fluid">.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#  {.sidebar}</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>Outil statistiques pour <span class="sc">:</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="er">|</span>                     <span class="er">|</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="er">|</span><span class="sc">---------------------</span><span class="er">|</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> <span class="er">**</span>Kenya<span class="sc">**</span> (Afrique) <span class="sc">|</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> <span class="er">**</span>France<span class="sc">**</span> (Europe) <span class="sc">|</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;</span>br<span class="sc">&gt;</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="er">|</span>                       <span class="er">|</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="er">|</span><span class="sc">-----------------------</span><span class="er">|</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> <span class="er">**</span>ISTOM<span class="sc">**</span>             <span class="er">|</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> <span class="er">**</span>Promotion <span class="dv">116</span><span class="sc">**</span>     <span class="er">|</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> <span class="er">**</span>Année <span class="dv">2025</span> <span class="sc">-</span> <span class="dv">2026</span><span class="sc">**</span> <span class="er">|</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> <span class="er">**</span>PASD<span class="sc">**</span>              <span class="er">|</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;</span>br<span class="sc">&gt;</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="er">:::</span> {.callout<span class="sc">-</span>note collapse<span class="ot">=</span><span class="st">"true"</span>}</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="do">## Auteur-es</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="sc">|</span>            <span class="er">|</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="er">|</span><span class="sc">------------</span><span class="er">|</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> Nom Prénom <span class="sc">|</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> Nom Prénom <span class="sc">|</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> Nom Prénom <span class="sc">|</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> Nom Prénom <span class="sc">|</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="er">:::</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Une fois la barre latérale en place, nous allons organiser le corps de votre dashboard. Quarto utilise une hiérarchie simple basée sur les titres pour structurer l’affichage :</p>
+<ul>
+<li><p>Les Pages ( <code>#</code> ): Créent des onglets de navigation en haut de la page.</p></li>
+<li><p>Les Lignes ( <code>## Row</code> ) : Définissent des rangées horizontales.</p></li>
+<li><p>Les Colonnes ( <code>### Column</code> ) : Divisent une ligne verticalement pour placer des graphiques côte à côte.</p></li>
+</ul>
+<p>Voici un exemple de structure à copier-coller à la suite de votre code pour créer vos premiers onglets, toujours dans un chunk R, avec le bouton <img src="img/notebook-insert-chunk.png" class="img-fluid">.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Productions</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Row {height="20%"}</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="do">### Rendement Moyen</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Row {height="80%"}</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="do">### Comparaison des cultures</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Analyse Macro &amp; Démo</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="do">## Row</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="do">### Poids Économique</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="do">### Dynamique Démographique</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Données</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="loading-packages" class="level3">
+<h3 class="anchored" data-anchor-id="loading-packages">Loading packages</h3>
+<p>Toujours dans un chunk R, avec le bouton <img src="img/notebook-insert-chunk.png" class="img-fluid">, il est indispensable de charger les packages qui permettront de traiter les données et de générer les graphiques.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DT)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Thème visuel pour les graphiques que je propose d'utiliser</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">16</span>))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="importation-des-données" class="level3">
+<h3 class="anchored" data-anchor-id="importation-des-données">Importation des données</h3>
+<p>Les fichiers <code>.csv</code> récupérés sur <a href="https://www.fao.org/faostat/fr/#home" class="external">FAOSTAT</a> sont à enregistrer dans votre dossier <code>data_raw</code>.</p>
+<p>Vous avez :</p>
+<ul>
+<li><p>un fichier production renomé <code>production.csv</code></p></li>
+<li><p>un fichier valeur production renomé <code>valeur_production.csv</code></p></li>
+<li><p>un fichier securité alimentaire renomé <code>securite_alimentaire.csv</code></p></li>
+<li><p>un fichier démographie renomé <code>demographie.csv</code></p></li>
+</ul>
+<p>Toujours dans un chunk R, avec le bouton <img src="img/notebook-insert-chunk.png" class="img-fluid">.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># IMPORTATION DES DONNEES</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>raw_fao_prod <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data_raw/production.csv"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>raw_fao_val_prod <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data_raw/valeur_production.csv"</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>raw_fao_secu_alim <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data_raw/securite_alimentaire.csv"</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>raw_fao_demographie <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data_raw/demographie.csv"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="préparation-et-nettoyage-des-données" class="level3">
+<h3 class="anchored" data-anchor-id="préparation-et-nettoyage-des-données">Préparation et nettoyage des données</h3>
+<p>Avant de procéder à l’analyse statistique, il est indispensable de nettoyer vos données. Cette étape permet de s’assurer que les unités sont cohérentes (par exemple, convertir les kg en tonnes) et que les noms des variables sont facilement utilisables dans vos graphiques.</p>
+<p>Toujours dans un chunk R, avec le bouton <img src="img/notebook-insert-chunk.png" class="img-fluid">.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># NETTOYAGE DES DONNEES</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>fao_prod <span class="ot">&lt;-</span> raw_fao_prod <span class="sc">|&gt;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Sélection des colonnes</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Zone, Produit, Élément, Année, Unité, Valeur) <span class="sc">|&gt;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Nettoyage des espaces sur les colonnes de texte</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">Zone =</span> <span class="fu">str_trim</span>(Zone),</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">Produit =</span> <span class="fu">str_trim</span>(Produit),</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    Élément <span class="ot">=</span> <span class="fu">str_trim</span>(Élément),</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    Unité <span class="ot">=</span> <span class="fu">str_trim</span>(Unité),</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Simplification des noms de produits</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">Produit =</span> <span class="fu">case_when</span>(</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>      Produit <span class="sc">==</span> <span class="st">"Maïs (maïs)"</span> <span class="sc">~</span> <span class="st">"Maïs"</span>,</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>      Produit <span class="sc">==</span> <span class="st">"Blé"</span> <span class="sc">~</span> <span class="st">"Blé"</span>,</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> Produit</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Simplification des noms d'éléments</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    Élément <span class="ot">=</span> <span class="fu">case_when</span>(</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>      Élément <span class="sc">==</span> <span class="st">"Superficie récoltée"</span> <span class="sc">~</span> <span class="st">"Surface"</span>,</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>      Élément <span class="sc">==</span> <span class="st">"Rendement"</span> <span class="sc">~</span> <span class="st">"Rendement"</span>,</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>      Élément <span class="sc">==</span> <span class="st">"Production"</span> <span class="sc">~</span> <span class="st">"Production"</span>,</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> Élément</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>On transforme ce jeu de données pour maintenant avoir un tableau avec comme variables / colonnes :</p>
+<div class="columns">
+<div class="column" style="width:33%;">
+<ul>
+<li><code>Zone</code></li>
+<li><code>Produit</code></li>
+<li><code>Année</code></li>
+</ul>
+</div><div class="column" style="width:33%;">
+<ul>
+<li><code>Surface</code></li>
+<li><code>Rendement</code></li>
+<li><code>Production</code></li>
+</ul>
+</div><div class="column" style="width:33%;">
+<ul>
+<li><code>Animaux laitiers</code></li>
+<li><code>Animaux Producteurs/Abattus</code></li>
+<li><code>Rendement/Poids Carcasse</code></li>
+</ul>
+</div>
+</div>
+<p>Toujours dans un chunk R, avec le bouton <img src="img/notebook-insert-chunk.png" class="img-fluid">.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>production <span class="ot">&lt;-</span> fao_prod <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># On ne garde que les colonnes nécessaires </span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Zone, Produit, Année, Élément, Valeur) <span class="sc">|&gt;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># On transforme les lignes de la colonne Élément en colonnes distinctes</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> Élément, </span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> Valeur</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># On renomme les colonnes</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Surface</span><span class="st">`</span> <span class="ot">=</span> Surface,</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Rendement</span><span class="st">`</span> <span class="ot">=</span> Rendement,</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Production</span><span class="st">`</span> <span class="ot">=</span> Production,</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Animaux laitiers</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">Animaux laitiers</span><span class="st">`</span>,</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Animaux Producteurs/Abattus</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">Animaux Producteurs/Abattus</span><span class="st">`</span>,</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Rendement/Poids Carcasse</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">Rendement/Poids Carcasse</span><span class="st">`</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="construction" class="level3">
+<h3 class="anchored" data-anchor-id="construction">construction</h3>
+<p>coming.</p>
 <p><br></p>
 <hr>
 <p><span class="smallcaps">Mise en forme par Antoine Géré.</span></p>
+</section>
 </section>
 
 </main>
