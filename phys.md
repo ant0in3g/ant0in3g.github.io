@@ -2,7 +2,7 @@
 
 Référent : [Antoine Géré](mailto:a.gere@istom.fr)
 
-Enseignants : [Fabien Bechu](mailto:f.bechu@istom.fr)
+Enseignant : [Fabien Bechu](mailto:f.bechu@istom.fr)
 
 > [**Ressources pour le cours de Physique**](https://istom-my.sharepoint.com/:f:/g/personal/a_gere_istom_fr/Ep2yDgQrcwBHnX1Q1aF7FT4Bvd1ue-m88paXajh-Xs4byg?e=yPyV75)
 
