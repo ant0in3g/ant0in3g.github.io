@@ -188,6 +188,7 @@ window.Quarto = {
   <li><a href="#exploitation-statistique-5" id="toc-exploitation-statistique-5" class="nav-link" data-scroll-target="#exploitation-statistique-5">Exploitation Statistique</a></li>
   <li><a href="#application-5" id="toc-application-5" class="nav-link" data-scroll-target="#application-5">Application</a></li>
   </ul></li>
+  <li><a href="#analyse-de-données-textuelles" id="toc-analyse-de-données-textuelles" class="nav-link" data-scroll-target="#analyse-de-données-textuelles">Analyse de Données Textuelles</a></li>
   </ul>
 </nav>
 </div>
@@ -220,7 +221,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">28 mars 2026</p>
+      <p class="date">5 avril 2026</p>
     </div>
   </div>
   
@@ -409,8 +410,8 @@ probability of success
 </div>
 </div>
 <ul>
-<li><p>Nombre de succès (17 / 30) : Un peu plus de la moitié des étudiants ( 56,7 % ) ont désigné le produit vanillé.</p></li>
-<li><p>La p-value <span class="math inline">\(0,2923\)</span>. C’est l’indicateur majeur. Elle est largement supérieure au seuil classique <span class="math inline">\(\alpha\)</span> de <span class="math inline">\(0,05\)</span> (5 %). On rejette donc l’hypothèse nulle.</p></li>
+<li><p>Nombre de succès (39 / 60) : Un peu plus de la moitié des étudiants ( 65 % ) ont désigné le produit vanillé.</p></li>
+<li><p>La p-value <span class="math inline">\(0,01367\)</span>. C’est l’indicateur majeur. Elle est largement supérieure au seuil classique <span class="math inline">\(\alpha\)</span> de <span class="math inline">\(0,05\)</span> (5 %). On rejette donc l’hypothèse nulle.</p></li>
 </ul>
 <p><strong>Influence de l’Expertise sur la réussite</strong></p>
 <p>Il est intéressant de voir si les “Experts” ont effectivement mieux détecté la vanille que les “Novices”. Pour cela, on utilise un tableau de contingence et un test de Fisher (plus robuste que le Chi-deux sur de petits effectifs).</p>
@@ -485,8 +486,8 @@ Result of difference test:
 Alternative hypothesis: d-prime is greater than 0 </code></pre>
 </div>
 </div>
-<p>Ici d-prime (d′) est égale à 0,2374.</p>
-<p>C’est la distance sensorielle. Une valeur de 0,24 est extrêmement faible. En analyse sensorielle, on considère qu’une différence commence à être intéressante au-delà de 1 et qu’elle est évidente au-delà de 2.</p>
+<p>Ici d-prime (d′) est égale à 0,5449.</p>
+<p>C’est la distance sensorielle. Une valeur de 0,5449 est extrêmement faible. En analyse sensorielle, on considère qu’une différence commence à être intéressante au-delà de 1 et qu’elle est évidente au-delà de 2.</p>
 </section>
 </section>
 <section id="test-duo-trio" class="level3">
@@ -1343,6 +1344,97 @@ D 1.8e-12 4.0e-05 0.273</code></pre>
 <li><p>Il n’y a pas de différence significative entre C (Moyenne) et D (Forte) (p-value = 0,273).</p></li>
 </ul>
 </section>
+</section>
+<section id="analyse-de-données-textuelles" class="level2">
+<h2 class="anchored" data-anchor-id="analyse-de-données-textuelles">Analyse de Données Textuelles</h2>
+<p>On peut également proposer après chaque test un espace de commentaires libre. Ce afin de réaliser une analyse de données textuelles.</p>
+<p>Afin d’enrichir l’analyse lors de chaque test sensoriel, un espace de commentaires libres peut être proposé aux sujets. Ce recueil de mots et d’expressions permet de réaliser une Analyse de Données Textuelles. L’objectif est double :</p>
+<ul>
+<li><p>d’une part, identifier des descripteurs sensoriels émergents qui n’auraient pas été captés par les échelles structurées</p></li>
+<li><p>et, d’autre part, dégager des tendances qualitatives permettant d’interpréter les préférences ou les rejets des produits</p></li>
+</ul>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code pour générer nos données
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>banque_A <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"acide"</span>, <span class="st">"naturel"</span>, <span class="st">"manque de sucre"</span>, <span class="st">"rouge intense"</span>, <span class="st">"frais"</span>, <span class="st">"typique"</span>)</span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a>banque_B <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"subtil"</span>, <span class="st">"léger parfum"</span>, <span class="st">"équilibré"</span>, <span class="st">"agréable"</span>, <span class="st">"peu de vanille"</span>, <span class="st">"douceur"</span>)</span>
+<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a>banque_C <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"très bon"</span>, <span class="st">"vanille présente"</span>, <span class="st">"gourmand"</span>, <span class="st">"parfumé"</span>, <span class="st">"équilibré"</span>, <span class="st">"rond"</span>)</span>
+<span id="cb57-7"><a href="#cb57-7" aria-hidden="true" tabindex="-1"></a>banque_D <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"trop fort"</span>, <span class="st">"chimique"</span>, <span class="st">"artificiel"</span>, <span class="st">"écoeurant"</span>, <span class="st">"persistant"</span>, <span class="st">"intense"</span>)</span>
+<span id="cb57-8"><a href="#cb57-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-9"><a href="#cb57-9" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb57-10"><a href="#cb57-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-11"><a href="#cb57-11" aria-hidden="true" tabindex="-1"></a>data_commentaires <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb57-12"><a href="#cb57-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">ID_Etudiant =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">60</span>,</span>
+<span id="cb57-13"><a href="#cb57-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">Produit =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Nature"</span>, <span class="st">"Vanille_5"</span>, <span class="st">"Vanille_10"</span>, <span class="st">"Vanille_20"</span>), <span class="at">each =</span> <span class="dv">15</span>),</span>
+<span id="cb57-14"><a href="#cb57-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">Commentaire =</span> <span class="fu">c</span>(</span>
+<span id="cb57-15"><a href="#cb57-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">replicate</span>(<span class="dv">15</span>, <span class="fu">paste</span>(<span class="fu">sample</span>(banque_A, <span class="dv">2</span>), <span class="at">collapse =</span> <span class="st">", "</span>)),</span>
+<span id="cb57-16"><a href="#cb57-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">replicate</span>(<span class="dv">15</span>, <span class="fu">paste</span>(<span class="fu">sample</span>(banque_B, <span class="dv">2</span>), <span class="at">collapse =</span> <span class="st">", "</span>)),</span>
+<span id="cb57-17"><a href="#cb57-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">replicate</span>(<span class="dv">15</span>, <span class="fu">paste</span>(<span class="fu">sample</span>(banque_C, <span class="dv">2</span>), <span class="at">collapse =</span> <span class="st">", "</span>)),</span>
+<span id="cb57-18"><a href="#cb57-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">replicate</span>(<span class="dv">15</span>, <span class="fu">paste</span>(<span class="fu">sample</span>(banque_D, <span class="dv">2</span>), <span class="at">collapse =</span> <span class="st">", "</span>))</span>
+<span id="cb57-19"><a href="#cb57-19" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb57-20"><a href="#cb57-20" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-770c6aedd38bed268fdd" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-770c6aedd38bed268fdd">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td><\/td>\n  <td data-type=\"integer\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1\" data-max=\"60\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","caption":"<caption>Tableau des commentaires libres recueillis lors de l'analyse sensorielle<\/caption>","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60"],[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60],["Nature","Nature","Nature","Nature","Nature","Nature","Nature","Nature","Nature","Nature","Nature","Nature","Nature","Nature","Nature","Vanille_5","Vanille_5","Vanille_5","Vanille_5","Vanille_5","Vanille_5","Vanille_5","Vanille_5","Vanille_5","Vanille_5","Vanille_5","Vanille_5","Vanille_5","Vanille_5","Vanille_5","Vanille_10","Vanille_10","Vanille_10","Vanille_10","Vanille_10","Vanille_10","Vanille_10","Vanille_10","Vanille_10","Vanille_10","Vanille_10","Vanille_10","Vanille_10","Vanille_10","Vanille_10","Vanille_20","Vanille_20","Vanille_20","Vanille_20","Vanille_20","Vanille_20","Vanille_20","Vanille_20","Vanille_20","Vanille_20","Vanille_20","Vanille_20","Vanille_20","Vanille_20","Vanille_20"],["acide, frais","acide, typique","naturel, rouge intense","naturel, typique","acide, rouge intense","acide, frais","typique, rouge intense","naturel, typique","manque de sucre, acide","acide, manque de sucre","rouge intense, frais","frais, typique","rouge intense, naturel","rouge intense, manque de sucre","naturel, acide","léger parfum, équilibré","douceur, léger parfum","agréable, douceur","douceur, léger parfum","peu de vanille, agréable","peu de vanille, agréable","léger parfum, douceur","équilibré, subtil","peu de vanille, léger parfum","léger parfum, douceur","agréable, équilibré","douceur, peu de vanille","léger parfum, douceur","léger parfum, peu de vanille","subtil, douceur","parfumé, équilibré","vanille présente, très bon","équilibré, parfumé","parfumé, très bon","gourmand, rond","équilibré, rond","parfumé, équilibré","parfumé, vanille présente","vanille présente, très bon","vanille présente, équilibré","rond, équilibré","parfumé, très bon","parfumé, vanille présente","vanille présente, gourmand","équilibré, rond","intense, artificiel","intense, écoeurant","persistant, trop fort","écoeurant, trop fort","trop fort, persistant","intense, artificiel","trop fort, chimique","persistant, trop fort","persistant, intense","trop fort, chimique","artificiel, chimique","chimique, trop fort","artificiel, trop fort","persistant, trop fort","artificiel, trop fort"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>ID Étudiant<\/th>\n      <th>Échantillon<\/th>\n      <th>Commentaires libres<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"autoWidth":true,"language":{"url":"//cdn.datatables.net/plug-ins/1.10.11/i18n/French.json"},"columnDefs":[{"className":"dt-right","targets":1},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"ID_Etudiant","targets":1},{"name":"Produit","targets":2},{"name":"Commentaire","targets":3}],"order":[],"orderClasses":false,"orderCellsTop":true}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>On peut alors poursuivre avec une analyse frequentielle.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Liste de mots ( ponctuation) à exclure étendue</span></span>
+<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a>mots_inutiles <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"de"</span>, <span class="st">"la"</span>, <span class="st">"le"</span>, <span class="st">"un"</span>, <span class="st">"une"</span>, <span class="st">"trop"</span>, <span class="st">"très"</span>, <span class="st">"est"</span>, <span class="st">"et"</span>, <span class="st">"en"</span>, </span>
+<span id="cb58-7"><a href="#cb58-7" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"avec"</span>, <span class="st">"dans"</span>, <span class="st">"pour"</span>, <span class="st">"plus"</span>, <span class="st">"aux"</span>, <span class="st">"du"</span>, <span class="st">"sur"</span>)</span>
+<span id="cb58-8"><a href="#cb58-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-9"><a href="#cb58-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Préparation des données</span></span>
+<span id="cb58-10"><a href="#cb58-10" aria-hidden="true" tabindex="-1"></a>mots_counts <span class="ot">&lt;-</span> data_commentaires <span class="sc">%&gt;%</span></span>
+<span id="cb58-11"><a href="#cb58-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, Commentaire) <span class="sc">%&gt;%</span> </span>
+<span id="cb58-12"><a href="#cb58-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span>word <span class="sc">%in%</span> mots_inutiles) <span class="sc">%&gt;%</span></span>
+<span id="cb58-13"><a href="#cb58-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Produit, word, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb58-14"><a href="#cb58-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-15"><a href="#cb58-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualisation par Facettes (Top 5 par produit)</span></span>
+<span id="cb58-16"><a href="#cb58-16" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mots_counts <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(Produit) <span class="sc">%&gt;%</span> <span class="fu">slice_max</span>(n, <span class="at">n =</span> <span class="dv">5</span>, <span class="at">with_ties =</span> <span class="cn">FALSE</span>), </span>
+<span id="cb58-17"><a href="#cb58-17" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder_within</span>(word, n, Produit), <span class="at">y =</span> n, <span class="at">fill =</span> Produit)) <span class="sc">+</span></span>
+<span id="cb58-18"><a href="#cb58-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb58-19"><a href="#cb58-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_reordered</span>() <span class="sc">+</span> </span>
+<span id="cb58-20"><a href="#cb58-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Produit, <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
+<span id="cb58-21"><a href="#cb58-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb58-22"><a href="#cb58-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb58-23"><a href="#cb58-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Profil lexical du Bissap selon le dosage en vanille"</span>,</span>
+<span id="cb58-24"><a href="#cb58-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Analyse de fréquence sur 60 commentaires libres"</span>,</span>
+<span id="cb58-25"><a href="#cb58-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Mots les plus cités"</span>, </span>
+<span id="cb58-26"><a href="#cb58-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Nombre de citations (Fréquence)"</span></span>
+<span id="cb58-27"><a href="#cb58-27" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb58-28"><a href="#cb58-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb58-29"><a href="#cb58-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>) </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="td_palais_p-value_files/figure-html/analyse-lexicale-complete-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 
 </main>
