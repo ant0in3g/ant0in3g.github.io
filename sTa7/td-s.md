@@ -47,6 +47,11 @@
 > [Du palais à la p-value](./td-lab/td_palais_p-value.html) &#x1F4BB; &#x1f1eb;&#x1f1f7;  
 > *Apprenez à transformer des perceptions humaines subjectives en données scientifiques rigoureuses à travers des exemples concrets.*
 
+### Traitements statistiques de données textuelles
+
+> [coming]() &#x1F4BB; &#x1f1eb;&#x1f1f7;  
+> *coming*
+
 ### Modélisation
 
 > [L'Écologie du Paysage au Service de l'Apiculture : De la Cartographie à la Modélisation Prédictive (coming)]() &#x1F4BB; &#x1f1eb;&#x1f1f7;  
