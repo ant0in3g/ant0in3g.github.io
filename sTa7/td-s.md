@@ -45,7 +45,7 @@
 ### Classification, Clustering
 
 > [coming]() &#x1F4BB; &#x1f1eb;&#x1f1f7;  
-> *coming*
+> *coming - inspiré de ces ressources : [lien 1](https://rpubs.com/Josue90/intro_class_reg_clust) et [lien 2](https://mtes-mct.github.io/parcours_r_module_analyse_multi_dimensionnelles/classification-clustering.html).*
 
 ### Traitement statistique de données sensorielles
 
