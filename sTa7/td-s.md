@@ -4,6 +4,11 @@
 
 **Les bases de données utilisées sont disponible via ce [lien](https://github.com/ant0in3g/ant0in3g.github.io/tree/main/sTa7/td-lab/data_raw).**
 
+###  La Boîte à Outils R 
+
+> [tuto sur `tidyverse` - coming]() &#x1F4BB; &#x1f1eb;&#x1f1f7;  
+> *coming - ce sera inspiré de cette [ressource](https://book.utilitr.org/03_Fiches_thematiques/Fiche_tidyverse.html)*
+
 ### Statistique Descriptive et Data Cleaning
 
 > [Fondements de l'Analyse Statitique Univariée (coming)]() &#x270D;&#xFE0F;&#x200D;&#x1F3FD;&#xFE0F; &#x1f1eb;&#x1f1f7;  
