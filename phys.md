@@ -12,3 +12,9 @@ Enseignant : [Fabien Bechu](mailto:f.bechu@istom.fr)
 | Travaux dirigés   | 8 séances  | 8 séances  | 8 séances  |
 |:------------------|:-----------|:-----------|:-----------|
 | tot.              | 24 séances | 24 séances | 24 séances |
+
+Voici les ressources pour votre cours de mécanique des fluides :
+
+- [**Cours de statique des fluides**](./phys/statique_cours.pdf)
+
+- [**Cours de dynamique des fluides**](./phys/dynamique_cours.pdf)
