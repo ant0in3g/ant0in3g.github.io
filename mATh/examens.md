@@ -4,6 +4,7 @@ Vous pouvez de nouveau retrouver via ce [lien](./corrections.md/) les correction
 
 ### Première année
 
+- [Examen 1A du lundi 23 mars 2026](./examens/exam-math-S2-2026.03.23.pdf)
 - [Examen 1A du mardi 3 mars 2026](./examens/exam-math-S2-2026.03.03.pdf)
 - [Examen 1A du vendredi 23 janvier 2026](./examens/exam-math-S1-2026.01.23.pdf)
 - [Examen 1A du jeudi 8 janvier 2026](./examens/exam-math-S1-2026.01.08.pdf)
