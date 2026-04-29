@@ -15,8 +15,8 @@ Enseignant : [Fabien Bechu](mailto:f.bechu@istom.fr)
 
 Voici les ressources pour votre cours de mécanique des fluides :
 
-- [**Cours de statique des fluides**](./phys/statique_cours.pdf)
+- [**Statique des fluides**](./phys/statique_cours.pdf)
 
-- [**Cours de dynamique des fluides**](./phys/dynamique_cours.pdf)
+- [**Dynamique des fluides**](./phys/dynamique_cours.pdf)
 
 - [**Théorème des quantités de mouvement**](./phys/theoreme_quantit_de_mouvement.pdf)
