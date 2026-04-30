@@ -21,7 +21,7 @@ Enseignant : [Frédéric Koch](mailto:f.koch-ext@istom.fr) et [Fabien Bechu](mai
 
 ### Physique 2
 
-- **Partie 1 - Description de la matiere** : [Cours](./phys/phys2/Partie1/cours.pdf) et [td](./phys/phys2/Partie2/coursetTD.pdf).
+- **Partie 1 - Description de la matiere** : [Cours](./phys/phys2/Partie1/cours.pdf) et [td](./phys/phys2/Partie1/coursetTD.pdf).
 
 - **Partie 2 - Gaz parfaits** : [Cours](./phys/phys2/Partie2/coursloidesgazparfaits.pdf), [td 1](./phys/phys2/Partie2/TD1.pdf) et [td 2](./phys/phys2/Partie2/TD2.pdf).
 
