@@ -4,6 +4,7 @@ Vous pouvez de nouveau retrouver via ce [lien](./corrections.md) les corrections
 
 ### Première année
 
+- [Examen 1A du lundi 27 avril 2026](./examens/exam-stat-S2-2026.04.27.pdf)
 - [Examen 1A du mercredi 30 avril 2025](./examens/exam-stat-S2-2025.04.30.pdf)
 - [Examen 1A du lundi 24 mars 2025](./examens/exam-stat-S2-2025.03.24.pdf)
 
