@@ -4,11 +4,9 @@ Enseignant : [Antoine Géré](mailto:a.gere@istom.fr)
 
 Vous retrouverez [**ici** l'organisation de ce cours](sTa7/orga.md).
 
-> [**Slides du cours magistral**](sTa7/Slides/slides_fr.html) &#x1f1eb;&#x1f1f7;
->
-> [**Slides du cours magistral**](sTa7/Slides/slides_en.html) &#x1f1ec;&#x1f1e7; &#x1f1fa;&#x1f1f8;
->
 > [**Cours complet de Statistiques et analyse de données** (coming)]() &#x1f1eb;&#x1f1f7;
+>
+> [**Aide-mémoire des tests statistiques avec R**](sTa7/fiches-tests/testsR.html) &#x1f1eb;&#x1f1f7; &#x1f1ec;&#x1f1e7; &#x1f1fa;&#x1f1f8;
 >
 > [**Travaux dirigés** -- **R Lab**](sTa7/td-s.md) &#x1f1eb;&#x1f1f7; &#x1f1ec;&#x1f1e7; &#x1f1fa;&#x1f1f8;
 >
