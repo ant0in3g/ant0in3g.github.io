@@ -40,3 +40,5 @@ Voici les ressources pour votre cours de mécanique des fluides :
 - [**Dynamique des fluides**](./phys/phys3/dynamique_cours.pdf)
 
 - [**Théorème des quantités de mouvement**](./phys/phys3/theoreme_quantit_de_mouvement.pdf)
+
+- [**Travaux dirigés**](./phys/phys3/td.pdf)
