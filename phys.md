@@ -41,4 +41,19 @@ Voici les ressources pour votre cours de mécanique des fluides :
 
 - [**Théorème des quantités de mouvement**](./phys/phys3/theoreme_quantit_de_mouvement.pdf)
 
-- [**Travaux dirigés**](./phys/phys3/td.pdf)
+- [**Travaux dirigés 1**](./phys/phys3/TD1.pdf)
+
+- [**Travaux dirigés 2**](./phys/phys3/TD2.pdf)
+
+- [**Travaux dirigés 3**](./phys/phys3/TD3.pdf)
+
+- [**Travaux dirigés 4**](./phys/phys3/TD4.pdf)
+
+- [**Travaux dirigés 5**](./phys/phys3/TD5.pdf)
+
+- [**Exercices de révision**](./phys/phys3/Exercices_de_revision.pdf)
+
+- [**Exercice d'application du théorème des quantités de mouvement**](./phys/phys3/Exercice_application_QDM.pdf)
+
+
+
