@@ -22,6 +22,9 @@
 
 ### Statistique Inférentielle
 
+> [fiche td stat](./td-lab/td_stat.pdf) 
+> *Cette série d’exercices aborde les tests d’hypothèses. L’objectif est de maîtriser la formulation des hypothèses $H_0$ et $H_1$, le choix du test appropriée et la formulation de la règle de décision.*
+
 > [L'énigme des oeufs de coucou : une analyse comparative](./td-lab/td_coucou.html) &#x1F4BB; &#x1f1eb;&#x1f1f7;  
 > *Le coucou européen est un maître de la supercherie : il dépose ses oeufs dans les nids d'autres espèces. Mais pour ne pas être démasqué, le coucou adapte-t-il la taille de ses oeufs à celle de son hôte ? Dans cet exercice, vous allez mener une enquête statistique complète pour résoudre ce mystère. De la simple exploration graphique à l'analyse de variance (ANOVA), vérifiez si la "signature" de l'espèce hôte influence réellement la longueur des oeufs pondus. Une plongée dans les données pour distinguer le hasard de l'évolution !*
 
