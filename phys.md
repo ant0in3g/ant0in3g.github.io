@@ -11,7 +11,7 @@ Enseignant : [Frédéric Koch](mailto:f.koch-ext@istom.fr) et [Fabien Bechu](mai
 |:------------------|:-----------|:-----------|:-----------|
 | tot.              | 24 séances | 24 séances | 24 séances |
 
-### Physique 1
+### Physique 1 : [Frédéric Koch](mailto:f.koch-ext@istom.fr)
 
 - **Action sur le mouvement** : [Cours](./phys/chapter-s/Action_sur_le_mouvement/cours.pdf) et [td](./phys/chapter-s/Action_sur_le_mouvement/TD.pdf).
 
@@ -19,7 +19,7 @@ Enseignant : [Frédéric Koch](mailto:f.koch-ext@istom.fr) et [Fabien Bechu](mai
 
 - **Energies** : [Cours](./phys/chapter-s/Energies/cours.pdf).
 
-### Physique 2
+### Physique 2 : [Frédéric Koch](mailto:f.koch-ext@istom.fr)
 
 - **Partie 1 - Description de la matiere** : [Cours](./phys/chapter-s/Partie1/cours.pdf) et [td](./phys/chapter-s/Partie1/coursetTD.pdf).
 
@@ -31,7 +31,7 @@ Enseignant : [Frédéric Koch](mailto:f.koch-ext@istom.fr) et [Fabien Bechu](mai
 
 - **Partie 5 - Humidité de l'air** : [Cours](./phys/chapter-s/Partie5/cours.pdf) et [td](./phys/chapter-s/Partie5/TD.pdf).
 
-### Physique 3
+### Physique 3 : [Fabien Bechu](mailto:f.bechu@istom.fr)
 
 Voici les ressources pour votre cours de mécanique des fluides :
 
