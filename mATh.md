@@ -65,7 +65,7 @@ Vous pouvez également vous exercer sur votre espace [jai20enmaths](https://www.
 ### Semestre 4
 
 1. [Fonctions à plusieurs variables réelles](./mATh/chapter-s/fonction-multi-variables/chapter-s.pdf)
-> Vous trouverez à [ce lien](./maTh/fonction-multi-variables/td-exos.pdf) une série d'exercices corrigés.
+> Vous trouverez à [ce lien](./mATh/chapter-s/fonction-multi-variables/td-exos.pdf) une série d'exercices corrigés.
 2. [Intégrales multiples](./mATh/chapter-s/integrales-multiples/chapter-s.pdf)
 3. [Géométrie dans le plan et l'espace](./mATh/chapter-s/geometry/chapter-s.pdf)
 
