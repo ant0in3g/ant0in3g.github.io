@@ -22,7 +22,7 @@
 
 ### Statistique Inférentielle
 
-> [td tests stat (coming)]() &#x270D;&#xFE0F;&#x200D;&#x1F3FD;&#xFE0F; &#x1f1eb;&#x1f1f7;  
+> [td tests stat](./td-lab/td-tests-stat.pdf) &#x270D;&#xFE0F;&#x200D;&#x1F3FD;&#xFE0F; &#x1f1eb;&#x1f1f7;  
 > *Cette série d’exercices aborde les tests d’hypothèses. L’objectif est de maîtriser la formulation des hypothèses nulle et alternative, le choix du test appropriée et la formulation de la règle de décision.*
 
 > [L'énigme des oeufs de coucou : une analyse comparative](./td-lab/td_coucou.html) &#x1F4BB; &#x1f1eb;&#x1f1f7;  
