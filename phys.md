@@ -55,6 +55,8 @@ Voici les ressources pour votre cours de mécanique des fluides :
 
 - [**Exercice d'application du théorème des quantités de mouvement**](./phys/chapter-s/Exercice_application_QDM.pdf)
 
+- [**Exercice supplémentaire**](./phys/chapter-s/TD_revision.pdf)
+
 ### Examens
 
 Les sujets d’examens donnés sont disponible sur cette [page](./phys/examens.md).
