@@ -4,11 +4,17 @@ Référent : [Antoine Géré](mailto:a.gere@istom.fr)
 
 Enseignant : [Fabien Bechu](mailto:f.bechu@istom.fr)
 
-> [**Ressources pour le cours de Chimie**](https://istom-my.sharepoint.com/:f:/g/personal/a_gere_istom_fr/Ev-CFz0MwyFEu7_siUrL9-cB9h53aKkiT-g3GtduxWtaVw?e=ebGbf9)
-
 |                   | Semestre 1 | Semestre 2 |
 |:------------------|:-----------|:-----------|
-| Cours             | 12 séances | 12 séances |
-| Travaux dirigés   | 12 séances | 12 séances |
+| Cours             | 12 séances | 10 séances |
+| Travaux dirigés   | 14 séances | 10 séances |
 |:------------------|:-----------|:-----------|
-| tot.              | 24 séances | 24 séances |
+| tot.              | 24 séances | 20 séances |
+
+### Chimie 1
+
+coming.
+
+### Chimie 2
+
+coming.

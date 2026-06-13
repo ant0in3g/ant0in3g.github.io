@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrousel de Livres</title>
+    <style>
+        /* Styles de base du carrousel */
+        .carousel-container {
+            position: relative;
+            max-width: 800px;
+            margin: 40px auto;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        .carousel-track {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            /* Masque la barre de défilement sur Chrome/Safari/Firefox */
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .carousel-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .carousel-item {
+            flex: 0 0 100%; /* Affiche 1 image à la fois. Changez à 33.33% pour en afficher 3 */
+            scroll-snap-align: start;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            max-height: 450px;
+            object-fit: contain; /* Évite de déformer les couvertures de livres */
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        /* Boutons de navigation Nav */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            transition: background-color 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .carousel-btn:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .btn-prev { left: 15px; }
+        .btn-next { right: 15px; }
+
+        /* Indicateurs (points en bas) */
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            background-color: #bbb;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .dot.active {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="carousel-container">
+    <button class="carousel-btn btn-prev" id="prevBtn">&#10094;</button>
+    <button class="carousel-btn btn-next" id="nextBtn">&#10095;</button>
+
+    <div class="carousel-track" id="carouselTrack">
+        <div class="carousel-item"><img src="https://picsum.photos/800/450?random=1" alt="Livre 1"></div>
+        <div class="carousel-item"><img src="https://picsum.photos/800/450?random=2" alt="Livre 2"></div>
+        <div class="carousel-item"><img src="https://picsum.photos/800/450?random=3" alt="Livre 3"></div>
+        <div class="carousel-item"><img src="https://picsum.photos/800/450?random=4" alt="Livre 4"></div>
+        <div class="carousel-item"><img src="https://picsum.photos/800/450?random=5" alt="Livre 5"></div>
+        <div class="carousel-item"><img src="https://picsum.photos/800/450?random=6" alt="Livre 6"></div>
+        <div class="carousel-item"><img src="https://picsum.photos/800/450?random=7" alt="Livre 7"></div>
+        <div class="carousel-item"><img src="https://picsum.photos/800/450?random=8" alt="Livre 8"></div>
+        <div class="carousel-item"><img src="https://picsum.photos/800/450?random=9" alt="Livre 9"></div>
+        <div class="carousel-item"><img src="https://picsum.photos/800/450?random=10" alt="Livre 10"></div>
+    </div>
+
+    <div class="carousel-dots" id="dotsContainer">
+        </div>
+</div>
+
+<script>
+    const track = document.getElementById('carouselTrack');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const dotsContainer = document.getElementById('dotsContainer');
+    const items = document.querySelectorAll('.carousel-item');
+    
+    let currentIndex = 0;
+    const totalItems = items.length;
+
+    // Génération des points (dots)
+    items.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => scrollToSlide(index));
+        dotsContainer.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll('.dot');
+
+    // Fonction pour faire défiler jusqu'à une slide précise
+    function scrollToSlide(index) {
+        if (index < 0) index = totalItems - 1;
+        if (index >= totalItems) index = 0;
+        
+        currentIndex = index;
+        const itemWidth = items[0].getBoundingClientRect().width;
+        track.scrollTo({
+            left: itemWidth * currentIndex,
+            behavior: 'smooth'
+        });
+        updateDots();
+    }
+
+    // Mettre à jour la couleur du point actif
+    function updateDots() {
+        dots.forEach((dot, index) => {
+            if (index === currentIndex) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+    }
+
+    // Événements boutons
+    nextBtn.addEventListener('click', () => scrollToSlide(currentIndex + 1));
+    prevBtn.addEventListener('click', () => scrollToSlide(currentIndex - 1));
+
+    // Mettre à jour l'index si l'utilisateur scroll manuellement (au doigt sur mobile)
+    track.addEventListener('scroll', () => {
+        const itemWidth = items[0].getBoundingClientRect().width;
+        const newIndex = Math.round(track.scrollLeft / itemWidth);
+        if (newIndex !== currentIndex) {
+            currentIndex = newIndex;
+            updateDots();
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -2,36 +2,28 @@
 
 Référent : [Antoine Géré](mailto:a.gere@istom.fr)
 
-Enseignant : [Frédéric Koch](mailto:f.koch-ext@istom.fr) et [Fabien Bechu](mailto:f.bechu@istom.fr)
+Enseignant : [Fabien Bechu](mailto:f.bechu@istom.fr)
 
-|                   | Semestre 1 | Semestre 2 | Semestre 4 |
-|:------------------|:-----------|:-----------|:-----------|
-| Cours             | 16 séances | 16 séances | 16 séances |
-| Travaux dirigés   | 8 séances  | 8 séances  | 8 séances  |
-|:------------------|:-----------|:-----------|:-----------|
-| tot.              | 24 séances | 24 séances | 24 séances |
+|                   | Semestre 1 | Semestre 2 | Semestre 4 | Semestre 4 |
+|:------------------|:-----------|:-----------|:-----------|:-----------|
+| Cours             | 14 séances | 12 séances | 12 séances | 12 séances |
+| Travaux dirigés   | 10 séances | 6 séances  | 6 séances  | 6 séances  |
+|:------------------|:-----------|:-----------|:-----------|:-----------|
+| tot.              | 24 séances | 18 séances | 18 séances | 18 séances |
 
-### Physique 1 : [Frédéric Koch](mailto:f.koch-ext@istom.fr)
+### Physique 1
 
-- **Action sur le mouvement** : [Cours](./phys/chapter-s/Action_sur_le_mouvement/cours.pdf) et [td](./phys/chapter-s/Action_sur_le_mouvement/TD.pdf).
+coming.
 
-- **Description du mouvement** : [Cours](./phys/chapter-s/Description_du_mouvement/cours.pdf), [correction des applications du cours](./phys/chapter-s/Description_du_mouvement/corrections_appli_cours.pdf), [td 1](./phys/chapter-s/Description_du_mouvement/TD1.pdf) et [td 2](./phys/chapter-s/Description_du_mouvement/TD2.pdf).
+### Physique 2
 
-- **Energies** : [Cours](./phys/chapter-s/Energies/cours.pdf).
+coming.
 
-### Physique 2 : [Frédéric Koch](mailto:f.koch-ext@istom.fr)
+### Physique 3
 
-- **Partie 1 - Description de la matiere** : [Cours](./phys/chapter-s/Partie1/cours.pdf) et [td](./phys/chapter-s/Partie1/coursetTD.pdf).
+coming.
 
-- **Partie 2 - Gaz parfaits** : [Cours](./phys/chapter-s/Partie2/coursloidesgazparfaits.pdf), [td 1](./phys/phys2/chapter-s/TD1.pdf) et [td 2](./phys/phys2//TD2.pdf).
-
-- **Partie 3 - Transferts thermiques** : [Cours](./phys/chapter-s/Partie3/cours.pdf), [td 1](./phys/chapter-s/Partie3/TD1.pdf) et [td 2](./chapter-s/phys2/Partie3/TD2.pdf).
-
-- **Partie 4 - Energie** :  [Cours](./phys/chapter-s/Partie4/cours.pdf) et [td](./phys/chapter-s/Partie4/TD.pdf).
-
-- **Partie 5 - Humidité de l'air** : [Cours](./phys/chapter-s/Partie5/cours.pdf) et [td](./phys/chapter-s/Partie5/TD.pdf).
-
-### Physique 3 : [Fabien Bechu](mailto:f.bechu@istom.fr)
+### Physique 4
 
 Voici les ressources pour votre cours de mécanique des fluides :
 
@@ -60,6 +52,3 @@ Voici les ressources pour votre cours de mécanique des fluides :
 ### Examens
 
 Les sujets d’examens donnés sont disponible sur cette [page](./phys/examens.md).
-
-
-
