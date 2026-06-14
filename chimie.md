@@ -13,8 +13,8 @@ Enseignant : [Fabien Bechu](mailto:f.bechu@istom.fr)
 
 ### Chimie 1
 
-coming.
+[lien](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Chimie?csf=1&web=1&e=cJ576q)
 
 ### Chimie 2
 
-coming.
+[lien](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Chimie?csf=1&web=1&e=cJ576q)

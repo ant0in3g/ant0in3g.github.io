@@ -13,41 +13,19 @@ Enseignant : [Fabien Bechu](mailto:f.bechu@istom.fr)
 
 ### Physique 1
 
-coming.
+[lien](https://istom-my.sharepoint.com/:f:/g/personal/a_gere_istom_fr/IgBow9oD6SnISJ2CR6T5rA8AAfTqu1dbBL7OagcnfFsEulY?e=H4e498)
 
 ### Physique 2
 
-coming.
+[lien](https://istom-my.sharepoint.com/:f:/g/personal/a_gere_istom_fr/IgBow9oD6SnISJ2CR6T5rA8AAfTqu1dbBL7OagcnfFsEulY?e=H4e498)
 
 ### Physique 3
 
-coming.
+[lien](https://istom-my.sharepoint.com/:f:/g/personal/a_gere_istom_fr/IgBow9oD6SnISJ2CR6T5rA8AAfTqu1dbBL7OagcnfFsEulY?e=H4e498)
 
 ### Physique 4
 
-Voici les ressources pour votre cours de mécanique des fluides :
-
-- [**Statique des fluides**](./phys/chapter-s/statique_cours.pdf)
-
-- [**Dynamique des fluides**](./phys/chapter-s/dynamique_cours.pdf)
-
-- [**Théorème des quantités de mouvement**](./phys/chapter-s/theoreme_quantit_de_mouvement.pdf)
-
-- [**Travaux dirigés 1**](./phys/chapter-s/TD1.pdf)
-
-- [**Travaux dirigés 2**](./phys/chapter-s/TD2.pdf)
-
-- [**Travaux dirigés 3**](./phys/chapter-s/TD3.pdf)
-
-- [**Travaux dirigés 4**](./phys/chapter-s/TD4.pdf)
-
-- [**Travaux dirigés 5**](./phys/chapter-s/TD5.pdf)
-
-- [**Exercices de révision**](./phys/chapter-s/Exercices_de_revision.pdf)
-
-- [**Exercice d'application du théorème des quantités de mouvement**](./phys/chapter-s/Exercice_application_QDM.pdf)
-
-- [**Exercice supplémentaire**](./phys/chapter-s/TD_revision.pdf)
+[lien](https://istom-my.sharepoint.com/:f:/g/personal/a_gere_istom_fr/IgBow9oD6SnISJ2CR6T5rA8AAfTqu1dbBL7OagcnfFsEulY?e=H4e498)
 
 ### Examens
 
