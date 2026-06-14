@@ -4,6 +4,7 @@ Vous pouvez de nouveau retrouver via ce [lien](./corrections.md) les corrections
 
 ### Première année
 
+- [Examen 1A du lundi 8 juin 2026](./examens/exam-stat-S2-2026.06.08.pdf)
 - [Examen 1A du lundi 27 avril 2026](./examens/exam-stat-S2-2026.04.27.pdf)
 - [Examen 1A du mercredi 30 avril 2025](./examens/exam-stat-S2-2025.04.30.pdf)
 - [Examen 1A du lundi 24 mars 2025](./examens/exam-stat-S2-2025.03.24.pdf)
@@ -12,6 +13,7 @@ Vous pouvez de nouveau retrouver via ce [lien](./corrections.md) les corrections
 
 ### Deuxième année
 
+- [Examen 2A du mercredi 3 juin 2026](./examens/exam-stat-S4-2026.06.03.pdf)
 - [Examen 2A du mercredi 20 mai 2026](./examens/exam-stat-S4-2026.05.20.pdf)
 - [Examen 2A du mercredi 21 janvier 2026](./examens/exam-stat-S3-2026.01.21.pdf)
 - [Examen 2A du vendredi 12 décembre 2025](./examens/exam-stat-S3-2025.12.12.pdf)

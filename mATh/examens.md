@@ -4,6 +4,8 @@ Vous pouvez de nouveau retrouver via ce [lien](./corrections.md/) les correction
 
 ### Première année
 
+- [Examen 1A du mercredi 3 juin 2026](./examens/exam-stat-S2-2026.06.03.pdf)
+
 - [Examen 1A du lundi 25 mai 2026](./examens/exam-math-S2-2026.05.25.pdf)
 - [Examen 1A du lundi 23 mars 2026](./examens/exam-math-S2-2026.03.23.pdf)
 - [Examen 1A du mardi 3 mars 2026](./examens/exam-math-S2-2026.03.03.pdf)
@@ -22,6 +24,8 @@ Vous pouvez de nouveau retrouver via ce [lien](./corrections.md/) les correction
 
 ### Deuxième année
 
+- [Examen 2A du jeudi 4 juin 2026](./examens/exam-math-S4-2026.06.04.pdf)
+- [Examen 2A du jeudi 7 mai 2026](./examens/exam-math-S4-2026.06.07.pdf)
 - [Examen 2A du jeudi 7 mai 2026](./examens/exam-math-S4-2026.05.07.pdf)
 - [Examen 2A du lundi 12 janvier 2026](./examens/exam-math-S3-2026.01.12.pdf)
 - [Examen 2A du lundi 15 décembre 2025](./examens/exam-math-S3-2025.12.15.pdf)
