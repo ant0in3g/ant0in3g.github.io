@@ -4,46 +4,46 @@ Vous pouvez de nouveau retrouver via ce [lien](./corrections.md/) les correction
 
 ### Semestre 1
 
-- [Examen 1A du vendredi 23 janvier 2026](./examens/exam-math-S1-2026.01.23.pdf)
-- [Examen 1A du jeudi 8 janvier 2026](./examens/exam-math-S1-2026.01.08.pdf)
-- [Examen 1A du mercredi 26 novembre 2025](./examens/exam-math-S1-2025.11.26.pdf)
-- [Examen 1A du lundi 24 février 2025](./examens/exam-math-S1-2025.02.24.pdf)
-- [Examen 1A du lundi 27 janvier 2025](./examens/exam-math-S1-2025.01.27.pdf)
-- [Examen 1A du jeudi 12 décembre 2024](./examens/exam-math-S1-2024.12.12.pdf)
-- [Examem 1A du lundi 30 septembre 2024](./examens/exam-math-S1-2024.09.30.pdf)
+- [Examen du vendredi 23 janvier 2026](./examens/exam-math-S1-2026.01.23.pdf)
+- [Examen du jeudi 8 janvier 2026](./examens/exam-math-S1-2026.01.08.pdf)
+- [Examen du mercredi 26 novembre 2025](./examens/exam-math-S1-2025.11.26.pdf)
+- [Examen du lundi 24 février 2025](./examens/exam-math-S1-2025.02.24.pdf)
+- [Examen du lundi 27 janvier 2025](./examens/exam-math-S1-2025.01.27.pdf)
+- [Examen du jeudi 12 décembre 2024](./examens/exam-math-S1-2024.12.12.pdf)
+- [Examem du lundi 30 septembre 2024](./examens/exam-math-S1-2024.09.30.pdf)
 
 ---
 
 ### Semestre 2
 
-- [Examen 1A du mercredi 3 juin 2026](./examens/exam-stat-S2-2026.06.03.pdf)
-- [Examen 1A du lundi 25 mai 2026](./examens/exam-math-S2-2026.05.25.pdf)
-- [Examen 1A du lundi 23 mars 2026](./examens/exam-math-S2-2026.03.23.pdf)
-- [Examen 1A du mardi 3 mars 2026](./examens/exam-math-S2-2026.03.03.pdf)
-- [Examen 1A du jeudi 22 mai 2025](./examens/exam-math-S2-2025.05.22.pdf)
-- [Examen 1A du lundi 12 mai 2025](./examens/exam-math-S2-2025.05.12.pdf)
-- [Examen 1A du lundi 31 mars 2025](./examens/exam-math-S2-2025.03.31.pdf)
+- [Examen du mercredi 3 juin 2026](./examens/exam-stat-S2-2026.06.03.pdf)
+- [Examen du lundi 25 mai 2026](./examens/exam-math-S2-2026.05.25.pdf)
+- [Examen du lundi 23 mars 2026](./examens/exam-math-S2-2026.03.23.pdf)
+- [Examen du mardi 3 mars 2026](./examens/exam-math-S2-2026.03.03.pdf)
+- [Examen du jeudi 22 mai 2025](./examens/exam-math-S2-2025.05.22.pdf)
+- [Examen du lundi 12 mai 2025](./examens/exam-math-S2-2025.05.12.pdf)
+- [Examen du lundi 31 mars 2025](./examens/exam-math-S2-2025.03.31.pdf)
 
 ---
 
 ### Semestre 3
 
-- [Examen 2A du lundi 12 janvier 2026](./examens/exam-math-S3-2026.01.12.pdf)
-- [Examen 2A du lundi 15 décembre 2025](./examens/exam-math-S3-2025.12.15.pdf)
-- [Examen 2A du lundi 13 octobre 2025](./examens/exam-math-S3-2025.10.13.pdf)
-- [Examen 2A du lundi 24 février 2025](./examens/exam-math-S3-2025.02.24.pdf)
-- [Examen 2A du jeudi 9 janvier 2025](./examens/exam-math-S3-2025.01.09.pdf)
-- [Examen 2A du vendredi 6 décembre 2024](./examens/exam-math-S3-2024.12.06.pdf)
+- [Examen du lundi 12 janvier 2026](./examens/exam-math-S3-2026.01.12.pdf)
+- [Examen du lundi 15 décembre 2025](./examens/exam-math-S3-2025.12.15.pdf)
+- [Examen du lundi 13 octobre 2025](./examens/exam-math-S3-2025.10.13.pdf)
+- [Examen du lundi 24 février 2025](./examens/exam-math-S3-2025.02.24.pdf)
+- [Examen du jeudi 9 janvier 2025](./examens/exam-math-S3-2025.01.09.pdf)
+- [Examen du vendredi 6 décembre 2024](./examens/exam-math-S3-2024.12.06.pdf)
 
 ---
 
 ### Semestre 4
 
-- [Examen 2A du jeudi 4 juin 2026](./examens/exam-math-S4-2026.06.04.pdf)
-- [Examen 2A du jeudi 7 mai 2026](./examens/exam-math-S4-2026.06.07.pdf)
-- [Examen 2A du jeudi 7 mai 2026](./examens/exam-math-S4-2026.05.07.pdf)
-- [Examen 2A du jeudi 22 mai 2025](./examens/exam-math-S4-2025.05.22.pdf)
-- [Examen 2A du mardi 6 mai 2025](./examens/exam-math-S4-2025.05.06.pdf)
+- [Examen du jeudi 4 juin 2026](./examens/exam-math-S4-2026.06.04.pdf)
+- [Examen du jeudi 7 mai 2026](./examens/exam-math-S4-2026.06.07.pdf)
+- [Examen du jeudi 7 mai 2026](./examens/exam-math-S4-2026.05.07.pdf)
+- [Examen du jeudi 22 mai 2025](./examens/exam-math-S4-2025.05.22.pdf)
+- [Examen du mardi 6 mai 2025](./examens/exam-math-S4-2025.05.06.pdf)
 
 ---
 

@@ -2,16 +2,28 @@ Vous pouvez de nouveau retrouver via ce [lien](./corrections.md/) les correction
 
 ---
 
-### Première année
+### Semestre 1
 
 coming
 
 ---
 
-### Deuxième année
+### Semestre 2
 
-- [Examen 2A du mercredi 3 juin 2026](./examens/exam-phys-S4-2026.06.03.pdf)
-- [Examen 2A du lundi 18 mai 2026](./examens/exam-phys-S4-2026.05.18.pdf)
+coming
 
+---
 
+### Semestre 3
+
+coming
+
+---
+
+### Semestre 4
+
+- [Examen du mercredi 3 juin 2026](./examens/exam-phys-S4-2026.06.03.pdf)
+- [Examen du lundi 18 mai 2026](./examens/exam-phys-S4-2026.05.18.pdf)
+
+---
 
