@@ -16,7 +16,7 @@ Vous pouvez de nouveau retrouver via ce [lien](./corrections.md/) les correction
 
 ### Semestre 2
 
-- [Examen du mercredi 3 juin 2026](./examens/exam-stat-S2-2026.06.03.pdf)
+- [Examen du mercredi 3 juin 2026](./examens/exam-math-S2-2026.06.03.pdf)
 - [Examen du lundi 25 mai 2026](./examens/exam-math-S2-2026.05.25.pdf)
 - [Examen du lundi 23 mars 2026](./examens/exam-math-S2-2026.03.23.pdf)
 - [Examen du mardi 3 mars 2026](./examens/exam-math-S2-2026.03.03.pdf)
