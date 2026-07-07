@@ -13,8 +13,12 @@ Enseignant : [Fabien Bechu](mailto:f.bechu@istom.fr)
 
 ### Chimie 1
 
-[lien](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Chimie?csf=1&web=1&e=cJ576q)
+coming.
 
 ### Chimie 2
 
-[lien](https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Chimie?csf=1&web=1&e=cJ576q)
+coming.
+
+### Examens
+
+Les sujets d’examens donnés sont disponible sur cette [page](./chimie/examens.md).

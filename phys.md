@@ -13,19 +13,19 @@ Enseignant : [Fabien Bechu](mailto:f.bechu@istom.fr)
 
 ### Physique 1
 
-[lien](https://istom-my.sharepoint.com/:f:/g/personal/a_gere_istom_fr/IgBow9oD6SnISJ2CR6T5rA8AAfTqu1dbBL7OagcnfFsEulY?e=H4e498)
+coming.
 
 ### Physique 2
 
-[lien](https://istom-my.sharepoint.com/:f:/g/personal/a_gere_istom_fr/IgBow9oD6SnISJ2CR6T5rA8AAfTqu1dbBL7OagcnfFsEulY?e=H4e498)
+coming.
 
 ### Physique 3
 
-[lien](https://istom-my.sharepoint.com/:f:/g/personal/a_gere_istom_fr/IgBow9oD6SnISJ2CR6T5rA8AAfTqu1dbBL7OagcnfFsEulY?e=H4e498)
+coming.
 
 ### Physique 4
 
-[lien](https://istom-my.sharepoint.com/:f:/g/personal/a_gere_istom_fr/IgBow9oD6SnISJ2CR6T5rA8AAfTqu1dbBL7OagcnfFsEulY?e=H4e498)
+coming.
 
 ### Examens
 
