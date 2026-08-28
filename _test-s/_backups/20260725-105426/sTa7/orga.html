@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Organisation pratique — Statistiques | Antoine Géré</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<button class="toggle" id="themeToggle" aria-label="Changer de thème">◑</button>
+<div class="layout">
+  <aside>
+    <a class="back" href="../sTa7.html">← Statistiques</a>
+    <div class="brand-row">
+      <p class="brand sm">Antoine<br>Géré</p>
+      <span class="globe" aria-hidden="true" style="width:42px;height:42px"><canvas id="globeCanvas"></canvas></span>
+    </div>
+    <p class="role">R & RStudio · ISTOM</p>
+    <nav>
+      <a href="#onedrive">Dossier OneDrive</a>
+      <a class="sub" href="#sync">Synchronisation</a>
+      <a class="sub" href="#ecole">Ordinateur de l'école</a>
+      <a class="sub" href="#convention">Convention</a>
+      <a href="#tuto">Tutoriel R & RStudio</a>
+      <a class="sub" href="#install-r">Installation de R</a>
+      <a class="sub" href="#install-rstudio">Installation RStudio</a>
+      <a class="sub" href="#config">Configuration</a>
+      <a class="sub" href="#projets">Projets</a>
+      <a class="sub" href="#script-r">Script R</a>
+      <a class="sub" href="#script-quarto">Script Quarto</a>
+      <a class="sub" href="#aide">Obtenir de l'aide</a>
+      <a class="sub" href="#notions">Premières notions</a>
+      <a class="sub" href="#types">Types de données</a>
+      <a class="sub" href="#import">Importer des données</a>
+      <a class="sub" href="#export">Modifier & exporter</a>
+      <a class="sub" href="#fonctions">Les fonctions</a>
+      <a class="sub" href="#boucles">Conditions, boucles</a>
+    </nav>
+    <div class="side-contact">
+      <a href="mailto:a.gere@istom.fr">a.gere@istom.fr</a><br>
+      <a href="https://github.com/ant0in3g">github</a> ·
+      <a href="http://linkedin.com/in/antoine-gere">linkedin</a> ·
+      <a href="https://arxiv.org/search/?searchtype=author&query=G%C3%A9r%C3%A9,+Antoine">arxiv</a>
+    </div>
+  </aside>
+  <main>
+    <h1 class="page-title">Organisation pratique</h1>
+
+    <h2 id="onedrive">Dossier OneDrive</h2>
+    <p class="muted">Afin de faciliter notre travail en travaux dirigés, je vous partage un dossier OneDrive.</p>
+    <figure><img src="https://ant0in3g.github.io/sTa7/img/onedrive-orga.png" alt="Dossier OneDrive"></figure>
+    <p class="muted">Il vous est demandé de synchroniser ce dossier OneDrive sur votre ordinateur personnel.</p>
+
+    <h3 id="sync">Étapes de synchronisation d'un dossier partagé OneDrive (Windows/Mac)</h3>
+    <figure><iframe width="448" height="252" src="https://www.youtube.com/embed/8WC7iClUH3k" title="Synchronisation OneDrive" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></figure>
+    <ol>
+      <li><strong>Vérifier OneDrive sur son PC</strong> — bouton Démarrer, taper OneDrive ; s'il n'est pas installé, le télécharger depuis Microsoft ; se connecter avec son compte Microsoft ISTOM.</li>
+      <li><strong>Accéder au dossier partagé</strong> — se connecter sur <a href="https://onedrive.live.com/login">onedrive.live.com</a>, menu de gauche → Partagé, trouver le dossier à synchroniser.</li>
+      <li><strong>Synchroniser le dossier</strong> — ouvrir le dossier partagé, cliquer sur Synchroniser ; l'application OneDrive se lance et confirme la synchronisation.</li>
+      <li><strong>Retrouver le dossier</strong> — Explorateur de fichiers (Windows + E) → rubrique ISTOM.</li>
+    </ol>
+
+    <h3 id="ecole">Usage sur un ordinateur de l'école</h3>
+    <p class="muted">Sur un ordinateur de l'école, il est plus pratique de créer un raccourci du dossier partagé sur votre OneDrive ISTOM. La démarche est expliquée dans cette vidéo.</p>
+    <figure><iframe width="448" height="252" src="https://www.youtube.com/embed/BiirNtobNxE" title="Raccourci OneDrive" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></figure>
+
+    <h3 id="convention">Convention de synchronisation</h3>
+    <figure><img src="https://ant0in3g.github.io/sTa7/img/convention-OneDrive.png" alt="Convention OneDrive"></figure>
+
+    <h2 id="tuto">Tutoriel R & RStudio</h2>
+    <p class="muted">R est un langage de programmation et un environnement statistique open-source, largement utilisé pour l'analyse de données, les statistiques et la science des données. Créé dans les années 1990 par Ross Ihaka et Robert Gentleman, il est apprécié pour le traitement des données, la modélisation statistique et la visualisation. Grâce à une vaste communauté, R bénéficie d'un large écosystème de packages (via CRAN).</p>
+    <p class="muted">RStudio est un environnement de développement intégré (IDE) qui facilite l'utilisation de R : éditeur avancé, console interactive, outils de visualisation, gestion de projets, intégration Git, et génération de rapports dynamiques avec R Markdown et Quarto.</p>
+    <ul>
+      <li><strong>R Markdown</strong> : format de document intégrant du code R pour générer des rapports dynamiques (HTML, PDF, Word…).</li>
+      <li><strong>Quarto</strong> : évolution de R Markdown, multi-langage (R, Python, Julia…), pour documents scientifiques, tableaux de bord et sites web.</li>
+    </ul>
+    <figure class="logo"><img src="https://ant0in3g.github.io/sTa7/img/R_RStudio_LogoS.png" alt="R & RStudio"></figure>
+    <p class="muted">Pour installer R et RStudio il faut un PC Windows, une distribution Linux (par ex. Ubuntu) ou un Mac. On trouve des ordinateurs de qualité à moindre prix, en reconditionné, par exemple sur <a href="https://www.backmarket.fr/fr-fr">Back Market</a>.</p>
+
+    <h3 id="install-r">Installation de R</h3>
+    <p class="muted">Rendez-vous sur le site officiel <a href="https://cran.r-project.org/">CRAN</a> pour télécharger et installer R (choisir sa plateforme). Sous Windows, cliquez sur <code>install R for the first time</code> puis installez également <a href="https://cran.r-project.org/">Rtools</a>, ou via R :</p>
+    <pre><code>install.packages("utils")
+install.packages("installr")
+installr::install.Rtools()</code></pre>
+
+    <h3 id="install-rstudio">Installation de RStudio</h3>
+    <blockquote>En programmation, un IDE (environnement de développement) est un ensemble d'outils qui augmente la productivité des programmeurs. Source : <a href="https://fr.wikipedia.org/wiki/Environnement_de_d%C3%A9veloppement">Wikipédia</a></blockquote>
+    <p class="muted">Téléchargez RStudio depuis <a href="https://posit.co/download/rstudio-desktop/">Posit</a>, en choisissant l'installateur associé à votre système.</p>
+
+    <h3 id="config">Configuration de RStudio</h3>
+    <p class="muted">À la première ouverture, votre écran doit ressembler à ceci.</p>
+    <figure><img src="https://ant0in3g.github.io/sTa7/img/rstudio-1st-time.png" alt="RStudio première ouverture"></figure>
+    <p class="muted">L'organisation est modulable dans <code>Tools &gt; Global options</code>. Commençons par le <em>Pane Layout</em> (<code>Tools &gt; Global options &gt; Pane Layout</code>).</p>
+    <figure><img src="https://ant0in3g.github.io/sTa7/img/rstudio-config1.png" alt="Pane Layout"></figure>
+    <ul>
+      <li>En haut à gauche : la fenêtre <strong>Source</strong> (les scripts).</li>
+      <li>En haut à droite : Environnement, History, Connections, Build, VCS, Tutorial.</li>
+      <li>En bas à gauche : la <strong>Console</strong> (Terminal, Background Jobs).</li>
+      <li>En bas à droite : Files, Plots, Packages, Help, Viewer, Presentations.</li>
+    </ul>
+    <p class="muted"><strong>R General</strong> (<code>Tools &gt; Global options &gt; R General</code>) :</p>
+    <figure><img src="https://ant0in3g.github.io/sTa7/img/rstudio-config2.png" alt="R General"></figure>
+    <ul>
+      <li>Vérifiez la version R (bouton <strong>Change</strong>).</li>
+      <li>Workspace : décocher <em>Restore .RData…</em> et choisir <strong>Never</strong> pour <em>Save workspace…</em>.</li>
+      <li>History : laisser décochés. Other : laisser cochés les trois premiers.</li>
+    </ul>
+    <p class="muted"><strong>Code / Editing</strong> : sélectionnez <em>Use native pipe operator</em>.</p>
+    <figure><img src="https://ant0in3g.github.io/sTa7/img/rstudio-config3.png" alt="Code Editing"></figure>
+    <p class="muted"><strong>Code / Display</strong> : sélectionnez <em>Use rainbow parentheses</em>.</p>
+    <figure><img src="https://ant0in3g.github.io/sTa7/img/rstudio-config4.png" alt="Code Display"></figure>
+    <p class="muted"><strong>Appearance</strong> : à vous de choisir les options qui vous conviennent.</p>
+    <figure><img src="https://ant0in3g.github.io/sTa7/img/rstudio-config5.png" alt="Appearance"></figure>
+    <div class="callout"><span class="ctitle">Rappel</span>Ne pas oublier de cliquer sur <strong>Apply</strong> ! Pour vérifier votre version : <code>sessionInfo()</code>.</div>
+    <figure><img src="https://ant0in3g.github.io/sTa7/img/rstudio-check-version.png" alt="sessionInfo"></figure>
+
+    <h3 id="projets">Les projets avec RStudio</h3>
+    <p class="muted">Un projet centralise les éléments de travail (données, scripts, documentation, images) dans un dossier et évite les interactions involontaires entre projets.</p>
+    <div class="callout"><span class="ctitle">Maintenir les packages à jour</span>Onglet Packages → Update, ou <code>Tools &gt; Check for Package Update</code>. À faire au moins une fois par mois.</div>
+    <p class="muted">À la création, le dossier ne contient que le fichier <code>.Rproj</code>. Il est conseillé de créer des sous-dossiers : <code>data_raw</code>, <code>data</code>, <code>doc</code>, <code>img</code>.</p>
+    <figure><img src="https://ant0in3g.github.io/sTa7/img/1st_project_1.png" alt="Créer un projet"></figure>
+    <figure><img src="https://ant0in3g.github.io/sTa7/img/1st_project_2.png" alt="Sous-dossiers du projet"></figure>
+
+    <h3 id="script-r">Script R</h3>
+    <p class="muted">Créez un script (<code>File &gt; New File &gt; R Script</code>), enregistrez-le, puis écrivez votre première ligne :</p>
+    <pre><code>2 + 3</code></pre>
+    <p class="muted">Enregistrez et cliquez sur Run.</p>
+
+    <h3 id="script-quarto">Script Quarto</h3>
+    <p class="muted">Quarto est la nouvelle génération de R Markdown : documents (HTML, Word, PDF), diapositives, dashboards, sites web, livres — nativement. Quelques éléments de syntaxe :</p>
+    <ul>
+      <li>Saut de ligne : double espace en fin de ligne.</li>
+      <li><code>*italique*</code>, <code>**gras**</code>, <code>***gras et italique***</code>, <code>~~raturé~~</code>.</li>
+      <li>Code : <code>`code`</code>. Titres : <code>#</code>, <code>##</code>, <code>###</code>…</li>
+    </ul>
+    <p class="muted">Syntaxe complète sur la <a href="https://quarto.org/docs/authoring/markdown-basics">page Quarto</a>. Créez un document (<code>File &gt; New File &gt; Quarto Document</code>).</p>
+    <figure><img src="https://ant0in3g.github.io/sTa7/img/1er-doc-quarto1.png" alt="Nouveau document Quarto"></figure>
+    <p class="muted">Vous aurez besoin du package <code>rmarkdown</code> (cadran Packages → Install).</p>
+    <figure><img src="https://ant0in3g.github.io/sTa7/img/install-package-rstudio.png" alt="Installer un package"></figure>
+    <p class="muted">Pour générer le HTML, cliquez sur <strong>Render</strong> (ou <code>Ctrl + Shift + K</code>). Un <a href="https://quarto.org/docs/gallery/">ensemble d'exemples</a> de ce qu'il est possible de faire avec Quarto.</p>
+
+    <h3 id="aide">Obtenir de l'aide sur R</h3>
+    <p class="muted">Le système d'aide est accessible via <code>help(cmd)</code> ou <code>?cmd</code>. Recherche par mots-clés : <code>help.search()</code> ou <code>apropos()</code>. Toutes les commandes d'un package : <code>help(package=pkg)</code>.</p>
+
+    <h3 id="notions">Quelques premières notions</h3>
+    <pre><code>2 + 3
+2 * 3</code></pre>
+    <p class="muted">Pour du texte en sortie, il faut des guillemets :</p>
+    <pre><code>"ISTOM, Ecole supérieure d'agro-développement international"</code></pre>
+    <p class="muted">Les commentaires commencent par <code>#</code>. Les variables :</p>
+    <pre><code>ecole <- "ISTOM"
+adresse <- "4 Rue Joseph Lakanal, 49000 Angers"
+date_creation <- 1908
+
+paste("L'", ecole, "a été créée en", date_creation)</code></pre>
+
+    <h3 id="types">Les différents types de données</h3>
+    <p class="muted"><code>numeric</code>, <code>integer</code> (1L), <code>complex</code> (9 + 3i), <code>character</code>, <code>logical</code>. On vérifie avec <code>class()</code>.</p>
+    <pre><code>x <- 10.5;     class(x)   # numeric
+x <- 1000L;    class(x)   # integer
+x <- 9i + 3;   class(x)   # complex
+x <- "R is exciting"; class(x)   # character
+x <- TRUE;     class(x)   # logical</code></pre>
+    <p class="muted">Objets : vecteurs, listes, matrices, data frames, facteurs.</p>
+    <pre><code>x <- c(55, 1, 2, 3, 4)
+length(x); sort(x); x[3]
+
+ma_liste <- list("apple", "banana", "cherry")
+"apple" %in% ma_liste
+
+mat <- matrix(1:9, nrow = 3, ncol = 3)
+mat[1,2]; mat[,2]; dim(mat)
+
+df <- data.frame(Age = c(25, 30, 35), Sexe = c('Homme','Femme','Homme'))
+summary(df)
+
+music_genre <- factor(c("Jazz","Rock","Classic","Pop"))
+levels(music_genre)</code></pre>
+
+    <h3 id="import">Importer des données dans RStudio</h3>
+    <p class="muted">Téléchargez un CSV sur <a href="https://www.data.gouv.fr/fr/datasets/">data.gouv.fr</a>, enregistrez-le dans <code>data_raw</code>, puis :</p>
+    <pre><code>mixite_groupe_edf <- read.csv("data_raw/mixite-dans-le-groupe-edf.csv", sep = ";")</code></pre>
+    <div class="callout"><span class="ctitle">Bon réflexe</span>Lisez la page d'aide avant d'utiliser une fonction : <code>help("read.csv")</code>.</div>
+    <p class="muted">Pour un fichier Excel, chargez <code>readxl</code> :</p>
+    <pre><code>install.packages("readxl")
+library(readxl)
+salaire <- read_excel("data_raw/mrsd_2022Wages_table4.xlsx", sheet = "T4", range = "B10:J352")</code></pre>
+
+    <h3 id="export">Modifier et exporter des données</h3>
+    <pre><code>mixite_groupe_edf[38, 5] <- "Mars"
+
+# sélection de colonnes par nom ou par position
+mixite_groupe_edf_fr <- mixite_groupe_edf[, c(1:3, 5, 7, 9, 10, 12)]
+
+# export CSV
+write.csv(x = mixite_groupe_edf_fr, file = "data/presence_femme_edf.csv")
+
+# export XLSX
+install.packages("writexl"); library(writexl)
+write_xlsx(x = mixite_groupe_edf_fr, path = "data/presence_femme_edf.xlsx")</code></pre>
+
+    <h3 id="fonctions">Les fonctions</h3>
+    <pre><code>my_function <- function() {
+  print("L'ISTOM c'est top!")
+}
+my_function()
+
+ma_promo <- function(promo, groupe) {
+  paste("Promotion", promo, "groupe", groupe)
+}
+ma_promo(114, "A")
+
+ma_multiplication <- function(x) { return(5 * x) }
+print(ma_multiplication(3))</code></pre>
+
+    <h3 id="boucles">Conditions, boucles</h3>
+    <pre><code># If ... Else
+a <- 200; b <- 33
+if (b > a) { print("b is greater than a") }
+else if (a == b) { print("a and b are equal") }
+else { print("a is greater than b") }
+
+# AND / OR
+if (a > b & c > a) { print("Both conditions are true") }
+if (a > b | a > c) { print("At least one is true") }
+
+# While
+i <- 1
+while (i < 6) { print(i); i <- i + 1 }
+
+# For
+fruits <- list("apple", "banana", "cherry")
+for (x in fruits) { print(x) }</code></pre>
+  </main>
+</div>
+<script src="../assets/app.js"></script>
+</body>
+</html>

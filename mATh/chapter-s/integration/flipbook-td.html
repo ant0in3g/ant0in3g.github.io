@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Intégration — TD (flipbook) | Antoine Géré</title>
+<meta name="description" content="Feuille de travaux dirigés : Intégration, présentée en flipbook. ISTOM.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../assets/site.css">
+<style>
+  .layout{max-width:1760px;grid-template-columns:200px 1fr;gap:40px}
+  .bookmain{max-width:none}
+  .book-top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+  .book-wrap{display:block;width:100%;margin:0 auto}
+  #flip{margin:0 auto}
+  #flip .page{position:relative;background:#fff}
+  #flip .page img{width:100%;height:100%;display:block}
+  .pf-ll{position:absolute;inset:0;pointer-events:none}
+  .pf-ll a{position:absolute;pointer-events:auto;border-radius:2px}
+  .pf-ll a:hover{background:rgba(31,111,139,.16);outline:1px solid var(--accent)}
+  .book-controls{display:flex;align-items:center;justify-content:center;gap:18px;margin:22px 0 6px}
+  .bk-btn{font-family:'IBM Plex Mono',monospace;font-size:.8rem;letter-spacing:.04em;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 16px;cursor:pointer;transition:border-color .15s}
+  .bk-btn:hover{border-color:var(--accent);color:var(--accent)}
+  .bk-btn:disabled{opacity:.4;cursor:default;border-color:var(--line);color:var(--muted)}
+  .bk-count{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--muted);min-width:96px;text-align:center}
+  .book-loading{text-align:center;color:var(--muted);font-family:'IBM Plex Mono',monospace;font-size:.82rem;padding:60px 0}
+  .book-hint{text-align:center;color:var(--muted);font-size:.82rem;margin-top:4px}
+</style>
+</head>
+<body>
+<button class="toggle" id="themeToggle" aria-label="Changer de thème">◑</button>
+
+<div class="layout">
+  <aside>
+    <a class="back" href="../../../mATh.html">← Mathématiques</a>
+    <p class="brand sm">Travaux dirigés</p>
+    <p class="role">Intégration · ISTOM</p>
+    <div class="side-contact" style="margin-top:18px">
+      <a href="flipbook.html">↑ cours</a><br>
+      <a href="https://ant0in3g.github.io/mATh/chapter-s/integration/td-exos.pdf" target="_blank" rel="noopener">↓ Télécharger le PDF</a>
+    </div>
+  </aside>
+
+  <main class="bookmain">
+    <div class="book-top">
+      <h1 class="page-title" style="font-size:1.9rem;margin:0">Intégration — travaux dirigés</h1>
+    </div>
+
+    <div class="book-wrap">
+      <div id="flip" data-pdf="https://ant0in3g.github.io/mATh/chapter-s/integration/td-exos.pdf"></div>
+    </div>
+    <div class="book-loading" id="loading">Chargement du document…</div>
+
+    <div class="book-controls" id="controls" style="display:none">
+      <button class="bk-btn" id="prev">‹ Précédent</button>
+      <span class="bk-count" id="count">–</span>
+      <button class="bk-btn" id="next">Suivant ›</button>
+    </div>
+    <p class="book-hint" id="hint" style="display:none">Cliquez le coin d'une page pour tourner, ou utilisez les flèches. Les liens du document (sommaire…) sont cliquables.</p>
+  </main>
+</div>
+
+<script src="../../../assets/app.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
+<script src="../../../assets/flipbook.js"></script>
+</body>
+</html>
