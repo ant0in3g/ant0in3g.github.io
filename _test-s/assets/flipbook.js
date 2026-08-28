@@ -9,6 +9,7 @@
   var PDF_URL = el.getAttribute('data-pdf');
   var SCALE = parseFloat(el.getAttribute('data-scale') || '0');   // 0 = auto (densité écran)
   var DPR = Math.min(window.devicePixelRatio || 1, 2);            // plafonné à 2
+  var IS_MOBILE = window.matchMedia('(max-width: 860px)').matches; // mobile → défilement vertical
   var loadingEl = document.getElementById('loading'),
       controls  = document.getElementById('controls'),
       hint      = document.getElementById('hint'),
@@ -66,9 +67,13 @@
     // Résolution adaptative : plus nette sur écrans haute densité (mobile),
     // plafonnée selon le nombre de pages pour préserver la mémoire.
     if(!SCALE){
-      var maxS = total > 28 ? 2.8 : (total > 16 ? 3.2 : 3.6);
-      SCALE = Math.min(2.2 * DPR, maxS);
-      if(SCALE < 2.2) SCALE = 2.2;
+      if(IS_MOBILE){
+        SCALE = 3.0;   // net + zoomable ; le chargement paresseux gère la mémoire
+      } else {
+        var maxS = total > 28 ? 2.8 : (total > 16 ? 3.2 : 3.6);
+        SCALE = Math.min(2.2 * DPR, maxS);
+        if(SCALE < 2.2) SCALE = 2.2;
+      }
     }
     var ratio = 1.414, done = 0;
     var chain = Promise.resolve();
@@ -91,10 +96,26 @@
         });
       });
     }
-    chain.then(function(){ initFlip(ratio); });
+    chain.then(function(){ IS_MOBILE ? initScroll() : initFlip(ratio); });
   }).catch(function(){
     if(loadingEl) loadingEl.innerHTML = 'Le document n\'a pas pu être chargé ici. Vous pouvez l\'ouvrir directement : <a href="'+PDF_URL+'" target="_blank" rel="noopener">le PDF</a>.<br><span style="font-size:.75rem">(La visionneuse fonctionne sur le site publié.)</span>';
   });
+
+  /* Mode mobile : défilement vertical des pages en pleine largeur (lisible, zoomable) */
+  function initScroll(){
+    el.classList.add('pf-scroll');
+    pages.forEach(function(pg, i){
+      var im = document.createElement('img');
+      im.className = 'pf-page-img';
+      im.src = pg.img;
+      im.loading = 'lazy';
+      im.alt = 'Page ' + (i+1);
+      el.appendChild(im);
+    });
+    if(loadingEl) loadingEl.style.display = 'none';
+    if(controls) controls.style.display = 'none';
+    if(hint){ hint.style.display = 'block'; hint.textContent = 'Faites défiler pour lire ; pincez pour zoomer.'; }
+  }
 
   function initFlip(ratio){
     var baseW = 760, baseH = Math.round(baseW*ratio);

@@ -27,7 +27,9 @@
   btn.setAttribute('aria-expanded','false');
   btn.setAttribute('aria-controls', (nav.id || (nav.id='site-nav')));
   btn.textContent='☰ Menu';
-  nav.parentNode.insertBefore(btn, nav);
+  var brandRow=aside.querySelector('.brand-row');
+  if(brandRow){ brandRow.appendChild(btn); } else { nav.parentNode.insertBefore(btn, nav); }
+  document.documentElement.classList.add('has-navmenu');   // n'active le repli du menu que si le bouton existe
   function close(){ nav.classList.remove('open'); btn.setAttribute('aria-expanded','false'); btn.textContent='☰ Menu'; }
   function open(){ nav.classList.add('open'); btn.setAttribute('aria-expanded','true'); btn.textContent='✕ Fermer'; }
   btn.addEventListener('click', function(){ nav.classList.contains('open') ? close() : open(); });
