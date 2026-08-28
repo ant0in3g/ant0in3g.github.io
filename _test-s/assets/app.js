@@ -15,6 +15,25 @@
   });
 })();
 
+/* Menu repliable (mobile) : bouton ☰ qui déplie/replie la navigation latérale */
+(function(){
+  var aside=document.querySelector('aside');
+  if(!aside) return;
+  var nav=aside.querySelector('nav');
+  if(!nav) return;
+  var btn=document.createElement('button');
+  btn.type='button';
+  btn.className='nav-toggle';
+  btn.setAttribute('aria-expanded','false');
+  btn.setAttribute('aria-controls', (nav.id || (nav.id='site-nav')));
+  btn.textContent='☰ Menu';
+  nav.parentNode.insertBefore(btn, nav);
+  function close(){ nav.classList.remove('open'); btn.setAttribute('aria-expanded','false'); btn.textContent='☰ Menu'; }
+  function open(){ nav.classList.add('open'); btn.setAttribute('aria-expanded','true'); btn.textContent='✕ Fermer'; }
+  btn.addEventListener('click', function(){ nav.classList.contains('open') ? close() : open(); });
+  nav.addEventListener('click', function(e){ if(e.target.closest('a')) close(); });
+})();
+
 /* Bouton « copier » sur les cadres de code (hors sorties .out) */
 (function(){
   var blocks=document.querySelectorAll('pre:not(.out)');

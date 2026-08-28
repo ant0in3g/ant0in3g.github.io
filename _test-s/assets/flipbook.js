@@ -7,7 +7,8 @@
   var el = document.getElementById('flip');
   if(!el) return;
   var PDF_URL = el.getAttribute('data-pdf');
-  var SCALE = parseFloat(el.getAttribute('data-scale') || '2.2');
+  var SCALE = parseFloat(el.getAttribute('data-scale') || '0');   // 0 = auto (densité écran)
+  var DPR = Math.min(window.devicePixelRatio || 1, 2);            // plafonné à 2
   var loadingEl = document.getElementById('loading'),
       controls  = document.getElementById('controls'),
       hint      = document.getElementById('hint'),
@@ -62,6 +63,13 @@
   pdfjsLib.getDocument(PDF_SRC).promise.then(function(pdf){
     total = pdf.numPages;
     pages = new Array(total);
+    // Résolution adaptative : plus nette sur écrans haute densité (mobile),
+    // plafonnée selon le nombre de pages pour préserver la mémoire.
+    if(!SCALE){
+      var maxS = total > 28 ? 2.8 : (total > 16 ? 3.2 : 3.6);
+      SCALE = Math.min(2.2 * DPR, maxS);
+      if(SCALE < 2.2) SCALE = 2.2;
+    }
     var ratio = 1.414, done = 0;
     var chain = Promise.resolve();
     for(let i=1;i<=total;i++){
@@ -72,7 +80,7 @@
           var canvas = document.createElement('canvas');
           canvas.width = vp.width; canvas.height = vp.height;
           return page.render({canvasContext:canvas.getContext('2d'), viewport:vp}).promise.then(function(){
-            var img = canvas.toDataURL('image/jpeg', 0.82);
+            var img = canvas.toDataURL('image/jpeg', 0.9);
             return page.getAnnotations().then(function(anns){ return buildLinks(pdf, anns, vp); })
               .catch(function(){ return []; })
               .then(function(links){
