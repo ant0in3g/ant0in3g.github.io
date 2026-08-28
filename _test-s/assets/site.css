@@ -137,9 +137,14 @@ ol.chapters .td-link{font-family:'IBM Plex Mono',monospace;font-size:.75rem;disp
 
 /* Flipbook — couche de liens cliquables superposée */
 #flip{position:relative}
-/* Mode défilement (mobile) : pages empilées, pleine largeur */
+/* Mode défilement (mobile) : pages empilées, pleine largeur, liens cliquables */
 #flip.pf-scroll{display:flex;flex-direction:column;gap:14px;position:static}
+.pf-page{position:relative}
 .pf-page-img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:8px;background:#fff}
+.pf-ll-scroll{position:absolute;inset:0;pointer-events:none}
+.pf-ll-scroll a{position:absolute;pointer-events:auto;border-radius:2px}
+.pf-ll-scroll a:active{background:rgba(31,111,139,.20);outline:1px solid var(--accent)}
+.pf-page{scroll-margin-top:12px}
 .pf-overlay{position:absolute;left:0;top:0;pointer-events:none;z-index:40}
 .pf-overlay a{position:absolute;pointer-events:auto;border-radius:2px}
 .pf-overlay a:hover{background:rgba(31,111,139,.16);outline:1px solid var(--accent)}
@@ -199,10 +204,11 @@ ol.chapters .td-link{font-family:'IBM Plex Mono',monospace;font-size:.75rem;disp
   main{order:1;padding:6px 0 44px;max-width:100%}
   .role{margin-bottom:16px}
   .side-quote{margin:14px 0 0 !important}
+  .side-quote:last-of-type{margin-bottom:30px !important}   /* espace sous la dernière citation, comme au-dessus de la première */
   .side-contact{order:2;margin:0;padding:22px 0 26px;border-top:1px solid var(--line)}
   /* Navigation repliable derrière un bouton, placé à côté du nom */
   .brand-row{justify-content:space-between}
-  .nav-toggle{display:inline-flex;align-items:center;gap:8px;margin:0;padding:9px 14px;flex:none;
+  .nav-toggle{display:inline-flex;align-items:center;gap:8px;margin:0 46px 0 0;padding:9px 14px;flex:none;
     font-family:'IBM Plex Mono',monospace;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;
     color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:8px;cursor:pointer}
   .nav-toggle:hover{border-color:var(--accent);color:var(--accent)}

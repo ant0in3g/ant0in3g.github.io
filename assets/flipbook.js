@@ -101,20 +101,46 @@
     if(loadingEl) loadingEl.innerHTML = 'Le document n\'a pas pu être chargé ici. Vous pouvez l\'ouvrir directement : <a href="'+PDF_URL+'" target="_blank" rel="noopener">le PDF</a>.<br><span style="font-size:.75rem">(La visionneuse fonctionne sur le site publié.)</span>';
   });
 
-  /* Mode mobile : défilement vertical des pages en pleine largeur (lisible, zoomable) */
+  /* Mode mobile : défilement vertical des pages en pleine largeur (lisible, zoomable),
+     avec les liens du document cliquables (sommaire interne + liens externes). */
   function initScroll(){
     el.classList.add('pf-scroll');
     pages.forEach(function(pg, i){
+      var wrap = document.createElement('div');
+      wrap.className = 'pf-page';
+      wrap.id = 'pf-p-' + i;
       var im = document.createElement('img');
       im.className = 'pf-page-img';
       im.src = pg.img;
       im.loading = 'lazy';
       im.alt = 'Page ' + (i+1);
-      el.appendChild(im);
+      wrap.appendChild(im);
+      if(pg.links && pg.links.length){
+        var ll = document.createElement('div');
+        ll.className = 'pf-ll-scroll';
+        pg.links.forEach(function(l){
+          var a = document.createElement('a');
+          a.style.left = l.box.left+'%'; a.style.top = l.box.top+'%';
+          a.style.width = l.box.width+'%'; a.style.height = l.box.height+'%';
+          if(l.url){ a.href = l.url; a.target = '_blank'; a.rel = 'noopener'; a.title = l.url; }
+          else {
+            a.href = '#pf-p-' + l.page;
+            a.title = 'Aller à la page ' + (l.page+1);
+            a.addEventListener('click', function(ev){
+              ev.preventDefault();
+              var t = document.getElementById('pf-p-' + l.page);
+              if(t) t.scrollIntoView({behavior:'smooth', block:'start'});
+            });
+          }
+          ll.appendChild(a);
+        });
+        wrap.appendChild(ll);
+      }
+      el.appendChild(wrap);
     });
     if(loadingEl) loadingEl.style.display = 'none';
     if(controls) controls.style.display = 'none';
-    if(hint){ hint.style.display = 'block'; hint.textContent = 'Faites défiler pour lire ; pincez pour zoomer.'; }
+    if(hint){ hint.style.display = 'block'; hint.textContent = 'Faites défiler pour lire ; pincez pour zoomer. Les liens du document sont cliquables.'; }
   }
 
   function initFlip(ratio){
