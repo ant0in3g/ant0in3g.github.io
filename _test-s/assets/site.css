@@ -185,10 +185,38 @@ ol.chapters .td-link{font-family:'IBM Plex Mono',monospace;font-size:.75rem;disp
 .toggle{position:fixed;top:22px;right:22px;z-index:10;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center}
 .toggle:hover{border-color:var(--accent);color:var(--accent)}
 
+/* ---- Responsive / mobile ---- */
 @media(max-width:860px){
-  .layout{grid-template-columns:1fr;gap:0}
-  aside{position:static;height:auto;padding:44px 0 20px;overflow:visible}
-  nav{flex-flow:row wrap;gap:10px 16px;margin:14px 0}
+  /* `body .layout` bat aussi les styles locaux des pages flipbook */
+  .layout, body .layout{grid-template-columns:1fr;gap:0;max-width:100%;padding:0 20px}
+  aside{position:static;height:auto;padding:40px 0 16px;overflow:visible;
+        border-bottom:1px solid var(--line);margin-bottom:6px}
+  nav{flex-flow:row wrap;gap:8px 16px;margin:14px 0 0}
   nav a.sub{padding-left:0}
-  main{padding-top:14px}
+  .side-contact{margin-top:16px}
+  main{padding:16px 0 72px;max-width:100%}
+  .page-title{font-size:1.95rem}
+  .brand{font-size:1.6rem}
+  .brand.sm{font-size:1.35rem}
+  .globe{width:44px;height:44px}
+  h2{margin:40px 0 16px}
+  h3{margin:30px 0 10px}
+  /* flipbook : livre pleine largeur, en-tête plus compact */
+  .book-wrap{width:100%}
+  .book-top .page-title{font-size:1.25rem}
+  .book-controls{gap:12px}
+}
+@media(max-width:480px){
+  body{font-size:17px}
+  .layout, body .layout{padding:0 14px}
+  .page-title{font-size:1.6rem}
+  .brand{font-size:1.45rem}
+  .hero-quote{padding-left:16px}
+  .hero-quote + .cite{padding-left:16px}
+  blockquote{padding-left:16px}
+  pre{font-size:.74rem;padding:14px}
+  .callout{padding:12px 16px}
+  .fiche{padding:14px 16px}
+  .toggle{top:14px;right:14px;width:34px;height:34px}
+  nav a{font-size:.82rem}
 }
