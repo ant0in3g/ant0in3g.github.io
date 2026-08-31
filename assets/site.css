@@ -47,6 +47,7 @@ main{padding:52px 0 90px;max-width:720px;min-width:0}
 .page-title{font-weight:600;font-size:2.3rem;letter-spacing:-.02em;margin:0 0 8px;line-height:1.12}
 .teacher{font-family:'IBM Plex Mono',monospace;font-size:.8rem;color:var(--muted);margin:0 0 32px}
 .teacher a{color:var(--muted)}.teacher a:hover{color:var(--accent)}
+.teacher .tbr{display:none}   /* saut de ligne actif uniquement en mobile */
 .meta{display:flex;flex-wrap:wrap;gap:26px;margin:0 0 12px;padding-bottom:26px;border-bottom:1px solid var(--line)}
 .meta .blk .lbl{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:3px}
 .meta .blk .val{font-size:.92rem}
@@ -203,6 +204,8 @@ ol.chapters .td-link{font-family:'IBM Plex Mono',monospace;font-size:.75rem;disp
   aside{display:contents}
   main{order:1;padding:6px 0 44px;max-width:100%}
   .role{margin-bottom:16px}
+  .teacher .tbr{display:inline}   /* passe à la ligne après le 1er nom */
+  .teacher .tsep{display:none}
   .side-quote{margin:14px 0 0 !important}
   .side-quote:last-of-type{margin-bottom:30px !important}   /* espace sous la dernière citation, comme au-dessus de la première */
   .side-contact{order:2;margin:0;padding:22px 0 26px;border-top:1px solid var(--line)}
