@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Physique | Antoine Géré</title>
+<meta name="description" content="Physique — volumes horaires et examens, ISTOM.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<button class="toggle" id="themeToggle" aria-label="Changer de thème">◑</button>
+<div class="layout">
+  <aside>
+    <a class="back" href="index.html">← Accueil</a>
+    <div class="brand-row">
+      <a href="index.html" class="brand-link" aria-label="Retour à l'accueil"><p class="brand sm">Antoine<br>Géré</p>
+      <span class="globe" aria-hidden="true" style="width:42px;height:42px"><canvas id="globeCanvas"></canvas></span></a>
+    </div>
+    <p class="role">Physique · ISTOM</p>
+    <nav>
+      <a href="#volumes">Volumes horaires</a>
+      <a href="#programme">Programme</a>
+      <a href="phys/examens.html">Examens</a>
+    </nav>
+    <div class="side-contact">
+      <a href="mailto:a.gere@istom.fr">a.gere@istom.fr</a><br>
+      <a href="https://github.com/ant0in3g">github</a> ·
+      <a href="http://linkedin.com/in/antoine-gere">linkedin</a> ·
+      <a href="https://arxiv.org/search/?searchtype=author&query=G%C3%A9r%C3%A9,+Antoine">arxiv</a>
+    </div>
+  </aside>
+  <main>
+    <h1 class="page-title">Physique</h1>
+    <p class="teacher">Référent · <a href="mailto:a.gere@istom.fr">Antoine Géré</a> &nbsp;·&nbsp; Enseignant · <a href="mailto:f.bechu@istom.fr">Fabien Bechu</a></p>
+
+    <h2 id="volumes">Volumes horaires</h2>
+    <div class="table-wrap"><table class="center">
+      <thead><tr><th></th><th>Semestre 1</th><th>Semestre 2</th><th>Semestre 3</th><th>Semestre 4</th></tr></thead>
+      <tbody>
+        <tr><td>Cours</td><td>14 séances</td><td>12 séances</td><td>12 séances</td><td>12 séances</td></tr>
+        <tr><td>Travaux dirigés</td><td>10 séances</td><td>6 séances</td><td>6 séances</td><td>6 séances</td></tr>
+        <tr><td>Total</td><td>24 séances</td><td>18 séances</td><td>18 séances</td><td>18 séances</td></tr>
+      </tbody>
+    </table></div>
+
+    <h2 id="programme">Programme</h2>
+    <ol class="chapters">
+      <li><span class="title">Physique 1</span><p class="desc">coming.</p></li>
+      <li><span class="title">Physique 2</span><p class="desc">coming.</p></li>
+      <li><span class="title">Physique 3</span><p class="desc">coming.</p></li>
+      <li><span class="title">Physique 4</span><p class="desc">coming.</p></li>
+    </ol>
+
+    <h2 id="examens">Examens</h2>
+    <p class="muted">Les sujets d'examens donnés sont disponibles sur cette <a href="phys/examens.html">page</a>.</p>
+  </main>
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

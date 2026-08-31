@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Organisation pratique — Statistiques | Antoine Géré</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<button class="toggle" id="themeToggle" aria-label="Changer de thème">◑</button>
+<div class="layout">
+  <aside>
+    <a class="back" href="../sTa7.html">← Statistiques</a>
+    <div class="brand-row">
+      <a href="../index.html" class="brand-link" aria-label="Retour à l'accueil"><p class="brand sm">Antoine<br>Géré</p>
+      <span class="globe" aria-hidden="true" style="width:42px;height:42px"><canvas id="globeCanvas"></canvas></span></a>
+    </div>
+    <p class="role">Orga · ISTOM</p>
+    <nav>
+      <a href="#onedrive">Dossier OneDrive</a>
+      <a href="#tuto">Tutoriel R &amp; RStudio</a>
+      <a class="sub" href="#install-r">Installation de R</a>
+      <a class="sub" href="#install-rstudio">Installation RStudio</a>
+      <a class="sub" href="#config">Configuration</a>
+      <a class="sub" href="#projets">Projets</a>
+      <a class="sub" href="#packages">Installation de packages</a>
+      <a class="sub" href="#script-r">Script R</a>
+      <a class="sub" href="#quarto">Document Quarto</a>
+      <a class="sub" href="#aide">Obtenir de l'aide</a>
+    </nav>
+    <div class="side-contact">
+      <a href="mailto:a.gere@istom.fr">a.gere@istom.fr</a><br>
+      <a href="https://github.com/ant0in3g" target="_blank" rel="noopener">github</a> ·
+      <a href="http://linkedin.com/in/antoine-gere" target="_blank" rel="noopener">linkedin</a> ·
+      <a href="https://arxiv.org/search/?searchtype=author&query=G%C3%A9r%C3%A9,+Antoine" target="_blank" rel="noopener">arxiv</a>
+    </div>
+  </aside>
+  <main>
+    <h1 class="page-title">Organisation pratique</h1>
+    <p class="teacher">Prise en main — OneDrive, R et RStudio</p>
+
+    <h2 id="onedrive">Dossier OneDrive</h2>
+    <p>Afin de faciliter notre collaboration, un dossier OneDrive vous sera partagé pour les travaux dirigés et les différents projets.</p>
+    <figure><img src="../img/onedrive-orga.png" alt="Dossier OneDrive"></figure>
+    <p>Il vous est demandé de synchroniser ce dossier OneDrive sur votre ordinateur personnel.</p>
+
+    <h3 id="structure">Structure du dossier</h3>
+    <p>Le dossier partagé s'organise autour d'une arborescence fixe, où chaque sous-dossier a une fonction précise :</p>
+    <ul>
+      <li><code>data_raw</code> — réservé aux données <strong>brutes</strong> : les fichiers d'origine, tels que récupérés, qui ne doivent jamais être modifiés.</li>
+      <li><code>data</code> — les données une fois nettoyées et transformées sous R, prêtes à être analysées.</li>
+      <li><code>doc</code> — la documentation mobilisée pendant le projet : articles, notes et références en lien avec votre sujet.</li>
+      <li><code>img</code> — les figures, photos et illustrations qui accompagnent la présentation de votre travail.</li>
+    </ul>
+    <div class="callout"><span class="ctitle">Important</span>Conservez systématiquement cette même arborescence, d'un projet à l'autre.</div>
+    <p>Le dossier contient aussi trois autres éléments à connaître :</p>
+    <ul>
+      <li>le raccourci Internet <strong>ant0in3g.github.io</strong> ouvre cette page web (celle du cours) ;</li>
+      <li>le fichier <code>_stat_Istom.Rproj</code> représente le projet dans RStudio : ouvrez <strong>toujours</strong> RStudio en double-cliquant sur ce fichier, afin de travailler dans le bon projet.</li>
+      <li>le dossier caché <code>.Rproj.user</code> est généré automatiquement par RStudio : vous pouvez l'ignorer.</li>
+    </ul>
+
+    <h3 id="sync">Étapes de synchronisation d'un dossier partagé OneDrive (Windows/Mac)</h3>
+    <figure><iframe width="448" height="252" src="https://www.youtube.com/embed/8WC7iClUH3k" title="Synchronisation OneDrive" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></figure>
+    <ol>
+      <li><strong>Installez et connectez OneDrive.</strong> Dans le menu Démarrer, tapez « OneDrive » pour vérifier qu'il est présent (sur Mac, cherchez-le via Spotlight, <code>⌘ + Espace</code>). S'il n'est pas installé, téléchargez-le sur le site de Microsoft. Ouvrez-le, puis connectez-vous avec votre compte Microsoft 365 ISTOM.</li>
+      <li><strong>Ouvrez le dossier partagé en ligne.</strong> Rendez-vous sur <a href="https://www.office.com/" target="_blank" rel="noopener">office.com</a>, connectez-vous et ouvrez OneDrive, puis cliquez sur <em>Partagé</em> dans le menu de gauche : le dossier partagé pour le cours y apparaît.</li>
+      <li><strong>Lancez la synchronisation.</strong> Ouvrez ce dossier, puis cliquez sur le bouton <em>Synchroniser</em> (dans la barre du haut). Confirmez dans la fenêtre de l'application OneDrive qui s'ouvre alors.</li>
+      <li><strong>Retrouvez le dossier sur votre ordinateur.</strong> Ouvrez l'Explorateur de fichiers (<code>Windows + E</code>) : le dossier synchronisé apparaît dans la colonne de gauche, sous la rubrique <em>ISTOM</em> (sur Mac, il se trouve dans le Finder, section <em>OneDrive – ISTOM</em>).</li>
+    </ol>
+
+    <h3 id="convention">Convention de synchronisation</h3>
+    <figure><img src="https://ant0in3g.github.io/sTa7/img/convention-OneDrive.png" alt="Convention OneDrive"></figure>
+
+    <h2 id="tuto">Tutoriel R &amp; RStudio</h2>
+    <p>R est un langage et un environnement statistique open source, très utilisé pour l'analyse de données. Créé dans les années 1990 par Ross Ihaka et Robert Gentleman, il excelle dans le traitement des données, la modélisation et la visualisation, et s'appuie sur un vaste écosystème de packages (via CRAN).</p>
+    <p>RStudio est l'environnement de développement (IDE) qui simplifie l'usage de R : éditeur, console, visualisation, gestion de projets, intégration Git et génération de rapports dynamiques avec R Markdown et Quarto.</p>
+    <ul>
+      <li><strong>R Markdown</strong> : documents combinant texte et code R pour produire des rapports dynamiques (HTML, PDF, Word…).</li>
+      <li><strong>Quarto</strong> : successeur de R Markdown, multi-langage (R, Python, Julia…), pour documents scientifiques, tableaux de bord et sites web.</li>
+    </ul>
+    <figure class="logo"><img src="https://ant0in3g.github.io/sTa7/img/R_RStudio_LogoS.png" alt="R et RStudio"></figure>
+    <div class="callout"><span class="ctitle">Matériel</span>Pour installer R et RStudio, il faut un PC Windows, une distribution Linux (par ex. Ubuntu) ou un Mac.</div>
+
+    <h3 id="install-r">Installation de R</h3>
+    <p>Téléchargez R sur le site officiel <a href="https://cran.r-project.org/" target="_blank" rel="noopener">CRAN</a> et installez-le pour votre système. Sous Windows, cliquez sur <code>install R for the first time</code>.</p>
+    <p>Rtools (Windows uniquement) ne sert qu'à compiler des packages depuis les sources : la plupart des étudiants peuvent l'ignorer. Au besoin, installez-le depuis <a href="https://cran.r-project.org/bin/windows/Rtools/" target="_blank" rel="noopener">la page Rtools du CRAN</a> ou depuis R :</p>
+    <pre><code>install.packages("installr")
+installr::install.Rtools()</code></pre>
+
+    <h3 id="install-rstudio">Installation de RStudio</h3>
+    <p>Installez R avant RStudio. Téléchargez la version <strong>RStudio Desktop</strong> (gratuite) depuis <a href="https://posit.co/download/rstudio-desktop/" target="_blank" rel="noopener">Posit</a>, en choisissant l'installateur correspondant à votre système, puis lancez l'installation.</p>
+
+    <h3 id="config">Configuration de RStudio</h3>
+    <p>À la première ouverture, RStudio ressemble à ceci. Tous les réglages se trouvent dans <code>Tools &gt; Global options</code>.</p>
+    <figure><img src="https://ant0in3g.github.io/sTa7/img/rstudio-1st-time.png" alt="RStudio première ouverture"></figure>
+
+    <p><strong>Réglages essentiels</strong></p>
+    <ul>
+      <li><strong>Session propre</strong> (<code>R General</code>) — décochez <em>Restore .RData…</em> et choisissez <strong>Never</strong> pour <em>Save workspace…</em> : vous repartez ainsi d'un environnement vierge à chaque ouverture, gage de reproductibilité.</li>
+      <li><strong>Pipe natif</strong> (<code>Code &gt; Editing</code>) — cochez <em>Use native pipe operator</em> pour enchaîner vos opérations avec <code>|&gt;</code> (nécessite R ≥ 4.1).</li>
+    </ul>
+    <figure><img src="https://ant0in3g.github.io/sTa7/img/rstudio-config2.png" alt="Options R General"></figure>
+
+    <p><strong>Côté confort</strong>, à votre goût : la disposition des panneaux (<code>Pane Layout</code>), les parenthèses colorées (<code>Code &gt; Display</code> → <em>rainbow parentheses</em>) et le thème (<code>Appearance</code>).</p>
+
+    <div class="callout"><span class="ctitle">Rappel</span>N'oubliez pas de cliquer sur <strong>Apply</strong> après chaque changement. Pour vérifier votre version de R : <code>sessionInfo()</code>.</div>
+    <figure><img src="https://ant0in3g.github.io/sTa7/img/rstudio-check-version.png" alt="Résultat de sessionInfo()"></figure>
+
+    <h3 id="projets">Les projets avec RStudio</h3>
+    <p>Un projet regroupe tout le travail dans un même dossier. Son intérêt : RStudio y fixe automatiquement le <strong>dossier de travail</strong>, ce qui permet d'utiliser des <strong>chemins relatifs</strong> (par exemple <code>data_raw/mon-fichier.csv</code>) et évite que deux projets n'interfèrent.</p>
+    <p>Pour en créer un : <code>File &gt; New Project &gt; New Directory &gt; New Project</code>, choisissez un nom et un emplacement, puis <em>Create Project</em>.</p>
+    <figure><img src="https://ant0in3g.github.io/sTa7/img/1st_project_1.png" alt="Créer un projet"></figure>
+    <p>Le dossier ne contient alors que le fichier <code>.Rproj</code>. Ajoutez-y les sous-dossiers <code>data_raw</code>, <code>data</code>, <code>doc</code> et <code>img</code> (voir <a href="#structure">Structure du dossier</a> pour leur rôle).</p>
+    <figure><img src="https://ant0in3g.github.io/sTa7/img/1st_project_2.png" alt="Sous-dossiers du projet"></figure>
+    <div class="callout"><span class="ctitle">Pour les TD</span>Le projet est déjà créé dans le dossier partagé : vous n'avez rien à créer. Lancez simplement RStudio en double-cliquant sur le fichier <code>_stat_Istom.Rproj</code>.</div>
+
+    <h3 id="packages">Installation de packages</h3>
+    <p>Un <strong>package</strong> est une extension qui enrichit R de nouvelles fonctions, de jeux de données et de documentation, regroupés autour d'un même thème (manipulation de données, graphiques, statistiques…). R « de base » couvre l'essentiel ; les packages ajoutent des outils spécialisés, développés par la communauté et distribués sur le <a href="https://cran.r-project.org/" target="_blank" rel="noopener">CRAN</a>. Par exemple, <code>tidyverse</code> rassemble des packages pour manipuler et visualiser les données, <code>ggplot2</code> sert à créer des graphiques, et <code>rmarkdown</code> à produire des rapports (c'est ce dernier qui est installé dans la capture ci-dessous).</p>
+    <p>Deux façons d'installer un package :</p>
+    <ul>
+      <li>en console : <code>install.packages("rmarkdown")</code> ;</li>
+      <li>via l'onglet <strong>Packages</strong> (en bas à droite) → <em>Install</em>, puis saisissez le nom du package.</li>
+    </ul>
+    <figure><img src="https://ant0in3g.github.io/sTa7/img/install-package-rstudio.png" alt="Installer un package"></figure>
+    <p>L'installation ne se fait qu'une seule fois. Ensuite, à chaque session, chargez le package avec <code>library(rmarkdown)</code> pour accéder à ses fonctions.</p>
+    <div class="callout"><span class="ctitle">Maintenir les packages à jour</span>Onglet Packages → Update, ou <code>Tools &gt; Check for Package Update</code>. À faire au moins une fois par mois.</div>
+
+    <h3 id="script-r">Script R</h3>
+    <p>Un script est un fichier <code>.R</code> où vous <strong>enregistrez vos commandes</strong> : vous pouvez les relire, les rejouer et les partager — c'est la base d'un travail reproductible, là où la console ne garde rien.</p>
+    <p>Créez-en un via <code>File &gt; New File &gt; R Script</code>, enregistrez-le, puis écrivez votre première ligne :</p>
+    <pre><code># Ma première commande
+2 + 3</code></pre>
+    <p>Tout ce qui suit un <code>#</code> est un <strong>commentaire</strong> : ignoré par R, il sert à documenter le code. Pour exécuter : <code>Ctrl + Entrée</code> (<code>Cmd + Entrée</code> sur Mac) lance la ligne courante ou la sélection ; le bouton <strong>Run</strong> permet également d'exécuter le code.</p>
+
+    <h3 id="quarto">Document Quarto</h3>
+    <p>Quarto (successeur de R Markdown) permet de produire, à partir d'un seul fichier <code>.qmd</code>, des documents (HTML, Word, PDF), des diapositives, des tableaux de bord ou des sites web. Son intérêt : réunir dans un même fichier le <strong>texte</strong>, le <strong>code R</strong> et ses <strong>résultats</strong> — pour un rapport reproductible qui se met à jour à chaque exécution.</p>
+    <p>Créez-en un via <code>File &gt; New File &gt; Quarto Document</code>. Cela nécessite le package <code>rmarkdown</code> (voir <a href="#packages">Installation de packages</a>).</p>
+    <figure><img src="https://ant0in3g.github.io/sTa7/img/1er-doc-quarto1.png" alt="Nouveau document Quarto"></figure>
+    <p>Un <code>.qmd</code> s'articule autour de trois éléments :</p>
+    <ul>
+      <li>l'<strong>en-tête YAML</strong> (entre <code>---</code>) : titre, auteur, format de sortie… ;</li>
+      <li>le <strong>texte</strong>, rédigé en Markdown (<code>**gras**</code>, <code>*italique*</code>, titres <code>#</code>, <code>##</code>…) ;</li>
+      <li>les <strong>chunks de code</strong> — des blocs <code>```{r}</code> … <code>```</code> dont R exécute le contenu et insère le résultat (calcul, tableau, graphique) directement dans le document.</li>
+    </ul>
+    <p>Pour produire le document final, cliquez sur <strong>Render</strong> (ou <code>Ctrl + Shift + K</code>). La <a href="https://quarto.org/docs/authoring/markdown-basics" target="_blank" rel="noopener">syntaxe Markdown</a> complète et une <a href="https://quarto.org/docs/gallery/" target="_blank" rel="noopener">galerie d'exemples</a> sont disponibles sur le site de Quarto.</p>
+
+    <h3 id="aide">Obtenir de l'aide sur R</h3>
+    <p>R embarque sa propre documentation : la plupart des questions se règlent depuis la console, sans quitter RStudio.</p>
+
+    <p><strong>Afficher l'aide d'une fonction</strong> — quand vous connaissez son nom, <code>?</code> ou <code>help()</code> ouvrent sa page dans le panneau <strong>Help</strong> (en bas à droite) :</p>
+    <pre><code>?mean
+help(mean)</code></pre>
+    <p>Une page d'aide suit toujours le même plan : <em>Description</em>, <em>Usage</em> (la fonction et ses arguments), <em>Arguments</em>, <em>Value</em> (ce qu'elle renvoie) et, en bas, des <em>Examples</em> — souvent le plus utile.</p>
+
+    <p><strong>Chercher sans connaître le nom exact</strong> (mots-clés <strong>en anglais</strong>, comme la documentation) :</p>
+    <ul>
+      <li><code>??"standard deviation"</code> (raccourci de <code>help.search()</code>) cherche un terme dans le <em>texte</em> de toute l'aide installée ;</li>
+      <li><code>apropos("cor")</code> liste les objets déjà chargés dont le <em>nom</em> contient « cor ».</li>
+    </ul>
+
+    <p><strong>Aller plus vite</strong> : <code>args(round)</code> rappelle seulement les arguments d'une fonction et leur ordre ; <code>example(mean)</code> exécute les exemples de sa page d'aide pour la voir à l'œuvre.</p>
+
+    <p><strong>Comprendre un objet</strong> (un tableau importé, un résultat de test…) : <code>str()</code> en montre la structure, <code>class()</code> le type et <code>summary()</code> un résumé adapté.</p>
+    <pre><code>str(iris)        # structure : lignes, colonnes, types
+class(iris)      # type d'objet
+summary(iris)    # résumé</code></pre>
+
+    <p><strong>Guides détaillés</strong> — les <strong>vignettes</strong> sont des tutoriels écrits par les auteurs de packages : <code>vignette()</code> les liste et <code>browseVignettes("dplyr")</code> ouvre celles d'un package.</p>
+
+    <div class="callout"><span class="ctitle">En pratique</span>Face à une erreur, <strong>lisez d'abord le message</strong> : il en indique souvent la cause. Si vous devez demander en ligne (documentation officielle, Stack Overflow, communauté Posit, assistant IA), joignez un <strong>exemple reproductible</strong> minimal — quelques lignes, avec un jeu de données intégré comme <code>iris</code> ou <code>mtcars</code> et le message d'erreur : réduire ainsi le problème suffit souvent à le résoudre.</div>
+  </main>
+</div>
+<script src="../assets/app.js"></script>
+</body>
+</html>

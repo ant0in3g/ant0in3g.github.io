@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aide-mémoire — Tests statistiques sous R | Antoine Géré</title>
+<meta name="description" content="Aide-mémoire des tests statistiques sous R : quand les utiliser, fonction R, hypothèses, décision et exemple. ISTOM.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+<button class="toggle" id="themeToggle" aria-label="Changer de thème">◑</button>
+
+<div class="layout">
+  <aside>
+    <a class="back" href="../../sTa7.html">← Statistiques</a>
+    <p class="brand sm">Aide-mémoire R</p>
+    <p class="role">Tests statistiques · ISTOM</p>
+    <nav>
+      <a href="#concepts">Concepts clés</a>
+      <a class="sub" href="#hypothese">Test d'hypothèse</a>
+      <a class="sub" href="#param">Paramétrique / non</a>
+      <a href="#prerequis">Prérequis</a>
+      <a class="sub" href="#normalite">Normalité</a>
+      <a class="sub" href="#variances">Homogénéité des variances</a>
+      <a href="#comparaison">Comparaison de groupes</a>
+      <a class="sub" href="#ttest">Test t</a>
+      <a class="sub" href="#mann">Mann-Whitney</a>
+      <a class="sub" href="#wilcoxon">Wilcoxon</a>
+      <a class="sub" href="#anova">ANOVA</a>
+      <a class="sub" href="#posthoc">Post-hoc (Tukey)</a>
+      <a class="sub" href="#kruskal">Kruskal-Wallis</a>
+      <a class="sub" href="#repetees">Mesures répétées</a>
+      <a href="#categoriel">Données catégorielles</a>
+      <a class="sub" href="#chi2">Khi-deux</a>
+      <a class="sub" href="#fisher">Fisher · McNemar</a>
+      <a class="sub" href="#binom">Binomial</a>
+      <a href="#liaison">Liaison entre variables</a>
+      <a class="sub" href="#correlation">Corrélation</a>
+      <a class="sub" href="#regression">Régression linéaire</a>
+      <a class="sub" href="#reglog">Régression logistique</a>
+      <a href="#factoriel">Analyse factorielle</a>
+      <a class="sub" href="#acp">ACP</a>
+      <a class="sub" href="#cah">CAH</a>
+    </nav>
+    <div class="side-contact" style="margin-top:18px">
+      <a href="quel-test.html">→ Quel test choisir ?</a>
+    </div>
+  </aside>
+
+  <main>
+    <h1 class="page-title">Tests statistiques sous R</h1>
+    <p class="teacher">Aide-mémoire · <a href="mailto:a.gere@istom.fr">Antoine Géré</a></p>
+    <div class="callout">
+      <span class="ctitle">Comment lire cet aide-mémoire</span>
+      <p>Chaque test est présenté sous forme de fiche : <strong>quand l'utiliser</strong>, la <strong>fonction R</strong>, ses <strong>hypothèses</strong>, la <strong>règle de décision</strong> et un <strong>exemple</strong>. Les tests <span class="tag-p">paramétrique</span> supposent une forme de distribution ; les <span class="tag-np">non&nbsp;param.</span> s'en affranchissent. Vous ne savez pas par où commencer ? Utilisez l'<a href="quel-test.html">explorateur « quel test choisir ? »</a>.</p>
+    </div>
+
+    <!-- ============ CONCEPTS ============ -->
+    <h2 id="concepts">Concepts clés</h2>
+
+    <h3 id="hypothese">Le test d'hypothèse</h3>
+    <p>Un test d'hypothèse est une procédure permettant de savoir si quelque chose a changé dans une population, à partir d'un échantillon représentatif. On oppose deux hypothèses concurrentes :</p>
+    <ul>
+      <li><strong>H₀</strong> (hypothèse nulle) — l'hypothèse conservatrice : « il ne se passe rien ».</li>
+      <li><strong>H₁</strong> (hypothèse alternative) — « il se passe quelque chose ».</li>
+    </ul>
+    <p>La décision peut être erronée de deux façons :</p>
+    <div class="table-wrap"><table class="center">
+      <thead><tr><th></th><th>On ne rejette pas H₀</th><th>On rejette H₀</th></tr></thead>
+      <tbody>
+        <tr><td>H₀ vraie</td><td>✓</td><td>Erreur de type I (α)</td></tr>
+        <tr><td>H₁ vraie</td><td>Erreur de type II (β)</td><td>✓</td></tr>
+      </tbody>
+    </table></div>
+    <p>L'erreur de type I (rejeter H₀ à tort) est en général la plus grave : on fixe donc <strong>α</strong> aussi petit que souhaité (souvent 0,05) et l'on cherche à minimiser β. On pèse ensuite les preuves à l'aide de la <strong>p-value</strong> :</p>
+    <div class="callout">
+      <span class="ctitle">Règle de décision</span>
+      <p>Si <strong>p-value &gt; α</strong> → on ne rejette pas H₀. Si <strong>p-value &lt; α</strong> → on rejette H₀ en faveur de H₁.</p>
+    </div>
+
+    <h3 id="param">Tests paramétriques et non-paramétriques</h3>
+    <p>Les tests <span class="tag-p">paramétrique</span> imposent des conditions sur la forme des populations (typiquement la normalité). Les tests <span class="tag-np">non&nbsp;param.</span>, dits « sans distribution », ne supposent aucune loi particulière.</p>
+    <div class="fiche-grid">
+      <div><span class="flabel">Avantages du non-paramétrique</span>S'applique à plus de situations, y compris aux données catégorielles ; calculs souvent plus simples.</div>
+      <div><span class="flabel">Limites</span>Moins efficace : il « gaspille » de l'information et exige des preuves plus fortes (échantillon plus grand, écarts plus marqués) pour rejeter H₀.</div>
+    </div>
+
+    <!-- ============ PRÉREQUIS ============ -->
+    <h2 id="prerequis">Prérequis — vérifier avant de comparer</h2>
+
+    <p class="fam" id="normalite">Normalité</p>
+    <div class="fiche">
+      <div class="fiche-head"><span class="ft">Shapiro-Wilk <span class="tag-p">paramétrique</span></span><code class="fiche-fn">shapiro.test(x)</code></div>
+      <div class="fiche-grid">
+        <div><span class="flabel">Quand l'utiliser</span>Vérifier qu'une variable numérique suit une loi normale (idéal pour n &lt; 5000).</div>
+        <div><span class="flabel">Décision</span>H₀ = « données normales ». p &gt; 0,05 → normalité non rejetée.</div>
+      </div>
+      <div class="fx">
+        <pre><code>shapiro.test(penguins$body_mass_g)</code></pre>
+        <pre class="out"><code>W = 0.959, p-value = 3.3e-08</code></pre>
+      </div>
+    </div>
+    <div class="fiche">
+      <div class="fiche-head"><span class="ft">Kolmogorov-Smirnov <span class="tag-p">paramétrique</span></span><code class="fiche-fn">ks.test(...)</code></div>
+      <div class="fiche-grid one"><div><span class="flabel">Quand l'utiliser</span>Comparer une distribution à une loi de référence (ici la loi normale de mêmes moyenne et écart-type).</div></div>
+      <div class="fx"><pre><code>ks.test(Y, "pnorm", mean = mean(Y), sd = sd(Y))</code></pre></div>
+    </div>
+    <div class="fiche">
+      <div class="fiche-head"><span class="ft">Méthodes graphiques</span><code class="fiche-fn">ggqqplot() · geom_histogram()</code></div>
+      <div class="fiche-grid one"><div><span class="flabel">Quand l'utiliser</span>Un premier coup d'œil avant tout test : histogramme + densité, boxplot, QQ-plot pour juger visuellement la normalité.</div></div>
+    </div>
+
+    <p class="fam" id="variances">Homogénéité des variances</p>
+    <div class="fiche">
+      <div class="fiche-head"><span class="ft">Test de Levene</span><code class="fiche-fn">leveneTest(y ~ groupe, data)</code></div>
+      <div class="fiche-grid">
+        <div><span class="flabel">Quand l'utiliser</span>Vérifier l'égalité des variances entre groupes (prérequis du test t et de l'ANOVA). Robuste à la non-normalité.</div>
+        <div><span class="flabel">Décision</span>H₀ = « variances égales ». p &gt; 0,05 → homogénéité non rejetée.</div>
+      </div>
+      <div class="fx"><pre><code>library(car)
+leveneTest(age ~ survive, data = titanic.data)</code></pre></div>
+    </div>
+    <div class="fiche">
+      <div class="fiche-head"><span class="ft">Test de Bartlett</span><code class="fiche-fn">bartlett.test(y ~ groupe, data)</code></div>
+      <div class="fiche-grid one"><div><span class="flabel">Quand l'utiliser</span>Même objectif que Levene mais plus puissant lorsque les données sont effectivement normales (et plus sensible aux écarts à la normalité).</div></div>
+      <div class="fx"><pre><code>bartlett.test(age ~ sex, data = titanic.data)</code></pre></div>
+    </div>
+
+    <!-- ============ COMPARAISON ============ -->
+    <h2 id="comparaison">Comparaison de groupes</h2>
+
+    <p class="fam" id="ttest">Moyennes — jusqu'à deux groupes</p>
+    <div class="fiche">
+      <div class="fiche-head"><span class="ft">Test t de Student <span class="tag-p">paramétrique</span></span><code class="fiche-fn">t.test(...)</code></div>
+      <div class="fiche-grid">
+        <div><span class="flabel">Quand l'utiliser</span>Comparer une moyenne à une valeur de référence, ou comparer les moyennes de deux groupes.</div>
+        <div><span class="flabel">Hypothèses</span>Normalité (des groupes / des différences) ; homogénéité des variances pour deux groupes indépendants.</div>
+      </div>
+      <div class="fx">
+        <span class="flabel">Un échantillon vs une valeur</span>
+        <pre><code>t.test(weight, mu = 3.5, conf.level = 0.95)</code></pre>
+        <span class="flabel" style="margin-top:8px">Deux groupes indépendants</span>
+        <pre><code>t.test(Number ~ Shape, data = blocks)</code></pre>
+        <span class="flabel" style="margin-top:8px">Données appariées</span>
+        <pre><code>t.test(before, after, paired = TRUE)</code></pre>
+      </div>
+    </div>
+    <div class="fiche" id="mann">
+      <div class="fiche-head"><span class="ft">Mann-Whitney <span class="tag-np">non&nbsp;param.</span></span><code class="fiche-fn">wilcox.test(x, y, paired = FALSE)</code></div>
+      <div class="fiche-grid one"><div><span class="flabel">Quand l'utiliser</span>Équivalent non-paramétrique du test t sur <strong>deux groupes indépendants</strong> : quand la normalité n'est pas satisfaite.</div></div>
+      <div class="fx"><pre><code>wilcox.test(movieRating$Male, movieRating$Female, paired = FALSE)</code></pre></div>
+    </div>
+    <div class="fiche" id="wilcoxon">
+      <div class="fiche-head"><span class="ft">Wilcoxon (rangs signés) <span class="tag-np">non&nbsp;param.</span></span><code class="fiche-fn">wilcox.test(x, y, paired = TRUE)</code></div>
+      <div class="fiche-grid one"><div><span class="flabel">Quand l'utiliser</span>Équivalent non-paramétrique du test t <strong>apparié</strong> (mesures avant/après sur les mêmes individus).</div></div>
+      <div class="fx"><pre><code>wilcox.test(aluLevels$August, aluLevels$November, paired = TRUE)</code></pre></div>
+    </div>
+
+    <p class="fam" id="anova">Moyennes — plus de deux groupes</p>
+    <div class="fiche">
+      <div class="fiche-head"><span class="ft">ANOVA <span class="tag-p">paramétrique</span></span><code class="fiche-fn">aov(y ~ facteur, data)</code></div>
+      <div class="fiche-grid">
+        <div><span class="flabel">Quand l'utiliser</span>Comparer les moyennes de trois groupes ou plus (un ou plusieurs facteurs).</div>
+        <div><span class="flabel">Hypothèses</span>Normalité des résidus (<code>shapiro.test(model$residuals)</code>) et homogénéité des variances (<code>leveneTest</code>).</div>
+      </div>
+      <div class="fx">
+        <span class="flabel">À un facteur</span>
+        <pre><code>model &lt;- aov(chickwts$weight ~ chickwts$feed)
+summary(model)
+shapiro.test(model$residuals)</code></pre>
+        <span class="flabel" style="margin-top:8px">À deux facteurs (avec interaction)</span>
+        <pre><code>model &lt;- aov(len ~ supp * factor(dose), data = ToothGrowth)</code></pre>
+      </div>
+      <div class="fiche-grid one" style="margin-top:10px"><div><span class="flabel">Décision</span>p &lt; 0,05 → au moins une moyenne diffère. On identifie ensuite lesquelles avec un test post-hoc.</div></div>
+    </div>
+    <div class="fiche" id="posthoc">
+      <div class="fiche-head"><span class="ft">Post-hoc — Tukey HSD</span><code class="fiche-fn">TukeyHSD(model)</code></div>
+      <div class="fiche-grid one"><div><span class="flabel">Quand l'utiliser</span>Après une ANOVA <em>significative</em>, pour repérer quelles paires de groupes diffèrent réellement (comparaisons multiples contrôlées).</div></div>
+      <div class="fx"><pre><code>anova.tukey &lt;- aov(Weight.Loss ~ factor(Diet), data = dietData)
+TukeyHSD(anova.tukey)</code></pre></div>
+    </div>
+    <div class="fiche" id="kruskal">
+      <div class="fiche-head"><span class="ft">Kruskal-Wallis <span class="tag-np">non&nbsp;param.</span></span><code class="fiche-fn">kruskal.test(y ~ groupe)</code></div>
+      <div class="fiche-grid one"><div><span class="flabel">Quand l'utiliser</span>Équivalent non-paramétrique de l'ANOVA à un facteur : comparer plus de deux groupes sans hypothèse de normalité.</div></div>
+      <div class="fx"><pre><code>kruskal.test(sprayData)</code></pre></div>
+    </div>
+
+    <p class="fam" id="repetees">Mesures répétées — plus de deux mesures appariées</p>
+    <div class="fiche" id="anova-rm">
+      <div class="fiche-head"><span class="ft">ANOVA à mesures répétées <span class="tag-p">paramétrique</span></span><code class="fiche-fn">aov(y ~ facteur + Error(sujet/facteur))</code></div>
+      <div class="fiche-grid one"><div><span class="flabel">Quand l'utiliser</span>Comparer trois mesures ou plus réalisées sur les <strong>mêmes individus</strong> (devis longitudinal / dépendant). Suppose la normalité.</div></div>
+      <div class="fx"><pre><code>aov(score ~ temps + Error(sujet/temps), data = df)</code></pre></div>
+    </div>
+    <div class="fiche" id="friedman">
+      <div class="fiche-head"><span class="ft">ANOVA de Friedman <span class="tag-np">non&nbsp;param.</span></span><code class="fiche-fn">friedman.test(y, groups, blocks)</code></div>
+      <div class="fiche-grid one"><div><span class="flabel">Quand l'utiliser</span>Équivalent non-paramétrique de l'ANOVA à mesures répétées : plus de deux mesures appariées, sans hypothèse de normalité.</div></div>
+      <div class="fx"><pre><code>friedman.test(y ~ temps | sujet, data = df)</code></pre></div>
+    </div>
+
+    <!-- ============ CATÉGORIEL ============ -->
+    <h2 id="categoriel">Données catégorielles</h2>
+    <p class="fam" id="chi2">Effectifs et proportions</p>
+    <div class="fiche">
+      <div class="fiche-head"><span class="ft">Khi-deux (χ²) <span class="tag-np">non&nbsp;param.</span></span><code class="fiche-fn">chisq.test(...)</code></div>
+      <div class="fiche-grid">
+        <div><span class="flabel">Ajustement (conformité)</span>Les effectifs observés suivent-ils une distribution attendue ?</div>
+        <div><span class="flabel">Indépendance</span>Deux variables qualitatives sont-elles associées (table de contingence) ?</div>
+      </div>
+      <div class="fx">
+        <pre><code># Ajustement à des proportions attendues
+chisq.test(counts, p = props)
+
+# Indépendance entre deux variables
+chisq.test(table(var1, var2))</code></pre>
+      </div>
+      <div class="fiche-grid one" style="margin-top:10px"><div><span class="flabel">Condition</span>Effectifs théoriques attendus ≥ 5 dans (presque) toutes les cases.</div></div>
+    </div>
+    <div class="fiche" id="fisher">
+      <div class="fiche-head"><span class="ft">Test exact de Fisher <span class="tag-np">non&nbsp;param.</span></span><code class="fiche-fn">fisher.test(table(v1, v2))</code></div>
+      <div class="fiche-grid one"><div><span class="flabel">Quand l'utiliser</span>Comme le khi-deux d'indépendance, mais lorsque les <strong>effectifs sont faibles</strong> (effectifs attendus &lt; 5) — typiquement sur une table 2×2.</div></div>
+      <div class="fx"><pre><code>fisher.test(table(traitement, guerison))</code></pre></div>
+    </div>
+    <div class="fiche" id="mcnemar">
+      <div class="fiche-head"><span class="ft">Test de McNemar <span class="tag-np">non&nbsp;param.</span></span><code class="fiche-fn">mcnemar.test(table)</code></div>
+      <div class="fiche-grid one"><div><span class="flabel">Quand l'utiliser</span>Comparer une variable qualitative binaire mesurée deux fois sur les <strong>mêmes individus</strong> (avant/après appariés).</div></div>
+      <div class="fx"><pre><code>mcnemar.test(table(avant, apres))</code></pre></div>
+    </div>
+    <p class="fam" id="binom">Variable binaire</p>
+    <div class="fiche">
+      <div class="fiche-head"><span class="ft">Test binomial <span class="tag-np">non&nbsp;param.</span></span><code class="fiche-fn">binom.test(k, n, p)</code></div>
+      <div class="fiche-grid one"><div><span class="flabel">Quand l'utiliser</span>Comparer une proportion observée (k succès sur n) à une proportion théorique attendue.</div></div>
+      <div class="fx"><pre><code>binom.test(leopards_black_coat, leopards_sample, p = model_proportion)</code></pre></div>
+    </div>
+
+    <!-- ============ LIAISON ============ -->
+    <h2 id="liaison">Liaison entre variables</h2>
+    <p class="fam" id="correlation">Corrélation</p>
+    <div class="fiche">
+      <div class="fiche-head"><span class="ft">Tests de corrélation</span><code class="fiche-fn">cor.test(x, y, method)</code></div>
+      <div class="fiche-grid">
+        <div><span class="flabel">Pearson <span class="tag-p">param.</span></span>Liaison linéaire entre deux variables quantitatives (suppose la normalité).</div>
+        <div><span class="flabel">Spearman / Kendall <span class="tag-np">non&nbsp;param.</span></span>Liaison monotone, sur les rangs : robuste, sans hypothèse de normalité.</div>
+      </div>
+      <div class="fx"><pre><code>cor.test(my_data$wt, my_data$mpg, method = "pearson")
+cor.test(my_data$wt, my_data$mpg, method = "spearman")
+cor.test(my_data$wt, my_data$mpg, method = "kendall")</code></pre></div>
+      <div class="fiche-grid one" style="margin-top:10px"><div><span class="flabel">Lecture</span>Le coefficient (r) donne le sens et l'intensité ; la p-value indique si la liaison est significative.</div></div>
+    </div>
+    <p class="fam" id="regression">Modélisation</p>
+    <div class="fiche">
+      <div class="fiche-head"><span class="ft">Régression linéaire multiple <span class="tag-p">paramétrique</span></span><code class="fiche-fn">lm(y ~ x1 + x2, data)</code></div>
+      <div class="fiche-grid one"><div><span class="flabel">Quand l'utiliser</span>Modéliser et prédire une réponse quantitative à partir d'une ou plusieurs variables explicatives, et quantifier leur effet.</div></div>
+      <div class="fx"><pre><code>model &lt;- lm(y ~ x1 + x2, data = df)
+summary(model)      # coefficients, R², significativité
+predict(model, newdata)</code></pre></div>
+    </div>
+    <div class="fiche" id="reglog">
+      <div class="fiche-head"><span class="ft">Régression logistique <span class="tag-p">paramétrique</span></span><code class="fiche-fn">glm(y ~ x, family = binomial)</code></div>
+      <div class="fiche-grid one"><div><span class="flabel">Quand l'utiliser</span>Expliquer ou prédire une réponse <strong>binaire</strong> (oui/non, succès/échec) à partir d'une ou plusieurs variables explicatives.</div></div>
+      <div class="fx"><pre><code>model &lt;- glm(guerison ~ dose + age, data = df, family = binomial)
+summary(model)</code></pre></div>
+    </div>
+
+    <!-- ============ FACTORIEL ============ -->
+    <h2 id="factoriel">Analyse factorielle</h2>
+    <p class="fam" id="acp">Réduction de dimension</p>
+    <div class="fiche">
+      <div class="fiche-head"><span class="ft">Analyse en composantes principales (ACP)</span><code class="fiche-fn">prcomp() · PCA()</code></div>
+      <div class="fiche-grid one"><div><span class="flabel">Quand l'utiliser</span>Résumer un tableau de nombreuses variables quantitatives en quelques axes (composantes), pour explorer, visualiser et interpréter la structure des données.</div></div>
+      <div class="fx"><pre><code>pc &lt;- prcomp(training[, -5], center = TRUE, scale. = TRUE)
+# ou, avec FactoMineR / factoextra :
+library(FactoMineR); library(factoextra)
+res &lt;- PCA(data); fviz_pca_biplot(res)</code></pre></div>
+    </div>
+    <p class="fam" id="cah">Classification</p>
+    <div class="fiche">
+      <div class="fiche-head"><span class="ft">Classification ascendante hiérarchique (CAH)</span><code class="fiche-fn">hclust(dist(...), method)</code></div>
+      <div class="fiche-grid one"><div><span class="flabel">Quand l'utiliser</span>Regrouper les individus en classes homogènes selon leur ressemblance, et visualiser la hiérarchie sous forme de dendrogramme.</div></div>
+      <div class="fx"><pre><code>dd &lt;- dist(scale(data))
+hc &lt;- hclust(dd, method = "ward.D2")
+plot(hc)              # dendrogramme
+# prolongement après ACP : HCPC(res)</code></pre></div>
+    </div>
+
+    <p class="end">Mise en forme par Antoine Géré.</p>
+  </main>
+</div>
+
+<script src="../../assets/app.js"></script>
+</body>
+</html>

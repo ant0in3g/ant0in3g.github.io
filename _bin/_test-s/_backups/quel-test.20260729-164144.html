@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quelle analyse effectuer ? | Antoine Géré</title>
+<meta name="description" content="Assistant interactif de choix d'un test statistique : type de variable, devis, normalité — avec la fonction R et un tableau de décision. ISTOM.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/site.css">
+<style>
+  .modes{display:flex;gap:8px;margin:0 0 24px;border-bottom:1px solid var(--line)}
+  .mode-btn{font-family:'IBM Plex Mono',monospace;font-size:.74rem;letter-spacing:.04em;color:var(--muted);background:none;border:0;border-bottom:2px solid transparent;padding:8px 4px 10px;margin-bottom:-1px;cursor:pointer}
+  .mode-btn:hover{color:var(--ink)}
+  .mode-btn.on{color:var(--accent);border-bottom-color:var(--accent)}
+  .crumbs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px;min-height:20px}
+  .crumb{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.04em;background:var(--accent-soft);color:var(--accent);padding:4px 10px;border-radius:20px}
+  .qstep .qtitle{font-weight:600;font-size:1.25rem;margin:0 0 6px}
+  .qstep .qhint{color:var(--muted);font-size:.9rem;margin:0 0 16px}
+  .qopts{display:grid;gap:10px}
+  .qopt{text-align:left;font-family:inherit;font-size:1rem;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 18px;cursor:pointer;transition:border-color .15s}
+  .qopt:hover{border-color:var(--accent)}
+  .qopt .oh{font-weight:600;display:block}
+  .qopt .od{color:var(--muted);font-size:.88rem}
+  .restart{margin-top:22px;font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:none;border:0;cursor:pointer;padding:0}
+  .restart:hover{color:var(--accent)}
+  .result .rlead{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+  .fmeta{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 2px}
+  .fmeta span{font-family:'IBM Plex Mono',monospace;font-size:.64rem;color:var(--muted);border:1px solid var(--line);border-radius:20px;padding:3px 10px}
+  .fmeta span b{color:var(--ink);font-weight:500}
+  .dtable td:last-child,.dtable th:last-child{text-align:center}
+  #view-table h3{margin-top:26px}
+</style>
+</head>
+<body>
+<button class="toggle" id="themeToggle" aria-label="Changer de thème">◑</button>
+
+<div class="layout">
+  <aside>
+    <a class="back" href="../../sTa7.html">← Statistiques</a>
+    <p class="brand sm">Quelle analyse ?</p>
+    <p class="role">Assistant · ISTOM</p>
+    <nav>
+      <a href="fiches.html">Aide-mémoire complet</a>
+    </nav>
+    <div class="side-contact" style="margin-top:18px">
+      <a href="mailto:a.gere@istom.fr">a.gere@istom.fr</a>
+    </div>
+  </aside>
+
+  <main>
+    <h1 class="page-title">Quelle analyse effectuer ?</h1>
+    <p class="teacher">La bonne analyse dépend de votre objectif, du type des variables et du devis.</p>
+
+    <div class="callout">
+      <span class="ctitle">La méthode en trois questions</span>
+      <p><strong>1. Que veut-on faire ?</strong> comparer des groupes, expliquer/prédire, décrire, classer. <strong>2. Quelle est la nature de la variable ?</strong> continue (mesurée) ou catégorielle (nominale/binaire). <strong>3. Quel est le devis ?</strong> données indépendantes (mesurées une fois) ou appariées (mêmes individus, avant/après). On vérifie enfin la <strong>normalité</strong> pour trancher entre test paramétrique et non-paramétrique. <span style="color:var(--muted)">Inspiré de la méthode de J.&nbsp;Vandermeerschen.</span></p>
+    </div>
+
+    <div class="modes">
+      <button class="mode-btn on" id="tab-guide">Assistant guidé</button>
+      <button class="mode-btn" id="tab-table">Tableau de décision</button>
+    </div>
+
+    <div id="view-guide" class="explorer">
+      <div class="crumbs" id="crumbs"></div>
+      <div id="panel"></div>
+      <button class="restart" id="restart" style="display:none">↻ Recommencer</button>
+    </div>
+
+    <div id="view-table" style="display:none">
+      <h3>Décrire mes données</h3>
+      <div class="table-wrap"><table class="dtable">
+        <thead><tr><th>Outil</th><th>Quand</th><th>Variable(s)</th></tr></thead>
+        <tbody>
+          <tr><td><a href="fiches.html#desc-una">Résumé numérique + graphiques</a></td><td>Décrire une variable</td><td>Continue</td></tr>
+          <tr><td><a href="fiches.html#desc-una">Effectifs / fréquences + barres</a></td><td>Décrire une variable</td><td>Qualitative</td></tr>
+          <tr><td><a href="fiches.html#desc-deux">Nuage de points / corrélation</a></td><td>Croiser deux variables</td><td>2 continues</td></tr>
+          <tr><td><a href="fiches.html#desc-deux">Table de contingence</a></td><td>Croiser deux variables</td><td>2 qualitatives</td></tr>
+          <tr><td><a href="fiches.html#desc-deux">Boxplots / moyennes par groupe</a></td><td>Croiser deux variables</td><td>Continue × qualitative</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3>Comparer des groupes / des mesures</h3>
+      <div class="table-wrap"><table class="dtable">
+        <thead><tr><th>Test</th><th>Quand</th><th>Devis</th><th>Variable</th><th>Normalité</th></tr></thead>
+        <tbody>
+          <tr><td><a href="fiches.html#ttest">Test t</a></td><td>Comparer 2 groupes</td><td>Indépendant</td><td>Continue</td><td>Oui</td></tr>
+          <tr><td><a href="fiches.html#mann">Mann-Whitney</a></td><td>Comparer 2 groupes</td><td>Indépendant</td><td>Continue</td><td>Non</td></tr>
+          <tr><td><a href="fiches.html#ttest">Test t apparié</a></td><td>Comparer 2 groupes</td><td>Apparié</td><td>Continue</td><td>Oui</td></tr>
+          <tr><td><a href="fiches.html#wilcoxon">Wilcoxon</a></td><td>Comparer 2 groupes</td><td>Apparié</td><td>Continue</td><td>Non</td></tr>
+          <tr><td><a href="fiches.html#anova">ANOVA</a></td><td>Comparer 3 groupes et + / plusieurs facteurs</td><td>Indépendant</td><td>Continue</td><td>Oui</td></tr>
+          <tr><td><a href="fiches.html#kruskal">Kruskal-Wallis</a></td><td>Comparer 3 groupes et +</td><td>Indépendant</td><td>Continue</td><td>Non</td></tr>
+          <tr><td><a href="fiches.html#anova-rm">ANOVA à mesures répétées</a></td><td>Comparer 3 mesures et +</td><td>Apparié</td><td>Continue</td><td>Oui</td></tr>
+          <tr><td><a href="fiches.html#friedman">Friedman</a></td><td>Comparer 3 mesures et +</td><td>Apparié</td><td>Continue</td><td>Non</td></tr>
+          <tr><td><a href="fiches.html#chi2">Khi-deux</a></td><td>Lien entre 2 variables qualitatives</td><td>Indépendant</td><td>Nominale</td><td>—</td></tr>
+          <tr><td><a href="fiches.html#fisher">Fisher (exact)</a></td><td>Idem, petits effectifs</td><td>Indépendant</td><td>Nominale</td><td>—</td></tr>
+          <tr><td><a href="fiches.html#mcnemar">McNemar</a></td><td>Variable binaire mesurée 2 fois</td><td>Apparié</td><td>Nominale</td><td>—</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3>Expliquer / prédire (régression)</h3>
+      <div class="table-wrap"><table class="dtable">
+        <thead><tr><th>Test</th><th>Quand</th><th>Variable à expliquer</th></tr></thead>
+        <tbody>
+          <tr><td><a href="fiches.html#correlation">Corrélation</a></td><td>Lien entre deux variables</td><td>Continue / ordinale</td></tr>
+          <tr><td><a href="fiches.html#regression">Régression linéaire</a></td><td>Expliquer une variable par une ou plusieurs autres</td><td>Continue et normale</td></tr>
+          <tr><td><a href="fiches.html#reglog">Régression logistique</a></td><td>Expliquer une variable par une ou plusieurs autres</td><td>Binaire</td></tr>
+          <tr><td><a href="fiches.html#glm">Régression généralisée (GLM)</a></td><td>Expliquer une variable par une ou plusieurs autres</td><td>Comptage / autre</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3>Explorer / réduire les dimensions (analyse factorielle)</h3>
+      <div class="table-wrap"><table class="dtable">
+        <thead><tr><th>Analyse</th><th>Quand</th><th>Variables</th></tr></thead>
+        <tbody>
+          <tr><td><a href="fiches.html#acp">ACP</a></td><td>Résumer un grand tableau</td><td>Quantitatives</td></tr>
+          <tr><td><a href="fiches.html#acm">ACM</a></td><td>Résumer un grand tableau</td><td>Qualitatives</td></tr>
+          <tr><td><a href="fiches.html#afc">AFC</a></td><td>Association entre deux variables</td><td>2 qualitatives</td></tr>
+          <tr><td><a href="fiches.html#afm">AFM</a></td><td>Résumer plusieurs groupes de variables</td><td>Mixtes</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3>Classer des individus</h3>
+      <div class="table-wrap"><table class="dtable">
+        <thead><tr><th>Analyse</th><th>Quand</th><th>Variables</th></tr></thead>
+        <tbody>
+          <tr><td><a href="fiches.html#cah">CAH</a></td><td>Hiérarchie, nombre de classes non fixé</td><td>Quantitatives</td></tr>
+          <tr><td><a href="fiches.html#kmeans">k-means</a></td><td>Nombre de classes connu, gros jeu de données</td><td>Quantitatives</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3>Vérifier un prérequis</h3>
+      <div class="table-wrap"><table class="dtable">
+        <thead><tr><th>Test</th><th>Quand</th></tr></thead>
+        <tbody>
+          <tr><td><a href="fiches.html#normalite">Shapiro-Wilk / Kolmogorov-Smirnov</a></td><td>Tester la normalité d'une variable</td></tr>
+          <tr><td><a href="fiches.html#variances">Levene / Bartlett</a></td><td>Tester l'égalité des variances entre groupes</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </main>
+</div>
+
+<script src="../../assets/app.js"></script>
+<script>
+(function(){
+  var FICHES="fiches.html";
+  // meta: d = devis, v = type de variable, n = normalité
+  var TESTS={
+    shapiro:{name:"Shapiro-Wilk",tag:"paramétrique",fn:"shapiro.test(x)",
+      when:"Vérifier qu'une variable numérique suit une loi normale. H₀ = données normales ; p > 0,05 → normalité non rejetée.",anchor:"normalite"},
+    levene:{name:"Levene (ou Bartlett)",fn:"leveneTest(y ~ groupe, data)",
+      when:"Vérifier l'égalité des variances entre groupes. H₀ = variances égales ; p > 0,05 → homogénéité non rejetée.",anchor:"variances"},
+    t1:{name:"Test t à un échantillon",tag:"paramétrique",fn:"t.test(x, mu = valeur)",
+      when:"Comparer la moyenne d'un échantillon à une valeur de référence.",v:"continue",n:"requise",anchor:"ttest"},
+    t2:{name:"Test t sur deux groupes indépendants",tag:"paramétrique",fn:"t.test(y ~ groupe, data)",
+      when:"Comparer les moyennes de deux groupes indépendants. Suppose la normalité et l'homogénéité des variances.",d:"indépendant",v:"continue",n:"requise",anchor:"ttest"},
+    mann:{name:"Mann-Whitney",tag:"non param.",fn:"wilcox.test(x, y, paired = FALSE)",
+      when:"Équivalent non-paramétrique du test t sur deux groupes indépendants, quand la normalité n'est pas satisfaite.",d:"indépendant",v:"continue",n:"non requise",anchor:"mann"},
+    tpair:{name:"Test t apparié",tag:"paramétrique",fn:"t.test(before, after, paired = TRUE)",
+      when:"Comparer deux mesures appariées (avant/après sur les mêmes individus). Suppose la normalité des différences.",d:"apparié",v:"continue",n:"requise",anchor:"ttest"},
+    wilcox:{name:"Wilcoxon (rangs signés)",tag:"non param.",fn:"wilcox.test(x, y, paired = TRUE)",
+      when:"Équivalent non-paramétrique du test t apparié.",d:"apparié",v:"continue",n:"non requise",anchor:"wilcoxon"},
+    anova:{name:"ANOVA (+ Tukey HSD)",tag:"paramétrique",fn:"aov(y ~ facteur, data)",
+      when:"Comparer les moyennes de trois groupes ou plus. Vérifier normalité des résidus et homogénéité des variances ; si significatif, TukeyHSD() pour les paires.",d:"indépendant",v:"continue",n:"requise",anchor:"anova"},
+    kruskal:{name:"Kruskal-Wallis",tag:"non param.",fn:"kruskal.test(y ~ groupe)",
+      when:"Équivalent non-paramétrique de l'ANOVA à un facteur : plus de deux groupes, sans hypothèse de normalité.",d:"indépendant",v:"continue",n:"non requise",anchor:"kruskal"},
+    anovarm:{name:"ANOVA à mesures répétées",tag:"paramétrique",fn:"aov(y ~ facteur + Error(sujet/facteur))",
+      when:"Comparer trois mesures ou plus réalisées sur les mêmes individus (devis dépendant). Suppose la normalité.",d:"apparié",v:"continue",n:"requise",anchor:"anova-rm"},
+    friedman:{name:"ANOVA de Friedman",tag:"non param.",fn:"friedman.test(y ~ temps | sujet)",
+      when:"Équivalent non-paramétrique de l'ANOVA à mesures répétées : plus de deux mesures appariées, sans normalité.",d:"apparié",v:"continue",n:"non requise",anchor:"friedman"},
+    chi_indep:{name:"Khi-deux d'indépendance",tag:"non param.",fn:"chisq.test(table(v1, v2))",
+      when:"Tester l'association entre deux variables qualitatives (table de contingence). Effectifs théoriques ≥ 5.",d:"indépendant",v:"nominale",anchor:"chi2"},
+    fisher:{name:"Test exact de Fisher",tag:"non param.",fn:"fisher.test(table(v1, v2))",
+      when:"Comme le khi-deux d'indépendance, mais lorsque les effectifs attendus sont faibles (< 5).",d:"indépendant",v:"nominale",anchor:"fisher"},
+    mcnemar:{name:"Test de McNemar",tag:"non param.",fn:"mcnemar.test(table(avant, apres))",
+      when:"Comparer une variable qualitative binaire mesurée deux fois sur les mêmes individus (appariés).",d:"apparié",v:"nominale",anchor:"mcnemar"},
+    chi_adeq:{name:"Khi-deux d'ajustement",tag:"non param.",fn:"chisq.test(counts, p = props)",
+      when:"Vérifier si des effectifs observés suivent une distribution attendue. Effectifs théoriques ≥ 5.",v:"nominale",anchor:"chi2"},
+    binom:{name:"Test binomial",tag:"non param.",fn:"binom.test(k, n, p)",
+      when:"Comparer une proportion observée (k succès sur n) à une proportion théorique.",v:"binaire",anchor:"binom"},
+    pearson:{name:"Corrélation de Pearson",tag:"paramétrique",fn:'cor.test(x, y, method = "pearson")',
+      when:"Mesurer une liaison linéaire entre deux variables quantitatives (suppose la normalité).",v:"continue",n:"requise",anchor:"correlation"},
+    spearman:{name:"Corrélation de Spearman / Kendall",tag:"non param.",fn:'cor.test(x, y, method = "spearman")',
+      when:"Mesurer une liaison monotone sur les rangs : robuste, sans hypothèse de normalité.",v:"continue / ordinale",n:"non requise",anchor:"correlation"},
+    lm:{name:"Régression linéaire multiple",tag:"paramétrique",fn:"lm(y ~ x1 + x2, data)",
+      when:"Modéliser et prédire une réponse quantitative à partir d'une ou plusieurs variables explicatives.",v:"VD continue",n:"résidus normaux",anchor:"regression"},
+    reglog:{name:"Régression logistique",tag:"paramétrique",fn:"glm(y ~ x, family = binomial)",
+      when:"Expliquer ou prédire une réponse binaire (oui/non) à partir d'une ou plusieurs variables.",v:"VD binaire",anchor:"reglog"},
+    acp:{name:"Analyse en composantes principales (ACP)",fn:"prcomp(data, scale. = TRUE)",
+      when:"Résumer de nombreuses variables quantitatives en quelques axes pour explorer et visualiser la structure des données.",v:"quantitatives",anchor:"acp"},
+    acm:{name:"Analyse des correspondances multiples (ACM)",fn:"MCA(data)",
+      when:"Équivalent de l'ACP pour un tableau de plusieurs variables qualitatives (questionnaire, catégories).",v:"qualitatives",anchor:"acm"},
+    afc:{name:"Analyse factorielle des correspondances (AFC)",fn:"CA(table(v1, v2))",
+      when:"Étudier l'association entre deux variables qualitatives à partir de leur table de contingence.",v:"2 qualitatives",anchor:"afc"},
+    afm:{name:"Analyse factorielle multiple (AFM)",fn:"MFA(data, group = ...)",
+      when:"Analyser conjointement plusieurs groupes de variables (mélange de quantitatives et qualitatives).",v:"mixtes",anchor:"afm"},
+    cah:{name:"Classification ascendante hiérarchique (CAH)",fn:'hclust(dist(scale(data)), "ward.D2")',
+      when:"Regrouper les individus en classes homogènes sans fixer leur nombre à l'avance (dendrogramme).",v:"quantitatives",anchor:"cah"},
+    kmeans:{name:"k-means",fn:"kmeans(scale(data), centers = k)",
+      when:"Partitionner les individus en un nombre k de classes fixé à l'avance ; efficace sur de grands jeux de données.",v:"quantitatives",anchor:"kmeans"},
+    glm:{name:"Régression linéaire généralisée (GLM)",tag:"paramétrique",fn:"glm(y ~ x, family = ...)",
+      when:"Modéliser une réponse qui n'est ni continue ni binaire (par ex. un comptage, loi de Poisson).",v:"VD de comptage/autre",anchor:"glm"},
+    desc_num:{name:"Résumé d'une variable continue",fn:"summary(x) · sd(x) · hist(x)",
+      when:"Décrire une variable mesurée : tendance centrale (moyenne, médiane), dispersion (écart-type, IQR) et forme (histogramme, boxplot).",v:"continue",anchor:"desc-una"},
+    desc_cat:{name:"Résumé d'une variable qualitative",fn:"table(x) · prop.table(table(x))",
+      when:"Décrire une variable catégorielle : effectifs, fréquences, mode et diagramme en barres.",v:"nominale / ordinale",anchor:"desc-una"},
+    desc_qq:{name:"Croiser deux variables continues",fn:"plot(x, y) · cor(x, y)",
+      when:"Nuage de points et coefficient de corrélation pour explorer la liaison entre deux variables quantitatives.",v:"2 continues",anchor:"desc-deux"},
+    desc_cc:{name:"Croiser deux variables qualitatives",fn:"table(v1, v2)",
+      when:"Table de contingence pour croiser deux variables catégorielles.",v:"2 qualitatives",anchor:"desc-deux"},
+    desc_cq:{name:"Croiser une continue et une qualitative",fn:"boxplot(valeur ~ groupe) · tapply(...)",
+      when:"Comparer les distributions et les moyennes d'une variable continue selon les groupes.",v:"continue × qualitative",anchor:"desc-deux"}
+  };
+
+  var TREE={
+    start:{q:"Que voulez-vous faire ?",hint:"Le mot-clé de votre objectif de recherche.",opts:[
+      {h:"Décrire mes données",d:"Résumer, visualiser une ou deux variables.",next:"desc_nb"},
+      {h:"Comparer / tester une différence",d:"Entre des groupes, des traitements ou des temps de mesure.",next:"cmp_type"},
+      {h:"Expliquer / prédire une variable",d:"Lien entre variables, régression, modélisation.",next:"reg"},
+      {h:"Explorer / réduire les dimensions",d:"Analyse factorielle : résumer un grand tableau.",next:"fa_type"},
+      {h:"Classer des individus",d:"Regrouper les sujets en classes homogènes.",next:"class_type"},
+      {h:"Vérifier un prérequis",d:"Normalité d'une variable, égalité des variances.",next:"prereq"}
+    ]},
+    desc_nb:{q:"Combien de variables décrivez-vous ?",opts:[
+      {h:"Une seule variable",d:"",next:"desc1"},
+      {h:"Deux variables (croisées)",d:"",next:"desc2"}
+    ]},
+    desc1:{q:"Quelle est la nature de la variable ?",opts:[
+      {h:"Continue",d:"Mesurée : âge, poids, rendement…",result:"desc_num"},
+      {h:"Qualitative (nominale / ordinale)",d:"Catégories.",result:"desc_cat"}
+    ]},
+    desc2:{q:"Quelle est la nature des deux variables ?",opts:[
+      {h:"Deux continues",d:"",result:"desc_qq"},
+      {h:"Deux qualitatives",d:"",result:"desc_cc"},
+      {h:"Une continue et une qualitative",d:"",result:"desc_cq"}
+    ]},
+    fa_type:{q:"Quelle est la nature des variables à analyser ?",hint:"L'analyse factorielle résume un grand tableau en quelques axes.",opts:[
+      {h:"Quantitatives",d:"Variables mesurées.",result:"acp"},
+      {h:"Qualitatives (plusieurs)",d:"Catégories, questionnaire.",result:"acm"},
+      {h:"Deux qualitatives (table de contingence)",d:"",result:"afc"},
+      {h:"Mixtes (quanti + quali)",d:"Groupes de variables.",result:"afm"}
+    ]},
+    class_type:{q:"Comment souhaitez-vous regrouper les individus ?",opts:[
+      {h:"Hiérarchie, nombre de classes non fixé",d:"Dendrogramme.",result:"cah"},
+      {h:"Nombre de classes connu, gros jeu de données",d:"",result:"kmeans"}
+    ]},
+    cmp_type:{q:"Quelle est la nature de la variable comparée ?",hint:"La variable dépendante (VD) : celle que l'on mesure.",opts:[
+      {h:"Continue",d:"Mesurée sur une échelle : âge, poids, rendement, score…",next:"cmp_c_n"},
+      {h:"Nominale / binaire",d:"Des catégories : oui/non, groupe, sexe…",next:"cmp_cat"}
+    ]},
+    cmp_c_n:{q:"Combien de groupes ou de mesures comparez-vous ?",opts:[
+      {h:"Une moyenne vs une valeur de référence",d:"Un seul échantillon.",result:"t1"},
+      {h:"Deux groupes / deux mesures",d:"",next:"cmp2_devis"},
+      {h:"Trois ou plus",d:"",next:"cmp3_devis"}
+    ]},
+    cmp2_devis:{q:"Quel est le devis des données ?",hint:"Indépendant = deux échantillons distincts. Apparié = mêmes individus (avant/après).",opts:[
+      {h:"Indépendant (transversal)",d:"",next:"cmp2i_norm"},
+      {h:"Apparié (dépendant)",d:"",next:"cmp2p_norm"}
+    ]},
+    cmp2i_norm:{q:"La variable est-elle normale ?",opts:[
+      {h:"Oui (normalité vérifiée)",d:"",result:"t2"},
+      {h:"Non / incertain",d:"",result:"mann"}
+    ]},
+    cmp2p_norm:{q:"Les différences sont-elles normales ?",opts:[
+      {h:"Oui (normalité vérifiée)",d:"",result:"tpair"},
+      {h:"Non / incertain",d:"",result:"wilcox"}
+    ]},
+    cmp3_devis:{q:"Quel est le devis des données ?",opts:[
+      {h:"Indépendant (transversal)",d:"Groupes distincts.",next:"cmp3i_norm"},
+      {h:"Apparié (mesures répétées)",d:"Mêmes individus dans le temps.",next:"cmp3p_norm"}
+    ]},
+    cmp3i_norm:{q:"Normalité des résidus et variances homogènes ?",opts:[
+      {h:"Oui (conditions réunies)",d:"",result:"anova"},
+      {h:"Non / incertain",d:"",result:"kruskal"}
+    ]},
+    cmp3p_norm:{q:"Les données sont-elles normales ?",opts:[
+      {h:"Oui (normalité vérifiée)",d:"",result:"anovarm"},
+      {h:"Non / incertain",d:"",result:"friedman"}
+    ]},
+    cmp_cat:{q:"Quel est le devis des données ?",opts:[
+      {h:"Indépendant (transversal)",d:"",next:"cmp_cat_size"},
+      {h:"Apparié (dépendant)",d:"Variable binaire mesurée deux fois.",result:"mcnemar"}
+    ]},
+    cmp_cat_size:{q:"Les effectifs sont-ils suffisants ?",hint:"Effectifs théoriques attendus ≥ 5 dans (presque) toutes les cases.",opts:[
+      {h:"Oui, effectifs suffisants",d:"",result:"chi_indep"},
+      {h:"Non, petits effectifs",d:"Souvent une table 2×2.",result:"fisher"}
+    ]},
+    reg:{q:"Que cherchez-vous précisément ?",opts:[
+      {h:"Mesurer le lien entre deux variables",d:"Corrélation.",next:"reg_corr"},
+      {h:"Modéliser / prédire une variable",d:"Régression avec une ou plusieurs variables.",next:"reg_vd"}
+    ]},
+    reg_corr:{q:"Quel type de liaison ?",opts:[
+      {h:"Linéaire, variables normales",d:"",result:"pearson"},
+      {h:"Monotone / sur les rangs (robuste)",d:"",result:"spearman"}
+    ]},
+    reg_vd:{q:"Quelle est la nature de la variable à expliquer ?",opts:[
+      {h:"Continue (et résidus normaux)",d:"",result:"lm"},
+      {h:"Binaire (oui / non)",d:"",result:"reglog"},
+      {h:"Comptage / autre",d:"Nombre d'événements, loi de Poisson…",result:"glm"}
+    ]},
+    prereq:{q:"Quel prérequis voulez-vous tester ?",opts:[
+      {h:"La normalité d'une variable",d:"",result:"shapiro"},
+      {h:"L'égalité des variances entre groupes",d:"",result:"levene"}
+    ]}
+  };
+
+  var panel=document.getElementById('panel'),crumbs=document.getElementById('crumbs'),restart=document.getElementById('restart');
+  var trail=[];
+  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+  function renderCrumbs(){crumbs.innerHTML=trail.map(function(t){return '<span class="crumb">'+t+'</span>';}).join('');}
+
+  function showStep(key){
+    var node=TREE[key];
+    var html='<div class="qstep"><p class="qtitle">'+node.q+'</p>'+(node.hint?'<p class="qhint">'+node.hint+'</p>':'')+'<div class="qopts">';
+    node.opts.forEach(function(o,i){
+      html+='<button class="qopt" data-i="'+i+'"><span class="oh">'+o.h+'</span>'+(o.d?'<span class="od">'+o.d+'</span>':'')+'</button>';
+    });
+    html+='</div></div>';
+    panel.innerHTML=html;
+    restart.style.display=trail.length?'inline-block':'none';
+    Array.prototype.forEach.call(panel.querySelectorAll('.qopt'),function(btn){
+      btn.addEventListener('click',function(){
+        var o=node.opts[+btn.getAttribute('data-i')];
+        trail.push(o.h); renderCrumbs();
+        if(o.result){showResult(o.result);}else{showStep(o.next);}
+      });
+    });
+  }
+
+  function showResult(id){
+    var t=TESTS[id];
+    var tag=t.tag?' <span class="'+(t.tag.indexOf('non')===0?'tag-np':'tag-p')+'">'+t.tag+'</span>':'';
+    var meta='';
+    if(t.d)meta+='<span>Devis · <b>'+t.d+'</b></span>';
+    if(t.v)meta+='<span>Variable · <b>'+t.v+'</b></span>';
+    if(t.n)meta+='<span>Normalité · <b>'+t.n+'</b></span>';
+    panel.innerHTML=
+      '<div class="result">'+
+        '<p class="rlead">Test recommandé</p>'+
+        '<div class="fiche">'+
+          '<div class="fiche-head"><span class="ft">'+t.name+tag+'</span><code class="fiche-fn">'+esc(t.fn)+'</code></div>'+
+          (meta?'<div class="fmeta">'+meta+'</div>':'')+
+          '<div class="fiche-grid one" style="margin-top:10px"><div><span class="flabel">Pourquoi</span>'+t.when+'</div></div>'+
+          '<div class="fx"><pre><code>'+esc(t.fn)+'</code></pre></div>'+
+          '<p style="margin:12px 0 0;font-size:.9rem"><a href="'+FICHES+'#'+t.anchor+'">→ Voir la fiche détaillée</a></p>'+
+        '</div>'+
+      '</div>';
+    restart.style.display='inline-block';
+  }
+
+  function reset(){trail=[];renderCrumbs();showStep('start');}
+  restart.addEventListener('click',reset);
+  reset();
+
+  // mode toggle
+  var tg=document.getElementById('tab-guide'),tt=document.getElementById('tab-table'),
+      vg=document.getElementById('view-guide'),vt=document.getElementById('view-table');
+  tg.addEventListener('click',function(){tg.classList.add('on');tt.classList.remove('on');vg.style.display='';vt.style.display='none';});
+  tt.addEventListener('click',function(){tt.classList.add('on');tg.classList.remove('on');vt.style.display='';vg.style.display='none';});
+})();
+</script>
+</body>
+</html>

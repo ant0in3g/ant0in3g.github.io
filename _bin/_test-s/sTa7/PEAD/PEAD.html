@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Première Expérience en Analyse de Données | Antoine Géré</title>
+<meta name="description" content="PEAD — Première Expérience en Analyse de Données. Filière coton au Bénin, projet sous RStudio et Quarto, ISTOM.">
+<meta property="og:title" content="Première Expérience en Analyse de Données">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Antoine Géré">
+<meta property="og:locale" content="fr_FR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+<button class="toggle" id="themeToggle" aria-label="Changer de thème">◑</button>
+
+<div class="layout">
+  <aside>
+    <a class="back" href="https://ant0in3g.github.io/sTa7.html">← Statistiques</a>
+    <p class="brand">PEAD</p>
+    <p class="role">Analyse de données · ISTOM</p>
+    <nav>
+      <a href="#presentation">Présentation</a>
+      <a href="#cadre">Cadre thématique</a>
+      <a class="sub" href="#filiere">Filière du coton &amp; thèse</a>
+      <a class="sub" href="#bases">Élaboration des bases</a>
+      <a href="#progression">Progression</a>
+      <a class="sub" href="#timeline">Timeline</a>
+      <a class="sub" href="#step1">Step 1 — Bases de données</a>
+      <a class="sub" href="#step2">Step 2 — Mise en contexte</a>
+      <a class="sub" href="#step3">Step 3 — Cadrage et objectifs</a>
+      <a class="sub" href="#step4">Step 4 — L'analyse statistique</a>
+      <a class="sub" href="#step6">Step 6 — Mise en forme</a>
+      <a class="sub" href="#step7">Step 7 — Clôture du projet</a>
+    </nav>
+    <div class="side-contact" style="margin-top:18px">
+      <a href="https://ant0in3g.github.io/sTa7/PEAD/doc/Presentations_Renaud.pdf" target="_blank" rel="noopener">↓ Présentations Renaud</a><br>
+      <a href="https://ant0in3g.github.io/sTa7/PEAD/doc/Articles.pdf" target="_blank" rel="noopener">↓ Articles</a><br>
+      <a href="https://ant0in3g.github.io/sTa7/PEAD/doc/Itineraire_technique_du_cotonnier_et_mecanisation_agricole.pdf" target="_blank" rel="noopener">↓ Itinéraire technique</a>
+    </div>
+  </aside>
+
+  <main>
+    <h1 class="page-title">Première Expérience en Analyse de Données</h1>
+    <div class="meta">
+      <div class="blk"><span class="lbl">Auteur·rice·s</span><span class="val"><a href="mailto:r.azanma@istom.fr">Renaud Florentin Azanma</a> · <a href="mailto:i.shilitouzi@istom.fr">Inès Shili-Touzi</a> · <a href="mailto:a.gere@istom.fr">Antoine Géré</a></span></div>
+      <div class="blk"><span class="lbl">Publication</span><span class="val">22 mai 2026</span></div>
+    </div>
+
+    <section id="presentation">
+      <h2>Présentation</h2>
+      <p>L'exercice <strong>PEAD</strong> (<strong>P</strong>remière <strong>E</strong>xpérience en <strong>A</strong>nalyse de <strong>D</strong>onnées) a été introduit en 2021-2022 pour les étudiants de 2ᵉ année.</p>
+      <p>Cet exercice a pour objectifs de :</p>
+      <ul>
+        <li>vous initier à la recherche bibliographique dans le but de comprendre des données ;</li>
+        <li>mobiliser la démarche scientifique à travers l'identification de questions liées à ces données ;</li>
+        <li>utiliser R et RStudio afin d'analyser et tester les données pour répondre aux questions posées ;</li>
+        <li>interpréter vos résultats afin de dégager des conclusions et une vision critique.</li>
+      </ul>
+      <figure class="logo"><img src="https://ant0in3g.github.io/sTa7/PEAD/img/R_RStudio_LogoS-rbg.png" alt="R & RStudio"></figure>
+    </section>
+
+    <section id="cadre">
+      <h2>Cadre thématique</h2>
+      <div class="callout">
+        <span class="ctitle">Thématique 2025-2026</span>
+        <p>Pour cette année, nous avons choisi de travailler avec vous sur la culture du <strong>coton</strong> dans le contexte agricole du Bénin. <strong>Les données sont issues du travail de thèse de Renaud Florentin Azanma.</strong></p>
+      </div>
+      <div class="figrow">
+        <img src="https://ant0in3g.github.io/sTa7/PEAD/img/coton.png" alt="Coton">
+        <img src="https://ant0in3g.github.io/sTa7/PEAD/img/benin.png" alt="Bénin">
+        <img src="https://ant0in3g.github.io/sTa7/PEAD/img/flag.png" alt="Drapeau du Bénin">
+      </div>
+
+      <h3 id="filiere">Filière du coton et présentation de la thèse</h3>
+      <figure>
+        <svg class="filiere-svg" viewBox="0 0 440 344" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Organisation de la filière coton au Bénin">
+          <defs>
+            <marker id="fl-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="var(--muted)"></path>
+            </marker>
+          </defs>
+          <g fill="none" stroke="var(--muted)" stroke-width="1.6" marker-end="url(#fl-arrow)">
+            <path d="M170 58 L170 82"></path>
+            <path d="M170 126 L170 150"></path>
+            <path d="M170 194 L170 218"></path>
+            <path d="M170 262 L170 286"></path>
+            <path d="M270 107 L360 107 L360 286"></path>
+            <path d="M300 311 L226 311"></path>
+          </g>
+          <g font-family="'IBM Plex Mono',monospace" font-size="13" text-anchor="middle">
+            <g><rect x="70" y="20" width="200" height="38" rx="8" fill="var(--accent-soft)" stroke="var(--line)"></rect><text x="170" y="44" fill="var(--ink)">Producteurs</text></g>
+            <g><rect x="70" y="88" width="200" height="38" rx="8" fill="var(--accent-soft)" stroke="var(--line)"></rect><text x="170" y="112" fill="var(--ink)">Coopératives</text></g>
+            <g><rect x="45" y="156" width="250" height="38" rx="8" fill="var(--accent-soft)" stroke="var(--line)"></rect><text x="170" y="180" fill="var(--ink)">Union communale de coopératives</text></g>
+            <g><rect x="70" y="224" width="200" height="38" rx="8" fill="var(--accent-soft)" stroke="var(--line)"></rect><text x="170" y="248" fill="var(--ink)">Fédération nationale</text></g>
+            <g><rect x="300" y="292" width="120" height="38" rx="8" fill="var(--accent-soft)" stroke="var(--line)"></rect><text x="360" y="316" fill="var(--ink)">Usines</text></g>
+            <g><rect x="120" y="292" width="100" height="38" rx="8" fill="var(--accent)" stroke="var(--accent)"></rect><text x="170" y="316" fill="#fff">AIC</text></g>
+          </g>
+        </svg>
+        <figcaption>Organisation de la filière coton au Bénin. L'AIC désigne l'association interprofessionnelle du coton.</figcaption>
+      </figure>
+      <p>La thèse de Renaud s'inscrit dans le cadre de la filière cotonnière au Bénin. Elle est menée conjointement à l'<strong>Université de Parakou</strong> et à l'<strong>ISTOM</strong>.</p>
+      <p><strong>Titre de la thèse</strong> — <em>Analyse et caractérisation des systèmes de culture du coton à haute performance pour une conception de systèmes plus durables et économiquement viables au Bénin.</em></p>
+      <p><strong>Encadrants :</strong> Prof. Hugues Kossi Baimey (Université de Parakou), Marc Oswald (ISTOM) et Inès Shili-Touzi (ISTOM).</p>
+      <p><strong>Défis majeurs de la filière</strong></p>
+      <ul>
+        <li>Assurer une amélioration durable de la fertilité des sols et des rendements en coton.</li>
+        <li>Réduire l'usage des engrais et pesticides chimiques afin de limiter les impacts environnementaux.</li>
+        <li>Adapter les systèmes de production cotonniers aux changements climatiques.</li>
+      </ul>
+      <p><strong>Objectifs et positionnement de la thèse</strong></p>
+      <ul>
+        <li>Caractériser les systèmes agricoles cotonniers à haute productivité.</li>
+        <li>Identifier et analyser les exploitations les plus performantes.</li>
+      </ul>
+      <p><strong>Pourquoi se concentrer sur les exploitations à haute performance ?</strong> Elles représentent un potentiel encore peu exploité au Bénin :</p>
+      <ul>
+        <li>Selon la littérature, certaines exploitations atteignent des rendements presque doublés (jusqu'à 2000 kg/ha ou plus) — Westerberg et al., 2017 ; Aifa, 2022.</li>
+        <li>Ces exploitations restent marginales et peu étudiées, mais sont considérées comme des modèles de production au sein des coopératives cotonnières.</li>
+        <li>Leurs pratiques méritent d'être analysées pour identifier les plus performantes (économiquement et agro-environnementalement) et comprendre les facteurs de réussite permettant de maintenir ces performances dans le temps.</li>
+      </ul>
+      <div class="callout">
+        <span class="ctitle">Finalité</span>
+        <p>Les résultats visent à <strong>concevoir des systèmes de culture du coton durables et économiquement viables</strong>, capables de répondre aux principaux défis de la filière cotonnière au Bénin.</p>
+      </div>
+
+      <h3 id="bases">Élaboration des bases de données</h3>
+      <p><strong>Bases de données par coopératives</strong> : référencement selon la carte administrative et intégration des données issues des sondages réalisés dans les coopératives.</p>
+      <p><strong>Objectifs du sondage</strong></p>
+      <ul>
+        <li>Évaluer la dynamique de production des cotonculteurs.</li>
+        <li>Identifier les différents profils de bons producteurs de coton.</li>
+        <li>Comprendre la diversité des exploitations cotonnières dans la zone d'étude.</li>
+      </ul>
+      <figure><img src="https://ant0in3g.github.io/sTa7/PEAD/img/sondage_coop_3.png" alt="Sondage coopératives"></figure>
+      <p><strong>Données utilisées</strong></p>
+      <ul>
+        <li>Cahiers de 79 coopératives sur 83 de la commune de Bembèrèkè (11 ont été choisies).</li>
+        <li>Cahiers de crédits intrants : quantités d'engrais, herbicides, insecticides, et superficies en coton.</li>
+        <li>Cahiers d'achats de coton-graine : production, prix des intrants, revenus et dettes.</li>
+      </ul>
+      <p><strong>Zone de sondage : Bembèrèkè</strong></p>
+      <ul>
+        <li>Située entre 8°30′ et 10°45′ de latitude Nord.</li>
+        <li>Climat soudano-sahélien avec une seule saison des pluies de 80 à 110 jours.</li>
+        <li>Pluviométrie annuelle : 600 à 950 mm.</li>
+        <li>Cultures dominantes : céréales (maïs, sorgho, mil), coton, soja et igname.</li>
+        <li>Deuxième zone de production de coton du pays.</li>
+        <li>Terres cultivées généralement peu fertiles et très sensibles au lessivage.</li>
+        <li>481 coopératives recensées (AIC, 2019).</li>
+      </ul>
+      <p><strong>Constitution de la base de données</strong></p>
+      <ul>
+        <li>Collecte et photographie des différents cahiers des coopératives.</li>
+        <li>Sélection de 11 coopératives sur la base de la disponibilité des cahiers couvrant les trois dernières campagnes cotonnières (2022, 2023 et 2024).</li>
+        <li>Saisie des données des cahiers dans Excel pour traitement et analyse.</li>
+      </ul>
+      <figure><img src="https://ant0in3g.github.io/sTa7/PEAD/img/sondage_coop_5.png" alt="Constitution de la base de données"></figure>
+    </section>
+
+    <section id="progression">
+      <h2>Progression</h2>
+
+      <h3 id="timeline">Timeline</h3>
+      <ul class="idxlist">
+        <li><span class="tag">→ 27 mars</span><div><strong class="tl-title">Step 1 &amp; 2 — Mise en contexte</strong><p class="pdesc">Étude bibliographique et statistiques descriptives. Livrable : données nettoyées et exploration initiale.</p></div></li>
+        <li><span class="tag">03 avril</span><div><strong class="tl-title">Cadrage et objectifs</strong><p class="pdesc">Validation définitive de la problématique et formulation des hypothèses de recherche.</p></div></li>
+        <li><span class="tag">avril</span><div><strong class="tl-title">L'analyse statistique</strong><p class="pdesc">Analyses approfondies sur RStudio (tests d'inférence, corrélations) en lien avec les cours de statistiques.</p></div></li>
+        <li><span class="tag">début mai</span><div><strong class="tl-title">Mise en forme</strong><p class="pdesc">Production du rapport Word via Quarto.</p></div></li>
+        <li><span class="tag">25 mai</span><div><strong class="tl-title">Clôture du projet</strong><p class="pdesc">Les rapports doivent être déposés via <a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=DFYH1I96akSeCz57B2mB4kQFLgD1lelIv1Mrk0MtHE1UMTFaSVJIOVJRU1hHVU80RE5QRUg0SlNNSi4u" target="_blank" rel="noopener">ce lien</a>.</p></div></li>
+      </ul>
+
+      <h3 id="step1">Step 1 — Bases de données</h3>
+      <p class="stepdate">Vendredi 28 novembre 2026</p>
+      <p>Les bases de données ont été diffusées à chaque <a href="https://istom-my.sharepoint.com/:t:/g/personal/a_gere_istom_fr/IQCW9TwhgXnLSJnvmNHHvJSdARwxw-c_GTzAmCvFOlW9BOs?e=Ak3x8E" target="_blank" rel="noopener">groupe</a> :</p>
+      <ul class="groups">
+        <li><span class="g">Groupe 1</span><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/PEAD_Gr-01_Bedari?csf=1&amp;web=1&amp;e=KeW9bt" target="_blank" rel="noopener">Bedari</a></li>
+        <li><span class="g">Groupe 2</span><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/PEAD_Gr-02_Bereke_Centre?csf=1&amp;web=1&amp;e=DZva1L" target="_blank" rel="noopener">Bereke Centre</a></li>
+        <li><span class="g">Groupe 3</span><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/PEAD_Gr-03_Beroubouay_Est?csf=1&amp;web=1&amp;e=gXlK36" target="_blank" rel="noopener">Beroubouay Est</a></li>
+        <li><span class="g">Groupe 4</span><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/PEAD_Gr-04_Bokobouerou?csf=1&amp;web=1&amp;e=P1RK3r" target="_blank" rel="noopener">Bokobouerou</a></li>
+        <li><span class="g">Groupe 5</span><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/PEAD_Gr-05_Gamia_Est?csf=1&amp;web=1&amp;e=nLVGPj" target="_blank" rel="noopener">Gamia Est</a></li>
+        <li><span class="g">Groupe 6</span><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/PEAD_Gr-06_Hangar_Peulh?csf=1&amp;web=1&amp;e=9GHjKl" target="_blank" rel="noopener">Hangar Peulh</a></li>
+        <li><span class="g">Groupe 7</span><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/PEAD_Gr-07_Ina_Gando?csf=1&amp;web=1&amp;e=JUVV1z" target="_blank" rel="noopener">Ina Gando</a></li>
+        <li><span class="g">Groupe 8</span><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/PEAD_Gr-08_Kassarou?csf=1&amp;web=1&amp;e=u9sKEr" target="_blank" rel="noopener">Kassarou</a></li>
+        <li><span class="g">Groupe 9</span><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/PEAD_Gr-09_Kossou?csf=1&amp;web=1&amp;e=ncXt2Y" target="_blank" rel="noopener">Kossou</a></li>
+        <li><span class="g">Groupe 10</span><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/PEAD_Gr-10_Pedarou?csf=1&amp;web=1&amp;e=QDnSdD" target="_blank" rel="noopener">Pedarou</a></li>
+        <li><span class="g">Groupe 11</span><a href="https://istom-my.sharepoint.com/:f:/r/personal/a_gere_istom_fr/Documents/Stat.%20et%20data%20analysis/PEAD/PEAD_Gr-11_Sissigourou?csf=1&amp;web=1&amp;e=m3qJe4" target="_blank" rel="noopener">Sissigourou</a></li>
+      </ul>
+      <figure><a href="https://en.wikipedia.org/wiki/Benin" target="_blank" rel="noopener"><img src="https://ant0in3g.github.io/sTa7/PEAD/img/carte_benin.jpg" alt="Carte du Bénin"></a></figure>
+      <div class="callout">
+        <span class="ctitle">Espace de travail</span>
+        <p>Votre dossier est un espace de travail : tous vos documents doivent y être déposés.</p>
+      </div>
+      <p>Le jeu de données comprend 26 variables documentant l'activité de production cotonnière sur trois campagnes successives (2022, 2023, 2024). Les données brutes, incluant des valeurs manquantes (<code>NA</code>), sont archivées dans le dossier <code>data_raw</code>.</p>
+      <p><strong>Identification de l'exploitant</strong></p>
+      <ul>
+        <li><code>Numero_Individu</code> : identifiant numérique unique attribué à chaque exploitant pour faciliter le traitement statistique.</li>
+        <li><code>Individu</code> : nom et prénom de l'exploitant.</li>
+      </ul>
+      <p><strong>Indicateurs d'activité (variables binaires)</strong> — pour chaque année (<code>Recolte_2022</code>, <code>Recolte_2023</code>, <code>Recolte_2024</code>) : <code>1</code> si une récolte a été réalisée, <code>0</code> sinon.</p>
+      <p><strong>Variables de production et intrants</strong> (répétées par année, 7 variables par campagne) :</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Variable</th><th>Unité</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td><code>Superficie</code></td><td>Hectare (ha)</td><td>Surface totale cultivée</td></tr>
+          <tr><td><code>Production</code></td><td>Kilogramme (kg)</td><td>Quantité de coton récoltée</td></tr>
+          <tr><td><code>Valeur_Production</code></td><td>Franc CFA</td><td>Revenu brut de la récolte</td></tr>
+          <tr><td><code>Herbicide</code></td><td>Franc CFA</td><td>Coût total investi en herbicides</td></tr>
+          <tr><td><code>Engrais</code></td><td>Franc CFA</td><td>Coût total investi en engrais</td></tr>
+          <tr><td><code>Insecticide</code></td><td>Franc CFA</td><td>Coût total investi en insecticides</td></tr>
+          <tr><td><code>Dette_Intrants</code></td><td>Franc CFA</td><td>Montant des crédits liés aux intrants</td></tr>
+        </tbody>
+      </table></div>
+      <p><strong>Note sur la qualité des données</strong> — certaines variables présentent un taux élevé de valeurs manquantes (<code>NA</code>). Ce point fera l'objet d'un traitement spécifique lors de la phase d'analyse exploratoire pour décider de l'imputation ou de l'exclusion de certaines observations.</p>
+      <div class="callout">
+        <span class="ctitle">Travail à faire</span>
+        <p>Il vous est demandé de <strong>synchroniser</strong> votre base de données sur votre ordinateur personnel, comme indiqué à ce <a href="https://ant0in3g.github.io/sTa7/orga.html" target="_blank" rel="noopener">lien</a>.</p>
+      </div>
+
+      <h3 id="step2">Step 2 — Mise en contexte</h3>
+      <p class="stepdate">Vendredi 27 mars 2026</p>
+      <p><em>Objectif : savoir de quoi on parle et avoir des données propres.</em></p>
+      <p><strong>Étude bibliographique</strong> — réaliser une étude bibliographique sur la filière coton afin de justifier et contextualiser votre travail. La recherche devra être menée de manière progressive, en commençant par une analyse à l'échelle mondiale, puis en se focalisant sur la situation en Afrique, avant de terminer par le cas spécifique du Bénin. L'objectif est d'obtenir une vision globale de l'état actuel de la filière coton ainsi que des principaux enjeux économiques, sociaux et environnementaux associés.</p>
+      <p><strong>Étude exploratoire</strong> — à partir de votre base de données, réaliser une analyse statistique descriptive, à la fois univariée et multivariée, afin de mettre en évidence les caractéristiques principales du jeu de données et de comprendre les dynamiques qui y sont présentes.</p>
+      <div class="callout">
+        <span class="ctitle">Référentiel économique des intrants</span>
+        <p>Ce guide vous permet de convertir les valeurs monétaires (F CFA) en quantités physiques (litres, sacs, flacons).</p>
+        <ul>
+          <li><em>Insecticides</em> (protection des cultures) : le montant saisi correspond au cumul des flacons achetés. Un flacon de 125 ml coûte 3 500 F CFA.</li>
+          <li><em>Engrais</em> (nutrition des sols) : le montant cumulé intègre trois types d'engrais (sacs de 50 kg) — Urée : 15 000 F CFA/sac ; Super Simple Phosphate (SSP) : 14 000 F CFA/sac ; NPKSB : 17 000 F CFA/sac. Calcul moyen : utilisez 15 333 F CFA/sac de 50 kg pour vos estimations globales de volume.</li>
+          <li><em>Herbicides</em> (désherbage) : souvent utilisés en mélanges (Glyphosate 3 500 F/L ; pré-levée : 7 500 F/ha ; post-levée : 8 500 F/ha). Vous pouvez rester avec la valeur monétaire ou considérer un prix moyen de 6 500 F CFA le litre.</li>
+        </ul>
+      </div>
+      <p>Pour enrichir votre analyse et donner du sens aux chiffres bruts, il est fortement conseillé de définir de nouveaux indicateurs, par exemple :</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Indicateur par année</th><th>Calcul</th><th>Intérêt de l'analyse</th></tr></thead>
+        <tbody>
+          <tr><td><code>Rendement</code></td><td>Production / Superficie</td><td>Mesurer l'efficacité agronomique (kg/ha).</td></tr>
+          <tr><td><code>Bilan_financier</code></td><td>Valeur_Prod − Dette_Intrants</td><td>Estimer le revenu réel après remboursement.</td></tr>
+          <tr><td><code>Charge_ha</code></td><td>Intrants / Superficie</td><td>Évaluer le niveau d'investissement technique par ha.</td></tr>
+          <tr><td><code>Ratio_prod</code></td><td>Production / Intrants</td><td>Calculer le kg de coton produit par CFA investi.</td></tr>
+          <tr><td><code>Taux_dettes</code></td><td>Dette / Valeur_Prod</td><td>Mesurer la part du revenu absorbée par les crédits.</td></tr>
+          <tr><td><code>Evol_Rendement</code></td><td>Variation (%) entre années</td><td>Analyser la progression de la performance.</td></tr>
+        </tbody>
+      </table></div>
+      <p>Ce travail sera réalisé sur R.</p>
+      <p><strong>Livrable intermédiaire</strong> — votre analyse sera synthétisée via <a href="https://youtu.be/w5vBoaN6t-M?si=3hh6w7fFhsJyAcRn" target="_blank" rel="noopener">Quarto</a>, un outil de pointe en science des données qui permet de fusionner explications textuelles, codes R et résultats au sein d'un même document. L'intérêt majeur de ce format réside dans la reproductibilité : toute modification des données ou des calculs met automatiquement à jour graphiques et tableaux, garantissant rigueur scientifique et rendu professionnel (y compris une gestion automatisée de la bibliographie).</p>
+      <div class="callout">
+        <span class="ctitle">Mise en garde</span>
+        <p>Afin de faciliter votre montée en compétence, je mettrai en forme sur Quarto cette étape de votre étude. Ce modèle structuré vous servira de base technique à vous approprier et compléter de manière autonome pour la suite. Pour cette étape, vos livrables sont : un document Word synthétisant votre étude bibliographique et un script R complet détaillant votre analyse exploratoire.</p>
+      </div>
+
+      <h3 id="step3">Step 3 — Cadrage et objectifs</h3>
+      <p class="stepdate">Vendredi 3 avril 2026</p>
+      <p><em>Objectif : passer du « on regarde les données » à « on répond à une question ».</em></p>
+      <p><strong>Validation des problématiques</strong> — à partir de votre analyse exploratoire et de votre travail bibliographique, vous définirez un ou plusieurs axes de travail. L'objectif est d'identifier et d'analyser les « bons » producteurs, selon des critères que vous définirez.</p>
+      <div class="callout">
+        <span class="ctitle">Information</span>
+        <p>Vous validerez votre problématique avec Mme Shili-Touzi lors d'un entretien par groupe. Deux entretiens maximum seront accordés à chaque groupe. N'hésitez pas à poser vos questions par mail également.</p>
+      </div>
+
+      <h3 id="step4">Step 4 — L'analyse statistique</h3>
+      <p class="stepdate">Avril 2026</p>
+      <p>L'objectif de ce mois d'avril est de transformer vos données nettoyées en résultats scientifiques concrets répondant à votre problématique. Ce travail analytique sera réalisé exclusivement sur RStudio et constituera une <strong>mise en application directe de vos cours de statistiques</strong>.</p>
+      <p>Chaque test choisi devra être justifié par la nature de vos variables, les questions auxquelles vous souhaitez répondre et par la vérification des conditions d'application, exactement comme vu en cours.</p>
+
+      <h3 id="step6">Step 6 — Mise en forme</h3>
+      <p class="stepdate">Début mai 2026</p>
+      <p>L'objectif de cette ultime étape est de passer de l'analyse brute à une communication scientifique de qualité. Vous devrez produire un rendu complet et intégré sur Quarto, capable de générer automatiquement un fichier Word parfaitement structuré (introduction, bibliographie, méthodologie, résultats commentés et conclusion). En parallèle, vous préparerez une présentation PowerPoint synthétique. L'enjeu est de démontrer votre capacité à vulgariser des résultats complexes.</p>
+
+      <h3 id="step7">Step 7 — Clôture du projet</h3>
+      <p class="stepdate">Lundi 25 mai 2026</p>
+      <p>Cette phase marque l'aboutissement de votre projet avec le rendu final de votre rapport Word, intégralement généré via Quarto. Ce document devra démontrer votre maîtrise de la chaîne de traitement de données, de la bibliographie à l'interprétation statistique.</p>
+      <p>Le rapport doit constituer une synthèse cohérente de vos travaux et respecter l'organisation suivante :</p>
+      <ul>
+        <li><strong>Introduction générale</strong> (1 page) : présentation du sujet, du contexte et de la problématique.</li>
+        <li><strong>Synthèse de l'étude bibliographique</strong> : reprise et intégration de vos recherches préalables.</li>
+        <li><strong>Résultats</strong> : présentation détaillée de vos analyses et des données exploitées.</li>
+        <li><strong>Conclusion générale</strong> : synthèse des principaux enseignements en réponse à la problématique initiale, puis ouverture sur les limites de l'étude et les questions restant en suspens.</li>
+      </ul>
+      <p>Le rapport final doit comprendre entre 10 et 20 pages maximum.</p>
+      <div class="callout">
+        <span class="ctitle">Dépôt de votre rapport</span>
+        <p>Le rendu devra être déposé via <a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=DFYH1I96akSeCz57B2mB4kQFLgD1lelIv1Mrk0MtHE1UMTFaSVJIOVJRU1hHVU80RE5QRUg0SlNNSi4u" target="_blank" rel="noopener">ce lien</a>.</p>
+      </div>
+    </section>
+
+    <p class="end">Mise en forme par Antoine Géré.</p>
+  </main>
+</div>
+
+<script src="../../assets/app.js"></script>
+</body>
+</html>
