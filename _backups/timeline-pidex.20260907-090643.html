@@ -1,49 +1,49 @@
 <!doctype html>
 <html lang="fr">
 <head>
+<base href="https://ant0in3g.github.io/sTa7/PIDEx/">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Timeline — PIDEx</title>
   <style>
     :root{
-      --paper:#e9f1f3; --ink:#16272c; --muted:#557079; --line:#cfe0e3;
-      --accent:#1f6f8b; --accent-soft:#dcebee; --card:#f4fafb;
-    }
-    :root[data-theme="dark"]{
-      --paper:#0f1c20; --ink:#e4eef0; --muted:#8aa3ab; --line:#26383d;
-      --accent:#5bb6d1; --accent-soft:#183038; --card:#15262b;
+      --bg:#0f1724; --card:#0b1220; --accent:#6ee7b7; --muted:#94a3b8; --glass: rgba(255,255,255,0.04);
+      --card-radius:16px;
     }
     *{box-sizing:border-box}
-    body{font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0;
-  background:var(--paper);
-  color:var(--ink); -webkit-font-smoothing:antialiased}
+    body{font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0; 
+  background: #ffffff;
+  color: #111827; -webkit-font-smoothing:antialiased}
     .wrap{max-width:980px;margin:20px auto;padding:24px}
     header{display:flex;align-items:center;justify-content:space-between;gap:16px}
     h1{font-size:20px;margin:0 0 2px 0}
-    p.lead{margin:0;color:var(--muted)}
+    p.lead{margin:0;color:#1f2937}
+
+    .controls{display:flex;gap:8px;align-items:center}
+    .btn{background:var(--accent);color:#072023;border:none;padding:8px 12px;border-radius:10px;font-weight:600;cursor:pointer}
+    .btn.ghost{background:transparent;color:var(--accent);border:1px solid rgba(110,231,183,0.12)}
 
     .timeline{position:relative;margin-top:28px;padding-left:28px}
-    .timeline:before{content:"";position:absolute;left:20px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg, var(--accent), var(--line));border-radius:4px}
+    .timeline:before{content:"";position:absolute;left:12px;top:0;bottom:0;width:4px;background:linear-gradient(180deg, #1e40af, transparent);border-radius:4px}
 
-    .item{position:relative;background:var(--card);padding:16px 18px;margin:18px 0;border-radius:12px;border:1px solid var(--line);box-shadow: 0 4px 14px rgba(22,39,44,0.06)}
-    .item .dot{position:absolute;left:-27px;top:16px;width:40px;height:40px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;border:4px solid var(--paper);box-shadow:0 2px 6px rgba(22,39,44,0.12)}
-    .item .dot span{font-size:15px;color:#fff;font-weight:700}
-    .item h3{margin:0 0 6px 0;font-size:16px;color:var(--ink)}
-    .meta{font-size:13px;color:var(--accent);font-weight:600;margin-bottom:8px}
-    .desc{color:var(--ink);font-size:14px;line-height:1.5}
-    a.link{color:var(--accent);font-weight:600;text-decoration:none}
-    a.link:hover{text-decoration:underline;text-underline-offset:3px}
+    .item{position:relative;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:14px 16px;margin:18px 0;border-radius:12px;border:1px solid rgba(255,255,255,0.03);box-shadow: 0 6px 18px rgba(2,6,23,0.6)}
+    .item .dot{position:absolute;left:-36px;top:18px;width:44px;height:44px;border-radius:12px;background:var(--card);display:flex;align-items:center;justify-content:center;border:4px solid var(--glass)}
+    .item .dot span{font-size:14px;color:#FFFFFF;font-weight:700}
+    .item h3{margin:0 0 6px 0;font-size:16px}
+    .meta{font-size:13px;color:#4b5563;margin-bottom:8px}
+    .desc{color:#374151;font-size:14px;line-height:1.45}
+    a.link{color:#1d4ed8;font-weight:600;text-decoration:none}
 
     /* small */
-    @media (max-width:640px){.wrap{margin:18px;padding:16px} .item{padding:12px} .item .dot{left:-38px;width:36px;height:36px}}
+    @media (max-width:640px){.wrap{margin:18px;padding:16px} .item{padding:12px} .item .dot{left:-46px}}
 
     /* print */
-    @media print{body{background:white;color:black} .timeline:before{background:#bbb}}
+    @media print{body{background:white;color:black} .timeline:before{background:#bbb} .btn,.controls{display:none}}
   </style>
 <style id="ag-theme">
 @import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap');
-:root{--ag-paper:#e9f1f3;--ag-ink:#16272c;--ag-muted:#557079;--ag-line:#cfe0e3;--ag-accent:#1f6f8b;--ag-soft:#dcebee;--ag-code:#e0edef}
-:root[data-theme="dark"]{--ag-paper:#0f1c20;--ag-ink:#e4eef0;--ag-muted:#8aa3ab;--ag-line:#26383d;--ag-accent:#5bb6d1;--ag-soft:#183038;--ag-code:#15262b}
+:root{--ag-paper:#f5f1e8;--ag-ink:#20201d;--ag-muted:#6a6459;--ag-line:#ddd6c7;--ag-accent:#9a3b2e;--ag-soft:#efe4de;--ag-code:#efeadd}
+@media(prefers-color-scheme:dark){:root{--ag-paper:#171613;--ag-ink:#e9e4d8;--ag-muted:#9a9384;--ag-line:#312e28;--ag-accent:#e0836f;--ag-soft:#2a201c;--ag-code:#20201c}}
 body{background:var(--ag-paper)!important;color:var(--ag-ink)!important;font-family:'Spectral',Georgia,serif!important;line-height:1.7}
 p,li,td,th,.quarto-title-meta,dt,dd{color:var(--ag-ink)}
 h1,h2,h3,h4,h5,.quarto-title h1.title{font-family:'Spectral',Georgia,serif!important;color:var(--ag-ink);font-weight:600}
@@ -76,17 +76,6 @@ document.addEventListener('click',function(e){
   if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});history.replaceState(null,'','#'+id);}
 });
 window.addEventListener('load',function(){if(location.hash){var el=document.getElementById(location.hash.slice(1));if(el)setTimeout(function(){el.scrollIntoView();},60);}});
-</script>
-<script id="ag-theme-sync">
-(function(){
-  var root=document.documentElement;
-  function apply(t){ root.setAttribute('data-theme', t==='dark'?'dark':'light'); }
-  var saved; try{ saved=localStorage.getItem('theme'); }catch(e){}
-  var theme=(saved==='dark'||saved==='light')?saved:(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
-  apply(theme);
-  // se met à jour quand le thème change dans la page parente (même origine)
-  window.addEventListener('storage', function(e){ if(e.key==='theme'){ apply(e.newValue); } });
-})();
 </script>
 </head>
 <body>
@@ -139,5 +128,23 @@ window.addEventListener('load',function(){if(location.hash){var el=document.getE
     </main>
 
   </div>
+
+  <script>
+    // Téléchargement simple du HTML actuel
+    document.getElementById('downloadBtn').addEventListener('click', ()=>{
+      const html = '<!doctype html>\n' + document.documentElement.outerHTML;
+      const blob = new Blob([html], {type: 'text/html'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'timeline-pidex.html';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    });
+
+    document.getElementById('printBtn').addEventListener('click', ()=> window.print());
+  </script>
 </body>
 </html>
