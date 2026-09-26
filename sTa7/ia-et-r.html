@@ -1,92 +1,92 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>IA et R, faire tourner un modèle en local | Antoine Géré</title>
-<meta name="description" content="Petit tutoriel : faire tourner un modèle de langage (LLM) en local sur sa machine pour générer du code R. ISTOM.">
+<title>AI and R, running a model locally | Antoine Géré</title>
+<meta name="description" content="A small tutorial: run a language model (LLM) locally on your machine to generate R code. ISTOM.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
-<button class="toggle" id="themeToggle" aria-label="Changer de thème">◑</button>
+<button class="toggle" id="themeToggle" aria-label="Toggle theme">◑</button>
 <div class="layout">
   <aside>
-    <a class="back" href="../sTa7.html">← Statistiques</a>
-    <p class="brand sm">IA et R</p>
-    <p class="role">Statistiques · ISTOM</p>
+    <a class="back" href="../sTa7.html">← Statistics</a>
+    <p class="brand sm">AI &amp; R</p>
+    <p class="role">Statistics · ISTOM</p>
     <nav>
-      <a href="#pourquoi">Pourquoi en local ?</a>
-      <a href="#prerequis">Prérequis matériel</a>
-      <a href="#etapes">Le tutoriel en 3 étapes</a>
-      <a href="#modeles">Quels modèles ?</a>
-      <a href="#loin">Pour aller plus loin</a>
-      <a href="#cout">Le coût écologique</a>
+      <a href="#why">Why run it locally?</a>
+      <a href="#requirements">Hardware requirements</a>
+      <a href="#steps">The tutorial in 3 steps</a>
+      <a href="#models">Which models?</a>
+      <a href="#further">Going further</a>
+      <a href="#cost">The ecological cost</a>
     </nav>
     <div class="side-contact">
       <a href="mailto:a.gere@istom.fr">a.gere@istom.fr</a>
     </div>
   </aside>
   <main>
-    <h1 class="page-title">IA et R : faire tourner un modèle en local</h1>
-    <p class="muted">Un tentative de tutoriel pour installer un modèle de langage (LLM) directement sur votre ordinateur et l'utiliser, par exemple, pour vous aider à écrire du code R, gratuitement, sans compte, et sans envoyer vos données sur un serveur distant.</p>
+    <h1 class="page-title">Artificial Intelligence and coding in R</h1>
+    <p class="muted">An attempt at a tutorial to install a language model (LLM) directly on your own computer and use it, for instance, to help you write R code, for free, with no account, and without sending your data to a remote server.</p>
 
-    <h2 id="pourquoi">Pourquoi faire tourner une IA en local ?</h2>
-    <p>Faire tourner un modèle « en local », c'est l'exécuter sur votre propre machine plutôt que sur les serveurs d'une entreprise (comme ChatGPT ou Claude). Les avantages : c'est <strong>gratuit</strong>, cela fonctionne <strong>hors-ligne</strong>, vos données restent <strong>privées</strong>, et c'est une excellente façon de comprendre concrètement comment fonctionnent ces outils. En contrepartie, la qualité dépend de la taille du modèle que votre matériel peut supporter.</p>
+    <h2 id="why">Why run an AI model locally?</h2>
+    <p>Running a model "locally" means executing it on your own machine rather than on a company's servers (like ChatGPT or Claude). The upsides: it's <strong>free</strong>, it works <strong>offline</strong>, your data stays <strong>private</strong>, and it's a great way to understand concretely how these tools work. The trade-off: quality depends on the size of the model your hardware can handle.</p>
 
-    <h2 id="prerequis">Prérequis matériel</h2>
-    <p>Un LLM doit être chargé en mémoire pour produire du texte : la contrainte principale est donc la mémoire disponible. Pour générer des scripts R corrects, visez un modèle d'au moins <strong>3 à 7 milliards de paramètres</strong> (noté 3B à 7B).</p>
+    <h2 id="requirements">Hardware requirements</h2>
+    <p>An LLM must be loaded into memory to produce text, so the main constraint is available memory. To generate decent R scripts, aim for a model of at least <strong>3 to 7 billion parameters</strong> (written 3B to 7B).</p>
     <ul>
-      <li><strong>Sans carte graphique</strong> : prévoyez environ <strong>7 Go de RAM libres</strong> pour un modèle 7B.</li>
-      <li><strong>Avec une carte graphique</strong> : il faut qu'elle dispose d'au moins <strong>7 Go de VRAM</strong>, et le calcul est <em>bien</em> plus rapide sur GPU.</li>
+      <li><strong>Without a graphics card</strong>: plan for roughly <strong>7 GB of free RAM</strong> for a 7B model.</li>
+      <li><strong>With a graphics card</strong>: it needs at least <strong>7 GB of VRAM</strong>, and computation is <em>much</em> faster on a GPU.</li>
     </ul>
-    <p class="muted">Repère : un modèle plus petit (0.5B–1.5B) tournera sur presque n'importe quelle machine, mais donnera des résultats plus limités. À vous de trouver le meilleur compromis pour votre ordinateur.</p>
+    <p class="muted">Rule of thumb: a smaller model (0.5B–1.5B) will run on almost any machine but gives more limited results. It's up to you to find the best compromise for your computer.</p>
 
-    <h2 id="etapes">Le tutoriel en 3 étapes</h2>
+    <h2 id="steps">The tutorial in 3 steps</h2>
 
     <ol class="chapters">
-      <li><span class="title">Installer un serveur LLM local</span>
-        <p class="desc">Ces outils gèrent le téléchargement et l'exécution des modèles, avec une interface de discussion façon ChatGPT. Le plus simple pour commencer est <a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a>. Alternatives conviviales : <a href="https://lmstudio.ai" target="_blank" rel="noopener">LM Studio</a> et <a href="https://openwebui.com" target="_blank" rel="noopener">Open WebUI</a>. Téléchargez, installez, c'est prêt.</p></li>
+      <li><span class="title">Install a local LLM server</span>
+        <p class="desc">These tools handle downloading and running models, with a ChatGPT-style chat interface. The simplest place to start is <a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a>. User-friendly alternatives: <a href="https://lmstudio.ai" target="_blank" rel="noopener">LM Studio</a> and <a href="https://openwebui.com" target="_blank" rel="noopener">Open WebUI</a>. Download, install, and you're ready.</p></li>
 
-      <li><span class="title">Télécharger un modèle</span>
-        <p class="desc">Une fois Ollama installé, ouvrez un terminal et récupérez un modèle spécialisé dans le code. Par exemple :</p>
+      <li><span class="title">Download a model</span>
+        <p class="desc">Once Ollama is installed, open a terminal and pull a model specialised in code. For example:</p>
         <pre><code>ollama pull qwen2.5-coder:3b</code></pre>
-        <p class="desc">Remplacez <code>3b</code> par la taille voulue (<code>0.5b</code>, <code>1.5b</code>, <code>3b</code>, <code>7b</code>…) selon votre matériel.</p></li>
+        <p class="desc">Replace <code>3b</code> with the size you want (<code>0.5b</code>, <code>1.5b</code>, <code>3b</code>, <code>7b</code>…) depending on your hardware.</p></li>
 
-      <li><span class="title">Poser vos questions</span>
-        <p class="desc">Lancez le modèle et discutez avec lui comme sur un chat classique :</p>
+      <li><span class="title">Ask your questions</span>
+        <p class="desc">Launch the model and chat with it like any regular chatbot:</p>
         <pre><code>ollama run qwen2.5-coder:3b</code></pre>
-        <p class="desc">Vous pouvez alors lui demander, par exemple : <em>« Écris-moi un script R qui charge un fichier CSV, calcule la moyenne par groupe et trace un boxplot. »</em> Relisez et testez toujours le code proposé, un petit modèle peut se tromper.</p></li>
+        <p class="desc">You can then ask, for example: <em>"Write me an R script that loads a CSV file, computes the mean per group and draws a boxplot."</em> Always review and test the generated code, a small model can make mistakes.</p></li>
     </ol>
 
-    <h2 id="modeles">Quels modèles essayer ?</h2>
-    <p>Pour de l'aide au code R, deux bonnes familles pour débuter :</p>
+    <h2 id="models">Which models to try?</h2>
+    <p>For help with R code, two good families to start with:</p>
     <ul>
-      <li><strong>Qwen2.5-Coder</strong>, décliné en plusieurs tailles (0.5B, 1.5B, 3B, 7B et plus). Les résultats commencent souvent à devenir intéressants <strong>à partir de 3B</strong>, mais c'est à tester.</li>
-      <li><strong>Mistral</strong>, les modèles de l'éditeur français, également disponibles via Ollama et LM Studio.</li>
+      <li><strong>Qwen2.5-Coder</strong>, available in several sizes (0.5B, 1.5B, 3B, 7B and more). Results often start to get interesting <strong>from 3B onwards</strong>, but this is worth testing.</li>
+      <li><strong>Mistral</strong>, the models from the French company, also available through Ollama and LM Studio.</li>
     </ul>
-    <p class="muted">Conseil : commencez petit, jugez la qualité des réponses, puis montez en taille si votre machine suit.</p>
+    <p class="muted">Tip: start small, judge the quality of the answers, then scale up if your machine can keep up.</p>
 
-    <h2 id="loin">Pour aller plus loin</h2>
+    <h2 id="further">Going further</h2>
     <ul>
-      <li><a href="https://anshgandharva.medium.com/building-a-local-ai-setup-on-your-laptop-step-by-step-guide-19d4f5aa85f9" target="_blank" rel="noopener">Building a local AI setup on your laptop, guide pas à pas</a> (Medium, 🇬🇧)</li>
+      <li><a href="https://anshgandharva.medium.com/building-a-local-ai-setup-on-your-laptop-step-by-step-guide-19d4f5aa85f9" target="_blank" rel="noopener">Building a local AI setup on your laptop, a step-by-step guide</a> (Medium, 🇬🇧)</li>
       <li><a href="https://www.reddit.com/r/selfhosted/comments/1jbk06h/the_complete_guide_to_building_your_free_local_ai/" target="_blank" rel="noopener">The complete guide to building your free local AI</a> (Reddit r/selfhosted, 🇬🇧)</li>
       <li><a href="https://dev.to/payamhn/complete-guide-to-run-ai-models-locally-even-on-mid-tier-laptop-212p" target="_blank" rel="noopener">Run AI models locally, even on a mid-tier laptop</a> (dev.to, 🇬🇧)</li>
-      <li><a href="https://www.youtube.com/watch?v=onrvYqir_mQ" target="_blank" rel="noopener">Tutoriel vidéo, installer une IA en local</a> (YouTube)</li>
+      <li><a href="https://www.youtube.com/watch?v=onrvYqir_mQ" target="_blank" rel="noopener">Video tutorial, installing an AI locally</a> (YouTube)</li>
     </ul>
 
-    <h2 id="cout">Un regard critique : le coût écologique de l'IA</h2>
-    <p>Utiliser ces outils, en local ou dans le cloud, n'est pas neutre : entraînement et usage des grands modèles consomment énormément d'énergie, d'eau et émettent du CO₂. Quelques lectures pour garder l'esprit critique :</p>
+    <h2 id="cost">A critical look: the ecological cost of AI</h2>
+    <p>Using these tools, whether locally or in the cloud, is not neutral: training and running large models consume enormous amounts of energy and water and emit CO₂. A few readings to keep a critical mind (in French):</p>
     <ul>
-      <li><a href="https://reporterre.net/L-insoutenable-cout-ecologique-du-boom-de-l-IA" target="_blank" rel="noopener">L'insoutenable coût écologique du boom de l'IA</a> (Reporterre)</li>
-      <li><a href="https://www.mediapart.fr/journal/ecologie/100225/ia-un-puits-sans-fond-de-depenses-en-energie-en-eau-et-en-co2" target="_blank" rel="noopener">IA : un puits sans fond de dépenses en énergie, en eau et en CO₂</a> (Mediapart)</li>
-      <li><a href="https://stm.cairn.info/revue-enjeux-numeriques-2025-1-page-37" target="_blank" rel="noopener">Enjeux numériques, l'empreinte environnementale de l'IA</a> (Cairn)</li>
-      <li><a href="https://www.monde-diplomatique.fr/2025/07/BROCA/68580" target="_blank" rel="noopener">Article du Monde diplomatique (juillet 2025)</a></li>
+      <li><a href="https://reporterre.net/L-insoutenable-cout-ecologique-du-boom-de-l-IA" target="_blank" rel="noopener">L'insoutenable coût écologique du boom de l'IA</a> (Reporterre, 🇫🇷)</li>
+      <li><a href="https://www.mediapart.fr/journal/ecologie/100225/ia-un-puits-sans-fond-de-depenses-en-energie-en-eau-et-en-co2" target="_blank" rel="noopener">IA : un puits sans fond de dépenses en énergie, en eau et en CO₂</a> (Mediapart, 🇫🇷)</li>
+      <li><a href="https://stm.cairn.info/revue-enjeux-numeriques-2025-1-page-37" target="_blank" rel="noopener">Enjeux numériques, l'empreinte environnementale de l'IA</a> (Cairn, 🇫🇷)</li>
+      <li><a href="https://www.monde-diplomatique.fr/2025/07/BROCA/68580" target="_blank" rel="noopener">Le Monde diplomatique article (July 2025)</a> (🇫🇷)</li>
     </ul>
 
-    <p class="end">Mise en forme par Antoine Géré.</p>
+    <p class="end">Put together by Antoine Géré.</p>
   </main>
 </div>
 <script src="../assets/app.js"></script>
