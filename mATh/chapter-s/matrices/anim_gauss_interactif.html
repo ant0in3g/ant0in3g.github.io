@@ -49,6 +49,12 @@ h1{margin:0;font:400 clamp(30px,7vw,44px)/1.1 var(--serif);color:var(--red);text
 /* panneau */
 .panel{position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px);display:flex;flex-direction:column;gap:16px;padding:16px;background:var(--panel);border:1px solid var(--line);border-radius:10px;min-width:0}
 @media (max-width:860px){.panel{position:static}}
+@media (max-width:860px){
+  .blk{grid-template-columns:1fr;gap:3px;margin-bottom:6px;justify-items:center}
+  .blk .lab{justify-self:start;text-align:left;white-space:nowrap;font-size:17px}
+  .blk>div:last-child{display:none}
+  .stage{overflow-x:auto}
+}
 .panel h2{margin:0;font:500 12px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .grp{display:flex;flex-direction:column;gap:10px;padding-top:14px;border-top:1px solid var(--line)}
 .grp:first-of-type{border-top:0;padding-top:0}
@@ -229,7 +235,7 @@ function render(){
     h+='<div class="stack">';
     for(let k=0;k<=s;k++){
       const step=st[k], prev=k>0?st[k-1].M:null;
-      h+='<div class="blk"><div class="lab">'+(step.op?step.op.label:'<span style="color:var(--gold)">(A | I)</span>')+'</div>'+augHTML(step.M,k===s?step:null,k===s?prev:null)+'<div></div></div>';
+      h+='<div class="blk"><div class="lab">'+(step.op?step.op.label:'<span style="color:var(--gold);white-space:nowrap">(A&nbsp;|&nbsp;I)</span>')+'</div>'+augHTML(step.M,k===s?step:null,k===s?prev:null)+'<div></div></div>';
     }
     h+='</div>';
   } else {
