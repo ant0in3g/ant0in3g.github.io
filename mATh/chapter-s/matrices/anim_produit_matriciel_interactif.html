@@ -1,0 +1,296 @@
+<title>Produit matriciel animé</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout : tableau noir façon reel à gauche (A, B, puis C et la bande de calcul), réglages à droite, empilés sous 860px. Look sombre unique, assumé. */
+:root{
+  --bg:#e9f1f3; --panel:#f4fafb; --panel2:#e0edef; --fg:#16272c; --muted:#557079; --line:#cfe0e3;
+  --accent:#1f6f8b; --accent-soft:#dcebee;
+  --green:#1f6f8b; --teal:#1f6f8b; --tealbg:rgba(31,111,139,.20); --gold:#b07400; --goldbg:rgba(176,116,0,.14); --red:#b3261e;
+  --serif:"STIX Two Text","Times New Roman",Georgia,serif;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+html,body{background:transparent;color:var(--fg)}
+body{font-family:var(--sans);padding-inline:16px;padding-block:24px 48px}
+.page{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:minmax(0,600px) minmax(0,320px);gap:32px;justify-content:center;align-items:start}
+@media (max-width:860px){.page{grid-template-columns:minmax(0,1fr)}}
+.board{display:flex;flex-direction:column;align-items:center;gap:18px;min-width:0}
+h1{margin:0;font:400 clamp(28px,6.5vw,40px)/1.1 var(--serif);color:var(--green);text-align:center;text-wrap:balance}
+.eq{font:italic 22px var(--serif)}
+.mats{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;max-width:100%}
+.mats .op{font:26px var(--serif);color:var(--muted)}
+.named{display:flex;flex-direction:column;align-items:center;gap:4px}
+.named .nm{font:italic 15px var(--serif);color:var(--muted)}
+
+.mat{display:inline-grid;gap:3px;padding:5px 11px;position:relative;font-family:var(--serif);font-size:clamp(17px,4vw,22px);font-variant-numeric:tabular-nums}
+.mat::before,.mat::after{content:"";position:absolute;top:0;bottom:0;width:9px;border:1.7px solid var(--fg)}
+.mat::before{left:-3px;border-right:0;border-radius:18px 0 0 18px / 50% 0 0 50%}
+.mat::after{right:-3px;border-left:0;border-radius:0 18px 18px 0 / 0 50% 50% 0}
+.cell{min-width:2.2em;height:1.8em;padding:0 4px;display:flex;align-items:center;justify-content:center;border-radius:4px;transition:background .3s,color .3s,box-shadow .3s}
+.cell.hl{background:var(--tealbg)}
+.cell.cur{box-shadow:0 0 0 1.6px var(--gold) inset;color:var(--gold)}
+.cell.empty{color:transparent}
+.cell.pop{animation:pop .5s ease}
+@keyframes pop{0%{transform:scale(1.5);color:var(--gold)}100%{transform:none}}
+
+/* bande de calcul : la colonne de B couchée sur la ligne de A */
+.strip{display:flex;flex-direction:column;align-items:center;gap:8px;min-height:190px;width:100%}
+.strip .cap{font-size:12px;color:var(--muted);letter-spacing:.04em}
+.lane{display:grid;gap:4px 10px;justify-items:center;align-items:center;font-family:var(--serif);font-size:clamp(17px,4vw,22px);font-variant-numeric:tabular-nums}
+.lane .a{color:var(--fg);background:var(--tealbg);border-radius:4px;padding:2px 8px;min-width:2.2em;text-align:center}
+.lane .b{color:var(--gold);border:1.4px solid var(--gold);border-radius:4px;padding:2px 8px;min-width:2.2em;text-align:center;background:var(--goldbg)}
+.lane .x{color:var(--muted);font-size:.8em}
+.lane .p{color:var(--fg);min-width:2.2em;text-align:center}
+.lane .side{font:12px var(--sans);color:var(--muted);justify-self:end;white-space:nowrap}
+.sum{font:clamp(18px,4.2vw,23px) var(--serif);text-align:center;min-height:1.4em}
+.sum b{color:var(--gold);font-weight:500}
+.in{animation:in .45s ease both}
+.fromtop{animation:fromtop .55s ease both}
+@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes fromtop{from{opacity:0;transform:translateY(-26px) rotate(-90deg)}to{opacity:1;transform:none}}
+.warn{max-width:46ch;text-align:center;color:#b3261e;font-size:15px;line-height:1.5;border:1px solid var(--red);border-radius:8px;padding:10px 14px}
+.progress{font:12px var(--mono);color:var(--muted)}
+
+/* panneau */
+.panel{position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px);display:flex;flex-direction:column;gap:16px;padding:16px;background:var(--panel);border:1px solid var(--line);border-radius:10px;min-width:0}
+@media (max-width:860px){.panel{position:static}}
+.panel h2{margin:0;font:500 12px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.grp{display:flex;flex-direction:column;gap:10px;padding-top:14px;border-top:1px solid var(--line)}
+.grp:first-of-type{border-top:0;padding-top:0}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+button{font:500 13px var(--sans);color:var(--fg);background:var(--panel2);border:1px solid var(--line);border-radius:7px;padding:8px 12px;cursor:pointer}
+button:hover{border-color:var(--green)}
+button:disabled{opacity:.4;cursor:default}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.field{display:flex;flex-direction:column;gap:5px;font-size:13px;color:var(--muted)}
+.field .top{display:flex;justify-content:space-between;gap:8px}
+.field .v{font-family:var(--mono);color:var(--fg)}
+input[type=range]{accent-color:var(--green);width:100%}
+select{font:13px var(--sans);color:var(--fg);background:var(--panel2);border:1px solid var(--line);border-radius:7px;padding:7px 8px;width:100%}
+.dims{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.check{display:flex;gap:8px;align-items:center;font-size:13px;cursor:pointer}
+.check input{accent-color:var(--green);width:16px;height:16px}
+.ed{display:flex;flex-direction:column;gap:4px}
+.ed .nm{font:italic 13px var(--serif);color:var(--muted)}
+.edgrid{display:grid;gap:5px}
+.edgrid input{width:100%;min-width:0;font:13px var(--mono);color:var(--fg);background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:6px 2px;text-align:center}
+.edgrid input.err{border-color:var(--red)}
+.hint{font-size:12px;line-height:1.5;color:var(--muted);margin:0}
+.msg{font-size:12px;color:#b3261e;margin:0;min-height:1em}
+@media (prefers-reduced-motion:reduce){.in,.fromtop,.cell.pop{animation:none}.cell{transition:none}}
+/* Mode sombre : synchronisé avec le thème du site */
+:root[data-theme="dark"]{
+  --panel:#15262b; --panel2:#0f1c20; --fg:#e4eef0; --muted:#8aa3ab; --line:#26383d;
+  --accent:#5bb6d1; --accent-soft:#183038;
+  --green:#7cc6dd; --teal:#5bb6d1; --tealbg:rgba(91,182,209,.26); --gold:#d9a94a; --goldbg:rgba(217,169,74,.14); --red:#ff9b93;
+}
+:root[data-theme="dark"] .warn,:root[data-theme="dark"] .msg{color:#ff9b93}
+</style>
+<script>
+(function(){var r=document.documentElement;function ap(t){if(t==='dark'||t==='light')r.setAttribute('data-theme',t);}
+var p=new URLSearchParams(location.search),q=p.get('theme');var s;try{s=localStorage.getItem('theme');}catch(e){}
+ap(q||((s==='dark'||s==='light')?s:(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light')));
+if(q) addEventListener('load',function(){ap(q);});
+addEventListener('message',function(e){if(e.data&&(e.data.theme==='dark'||e.data.theme==='light'))ap(e.data.theme);});})();
+</script>
+
+<div class="page">
+  <section class="board" aria-live="polite">
+    <h1>Multiplication matricielle</h1>
+    <div class="eq" id="eq">A × B = C</div>
+    <div class="mats" id="mats"></div>
+    <div class="strip" id="strip"></div>
+    <div class="named"><span class="nm" id="cname">C</span><div id="cmat"></div></div>
+    <div class="progress" id="prog"></div>
+  </section>
+
+  <aside class="panel" aria-label="Réglages">
+    <div class="grp">
+      <h2>Lecture</h2>
+      <div class="row">
+        <button id="prev" type="button">◀ Étape</button>
+        <button id="play" type="button">Pause</button>
+        <button id="next" type="button">Étape ▶</button>
+        <button id="restart" type="button">Recommencer</button>
+      </div>
+      <div class="field"><div class="top"><label for="spd">Durée pour une case de C</label><span class="v" id="spdv">3,0 s</span></div>
+        <input id="spd" type="range" min="1" max="8" step="0.5" value="3"></div>
+      <div class="field"><label for="order">Ordre de remplissage de C</label>
+        <select id="order"><option value="row">Ligne par ligne</option><option value="col">Colonne par colonne</option></select></div>
+    </div>
+
+    <div class="grp">
+      <h2>Matrices</h2>
+      <div class="dims">
+        <div class="field"><label for="dm">Lignes de A</label><select id="dm"></select></div>
+        <div class="field"><label for="dn">Col. A = lig. B</label><select id="dn"></select></div>
+        <div class="field"><label for="dp">Colonnes de B</label><select id="dp"></select></div>
+      </div>
+      <div class="ed"><span class="nm">A</span><div class="edgrid" id="edA"></div></div>
+      <div class="ed"><span class="nm">B</span><div class="edgrid" id="edB"></div></div>
+      <p class="msg" id="msg"></p>
+      <div class="row"><button id="apply" type="button">Calculer A × B</button></div>
+      <div class="row"><button id="swap" type="button">Essayer B × A</button></div>
+      <p class="hint">Le produit n'existe que si le nombre de colonnes de la première matrice égale le nombre de lignes de la seconde. Et même quand B × A existe, il diffère en général de A × B.</p>
+    </div>
+
+    <div class="grp">
+      <h2>Affichage</h2>
+      <label class="check" for="cStrip"><input id="cStrip" type="checkbox" checked>Bande de calcul (colonne couchée sur la ligne)</label>
+      <label class="check" for="cHl"><input id="cHl" type="checkbox" checked>Surligner la ligne de A et la colonne de B</label>
+      <label class="check" for="cIdx"><input id="cIdx" type="checkbox">Écrire la formule générale avec les indices</label>
+    </div>
+  </aside>
+</div>
+
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const fmt=x=>{const r=Math.round(x*1e9)/1e9; return (r<0?'−':'')+String(Math.abs(r)).replace('.',',');};
+const sub=n=>String(n).split('').map(d=>'₀₁₂₃₄₅₆₇₈₉'[d]).join('');
+
+const PRESETS={
+  reel:{A:[[1,2,3],[4,5,6],[7,8,9]],B:[[10,11],[12,13],[14,15]]},
+  sq:{A:[[1,2],[3,4]],B:[[0,1],[1,0]]},
+  vec:{A:[[2,-1,0],[1,3,2]],B:[[4],[1],[-2]]},
+  id:{A:[[2,5,1],[0,3,4],[1,1,6]],B:[[1,0,0],[0,1,0],[0,0,1]]}
+};
+let A=PRESETS.reel.A, B=PRESETS.reel.B, names=['A','B'];
+let order='row', dur=3000, playing=true, timer=null, cellIdx=0, phase=0;
+const opt={strip:true,hl:true,idx:false};
+
+const m=()=>A.length, n=()=>A[0].length, p=()=>B[0].length;
+const compatible=()=>A[0].length===B.length;
+const C=()=>A.map(r=>B[0].map((_,j)=>r.reduce((s,a,k)=>s+a*B[k][j],0)));
+function cellAt(t){ // t-ième case dans l'ordre choisi
+  return order==='row'?[Math.floor(t/p()),t%p()]:[t%m(),Math.floor(t/m())];
+}
+function done(i,j){ // case déjà calculée ?
+  const t=order==='row'?i*p()+j:j*m()+i; return t<cellIdx || (t===cellIdx && phase>=4);
+}
+
+function matHTML(M,id,{rowHL=-1,colHL=-1,cur=null,showFn=null}={}){
+  const cols=M[0].length;
+  let h='<div class="mat" id="'+id+'" style="grid-template-columns:repeat('+cols+',auto)">';
+  M.forEach((r,i)=>r.forEach((x,j)=>{
+    let cls='cell';
+    if(opt.hl && (i===rowHL||j===colHL)) cls+=' hl';
+    if(cur && cur[0]===i && cur[1]===j) cls+=' cur';
+    const show=showFn?showFn(i,j):true;
+    if(!show) cls+=' empty';
+    h+='<div class="'+cls+'" data-i="'+i+'" data-j="'+j+'">'+(show?fmt(x):'·')+'</div>';
+  }));
+  return h+'</div>';
+}
+
+function render(justFilled){
+  $('eq').textContent=names[0]+' × '+names[1]+' = C';
+  $('cname').textContent='C = '+names[0]+' × '+names[1]+(compatible()?'  ('+m()+' × '+p()+')':'');
+  if(!compatible()){
+    $('mats').innerHTML='<div class="named"><span class="nm">'+names[0]+' ('+m()+' × '+n()+')</span>'+matHTML(A,'mA')+'</div><span class="op">×</span><div class="named"><span class="nm">'+names[1]+' ('+B.length+' × '+p()+')</span>'+matHTML(B,'mB')+'</div>';
+    $('strip').innerHTML='<div class="warn">Produit impossible : '+names[0]+' a '+n()+' colonne'+(n()>1?'s':'')+' mais '+names[1]+' a '+B.length+' ligne'+(B.length>1?'s':'')+'. Il faut autant de colonnes dans la première matrice que de lignes dans la seconde.</div>';
+    $('cmat').innerHTML=''; $('prog').textContent='';
+    $('prev').disabled=$('next').disabled=$('play').disabled=true;
+    return;
+  }
+  $('play').disabled=false;
+  const total=m()*p(), [ci,cj]=cellAt(Math.min(cellIdx,total-1)), active=cellIdx<total;
+  const rowHL=active?ci:-1, colHL=active?cj:-1;
+  $('mats').innerHTML='<div class="named"><span class="nm">'+names[0]+' ('+m()+' × '+n()+')</span>'+matHTML(A,'mA',{rowHL})+'</div><span class="op">×</span><div class="named"><span class="nm">'+names[1]+' ('+B.length+' × '+p()+')</span>'+matHTML(B,'mB',{colHL})+'</div>';
+  const CC=C();
+  $('cmat').innerHTML=matHTML(CC,'mC',{cur:active?[ci,cj]:null,showFn:(i,j)=>done(i,j)});
+  if(justFilled){const el=document.querySelector('#mC .cell[data-i="'+justFilled[0]+'"][data-j="'+justFilled[1]+'"]'); if(el) el.classList.add('pop');}
+  // bande de calcul
+  let s='';
+  if(active && opt.strip){
+    const K=n(), cols='auto repeat('+K+',auto)';
+    s+='<div class="cap">ligne '+(ci+1)+' de '+names[0]+'  ·  colonne '+(cj+1)+' de '+names[1]+' couchée dessus</div>';
+    s+='<div class="lane" style="grid-template-columns:'+cols+'">';
+    s+='<span class="side">'+names[0]+', ligne '+(ci+1)+'</span>'+A[ci].map(a=>'<span class="a">'+fmt(a)+'</span>').join('');
+    if(phase>=1){
+      const an1=phase===1?' in':'', an1b=phase===1?' fromtop':'';
+      s+='<span></span>'+A[ci].map(()=>'<span class="x'+an1+'">×</span>').join('');
+      s+='<span class="side">'+names[1]+', col. '+(cj+1)+'</span>'+B.map((r,k)=>'<span class="b'+an1b+'" style="animation-delay:'+(k*80)+'ms">'+fmt(r[cj])+'</span>').join('');
+    }
+    if(phase>=2){
+      s+='<span class="side">produits</span>'+A[ci].map((a,k)=>'<span class="p'+(phase===2?' in':'')+'" style="animation-delay:'+(k*90)+'ms">'+fmt(a*B[k][cj])+'</span>').join('');
+    }
+    s+='</div>';
+    let sum='';
+    if(phase>=3){
+      const terms=A[ci].map((a,k)=>a*B[k][cj]);
+      sum='<span class="in">c'+sub(ci+1)+sub(cj+1)+' = '+terms.map((t,k)=>(k?(t<0?' − ':' + '):(t<0?'−':''))+fmt(Math.abs(t))).join('')+' = <b>'+fmt(CC[ci][cj])+'</b></span>';
+    }
+    s+='<div class="sum">'+sum+'</div>';
+    if(opt.idx) s+='<div class="cap">c'+sub(ci+1)+sub(cj+1)+' = '+A[ci].map((_,k)=>'a'+sub(ci+1)+sub(k+1)+'·b'+sub(k+1)+sub(cj+1)).join(' + ')+'</div>';
+  } else if(!active){
+    s='<div class="sum in">Terminé : C a '+m()+' ligne'+(m()>1?'s':'')+' et '+p()+' colonne'+(p()>1?'s':'')+'.</div>';
+  }
+  $('strip').innerHTML=s;
+  $('prog').textContent='Étape '+Math.min(cellIdx+1,total)+' / '+total;
+  $('prev').disabled=cellIdx===0&&phase===0; $('next').disabled=!active;
+}
+
+// ---------- déroulement ----------
+const PH=[0.18,0.27,0.25,0.30]; // part de la durée pour chaque phase (0→1→2→3→4)
+function schedule(){
+  clearTimeout(timer); if(!playing||!compatible()) return;
+  const total=m()*p();
+  if(cellIdx>=total){setPlaying(false); return;}
+  timer=setTimeout(()=>{
+    phase++;
+    if(phase>=4){ const c=cellAt(cellIdx); phase=0; cellIdx++; render(c); }
+    else render();
+    schedule();
+  }, dur*PH[Math.min(phase,3)]);
+}
+function setPlaying(v){playing=v; $('play').textContent=v?'Pause':'Lecture'; clearTimeout(timer); if(v) schedule();}
+function restart(){cellIdx=0; phase=0; render(); setPlaying(true);}
+
+$('play').onclick=()=>{ if(cellIdx>=m()*p()){cellIdx=0;phase=0;render();} setPlaying(!playing); };
+$('next').onclick=()=>{ setPlaying(false); const c=cellAt(cellIdx); cellIdx++; phase=cellIdx<m()*p()?3:0; render(c); };
+$('prev').onclick=()=>{ setPlaying(false); if(cellIdx>0) cellIdx--; phase=3; render(); };
+$('restart').onclick=restart;
+$('spd').oninput=e=>{dur=e.target.value*1000; $('spdv').textContent=String((+e.target.value).toFixed(1)).replace('.',',')+' s';};
+$('order').onchange=e=>{order=e.target.value; restart();};
+$('cStrip').onchange=e=>{opt.strip=e.target.checked; render();};
+$('cHl').onchange=e=>{opt.hl=e.target.checked; render();};
+$('cIdx').onchange=e=>{opt.idx=e.target.checked; render();};
+
+// ---------- éditeur ----------
+['dm','dn','dp'].forEach(id=>{const s=$(id); for(let k=1;k<=4;k++){const o=document.createElement('option'); o.value=k; o.textContent=k; s.appendChild(o);}});
+function parse(v){v=String(v).trim().replace(',','.').replace('−','-'); return /^-?\d+(\.\d+)?$/.test(v)?parseFloat(v):NaN;}
+function buildEditors(a,b){
+  const [M,N,P]=[a.length,a[0].length,b[0].length];
+  $('dm').value=M; $('dn').value=N; $('dp').value=P;
+  const mk=(id,Mx,pref)=>{const g=$(id); g.innerHTML=''; g.style.gridTemplateColumns='repeat('+Mx[0].length+',minmax(0,1fr))';
+    Mx.forEach((r,i)=>r.forEach((x,j)=>{const inp=document.createElement('input'); inp.id=pref+i+j; inp.type='text'; inp.inputMode='decimal'; inp.value=String(x).replace('.',','); inp.setAttribute('aria-label',pref+(i+1)+(j+1)); inp.onkeydown=e=>{if(e.key==='Enter')applyEditors();}; g.appendChild(inp);}));};
+  mk('edA',a,'a'); mk('edB',b,'b');
+}
+function readEditors(){
+  const M=+$('dm').value,N=+$('dn').value,P=+$('dp').value; let ok=true;
+  const rd=(pref,R,K)=>Array.from({length:R},(_,i)=>Array.from({length:K},(_,j)=>{const el=$(pref+i+j); const v=parse(el.value); el.classList.toggle('err',isNaN(v)); if(isNaN(v)) ok=false; return v;}));
+  const a=rd('a',M,N), b=rd('b',N,P); return ok?[a,b]:null;
+}
+function applyEditors(){
+  const r=readEditors(); if(!r){$('msg').textContent='Coefficient illisible : écrire un nombre comme 3, -2 ou 0,5.'; return;}
+  $('msg').textContent=''; [A,B]=r; names=['A','B']; swapLabel(); restart();
+}
+function swapLabel(){$('swap').textContent=names[0]==='A'?'Essayer B × A':'Revenir à A × B';}
+const rnd=(R,K)=>Array.from({length:R},()=>Array.from({length:K},()=>Math.floor(Math.random()*10)-3));
+function resize(){
+  const M=+$('dm').value,N=+$('dn').value,P=+$('dp').value;
+  const grow=(X,R,K)=>Array.from({length:R},(_,i)=>Array.from({length:K},(_,j)=>(X[i]&&X[i][j]!==undefined)?X[i][j]:Math.floor(Math.random()*10)-3));
+  buildEditors(grow(A,M,N),grow(B,N,P)); applyEditors();
+}
+['dm','dn','dp'].forEach(id=>$(id).onchange=resize);
+$('apply').onclick=applyEditors;
+$('swap').onclick=()=>{
+  // échange l'ordre des facteurs sans toucher aux éditeurs
+  [A,B]=[B,A]; names=[names[1],names[0]]; swapLabel(); restart();
+};
+
+buildEditors(A,B); render(); setPlaying(true);
+})();
+</script>

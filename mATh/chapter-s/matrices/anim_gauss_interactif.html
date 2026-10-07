@@ -1,0 +1,301 @@
+<title>Inverse par Gauss-Jordan</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout : tableau noir façon reel à gauche (matrices augmentées), panneau de réglages à droite, empilé sous 860px. Look sombre unique, assumé. */
+:root{
+  --bg:#e9f1f3; --panel:#f4fafb; --panel2:#e0edef; --fg:#16272c; --muted:#557079; --line:#cfe0e3;
+  --accent:#1f6f8b; --accent-soft:#dcebee;
+  --red:#1f6f8b; --gold:#b07400; --pink:#1f6f8b; --rowhi:rgba(31,111,139,.12); --pivot:rgba(31,111,139,.20);
+  --serif:"STIX Two Text","Times New Roman",Georgia,serif;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+html,body{background:transparent;color:var(--fg)}
+body{font-family:var(--sans);padding-inline:16px;padding-block:24px 48px}
+.page{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:minmax(0,600px) minmax(0,320px);gap:32px;justify-content:center;align-items:start}
+@media (max-width:860px){.page{grid-template-columns:minmax(0,1fr)}}
+.board{display:flex;flex-direction:column;align-items:center;gap:14px;min-width:0}
+h1{margin:0;font:400 clamp(30px,7vw,44px)/1.1 var(--serif);color:var(--red);text-align:center;text-wrap:balance}
+.sub{margin:0;font:400 clamp(18px,4.5vw,24px) var(--serif);text-align:center}
+.def{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-size:22px}
+
+/* matrices */
+.mat{display:inline-grid;gap:2px 0;padding:4px 10px;position:relative;font-family:var(--serif);font-size:clamp(17px,4vw,22px);font-variant-numeric:tabular-nums}
+.mat.br::before,.mat.br::after{content:"";position:absolute;top:0;bottom:0;width:7px;border:1.6px solid var(--fg)}
+.mat.br::before{left:0;border-right:0}
+.mat.br::after{right:0;border-left:0}
+.cell{min-width:2.3em;height:1.9em;display:flex;align-items:center;justify-content:center;border-radius:5px;transition:background .35s,color .35s}
+.fr{display:inline-flex;flex-direction:column;align-items:center;font-size:.72em;line-height:1.05}
+.fr span:first-child{border-bottom:1px solid currentColor;padding:0 2px}
+.aug{font-family:var(--serif);font-size:clamp(16px,3.8vw,20px);font-variant-numeric:tabular-nums;display:flex;align-items:stretch;border-left:1.6px solid var(--fg);border-right:1.6px solid var(--fg);padding:4px 6px}
+.aug .half{display:inline-grid;gap:2px 0}
+.aug .half+.half{border-left:1.6px dashed var(--pink);margin-left:6px;padding-left:6px}
+.cell.rowhi{background:var(--rowhi)}
+.cell.piv{background:var(--pivot);color:#0b3a49}
+.cell.changed{color:var(--gold)}
+.labels{display:flex;justify-content:center;gap:0;font:italic 18px var(--serif);color:var(--gold)}
+
+.stage{display:flex;flex-direction:column;align-items:center;gap:10px;width:100%;min-height:160px}
+.op{font:italic clamp(18px,4.4vw,22px) var(--serif);color:var(--red);min-height:1.4em;text-align:center}
+.stack{display:flex;flex-direction:column;gap:16px;width:100%;align-items:center}
+.blk{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:10px;width:100%;animation:in .45s ease}
+.blk .lab{justify-self:end;font:italic 16px var(--serif);color:var(--red);text-align:right;line-height:1.35}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.result{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-size:22px;padding:10px 18px;border:1px solid var(--pink);border-radius:8px}
+.result.bad{border-color:var(--red);color:#b3261e;font-size:16px}
+.progress{font:12px var(--mono);color:var(--muted)}
+
+/* panneau */
+.panel{position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px);display:flex;flex-direction:column;gap:16px;padding:16px;background:var(--panel);border:1px solid var(--line);border-radius:10px;min-width:0}
+@media (max-width:860px){.panel{position:static}}
+.panel h2{margin:0;font:500 12px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.grp{display:flex;flex-direction:column;gap:10px;padding-top:14px;border-top:1px solid var(--line)}
+.grp:first-of-type{border-top:0;padding-top:0}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+button{font:500 13px var(--sans);color:var(--fg);background:var(--panel2);border:1px solid var(--line);border-radius:7px;padding:8px 12px;cursor:pointer}
+button:hover{border-color:var(--pink)}
+button[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--pink)}
+button:disabled{opacity:.4;cursor:default}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.field{display:flex;flex-direction:column;gap:5px;font-size:13px;color:var(--muted)}
+.field .top{display:flex;justify-content:space-between;gap:8px}
+.field .v{font-family:var(--mono);color:var(--fg)}
+input[type=range]{accent-color:var(--pink);width:100%}
+select{font:13px var(--sans);color:var(--fg);background:var(--panel2);border:1px solid var(--line);border-radius:7px;padding:7px 8px;width:100%}
+.check{display:flex;gap:8px;align-items:center;font-size:13px;cursor:pointer}
+.check input{accent-color:var(--pink);width:16px;height:16px}
+.editor{display:grid;gap:6px}
+.editor input{width:100%;min-width:0;font:14px var(--mono);color:var(--fg);background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:7px 4px;text-align:center}
+.editor input.err{border-color:var(--red)}
+.hint{font-size:12px;line-height:1.5;color:var(--muted);margin:0}
+.msg{font-size:12px;color:#b3261e;margin:0;min-height:1em}
+@media (prefers-reduced-motion:reduce){.blk{animation:none}.cell{transition:none}}
+/* Mode sombre : synchronisé avec le thème du site */
+:root[data-theme="dark"]{
+  --panel:#15262b; --panel2:#0f1c20; --fg:#e4eef0; --muted:#8aa3ab; --line:#26383d;
+  --accent:#5bb6d1; --accent-soft:#183038;
+  --red:#7cc6dd; --gold:#d9a94a; --pink:#5bb6d1; --rowhi:rgba(91,182,209,.14); --pivot:rgba(91,182,209,.26);
+}
+:root[data-theme="dark"] .cell.piv{color:#eaf7fb}
+:root[data-theme="dark"] .result.bad,:root[data-theme="dark"] .msg{color:#ff9b93}
+</style>
+<script>
+(function(){var r=document.documentElement;function ap(t){r.setAttribute('data-theme',t==='dark'?'dark':'light');}
+var q=new URLSearchParams(location.search).get('theme');
+var s;try{s=localStorage.getItem('theme');}catch(e){}
+ap((q==='dark'||q==='light')?q:((s==='dark'||s==='light')?s:(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light')));
+// thème transmis par la page parente (bouton ◑ du site)
+addEventListener('message',function(e){if(e.data&&(e.data.theme==='dark'||e.data.theme==='light'))ap(e.data.theme);});
+addEventListener('storage',function(e){if(e.key==='theme')ap(e.newValue);});})();
+</script>
+
+<div class="page">
+  <section class="board" aria-live="polite">
+    <h1>Matrice inverse</h1>
+    <div class="def"><span><i>A</i> =</span><span id="defA"></span></div>
+    <div class="stage" id="stage"></div>
+    <div class="progress" id="prog"></div>
+  </section>
+
+  <aside class="panel" aria-label="Réglages">
+    <div class="grp">
+      <h2>Lecture</h2>
+      <div class="row">
+        <button id="prev" type="button">◀ Étape</button>
+        <button id="play" type="button">Lecture</button>
+        <button id="next" type="button">Étape ▶</button>
+        <button id="restart" type="button">Recommencer</button>
+      </div>
+      <div class="field"><div class="top"><label for="spd">Durée d'une étape</label><span class="v" id="spdv">1,6 s</span></div>
+        <input id="spd" type="range" min="0.6" max="5" step="0.2" value="1.6"></div>
+    </div>
+
+    <div class="grp">
+      <h2>Matrice A</h2>
+      <div class="field"><label for="size">Taille</label>
+        <select id="size"><option value="2">2 × 2</option><option value="3" selected>3 × 3</option><option value="4">4 × 4</option></select></div>
+      <div class="editor" id="editor"></div>
+      <p class="msg" id="msg"></p>
+      <div class="row">
+        <button id="apply" type="button">Calculer l'inverse</button>
+      </div>
+      <p class="hint">Les coefficients peuvent être des entiers, des décimaux (0,5) ou des fractions (3/4). Les calculs sont exacts.</p>
+    </div>
+
+    <div class="grp">
+      <h2>Affichage</h2>
+      <div class="field"><label for="mode">Présentation</label>
+        <select id="mode">
+          <option value="stack">Étapes empilées, comme le reel</option>
+          <option value="single">Une seule matrice qui évolue</option>
+        </select></div>
+      <label class="check" for="cPiv"><input id="cPiv" type="checkbox" checked>Surligner le pivot et la ligne modifiée</label>
+      <label class="check" for="cNorm"><input id="cNorm" type="checkbox" checked>Ramener chaque pivot à 1 dès qu'on l'atteint</label>
+      <p class="hint">Décoché, les pivots sont normalisés seulement à la fin : on évite plus longtemps les fractions.</p>
+    </div>
+  </aside>
+</div>
+
+<script>
+(function(){
+// ---------- Fractions exactes ----------
+function gcd(a,b){a=Math.abs(a);b=Math.abs(b);while(b){[a,b]=[b,a%b];}return a||1;}
+function F(n,d=1){if(d<0){n=-n;d=-d;}const g=gcd(n,d);return {n:n/g,d:d/g};}
+const add=(a,b)=>F(a.n*b.d+b.n*a.d,a.d*b.d), sub=(a,b)=>F(a.n*b.d-b.n*a.d,a.d*b.d);
+const mul=(a,b)=>F(a.n*b.n,a.d*b.d), div=(a,b)=>F(a.n*b.d,a.d*b.n);
+const isZ=a=>a.n===0, isOne=a=>a.n===1&&a.d===1, neg=a=>F(-a.n,a.d);
+function parse(s){
+  s=String(s).trim().replace(',','.').replace('−','-'); if(s==='')return null;
+  let m=s.match(/^(-?\d+)\s*\/\s*(\d+)$/); if(m){const d=+m[2]; return d?F(+m[1],d):null;}
+  if(/^-?\d+(\.\d+)?$/.test(s)){const p=(s.split('.')[1]||'').length, k=10**p; return F(Math.round(parseFloat(s)*k),k);}
+  return null;
+}
+function html(a){
+  if(a.d===1) return (a.n<0?'−':'')+Math.abs(a.n);
+  return (a.n<0?'−':'')+'<span class="fr"><span>'+Math.abs(a.n)+'</span><span>'+a.d+'</span></span>';
+}
+function txt(a){return (a.n<0?'−':'')+Math.abs(a.n)+(a.d===1?'':'/'+a.d);}
+
+// ---------- Algorithme ----------
+const SUBS='₀₁₂₃₄₅₆₇₈₉';
+let nota='L';
+const Lr=i=>nota+SUBS[i+1];
+function coefTxt(k){ // coefficient devant une ligne, sans le « 1 »
+  return isOne(k)?'':(k.d===1?txt(k):'('+txt(k)+')');
+}
+function solve(A,normEarly){
+  const N=A.length, M=A.map((r,i)=>[...r,...A.map((_,j)=>F(i===j?1:0))]);
+  const steps=[{M:M.map(r=>r.slice()),op:null}];
+  const push=(op,piv)=>steps.push({M:M.map(r=>r.slice()),op,piv,col:piv?piv[1]:null});
+  const scale=(r,k)=>{M[r]=M[r].map(x=>mul(x,k));};
+  for(let c=0;c<N;c++){
+    let p=-1; for(let r=c;r<N;r++){if(!isZ(M[r][c])){p=r;break;}}
+    if(p<0) return {steps,singular:c};
+    if(p!==c){[M[p],M[c]]=[M[c],M[p]]; push({type:'swap',a:c,b:p,label:Lr(c)+' ↔ '+Lr(p)},[c,c]);}
+    if(normEarly && !isOne(M[c][c])){const k=div(F(1),M[c][c]); scale(c,k); push({type:'scale',a:c,k,label:Lr(c)+' ← '+coefTxt(k)+Lr(c)},[c,c]);}
+    for(let r=0;r<N;r++){
+      if(r===c||isZ(M[r][c])) continue;
+      const k=div(M[r][c],M[c][c]);
+      M[r]=M[r].map((x,j)=>sub(x,mul(k,M[c][j])));
+      const sign=k.n>0?' − ':' + ', ka=F(Math.abs(k.n),k.d);
+      push({type:'add',a:r,src:c,k,label:Lr(r)+' ← '+Lr(r)+sign+coefTxt(ka)+Lr(c)},[c,c]);
+    }
+  }
+  if(!normEarly){
+    for(let c=0;c<N;c++) if(!isOne(M[c][c])){const k=div(F(1),M[c][c]); scale(c,k); push({type:'scale',a:c,k,label:Lr(c)+' ← '+coefTxt(k)+Lr(c)},[c,c]);}
+  }
+  return {steps,singular:-1};
+}
+
+// ---------- État ----------
+const PRESETS={
+  reel:[[1,2,3],[0,1,4],[5,6,0]],
+  swap:[[0,2,1],[1,1,0],[2,1,1]],
+  frac:[[2,1,1],[1,3,2],[1,0,0]],
+  sing:[[1,2,3],[2,4,6],[1,0,1]]
+};
+let N=3, A=PRESETS.reel.map(r=>r.map(x=>F(x))), res=null, s=0, playing=false, timer=null, dur=1600;
+const opt={mode:'stack',piv:true,norm:true};
+const $=id=>document.getElementById(id);
+
+function matHTML(M,{bracket=true,hl=null}={}){
+  const n=M[0].length;
+  let h='<div class="mat'+(bracket?' br':'')+'" style="grid-template-columns:repeat('+n+',auto)">';
+  M.forEach((r,i)=>r.forEach((x,j)=>{h+='<div class="cell">'+html(x)+'</div>';}));
+  return h+'</div>';
+}
+function augHTML(M,step,prev){
+  const n=M.length; let left='',right='';
+  M.forEach((r,i)=>r.forEach((x,j)=>{
+    let cls='cell';
+    if(opt.piv && step&&step.op){
+      const rowT=step.op.type==='swap'?(i===step.op.a||i===step.op.b):i===step.op.a;
+      if(rowT) cls+=' rowhi';
+      if(step.piv && i===step.piv[0] && j===step.piv[1]) cls+=' piv';
+    }
+    if(prev && (prev[i][j].n!==x.n||prev[i][j].d!==x.d)) cls+=' changed';
+    const c='<div class="'+cls+'">'+html(x)+'</div>';
+    if(j<n) left+=c; else right+=c;
+  }));
+  const g='style="grid-template-columns:repeat('+n+',auto)"';
+  return '<div class="aug"><div class="half" '+g+'>'+left+'</div><div class="half" '+g+'>'+right+'</div></div>';
+}
+function render(){
+  $('defA').innerHTML=matHTML(A);
+  const st=res.steps, last=st.length-1, stage=$('stage');
+  let h='';
+  if(opt.mode==='stack'){
+    h+='<div class="stack">';
+    for(let k=0;k<=s;k++){
+      const step=st[k], prev=k>0?st[k-1].M:null;
+      h+='<div class="blk"><div class="lab">'+(step.op?step.op.label:'<span style="color:var(--gold)">(A | I)</span>')+'</div>'+augHTML(step.M,k===s?step:null,k===s?prev:null)+'<div></div></div>';
+    }
+    h+='</div>';
+  } else {
+    const step=st[s];
+    h+='<div class="op">'+(step.op?step.op.label:'On part de (A | I)')+'</div>'+augHTML(step.M,step,s>0?st[s-1].M:null);
+  }
+  if(s===last){
+    if(res.singular>=0){
+      h+='<div class="result bad">Aucun pivot non nul dans la colonne '+(res.singular+1)+' : A n\'est pas inversible (det A = 0).</div>';
+    } else {
+      const inv=st[last].M.map(r=>r.slice(N));
+      h+='<div class="result"><span><i>A</i><sup>−1</sup> =</span>'+matHTML(inv)+'</div>';
+    }
+  }
+  stage.innerHTML=h;
+  if(opt.mode==='stack'){const b=stage.querySelectorAll('.blk'); const el=b[b.length-1]; if(el&&playing) el.scrollIntoView({block:'nearest',behavior:'smooth'});}
+  $('prog').textContent='Étape '+s+' / '+last;
+  $('prev').disabled=s===0; $('next').disabled=s===last;
+}
+function compute(){res=solve(A,opt.norm); s=0; render();}
+function setPlaying(v){
+  playing=v; $('play').textContent=v?'Pause':'Lecture'; clearTimeout(timer);
+  if(v) tick();
+}
+function tick(){
+  timer=setTimeout(()=>{
+    if(s<res.steps.length-1){s++; render(); tick();} else setPlaying(false);
+  },dur);
+}
+
+// ---------- Éditeur ----------
+function buildEditor(vals){
+  const ed=$('editor'); ed.style.gridTemplateColumns='repeat('+N+',minmax(0,1fr))'; ed.innerHTML='';
+  for(let i=0;i<N;i++)for(let j=0;j<N;j++){
+    const inp=document.createElement('input'); inp.id='a'+i+j; inp.type='text'; inp.inputMode='decimal';
+    inp.setAttribute('aria-label','a'+(i+1)+(j+1)); inp.value=vals?txt(vals[i][j]).replace('−','-'):(i===j?'1':'0');
+    inp.addEventListener('keydown',e=>{if(e.key==='Enter') applyEditor();});
+    ed.appendChild(inp);
+  }
+}
+function applyEditor(){
+  const M=[]; let ok=true;
+  for(let i=0;i<N;i++){M.push([]);for(let j=0;j<N;j++){const el=$('a'+i+j), v=parse(el.value); el.classList.toggle('err',!v); if(!v) ok=false; M[i].push(v);}}
+  if(!ok){$('msg').textContent='Coefficient illisible : écrire par exemple 3, -2, 0,5 ou 3/4.'; return;}
+  $('msg').textContent=''; A=M; setPlaying(false); compute(); setPlaying(true);
+}
+function randomInvertible(n){
+  for(let t=0;t<200;t++){
+    const M=Array.from({length:n},()=>Array.from({length:n},()=>F(Math.floor(Math.random()*11)-5)));
+    if(solve(M,true).singular<0) return M;
+  }
+  return Array.from({length:n},(_,i)=>Array.from({length:n},(_,j)=>F(i===j?1:0)));
+}
+
+// ---------- Réglages ----------
+$('play').onclick=()=>{ if(s===res.steps.length-1) s=0, render(); setPlaying(!playing); };
+$('next').onclick=()=>{setPlaying(false); if(s<res.steps.length-1){s++; render();}};
+$('prev').onclick=()=>{setPlaying(false); if(s>0){s--; render();}};
+$('restart').onclick=()=>{s=0; render(); setPlaying(true);};
+$('spd').oninput=e=>{dur=e.target.value*1000; $('spdv').textContent=String(e.target.value).replace('.',',')+' s';};
+$('size').onchange=e=>{N=+e.target.value; buildEditor(N===3?PRESETS.reel.map(r=>r.map(x=>F(x))):randomInvertible(N)); applyEditor();};
+$('apply').onclick=applyEditor;
+$('mode').onchange=e=>{opt.mode=e.target.value; render();};
+$('cPiv').onchange=e=>{opt.piv=e.target.checked; render();};
+$('cNorm').onchange=e=>{opt.norm=e.target.checked; setPlaying(false); compute();};
+
+buildEditor(A); compute(); setPlaying(true);
+})();
+</script>

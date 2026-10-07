@@ -12,7 +12,7 @@
 <style>
   .layout{max-width:1760px;grid-template-columns:200px 1fr;gap:40px}
   .bookmain{max-width:none}
-  .book-top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+  .book-top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:6px}
   .book-wrap{display:block;width:100%;margin:0 auto}
   #flip{margin:0 auto}
   #flip .page{position:relative;background:#fff}
@@ -27,6 +27,17 @@
   .bk-count{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--muted);min-width:96px;text-align:center}
   .book-loading{text-align:center;color:var(--muted);font-family:'IBM Plex Mono',monospace;font-size:.82rem;padding:60px 0}
   .book-hint{text-align:center;color:var(--muted);font-size:.82rem;margin-top:4px}
+  .menu{margin-top:22px;padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .menu a{display:flex;align-items:center;gap:8px;line-height:1.6;cursor:pointer;margin-bottom:8px}
+  .menu a:last-child{margin-bottom:0}
+  .menu .ico{flex:0 0 1.5em;min-width:0;text-align:left}
+  .menu a.sub{color:var(--muted)}
+  .menu a.sub:hover{color:var(--accent)}
+  .menu a.active{color:var(--accent);font-weight:600}
+  .dl-bottom{padding-top:22px}
+  @media(min-width:861px){ .layout>aside{display:flex;flex-direction:column} .dl-bottom{margin-top:auto} }
+  #coursFrame,#tdFrame{width:100%;height:82vh;min-height:300px;border:0;background:transparent;display:block}
+  #animFrame,#anim2Frame{width:100%;height:82vh;border:0;background:transparent}
 </style>
 </head>
 <body>
@@ -37,34 +48,96 @@
     <a class="back" href="../../../mATh.html">← Mathématiques</a>
     <p class="brand sm">Matrices</p>
     <p class="role">Calcul matriciel · ISTOM</p>
-    <div class="side-contact" style="margin-top:18px">
-      <a href="https://ant0in3g.github.io/mATh/chapter-s/matrices/chapter-s.pdf" target="_blank" rel="noopener">↓ Télécharger le PDF</a><br>
-      <a href="flipbook-td.html">↳ feuille de TD</a>
+    <nav class="menu side-contact">
+      <a id="showFlip" class="active"><span class="ico">📖</span>Cours</a>
+      <a id="showTd"><span class="ico">📖</span>Travaux dirigés</a>
+      <a id="showAnim"><span class="ico">▶</span>Pivot de Gauss</a>
+      <a id="showAnim2"><span class="ico">▶</span>Produit matriciel</a>
+    </nav>
+    <div class="side-contact dl-bottom" id="dlBox">
+      <a id="dlLink" href="https://ant0in3g.github.io/mATh/chapter-s/matrices/chapter-s.pdf" target="_blank" rel="noopener">↓ Télécharger le PDF</a>
     </div>
   </aside>
 
   <main class="bookmain">
     <div class="book-top">
-      <h1 class="page-title" style="font-size:1.9rem;margin:0">Calcul matriciel</h1>
+      <h1 class="page-title" style="font-size:1.9rem;margin:0">Calcul matriciel — Cours</h1>
     </div>
 
-    <div class="book-wrap">
-      <div id="flip" data-pdf="https://ant0in3g.github.io/mATh/chapter-s/matrices/chapter-s.pdf"></div>
+    <div id="view-flip">
+      <iframe id="coursFrame" title="Cours — flipbook"></iframe>
     </div>
-    <div class="book-loading" id="loading">Chargement du document…</div>
 
-    <div class="book-controls" id="controls" style="display:none">
-      <button class="bk-btn" id="prev">‹ Précédent</button>
-      <span class="bk-count" id="count">–</span>
-      <button class="bk-btn" id="next">Suivant ›</button>
+    <div id="view-td" style="display:none">
+      <iframe id="tdFrame" title="Feuille de TD — flipbook"></iframe>
     </div>
-    <p class="book-hint" id="hint" style="display:none">Cliquez le coin d'une page pour tourner, ou utilisez les flèches. Les liens du document (sommaire…) sont cliquables.</p>
+
+    <div id="view-anim" style="display:none">
+      <iframe id="animFrame" title="Pivot de Gauss — animation interactive"></iframe>
+    </div>
+
+    <div id="view-anim2" style="display:none">
+      <iframe id="anim2Frame" title="Produit matriciel — animation interactive"></iframe>
+    </div>
   </main>
 </div>
 
 <script src="../../../assets/app.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
-<script src="../../../assets/flipbook.js"></script>
+<script>
+(function(){
+  var views={flip:document.getElementById('view-flip'),
+             td:document.getElementById('view-td'),
+             anim:document.getElementById('view-anim'),
+             anim2:document.getElementById('view-anim2')},
+      coursFrame=document.getElementById('coursFrame'),
+      tdFrame=document.getElementById('tdFrame'),
+      animFrame=document.getElementById('animFrame'),
+      anim2Frame=document.getElementById('anim2Frame'),
+      title=document.querySelector('.book-top h1'),
+      bFlip=document.getElementById('showFlip'),
+      bTd=document.getElementById('showTd'),
+      bAnim=document.getElementById('showAnim'),
+      bAnim2=document.getElementById('showAnim2');
+  var baseTitle=title?title.textContent:'';
+  var dlBox=document.getElementById('dlBox'), dlLink=document.getElementById('dlLink');
+  var PDFS={ flip:'https://ant0in3g.github.io/mATh/chapter-s/matrices/chapter-s.pdf',
+             td:'https://ant0in3g.github.io/mATh/chapter-s/matrices/td-exos.pdf?v=20260918' };
+  function curTheme(){ return document.documentElement.getAttribute('data-theme')==='dark'?'dark':'light'; }
+  function active(el){ [bFlip,bTd,bAnim,bAnim2].forEach(function(b){ b.classList.toggle('active', b===el); }); }
+  function updateDl(key){
+    if(PDFS[key]){ dlLink.setAttribute('href', PDFS[key]); dlBox.style.display=''; }
+    else { dlBox.style.display='none'; }  // pas de PDF pour les animations
+  }
+  function show(key, btn, t){
+    for(var k in views){ views[k].style.display = (k===key)?'block':'none'; }
+    if(title) title.textContent=t; active(btn); updateDl(key);
+  }
+  // le cours est affiché par défaut : on charge son cadre tout de suite
+  coursFrame.setAttribute('src','flipbook-cours.html?embed=1&theme='+curTheme());
+  bFlip.addEventListener('click', function(e){ e.preventDefault(); show('flip',bFlip,baseTitle); });
+  bTd.addEventListener('click', function(e){ e.preventDefault();
+    if(!tdFrame.getAttribute('src')) tdFrame.setAttribute('src','flipbook-td.html?embed=1&theme='+curTheme());
+    show('td',bTd,'Calcul matriciel — Travaux dirigés');
+  });
+  bAnim.addEventListener('click', function(e){ e.preventDefault();
+    if(!animFrame.getAttribute('src')) animFrame.setAttribute('src','anim_gauss_interactif.html?theme='+curTheme());
+    show('anim',bAnim,'Pivot de Gauss');
+  });
+  bAnim2.addEventListener('click', function(e){ e.preventDefault();
+    if(!anim2Frame.getAttribute('src')) anim2Frame.setAttribute('src','anim_produit_matriciel_interactif.html?theme='+curTheme());
+    show('anim2',bAnim2,'Produit matriciel');
+  });
+  // diffuser le thème du site aux cadres quand on bascule clair/sombre
+  new MutationObserver(function(){
+    [coursFrame,tdFrame,animFrame,anim2Frame].forEach(function(f){ try{ f.contentWindow && f.contentWindow.postMessage({theme:curTheme()}, '*'); }catch(e){} });
+  }).observe(document.documentElement, {attributes:true, attributeFilter:['data-theme']});
+  // ajuster la hauteur des cadres de flipbook à leur contenu (plus d'effet « boîte »)
+  window.addEventListener('message', function(e){
+    if(e.data && e.data.frameHeight){
+      [coursFrame,tdFrame].forEach(function(f){ if(f.contentWindow===e.source){ f.style.height=e.data.frameHeight+'px'; } });
+    }
+  });
+})();
+</script>
 </body>
 </html>
