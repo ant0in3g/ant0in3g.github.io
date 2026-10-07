@@ -35,9 +35,10 @@
   .menu a.sub{color:var(--muted)}
   .menu a.sub:hover{color:var(--accent)}
   .menu a.active{color:var(--accent);font-weight:600}
+  .brand-row2{display:flex;align-items:center;justify-content:space-between;gap:12px}
   .menu-toggle{display:none}
   @media(max-width:860px){
-    .menu-toggle{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:.82rem;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:8px;padding:9px 15px;cursor:pointer;margin-top:16px}
+    .menu-toggle{display:inline-flex;align-items:center;gap:7px;font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:8px;padding:7px 13px;cursor:pointer;white-space:nowrap}
     .menu-toggle:hover{border-color:var(--accent);color:var(--accent)}
     .menu{display:none;margin-top:12px;padding:14px 0}
     .menu.open{display:block}
@@ -54,9 +55,11 @@
 <div class="layout">
   <aside>
     <a class="back" href="../../../mATh.html">← Mathématiques</a>
-    <p class="brand sm">Matrices</p>
+    <div class="brand-row2">
+      <p class="brand sm">Matrices</p>
+      <button class="menu-toggle" id="menuToggle" aria-label="Afficher le menu">☰ Menu</button>
+    </div>
     <p class="role">Calcul matriciel · ISTOM</p>
-    <button class="menu-toggle" id="menuToggle" aria-label="Afficher le menu">☰ Menu</button>
     <div class="menu">
       <a id="showFlip" class="active"><span class="ico">📖</span>Cours</a>
       <a id="showTd"><span class="ico">📖</span>Travaux dirigés</a>
