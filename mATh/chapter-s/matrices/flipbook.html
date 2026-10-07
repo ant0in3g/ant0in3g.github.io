@@ -139,6 +139,9 @@
     if(!anim2Frame.getAttribute('src')) anim2Frame.setAttribute('src','anim_produit_matriciel_interactif.html?theme='+curTheme());
     show('anim2',bAnim2,'Produit matriciel');
   });
+  // vue initiale via ?view= (td, anim, anim2) — par défaut : cours
+  var iv=new URLSearchParams(location.search).get('view');
+  if(iv==='td') bTd.click(); else if(iv==='anim') bAnim.click(); else if(iv==='anim2') bAnim2.click();
   // menu déroulant en mobile
   var menu=document.querySelector('.menu'), mToggle=document.getElementById('menuToggle');
   if(mToggle){
