@@ -55,6 +55,12 @@ h1{margin:0;font:400 clamp(28px,6.5vw,40px)/1.1 var(--serif);color:var(--green);
 /* panneau */
 .panel{position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px);display:flex;flex-direction:column;gap:16px;padding:16px;background:var(--panel);border:1px solid var(--line);border-radius:10px;min-width:0}
 @media (max-width:860px){.panel{position:static}}
+@media (max-width:860px){
+  .mats{gap:10px;overflow-x:auto;max-width:100%}
+  .strip{min-height:0}
+  .lane{overflow-x:auto;max-width:100%}
+  .board{min-width:0;width:100%}
+}
 .panel h2{margin:0;font:500 12px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .grp{display:flex;flex-direction:column;gap:10px;padding-top:14px;border-top:1px solid var(--line)}
 .grp:first-of-type{border-top:0;padding-top:0}
@@ -97,7 +103,6 @@ addEventListener('message',function(e){if(e.data&&(e.data.theme==='dark'||e.data
 
 <div class="page">
   <section class="board" aria-live="polite">
-    <h1>Multiplication matricielle</h1>
     <div class="eq" id="eq">A × B = C</div>
     <div class="mats" id="mats"></div>
     <div class="strip" id="strip"></div>
@@ -291,6 +296,6 @@ $('swap').onclick=()=>{
   [A,B]=[B,A]; names=[names[1],names[0]]; swapLabel(); restart();
 };
 
-buildEditors(A,B); render(); setPlaying(true);
+buildEditors(A,B); render(); setPlaying(false);
 })();
 </script>

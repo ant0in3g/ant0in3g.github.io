@@ -98,7 +98,6 @@ addEventListener('storage',function(e){if(e.key==='theme')ap(e.newValue);});})()
 
 <div class="page">
   <section class="board" aria-live="polite">
-    <h1>Matrice inverse</h1>
     <div class="def"><span><i>A</i> =</span><span id="defA"></span></div>
     <div class="stage" id="stage"></div>
     <div class="progress" id="prog"></div>
@@ -302,6 +301,6 @@ $('mode').onchange=e=>{opt.mode=e.target.value; render();};
 $('cPiv').onchange=e=>{opt.piv=e.target.checked; render();};
 $('cNorm').onchange=e=>{opt.norm=e.target.checked; setPlaying(false); compute();};
 
-buildEditor(A); compute(); setPlaying(true);
+buildEditor(A); compute(); setPlaying(false);
 })();
 </script>
