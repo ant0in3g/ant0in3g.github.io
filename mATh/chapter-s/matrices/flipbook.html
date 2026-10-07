@@ -34,6 +34,13 @@
   .menu a.sub{color:var(--muted)}
   .menu a.sub:hover{color:var(--accent)}
   .menu a.active{color:var(--accent);font-weight:600}
+  .menu-toggle{display:none}
+  @media(max-width:860px){
+    .menu-toggle{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:.82rem;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:8px;padding:9px 15px;cursor:pointer;margin-top:16px}
+    .menu-toggle:hover{border-color:var(--accent);color:var(--accent)}
+    .menu{display:none;margin-top:12px;padding:14px 0}
+    .menu.open{display:block}
+  }
   .dl-bottom{padding-top:22px}
   @media(min-width:861px){ .layout>aside{display:flex;flex-direction:column} .dl-bottom{margin-top:auto} }
   #coursFrame,#tdFrame{width:100%;height:82vh;min-height:300px;border:0;background:transparent;display:block}
@@ -48,6 +55,7 @@
     <a class="back" href="../../../mATh.html">← Mathématiques</a>
     <p class="brand sm">Matrices</p>
     <p class="role">Calcul matriciel · ISTOM</p>
+    <button class="menu-toggle" id="menuToggle" aria-label="Afficher le menu">☰ Menu</button>
     <div class="menu">
       <a id="showFlip" class="active"><span class="ico">📖</span>Cours</a>
       <a id="showTd"><span class="ico">📖</span>Travaux dirigés</a>
@@ -127,6 +135,12 @@
     if(!anim2Frame.getAttribute('src')) anim2Frame.setAttribute('src','anim_produit_matriciel_interactif.html?theme='+curTheme());
     show('anim2',bAnim2,'Produit matriciel');
   });
+  // menu déroulant en mobile
+  var menu=document.querySelector('.menu'), mToggle=document.getElementById('menuToggle');
+  if(mToggle){
+    mToggle.addEventListener('click', function(){ menu.classList.toggle('open'); });
+    [bFlip,bTd,bAnim,bAnim2].forEach(function(b){ b.addEventListener('click', function(){ menu.classList.remove('open'); }); });
+  }
   // diffuser le thème du site aux cadres quand on bascule clair/sombre
   new MutationObserver(function(){
     [coursFrame,tdFrame,animFrame,anim2Frame].forEach(function(f){ try{ f.contentWindow && f.contentWindow.postMessage({theme:curTheme()}, '*'); }catch(e){} });
