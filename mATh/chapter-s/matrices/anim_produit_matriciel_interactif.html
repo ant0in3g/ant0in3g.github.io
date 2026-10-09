@@ -270,7 +270,7 @@ function buildEditors(a,b){
   const [M,N,P]=[a.length,a[0].length,b[0].length];
   $('dm').value=M; $('dn').value=N; $('dp').value=P;
   const mk=(id,Mx,pref)=>{const g=$(id); g.innerHTML=''; g.style.gridTemplateColumns='repeat('+Mx[0].length+',minmax(0,1fr))';
-    Mx.forEach((r,i)=>r.forEach((x,j)=>{const inp=document.createElement('input'); inp.id=pref+i+j; inp.type='text'; inp.inputMode='decimal'; inp.value=String(x).replace('.',','); inp.setAttribute('aria-label',pref+(i+1)+(j+1)); inp.onkeydown=e=>{if(e.key==='Enter')applyEditors();}; g.appendChild(inp);}));};
+    Mx.forEach((r,i)=>r.forEach((x,j)=>{const inp=document.createElement('input'); inp.id=pref+i+j; inp.type='text'; inp.inputMode='text'; inp.value=String(x).replace('.',','); inp.setAttribute('aria-label',pref+(i+1)+(j+1)); inp.onkeydown=e=>{if(e.key==='Enter')applyEditors();}; g.appendChild(inp);}));};
   mk('edA',a,'a'); mk('edB',b,'b');
 }
 function readEditors(){

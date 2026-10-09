@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stat'Champ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout : cahier de terrain sur papier millimétré. Hub en cartes par thème, partie = graphique à gauche, carnet de bord à droite */
+:root{
+  --paper:#e9f1f3; --grid:#d8e6e9; --ink:#16272c; --ink-soft:#557079;
+  --pen:#1f6f8b; --ok:#2d7a46; --card:#f4fafb; --line:#cfe0e3; --bar:#5b9db5; --code:#e0edef; --acc:#1f6f8b;
+  --f-display:'Spectral',Georgia,serif;
+  --f-body:'Spectral',Georgia,serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0f1c20; --grid:#1b2d31; --ink:#e4eef0; --ink-soft:#8aa3ab;
+  --pen:#5bb6d1; --ok:#5fc483; --card:#15262b; --line:#26383d; --bar:#3e5f86; --code:#15262b; --acc:#5bb6d1; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0f1c20; --grid:#1b2d31; --ink:#e4eef0; --ink-soft:#8aa3ab;
+  --pen:#5bb6d1; --ok:#5fc483; --card:#15262b; --line:#26383d; --bar:#3e5f86; --code:#15262b; --acc:#5bb6d1; color-scheme:dark}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:24px 48px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px}
+.site-back{display:inline-flex;align-items:center;gap:6px;color:var(--ink-soft);font-family:var(--f-mono);font-size:13px;letter-spacing:.03em;text-decoration:none}
+.site-back:hover{color:var(--pen)}
+.toggle{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;font-size:15px;line-height:1;flex:none;transition:border-color .15s,color .15s}
+.toggle:hover{border-color:var(--pen);color:var(--pen)}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--pen);outline-offset:2px}
+.ov{text-decoration:overline}
+
+/* Hub */
+.hub-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px;margin-bottom:28px}
+.brand{font-family:var(--f-display);font-weight:800;font-size:clamp(40px,8vw,72px);line-height:.95;margin:0;letter-spacing:-.03em}
+.brand span{color:var(--pen)}
+.brand .beta{color:var(--pen);font-family:var(--f-mono);font-size:.24em;font-weight:400;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--pen);border-radius:20px;padding:.35em .85em;vertical-align:middle;white-space:nowrap}
+.tag{margin:8px 0 0;color:var(--ink-soft);max-width:56ch;font-size:17px}
+.mix{display:grid;gap:2px;text-align:left;background:var(--ink);color:var(--paper);border:0;border-radius:6px;padding:14px 20px;cursor:pointer;min-width:220px}
+.mix b{font-family:var(--f-display);font-size:22px}
+.mix small{opacity:.8}
+.mix:hover{background:var(--pen)}
+.theme{margin-top:26px}
+.theme h2{font-family:var(--f-display);font-weight:800;font-size:22px;margin:0 0 10px;display:flex;gap:10px;align-items:baseline}
+.theme h2 small{font-family:var(--f-mono);font-weight:400;font-size:12px;color:var(--ink-soft);letter-spacing:.06em;text-transform:uppercase}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.card{display:grid;grid-template-rows:auto 1fr auto;gap:6px;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:14px 16px;cursor:pointer;transition:transform .12s,border-color .12s}
+.card:hover{border-color:var(--ink);transform:translateY(-2px)}
+.card b{font-family:var(--f-display);font-size:20px;font-weight:800;line-height:1.1}
+.card span{color:var(--ink-soft);font-size:15px}
+.card em{font-style:normal;font-family:var(--f-mono);font-size:12px;color:var(--ink-soft)}
+.card em.has{color:var(--ok)}
+.foot{margin-top:32px;color:var(--ink-soft);font-size:14px;max-width:70ch}
+
+/* Partie */
+.gbar{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;margin-bottom:16px}
+.back{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:6px 12px;cursor:pointer;font-family:var(--f-mono);font-size:13px}
+.back:hover{border-color:var(--ink)}
+.gtitle{font-family:var(--f-display);font-weight:800;font-size:clamp(24px,4vw,34px);margin:0;flex:1;min-width:200px;letter-spacing:-.02em}
+.hud{display:flex;gap:8px;flex-wrap:wrap}
+.chip{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:4px 10px;display:grid;min-width:70px}
+.chip i{font-style:normal;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.chip b{font-family:var(--f-mono);font-size:20px;font-variant-numeric:tabular-nums;line-height:1.1}
+.chip.lives b{color:var(--pen);letter-spacing:1px}
+.board{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:20px;align-items:start}
+@media (max-width:820px){.board{grid-template-columns:1fr}}
+.stagebox{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:12px;min-width:0}
+.ctx{font-family:var(--f-mono);font-size:12px;color:var(--ink-soft);margin:0 0 8px;letter-spacing:.04em;text-transform:uppercase}
+.stage{display:grid;gap:12px;min-width:0}
+.stage.duo{grid-template-columns:1fr 1fr}
+@media (max-width:1000px){.stage.duo{grid-template-columns:1fr}}
+.stage canvas{width:100%;height:auto;display:block;max-width:100%}
+.stage canvas.clickable{cursor:crosshair}
+.rout{font-family:var(--f-mono);font-size:13px;line-height:1.45;background:var(--code);border:1px solid var(--line);border-radius:4px;padding:12px 14px;margin:0;overflow-x:auto;white-space:pre}
+.scen{font-size:19px;line-height:1.55;margin:4px 0;max-width:62ch}
+.vals{display:flex;flex-wrap:wrap;gap:10px;padding:8px 0}
+.vals span{font-family:var(--f-mono);font-size:30px;font-weight:600;background:var(--code);border:1px solid var(--line);border-radius:4px;padding:10px 16px;min-width:64px;text-align:center}
+.panel{display:grid;gap:12px;min-width:0}
+.box{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:14px}
+.prompt{margin:0;font-size:17px}
+.prompt ul{margin:8px 0 0;padding-left:20px}
+.ctrl{display:grid;gap:10px}
+.ctrl label{font-weight:600}
+.row{display:flex;gap:8px}
+.row input{flex:1;min-width:0;font-family:var(--f-mono);font-size:22px;padding:8px 10px;border:2px solid var(--ink);border-radius:4px;background:var(--paper);color:var(--ink)}
+input[type=range]{width:100%;accent-color:var(--ink)}
+.btn{font-family:var(--f-display);font-weight:800;font-size:17px;padding:8px 16px;border-radius:4px;border:2px solid var(--ink);background:var(--ink);color:var(--paper);cursor:pointer}
+.btn:disabled{opacity:.4;cursor:default}
+.btn.ghost{background:transparent;color:var(--ink)}
+.stepn{font-family:var(--f-mono);font-size:12px;color:var(--ink-soft);letter-spacing:.06em;text-transform:uppercase}
+.q{margin:0;font-weight:600;font-size:17px}
+.opts{display:grid;gap:6px}
+.opt{display:flex;gap:10px;align-items:baseline;text-align:left;background:var(--paper);border:1.5px solid var(--line);border-radius:4px;padding:8px 10px;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--ink)}
+.opt kbd{font-family:var(--f-mono);font-size:12px;color:var(--ink-soft);min-width:1ch}
+.opt.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 14%,var(--card))}
+.opt.wrong{border-color:var(--pen);background:color-mix(in srgb,var(--pen) 14%,var(--card))}
+.opt:disabled{cursor:default}
+.log{display:flex;flex-wrap:wrap;gap:6px}
+.log span{font-size:13px;border:1px solid var(--ok);color:var(--ok);border-radius:99px;padding:1px 9px}
+.verdict{font-size:15px;line-height:1.5}
+.verdict:empty{display:none}
+.grade{font-family:var(--f-display);font-weight:800;font-size:20px;margin-bottom:4px}
+.g-great{color:var(--ok)} .g-ok{color:var(--ink)} .g-bad{color:var(--pen)}
+.verdict b{font-family:var(--f-mono)}
+.rule{font-size:13px;color:var(--ink-soft);margin:0}
+.over{border:2px solid var(--ink)}
+.over h3{font-family:var(--f-display);font-size:26px;margin:0 0 6px}
+.over .row{flex-wrap:wrap;margin-top:10px}
+@media (prefers-reduced-motion:reduce){.card{transition:none}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="topbar">
+    <a class="site-back" href="../../sTa7.html">← Statistiques</a>
+    <button class="toggle" id="themeToggle" aria-label="Changer de thème">◑</button>
+  </div>
+  <section id="hub">
+    <div class="hub-head">
+      <div>
+        <h1 class="brand">Stat'<span>Champ</span> <span class="beta">version beta</span></h1>
+        <p class="tag">Treize mini-jeux pour s'entraîner à lire des graphiques, calculer, interpréter une ACP et choisir le bon test. Toutes les données sont simulées dans des contextes agronomie, élevage et économie rurale.</p>
+      </div>
+      <button class="mix" type="button" id="mixBtn"><small>Échauffement de TD</small><b>Mélange →</b><small>une manche de chaque jeu au hasard</small></button>
+    </div>
+    <div id="themes"></div>
+    <p class="foot">Règles communes : 3 vies au départ. Pour les estimations, une réponse très proche donne une vie et une réponse trop éloignée en coûte une. Pour les questions, une erreur coûte une vie et 4 bonnes réponses d'affilée en rendent une. Les records sont gardés dans ce navigateur. Jeu inspiré de <a href="https://guessthecorrelation.com/" target="_blank" rel="noopener">guessthecorrelation.com</a>.</p>
+  </section>
+
+  <section id="game" hidden>
+    <div class="gbar">
+      <button class="back" type="button" id="backBtn">← Modules</button>
+      <h2 class="gtitle" id="gtitle"></h2>
+      <div class="hud">
+        <div class="chip"><i>Score</i><b id="hScore">0</b></div>
+        <div class="chip lives"><i>Vies</i><b id="hLives"></b></div>
+        <div class="chip"><i>Record</i><b id="hBest">0</b></div>
+      </div>
+    </div>
+    <div class="board">
+      <div class="stagebox">
+        <p class="ctx" id="ctx"></p>
+        <div class="stage" id="stage"></div>
+      </div>
+      <div class="panel">
+        <div class="box ctrl">
+          <div class="prompt" id="prompt"></div>
+          <div class="ctrl" id="ctrl"></div>
+          <div class="verdict" id="verdict" aria-live="polite"></div>
+          <button class="btn" type="button" id="nextBtn" hidden>Manche suivante →</button>
+        </div>
+        <p class="rule" id="rule"></p>
+        <div class="box over" id="over" hidden>
+          <h3>Partie terminée</h3>
+          <div id="overTxt"></div>
+          <div class="row">
+            <button class="btn" type="button" id="againBtn">Rejouer</button>
+            <button class="btn ghost" type="button" id="hubBtn">Autres jeux</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script src="../../assets/app.js"></script>
+<script>
+/* ===================== outils ===================== */
+const R={
+  n(){let u=0,v=0;while(!u)u=Math.random();while(!v)v=Math.random();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v)},
+  u:(a,b)=>a+Math.random()*(b-a),
+  i:(a,b)=>Math.floor(a+Math.random()*(b-a+1)),
+  pick:a=>a[Math.floor(Math.random()*a.length)],
+  shuf(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+};
+const S={
+  sum:a=>a.reduce((s,v)=>s+v,0),
+  mean:a=>S.sum(a)/a.length,
+  ss(a){const m=S.mean(a);return a.reduce((s,v)=>s+(v-m)**2,0)},
+  var:a=>S.ss(a)/(a.length-1),
+  sd:a=>Math.sqrt(S.var(a)),
+  q(a,p){const s=a.slice().sort((x,y)=>x-y),h=(s.length-1)*p,l=Math.floor(h);return s[l]+(h-l)*((l+1<s.length?s[l+1]:s[l])-s[l])},
+  med:a=>S.q(a,.5),
+  r(x,y){const mx=S.mean(x),my=S.mean(y);let a=0,b=0,c=0;for(let i=0;i<x.length;i++){const dx=x[i]-mx,dy=y[i]-my;a+=dx*dy;b+=dx*dx;c+=dy*dy}return a/Math.sqrt(b*c)},
+  lm(x,y){const mx=S.mean(x),my=S.mean(y);let sxy=0,sxx=0;for(let i=0;i<x.length;i++){sxy+=(x[i]-mx)*(y[i]-my);sxx+=(x[i]-mx)**2}const b=sxy/sxx;return{a:my-b*mx,b,sxx,mx,my}}
+};
+/* lois : gamma, bêta incomplète, Student, χ², Fisher */
+function lgam(x){const c=[0.99999999999980993,676.5203681218851,-1259.1392167224028,771.32342877765313,-176.61502916214059,12.507343278686905,-0.13857109526572012,9.9843695780195716e-6,1.5056327351493116e-7];if(x<.5)return Math.log(Math.PI/Math.sin(Math.PI*x))-lgam(1-x);x-=1;let a=c[0];const t=x+7.5;for(let i=1;i<9;i++)a+=c[i]/(x+i);return .5*Math.log(2*Math.PI)+(x+.5)*Math.log(t)-t+Math.log(a)}
+function betacf(a,b,x){const F=1e-300;let qab=a+b,qap=a+1,qam=a-1,c=1,d=1-qab*x/qap;if(Math.abs(d)<F)d=F;d=1/d;let h=d;for(let m=1;m<400;m++){const m2=2*m;let aa=m*(b-m)*x/((qam+m2)*(a+m2));d=1+aa*d;if(Math.abs(d)<F)d=F;c=1+aa/c;if(Math.abs(c)<F)c=F;d=1/d;h*=d*c;aa=-(a+m)*(qab+m)*x/((a+m2)*(qap+m2));d=1+aa*d;if(Math.abs(d)<F)d=F;c=1+aa/c;if(Math.abs(c)<F)c=F;d=1/d;const del=d*c;h*=del;if(Math.abs(del-1)<3e-15)break}return h}
+function ibeta(x,a,b){if(x<=0)return 0;if(x>=1)return 1;const bt=Math.exp(lgam(a+b)-lgam(a)-lgam(b)+a*Math.log(x)+b*Math.log(1-x));return x<(a+1)/(a+b+2)?bt*betacf(a,b,x)/a:1-bt*betacf(b,a,1-x)/b}
+function gser(a,x){let ap=a,sum=1/a,del=sum;for(let n=0;n<500;n++){ap++;del*=x/ap;sum+=del;if(Math.abs(del)<Math.abs(sum)*1e-15)break}return sum*Math.exp(-x+a*Math.log(x)-lgam(a))}
+function gcf(a,x){const F=1e-300;let b=x+1-a,c=1/F,d=1/b,h=d;for(let i=1;i<500;i++){const an=-i*(i-a);b+=2;d=an*d+b;if(Math.abs(d)<F)d=F;c=b+an/c;if(Math.abs(c)<F)c=F;d=1/d;const del=d*c;h*=del;if(Math.abs(del-1)<1e-15)break}return Math.exp(-x+a*Math.log(x)-lgam(a))*h}
+const gammq=(a,x)=>x<=0?1:(x<a+1?1-gser(a,x):gcf(a,x));
+const pT2=(t,df)=>ibeta(df/(df+t*t),df/2,.5);              // p bilatérale
+const pChi=(x,k)=>gammq(k/2,x/2);                          // P(X > x)
+const pF=(f,d1,d2)=>ibeta(d2/(d2+d1*f),d2/2,d1/2);         // P(F > f)
+function qT975(df){let lo=0,hi=60;for(let i=0;i<80;i++){const m=(lo+hi)/2;pT2(m,df)>.05?lo=m:hi=m}return(lo+hi)/2}
+
+/* formats */
+const fr=(v,d)=>(+v).toFixed(d).replace('.',',').replace(/^-(?=.*[1-9])/,'−').replace(/^-/,'');
+const parseNum=s=>parseFloat(String(s).trim().replace(/\s/g,'').replace(',','.').replace('−','-'));
+const sig=(v,d)=>String(Number((+v).toPrecision(d)));
+const fexp=s=>s.replace(/e([+-])(\d)$/,'e$10$2');
+const fp=(p,d)=>p<2.2e-16?'< 2.2e-16':p<1e-4?fexp(p.toExponential(d-1)):String(Number(p.toPrecision(d)));
+const pEq=(p,d)=>p<2.2e-16?'< 2.2e-16':'= '+fp(p,d);
+const stars=p=>p<.001?'***':p<.01?'**':p<.05?'*':p<.1?'.':' ';
+const lab=(n,u)=>u?`${n} (${u})`:n;
+const pow10=k=>Math.pow(10,k);
+const uniq=(arr,correct)=>{const out=[correct];for(const v of arr){if(out.length>=4)break;if(!out.includes(v))out.push(v)}return out};
+
+/* ===================== dessin ===================== */
+const MONO="'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace", BODY="'Spectral',Georgia,serif";
+function K(){const s=getComputedStyle(document.documentElement),g=n=>s.getPropertyValue('--'+n).trim();return{card:g('card'),ink:g('ink'),soft:g('ink-soft'),grid:g('grid'),pen:g('pen'),ok:g('ok'),bar:g('bar'),acc:g('acc'),line:g('line')}}
+function cnv(st,w,h){const c=document.createElement('canvas');c.width=w;c.height=h;st.appendChild(c);return c}
+function nice(lo,hi,t=6){if(hi-lo<1e-9){lo-=1;hi+=1}const raw=(hi-lo)/t,p=pow10(Math.floor(Math.log10(raw)));const s=[1,2,2.5,5,10].map(k=>k*p).find(k=>k>=raw*0.999);return{lo:Math.floor(lo/s+1e-9)*s,hi:Math.ceil(hi/s-1e-9)*s,s}}
+function ticks(d){const n=Math.round((d.hi-d.lo)/d.s),o=[];for(let k=0;k<=n;k++)o.push(d.lo+k*d.s);return o}
+function tl(v,s){const e=Math.floor(Math.log10(s)+1e-9),m=s/pow10(e);return fr(v,Math.max(0,-e+(Math.abs(m-Math.round(m))>1e-6?1:0)))}
+function frame(c,xd,yd,o={}){
+  const g=c.getContext('2d'),W=c.width,H=c.height,k=K(),fs=o.fs||22;
+  const L=o.L??110,Rm=o.R??30,T=o.T??30,B=o.B??(o.xl?100:60);
+  const px=v=>L+(v-xd.lo)/(xd.hi-xd.lo)*(W-L-Rm),py=v=>H-B-(v-yd.lo)/(yd.hi-yd.lo)*(H-T-B);
+  g.setLineDash([]);g.globalAlpha=1;g.fillStyle=k.card;g.fillRect(0,0,W,H);
+  g.font=fs+'px '+MONO;g.lineWidth=1;g.textBaseline='alphabetic';
+  const xt=ticks(xd),ev=xt.length>9?2:1;
+  xt.forEach((v,i)=>{g.strokeStyle=k.grid;g.beginPath();g.moveTo(px(v),T);g.lineTo(px(v),H-B);g.stroke();
+    if(i%ev===0){g.fillStyle=k.soft;g.textAlign='center';g.fillText(o.xfmt?o.xfmt(v):tl(v,xd.s),px(v),H-B+fs+8)}});
+  ticks(yd).forEach(v=>{g.strokeStyle=k.grid;g.beginPath();g.moveTo(L,py(v));g.lineTo(W-Rm,py(v));g.stroke();
+    g.fillStyle=k.soft;g.textAlign='right';g.fillText(tl(v,yd.s),L-12,py(v)+fs/3)});
+  g.strokeStyle=k.ink;g.lineWidth=2;g.beginPath();g.moveTo(L,T);g.lineTo(L,H-B);g.lineTo(W-Rm,H-B);g.stroke();
+  g.fillStyle=k.ink;g.font='600 24px '+BODY;
+  if(o.xl){g.textAlign='center';g.fillText(o.xl,L+(W-L-Rm)/2,H-B+fs+50)}
+  if(o.yl){g.save();g.translate(30,T+(H-T-B)/2);g.rotate(-Math.PI/2);g.textAlign='center';g.fillText(o.yl,0,0);g.restore()}
+  return{g,px,py,L,R:Rm,T,B,W,H,k,xd,yd,inv:(X,Y)=>[xd.lo+(X-L)/(W-L-Rm)*(xd.hi-xd.lo),yd.lo+(H-B-Y)/(H-T-B)*(yd.hi-yd.lo)]};
+}
+function scatter(c,x,y,xl,yl){
+  const xd=nice(Math.min(...x),Math.max(...x)),yd=nice(Math.min(...y),Math.max(...y));
+  const f=frame(c,xd,yd,{xl,yl});f.g.fillStyle=f.k.ink;f.g.globalAlpha=.75;
+  x.forEach((v,i)=>{f.g.beginPath();f.g.arc(f.px(v),f.py(y[i]),7,0,7);f.g.fill()});f.g.globalAlpha=1;return f;
+}
+function regLine(f,a,b,col,w){const g=f.g;g.save();g.beginPath();g.rect(f.L,f.T,f.W-f.L-f.R,f.H-f.T-f.B);g.clip();g.strokeStyle=col;g.lineWidth=w;g.beginPath();g.moveTo(f.px(f.xd.lo),f.py(a+b*f.xd.lo));g.lineTo(f.px(f.xd.hi),f.py(a+b*f.xd.hi));g.stroke();g.restore()}
+function hist(c,d,xl,o={}){
+  const e=nice(Math.min(...d),Math.max(...d),10),n=Math.round((e.hi-e.lo)/e.s),cnt=new Array(n).fill(0);
+  d.forEach(v=>{let i=Math.floor((v-e.lo)/e.s+1e-9);if(i>=n)i=n-1;if(i<0)i=0;cnt[i]++});
+  const mc=Math.max(...cnt),ys=Math.max(1,Math.round(nice(0,mc,5).s)),yd={lo:0,hi:Math.ceil(mc/ys)*ys,s:ys};
+  const f=frame(c,e,yd,{xl,yl:'Effectif',T:o.T??76,B:o.B,L:90});
+  f.g.fillStyle=f.k.bar;f.g.strokeStyle=f.k.card;f.g.lineWidth=2;
+  cnt.forEach((v,i)=>{if(!v)return;const x0=f.px(e.lo+i*e.s),x1=f.px(e.lo+(i+1)*e.s),y0=f.py(v);f.g.fillRect(x0,y0,x1-x0,f.py(0)-y0);f.g.strokeRect(x0,y0,x1-x0,f.py(0)-y0)});
+  return f;
+}
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+function vline(f,v,col,label,dash,row=0){const g=f.g;g.save();g.strokeStyle=col;g.lineWidth=4;g.setLineDash(dash?[10,8]:[]);g.beginPath();g.moveTo(f.px(v),f.T-4);g.lineTo(f.px(v),f.H-f.B);g.stroke();g.restore();
+  if(label){g.fillStyle=col;g.font='700 22px '+BODY;g.textAlign='center';g.fillText(label,clamp(f.px(v),f.L+60,f.W-f.R-60),f.T-12-row*28)}}
+function boxp(f,d,yc,h,col,label){
+  const g=f.g,q1=S.q(d,.25),q2=S.q(d,.5),q3=S.q(d,.75),iq=q3-q1,lo=Math.min(...d.filter(v=>v>=q1-1.5*iq)),hi=Math.max(...d.filter(v=>v<=q3+1.5*iq));
+  g.strokeStyle=col;g.lineWidth=3;g.setLineDash([]);
+  g.beginPath();g.moveTo(f.px(lo),yc);g.lineTo(f.px(q1),yc);g.moveTo(f.px(q3),yc);g.lineTo(f.px(hi),yc);
+  g.moveTo(f.px(lo),yc-h/4);g.lineTo(f.px(lo),yc+h/4);g.moveTo(f.px(hi),yc-h/4);g.lineTo(f.px(hi),yc+h/4);g.stroke();
+  g.fillStyle=f.k.card;g.fillRect(f.px(q1),yc-h/2,f.px(q3)-f.px(q1),h);g.strokeRect(f.px(q1),yc-h/2,f.px(q3)-f.px(q1),h);
+  g.lineWidth=6;g.beginPath();g.moveTo(f.px(q2),yc-h/2);g.lineTo(f.px(q2),yc+h/2);g.stroke();
+  g.lineWidth=2;d.filter(v=>v<lo||v>hi).forEach(v=>{g.beginPath();g.arc(f.px(v),yc,6,0,7);g.stroke()});
+  if(label){g.fillStyle=col;g.font='800 30px '+BODY;g.textAlign='center';g.fillText(label,f.L-45,yc+10)}
+  return{q1,q2,q3,lo,hi};
+}
+function arrow(g,x0,y0,x1,y1,col,w){const a=Math.atan2(y1-y0,x1-x0),L=Math.hypot(x1-x0,y1-y0),hd=Math.min(18,L*.4);g.strokeStyle=col;g.fillStyle=col;g.lineWidth=w;g.beginPath();g.moveTo(x0,y0);g.lineTo(x1-Math.cos(a)*hd*.6,y1-Math.sin(a)*hd*.6);g.stroke();
+  g.beginPath();g.moveTo(x1,y1);g.lineTo(x1-hd*Math.cos(a-.4),y1-hd*Math.sin(a-.4));g.lineTo(x1-hd*Math.cos(a+.4),y1-hd*Math.sin(a+.4));g.closePath();g.fill()}
+function circle(c,V,p1,p2,hl=[],o={}){
+  const g=c.getContext('2d'),W=c.width,H=c.height,k=K(),cx=W/2,cy=H/2,Rr=W*.31,fs=o.fs||24;
+  g.setLineDash([]);g.fillStyle=k.card;g.fillRect(0,0,W,H);
+  g.strokeStyle=k.line;g.lineWidth=2;g.beginPath();g.arc(cx,cy,Rr,0,2*Math.PI);g.stroke();
+  g.strokeStyle=k.soft;g.lineWidth=1;g.setLineDash([6,6]);g.beginPath();g.moveTo(cx-Rr-30,cy);g.lineTo(cx+Rr+30,cy);g.moveTo(cx,cy-Rr-30);g.lineTo(cx,cy+Rr+30);g.stroke();g.setLineDash([]);
+  g.fillStyle=k.soft;g.font=`600 ${fs-2}px ${BODY}`;g.textAlign='right';g.textBaseline='top';g.fillText(`F1 (${fr(p1,1)} %)`,W-10,cy+8);
+  g.textAlign='left';g.textBaseline='bottom';g.fillText(`F2 (${fr(p2,1)} %)`,cx+10,cy-Rr-34);
+  V.forEach(v=>{const on=hl.includes(v.n),col=on?k.pen:k.ink,X=cx+v.x*Rr,Y=cy-v.y*Rr;arrow(g,cx,cy,X,Y,col,on?5:3);
+    const a=Math.atan2(-v.y,v.x),lx=X+Math.cos(a)*12,ly=Y+Math.sin(a)*12;
+    g.fillStyle=col;g.font=`${on?700:600} ${fs}px ${BODY}`;g.textAlign=Math.cos(a)>.3?'left':Math.cos(a)<-.3?'right':'center';g.textBaseline=Math.sin(a)>.3?'top':Math.sin(a)<-.3?'bottom':'middle';g.fillText(v.n,lx,ly)});
+  g.textBaseline='alphabetic';
+  return{cx,cy,Rr};
+}
+
+/* ===================== contextes ===================== */
+// [nom X, unité X, moy X, σ X, nom Y, unité Y, moy Y, σ Y, var R X, var R Y, data R]
+const BIV=[
+ ["Dose d'azote","kg/ha",90,35,"Rendement du blé","q/ha",68,10,"azote","rendement","parcelles"],
+ ["Pluviométrie annuelle","mm",650,150,"Rendement du mil","kg/ha",900,250,"pluie","rendement","villages"],
+ ["Âge des vaches","ans",6,2,"Production laitière","L/j",14,4,"age","lait","vaches"],
+ ["Densité de semis","plants/m²",8,2,"Rendement du maïs","t/ha",6,1.5,"densite","rendement","parcelles"],
+ ["Poids vif des zébus","kg",320,60,"Prix de vente","kFCFA",380,80,"poids","prix","zebus"],
+ ["Matière organique du sol","%",2.5,.8,"Biomasse racinaire","g/plant",45,12,"mo","biomasse","plants"],
+ ["Altitude de la parcelle","m",1200,300,"Note de dégustation du café","pts/100",82,4,"altitude","note","parcelles"],
+ ["Surface cultivée","ha",3,1.2,"Revenu agricole","kFCFA/an",900,300,"surface","revenu","exploitations"],
+ ["Âge des cacaoyers","ans",15,6,"Cabosses récoltées","nb/arbre",22,7,"age","cabosses","cacaoyers"],
+ ["Ration de concentré","kg/j",4,1.5,"Gain moyen quotidien","g/j",55,10,"ration","gmq","poulets"],
+ ["Irrigation","h/semaine",10,4,"Rendement de la tomate","t/ha",30,8,"irrigation","rendement","parcelles"],
+ ["Taille du troupeau","têtes",25,10,"Distance au point d'eau","km",6,2.5,"troupeau","distance","campements"]
+];
+function genBiv(c,t,n){const x=[],y=[];for(let i=0;i<n;i++){const a=R.n(),b=R.n();x.push(Math.max(0,c[2]+c[3]*a));y.push(Math.max(0,c[6]+c[7]*(t*a+Math.sqrt(1-t*t)*b)))}return{x,y}}
+// [nom, unité, moyenne, σ, décimales]
+const UNI=[
+ ["Poids des veaux à la naissance","kg",32,4,1],["Rendement du riz pluvial","t/ha",2.4,.6,2],["Revenu annuel des ménages","kFCFA",850,280,0],
+ ["Âge des cacaoyers","ans",18,6,0],["Production laitière","L/j",9,2.5,1],["Taille des exploitations","ha",3.5,1.3,1],
+ ["Matière organique du sol","%",2.6,.6,2],["Prix du sac de maïs","kFCFA",14,2.5,1],["Gain moyen quotidien des poulets","g/j",52,8,0],
+ ["Hauteur du manioc à 3 mois","cm",85,18,0]
+];
+const SH={norm:()=>R.n(),droite:()=>Math.exp(.8*R.n()),gauche:()=>-Math.exp(.8*R.n()),bimod:()=>.5*R.n()+(Math.random()<.5?-1.3:1.3),unif:()=>R.u(-1.7,1.7)};
+function genUni(sh,n,c){const z=Array.from({length:n},SH[sh]),m=S.mean(z),s=S.sd(z),zs=z.map(v=>(v-m)/s),zmin=Math.min(...zs);
+  let sd=c[3];if(c[2]+sd*zmin<.12*c[2])sd=.88*c[2]/-zmin;const p=pow10(c[4]);return zs.map(v=>Math.round((c[2]+sd*v)*p)/p)}
+
+/* ===================== modules ===================== */
+const THEMES=["Statistique descriptive","Liaison entre deux variables","Analyse en composantes principales","Tests et sorties R"];
+const M=[];const mod=o=>M.push(o);
+const RULE_Q="Bonne réponse : +1 point. Erreur : −1 vie. 4 bonnes réponses d'affilée : +1 vie.";
+
+/* ---------- Devine la moyenne ---------- */
+mod({id:'moyenne',theme:0,name:'Devine la moyenne',desc:"Place la moyenne sur un histogramme. Gare aux distributions asymétriques.",gen(){
+  const c=R.pick(UNI),sh=R.pick(['norm','droite','gauche','bimod','unif','droite']),n=R.i(40,150),d=genUni(sh,n,c),m=S.mean(d),s=S.sd(d),md=S.med(d);
+  const e=nice(Math.min(...d),Math.max(...d),10);let cv,f;const r={
+   ctx:`${c[0]} · n = ${n}`,prompt:'Fais glisser le curseur jusqu’à la <b>moyenne</b> de la distribution.',
+   rule:'Écart ≤ 0,12 écart-type : +1 vie. Écart > 0,3 écart-type : −1 vie.',
+   kind:'est',live:true,est:{min:e.lo,max:e.hi,step:pow10(-c[4]),init:(e.lo+e.hi)/2,dec:c[4],label:`Moyenne (${c[1]})`},
+   mount(st){cv=cnv(st,800,640)},
+   draw(rev){f=hist(cv,d,lab(c[0],c[1]));if(r.guess!=null)vline(f,r.guess,f.k.pen,'ton estimation',false,rev?1:0);if(rev){vline(f,md,f.k.soft,'médiane',true,0);vline(f,m,f.k.ok,'moyenne',false,0)}},
+   evaluate(g){const er=Math.abs(g-m);return{grade:er<=.12*s?'great':er>.3*s?'bad':'ok',html:`Moyenne = <b>${fr(m,c[4]+1)}</b> ${c[1]}<br>Médiane = ${fr(md,c[4]+1)} · écart-type = ${fr(s,c[4]+1)}<br>Ton écart : ${fr(er,c[4]+1)} ${c[1]}, soit ${fr(er/s,2)} écart-type.`}}
+  };return r}});
+
+/* ---------- Moyenne ou médiane ---------- */
+mod({id:'medmoy',theme:0,name:'Moyenne ou médiane ?',desc:"Deux lignes, une moyenne et une médiane. Laquelle est laquelle, et pourquoi ?",gen(){
+  let c,sh,d,m,md,s,k=0;do{c=R.pick(UNI);sh=R.pick(['droite','gauche']);d=genUni(sh,R.i(80,200),c);m=S.mean(d);md=S.med(d);s=S.sd(d);k++}while(Math.abs(m-md)<.2*s&&k<60);
+  const aIsMean=Math.random()<.5,A=aIsMean?m:md,B=aIsMean?md:m;let cv,f;
+  const r={ctx:`${c[0]} · n = ${d.length}`,prompt:'Deux lignes verticales sont tracées : l’une indique la moyenne, l’autre la médiane.',kind:'steps',
+   mount(st){cv=cnv(st,800,640)},
+   draw(rev){f=hist(cv,d,lab(c[0],c[1]));const cA=rev?(aIsMean?f.k.ok:f.k.soft):f.k.pen,cB=rev?(aIsMean?f.k.soft:f.k.ok):f.k.pen;
+     const lA=rev?`A = ${aIsMean?'moyenne':'médiane'}`:'A',lB=rev?`B = ${aIsMean?'médiane':'moyenne'}`:'B',left=A<B;
+     vline(f,A,cA,lA,false,left?0:1);vline(f,B,cB,lB,false,left?1:0)},
+   steps:[
+    {q:'Comment est cette distribution ?',opts:['À peu près symétrique','Étalée vers la droite (asymétrie positive)','Étalée vers la gauche (asymétrie négative)'],ans:sh==='droite'?1:2,
+     why:sh==='droite'?'La queue de distribution part vers les grandes valeurs : quelques valeurs très élevées.':'La queue de distribution part vers les petites valeurs : quelques valeurs très faibles.'},
+    {q:'Quelle ligne indique la moyenne ?',opts:['A','B'],ans:aIsMean?0:1,why:`La moyenne est attirée par la queue de distribution, la médiane non. Ici, moyenne = ${fr(m,c[4]+1)} et médiane = ${fr(md,c[4]+1)} ${c[1]}.`}
+   ],
+   explain:`Moyenne = <b>${fr(m,c[4]+1)}</b>, médiane = <b>${fr(md,c[4]+1)}</b> ${c[1]}. Avec une distribution ${sh==='droite'?'étalée à droite, la moyenne est au-dessus':'étalée à gauche, la moyenne est en dessous'} de la médiane.`
+  };return r}});
+
+/* ---------- Devine l'écart-type ---------- */
+mod({id:'sigma',theme:0,name:"Devine l'écart-type",desc:"Estime la dispersion d’une distribution à l’œil, en unités réelles.",gen(){
+  const c=R.pick(UNI),sh=R.pick(['norm','norm','unif','bimod']),n=R.i(50,150),d=genUni(sh,n,c),m=S.mean(d),s=S.sd(d),e=nice(Math.min(...d),Math.max(...d),10);let cv,f;
+  const step=pow10(Math.floor(Math.log10(s))-1),dec=Math.max(0,-Math.floor(Math.log10(step)));
+  const r={ctx:`${c[0]} · n = ${n}`,prompt:'Estime l’<b>écart-type</b> <i>s</i>. La bande rouge montre <span class="ov">x</span> ± ton estimation.<br><small>Repère : pour une distribution en cloche, environ 2/3 des valeurs sont à moins d’un écart-type de la moyenne.</small>',
+   rule:'Écart ≤ 10 % : +1 vie. Écart > 25 % : −1 vie.',kind:'est',live:true,
+   est:{min:0,max:(e.hi-e.lo)/2,step,init:Math.round((e.hi-e.lo)/8/step)*step,dec,label:`Écart-type (${c[1]})`},
+   mount(st){cv=cnv(st,800,640)},
+   draw(rev){f=hist(cv,d,lab(c[0],c[1]));const g=f.g;
+     if(r.guess!=null){g.save();g.globalAlpha=.16;g.fillStyle=f.k.pen;g.fillRect(f.px(m-r.guess),f.T,f.px(m+r.guess)-f.px(m-r.guess),f.H-f.B-f.T);g.restore();vline(f,m-r.guess,f.k.pen,null,true);vline(f,m+r.guess,f.k.pen,null,true)}
+     vline(f,m,f.k.ink,'moyenne',false,0);
+     if(rev){vline(f,m-s,f.k.ok,'x̄ − s',false,1);vline(f,m+s,f.k.ok,'x̄ + s',false,1)}},
+   evaluate(g){const er=Math.abs(g-s)/s;return{grade:er<=.1?'great':er>.25?'bad':'ok',html:`Écart-type = <b>${fr(s,dec+1)}</b> ${c[1]}<br>Ton écart : ${fr(er*100,0)} %. Il y a ${fr(100*d.filter(v=>Math.abs(v-m)<=s).length/n,0)} % des valeurs entre <span class="ov">x</span> − s et <span class="ov">x</span> + s.`}}
+  };return r}});
+
+/* ---------- Associe la boîte ---------- */
+mod({id:'boite',theme:0,name:'Associe la boîte',desc:"Retrouve la boîte à moustaches qui correspond à l’histogramme.",gen(){
+  const c=R.pick(UNI),n=R.i(60,150),shapes=R.shuf(Object.keys(SH)).slice(0,4),sets=shapes.map(sh=>genUni(sh,n,c));
+  const lo=Math.min(...sets[0]),hi=Math.max(...sets[0]);
+  for(let i=1;i<4;i++){const a=Math.min(...sets[i]),b=Math.max(...sets[i]);sets[i]=sets[i].map(v=>lo+(v-a)/(b-a)*(hi-lo))}
+  const order=R.shuf([0,1,2,3]),ans=order.indexOf(0),L='ABCD';let cv,f,qs;
+  const r={ctx:`${c[0]} · n = ${n}`,prompt:'L’histogramme du haut correspond à une seule des quatre boîtes à moustaches.',kind:'steps',
+   mount(st){cv=cnv(st,800,900)},
+   draw(rev){f=hist(cv,sets[0],null,{B:440,T:40});order.forEach((si,i)=>{const col=rev?(si===0?f.k.ok:f.k.soft):f.k.ink;const res=boxp(f,sets[si],530+i*90,54,col,L[i]);if(si===0)qs=res})},
+   steps:[{q:'Quelle boîte correspond à l’histogramme ?',opts:['A','B','C','D'],ans,get why(){const q=[S.q(sets[0],.25),S.med(sets[0]),S.q(sets[0],.75)];return `Boîte ${L[ans]} : Q1 = ${fr(q[0],c[4])}, médiane = ${fr(q[1],c[4])}, Q3 = ${fr(q[2],c[4])} ${c[1]}. La moitié centrale des valeurs tient dans la boîte.`}}],
+   get explain(){return this.steps[0].why}
+  };return r}});
+
+/* ---------- Calcul express ---------- */
+const CALC=[["Poussins éclos par couvée","poussins",6,14],["Sacs de maïs récoltés par parcelle","sacs",6,20],["Âge des chefs de ménage","ans",25,62],["Cabosses par cacaoyer","cabosses",8,30],["Litres de lait par traite","L",2,9],["Chèvres par ménage","chèvres",1,12],["Jours de pluie en juillet","jours",8,24]];
+mod({id:'calcul',theme:0,name:'Calcul express',desc:"Moyenne, médiane, variance, écart-type, CV : calcule sur une petite série.",gen(){
+  const c=R.pick(CALC),n=R.i(5,7),x=Array.from({length:n},()=>R.i(c[2],c[3])),m=S.mean(x),sc=S.ss(x),srt=x.slice().sort((a,b)=>a-b);
+  const kinds=[
+   ['la moyenne',m,`<span class="ov">x</span> = (${x.join(' + ')}) / ${n} = ${S.sum(x)} / ${n} = <b>${fr(m,2)}</b>`],
+   ['la médiane',S.med(x),`Série triée : ${srt.join(' ; ')}. ${n%2?`n impair : valeur du milieu`:`n pair : moyenne des deux valeurs du milieu`} = <b>${fr(S.med(x),2)}</b>`],
+   ['l’étendue',srt[n-1]-srt[0],`max − min = ${srt[n-1]} − ${srt[0]} = <b>${srt[n-1]-srt[0]}</b>`],
+   ['la variance corrigée s² (diviseur n − 1)',sc/(n-1),`<span class="ov">x</span> = ${fr(m,2)} ; Σ(xᵢ − <span class="ov">x</span>)² = ${fr(sc,2)} ; s² = ${fr(sc,2)} / ${n-1} = <b>${fr(sc/(n-1),2)}</b>`],
+   ['la variance σ² (diviseur n)',sc/n,`<span class="ov">x</span> = ${fr(m,2)} ; Σ(xᵢ − <span class="ov">x</span>)² = ${fr(sc,2)} ; σ² = ${fr(sc,2)} / ${n} = <b>${fr(sc/n,2)}</b>`],
+   ['l’écart-type corrigé s (diviseur n − 1)',Math.sqrt(sc/(n-1)),`s² = ${fr(sc,2)} / ${n-1} = ${fr(sc/(n-1),3)} ; s = √s² = <b>${fr(Math.sqrt(sc/(n-1)),2)}</b>`],
+   ['le coefficient de variation CV en % (avec s, diviseur n − 1)',100*Math.sqrt(sc/(n-1))/m,`s = ${fr(Math.sqrt(sc/(n-1)),3)} ; CV = s / <span class="ov">x</span> × 100 = ${fr(Math.sqrt(sc/(n-1)),3)} / ${fr(m,3)} × 100 = <b>${fr(100*Math.sqrt(sc/(n-1))/m,2)} %</b>`]
+  ],k=R.pick(kinds);
+  return{ctx:`${c[0]} · n = ${n}`,prompt:`Calcule <b>${k[0]}</b> de cette série. Réponds à 0,01 près (calculatrice autorisée).`,rule:'Bonne réponse (à 1 % près) : +1 point. Erreur : −1 vie. 4 bonnes réponses d’affilée : +1 vie.',kind:'num',num:{label:'Ta réponse'},
+   mount(st){const p=document.createElement('p');p.className='scen';p.textContent=`${c[0]} (${c[1]}) :`;const v=document.createElement('div');v.className='vals';v.innerHTML=x.map(a=>`<span>${a}</span>`).join('');st.append(p,v)},
+   draw(){},
+   evaluate(g){const ok=Math.abs(g-k[1])<=Math.max(.011,.01*Math.abs(k[1]));return{grade:ok?'ok':'bad',html:k[2]}}}}});
+
+/* ---------- Devine le r ---------- */
+mod({id:'r',theme:1,name:'Devine le r',desc:"Estime le coefficient de corrélation de Pearson d’un nuage de points.",gen(){
+  const c=R.pick(BIV),t=R.u(-1,1),n=R.i(20,100),{x,y}=genBiv(c,t,n),rr=S.r(x,y);let cv;
+  return{ctx:`${c[0]} × ${c[4]} · n = ${n}`,prompt:'Estime le coefficient de corrélation de Pearson <i>r</i>.',rule:'Écart ≤ 0,05 : +1 vie. Écart > 0,10 : −1 vie.',
+   kind:'est',est:{min:-1,max:1,step:.01,init:0,dec:2,label:'Ton estimation de r'},
+   mount(st){cv=cnv(st,800,800)},
+   draw(rev){const f=scatter(cv,x,y,lab(c[0],c[1]),lab(c[4],c[5]));if(rev){const L=S.lm(x,y);regLine(f,L.a,L.b,f.k.pen,4)}},
+   evaluate(g){const e=Math.abs(g-rr);return{grade:e<=.05?'great':e>.1?'bad':'ok',html:`Vrai r = <b>${fr(rr,3)}</b><br>Ton écart : ${fr(e,3)}`}}}}});
+
+/* ---------- Quel lien ? ---------- */
+const NONLIN=[["Dose d'azote","kg/ha",120,50,"Rendement du maïs","t/ha",6,1.5],["Température moyenne","°C",27,4,"Ponte des poules","œufs/sem.",5,1.2],["Charge animale","UBT/ha",1.2,.5,"Production de la prairie","t MS/ha",7,1.8]];
+mod({id:'lien',theme:1,name:'Quel lien ?',desc:"Linéaire, non linéaire, aucun lien, ou un point atypique qui trompe r.",gen(){
+  const type=R.pick(['pos','neg','none','nonlin','out']);let c,x,y,extra='',rr,why,outIdx=-1;
+  if(type==='nonlin'){c=R.pick(NONLIN);const n=R.i(40,70);x=[];y=[];for(let i=0;i<n;i++){const z=R.u(-1.8,1.8);x.push(c[2]+c[3]*z);y.push(c[6]+c[7]*(1-z*z+.35*R.n())*.8)}rr=S.r(x,y);
+    why=`r = ${fr(rr,2)} seulement, alors que la liaison est forte et en cloche (optimum). r ne mesure que la liaison <b>linéaire</b>.`}
+  else{c=R.pick(BIV);const n=type==='out'?R.i(20,30):R.i(30,80);const t=type==='pos'?R.u(.6,.95):type==='neg'?-R.u(.6,.95):type==='none'?R.u(-.08,.08):0;({x,y}=genBiv(c,t,n));
+    if(type==='out'){const r0=S.r(x,y),sx=S.sd(x),sy=S.sd(y),sg=Math.random()<.5?1:-1,k=R.u(5,6.5);x.push(S.mean(x)+k*sx);y.push(S.mean(y)+sg*k*sy*(sg<0?.55:1));y[y.length-1]=Math.max(0,y[y.length-1]);outIdx=x.length-1;rr=S.r(x,y);
+      extra=`Sans le point isolé, r = ${fr(r0,2)}.`;why=`Avec le point isolé, r = ${fr(rr,2)}. ${extra} Un seul individu atypique suffit à créer une corrélation.`}
+    else{rr=S.r(x,y);why=type==='none'?`r = ${fr(rr,2)} : le nuage n’a pas de direction privilégiée.`:`r = ${fr(rr,2)} : le nuage est allongé selon une droite ${type==='pos'?'croissante':'décroissante'}.`}}
+  if(type==='out'&&Math.abs(rr)<.35)return M.find(m=>m.id==='lien').gen();
+  const opts=['Liaison linéaire positive','Liaison linéaire négative','Pas de liaison apparente','Liaison forte mais non linéaire','Liaison due à un point atypique'],ans={pos:0,neg:1,none:2,nonlin:3,out:4}[type];let cv;
+  return{ctx:`${c[0]} × ${c[4]} · n = ${x.length}`,prompt:'Comment décrire la relation entre les deux variables ?',kind:'steps',
+   mount(st){cv=cnv(st,800,800)},
+   draw(rev){const f=scatter(cv,x,y,lab(c[0],c[1]),lab(c[4],c[5]));if(rev){if(type==='pos'||type==='neg'){const L=S.lm(x,y);regLine(f,L.a,L.b,f.k.pen,4)}if(outIdx>=0){f.g.strokeStyle=f.k.pen;f.g.lineWidth=4;f.g.beginPath();f.g.arc(f.px(x[outIdx]),f.py(y[outIdx]),20,0,7);f.g.stroke()}}},
+   steps:[{q:'Ta lecture du nuage :',opts,ans,why}],explain:why}}});
+
+/* ---------- Devine la pente ---------- */
+mod({id:'pente',theme:1,name:'Devine la pente',desc:"Lis la pente de la droite de régression, avec ses unités.",gen(){
+  const c=R.pick(BIV),t=(Math.random()<.5?1:-1)*R.u(.5,.95),n=R.i(25,60),{x,y}=genBiv(c,t,n),L=S.lm(x,y),scale=c[7]/c[3];
+  const step=pow10(Math.floor(Math.log10(scale))-2),dec=Math.max(0,-Math.floor(Math.log10(step))),unit=`${c[5]} par ${c[1]}`,tol=Math.max(Math.abs(L.b),.3*scale);let cv,f;
+  return{ctx:`${c[0]} × ${c[4]} · n = ${n}`,prompt:`La droite de régression est tracée. Quand <b>${c[0].toLowerCase()}</b> augmente de 1 ${c[1]}, de combien varie <b>${c[4].toLowerCase()}</b> ?`,
+   rule:'Écart ≤ 12 % : +1 vie. Écart > 30 % : −1 vie.',kind:'est',est:{min:-3*scale,max:3*scale,step,init:0,dec,label:`Pente (${unit})`},
+   mount(st){cv=cnv(st,800,800)},
+   draw(rev){f=scatter(cv,x,y,lab(c[0],c[1]),lab(c[4],c[5]));regLine(f,L.a,L.b,f.k.acc,4);
+     if(rev){const g=f.g,dx=f.xd.s,x0=f.xd.lo+dx*Math.max(1,Math.round((L.mx-f.xd.lo)/dx)-1),x1=x0+dx,y0=L.a+L.b*x0,y1=L.a+L.b*x1;
+       g.strokeStyle=f.k.pen;g.lineWidth=4;g.setLineDash([]);g.beginPath();g.moveTo(f.px(x0),f.py(y0));g.lineTo(f.px(x1),f.py(y0));g.lineTo(f.px(x1),f.py(y1));g.stroke();
+       g.fillStyle=f.k.pen;g.font='700 22px '+BODY;g.textAlign='center';g.fillText(`Δx = ${tl(dx,dx)}`,(f.px(x0)+f.px(x1))/2,f.py(y0)+(L.b>0?30:-14));
+       g.textAlign='left';g.fillText(`Δy = ${fr(L.b*dx,dec)}`,f.px(x1)+10,(f.py(y0)+f.py(y1))/2)}},
+   evaluate(g){const e=Math.abs(g-L.b);return{grade:e<=.12*tol?'great':e>.3*tol?'bad':'ok',html:`Pente = <b>${fr(L.b,dec)}</b> ${unit}<br>Sur le triangle : Δy / Δx = ${fr(L.b*f.xd.s,dec)} / ${tl(f.xd.s,f.xd.s)}.`}}}}});
+
+/* ---------- ACP : outils ---------- */
+const VARS=["Surface","Bovins","Main-d'œuvre","Revenu","Rendement","Engrais","Dist. marché","Âge du chef","Pluie","Crédit","Petits rum.","Cacao"];
+const ang=(a,b)=>Math.acos(clamp((a.x*b.x+a.y*b.y)/(a.r*b.r),-1,1))*180/Math.PI;
+function genLoad(k,poor=.18,rmin=.6){const names=R.shuf(VARS).slice(0,k);let V=names.map(n=>{const th=R.u(0,2*Math.PI),r=Math.random()<poor?R.u(.15,.38):R.u(rmin,.97);return{n,x:r*Math.cos(th),y:r*Math.sin(th),r}});
+  let l1=S.sum(V.map(v=>v.x*v.x)),l2=S.sum(V.map(v=>v.y*v.y));if(l2>l1){V=V.map(v=>({n:v.n,x:v.y,y:v.x,r:v.r}));[l1,l2]=[l2,l1]}return{V,l1,l2,p1:100*l1/k,p2:100*l2/k}}
+
+/* ---------- Cercle des corrélations ---------- */
+mod({id:'cercle',theme:2,name:'Cercle des corrélations',desc:"Lis les angles et les longueurs des flèches d’un cercle d’ACP.",gen(){
+  for(let tries=0;tries<4000;tries++){
+    const P=genLoad(R.i(6,7)),V=P.V,type=R.pick(['proche','oppose','mal','axe1','relation']),good=V.filter(v=>v.r>.65);
+    let q,opts,ans,why,hl;
+    if(type==='proche'||type==='oppose'){if(good.length<5)continue;const X=R.pick(good),others=good.filter(v=>v!==X).map(v=>({v,a:ang(X,v)}));
+      const best=type==='proche'?others.reduce((a,b)=>a.a<b.a?a:b):others.reduce((a,b)=>a.a>b.a?a:b);
+      if(type==='proche'?best.a>28:best.a<152)continue;const dis=others.filter(o=>type==='proche'?o.a>60:o.a<115);if(dis.length<3)continue;
+      const ch=R.shuf([best,...R.shuf(dis).slice(0,3)]);opts=ch.map(o=>o.v.n);ans=ch.indexOf(best);hl=[X.n,best.v.n];
+      q=type==='proche'?`Quelle variable est la plus corrélée <b>positivement</b> à « ${X.n} » ?`:`Quelle variable est corrélée <b>négativement</b> à « ${X.n} » ?`;
+      why=`Angle entre « ${X.n} » et « ${best.v.n} » ≈ ${fr(best.a,0)}°. Pour des variables bien représentées, cos(angle) ≈ r, ici ≈ ${fr(Math.cos(best.a*Math.PI/180),2)}.`}
+    else if(type==='mal'){const poor=V.filter(v=>v.r<.4),ok=V.filter(v=>v.r>.65);if(poor.length!==1||ok.length<3)continue;const ch=R.shuf([poor[0],...R.shuf(ok).slice(0,3)]);opts=ch.map(v=>v.n);ans=ch.indexOf(poor[0]);hl=[poor[0].n];
+      q='Quelle variable est <b>mal représentée</b> sur ce plan ?';why=`La flèche de « ${poor[0].n} » est courte (longueur ≈ ${fr(poor[0].r,2)}) : cette variable est mal projetée sur F1-F2, on ne l’interprète pas ici.`}
+    else if(type==='axe1'){const s=V.slice().sort((a,b)=>Math.abs(b.x)-Math.abs(a.x));if(Math.abs(s[0].x)<.82||Math.abs(s[1].x)>Math.abs(s[0].x)-.15)continue;const ch=R.shuf([s[0],...R.shuf(s.slice(1)).slice(0,3)]);opts=ch.map(v=>v.n);ans=ch.indexOf(s[0]);hl=[s[0].n];
+      q='Quelle variable est la plus liée à l’<b>axe 1</b> ?';why=`« ${s[0].n} » a la plus forte coordonnée sur F1 (${fr(s[0].x,2)}) : c’est sa corrélation avec l’axe 1.`}
+    else{const X=R.pick(good);if(!X)continue;const Ys=V.filter(v=>v!==X);const cand=Ys.map(Y=>{const a=ang(X,Y);let k=-1;if(Y.r<.38)k=3;else if(Y.r>.7&&a<25)k=0;else if(Y.r>.7&&a>155)k=1;else if(Y.r>.7&&Math.abs(a-90)<12)k=2;return{Y,a,k}}).filter(o=>o.k>=0);if(!cand.length)continue;
+      const o=R.pick(cand);opts=['Corrélées positivement','Corrélées négativement','Pas corrélées (angle droit)','On ne peut pas conclure : une variable est mal représentée'];ans=o.k;hl=[X.n,o.Y.n];
+      q=`Que dire du lien entre « ${X.n} » et « ${o.Y.n} » ?`;why=o.k===3?`La flèche de « ${o.Y.n} » est trop courte (${fr(o.Y.r,2)}) : l’angle ne veut rien dire sur ce plan.`:`Angle ≈ ${fr(o.a,0)}°, cos ≈ ${fr(Math.cos(o.a*Math.PI/180),2)}.`}
+    let cv;return{ctx:`ACP normée · ${V.length} variables d’exploitations agricoles`,prompt:q,kind:'steps',
+     mount(st){cv=cnv(st,800,800)},draw(rev){circle(cv,V,P.p1,P.p2,rev?hl:[])},steps:[{q:'Ta réponse :',opts,ans,why}],explain:why}
+  }return M.find(m=>m.id==='cercle').gen()}});
+
+/* ---------- Place l'individu ---------- */
+const LEVEL={'-2.5':'très nettement en dessous de la moyenne','-2':'nettement en dessous de la moyenne','-1.5':'en dessous de la moyenne','1.5':'au-dessus de la moyenne','2':'nettement au-dessus de la moyenne','2.5':'très nettement au-dessus de la moyenne'};
+mod({id:'individu',theme:2,name:"Place l'individu",desc:"À partir du profil d’une exploitation, place-la sur le plan factoriel.",gen(){
+  let P,prof,F;for(let t=0;t<3000;t++){P=genLoad(R.i(5,6),.1,.72);const good=P.V.filter(v=>v.r>.72);if(good.length<3)continue;
+    prof=R.shuf(good).slice(0,R.i(2,3)).map(v=>({v,z:R.pick([-2.5,-2,-1.5,1.5,2,2.5])}));
+    F=[S.sum(prof.map(p=>p.z*p.v.x))/Math.sqrt(P.l1),S.sum(prof.map(p=>p.z*p.v.y))/Math.sqrt(P.l2)];
+    if(Math.abs(F[0])<3.5&&Math.abs(F[1])<3.5&&Math.hypot(...F)>1.3)break}
+  let c1,c2,f;const xd={lo:-4,hi:4,s:1};
+  const r={ctx:`ACP normée · ${P.V.length} variables · exploitation n° ${R.i(12,180)}`,duo:true,
+   prompt:`Profil de l’exploitation (valeurs centrées réduites) :<ul>${prof.map(p=>`<li>${p.v.n} : ${LEVEL[String(p.z)]} (z = ${p.z>0?'+':'−'}${fr(Math.abs(p.z),1)})</li>`).join('')}</ul>Toutes les autres variables sont dans la moyenne (z = 0). Clique sur le plan factoriel à l’endroit où elle devrait se trouver.`,
+   rule:'Distance ≤ 0,8 : +1 vie. Distance > 1,6 : −1 vie.',kind:'click',
+   mount(st){c1=cnv(st,800,800);c2=cnv(st,800,800);c2.classList.add('clickable');
+     c2.addEventListener('click',e=>{if(E.done)return;const b=c2.getBoundingClientRect(),X=(e.clientX-b.left)*c2.width/b.width,Y=(e.clientY-b.top)*c2.height/b.height,g=f.inv(X,Y);r.guess=[clamp(g[0],-4,4),clamp(g[1],-4,4)];r.draw(false);E.armClick(`Ton point : F1 = ${fr(r.guess[0],1)}, F2 = ${fr(r.guess[1],1)}`)})},
+   draw(rev){circle(c1,P.V,P.p1,P.p2,prof.map(p=>p.v.n),{fs:28});
+     f=frame(c2,xd,xd,{L:70,B:70,T:30,R:30,fs:24});const g=f.g;g.strokeStyle=f.k.soft;g.lineWidth=2;g.beginPath();g.moveTo(f.px(-4),f.py(0));g.lineTo(f.px(4),f.py(0));g.moveTo(f.px(0),f.py(-4));g.lineTo(f.px(0),f.py(4));g.stroke();
+     g.fillStyle=f.k.ink;g.font='700 26px '+BODY;g.textAlign='right';g.fillText('F1',f.px(4)-6,f.py(0)-10);g.textAlign='left';g.fillText('F2',f.px(0)+10,f.py(4)+26);
+     if(r.guess){g.fillStyle=f.k.pen;g.beginPath();g.arc(f.px(r.guess[0]),f.py(r.guess[1]),12,0,7);g.fill()}
+     if(rev){if(r.guess){g.strokeStyle=f.k.soft;g.setLineDash([8,6]);g.lineWidth=2;g.beginPath();g.moveTo(f.px(r.guess[0]),f.py(r.guess[1]));g.lineTo(f.px(F[0]),f.py(F[1]));g.stroke();g.setLineDash([])}
+       g.strokeStyle=f.k.ok;g.lineWidth=5;const X=f.px(F[0]),Y=f.py(F[1]);g.beginPath();g.moveTo(X-16,Y-16);g.lineTo(X+16,Y+16);g.moveTo(X+16,Y-16);g.lineTo(X-16,Y+16);g.stroke()}},
+   evaluate(gs){const d=Math.hypot(gs[0]-F[0],gs[1]-F[1]);return{grade:d<=.8?'great':d>1.6?'bad':'ok',
+     html:`Position attendue : F1 = <b>${fr(F[0],2)}</b>, F2 = <b>${fr(F[1],2)}</b> (croix verte). Distance : ${fr(d,2)}.<br><small>Fₖ = Σ zⱼ × cⱼₖ / √λₖ : l’exploitation est tirée vers les variables où elle est forte et à l’opposé de celles où elle est faible.</small>`}}};
+  return r}});
+
+/* ---------- Éboulis ---------- */
+mod({id:'eboulis',theme:2,name:'Éboulis des valeurs propres',desc:"Combien d’axes garder ? Quelle part d’inertie expliquent-ils ?",gen(){
+  let p,lam;do{p=R.i(6,10);const a=R.u(.3,.85);lam=Array.from({length:p},(_,i)=>Math.exp(-a*i)*R.u(.7,1.3)).sort((x,y)=>y-x);const s=S.sum(lam);lam=lam.map(v=>v*p/s)}while(lam.some(v=>Math.abs(v-1)<.12)||lam[0]<1.3);
+  const kai=lam.filter(v=>v>1).length,pc=lam.map(v=>100*v/p),cum12=pc[0]+pc[1],type=R.pick(['est','est','steps']);let cv;
+  const draw=rev=>{const yd=nice(0,lam[0],5),f=frame(cv,{lo:.5,hi:p+.5,s:1},yd,{xl:'Composante',yl:'Valeur propre λ',xfmt:v=>String(Math.round(v))});
+    const g=f.g;lam.forEach((v,i)=>{g.fillStyle=f.k.bar;const x0=f.px(i+1-.32),x1=f.px(i+1+.32);g.fillRect(x0,f.py(v),x1-x0,f.py(0)-f.py(v));
+      if(rev){g.fillStyle=f.k.ink;g.font='600 20px '+MONO;g.textAlign='center';g.fillText(fr(v,2),f.px(i+1),f.py(v)-8)}});
+    if(rev){g.strokeStyle=f.k.pen;g.lineWidth=3;g.setLineDash([10,8]);g.beginPath();g.moveTo(f.L,f.py(1));g.lineTo(f.W-f.R,f.py(1));g.stroke();g.setLineDash([]);g.fillStyle=f.k.pen;g.font='700 22px '+BODY;g.textAlign='right';g.fillText('λ = 1',f.W-f.R-4,f.py(1)-8)}};
+  const base={ctx:`ACP normée sur p = ${p} variables`,mount(st){cv=cnv(st,800,620)},draw};
+  if(type==='est')return{...base,prompt:`ACP normée sur <b>${p} variables</b> : la somme des valeurs propres vaut ${p}. Quel pourcentage d’inertie expliquent les <b>deux premiers axes</b> ensemble ?`,
+    rule:'Écart ≤ 3 points : +1 vie. Écart > 7 points : −1 vie.',kind:'est',est:{min:0,max:100,step:1,init:50,dec:0,label:'Inertie cumulée F1 + F2 (%)'},
+    evaluate(g){const e=Math.abs(g-cum12);return{grade:e<=3?'great':e>7?'bad':'ok',html:`(λ₁ + λ₂) / p = (${fr(lam[0],2)} + ${fr(lam[1],2)}) / ${p} = <b>${fr(cum12,1)} %</b><br>Ton écart : ${fr(e,1)} point(s).`}}};
+  const kOpts=[...new Set([kai-1,kai,kai+1,kai+2].map(v=>Math.max(1,v)))];while(kOpts.length<4)kOpts.push(kOpts[kOpts.length-1]+1);
+  const o2=uniq(R.shuf([fr(100*lam[0]/(lam[0]+lam[1]),1),fr(lam[0]*10,1),fr(cum12,1),fr(pc[0]*1.5,1),fr(pc[0]/2,1)]).map(s=>s+' %'),fr(pc[0],1)+' %'),o2s=R.shuf(o2);
+  return{...base,prompt:`ACP normée sur <b>${p} variables</b>.`,kind:'steps',steps:[
+    {q:'Selon le critère de Kaiser (λ > 1), combien d’axes faut-il retenir ?',opts:kOpts.map(String),ans:kOpts.indexOf(kai),why:`${kai} valeur(s) propre(s) dépasse(nt) 1, la variance d’une variable centrée réduite.`},
+    {q:'Quel pourcentage d’inertie explique l’axe 1 seul ?',opts:o2s,ans:o2s.indexOf(fr(pc[0],1)+' %'),why:`λ₁ / p = ${fr(lam[0],2)} / ${p} = ${fr(pc[0],1)} %.`}],
+   explain:`Kaiser : ${kai} axe(s). Axe 1 : ${fr(pc[0],1)} % ; F1 + F2 : ${fr(cum12,1)} %.`}}});
+
+/* ---------- Le bon test ---------- */
+const TESTS={tind:"t de Student (2 échantillons indépendants)",tapp:"t de Student apparié",mw:"Mann-Whitney (Wilcoxon sur les rangs)",wsr:"Wilcoxon signé (données appariées)",anova:"ANOVA à un facteur",kw:"Kruskal-Wallis",pear:"Corrélation de Pearson",spear:"Corrélation de Spearman",chi:"χ² d’indépendance",fish:"Test exact de Fisher"};
+const TFAM={tind:['tapp','mw','anova'],tapp:['tind','wsr','mw'],mw:['tind','wsr','kw'],wsr:['tapp','mw','tind'],anova:['kw','tind','chi'],kw:['anova','mw','spear'],pear:['spear','tind','chi'],spear:['pear','kw','mw'],chi:['fish','anova','pear'],fish:['chi','mw','tind']};
+// [Y, X, apparié, paramétrique]
+const TPATH={tind:['quanti','2',false,true],tapp:['quanti','2',true,true],mw:['quanti','2',false,false],wsr:['quanti','2',true,false],anova:['quanti','k',null,true],kw:['quanti','k',null,false],pear:['quanti','qt',null,true],spear:['quanti','qt',null,false],chi:['quali','ql',null,true],fish:['quali','ql',null,false]};
+const SCEN={
+ tind:[()=>`On compare le gain moyen quotidien (g/j) de poulets nourris avec deux aliments : ${R.i(20,30)} poulets reçoivent l’aliment A, ${R.i(20,30)} autres l’aliment B. Les histogrammes sont en cloche et les variances comparables.`,
+       ()=>`Rendement du sorgho (q/ha) sur ${R.i(25,35)} parcelles fertilisées au compost et ${R.i(25,35)} parcelles sans compost, dans le même village. Les distributions sont proches de la loi normale.`],
+ tapp:[()=>`Sur ${R.i(12,20)} vaches, on mesure la production laitière (L/j) avant puis après un changement de ration. Les différences avant/après suivent une loi normale.`,
+       ()=>`Dans ${R.i(15,25)} exploitations, on mesure la même année le rendement du maïs (t/ha) sur une parcelle témoin et sur une parcelle paillée voisine. Les différences entre les deux parcelles sont distribuées normalement.`],
+ mw:[()=>`On compare le revenu agricole annuel (kFCFA) de ${R.i(7,10)} exploitations membres d’une coopérative et de ${R.i(8,12)} non membres. Les distributions sont très asymétriques, avec quelques très gros revenus.`,
+     ()=>`Nombre d’œufs pondus par mois chez des poules de deux races (${R.i(7,9)} et ${R.i(8,11)} poules). Plusieurs valeurs extrêmes, la distribution n’est pas normale.`],
+ wsr:[()=>`Sur ${R.i(8,12)} parcelles, on compte les adventices avant puis après un désherbage mécanique. Les différences avant/après sont très asymétriques et l’effectif est faible.`,
+      ()=>`Dans ${R.i(7,10)} troupeaux, on mesure la charge parasitaire (œufs/g de fèces) avant et après un traitement vermifuge. La distribution des différences est très dissymétrique.`],
+ anova:[()=>`Rendement du manioc (t/ha) de ${R.i(3,5)} variétés, ${R.i(10,15)} parcelles par variété. Les résidus sont approximativement normaux et les variances homogènes.`,
+        ()=>`Poids vif à 6 mois (kg) d’agneaux issus de 3 systèmes d’alimentation, ${R.i(15,25)} agneaux par système. Normalité et homogénéité des variances vérifiées.`],
+ kw:[()=>`Temps de travail hebdomadaire (h) des femmes dans 3 villages (${R.i(6,9)}, ${R.i(6,9)} et ${R.i(6,9)} enquêtées). Les distributions sont très asymétriques et les effectifs faibles.`,
+     ()=>`Nombre de cabosses atteintes de pourriture brune par arbre dans ${R.i(4,5)} zones de production, ${R.i(5,8)} arbres par zone. Données très asymétriques avec beaucoup de zéros.`],
+ pear:[()=>`On étudie le lien entre la pluviométrie annuelle (mm) et le rendement du mil (kg/ha) dans ${R.i(30,50)} villages. Le nuage de points est allongé et linéaire, sans point aberrant.`,
+       ()=>`Relation entre le poids vif (kg) et le tour de poitrine (cm) chez ${R.i(40,60)} zébus. Le nuage est linéaire et les deux variables sont à peu près normales.`],
+ spear:[()=>`Lien entre la taille du troupeau (têtes) et la distance au point d’eau (km) dans ${R.i(12,18)} campements. La relation est monotone mais pas linéaire, avec deux valeurs extrêmes.`,
+        ()=>`Lien entre l’âge du chef d’exploitation (ans) et la surface cultivée (ha) sur ${R.i(10,14)} exploitations. Les distributions sont très asymétriques.`],
+ chi:[()=>`On croise la région (Nord, Centre, Sud) et l’adoption d’une variété améliorée (oui/non) chez ${R.i(250,350)} agriculteurs. Tous les effectifs théoriques dépassent 5.`,
+      ()=>`Lien entre le type de sol (argileux, limoneux, sableux) et la présence de striga (oui/non) sur ${R.i(200,280)} parcelles. Les effectifs théoriques sont tous ≥ 5.`],
+ fish:[()=>`Chez ${R.i(14,20)} éleveurs, on croise la vaccination du troupeau (oui/non) et l’apparition de la peste des petits ruminants (oui/non). Plusieurs effectifs théoriques sont inférieurs à 5.`,
+       ()=>`Accès au crédit (oui/non) et adhésion à une coopérative (oui/non) chez ${R.i(12,18)} femmes enquêtées : tableau 2 × 2 avec de petits effectifs.`]
+};
+mod({id:'test',theme:3,name:'Le bon test',desc:"Une situation, un arbre de décision pas à pas, le bon test au bout.",gen(){
+  const t=R.pick(Object.keys(TESTS)),P=TPATH[t],txt=R.pick(SCEN[t])(),steps=[],path=[];
+  steps.push({q:'La variable étudiée (réponse) est…',opts:['Quantitative','Qualitative'],ans:P[0]==='quanti'?0:1,why:P[0]==='quanti'?'On mesure une quantité (rendement, poids, revenu, temps…).':'On observe une catégorie (oui/non, présence/absence, classe).'});
+  path.push(P[0]==='quanti'?'Quantitative':'Qualitative');
+  if(P[0]==='quanti'){const xi=['2','k','qt'].indexOf(P[1]);steps.push({q:'On la met en relation avec…',opts:['Un facteur à 2 groupes','Un facteur à 3 groupes ou plus','Une autre variable quantitative'],ans:xi,why:['Il y a exactement deux groupes ou deux situations à comparer.','Il y a au moins trois groupes à comparer.','On cherche un lien entre deux mesures quantitatives.'][xi]});path.push(['2 groupes','3 groupes ou plus','2 variables quantitatives'][xi])}
+  else path.push('tableau de contingence');
+  if(P[1]==='2'){steps.push({q:'Les mesures sont-elles appariées ?',opts:['Oui : mêmes individus mesurés deux fois, ou paires','Non : groupes d’individus différents'],ans:P[2]?0:1,why:P[2]?'Les mêmes unités sont mesurées deux fois : on travaille sur les différences.':'Les deux groupes contiennent des individus différents.'});path.push(P[2]?'apparié':'indépendant')}
+  const cq=P[0]==='quali'?'Tous les effectifs théoriques sont-ils ≥ 5 ?':P[1]==='qt'?'La liaison est-elle linéaire, avec des données à peu près normales et sans valeur extrême ?':'Les conditions d’un test paramétrique (normalité, effectifs suffisants) sont-elles réunies ?';
+  steps.push({q:cq,opts:['Oui','Non'],ans:P[3]?0:1,why:P[3]?'L’énoncé indique que les conditions sont vérifiées.':(P[0]==='quali'?'Effectifs théoriques trop petits : le χ² n’est pas fiable.':'Asymétrie, valeurs extrêmes ou petits effectifs : on passe à une méthode non paramétrique (sur les rangs).')});
+  path.push(P[0]==='quali'?(P[3]?'effectifs ≥ 5':'petits effectifs'):(P[3]?'paramétrique':'non paramétrique'));
+  const o=R.shuf([t,...TFAM[t]]);steps.push({q:'Quel test choisir ?',opts:o.map(k=>TESTS[k]),ans:o.indexOf(t),why:`Chemin : ${path.join(' → ')} → ${TESTS[t]}.`});
+  return{ctx:'Choix d’un test statistique',prompt:'Lis la situation, puis avance dans l’arbre de décision.',kind:'steps',
+   mount(st){const p=document.createElement('p');p.className='scen';p.textContent=txt;st.append(p)},draw(){},steps,explain:`<b>${TESTS[t]}</b><br>Chemin : ${path.join(' → ')}.`}}});
+
+/* ---------- Lis la sortie R ---------- */
+const TTC=[{y:'rendement',f:'variete',g:['amelioree','locale'],mu:30,sd:6,dn:'essai',u:'q/ha'},{y:'gmq',f:'aliment',g:['A','B'],mu:50,sd:8,dn:'poulets',u:'g/j'},{y:'lait',f:'race',g:['goudali','holstein'],mu:8,sd:2.5,dn:'troupeau',u:'L/j'},{y:'revenu',f:'cooperative',g:['non','oui'],mu:800,sd:200,dn:'menages',u:'kFCFA'}];
+const CHC=[{r:'region',c:'adoption',rl:['Centre','Nord','Sud'],cl:['non','oui'],dn:'enquete',lab:['la région','l’adoption de la variété']},{r:'sol',c:'striga',rl:['argileux','limoneux','sableux'],cl:['absent','present'],dn:'parcelles',lab:['le type de sol','la présence de striga']},{r:'zone',c:'race',rl:['Adamaoua','Nord','Ouest'],cl:['goudali','metis','mbororo'],dn:'elevages',lab:['la zone','la race élevée']}];
+const AOC=[{y:'rendement',f:'variete',lv:['A','B','C','D'],mu:12,sd:3,dn:'essai',lab:'variétés de manioc'},{y:'poids',f:'ration',lv:['R1','R2','R3'],mu:28,sd:4,dn:'agneaux',lab:'rations'},{y:'lait',f:'race',lv:['goudali','metis','wakwa'],mu:6,sd:1.8,dn:'vaches',lab:'races'}];
+const SIGC="---\nSignif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1";
+const near05=p=>p>.035&&p<.07;
+function rWelch(){const C=R.pick(TTC);let a,b,res,n1,n2;do{n1=R.i(8,20);n2=R.i(8,20);const d=R.pick([0,R.u(.3,.8),R.u(.8,1.6)])*C.sd*(Math.random()<.5?-1:1);
+  a=Array.from({length:n1},()=>C.mu+C.sd*R.n());b=Array.from({length:n2},()=>C.mu+d+C.sd*R.u(.8,1.25)*R.n());
+  const m1=S.mean(a),m2=S.mean(b),v1=S.var(a)/n1,v2=S.var(b)/n2,se=Math.sqrt(v1+v2),t=(m1-m2)/se,df=(v1+v2)**2/(v1*v1/(n1-1)+v2*v2/(n2-1)),p=pT2(t,df),q=qT975(df);
+  res={m1,m2,t,df,p,lo:m1-m2-q*se,hi:m1-m2+q*se}}while(near05(res.p));
+  const w=[C.g[0],C.g[1]].map((g,i)=>{const nm='mean in group '+g,v=sig(i?res.m2:res.m1,7);const L=Math.max(nm.length,v.length);return{nm:nm.padStart(L),v:v.padStart(L)}});
+  const out=`> t.test(${C.y} ~ ${C.f}, data = ${C.dn})\n\n\tWelch Two Sample t-test\n\ndata:  ${C.y} by ${C.f}\nt = ${sig(res.t,5)}, df = ${sig(res.df,5)}, p-value ${pEq(res.p,4)}\nalternative hypothesis: true difference in means between group ${C.g[0]} and group ${C.g[1]} is not equal to 0\n95 percent confidence interval:\n ${sig(res.lo,7)} ${sig(res.hi,7)}\nsample estimates:\n${w.map(x=>x.nm).join(' ')} \n${w.map(x=>x.v).join(' ')} `;
+  const sgn=res.p<.05,diff=res.m1-res.m2,dOpts=R.shuf(uniq([fr(-diff,2),fr(res.t,2),fr(res.hi,2),fr(res.m1,2)],fr(diff,2)));
+  return{ctx:`Test t de Welch · ${C.dn}`,out,steps:[
+   {q:'Au seuil de 5 %, la différence entre les deux groupes est-elle significative ?',opts:['Oui : p-value < 0,05','Non : p-value ≥ 0,05'],ans:sgn?0:1,why:`p-value = ${fp(res.p,4)}, ${sgn?'inférieure':'supérieure'} à 0,05 : ${sgn?'on rejette H0':'on ne rejette pas H0'}.`},
+   {q:`Quelle est la différence de moyennes estimée (${C.g[0]} − ${C.g[1]}) en ${C.u} ?`,opts:dOpts,ans:dOpts.indexOf(fr(diff,2)),why:`${sig(res.m1,5)} − ${sig(res.m2,5)} = ${fr(diff,2)} ${C.u}. La valeur t n’est pas une différence de moyennes.`},
+   {q:'L’intervalle de confiance à 95 % contient-il 0 ?',opts:['Oui','Non'],ans:sgn?1:0,why:`IC = [${fr(res.lo,2)} ; ${fr(res.hi,2)}]. Il ${sgn?'ne contient pas':'contient'} 0, ce qui est cohérent avec le test.`}],
+   explain:sgn?`Différence significative au seuil de 5 % (p = ${fp(res.p,4)}).`:`Pas de différence significative mise en évidence (p = ${fp(res.p,4)}).`}}
+function rChi(){const C=R.pick(CHC);let T,X2,df,p,E2;do{const base=C.cl.map(()=>R.u(.5,1.5)),eff=R.pick([0,R.u(.2,.5),R.u(.5,1)]);
+  T=C.rl.map(()=>{const w=base.map(b=>b*Math.exp(eff*R.n())),s=S.sum(w),n=R.i(60,110),row=w.map(()=>0);for(let i=0;i<n;i++){let u=Math.random()*s,j=0;while(u>w[j]&&j<w.length-1){u-=w[j];j++}row[j]++}return row});
+  const rs=T.map(S.sum),cs=C.cl.map((_,j)=>S.sum(T.map(r=>r[j]))),N=S.sum(rs);E2=T.map((r,i)=>r.map((_,j)=>rs[i]*cs[j]/N));X2=0;T.forEach((r,i)=>r.forEach((o,j)=>X2+=(o-E2[i][j])**2/E2[i][j]));df=(C.rl.length-1)*(C.cl.length-1);p=pChi(X2,df)}while(near05(p)||E2.flat().some(e=>e<5));
+  const rw=Math.max(...C.rl.map(s=>s.length)),cw=C.cl.map((c,j)=>Math.max(c.length,...T.map(r=>String(r[j]).length))),pre=' '.repeat(rw+2);
+  const tab=`${pre}\n${pre} ${C.cl.map((c,j)=>c.padStart(cw[j])).join(' ')}\n`+T.map((r,i)=>`  ${C.rl[i].padEnd(rw)} ${r.map((v,j)=>String(v).padStart(cw[j])).join(' ')}`).join('\n');
+  const out=`> table(${C.dn}$${C.r}, ${C.dn}$${C.c})\n${tab}\n\n> chisq.test(table(${C.dn}$${C.r}, ${C.dn}$${C.c}))\n\n\tPearson's Chi-squared test\n\ndata:  table(${C.dn}$${C.r}, ${C.dn}$${C.c})\nX-squared = ${sig(X2,5)}, df = ${df}, p-value ${pEq(p,4)}`;
+  const sgn=p<.05,cOk=sgn?`Il existe un lien significatif entre ${C.lab[0]} et ${C.lab[1]}`:`Aucun lien significatif n’est mis en évidence entre ${C.lab[0]} et ${C.lab[1]}`;
+  const o2=R.shuf([cOk,sgn?`Aucun lien significatif n’est mis en évidence entre ${C.lab[0]} et ${C.lab[1]}`:`Il existe un lien significatif entre ${C.lab[0]} et ${C.lab[1]}`,`On a démontré que ${C.lab[0]} et ${C.lab[1]} sont indépendantes`,`${C.lab[0][0].toUpperCase()+C.lab[0].slice(1)} explique ${fr(X2,0)} % de ${C.lab[1]}`]);
+  const dOpts=R.shuf(uniq([`${C.rl.length} × ${C.cl.length} − 1`,`${C.rl.length} + ${C.cl.length} − 2`,`${C.rl.length*C.cl.length}`],`(${C.rl.length} − 1) × (${C.cl.length} − 1)`));
+  return{ctx:`Test du χ² d’indépendance · ${C.dn}`,out,steps:[
+   {q:`Pourquoi df = ${df} ?`,opts:dOpts,ans:dOpts.indexOf(`(${C.rl.length} − 1) × (${C.cl.length} − 1)`),why:`Pour un tableau à ${C.rl.length} lignes et ${C.cl.length} colonnes : (L − 1) × (C − 1) = ${df}.`},
+   {q:'Au seuil de 5 %, quelle conclusion est correcte ?',opts:o2,ans:o2.indexOf(cOk),why:`p-value = ${fp(p,4)}. ${sgn?'On rejette H0 (indépendance).':'On ne rejette pas H0, ce qui ne prouve pas l’indépendance : le test n’a simplement rien détecté.'}`}],
+   explain:`X² = ${sig(X2,4)}, df = ${df}, p = ${fp(p,4)}.`}}
+function rLm(){const c=R.pick(BIV);let x,y,res,n;do{n=R.i(15,40);const t=(Math.random()<.5?1:-1)*R.pick([R.u(0,.25),R.u(.3,.6),R.u(.6,.9)]);({x,y}=genBiv(c,t,n));
+  const L=S.lm(x,y),fit=x.map(v=>L.a+L.b*v),res_=y.map((v,i)=>v-fit[i]),sse=S.sum(res_.map(e=>e*e)),sst=S.ss(y),df=n-2,s2=sse/df,seb=Math.sqrt(s2/L.sxx),sea=Math.sqrt(s2*(1/n+L.mx**2/L.sxx));
+  res={L,res_,sse,sst,df,s2,seb,sea,tb:L.b/seb,ta:L.a/sea,R2:1-sse/sst}; res.pb=pT2(res.tb,df);res.pa=pT2(res.ta,df);res.F=res.tb**2;res.pF=res.pb}while(near05(res.pb));
+  const q=[0,.25,.5,.75,1].map(p=>sig(S.q(res.res_,p),4)),qn=['Min','1Q','Median','3Q','Max'],qw=q.map((v,i)=>Math.max(v.length,qn[i].length));
+  const xn=c[8],rows=[['(Intercept)',res.L.a,res.sea,res.ta,res.pa],[xn,res.L.b,res.seb,res.tb,res.pb]].map(r=>[r[0],sig(r[1],6),sig(r[2],5),r[3].toFixed(3),fp(r[4],3),stars(r[4])]);
+  const cw=[11,...[1,2,3,4].map(j=>Math.max(...rows.map(r=>r[j].length),['Estimate','Std. Error','t value','Pr(>|t|)'][j-1].length))];
+  const head=''.padEnd(cw[0])+' '+['Estimate','Std. Error','t value','Pr(>|t|)'].map((h,j)=>h.padStart(cw[j+1])).join(' ')+'    ';
+  const body=rows.map(r=>r[0].padEnd(cw[0])+' '+[1,2,3,4].map(j=>r[j].padStart(cw[j])).join(' ')+' '+r[5].padEnd(3)).join('\n');
+  const out=`> summary(lm(${c[9]} ~ ${xn}, data = ${c[10]}))\n\nCall:\nlm(formula = ${c[9]} ~ ${xn}, data = ${c[10]})\n\nResiduals:\n${qn.map((v,i)=>v.padStart(qw[i])).join(' ')} \n${q.map((v,i)=>v.padStart(qw[i])).join(' ')} \n\nCoefficients:\n${head}\n${body}\n${SIGC}\n\nResidual standard error: ${sig(Math.sqrt(res.s2),4)} on ${res.df} degrees of freedom\nMultiple R-squared:  ${sig(res.R2,4)},\tAdjusted R-squared:  ${sig(1-(1-res.R2)*(n-1)/res.df,4)} \nF-statistic: ${sig(res.F,4)} on 1 and ${res.df} DF,  p-value: ${fp(res.pF,4)}`;
+  const sgn=res.pb<.05,bs=fr(res.L.b,3),o1=R.shuf(uniq([fr(res.L.a,3),fr(res.seb,3),fr(res.tb,3),fr(res.R2,3)],bs)),r2=fr(100*res.R2,1)+' %',o3=R.shuf(uniq([fr(100*(1-res.R2),1)+' %',fr(100*Math.sqrt(res.R2),1)+' %',fr(100*res.pb,1)+' %'],r2));
+  return{ctx:`Régression linéaire simple · ${c[10]}`,out,steps:[
+   {q:`Quelle est la pente estimée (effet de ${xn} sur ${c[9]}) ?`,opts:o1,ans:o1.indexOf(bs),why:`Ligne « ${xn} », colonne Estimate : ${sig(res.L.b,6)} ${c[5]} par ${c[1]}.`},
+   {q:'Cette pente est-elle significativement différente de 0 au seuil de 5 % ?',opts:['Oui','Non'],ans:sgn?0:1,why:`Pr(>|t|) = ${fp(res.pb,3)} ${sgn?'<':'≥'} 0,05.`},
+   {q:`Quelle part de la variabilité de ${c[9]} est expliquée par ${xn} ?`,opts:o3,ans:o3.indexOf(r2),why:`C’est le R² (Multiple R-squared) : ${sig(res.R2,4)}, soit ${r2}.`}],
+   explain:`Modèle : ${c[9]} = ${fr(res.L.a,2)} ${res.L.b<0?'−':'+'} ${fr(Math.abs(res.L.b),3)} × ${xn}. R² = ${r2}.`}}
+function rAov(){const C=R.pick(AOC);let k,n,ss,p,F,dfb,dfw,ssw;do{k=C.lv.length;n=R.i(6,10);const eff=R.pick([0,R.u(.3,.6),R.u(.7,1.2)]);
+  const g=C.lv.map(()=>{const m=C.mu+eff*C.sd*R.n();return Array.from({length:n},()=>m+C.sd*R.n())});const all=g.flat(),gm=S.mean(all);
+  ss=S.sum(g.map(a=>a.length*(S.mean(a)-gm)**2));ssw=S.sum(g.map(S.ss));dfb=k-1;dfw=k*n-k;F=(ss/dfb)/(ssw/dfw);p=pF(F,dfb,dfw)}while(near05(p));
+  const rows=[[C.f,String(dfb),sig(ss,4),sig(ss/dfb,5),sig(F,4),fp(p,3),stars(p)],['Residuals',String(dfw),sig(ssw,4),sig(ssw/dfw,5),'','','']];
+  const hd=['Df','Sum Sq','Mean Sq','F value','Pr(>F)'],cw=hd.map((h,j)=>Math.max(h.length,...rows.map(r=>r[j+1].length))),w0=Math.max(...rows.map(r=>r[0].length))+1;
+  const out=`> summary(aov(${C.y} ~ ${C.f}, data = ${C.dn}))\n${''.padEnd(w0)}${hd.map((h,j)=>h.padStart(cw[j])).join(' ')}    \n`+rows.map(r=>r[0].padEnd(w0)+r.slice(1,6).map((v,j)=>v.padStart(cw[j])).join(' ')+' '+r[6]).join('\n')+'\n'+SIGC;
+  const sgn=p<.05,kO=R.shuf(uniq([String(dfb),String(k+1),String(dfw)],String(k))),tot=String(dfb+dfw+1),nO=R.shuf(uniq([String(dfw),String(dfb+dfw),String(k*(n+1))],tot));
+  const cOk=sgn?'Au moins une moyenne diffère des autres':'Aucune différence significative n’est mise en évidence',o2=R.shuf([cOk,'Toutes les moyennes sont différentes les unes des autres',sgn?'Aucune différence significative n’est mise en évidence':'Au moins une moyenne diffère des autres','On a démontré que toutes les moyennes sont égales']);
+  return{ctx:`ANOVA à un facteur · ${C.dn}`,out,steps:[
+   {q:`Combien de ${C.lab} sont comparé(e)s ?`,opts:kO,ans:kO.indexOf(String(k)),why:`Df du facteur = k − 1 = ${dfb}, donc k = ${k}.`},
+   {q:'Combien d’observations au total ?',opts:nO,ans:nO.indexOf(tot),why:`N − 1 = ${dfb} + ${dfw}, donc N = ${tot}.`},
+   {q:'Au seuil de 5 %, quelle conclusion est correcte ?',opts:o2,ans:o2.indexOf(cOk),why:`Pr(>F) = ${fp(p,3)}. ${sgn?'L’ANOVA dit qu’au moins une moyenne diffère, pas lesquelles : il faut un test post hoc (Tukey…).':'On ne rejette pas H0, ce qui ne prouve pas que les moyennes sont égales.'}`}],
+   explain:`F = ${sig(F,4)}, p = ${fp(p,3)}.`}}
+mod({id:'sortier',theme:3,name:'Lis la sortie R',desc:"t.test, chisq.test, lm, aov : lis la console comme en TD sous RStudio.",gen(){
+  const o=R.pick([rWelch,rChi,rLm,rAov])();
+  return{ctx:o.ctx,prompt:'Lis la sortie de la console R, puis réponds aux questions.',kind:'steps',
+   mount(st){const p=document.createElement('pre');p.className='rout';p.textContent=o.out;st.append(p)},draw(){},steps:o.steps,explain:o.explain}}});
+
+/* ---------- Mélange ---------- */
+const MIX={id:'melange',name:'Mélange',gen(){const m=R.pick(M);const r=m.gen();r.ctx=m.name+' · '+r.ctx;return r}};
+
+/* ===================== moteur ===================== */
+const E={};
+const $=id=>document.getElementById(id);
+const bestKey=id=>'statchamp-best-'+id;
+function getBest(id){try{return +(localStorage.getItem(bestKey(id))||0)}catch(e){return 0}}
+function setBest(id,v){try{localStorage.setItem(bestKey(id),String(v))}catch(e){}}
+
+function renderHub(){
+  $('themes').innerHTML=THEMES.map((t,i)=>{const ms=M.filter(m=>m.theme===i);return`<section class="theme"><h2>${t} <small>${ms.length} jeu${ms.length>1?'x':''}</small></h2><div class="cards">${ms.map(m=>{const b=getBest(m.id);return`<button class="card" type="button" data-id="${m.id}"><b>${m.name}</b><span>${m.desc}</span><em class="${b?'has':''}">${b?'Record : '+b:'Pas encore joué'}</em></button>`}).join('')}</div></section>`}).join('');
+  document.querySelectorAll('.card').forEach(b=>b.addEventListener('click',()=>start(M.find(m=>m.id===b.dataset.id))));
+}
+function showHub(){$('game').hidden=true;$('hub').hidden=false;E.mod=null;E.r=null;renderHub();try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}window.scrollTo(0,0)}
+function start(m){E.mod=m;E.st={score:0,lives:3,streak:0,over:false};$('hub').hidden=true;$('game').hidden=false;$('gtitle').textContent=m.name;$('over').hidden=true;
+  try{location.hash=m.id}catch(e){}hud();next();window.scrollTo(0,0)}
+function hud(){const s=E.st;$('hScore').textContent=s.score;$('hLives').textContent=s.lives>0?'♥'.repeat(Math.min(s.lives,8))+(s.lives>8?'+'+(s.lives-8):''):'—';$('hBest').textContent=Math.max(getBest(E.mod.id),s.score)}
+function next(){
+  const r=E.mod.gen();E.r=r;E.done=false;E.step=0;r.guess=null;
+  const st=$('stage');st.innerHTML='';st.className='stage'+(r.duo?' duo':'');
+  $('ctx').textContent=r.ctx;$('prompt').innerHTML=r.prompt;$('rule').textContent=r.rule||RULE_Q;$('verdict').innerHTML='';$('nextBtn').hidden=true;
+  r.mount(st);r.draw(false);controls(r);
+}
+function controls(r){
+  const c=$('ctrl');c.innerHTML='';
+  if(r.kind==='est'||r.kind==='num'){
+    const e=r.est||{};c.innerHTML=`<form id="gf" class="ctrl"><label for="gin">${(r.est||r.num).label}</label><div class="row"><input id="gin" type="text" inputmode="decimal" autocomplete="off"><button class="btn" id="gok">Valider</button></div>${r.kind==='est'?`<input type="range" id="gsl" aria-label="Curseur d'estimation" min="${e.min}" max="${e.max}" step="${e.step}">`:''}</form>`;
+    const inp=$('gin'),sl=$('gsl');
+    if(sl){sl.value=e.init;inp.value=fr(e.init,e.dec).replace('−','-');
+      const set=v=>{r.guess=v;if(r.live)r.draw(false)};
+      sl.addEventListener('input',()=>{const v=+sl.value;inp.value=fr(v,e.dec).replace('−','-');set(v)});
+      inp.addEventListener('input',()=>{const v=parseNum(inp.value);if(!isNaN(v)){sl.value=v;set(v)}});
+      if(r.live)set(e.init)}
+    $('gf').addEventListener('submit',ev=>{ev.preventDefault();if(E.done)return;const v=parseNum(inp.value);
+      if(isNaN(v)){$('verdict').innerHTML='<span class="g-bad">Entre un nombre (virgule ou point acceptés).</span>';return}
+      if(r.est&&(v<r.est.min-1e-9||v>r.est.max+1e-9)){$('verdict').innerHTML=`<span class="g-bad">Entre une valeur entre ${fr(r.est.min,r.est.dec)} et ${fr(r.est.max,r.est.dec)}.</span>`;return}
+      r.guess=v;const res=r.evaluate(v);finish(res.grade,res.html)});
+    setTimeout(()=>{inp.focus({preventScroll:true});inp.select()},0);
+  }else if(r.kind==='click'){
+    c.innerHTML=`<p class="stepn" id="clk">Clique sur le plan factoriel pour placer ton point.</p><button class="btn" type="button" id="gok" disabled>Valider</button>`;
+    $('gok').addEventListener('click',()=>{if(E.done||!r.guess)return;const res=r.evaluate(r.guess);finish(res.grade,res.html)});
+  }else stepUI(r);
+}
+E.armClick=t=>{$('clk').textContent=t;$('gok').disabled=false};
+function stepUI(r){
+  const s=r.steps[E.step],c=$('ctrl'),n=r.steps.length;
+  const log=r.steps.slice(0,E.step).map(x=>`<span>✓ ${x.opts[x.ans]}</span>`).join('');
+  c.innerHTML=`${log?`<div class="log">${log}</div>`:''}${n>1?`<div class="stepn">Question ${E.step+1} / ${n}</div>`:''}<p class="q">${s.q}</p><div class="opts">${s.opts.map((o,i)=>`<button class="opt" type="button" data-i="${i}"><kbd>${i+1}</kbd><span>${o}</span></button>`).join('')}</div>`;
+  c.querySelectorAll('.opt').forEach(b=>b.addEventListener('click',()=>choose(+b.dataset.i)));
+}
+function choose(i){
+  const r=E.r;if(E.done||r.kind!=='steps')return;const s=r.steps[E.step],btns=[...document.querySelectorAll('.opt')];if(!btns[i])return;
+  btns.forEach(b=>b.disabled=true);btns[s.ans].classList.add('right');
+  if(i!==s.ans){btns[i].classList.add('wrong');finish('bad',`${s.why}${r.explain&&r.steps.length>1?`<br><small>${r.explain}</small>`:''}`);return}
+  if(E.step<r.steps.length-1){E.step++;setTimeout(()=>{if(E.r===r&&!E.done)stepUI(r)},450);return}
+  finish('ok',r.steps.length>1?r.explain:s.why);
+}
+function finish(grade,html){
+  const s=E.st,r=E.r;E.done=true;let label;
+  if(grade==='great'){s.lives++;s.score++;s.streak++;label='Excellent ! +1 vie'}
+  else if(grade==='ok'){s.score++;s.streak++;label=r.kind==='est'||r.kind==='click'?'Correct':'Bonne réponse';if(r.kind!=='est'&&r.kind!=='click'&&s.streak%4===0){s.lives++;label+=' · série de 4 : +1 vie'}}
+  else{s.lives--;s.streak=0;label=r.kind==='est'||r.kind==='click'?'Trop loin : −1 vie':'Raté : −1 vie'}
+  $('verdict').innerHTML=`<div class="grade g-${grade}">${label}</div>${html}`;
+  document.querySelectorAll('#ctrl input,#ctrl button').forEach(b=>b.disabled=true);
+  r.draw(true);hud();
+  if(s.lives<=0){s.over=true;const b=getBest(E.mod.id),nb=s.score>b;if(nb)setBest(E.mod.id,s.score);
+    $('overTxt').innerHTML=`<p style="margin:0">Score : <b>${s.score}</b>. ${nb?'Nouveau record !':`Record : ${b}.`}</p>`;$('over').hidden=false;$('againBtn').focus({preventScroll:true})}
+  else{$('nextBtn').hidden=false;$('nextBtn').focus({preventScroll:true})}
+}
+function init(){
+  renderHub();
+  $('mixBtn').addEventListener('click',()=>start(MIX));
+  $('backBtn').addEventListener('click',()=>{if(E.st&&E.st.score>getBest(E.mod.id))setBest(E.mod.id,E.st.score);showHub()});
+  $('hubBtn').addEventListener('click',showHub);
+  $('againBtn').addEventListener('click',()=>start(E.mod));
+  $('nextBtn').addEventListener('click',next);
+  document.addEventListener('keydown',e=>{if(!E.r||$('game').hidden)return;if(e.target.tagName==='INPUT')return;
+    if(E.r.kind==='steps'&&!E.done&&/^[1-9]$/.test(e.key)){choose(+e.key-1);e.preventDefault()}});
+  const redraw=()=>{if(E.r&&!$('game').hidden)E.r.draw(E.done)};
+  try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',redraw)}catch(e){}
+  new MutationObserver(redraw).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+  if(document.fonts)document.fonts.ready.then(redraw);
+  const h=(location.hash||'').slice(1);const m=h==='melange'?MIX:M.find(x=>x.id===h);if(m)start(m);
+}
+if(typeof window!=='undefined'&&window.document&&document.getElementById('hub'))init();
+</script>
+</body>
+</html>

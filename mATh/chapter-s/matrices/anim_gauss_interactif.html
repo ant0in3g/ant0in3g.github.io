@@ -22,13 +22,16 @@ h1{margin:0;font:400 clamp(30px,7vw,44px)/1.1 var(--serif);color:var(--red);text
 
 /* matrices */
 .mat{display:inline-grid;gap:2px 0;padding:4px 10px;position:relative;font-family:var(--serif);font-size:clamp(17px,4vw,22px);font-variant-numeric:tabular-nums}
-.mat.br::before,.mat.br::after{content:"";position:absolute;top:0;bottom:0;width:7px;border:1.6px solid var(--fg)}
-.mat.br::before{left:0;border-right:0}
-.mat.br::after{right:0;border-left:0}
+.mat.br::before,.mat.br::after{content:"";position:absolute;top:0;bottom:0;width:9px;border:1.7px solid var(--fg)}
+.mat.br::before{left:-3px;border-right:0;border-radius:18px 0 0 18px / 50% 0 0 50%}
+.mat.br::after{right:-3px;border-left:0;border-radius:0 18px 18px 0 / 0 50% 50% 0}
 .cell{min-width:2.3em;height:1.9em;display:flex;align-items:center;justify-content:center;border-radius:5px;transition:background .35s,color .35s}
 .fr{display:inline-flex;flex-direction:column;align-items:center;font-size:.72em;line-height:1.05}
 .fr span:first-child{border-bottom:1px solid currentColor;padding:0 2px}
-.aug{font-family:var(--serif);font-size:clamp(16px,3.8vw,20px);font-variant-numeric:tabular-nums;display:flex;align-items:stretch;border-left:1.6px solid var(--fg);border-right:1.6px solid var(--fg);padding:4px 6px}
+.aug{position:relative;font-family:var(--serif);font-size:clamp(16px,3.8vw,20px);font-variant-numeric:tabular-nums;display:flex;align-items:stretch;padding:4px 13px}
+.aug::before,.aug::after{content:"";position:absolute;top:0;bottom:0;width:9px;border:1.7px solid var(--fg)}
+.aug::before{left:-1px;border-right:0;border-radius:18px 0 0 18px / 50% 0 0 50%}
+.aug::after{right:-1px;border-left:0;border-radius:0 18px 18px 0 / 0 50% 50% 0}
 .aug .half{display:inline-grid;gap:2px 0}
 .aug .half+.half{border-left:1.6px dashed var(--pink);margin-left:6px;padding-left:6px}
 .cell.rowhi{background:var(--rowhi)}
@@ -269,7 +272,7 @@ function tick(){
 function buildEditor(vals){
   const ed=$('editor'); ed.style.gridTemplateColumns='repeat('+N+',minmax(0,1fr))'; ed.innerHTML='';
   for(let i=0;i<N;i++)for(let j=0;j<N;j++){
-    const inp=document.createElement('input'); inp.id='a'+i+j; inp.type='text'; inp.inputMode='decimal';
+    const inp=document.createElement('input'); inp.id='a'+i+j; inp.type='text'; inp.inputMode='text';
     inp.setAttribute('aria-label','a'+(i+1)+(j+1)); inp.value=vals?txt(vals[i][j]).replace('−','-'):(i===j?'1':'0');
     inp.addEventListener('keydown',e=>{if(e.key==='Enter') applyEditor();});
     ed.appendChild(inp);
