@@ -311,7 +311,7 @@ function genUni(sh,n,c){const z=Array.from({length:n},SH[sh]),m=S.mean(z),s=S.sd
   let sd=c[3];if(c[2]+sd*zmin<.12*c[2])sd=.88*c[2]/-zmin;const p=pow10(c[4]);return zs.map(v=>Math.round((c[2]+sd*v)*p)/p)}
 
 /* ===================== modules ===================== */
-const THEMES=["Statistique descriptive","Liaison entre deux variables","Analyse en composantes principales","Tests et sorties R"];
+const THEMES=["Statistique descriptive","Liaison entre deux variables","Analyse en composantes principales","Tests et sorties R","Proba · échantillonnage · estimation"];
 const M=[];const mod=o=>M.push(o);
 const RULE_Q="Bonne réponse : +1 point. Erreur : −1 vie. 4 bonnes réponses d'affilée : +1 vie.";
 
@@ -606,6 +606,165 @@ mod({id:'sortier',theme:3,name:'Lis la sortie R',desc:"t.test, chisq.test, lm, a
    mount(st){const p=document.createElement('pre');p.className='rout';p.textContent=o.out;st.append(p)},draw(){},steps:o.steps,explain:o.explain}}});
 
 /* ---------- Mélange ---------- */
+/* ---------- Quelle loi ? ---------- */
+const LOIS=['Bernoulli','Binomiale','Hypergéométrique','Poisson','Uniforme','Exponentielle','Normale'];
+const LOI_SC=[
+ {l:0,t:"Une graine est semée : elle lève (succès) ou non. Une seule épreuve, deux issues.",w:"Une seule épreuve à deux issues (succès/échec) → loi de <b>Bernoulli</b> B(p)."},
+ {l:0,t:"On teste une seule vache pour la brucellose : le résultat est positif ou négatif.",w:"Une seule épreuve à deux issues → <b>Bernoulli</b> B(p)."},
+ {l:1,t:"On sème 40 graines indépendantes, chacune lève avec la même probabilité p ; on compte le nombre de levées.",w:"On compte les succès sur n épreuves indépendantes de même p (tirage avec remise) → <b>Binomiale</b> B(n,p)."},
+ {l:1,t:"Sur 60 poussins, chacun survit indépendamment avec la même probabilité ; on compte les survivants.",w:"Succès comptés sur n épreuves indépendantes de même probabilité → <b>Binomiale</b> B(n,p)."},
+ {l:1,t:"On tire 10 fruits au hasard avec remise dans une caisse et on compte les fruits mûrs.",w:"Tirage <b>avec remise</b>, on compte les succès sur n tirages de même p → <b>Binomiale</b> B(n,p)."},
+ {l:2,t:"Dans un lot de 40 animaux dont 12 malades, on en prélève 8 sans remise ; on compte les malades prélevés.",w:"On compte les succès parmi n unités tirées <b>sans remise</b> dans une population finie → <b>Hypergéométrique</b> H(N,K,n)."},
+ {l:2,t:"Un carton de 30 œufs contient 5 œufs fêlés ; on en prend 6 sans remise et on compte les fêlés.",w:"Tirage <b>sans remise</b> dans une population finie, on compte les succès → <b>Hypergéométrique</b> H(N,K,n)."},
+ {l:3,t:"Nombre de chenilles par plant de maïs : événements rares, indépendants, à taux moyen constant.",w:"On compte des événements rares à taux constant par unité → <b>Poisson</b> P(λ)."},
+ {l:3,t:"Nombre d'appels reçus par le vétérinaire au cours d'une journée.",w:"Comptage d'événements rares, indépendants, à taux constant dans le temps → <b>Poisson</b> P(λ)."},
+ {l:3,t:"Nombre de mauvaises herbes par mètre carré dans une parcelle.",w:"Comptage par unité d'espace, taux moyen constant → <b>Poisson</b> P(λ)."},
+ {l:4,t:"Une date de semis est tirée « au hasard » entre le 1er et le 30 avril, toutes les dates étant aussi probables.",w:"Valeur « au hasard » sur un intervalle, toutes aussi probables → <b>Uniforme</b> U([a,b])."},
+ {l:4,t:"On place un capteur à une position tirée au hasard, uniformément, le long d'un rang de 100 m.",w:"Position « au hasard » uniforme sur un intervalle → <b>Uniforme</b> U([a,b])."},
+ {l:5,t:"Durée d'attente avant la première panne d'une pompe, à taux de défaillance constant.",w:"Durée d'attente avant un événement (sans mémoire), taux λ → <b>Exponentielle</b> E(λ)."},
+ {l:5,t:"Temps écoulé jusqu'à la levée d'une graine, processus à taux constant.",w:"Durée d'attente avant un événement → <b>Exponentielle</b> E(λ)."},
+ {l:6,t:"Rendement d'une parcelle (kg/ha) : grandeur continue résultant de nombreux petits effets ; courbe en cloche.",w:"Grandeur continue, somme de nombreux petits effets, en cloche → <b>Normale</b> N(μ, σ²)."},
+ {l:6,t:"Poids des agneaux à la naissance dans un grand troupeau.",w:"Grandeur continue issue de multiples facteurs → <b>Normale</b> N(μ, σ²)."},
+ {l:6,t:"Taille des épis de blé, mesurée sur de nombreux pieds.",w:"Mesure continue en cloche → <b>Normale</b> N(μ, σ²)."},
+];
+mod({id:'loi',theme:4,name:'Quelle loi ?',desc:"Une situation décrite : reconnais la loi de probabilité adaptée (Bernoulli, binomiale, Poisson, normale…).",gen(){
+  const s=R.pick(LOI_SC);
+  return{ctx:'Reconnaître la loi',prompt:'Quelle loi de probabilité modélise cette situation ?',kind:'steps',
+   mount(st){st.innerHTML=`<div style="display:flex;align-items:center;min-height:180px;padding:10px 6px"><p style="font-size:20px;line-height:1.6;margin:0">${s.t}</p></div>`},
+   draw(){},
+   steps:[{q:'La loi adaptée :',opts:LOIS,ans:s.l,why:s.w}],explain:s.w}}});
+
+/* ---------- helper d'affichage (situation / question) ---------- */
+const scen=t=>'<div style="display:flex;align-items:center;min-height:180px;padding:10px 6px"><p style="font-size:20px;line-height:1.6;margin:0">'+t+'</p></div>';
+
+/* ---------- E(X) & V(X) ---------- */
+const LOIE=['p','np','λ','(a+b)/2','1/λ','μ'];
+const LOIV=['p(1−p)','np(1−p)','λ','(b−a)²/12','1/λ²','σ²'];
+const LOINAMES=['Bernoulli B(p)','Binomiale B(n, p)','Poisson P(λ)','Uniforme U([a, b])','Exponentielle E(λ)','Normale N(μ, σ²)'];
+mod({id:'esp',theme:4,name:'E(X) & V(X)',desc:"Retrouve l'espérance et la variance des lois usuelles.",gen(){
+  const L=R.i(0,5);
+  return{ctx:'Espérance & variance',prompt:`Loi : <b>${LOINAMES[L]}</b>`,kind:'steps',
+   mount(st){st.innerHTML=`<div style="display:flex;align-items:center;justify-content:center;min-height:180px"><p style="font-size:30px;margin:0;font-family:var(--f-display)">${LOINAMES[L]}</p></div>`},draw(){},
+   steps:[{q:'Espérance E(X) = ?',opts:LOIE,ans:L,why:`Pour ${LOINAMES[L]} : E(X) = <b>${LOIE[L]}</b>.`},
+          {q:'Variance V(X) = ?',opts:LOIV,ans:L,why:`Pour ${LOINAMES[L]} : V(X) = <b>${LOIV[L]}</b>.`}],
+   explain:`${LOINAMES[L]} : E(X) = ${LOIE[L]}, V(X) = ${LOIV[L]}.`}}});
+
+/* ---------- Quelle approximation ? ---------- */
+const APPROPTS=['Hypergéométrique → Binomiale (N ≥ 10n)','Binomiale → Poisson (n ≥ 30 et p ≤ 0,1)','Binomiale → Normale (np ≥ 5 et n(1−p) ≥ 5)','Aucune : on garde la loi exacte'];
+const APPRO_SC=[
+ {a:0,t:"Tirage sans remise de n = 20 unités dans une population de N = 500 (N ≥ 10n).",w:"N ≥ 10n : l'hypergéométrique se comporte comme une <b>binomiale</b> B(n, p), p = K/N."},
+ {a:1,t:"Binomiale avec n = 200 et p = 0,02 : beaucoup d'épreuves, succès rare.",w:"n ≥ 30 et p ≤ 0,1 → <b>Poisson</b> P(np)."},
+ {a:2,t:"Binomiale avec n = 80 et p = 0,4 (np = 32, n(1−p) = 48).",w:"np ≥ 5 et n(1−p) ≥ 5 → <b>Normale</b> N(np, np(1−p))."},
+ {a:3,t:"Binomiale avec n = 8 et p = 0,3 : effectif faible, aucune condition remplie.",w:"Aucune condition vérifiée : on garde la <b>binomiale</b> exacte."},
+ {a:1,t:"Nombre de cas d'une maladie rare sur n = 500 animaux, p = 0,01.",w:"n grand, p petit → <b>Poisson</b> P(np)."},
+ {a:2,t:"Sondage de n = 1000 personnes, p ≈ 0,5.",w:"np et n(1−p) très grands → <b>Normale</b>."},
+];
+mod({id:'approx',theme:4,name:'Quelle approximation ?',desc:"Simplifier une loi quand les conditions le permettent (H→B, B→P, B→N).",gen(){const s=R.pick(APPRO_SC);return{ctx:'Approximation de loi',prompt:'Par quelle loi peut-on approcher, au vu des conditions ?',kind:'steps',mount(st){st.innerHTML=scen(s.t)},draw(){},steps:[{q:'Approximation adaptée :',opts:APPROPTS,ans:s.a,why:s.w}],explain:s.w}}});
+
+/* ---------- Complète la formule ---------- */
+const FORM_SC=[
+ {q:'P(A ∪ B) = ?',opts:['P(A) + P(B) − P(A ∩ B)','P(A) + P(B)','P(A) × P(B)','P(A) − P(B)'],a:0,w:"On ajoute, puis on retire l'intersection comptée deux fois."},
+ {q:'Si A et B sont indépendants, P(A ∩ B) = ?',opts:['P(A) × P(B)','P(A) + P(B)','P(A | B)','0'],a:0,w:"Indépendance : P(A ∩ B) = P(A) P(B)."},
+ {q:'P(A | B) = ?',opts:['P(A ∩ B) / P(B)','P(A ∩ B) / P(A)','P(A) P(B)','P(B) / P(A)'],a:0,w:"Probabilité conditionnelle."},
+ {q:'Formule de Bayes : P(Bⱼ | A) = ?',opts:['P(Bⱼ) P(A | Bⱼ) / P(A)','P(A) P(Bⱼ)','P(A | Bⱼ)','P(A ∩ Bⱼ) × P(A)'],a:0,w:"Bayes : on renverse le conditionnement via P(A)."},
+ {q:'E(aX + b) = ?',opts:['a E(X) + b','a E(X)','a² E(X) + b','E(X) + b'],a:0,w:"L'espérance est linéaire."},
+ {q:'V(aX + b) = ?',opts:['a² V(X)','a V(X) + b','a² V(X) + b','a V(X)'],a:0,w:"b ne change pas la variance ; a sort au carré."},
+ {q:'Si X et Y sont indépendantes, V(X + Y) = ?',opts:['V(X) + V(Y)','V(X) V(Y)','V(X) − V(Y)','V(X) + V(Y) + 2 Cov'],a:0,w:"Les variances s'ajoutent si indépendance."},
+ {q:'P(Ā) = ?',opts:['1 − P(A)','P(A) − 1','1 / P(A)','P(A)'],a:0,w:"Complémentaire."},
+ {q:'Pour n épreuves indép. de succès p, P(au moins un succès) = ?',opts:['1 − (1 − p)ⁿ','(1 − p)ⁿ','n p','1 − pⁿ'],a:0,w:"Complémentaire de « aucun succès » = (1 − p)ⁿ."},
+];
+mod({id:'formule',theme:4,name:'Complète la formule',desc:"Les formules clés : réunion, conditionnelle, Bayes, espérance, variance.",gen(){const s=R.pick(FORM_SC);return{ctx:'Formule à retrouver',prompt:'Quelle est la bonne formule ?',kind:'steps',mount(st){st.innerHTML=scen(s.q)},draw(){},steps:[{q:'La bonne formule :',opts:s.opts,ans:s.a,why:s.w}],explain:s.w}}});
+
+/* ---------- Loi normale ---------- */
+const NORM_SC=[
+ {q:'Pour standardiser X ∼ N(μ, σ²), on pose Z = ?',opts:['(X − μ) / σ','(X − μ) / σ²','X − μ','σ (X − μ)'],a:0,w:"Z = (X − μ)/σ suit N(0, 1)."},
+ {q:'Environ quelle proportion des valeurs dans μ ± σ ?',opts:['68 %','95 %','99,7 %','50 %'],a:0,w:"Règle 68–95–99,7 : μ ± σ ≈ 68 %."},
+ {q:'Environ quelle proportion dans μ ± 2σ ?',opts:['95 %','68 %','99,7 %','90 %'],a:0,w:"μ ± 2σ ≈ 95 %."},
+ {q:'Environ quelle proportion dans μ ± 3σ ?',opts:['99,7 %','95 %','90 %','68 %'],a:0,w:"μ ± 3σ ≈ 99,7 %."},
+ {q:'Φ(−z) = ?',opts:['1 − Φ(z)','Φ(z)','−Φ(z)','1 + Φ(z)'],a:0,w:"Par symétrie : Φ(−z) = 1 − Φ(z)."},
+ {q:"La table de Φ donne P(Z ≤ z), c'est-à-dire…",opts:["l'aire à gauche de z","l'aire à droite de z","la hauteur de la courbe","P(Z = z)"],a:0,w:"Φ(z) = aire à gauche de z."},
+ {q:"Le centre à 95 % correspond à ± combien d'écarts-types ?",opts:['1,96','1,645','2,576','1'],a:0,w:"95 % central ⇔ ±1,96."},
+];
+mod({id:'normale',theme:4,name:'Loi normale',desc:"Standardisation, règle 68–95–99,7, lecture de la table Φ.",gen(){const s=R.pick(NORM_SC);return{ctx:'Loi normale',prompt:'Loi normale — la bonne réponse.',kind:'steps',mount(st){st.innerHTML=scen(s.q)},draw(){},steps:[{q:'Ta réponse :',opts:s.opts,ans:s.a,why:s.w}],explain:s.w}}});
+
+/* ---------- Quel plan d'échantillonnage ? ---------- */
+const PLANOPTS=['Aléatoire simple','Systématique','Stratifié','Grappes / degrés','Non probabiliste (quotas…)'];
+const PLAN_SC=[
+ {a:0,t:"On tire au hasard des exploitations dans la liste complète, chacune ayant la même chance.",w:"Chances égales par tirage au hasard → <b>aléatoire simple</b>."},
+ {a:1,t:"Liste de 1000 fermes : départ au hasard puis une ferme tous les 20 rangs.",w:"Pas k = N/n, départ au hasard → <b>systématique</b>."},
+ {a:2,t:"On découpe la région en 3 zones agro-climatiques et on tire aléatoirement dans chacune.",w:"Strates homogènes puis tirage dans chaque strate → <b>stratifié</b>."},
+ {a:3,t:"On tire au hasard quelques villages et on enquête toutes les exploitations des villages tirés.",w:"On tire des groupes entiers → <b>grappes</b>."},
+ {a:4,t:"L'enquêteur interroge les passants d'un marché jusqu'à remplir des quotas d'âge et de sexe.",w:"Quotas, pas de tirage au hasard → <b>non probabiliste</b>."},
+ {a:2,t:"On classe les exploitations par taille et on échantillonne dans chaque classe.",w:"Strates par taille → <b>stratifié</b>."},
+ {a:0,t:"Chaque animal reçoit un numéro et on tire des numéros au sort.",w:"Chances égales → <b>aléatoire simple</b>."},
+];
+mod({id:'plan',theme:4,name:'Quel plan ?',desc:"Identifier le plan d'échantillonnage à partir d'une description.",gen(){const s=R.pick(PLAN_SC);return{ctx:"Plan d'échantillonnage",prompt:"Quel plan d'échantillonnage est décrit ?",kind:'steps',mount(st){st.innerHTML=scen(s.t)},draw(){},steps:[{q:'Le plan :',opts:PLANOPTS,ans:s.a,why:s.w}],explain:s.w}}});
+
+/* ---------- Biais ou fluctuation ? ---------- */
+const BF=["Erreur d'échantillonnage (fluctuation)",'Biais (erreur systématique)'];
+const BF_SC=[
+ {a:1,t:"On n'interroge que les agriculteurs qui ont le téléphone : une partie ne peut jamais être tirée.",w:"Couverture incomplète → <b>biais</b> ; n ne le corrige pas."},
+ {a:0,t:"Deux échantillons aléatoires de même taille donnent des moyennes un peu différentes.",w:"Variation entre échantillons → <b>fluctuation</b> ; elle baisse quand n augmente."},
+ {a:1,t:"La balance surestime systématiquement les poids de 200 g.",w:"Erreur de mesure systématique → <b>biais</b>."},
+ {a:0,t:"Avec n = 400 au lieu de 100, l'estimation est plus resserrée autour de la vraie valeur.",w:"n plus grand ⇒ moins de <b>fluctuation</b>."},
+ {a:1,t:"Beaucoup de non-réponses, surtout chez les grandes exploitations.",w:"Non-réponse non aléatoire → <b>biais</b>."},
+ {a:1,t:"La base de sondage date de 10 ans et oublie les exploitations récentes.",w:"Base incomplète → <b>biais</b> de couverture."},
+];
+mod({id:'biais',theme:4,name:'Biais ou fluctuation ?',desc:"Distinguer l'erreur aléatoire (que n réduit) du biais (que n ne corrige pas).",gen(){const s=R.pick(BF_SC);return{ctx:'Biais ou fluctuation',prompt:'Erreur aléatoire ou biais systématique ?',kind:'steps',mount(st){st.innerHTML=scen(s.t)},draw(){},steps:[{q:"Il s'agit de :",opts:BF,ans:s.a,why:s.w}],explain:s.w}}});
+
+/* ---------- Erreur-type & taille (calcul) ---------- */
+mod({id:'calc2',theme:4,name:'Erreur-type & taille',desc:"Calcule σ/√n, une marge à 95 %, ou la taille d'échantillon pour une marge donnée.",gen(){
+  const kind=R.pick(['se','marge','taille','tailleP']);
+  if(kind==='se'){const sigma=R.i(2,20),n=R.pick([4,9,16,25,36,64,100]),v=sigma/Math.sqrt(n);
+    return{ctx:'Erreur-type',prompt:`σ = ${sigma}, n = ${n}. Calcule l'erreur-type σ/√n (à 0,01 près).`,rule:'À 1 % près : bonne réponse. Erreur : −1 vie.',kind:'num',num:{label:'σ/√n'},mount(st){st.innerHTML=scen('σ = '+sigma+'  ·  n = '+n)},draw(){},evaluate(g){const ok=Math.abs(g-v)<=Math.max(.011,.01*v);return{grade:ok?'ok':'bad',html:`σ/√n = ${sigma}/√${n} = <b>${fr(v,2)}</b>`}}}}
+  if(kind==='marge'){const sigma=R.i(2,20),n=R.pick([25,100,400]),e=1.96*sigma/Math.sqrt(n);
+    return{ctx:'Marge à 95 %',prompt:`σ = ${sigma}, n = ${n}. Marge à 95 % : e = 1,96·σ/√n (à 0,01 près).`,rule:'À 1 % près.',kind:'num',num:{label:'e'},mount(st){st.innerHTML=scen('σ = '+sigma+'  ·  n = '+n+'  ·  95 %')},draw(){},evaluate(g){const ok=Math.abs(g-e)<=Math.max(.02,.01*e);return{grade:ok?'ok':'bad',html:`e = 1,96 × ${sigma}/√${n} = <b>${fr(e,2)}</b>`}}}}
+  if(kind==='tailleP'){const e=R.pick([0.02,0.03,0.05]),n=Math.ceil(1.96*1.96/(4*e*e));
+    return{ctx:'Taille (proportion, pire cas)',prompt:`Marge e = ${fr(e,2)} à 95 %, p inconnu (p = 0,5). n ≥ z²/(4e²). Donne n (arrondi au-dessus).`,rule:'Réponse exacte.',kind:'num',num:{label:'n'},mount(st){st.innerHTML=scen('e = '+fr(e,2)+'  ·  95 %  ·  p inconnu')},draw(){},evaluate(g){const ok=Math.abs(g-n)<=0.5;return{grade:ok?'ok':'bad',html:`n ≥ 1,96² / (4 × ${fr(e,2)}²) → <b>${n}</b>`}}}}
+  const sigma=R.i(3,15),e=R.i(1,4),n=Math.ceil(Math.pow(1.96*sigma/e,2));
+  return{ctx:'Taille (moyenne)',prompt:`σ = ${sigma}, marge e = ${e} à 95 %. n ≥ (z·σ/e)². Donne n (arrondi au-dessus).`,rule:'Réponse exacte.',kind:'num',num:{label:'n'},mount(st){st.innerHTML=scen('σ = '+sigma+'  ·  e = '+e+'  ·  95 %')},draw(){},evaluate(g){const ok=Math.abs(g-n)<=0.5;return{grade:ok?'ok':'bad',html:`n ≥ (1,96 × ${sigma} / ${e})² → <b>${n}</b>`}}}}});
+
+/* ---------- Quel intervalle de confiance ? ---------- */
+const ICOPTS=['Moyenne, σ connu : x̄ ± z·σ/√n','Moyenne, σ inconnu, pop. normale, petit n : x̄ ± t·s′/√n','Moyenne, σ inconnu, n ≥ 30 : x̄ ± z·s′/√n','Proportion : f ± z·√(f(1−f)/n)','Différence de deux proportions','Différence de moyennes appariées'];
+const IC_SC=[
+ {a:0,t:"On estime un rendement moyen ; l'écart-type σ de la population est connu.",w:"σ connu → x̄ ± z·σ/√n."},
+ {a:1,t:"Poids moyen sur n = 12 agneaux, population supposée normale, σ inconnu.",w:"σ inconnu, petit n, normalité → <b>Student</b> : x̄ ± t·s′/√n."},
+ {a:2,t:"Teneur moyenne en sucre sur n = 120 fruits, σ inconnu.",w:"σ inconnu mais n ≥ 30 → x̄ ± z·s′/√n."},
+ {a:3,t:"Proportion de champs infestés sur n = 200 champs.",w:"Proportion → f ± z·√(f(1−f)/n) (Wald)."},
+ {a:4,t:"On compare les taux d'adoption d'une pratique dans deux villages.",w:"<b>Différence de deux proportions</b>."},
+ {a:5,t:"On compare le rendement avant/après sur les mêmes parcelles (paires).",w:"Mesures <b>appariées</b> : sur les différences d, d̄ ± t·s′_d/√n."},
+ {a:3,t:"Taux de germination estimé sur un grand lot de graines.",w:"Proportion → f ± z·√(f(1−f)/n)."},
+];
+mod({id:'interv',theme:4,name:'Quel intervalle ?',desc:"Choisir le bon intervalle de confiance (z, Student, Wald, différence, apparié).",gen(){const s=R.pick(IC_SC);return{ctx:'Intervalle de confiance',prompt:'Quel intervalle de confiance utiliser ?',kind:'steps',mount(st){st.innerHTML=scen(s.t)},draw(){},steps:[{q:"L'intervalle adapté :",opts:ICOPTS,ans:s.a,why:s.w}],explain:s.w}}});
+
+/* ---------- z ou t ? / quantiles ---------- */
+const ZT_SC=[
+ {q:"σ inconnu, n = 10, population normale : quelle loi ?",opts:['Student (t)','Normale (z)'],a:0,w:"Petit n, σ estimé, normalité → Student."},
+ {q:"σ inconnu, n = 150 : quelle loi ?",opts:['Normale (z)','Student (t)'],a:0,w:"n ≥ 30 : z (les lois se confondent)."},
+ {q:"σ connu, n = 8 : quelle loi ?",opts:['Normale (z)','Student (t)'],a:0,w:"σ connu → z, même pour petit n."},
+ {q:"Quel z pour un niveau de confiance de 95 % ?",opts:['1,96','1,645','2,576','1,282'],a:0,w:"95 % → 1,96."},
+ {q:"Quel z pour 99 % ?",opts:['2,576','1,96','1,645','2,326'],a:0,w:"99 % → 2,576."},
+ {q:"Quel z pour 90 % ?",opts:['1,645','1,96','1,282','2,576'],a:0,w:"90 % → 1,645."},
+];
+mod({id:'zt',theme:4,name:'z ou t ?',desc:"Choisir entre loi normale et Student, et connaître les quantiles z usuels.",gen(){const s=R.pick(ZT_SC);return{ctx:'z ou t',prompt:'Fais le bon choix.',kind:'steps',mount(st){st.innerHTML=scen(s.q)},draw(){},steps:[{q:'Réponse :',opts:s.opts,ans:s.a,why:s.w}],explain:s.w}}});
+
+/* ---------- Vrai ou faux (tout le chapitre) ---------- */
+const VF_SC=[
+ {a:0,t:"L'exponentielle est « sans mémoire » : P(X > s+t | X > s) = P(X > t).",w:"Vrai : absence de mémoire."},
+ {a:1,t:"Augmenter la taille n corrige un biais de sélection.",w:"Faux : n réduit la fluctuation, pas le biais."},
+ {a:0,t:"L'erreur-type de la moyenne vaut σ/√n.",w:"Vrai : σ(x̄) = σ/√n."},
+ {a:0,t:"Pour diviser l'erreur-type par 2, il faut multiplier n par 4.",w:"Vrai : en 1/√n."},
+ {a:1,t:"Une fois l'intervalle de confiance calculé, il y a 95 % de chances que μ soit dedans.",w:"Faux : μ est fixe ; c'est la méthode qui réussit 95 % du temps."},
+ {a:0,t:"Si l'IC d'une différence contient 0, on ne peut pas conclure à une différence.",w:"Vrai."},
+ {a:0,t:"La somme de deux Poisson indépendantes est une Poisson.",w:"Vrai : P(λ₁) + P(λ₂) = P(λ₁ + λ₂)."},
+ {a:1,t:"Deux événements incompatibles sont forcément indépendants.",w:"Faux : incompatibles (P(A∩B)=0) ≠ indépendants (P(A∩B)=P(A)P(B))."},
+ {a:0,t:"La variance corrigée s′² utilise le diviseur n − 1.",w:"Vrai : sans biais."},
+ {a:0,t:"La valeur prédictive positive d'un test dépend fortement de la prévalence.",w:"Vrai."},
+ {a:0,t:"Un échantillon stratifié bien construit est plus précis qu'un aléatoire simple.",w:"Vrai si les strates sont homogènes."},
+ {a:0,t:"À n égal, l'échantillonnage par grappes est en général moins précis.",w:"Vrai : effet de grappe."},
+];
+mod({id:'vf',theme:4,name:'Vrai ou faux',desc:"Affirmations du cours (proba, échantillonnage, estimation) : vrai ou faux, avec justification.",gen(){const s=R.pick(VF_SC);return{ctx:'Vrai ou faux',prompt:'Cette affirmation est-elle vraie ?',kind:'steps',mount(st){st.innerHTML=scen(s.t)},draw(){},steps:[{q:'Ta réponse :',opts:['Vrai','Faux'],ans:s.a,why:s.w}],explain:s.w}}});
+
 const MIX={id:'melange',name:'Mélange',gen(){const m=R.pick(M);const r=m.gen();r.ctx=m.name+' · '+r.ctx;return r}};
 
 /* ===================== moteur ===================== */
