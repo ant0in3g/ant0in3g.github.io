@@ -37,7 +37,27 @@ button{font:inherit;color:inherit}
 .hub-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px;margin-bottom:28px}
 .brand{font-family:var(--f-display);font-weight:800;font-size:clamp(40px,8vw,72px);line-height:.95;margin:0;letter-spacing:-.03em}
 .brand span{color:var(--pen)}
-.brand .beta{color:var(--pen);font-family:var(--f-mono);font-size:.24em;font-weight:400;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--pen);border-radius:20px;padding:.35em .85em;vertical-align:middle;white-space:nowrap}
+.brand .beta{color:var(--pen);font-family:var(--f-mono);font-size:14px;font-weight:400;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--pen);border-radius:20px;padding:3px 10px;vertical-align:middle;white-space:nowrap}
+@media (max-width:560px){.brand .beta{font-size:11px;padding:2px 8px}}
+.hub-right{display:flex;flex-direction:column;align-items:stretch;gap:10px}
+.totbox{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:9px 14px}
+.totbox .tot{font-family:var(--f-mono);font-size:13px;color:var(--ink-soft);white-space:nowrap}
+.totbox .tot b{color:var(--pen);font-size:15px}
+.share{background:transparent;border:1px solid var(--line);border-radius:5px;padding:6px 13px;cursor:pointer;font-family:var(--f-mono);font-size:12px;letter-spacing:.03em;color:var(--ink);white-space:nowrap}
+.share:hover{border-color:var(--pen);color:var(--pen)}
+.shov{position:fixed;inset:0;background:rgba(8,20,24,.55);display:none;align-items:center;justify-content:center;z-index:100;padding:16px}
+.shov.open{display:flex}
+.shsheet{background:var(--card);border:1px solid var(--line);border-radius:14px;max-width:390px;width:100%;padding:20px;box-shadow:0 24px 70px rgba(0,0,0,.4);text-align:center;max-height:92vh;overflow:auto}
+.shsheet h3{font-family:var(--f-display);margin:0 0 12px;font-size:21px}
+.shimg{width:100%;max-width:280px;border-radius:12px;border:1px solid var(--line);display:block;margin:0 auto 16px}
+.shnets{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.shnet{display:flex;flex-direction:column;align-items:center;gap:5px;padding:11px 4px;border:1px solid var(--line);border-radius:9px;background:transparent;color:var(--ink);cursor:pointer;font-family:var(--f-mono);font-size:11px;text-decoration:none}
+.shnet:hover{border-color:var(--pen);color:var(--pen)}
+.shnet .ic{width:26px;height:26px;object-fit:contain;display:block}
+.shrow{display:flex;gap:8px}
+.shbtn{flex:1;padding:10px;border:1px solid var(--line);border-radius:9px;background:transparent;color:var(--ink);cursor:pointer;font-family:var(--f-mono);font-size:12.5px}
+.shbtn.primary{background:var(--pen);color:var(--paper);border-color:var(--pen)}
+.shbtn:hover{border-color:var(--pen)}
 .tag{margin:8px 0 0;color:var(--ink-soft);max-width:56ch;font-size:17px}
 .mix{display:grid;gap:2px;text-align:left;background:var(--ink);color:var(--paper);border:0;border-radius:6px;padding:14px 20px;cursor:pointer;min-width:220px}
 .mix b{font-family:var(--f-display);font-size:22px}
@@ -124,9 +144,15 @@ input[type=range]{width:100%;accent-color:var(--ink)}
     <div class="hub-head">
       <div>
         <h1 class="brand">Stat'<span>Champ</span> <span class="beta">version beta</span></h1>
-        <p class="tag">Treize mini-jeux pour s'entraîner à lire des graphiques, calculer, interpréter une ACP et choisir le bon test. Toutes les données sont simulées dans des contextes agronomie, élevage et économie rurale.</p>
+        <p class="tag">Des mini-jeux pour s'entraîner à lire des graphiques, calculer, interpréter une ACP, choisir le bon test, et réviser probabilités, échantillonnage et estimation. Toutes les données sont simulées dans des contextes agronomie, élevage et économie rurale.</p>
       </div>
-      <button class="mix" type="button" id="mixBtn"><small>Échauffement de TD</small><b>Mélange →</b><small>une manche de chaque jeu au hasard</small></button>
+      <div class="hub-right">
+        <button class="mix" type="button" id="mixBtn"><small>Échauffement de TD</small><b>Mélange →</b><small>une manche de chaque jeu au hasard</small></button>
+        <div class="totbox">
+          <span class="tot">Score total&nbsp;: <b id="totPts">0</b> pts</span>
+          <button class="share" type="button" id="shareBtn">Partager ↗</button>
+        </div>
+      </div>
     </div>
     <div id="themes"></div>
     <p class="foot">Règles communes : 3 vies au départ. Pour les estimations, une réponse très proche donne une vie et une réponse trop éloignée en coûte une. Pour les questions, une erreur coûte une vie et 4 bonnes réponses d'affilée en rendent une. Les records sont gardés dans ce navigateur. Jeu inspiré de <a href="https://guessthecorrelation.com/" target="_blank" rel="noopener">guessthecorrelation.com</a>.</p>
@@ -166,6 +192,29 @@ input[type=range]{width:100%;accent-color:var(--ink)}
       </div>
     </div>
   </section>
+</div>
+
+<div class="shov" id="shov" aria-hidden="true">
+  <div class="shsheet" role="dialog" aria-label="Partager mon score">
+    <h3>Partage ton score</h3>
+    <img class="shimg" id="shImg" alt="Carte de score Stat'Champ">
+    <div class="shnets">
+      <a class="shnet" id="shWa" target="_blank" rel="noopener"><img class="ic" src="logo-s/logo-whatsapp.png" alt="">WhatsApp</a>
+      <button class="shnet" id="shX" type="button"><img class="ic" src="logo-s/logo-twitterx.png" alt="">X</button>
+      <button class="shnet" id="shFb" type="button"><img class="ic" src="logo-s/logo-facebook.svg" alt="">Facebook</button>
+      <button class="shnet" id="shIg" type="button"><img class="ic" src="logo-s/logo-instagram.svg" alt="">Instagram</button>
+      <button class="shnet" id="shSnap" type="button"><img class="ic" src="logo-s/logo-snapchat.png" alt="">Snapchat</button>
+      <button class="shnet" id="shTk" type="button"><img class="ic" src="logo-s/logo-tiktok.svg" alt="">TikTok</button>
+    </div>
+    <div class="shrow">
+      <button class="shbtn primary" id="shNative" type="button">Partager…</button>
+      <button class="shbtn" id="shDl" type="button">Enregistrer l'image</button>
+    </div>
+    <div class="shrow" style="margin-top:8px">
+      <button class="shbtn" id="shClose" type="button">Fermer</button>
+    </div>
+    <p id="shHint" style="font-size:11px;color:var(--ink-soft);margin:10px 0 0;font-family:var(--f-mono);min-height:1em"></p>
+  </div>
 </div>
 
 <script src="../../assets/app.js"></script>
@@ -773,10 +822,66 @@ const $=id=>document.getElementById(id);
 const bestKey=id=>'statchamp-best-'+id;
 function getBest(id){try{return +(localStorage.getItem(bestKey(id))||0)}catch(e){return 0}}
 function setBest(id,v){try{localStorage.setItem(bestKey(id),String(v))}catch(e){}}
+function totalPts(){let t=getBest('melange');for(const m of M)t+=getBest(m.id);return t}
+function updateTot(){const el=document.getElementById('totPts');if(el)el.textContent=totalPts()}
+const SHARE_URL='https://ant0in3g.github.io/';
+let _shImg='',_shTxt='',_shResult='',_xUrl='',_fbUrl='';
+function rankOf(p){
+  if(p>=400)return{t:"Légende Stat'Champ",e:'👑'};
+  if(p>=200)return{t:'Maître·sse des stats',e:'🏆'};
+  if(p>=100)return{t:'Expert·e',e:'🎯'};
+  if(p>=50) return{t:'Habile',e:'⭐'};
+  if(p>=20) return{t:'Apprenti·e',e:'📈'};
+  return{t:'Débutant·e',e:'🌱'};
+}
+function cvar(n){return getComputedStyle(document.documentElement).getPropertyValue('--'+n).trim();}
+function buildCard(pts){
+  const r=rankOf(pts),S=1080,cv=document.createElement('canvas');cv.width=S;cv.height=S;const g=cv.getContext('2d');
+  const paper=cvar('paper')||'#e9f1f3',ink=cvar('ink')||'#16272c',acc=cvar('pen')||'#1f6f8b',soft=cvar('ink-soft')||'#557079';
+  g.fillStyle=paper;g.fillRect(0,0,S,S);
+  g.fillStyle=acc;g.fillRect(0,0,S,20);
+  g.textAlign='center';
+  g.fillStyle=soft;g.font="600 34px 'IBM Plex Mono',monospace";g.fillText("STAT'CHAMP",S/2,120);
+  g.font="110px serif";g.fillText(r.e,S/2,300);
+  g.fillStyle=ink;g.font="600 66px 'Spectral',Georgia,serif";g.fillText(r.t,S/2,400);
+  g.fillStyle=acc;g.font="800 300px 'Spectral',Georgia,serif";g.fillText(String(pts),S/2,730);
+  g.fillStyle=soft;g.font="600 52px 'IBM Plex Mono',monospace";g.fillText('points',S/2,800);
+  g.fillStyle=ink;g.font="400 40px 'Spectral',Georgia,serif";g.fillText('Réviser les statistiques en jouant',S/2,905);
+  g.strokeStyle=acc;g.lineWidth=6;g.beginPath();
+  const bx=S/2,by=1015,bw=380,bh=74;
+  for(let i=0;i<=100;i++){const x=bx-bw/2+bw*i/100,z=(i/100-0.5)*6,y=by-bh*Math.exp(-z*z/2);i?g.lineTo(x,y):g.moveTo(x,y);}
+  g.stroke();
+  g.fillStyle=soft;g.font="400 30px 'IBM Plex Mono',monospace";g.fillText('ant0in3g.github.io',S/2,1050);
+  return cv;
+}
+function openShare(){
+  const pts=totalPts(),r=rankOf(pts);
+  _shImg=buildCard(pts).toDataURL('image/png');
+  document.getElementById('shImg').src=_shImg;
+  _shResult=`Rang « ${r.t} » avec ${pts} pts sur Stat'Champ — réviser les stats en jouant :`;
+  _shTxt=_shResult+' '+SHARE_URL;
+  document.getElementById('shWa').href='https://wa.me/?text='+encodeURIComponent(_shTxt);
+  _xUrl='https://twitter.com/intent/tweet?text='+encodeURIComponent(_shResult)+'&url='+encodeURIComponent(SHARE_URL);
+  _fbUrl='https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(SHARE_URL);
+  document.getElementById('shHint').textContent='';
+  const ov=document.getElementById('shov');ov.classList.add('open');ov.setAttribute('aria-hidden','false');
+}
+function closeShare(){const ov=document.getElementById('shov');ov.classList.remove('open');ov.setAttribute('aria-hidden','true');}
+async function _dataURLtoFile(d){const b=await (await fetch(d)).blob();return new File([b],'statchamp-score.png',{type:'image/png'});}
+async function shareNativeImg(){
+  try{const f=await _dataURLtoFile(_shImg);
+    if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f],text:_shTxt,url:SHARE_URL,title:"Stat'Champ"});return true;}
+    if(navigator.share){await navigator.share({text:_shTxt,url:SHARE_URL,title:"Stat'Champ"});return true;}
+  }catch(e){}
+  return false;
+}
+function downloadCard(){const a=document.createElement('a');a.href=_shImg;a.download='statchamp-score.png';document.body.appendChild(a);a.click();a.remove();}
+async function shareVia(name,web){const ok=await shareNativeImg();if(ok)return;if(web){window.open(web,'_blank','noopener');}else{downloadCard();document.getElementById('shHint').textContent='Image enregistrée — publie-la sur '+name+'.';}}
 
 function renderHub(){
   $('themes').innerHTML=THEMES.map((t,i)=>{const ms=M.filter(m=>m.theme===i);return`<section class="theme"><h2>${t} <small>${ms.length} jeu${ms.length>1?'x':''}</small></h2><div class="cards">${ms.map(m=>{const b=getBest(m.id);return`<button class="card" type="button" data-id="${m.id}"><b>${m.name}</b><span>${m.desc}</span><em class="${b?'has':''}">${b?'Record : '+b:'Pas encore joué'}</em></button>`}).join('')}</div></section>`}).join('');
   document.querySelectorAll('.card').forEach(b=>b.addEventListener('click',()=>start(M.find(m=>m.id===b.dataset.id))));
+  updateTot();
 }
 function showHub(){$('game').hidden=true;$('hub').hidden=false;E.mod=null;E.r=null;renderHub();try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}window.scrollTo(0,0)}
 function start(m){E.mod=m;E.st={score:0,lives:3,streak:0,over:false};$('hub').hidden=true;$('game').hidden=false;$('gtitle').textContent=m.name;$('over').hidden=true;
@@ -837,6 +942,16 @@ function finish(grade,html){
 function init(){
   renderHub();
   $('mixBtn').addEventListener('click',()=>start(MIX));
+  $('shareBtn').addEventListener('click',openShare);
+  $('shClose').addEventListener('click',closeShare);
+  $('shov').addEventListener('click',e=>{if(e.target===$('shov'))closeShare();});
+  $('shNative').addEventListener('click',async()=>{const ok=await shareNativeImg();if(!ok){downloadCard();$('shHint').textContent="Image enregistrée — à partager dans l'app de ton choix.";}});
+  $('shDl').addEventListener('click',downloadCard);
+  $('shX').addEventListener('click',()=>shareVia('X',_xUrl));
+  $('shFb').addEventListener('click',()=>shareVia('Facebook',_fbUrl));
+  $('shIg').addEventListener('click',()=>shareVia('Instagram',null));
+  $('shSnap').addEventListener('click',()=>shareVia('Snapchat',null));
+  $('shTk').addEventListener('click',()=>shareVia('TikTok',null));
   $('backBtn').addEventListener('click',()=>{if(E.st&&E.st.score>getBest(E.mod.id))setBest(E.mod.id,E.st.score);showHub()});
   $('hubBtn').addEventListener('click',showHub);
   $('againBtn').addEventListener('click',()=>start(E.mod));
