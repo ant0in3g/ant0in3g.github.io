@@ -39,6 +39,8 @@ button{font:inherit;color:inherit}
 .brand span{color:var(--pen)}
 .brand .beta{color:var(--pen);font-family:var(--f-mono);font-size:14px;font-weight:400;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--pen);border-radius:20px;padding:3px 10px;vertical-align:middle;white-space:nowrap}
 @media (max-width:560px){.brand .beta{font-size:11px;padding:2px 8px}}
+.betanote{font-size:13px;line-height:1.5;color:var(--ink-soft);margin:10px 0 0;max-width:60ch;border-left:2px solid var(--pen);padding-left:10px}
+.betanote a{color:var(--pen)}
 .hub-right{display:flex;flex-direction:column;align-items:stretch;gap:10px}
 .totbox{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:9px 14px}
 .totbox .tot{font-family:var(--f-mono);font-size:13px;color:var(--ink-soft);white-space:nowrap}
@@ -145,6 +147,7 @@ input[type=range]{width:100%;accent-color:var(--ink)}
       <div>
         <h1 class="brand">Stat'<span>Champ</span> <span class="beta">version beta</span></h1>
         <p class="tag">Des mini-jeux pour s'entraîner à lire des graphiques, calculer, interpréter une ACP, choisir le bon test, et réviser probabilités, échantillonnage et estimation. Toutes les données sont simulées dans des contextes agronomie, élevage et économie rurale.</p>
+        <p class="betanote">⚠️ Version beta : il peut rester des erreurs. Si vous en trouvez une, n'hésitez pas à <a href="mailto:a.gere@istom.fr">me contacter</a>.</p>
       </div>
       <div class="hub-right">
         <button class="mix" type="button" id="mixBtn"><small>Échauffement de TD</small><b>Mélange →</b><small>une manche de chaque jeu au hasard</small></button>
