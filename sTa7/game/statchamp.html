@@ -425,7 +425,7 @@ mod({id:'boite',theme:0,name:'Associe la boîte',desc:"Retrouve la boîte à mou
   };return r}});
 
 /* ---------- Calcul express ---------- */
-const CALC=[["Poussins éclos par couvée","poussins",6,14],["Sacs de maïs récoltés par parcelle","sacs",6,20],["Âge des chefs de ménage","ans",25,62],["Cabosses par cacaoyer","cabosses",8,30],["Litres de lait par traite","L",2,9],["Chèvres par ménage","chèvres",1,12],["Jours de pluie en juillet","jours",8,24]];
+const CALC=[["Poussins éclos par couvée","poussins",6,14],["Sacs de maïs récoltés par parcelle","sacs",6,20],["Âge des exploitant·es","ans",25,62],["Cabosses par cacaoyer","cabosses",8,30],["Litres de lait par traite","L",2,9],["Chèvres par ménage","chèvres",1,12],["Jours de pluie en juillet","jours",8,24]];
 mod({id:'calcul',theme:0,name:'Calcul express',desc:"Moyenne, médiane, variance, écart-type, CV : calcule sur une petite série.",gen(){
   const c=R.pick(CALC),n=R.i(5,7),x=Array.from({length:n},()=>R.i(c[2],c[3])),m=S.mean(x),sc=S.ss(x),srt=x.slice().sort((a,b)=>a-b);
   const kinds=[
@@ -483,7 +483,7 @@ mod({id:'pente',theme:1,name:'Devine la pente',desc:"Lis la pente de la droite d
    evaluate(g){const e=Math.abs(g-L.b);return{grade:e<=.12*tol?'great':e>.3*tol?'bad':'ok',html:`Pente = <b>${fr(L.b,dec)}</b> ${unit}<br>Sur le triangle : Δy / Δx = ${fr(L.b*f.xd.s,dec)} / ${tl(f.xd.s,f.xd.s)}.`}}}}});
 
 /* ---------- ACP : outils ---------- */
-const VARS=["Surface","Bovins","Main-d'œuvre","Revenu","Rendement","Engrais","Dist. marché","Âge du chef","Pluie","Crédit","Petits rum.","Cacao"];
+const VARS=["Surface","Bovins","Main-d'œuvre","Revenu","Rendement","Engrais","Dist. marché","Âge exploitant·e","Pluie","Crédit","Petits rum.","Cacao"];
 const ang=(a,b)=>Math.acos(clamp((a.x*b.x+a.y*b.y)/(a.r*b.r),-1,1))*180/Math.PI;
 function genLoad(k,poor=.18,rmin=.6){const names=R.shuf(VARS).slice(0,k);let V=names.map(n=>{const th=R.u(0,2*Math.PI),r=Math.random()<poor?R.u(.15,.38):R.u(rmin,.97);return{n,x:r*Math.cos(th),y:r*Math.sin(th),r}});
   let l1=S.sum(V.map(v=>v.x*v.x)),l2=S.sum(V.map(v=>v.y*v.y));if(l2>l1){V=V.map(v=>({n:v.n,x:v.y,y:v.x,r:v.r}));[l1,l2]=[l2,l1]}return{V,l1,l2,p1:100*l1/k,p2:100*l2/k}}
@@ -573,7 +573,7 @@ const SCEN={
  pear:[()=>`On étudie le lien entre la pluviométrie annuelle (mm) et le rendement du mil (kg/ha) dans ${R.i(30,50)} villages. Le nuage de points est allongé et linéaire, sans point aberrant.`,
        ()=>`Relation entre le poids vif (kg) et le tour de poitrine (cm) chez ${R.i(40,60)} zébus. Le nuage est linéaire et les deux variables sont à peu près normales.`],
  spear:[()=>`Lien entre la taille du troupeau (têtes) et la distance au point d’eau (km) dans ${R.i(12,18)} campements. La relation est monotone mais pas linéaire, avec deux valeurs extrêmes.`,
-        ()=>`Lien entre l’âge du chef d’exploitation (ans) et la surface cultivée (ha) sur ${R.i(10,14)} exploitations. Les distributions sont très asymétriques.`],
+        ()=>`Lien entre l’âge de l’exploitant·e (ans) et la surface cultivée (ha) sur ${R.i(10,14)} exploitations. Les distributions sont très asymétriques.`],
  chi:[()=>`On croise la région (Nord, Centre, Sud) et l’adoption d’une variété améliorée (oui/non) chez ${R.i(250,350)} agriculteurs. Tous les effectifs théoriques dépassent 5.`,
       ()=>`Lien entre le type de sol (argileux, limoneux, sableux) et la présence de striga (oui/non) sur ${R.i(200,280)} parcelles. Les effectifs théoriques sont tous ≥ 5.`],
  fish:[()=>`Chez ${R.i(14,20)} éleveurs, on croise la vaccination du troupeau (oui/non) et l’apparition de la peste des petits ruminants (oui/non). Plusieurs effectifs théoriques sont inférieurs à 5.`,
@@ -595,7 +595,7 @@ mod({id:'test',theme:3,name:'Le bon test',desc:"Une situation, un arbre de déci
 
 /* ---------- Lis la sortie R ---------- */
 const TTC=[{y:'rendement',f:'variete',g:['amelioree','locale'],mu:30,sd:6,dn:'essai',u:'q/ha'},{y:'gmq',f:'aliment',g:['A','B'],mu:50,sd:8,dn:'poulets',u:'g/j'},{y:'lait',f:'race',g:['goudali','holstein'],mu:8,sd:2.5,dn:'troupeau',u:'L/j'},{y:'revenu',f:'cooperative',g:['non','oui'],mu:800,sd:200,dn:'menages',u:'kFCFA'}];
-const CHC=[{r:'region',c:'adoption',rl:['Centre','Nord','Sud'],cl:['non','oui'],dn:'enquete',lab:['la région','l’adoption de la variété']},{r:'sol',c:'striga',rl:['argileux','limoneux','sableux'],cl:['absent','present'],dn:'parcelles',lab:['le type de sol','la présence de striga']},{r:'zone',c:'race',rl:['Adamaoua','Nord','Ouest'],cl:['goudali','metis','mbororo'],dn:'elevages',lab:['la zone','la race élevée']}];
+const CHC=[{r:'region',c:'adoption',rl:['Centre','Nord','Sud'],cl:['non','oui'],dn:'enquete',lab:['la région','l’adoption de la variété']},{r:'sol',c:'striga',rl:['argileux','limoneux','sableux'],cl:['absent','present'],dn:'parcelles',lab:['le type de sol','la présence de striga']},{r:'zone',c:'race',rl:['Adamaoua','Nord','Ouest'],cl:['goudali','metis','wakwa'],dn:'elevages',lab:['la zone','la race élevée']}];
 const AOC=[{y:'rendement',f:'variete',lv:['A','B','C','D'],mu:12,sd:3,dn:'essai',lab:'variétés de manioc'},{y:'poids',f:'ration',lv:['R1','R2','R3'],mu:28,sd:4,dn:'agneaux',lab:'rations'},{y:'lait',f:'race',lv:['goudali','metis','wakwa'],mu:6,sd:1.8,dn:'vaches',lab:'races'}];
 const SIGC="---\nSignif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1";
 const near05=p=>p>.035&&p<.07;
