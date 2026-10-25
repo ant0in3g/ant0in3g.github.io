@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trèfle de Habenicht — Courbes polaires | Antoine Géré</title>
+<meta name="description" content="Étude d'une courbe polaire, le trèfle de Habenicht : domaine d'étude, dérivée, variations, tangentes et tracé. Mathématiques, ISTOM.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../assets/site.css">
+<style>
+  .poly-video{max-width:380px;margin:0 auto}
+  .poly-video video{width:100%;border:1px solid var(--line);border-radius:12px;display:block;background:#000}
+  table.vartab td,table.vartab th{text-align:center}
+  table.vartab td:first-child,table.vartab th:first-child{text-align:left;font-weight:500}
+</style>
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+    svg: { fontCache: 'global' }
+  };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js" async></script>
+</head>
+<body>
+<button class="toggle" id="themeToggle" aria-label="Changer de thème">◑</button>
+<div class="layout">
+  <aside>
+    <a class="back" href="../../../mATh.html">← Mathématiques</a>
+    <div class="brand-row">
+      <a href="../../../index.html" class="brand-link" aria-label="Retour à l'accueil"><p class="brand sm">Antoine<br>Géré</p>
+      <span class="globe" aria-hidden="true" style="width:42px;height:42px"><canvas id="globeCanvas"></canvas></span></a>
+    </div>
+    <p class="role">Courbes polaires · ISTOM</p>
+    <nav>
+      <a href="#domaine">Domaine d'étude</a>
+      <a href="#derivee">Calcul de ρ′</a>
+      <a href="#variations">Variations de ρ</a>
+      <a href="#tangentes">Tangentes</a>
+      <a href="#trace">Tracé</a>
+    </nav>
+    <div class="side-contact">
+      <a href="mailto:a.gere@istom.fr">a.gere@istom.fr</a><br>
+      <a href="https://github.com/ant0in3g" target="_blank" rel="noopener">github</a> ·
+      <a href="http://linkedin.com/in/antoine-gere" target="_blank" rel="noopener">linkedin</a> ·
+      <a href="https://arxiv.org/search/?searchtype=author&query=G%C3%A9r%C3%A9,+Antoine" target="_blank" rel="noopener">arxiv</a>
+    </div>
+  </aside>
+  <main>
+    <h1 class="page-title">Trèfle de Habenicht</h1>
+    <p class="teacher">Courbes polaires · Mathématiques — <a href="mailto:a.gere@istom.fr">Antoine Géré</a></p>
+
+    <p>Nous allons étudier le <strong>trèfle de Habenicht</strong>, défini par son équation polaire :</p>
+    \[\rho = 1 + \cos\left(n\theta\right) + \sin^2\left(n\theta\right)\]
+    <p>L'objectif est de tracer le trèfle de Habenicht pour \(n = 3\) ou \(n = 4\), selon la chance espérée !</p>
+
+    <div class="callout"><span class="ctitle">🍀 Cas chanceux</span>Nous choisirons ici de travailler dans le cas « chanceux » \(n = 4\), pour lequel l'équation polaire devient \(\rho = 1 + \cos(4\theta) + \sin^2(4\theta)\).</div>
+
+    <h2 id="domaine">Domaine d'étude</h2>
+    <p>Le domaine de définition est \(D_1 = \mathbb{R}\). On remarque d'abord que \(\rho\) est <strong>périodique de période \(\tfrac{\pi}{2}\)</strong>. En effet :</p>
+    \[\begin{aligned}
+      \rho\!\left(\theta+\tfrac{\pi}{2}\right)
+        &= 1 + \cos\left(4\theta + 2\pi\right) + \sin^2\left(4\theta + 2\pi\right) \\
+        &= 1 + \cos\left(4\theta\right) + \sin^2\left(4\theta\right) = \rho(\theta).
+    \end{aligned}\]
+    <p>On peut donc limiter l'étude à un intervalle d'amplitude \(\tfrac{\pi}{2}\), puis compléter par autant de rotations que nécessaire pour reconstituer la courbe :</p>
+    \[D_2 = \left[-\tfrac{\pi}{4},\ \tfrac{\pi}{4}\right].\]
+    <p>De plus, \(\rho\) est <strong>paire</strong> en \(\theta\), c'est-à-dire \(\rho(-\theta) = \rho(\theta)\). Les points \(M_1(\rho,\theta)\) et \(M_2(\rho,-\theta)\) sont alors symétriques par rapport à l'axe des abscisses. On peut ainsi limiter l'étude à :</p>
+    \[D_3 = \left[0,\ \tfrac{\pi}{4}\right].\]
+
+    <h2 id="derivee">Calcul de ρ′</h2>
+    <p>On calcule la dérivée de \(\rho\) :</p>
+    \[\rho^\prime(\theta) = 4\sin(4\theta)\left(2\cos(4\theta) - 1\right).\]
+    <p>Elle s'annule sur \(D_3\) aux points :</p>
+    \[\rho^\prime(\theta) = 0 \iff \theta \in \left\{\,0,\ \tfrac{\pi}{12},\ \tfrac{\pi}{4}\,\right\}.\]
+
+    <h2 id="variations">Étude des variations de ρ</h2>
+    <p>Sur \(D_3 = \left[0,\tfrac{\pi}{4}\right]\), le signe de \(\rho^\prime\) donne le tableau de variation suivant :</p>
+    <div class="table-wrap"><table class="vartab">
+      <thead><tr><th>Intervalle</th><th>\(\left[0,\ \tfrac{\pi}{12}\right]\)</th><th>\(\left[\tfrac{\pi}{12},\ \tfrac{\pi}{4}\right]\)</th></tr></thead>
+      <tbody>
+        <tr><td>Signe de \(\rho^\prime\)</td><td>\(+\)</td><td>\(-\)</td></tr>
+        <tr><td>Variation de \(\rho\)</td><td>↗ de \(2\) à \(\tfrac{9}{4}\)</td><td>↘ de \(\tfrac{9}{4}\) à \(0\)</td></tr>
+      </tbody>
+    </table></div>
+    <p>Ainsi \(\rho\) croît de \(2\) à \(\tfrac{9}{4}\) sur \(\left[0,\tfrac{\pi}{12}\right]\), atteint son maximum \(\tfrac{9}{4}\) en \(\tfrac{\pi}{12}\), puis décroît jusqu'à \(0\) en \(\tfrac{\pi}{4}\).</p>
+
+    <h2 id="tangentes">Étude des tangentes à la courbe</h2>
+    <p>On étudie à présent les tangentes particulières en \(\theta \in \left\{0,\ \tfrac{\pi}{12},\ \tfrac{\pi}{4}\right\}\). C'est l'angle \(V\) entre la tangente et le rayon vecteur \(\vec{OM}\) qui nous intéresse :</p>
+    <figure><img src="img/angle_tangente_corube.png" alt="Angle V entre la tangente et le rayon vecteur OM"><figcaption>L'angle \(V\) entre la tangente et le rayon vecteur \(\vec{OM}\).</figcaption></figure>
+    <p>On dispose de la relation :</p>
+    \[\tan\left(V\right) = \frac{\rho}{\rho^\prime}.\]
+    <p>D'où les comportements aux points remarquables :</p>
+    \[\lim_{\theta \to 0} \tan(V) = +\infty, \qquad
+      \lim_{\theta \to \frac{\pi}{12}} \tan(V) = +\infty, \qquad
+      \lim_{\theta \to \frac{\pi}{4}} \tan(V) = 0.\]
+    <div class="table-wrap"><table class="center">
+      <thead><tr><th>Point</th><th>\(\rho\)</th><th>\(\theta\)</th><th>\(V\)</th></tr></thead>
+      <tbody>
+        <tr><td>\(M_0\)</td><td>\(2\)</td><td>\(0\)</td><td>\(\tfrac{\pi}{2}\)</td></tr>
+        <tr><td>\(M_1\)</td><td>\(\tfrac{9}{4}\)</td><td>\(\tfrac{\pi}{12}\)</td><td>\(\tfrac{\pi}{12}\)</td></tr>
+        <tr><td>\(M_2\)</td><td>\(0\)</td><td>\(\tfrac{\pi}{4}\)</td><td>\(0\)</td></tr>
+      </tbody>
+    </table></div>
+
+    <h2 id="trace">Tracé</h2>
+    <p>On trace enfin la courbe avec <strong>R</strong>, à l'aide de <code>ggplot2</code> et de coordonnées cartésiennes \((x,y) = (\rho\cos\theta,\ \rho\sin\theta)\) :</p>
+    <pre><code>library(ggplot2)
+
+theta &lt;- seq(0, 2*pi, length.out = 1000)
+rho   &lt;- 1 + cos(4*theta) + sin(4*theta)^2
+df    &lt;- data.frame(x = rho*cos(theta), y = rho*sin(theta))
+
+ggplot(df, aes(x, y)) +
+  geom_path(colour = "#1b5e20", linewidth = 1.3) +
+  coord_equal() +
+  theme_minimal()</code></pre>
+    <p>En faisant varier le paramètre \(n\) de \(0\) à \(20\), on obtient toute une famille de trèfles — une animation réalisée avec <code>gganimate</code> :</p>
+    <figure class="poly-video">
+      <video controls loop muted playsinline preload="metadata">
+        <source src="courbe_polaire_instagram_vert.mp4" type="video/mp4">
+        Votre navigateur ne peut pas lire cette vidéo.
+      </video>
+      <figcaption>\(\rho = 1 + \cos(n\theta) + \sin^2(n\theta)\), pour \(n = 0, 1, \dots, 20\).</figcaption>
+    </figure>
+
+    <p class="end">Mise en forme par Antoine Géré.</p>
+  </main>
+</div>
+<script src="../../../assets/app.js"></script>
+</body>
+</html>

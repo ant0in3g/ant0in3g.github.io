@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cours complet — Statistiques | Antoine Géré</title>
+<meta name="description" content="Cours complet de statistiques et analyse de données et fiches mémo, présentés en flipbook. ISTOM.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/site.css">
+<style>
+  .layout{max-width:1760px;grid-template-columns:200px 1fr;gap:40px}
+  .bookmain{max-width:none}
+  .book-top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:6px}
+  .menu{margin-top:22px;padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .menu a{display:flex;align-items:center;gap:8px;line-height:1.6;cursor:pointer;margin-bottom:8px;color:var(--muted);text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.03em}
+  .menu a:hover{color:var(--ink)}
+  .menu a:last-child{margin-bottom:0}
+  .menu .ico{flex:0 0 1.5em;min-width:0;text-align:left}
+  .menu a.active{color:var(--accent);font-weight:600}
+  .menu .lbl{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:12px 0 9px}
+  .brand-row2{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .menu-toggle{display:none}
+  @media(max-width:860px){
+    .menu-toggle{display:inline-flex;align-items:center;gap:7px;font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:8px;padding:7px 13px;cursor:pointer;white-space:nowrap}
+    .menu-toggle:hover{border-color:var(--accent);color:var(--accent)}
+    .menu{display:none;margin-top:12px;padding:14px 0}
+    .menu.open{display:block}
+  }
+  .dl-bottom{padding-top:22px}
+  @media(min-width:861px){ .layout>aside{display:flex;flex-direction:column} .dl-bottom{margin-top:auto} }
+  #coursFrame,#m1Frame,#m2Frame,#m3Frame,#m4Frame{width:100%;height:82vh;min-height:300px;border:0;background:transparent;display:block}
+</style>
+</head>
+<body>
+<button class="toggle" id="themeToggle" aria-label="Changer de thème">◑</button>
+
+<div class="layout">
+  <aside>
+    <a class="back" href="../../sTa7.html">← Statistiques</a>
+    <div class="brand-row2">
+      <p class="brand sm">Cours complet</p>
+      <button class="menu-toggle" id="menuToggle" aria-label="Afficher le menu">☰ Menu</button>
+    </div>
+    <p class="role">Statistiques · ISTOM</p>
+    <div class="menu">
+      <a id="showCours" class="active"><span class="ico">📖</span>Cours complet</a>
+      <p class="lbl">Fiches mémo</p>
+      <a id="showM1"><span class="ico">📄</span>Mémo Stat. 1</a>
+      <a id="showM2"><span class="ico">📄</span>Mémo Stat. 2</a>
+      <a id="showM3"><span class="ico">📄</span>Mémo Stat. 3</a>
+      <a id="showM4"><span class="ico">📄</span>Mémo Stat. 4</a>
+    </div>
+    <div class="side-contact dl-bottom" id="dlBox">
+      <a id="dlLink" href="https://ant0in3g.github.io/sTa7/lecture/lecture-s.pdf?v=20261006" target="_blank" rel="noopener">↓ Télécharger le PDF</a>
+    </div>
+  </aside>
+
+  <main class="bookmain">
+    <div class="book-top">
+      <h1 class="page-title" style="font-size:1.6rem;margin:0">Statistiques et analyse de données — cours complet</h1>
+    </div>
+
+    <div id="view-cours"><iframe id="coursFrame" title="Cours complet — flipbook"></iframe></div>
+    <div id="view-m1" style="display:none"><iframe id="m1Frame" title="Mémo Stat. 1 — flipbook"></iframe></div>
+    <div id="view-m2" style="display:none"><iframe id="m2Frame" title="Mémo Stat. 2 — flipbook"></iframe></div>
+    <div id="view-m3" style="display:none"><iframe id="m3Frame" title="Mémo Stat. 3 — flipbook"></iframe></div>
+    <div id="view-m4" style="display:none"><iframe id="m4Frame" title="Mémo Stat. 4 — flipbook"></iframe></div>
+  </main>
+</div>
+
+<script src="../../assets/app.js"></script>
+<script>
+(function(){
+  var defs=[
+    {key:'cours', view:'view-cours', frame:'coursFrame', btn:'showCours', src:'lecture-s.html',   pdf:'https://ant0in3g.github.io/sTa7/lecture/lecture-s.pdf?v=20261006', title:'Statistiques et analyse de données — cours complet'},
+    {key:'m1',    view:'view-m1',    frame:'m1Frame',    btn:'showM1',    src:'memo-stat_1.html', pdf:'https://ant0in3g.github.io/sTa7/lecture/memo-stat_1.pdf', title:'Fiche mémo 1'},
+    {key:'m2',    view:'view-m2',    frame:'m2Frame',    btn:'showM2',    src:'memo-stat_2.html', pdf:'https://ant0in3g.github.io/sTa7/lecture/memo-stat_2.pdf', title:'Fiche mémo 2'},
+    {key:'m3',    view:'view-m3',    frame:'m3Frame',    btn:'showM3',    src:'memo-stat_3.html', pdf:'https://ant0in3g.github.io/sTa7/lecture/memo-stat_3.pdf', title:'Fiche mémo 3'},
+    {key:'m4',    view:'view-m4',    frame:'m4Frame',    btn:'showM4',    src:'memo-stat_4.html', pdf:'https://ant0in3g.github.io/sTa7/lecture/memo-stat_4.pdf', title:'Fiche mémo 4'}
+  ];
+  var byKey={}, frames=[], btns=[];
+  defs.forEach(function(d){
+    d.viewEl=document.getElementById(d.view);
+    d.frameEl=document.getElementById(d.frame);
+    d.btnEl=document.getElementById(d.btn);
+    byKey[d.key]=d; frames.push(d.frameEl); btns.push(d.btnEl);
+  });
+  var title=document.querySelector('.book-top h1');
+  var dlLink=document.getElementById('dlLink');
+  function curTheme(){ return document.documentElement.getAttribute('data-theme')==='dark'?'dark':'light'; }
+  function show(key){
+    var d=byKey[key]; if(!d) return;
+    if(!d.frameEl.getAttribute('src')) d.frameEl.setAttribute('src', d.src+'?embed=1&theme='+curTheme());
+    defs.forEach(function(x){ x.viewEl.style.display=(x===d)?'block':'none'; x.btnEl.classList.toggle('active', x===d); });
+    if(title) title.textContent=d.title;
+    dlLink.setAttribute('href', d.pdf);
+  }
+  defs.forEach(function(d){ d.btnEl.addEventListener('click', function(e){ e.preventDefault(); show(d.key); }); });
+  // charge le cours tout de suite (vue par défaut)
+  show('cours');
+  // vue initiale via ?view= (cours, m1..m4)
+  var iv=new URLSearchParams(location.search).get('view');
+  if(iv && byKey[iv]) show(iv);
+  // menu déroulant en mobile
+  var menu=document.querySelector('.menu'), mToggle=document.getElementById('menuToggle');
+  if(mToggle){
+    mToggle.addEventListener('click', function(){ menu.classList.toggle('open'); });
+    btns.forEach(function(b){ b.addEventListener('click', function(){ menu.classList.remove('open'); }); });
+  }
+  // diffuser le thème aux cadres quand on bascule clair/sombre
+  new MutationObserver(function(){
+    frames.forEach(function(f){ try{ f.contentWindow && f.contentWindow.postMessage({theme:curTheme()}, '*'); }catch(e){} });
+  }).observe(document.documentElement, {attributes:true, attributeFilter:['data-theme']});
+  // ajuster la hauteur des cadres de flipbook à leur contenu
+  window.addEventListener('message', function(e){
+    if(e.data && e.data.frameHeight){
+      frames.forEach(function(f){ if(f.contentWindow===e.source){ f.style.height=e.data.frameHeight+'px'; } });
+    }
+  });
+})();
+</script>
+</body>
+</html>

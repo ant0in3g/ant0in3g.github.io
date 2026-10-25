@@ -9,7 +9,7 @@
   var PDF_URL = el.getAttribute('data-pdf');
   var SCALE = parseFloat(el.getAttribute('data-scale') || '0');   // 0 = auto (densité écran)
   var DPR = Math.min(window.devicePixelRatio || 1, 2);            // plafonné à 2
-  var IS_MOBILE = window.matchMedia('(max-width: 860px)').matches; // mobile → défilement vertical
+  function isMobile(){ return window.matchMedia('(max-width: 860px)').matches; } // mobile → défilement vertical
   var loadingEl = document.getElementById('loading'),
       controls  = document.getElementById('controls'),
       hint      = document.getElementById('hint'),
@@ -17,6 +17,7 @@
       prevBtn   = document.getElementById('prev'),
       nextBtn   = document.getElementById('next');
   var pageFlip = null, total = 0, pages = [], currentIdx = 0, overlay = null;
+  var mode = null, ratioStored = 1.414;   // mode courant ('flip'|'scroll') pour basculer au redimensionnement
 
   if(!window.pdfjsLib){ if(loadingEl) loadingEl.textContent = "Impossible de charger la visionneuse."; return; }
   pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
@@ -67,7 +68,7 @@
     // Résolution adaptative : plus nette sur écrans haute densité (mobile),
     // plafonnée selon le nombre de pages pour préserver la mémoire.
     if(!SCALE){
-      if(IS_MOBILE){
+      if(isMobile()){
         SCALE = 3.0;   // net + zoomable ; le chargement paresseux gère la mémoire
       } else {
         var maxS = total > 28 ? 2.8 : (total > 16 ? 3.2 : 3.6);
@@ -96,7 +97,7 @@
         });
       });
     }
-    chain.then(function(){ IS_MOBILE ? initScroll() : initFlip(ratio); });
+    chain.then(function(){ ratioStored = ratio; applyMode(); });
   }).catch(function(){
     if(loadingEl) loadingEl.innerHTML = 'Le document n\'a pas pu être chargé ici. Vous pouvez l\'ouvrir directement : <a href="'+PDF_URL+'" target="_blank" rel="noopener">le PDF</a>.<br><span style="font-size:.75rem">(La visionneuse fonctionne sur le site publié.)</span>';
   });
@@ -165,7 +166,6 @@
 
     pageFlip.on('flip', function(e){ currentIdx = e.data; setCount(e.data); layout(); });
     pageFlip.on('changeState', function(e){ if(e.data==='read'){ layout(); } else { hideOverlay(); } });
-    window.addEventListener('resize', function(){ layout(); });
     // premier rendu de la couche de liens
     setTimeout(layout, 60);
   }
@@ -212,6 +212,30 @@
       });
     });
   }
+
+  /* Démonte la vue courante (livre ou défilement) sans re-rendre le PDF :
+     les images/liens restent en mémoire, on ne reconstruit que l'affichage. */
+  function teardown(){
+    if(pageFlip){ try{ pageFlip.destroy(); }catch(e){} pageFlip = null; }
+    if(overlay && overlay.parentNode){ overlay.parentNode.removeChild(overlay); }
+    overlay = null; currentIdx = 0;
+    el.classList.remove('pf-scroll');
+    el.innerHTML = '';
+  }
+  /* Choisit le mode selon la largeur et bascule si le seuil (860px) est franchi. */
+  function applyMode(){
+    var want = isMobile() ? 'scroll' : 'flip';
+    if(want === mode) return;                 // déjà dans le bon mode
+    teardown();
+    mode = want;
+    if(want === 'scroll') initScroll(); else initFlip(ratioStored);
+  }
+  var _rzT;
+  window.addEventListener('resize', function(){
+    if(mode === 'flip') layout();             // recaler la couche de liens
+    clearTimeout(_rzT);
+    _rzT = setTimeout(applyMode, 180);        // basculer livre <-> défilement au besoin
+  });
 
   if(prevBtn) prevBtn.addEventListener('click', function(){ if(pageFlip) pageFlip.flipPrev(); });
   if(nextBtn) nextBtn.addEventListener('click', function(){ if(pageFlip) pageFlip.flipNext(); });
