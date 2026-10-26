@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Correction — Faire une ACP avec R (Exercice 1) | Antoine Géré</title>
+<meta name="description" content="Correction détaillée de l'exercice 1 : ACP de la fertilité des sols de quinze sites du Cameroun, avec R et FactoMineR. ISTOM.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../assets/site.css">
+<style>
+  ol.qs{counter-reset:q;list-style:none;padding:0;margin:0}
+  ol.qs>li{counter-increment:q;position:relative;padding-left:40px;margin:30px 0}
+  ol.qs>li::before{content:counter(q);position:absolute;left:0;top:-2px;width:27px;height:27px;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:.8rem;font-weight:600;color:#fff;background:var(--accent);border-radius:50%}
+  ol.qs>li>.qt{font-weight:600;color:var(--ink)}
+  ol.sub{list-style:lower-alpha;padding-left:20px;margin:8px 0}
+  ol.sub>li{margin:9px 0}
+  .lecture{border-left:3px solid var(--accent);background:var(--accent-soft);border-radius:0 8px 8px 0;padding:12px 18px;margin:14px 0;font-size:.92rem}
+  .lecture .lab{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:5px}
+  .lecture p{margin:0 0 6px}.lecture p:last-child{margin:0}
+  .controle{display:flex;gap:10px;align-items:flex-start;background:rgba(31,143,90,.09);border:1px solid rgba(31,143,90,.32);border-radius:8px;padding:10px 14px;margin:12px 0;font-size:.9rem}
+  .controle .chk{color:#1f8f5a;font-weight:700;flex:none}
+  .controle .lab{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:#1f8f5a;display:block;margin-bottom:2px}
+  .mode{border-left:3px solid var(--line);background:var(--card);border-radius:0 8px 8px 0;padding:12px 18px;margin:16px 0;font-size:.9rem}
+  .mode .lab{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px}
+  .mode ul{margin:6px 0 0;padding-left:20px}
+  figure.svgfig{margin:20px auto;text-align:center}
+  figure.svgfig svg{max-width:100%;height:auto;border:1px solid var(--line);border-radius:10px;background:var(--card);padding:10px}
+  figure.svgfig figcaption{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted);margin-top:8px}
+  .hint-pos{color:var(--accent);font-weight:600}
+  .hint-neg{color:#c0392b;font-weight:600}
+  table .b{font-weight:700;color:var(--accent)}
+  table .bn{font-weight:700;color:#c0392b}
+  svg text{font-family:'IBM Plex Mono',monospace}
+  .up{color:var(--accent);font-weight:700}.dn{color:#c0392b;font-weight:700}
+</style>
+<script>
+  window.MathJax = { tex:{ inlineMath:[['\\(','\\)']], displayMath:[['\\[','\\]']] }, svg:{ fontCache:'global' } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js" async></script>
+</head>
+<body>
+<button class="toggle" id="themeToggle" aria-label="Changer de thème">◑</button>
+<div class="layout">
+  <aside>
+    <a class="back" href="td-acp_R.html">← Énoncé du TD</a>
+    <div class="brand-row">
+      <a href="../../../index.html" class="brand-link" aria-label="Retour à l'accueil"><p class="brand sm">Antoine<br>Géré</p>
+      <span class="globe" aria-hidden="true" style="width:42px;height:42px"><canvas id="globeCanvas"></canvas></span></a>
+    </div>
+    <p class="role">Correction · R Lab · ISTOM</p>
+    <nav>
+      <a href="#q1">1 · Préparer la séance</a>
+      <a href="#q2">2 · Avant l'ACP</a>
+      <a href="#q3">3 · Lancer l'ACP</a>
+      <a href="#q4">4 · Combien d'axes</a>
+      <a href="#q5">5 · Cercle des corrélations</a>
+      <a href="#q6">6 · Carte des sites</a>
+      <a href="#q7">7 · Éléments supplémentaires</a>
+      <a href="#q8">8 · Synthèse</a>
+    </nav>
+    <div class="side-contact">
+      <a href="td-acp_R.pdf" target="_blank" rel="noopener">↓ Télécharger le PDF</a><br>
+      <a href="mailto:a.gere@istom.fr">a.gere@istom.fr</a>
+    </div>
+  </aside>
+  <main>
+    <h1 class="page-title">Correction — Faire une ACP avec R</h1>
+    <p class="teacher">Exercice 1 (guidé) · fertilité des sols, Cameroun — <a href="mailto:a.gere@istom.fr">Antoine Géré</a></p>
+
+    <div class="mode"><span class="lab">Comment lire cette correction</span>
+      <ul>
+        <li>Chaque réponse suit le même fil : <strong>ce que R affiche</strong> (tableau ou figure), <strong>ce qu'on y lit</strong>, puis <strong>la conclusion agronomique</strong>.</li>
+        <li>Les valeurs sont celles de <code>FactoMineR</code>. Selon l'ordinateur, le signe d'un axe peut être inversé (toute la carte est alors retournée en miroir), sans conséquence sur l'interprétation.</li>
+        <li>Les figures reprennent les sorties de R, avec les mêmes valeurs, pour les rendre plus lisibles.</li>
+      </ul>
+    </div>
+
+    <ol class="qs">
+      <li id="q1"><span class="qt">Préparer la séance.</span>
+        <p><strong>c)</strong> <code>str(sols)</code> affiche <code>'data.frame': 15 obs. of 10 variables</code> : neuf colonnes <code>num</code> (de <code>pH</code> à <code>Rdt_mais</code>) et <code>Zone : Factor w/ 4 levels</code>.</p>
+        <ul>
+          <li>Les noms des sites sont des <em>étiquettes</em>, pas une variable mesurée : en noms de lignes, ils servent à nommer les points de la carte, et <code>PCA</code> ne les traite pas comme une donnée (une colonne de texte ferait d'ailleurs échouer la fonction).</li>
+          <li>Après suppression de <code>Site</code>, les colonnes 1 à 8 (<code>pH, MO, N, P, K, CEC, Argile, Sable</code>) sont les <strong>variables actives</strong>, <code>Rdt_mais</code> est la colonne <strong>9</strong> (<code>quanti.sup</code>) et <code>Zone</code> la colonne <strong>10</strong> (<code>quali.sup</code>) : ce sont ces numéros qu'on utilisera dans <code>PCA</code>.</li>
+        </ul>
+      </li>
+
+      <li id="q2"><span class="qt">Regarder les données avant l'ACP.</span>
+        <ol class="sub">
+          <li><strong>Unités et dispersions.</strong> Les unités sont toutes différentes (pH sans unité, %, g/kg, mg/kg, cmol⁺/kg) et les dispersions très inégales :
+            <div class="table-wrap"><table class="center">
+              <thead><tr><th></th><th>pH</th><th>MO</th><th>N</th><th>P</th><th>K</th><th>CEC</th><th>Argile</th><th>Sable</th><th>Rdt</th></tr></thead>
+              <tbody>
+                <tr><td>Moyenne</td><td>5,67</td><td>3,25</td><td>1,75</td><td>11,75</td><td>0,42</td><td>11,93</td><td>30,6</td><td>47,0</td><td>2,55</td></tr>
+                <tr><td>Écart-type</td><td>0,47</td><td>1,14</td><td>0,66</td><td>4,41</td><td>0,16</td><td>4,67</td><td>11,10</td><td>12,01</td><td>0,68</td></tr>
+                <tr><td>Variance</td><td>0,22</td><td>1,29</td><td>0,43</td><td>19,43</td><td>0,03</td><td>21,79</td><td>123,26</td><td>144,14</td><td>—</td></tr>
+              </tbody>
+            </table></div>
+            Sans réduction, l'inertie totale serait la somme des variances (\(\approx 310\)), et chaque variable y pèserait selon sa variance : l'argile et le sable feraient à eux seuls <strong>86 %</strong> de l'inertie, le pH ou le potassium presque rien — <em>simplement à cause de leur unité</em>. L'ACP <strong>normée</strong> donne à chaque variable une variance égale à 1, donc le même poids (\(100/8 = 12{,}5\,\%\)) : elle est indispensable ici.
+            <div class="table-wrap"><table class="center">
+              <thead><tr><th>Part de l'inertie <em>sans</em> réduction</th><th>pH</th><th>MO</th><th>N</th><th>P</th><th>K</th><th>CEC</th><th>Argile</th><th>Sable</th></tr></thead>
+              <tbody><tr><td>%</td><td>0,07</td><td>0,42</td><td>0,14</td><td>6,26</td><td>0,01</td><td>7,02</td><td class="b">39,69</td><td class="b">46,41</td></tr></tbody>
+            </table></div>
+          </li>
+          <li><strong>Corrélations.</strong> La matrice se lit mieux en couleurs (rouge : liaison positive, bleu : négative ; plus foncé, plus fort). Les quatre couples les plus corrélés sont surlignés :
+            <div class="table-wrap"><table class="center">
+              <thead><tr><th></th><th>pH</th><th>MO</th><th>N</th><th>P</th><th>K</th><th>CEC</th><th>Argile</th><th>Sable</th></tr></thead>
+              <tbody>
+                <tr><td>pH</td><td>1</td><td>−0,59</td><td>−0,49</td><td>0,43</td><td>0,33</td><td>−0,23</td><td>−0,57</td><td>0,65</td></tr>
+                <tr><td>MO</td><td>−0,59</td><td>1</td><td class="b">0,95</td><td>0,28</td><td>0,30</td><td>0,76</td><td>0,72</td><td class="bn">−0,88</td></tr>
+                <tr><td>N</td><td>−0,49</td><td class="b">0,95</td><td>1</td><td>0,36</td><td>0,37</td><td>0,78</td><td>0,74</td><td class="bn">−0,87</td></tr>
+                <tr><td>P</td><td>0,43</td><td>0,28</td><td>0,36</td><td>1</td><td class="b">0,82</td><td>0,69</td><td>0,12</td><td>−0,07</td></tr>
+                <tr><td>K</td><td>0,33</td><td>0,30</td><td>0,37</td><td class="b">0,82</td><td>1</td><td>0,63</td><td>0,04</td><td>−0,01</td></tr>
+                <tr><td>CEC</td><td>−0,23</td><td>0,76</td><td>0,78</td><td>0,69</td><td>0,63</td><td>1</td><td>0,57</td><td>−0,63</td></tr>
+                <tr><td>Argile</td><td>−0,57</td><td>0,72</td><td>0,74</td><td>0,12</td><td>0,04</td><td>0,57</td><td>1</td><td>−0,70</td></tr>
+                <tr><td>Sable</td><td>0,65</td><td class="bn">−0,88</td><td class="bn">−0,87</td><td>−0,07</td><td>−0,01</td><td>−0,63</td><td>−0,70</td><td>1</td></tr>
+              </tbody>
+            </table></div>
+            <div class="table-wrap"><table>
+              <thead><tr><th>Couple</th><th>\(r\)</th><th>Explication agronomique</th></tr></thead>
+              <tbody>
+                <tr><td>MO – N</td><td>0,95</td><td>l'azote du sol est surtout organique : MO et N vont ensemble</td></tr>
+                <tr><td>MO – Sable</td><td>−0,88</td><td>les sols sableux retiennent mal la matière organique</td></tr>
+                <tr><td>N – Sable</td><td>−0,87</td><td>conséquence des deux lignes précédentes</td></tr>
+                <tr><td>P – K</td><td>0,82</td><td>P et K sont tous deux abondants dans les sols volcaniques</td></tr>
+              </tbody>
+            </table></div>
+            Ces liaisons annoncent déjà deux « familles » de variables (matière organique et texture d'un côté, P et K de l'autre), que l'ACP va retrouver.
+          </li>
+          <li><strong>Rendement selon la zone.</strong> Rendements moyens : Hauts plateaux <strong>3,50</strong> t/ha, Forêt 2,34, Transition 2,17, Savane 2,00. Les Hauts plateaux se détachent nettement (tous leurs sites au-dessus de 3 t/ha) ; les trois autres zones se chevauchent largement autour de 2 à 2,5 t/ha. On cherchera à l'expliquer par les sols.</li>
+        </ol>
+      </li>
+
+      <li id="q3"><span class="qt">Lancer l'ACP.</span>
+        <ol class="sub">
+          <li><strong>Rôle des arguments.</strong>
+            <div class="table-wrap"><table>
+              <thead><tr><th>Argument</th><th>Rôle</th></tr></thead>
+              <tbody>
+                <tr><td><code>scale.unit = TRUE</code></td><td>ACP <em>normée</em> : chaque variable est centrée et réduite</td></tr>
+                <tr><td><code>quanti.sup = 9</code></td><td>la colonne 9 (<code>Rdt_mais</code>) est une variable quantitative <em>supplémentaire</em></td></tr>
+                <tr><td><code>quali.sup = 10</code></td><td>la colonne 10 (<code>Zone</code>) est une variable qualitative <em>supplémentaire</em></td></tr>
+                <tr><td><code>graph = FALSE</code></td><td>pas de graphique automatique : on les tracera nous-mêmes, un par un</td></tr>
+              </tbody>
+            </table></div>
+          </li>
+          <li><strong>Pourquoi le rendement en supplémentaire ?</strong> La question est « les types de sols expliquent-ils le rendement ? ». Il faut donc construire la typologie des sols <em>sans</em> le rendement, puis regarder où il se place. En variable active, le rendement participerait à la définition des axes et le raisonnement deviendrait circulaire ; il dépend en outre d'autres facteurs que le sol (pluie, variété, conduite). Les éléments supplémentaires ne modifient pas les axes : ils sont placés ensuite, pour aider à les interpréter.</li>
+          <li><strong>Que contient <code>res</code> ?</strong> <code>names(res)</code> affiche : <code>"eig" "var" "ind" "svd" "quanti.sup" "quali.sup" "call"</code>. <code>summary(res)</code> résume toute l'ACP : valeurs propres, puis coordonnées (<code>Dim.1</code>…), contributions (<code>ctr</code>) et \(\cos^2\) des premiers individus et variables, et résultats des éléments supplémentaires.</li>
+        </ol>
+      </li>
+
+      <li id="q4"><span class="qt">Combien d'axes ?</span>
+        <ol class="sub">
+          <li><strong>Valeurs propres.</strong>
+            <div class="table-wrap"><table class="center">
+              <thead><tr><th>Axe</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr></thead>
+              <tbody>
+                <tr><td>\(\lambda_s\)</td><td class="b">4,61</td><td class="b">2,36</td><td>0,38</td><td>0,29</td><td>0,19</td><td>0,08</td><td>0,06</td><td>0,03</td></tr>
+                <tr><td>% inertie</td><td>57,7</td><td>29,5</td><td>4,7</td><td>3,6</td><td>2,4</td><td>1,0</td><td>0,7</td><td>0,4</td></tr>
+                <tr><td>% cumulé</td><td>57,7</td><td>87,2</td><td>91,9</td><td>95,6</td><td>97,9</td><td>98,9</td><td>99,6</td><td>100</td></tr>
+              </tbody>
+            </table></div>
+            <div class="controle"><span class="chk">✓</span><div><span class="lab">Contrôle</span>\(\lambda_1 \approx 4{,}61\) ; le pourcentage est \(100\times\lambda_s/8\) (ex. \(100\times 4{,}613/8 = 57{,}7\,\%\)).</div></div>
+            <code>sum(res$eig[, 1])</code> vaut <strong>8</strong> : en ACP normée, l'inertie totale est égale au nombre de variables actives.
+          </li>
+          <li>Le plan \((1,2)\) restitue \(57{,}7+29{,}5 = \mathbf{87{,}2\,\%}\) de l'inertie : la carte sera fidèle pour la plupart des sites.</li>
+          <li><strong>Nombre d'axes.</strong>
+            <figure class="svgfig">
+              <svg viewBox="0 0 420 210" role="img" aria-label="Éboulis des valeurs propres">
+                <line x1="40" y1="170" x2="410" y2="170" stroke="var(--muted)"/>
+                <line x1="40" y1="20" x2="40" y2="170" stroke="var(--muted)"/>
+                <text x="18" y="173" font-size="9" fill="var(--muted)">0</text>
+                <text x="12" y="110" font-size="9" fill="var(--muted)">1</text>
+                <line x1="37" y1="107" x2="40" y2="107" stroke="var(--muted)"/>
+                <text x="12" y="50" font-size="9" fill="var(--muted)">4,6</text>
+                <!-- bars: baseline y=170, scale 30px per unit -->
+                <g>
+                  <rect x="55"  y="31.7" width="30" height="138.3" fill="var(--accent)"/>
+                  <rect x="100" y="99.2" width="30" height="70.8" fill="var(--accent)"/>
+                  <rect x="145" y="158.6" width="30" height="11.4" fill="var(--accent-soft)" stroke="var(--line)"/>
+                  <rect x="190" y="161.3" width="30" height="8.7" fill="var(--accent-soft)" stroke="var(--line)"/>
+                  <rect x="235" y="164.3" width="30" height="5.7" fill="var(--accent-soft)" stroke="var(--line)"/>
+                  <rect x="280" y="167.6" width="30" height="2.4" fill="var(--accent-soft)" stroke="var(--line)"/>
+                  <rect x="325" y="168.2" width="30" height="1.8" fill="var(--accent-soft)" stroke="var(--line)"/>
+                  <rect x="370" y="169.1" width="30" height="0.9" fill="var(--accent-soft)" stroke="var(--line)"/>
+                </g>
+                <g font-size="8.5" fill="var(--ink)" text-anchor="middle">
+                  <text x="70" y="26">57,7%</text><text x="115" y="94">29,5%</text><text x="160" y="153">4,7%</text>
+                  <text x="205" y="156">3,6%</text><text x="250" y="159">2,4%</text>
+                </g>
+                <g font-size="9" fill="var(--muted)" text-anchor="middle">
+                  <text x="70" y="183">1</text><text x="115" y="183">2</text><text x="160" y="183">3</text><text x="205" y="183">4</text><text x="250" y="183">5</text><text x="295" y="183">6</text><text x="340" y="183">7</text><text x="385" y="183">8</text>
+                </g>
+                <line x1="40" y1="107" x2="405" y2="107" stroke="#c0392b" stroke-dasharray="4 3"/>
+                <text x="345" y="103" font-size="8.5" fill="#c0392b">Kaiser : λ = 1</text>
+                <text x="150" y="135" font-size="8.5" fill="var(--ink)">coude après l'axe 2</text>
+              </svg>
+              <figcaption>Éboulis des valeurs propres \(\lambda_s\).</figcaption>
+            </figure>
+            <ul>
+              <li><em>Kaiser</em> : \(\lambda_1 = 4{,}61\) et \(\lambda_2 = 2{,}36\) dépassent 1, \(\lambda_3 = 0{,}38\) non : <strong>deux axes</strong>.</li>
+              <li><em>Coude</em> : la chute est forte jusqu'à l'axe 2, puis les barres deviennent petites et presque égales : coude très net après le deuxième axe, même conclusion.</li>
+            </ul>
+            On interprète donc le plan \((1,2)\).
+          </li>
+        </ol>
+      </li>
+
+      <li id="q5"><span class="qt">Le cercle des corrélations.</span>
+        <ol class="sub">
+          <li><strong>Résultats des variables</strong> (en gras : contributions supérieures à la moyenne \(12{,}5\,\%\)) :
+            <div class="table-wrap"><table class="center">
+              <thead><tr><th>Variable</th><th>\(r(X_k,F_1)\)</th><th>\(r(X_k,F_2)\)</th><th>\(\cos^2_1\)</th><th>\(\cos^2_2\)</th><th>plan</th><th>contrib 1</th><th>contrib 2</th></tr></thead>
+              <tbody>
+                <tr><td>pH</td><td>−0,54</td><td>0,73</td><td>0,30</td><td>0,54</td><td>0,83</td><td>6,4</td><td class="b">22,7</td></tr>
+                <tr><td>MO</td><td>0,96</td><td>−0,10</td><td>0,92</td><td>0,01</td><td>0,93</td><td class="b">19,9</td><td>0,4</td></tr>
+                <tr><td>N</td><td>0,97</td><td>−0,01</td><td>0,93</td><td>0,00</td><td>0,93</td><td class="b">20,2</td><td>0,0</td></tr>
+                <tr><td>P</td><td>0,40</td><td>0,87</td><td>0,16</td><td>0,77</td><td>0,93</td><td>3,5</td><td class="b">32,4</td></tr>
+                <tr><td>K</td><td>0,38</td><td>0,85</td><td>0,15</td><td>0,72</td><td>0,86</td><td>3,2</td><td class="b">30,4</td></tr>
+                <tr><td>CEC</td><td>0,86</td><td>0,39</td><td>0,75</td><td>0,15</td><td>0,90</td><td class="b">16,2</td><td>6,4</td></tr>
+                <tr><td>Argile</td><td>0,80</td><td>−0,27</td><td>0,64</td><td>0,07</td><td>0,71</td><td class="b">13,8</td><td>3,1</td></tr>
+                <tr><td>Sable</td><td>−0,88</td><td>0,33</td><td>0,77</td><td>0,11</td><td>0,88</td><td class="b">16,8</td><td>4,6</td></tr>
+                <tr><td><em>Rdt (sup.)</em></td><td>0,59</td><td>0,47</td><td>0,35</td><td>0,22</td><td>0,57</td><td>—</td><td>—</td></tr>
+              </tbody>
+            </table></div>
+            <div class="controle"><span class="chk">✓</span><div><span class="lab">Contrôle</span>chaque colonne de \(\cos^2\) totalise la valeur propre de l'axe (\(4{,}61\) ; \(2{,}36\)), et chaque colonne de contributions totalise 100 %. Le rendement, supplémentaire, n'a pas de contribution.</div></div>
+            <figure class="svgfig">
+              <svg viewBox="0 0 330 320" role="img" aria-label="Cercle des corrélations">
+                <defs>
+                  <marker id="ah-a" markerWidth="8" markerHeight="8" refX="5.5" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L6.5,3 L0,6 z" fill="var(--accent)"/></marker>
+                  <marker id="ah-t" markerWidth="8" markerHeight="8" refX="5.5" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L6.5,3 L0,6 z" fill="#1f8f82"/></marker>
+                  <marker id="ah-r" markerWidth="8" markerHeight="8" refX="5.5" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L6.5,3 L0,6 z" fill="#c0392b"/></marker>
+                </defs>
+                <circle cx="160" cy="155" r="120" fill="var(--accent-soft)" stroke="var(--muted)"/>
+                <circle cx="160" cy="155" r="60" fill="none" stroke="var(--line)" stroke-dasharray="2 3"/>
+                <line x1="30" y1="155" x2="290" y2="155" stroke="var(--muted)"/>
+                <line x1="160" y1="25" x2="160" y2="285" stroke="var(--muted)"/>
+                <text x="293" y="153" font-size="9" fill="var(--muted)">Dim 1</text>
+                <text x="164" y="24" font-size="9" fill="var(--muted)">Dim 2</text>
+                <!-- axe1 variables (accent) -->
+                <g stroke="var(--accent)" stroke-width="1.6" fill="var(--accent)">
+                  <line x1="160" y1="155" x2="275" y2="167" marker-end="url(#ah-a)"/><line x1="160" y1="155" x2="276" y2="156" marker-end="url(#ah-a)"/>
+                  <line x1="160" y1="155" x2="263" y2="108" marker-end="url(#ah-a)"/><line x1="160" y1="155" x2="256" y2="187" marker-end="url(#ah-a)"/>
+                  <line x1="160" y1="155" x2="54"  y2="115" marker-end="url(#ah-a)"/>
+                </g>
+                <!-- axe2 variables (teal) -->
+                <g stroke="#1f8f82" stroke-width="1.6" fill="#1f8f82">
+                  <line x1="160" y1="155" x2="95"  y2="67" marker-end="url(#ah-t)"/><line x1="160" y1="155" x2="208" y2="51" marker-end="url(#ah-t)"/><line x1="160" y1="155" x2="206" y2="53" marker-end="url(#ah-t)"/>
+                </g>
+                <line x1="160" y1="155" x2="231" y2="99" stroke="#c0392b" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#ah-r)"/>
+                <g font-size="9" fill="var(--ink)">
+                  <text x="278" y="170">MO</text><text x="279" y="153">N</text><text x="266" y="105">CEC</text><text x="258" y="198">Argile</text><text x="30" y="112">Sable</text>
+                  <text x="74" y="62" fill="#1f8f82">pH</text><text x="211" y="47" fill="#1f8f82">P</text><text x="188" y="50" fill="#1f8f82">K</text>
+                  <text x="233" y="95" fill="#c0392b">Rdt</text>
+                </g>
+              </svg>
+              <figcaption>Cercle des corrélations (Dim 1 : 57,7 % ; Dim 2 : 29,5 %). Bleu : variables de l'axe 1 ; vert : de l'axe 2 ; rouge pointillé : rendement (supplémentaire).</figcaption>
+            </figure>
+          </li>
+          <li><strong>Axe 1 (57,7 %).</strong> Corrélations fortes et positives avec N (0,97), MO (0,96), CEC (0,86) et Argile (0,80) ; forte et négative avec Sable (−0,88). Ce sont aussi les cinq variables qui y contribuent plus que la moyenne (87 % de l'axe à elles cinq). Il oppose les sols <em>argileux, riches en matière organique et à forte CEC</em> (à droite) aux sols <em>sableux et pauvres</em> (à gauche) : c'est un axe <strong>« réserve organique et texture »</strong>.</li>
+          <li><strong>Axe 2 (29,5 %).</strong> Corrélations fortes et positives avec P (0,87), K (0,85) et, dans une moindre mesure, pH (0,73) ; ces trois variables font 85,5 % de l'axe. Il oppose, <em>à niveau organique donné</em>, des sols peu acides et riches en P et K (en haut) à des sols acides et pauvres (en bas) : c'est un axe <strong>« acidité et richesse minérale »</strong>, indépendant du premier.</li>
+          <li><strong>Qualité de représentation.</strong> L'argile est la moins bien représentée sur le plan : \(\cos^2 = 0{,}64+0{,}07 = \mathbf{0{,}71}\) ; MO, N et P sont les mieux représentées (0,93). Le reste de l'information de l'argile est surtout sur l'axe 3 (\(\cos^2_3 = 0{,}26\)).</li>
+          <li><strong>Le piège des couleurs « contribution ».</strong> La contribution au <em>plan</em> est la moyenne des contributions aux deux axes, pondérée par les valeurs propres ; pour MO :
+            \[ \frac{4{,}613\times 19{,}93 + 2{,}363\times 0{,}42}{4{,}613+2{,}363} \approx 13{,}3\,\%. \]
+            Au plan, toutes les variables sont proches de 12,5 % (de 10,2 % pour l'argile à 13,4 % pour N). Mais <em>axe par axe</em>, c'est tranché : MO et N font 40 % de l'axe 1 et presque rien sur l'axe 2 ; P et K font 63 % de l'axe 2 et presque rien sur l'axe 1. Pour nommer un axe, on lit donc les contributions <strong>axe par axe</strong>.
+          </li>
+          <li><strong>Lien avec le calcul à la main (MO).</strong> Avec \(r(\text{MO},F_1)=0{,}959\), \(\lambda_1=4{,}613\) et \(u_{12}=0{,}446\) :
+            \[ \cos^2_1 = 0{,}959^2 = 0{,}919;\quad \operatorname{contrib}_1 = 100\times\tfrac{0{,}919}{4{,}613} = 19{,}9\,\%;\quad r = \sqrt{4{,}613}\times 0{,}446 = 0{,}958. \]
+            Le logiciel applique exactement les formules vues à la main.
+          </li>
+          <li><strong>P et K.</strong> Produit scalaire des deux flèches sur le plan : \(0{,}400\times0{,}382 + 0{,}875\times0{,}847 = \mathbf{0{,}89}\), contre \(r(\text{P},\text{K}) = \mathbf{0{,}82}\). La corrélation est la somme de ces produits sur <em>tous</em> les axes ; les axes suivants apportent de petites corrections négatives. Les deux valeurs sont proches (flèches longues) mais pas égales (une petite part de l'information de P et K est hors du plan).</li>
+        </ol>
+      </li>
+
+      <li id="q6"><span class="qt">La carte des sites.</span>
+        <ol class="sub">
+          <li><strong>Carte des sites</strong>, couleur = zone ; les losanges sont les barycentres des zones.
+            <figure class="svgfig">
+              <svg viewBox="0 0 460 350" role="img" aria-label="Carte des sites">
+                <line x1="20" y1="175" x2="445" y2="175" stroke="var(--muted)"/>
+                <line x1="230" y1="20" x2="230" y2="330" stroke="var(--muted)"/>
+                <text x="447" y="173" font-size="9" fill="var(--muted)">Dim 1 (57,7 %)</text>
+                <text x="234" y="20" font-size="9" fill="var(--muted)">Dim 2 (29,5 %)</text>
+                <!-- Forêt green -->
+                <g fill="#2f8f3a">
+                  <circle cx="269" cy="233" r="3"/><text x="273" y="243" font-size="8">Obala</text>
+                  <circle cx="272" cy="207" r="3"/><text x="276" y="210" font-size="8">Mbalmayo</text>
+                  <circle cx="301" cy="244" r="3"/><text x="305" y="254" font-size="8">Ebolowa</text>
+                  <circle cx="240" cy="207" r="3"/><text x="214" y="217" font-size="8">Sangmélima</text>
+                  <circle cx="260" cy="184" r="3"/><text x="264" y="183" font-size="8">Akonolinga</text>
+                </g>
+                <!-- Hauts plateaux orange -->
+                <g fill="#d2821a">
+                  <circle cx="295" cy="104" r="3"/><text x="258" y="103" font-size="8">Bafoussam</text>
+                  <circle cx="305" cy="130" r="3"/><text x="309" y="133" font-size="8">Dschang</text>
+                  <circle cx="309" cy="91"  r="3"/><text x="313" y="90" font-size="8">Mbouda</text>
+                  <circle cx="247" cy="176" r="3"/><text x="251" y="174" font-size="8">Foumban</text>
+                </g>
+                <!-- Transition blue -->
+                <g fill="#2a6fb0">
+                  <circle cx="204" cy="225" r="3"/><text x="180" y="235" font-size="8">Bafia</text>
+                  <circle cx="195" cy="205" r="3"/><text x="171" y="205" font-size="8">Ntui</text>
+                  <circle cx="150" cy="157" r="3"/><text x="135" y="152" font-size="8">Yoko</text>
+                </g>
+                <!-- Savane red -->
+                <g fill="#c0392b">
+                  <circle cx="150" cy="184" r="3"/><text x="125" y="194" font-size="8">Tibati</text>
+                  <circle cx="137" cy="116" r="3"/><text x="98" y="113" font-size="8">Ngaoundéré</text>
+                  <circle cx="115" cy="161" r="3"/><text x="78" y="160" font-size="8">Meiganga</text>
+                </g>
+                <!-- barycentres diamonds -->
+                <g>
+                  <rect x="264" y="215" width="8" height="8" transform="rotate(45 268 219)" fill="#2f8f3a" opacity=".35" stroke="#2f8f3a"/>
+                  <rect x="285" y="125" width="8" height="8" transform="rotate(45 289 129)" fill="#d2821a" opacity=".35" stroke="#d2821a"/>
+                  <rect x="179" y="196" width="8" height="8" transform="rotate(45 183 200)" fill="#2a6fb0" opacity=".35" stroke="#2a6fb0"/>
+                  <rect x="130" y="154" width="8" height="8" transform="rotate(45 134 158)" fill="#c0392b" opacity=".35" stroke="#c0392b"/>
+                </g>
+              </svg>
+              <figcaption>Carte des sites (couleur = zone). Forêt en bas à droite, Hauts plateaux en haut à droite, Savane et Transition à gauche.</figcaption>
+            </figure>
+          </li>
+          <li><strong>Les quatre zones</strong> (moyennes brutes par zone, en gras les écarts marqués à la moyenne) :
+            <div class="table-wrap"><table class="center">
+              <thead><tr><th>Zone</th><th>barycentre</th><th>pH</th><th>MO</th><th>P</th><th>K</th><th>Sable</th><th>Rdt</th></tr></thead>
+              <tbody>
+                <tr><td class="up">Forêt</td><td>(1,28 ; −1,34)</td><td>5,18</td><td class="b">4,06</td><td>9,48</td><td>0,36</td><td>38,8</td><td>2,34</td></tr>
+                <tr><td class="up">Hauts plateaux</td><td>(1,97 ; 1,66)</td><td>5,80</td><td class="b">4,03</td><td class="b">17,60</td><td class="b">0,60</td><td>40,5</td><td class="b">3,50</td></tr>
+                <tr><td class="dn">Transition</td><td>(−1,56 ; −0,69)</td><td>5,87</td><td>2,60</td><td>8,57</td><td>0,30</td><td>51,7</td><td>2,17</td></tr>
+                <tr><td class="dn">Savane</td><td>(−3,20 ; 0,71)</td><td>6,10</td><td>1,53</td><td>10,93</td><td>0,42</td><td class="b">64,7</td><td>2,00</td></tr>
+                <tr><td>Moyenne</td><td>(0 ; 0)</td><td>5,67</td><td>3,25</td><td>11,75</td><td>0,42</td><td>47,0</td><td>2,55</td></tr>
+              </tbody>
+            </table></div>
+            <ul>
+              <li><strong>Forêt</strong> (bas-droite) : sols argileux et organiques, mais <em>acides</em> et pauvres en P et K (ferrallitiques désaturés).</li>
+              <li><strong>Hauts plateaux</strong> (haut-droite) : organiques <em>et</em> riches en P et K, peu acides (sols volcaniques).</li>
+              <li><strong>Savane</strong> (gauche) : sableux et pauvres en matière organique, mais peu acides.</li>
+              <li><strong>Transition</strong> (gauche, un peu en bas) : position intermédiaire, plutôt sableux et pauvres.</li>
+            </ul>
+          </li>
+          <li><strong>Contributions des sites</strong> (moyenne \(100/15 \approx 6{,}7\,\%\)). Axe 1 : Meiganga (21,3 %) et Ngaoundéré (13,8 %) — les sols les plus sableux et pauvres. Axe 2 : Mbouda (22,1 %) et Bafoussam (15,7 %), suivis d'Ebolowa (15,0 %). <strong>Aucun site ne domine à lui seul un axe</strong> : les deux gradients sont portés par plusieurs sites, tous loin du centre. La contribution dépend du carré de la distance au centre.</li>
+          <li><strong>Qualité de représentation.</strong> Avec le seuil \(\cos^2 > 0{,}6\) de <code>select = "cos2 0.6"</code>, trois sites disparaissent : Foumban (0,21), Akonolinga (0,39) et Sangmélima (0,56), tous près du centre. Foumban est le plus mal représenté : sa position centrale ne doit <em>pas</em> s'interpréter comme « site moyen » (79 % du carré de sa distance est sur les axes suivants, dont \(\cos^2_3 = 0{,}22\)).</li>
+          <li><strong>Lien avec le calcul à la main (Meiganga).</strong> Avec \(F_1=-3{,}840\), \(\lambda_1=4{,}613\), \(d(i,G)=4{,}006\) :
+            \[ \operatorname{contrib}_1 = 100\times\frac{(-3{,}840)^2}{15\times 4{,}613} \approx 21{,}3\,\%;\qquad \cos^2_1 = \frac{14{,}75}{16{,}05} \approx 0{,}92. \]
+            On retrouve les valeurs de R.
+          </li>
+          <li><strong>Retour aux données brutes</strong> (<span class="up">bleu</span> : nettement au-dessus de la moyenne, <span class="dn">rouge</span> : nettement au-dessous) :
+            <div class="table-wrap"><table class="center">
+              <thead><tr><th>Site</th><th>position</th><th>pH</th><th>MO</th><th>N</th><th>P</th><th>K</th><th>CEC</th><th>Argile</th><th>Sable</th></tr></thead>
+              <tbody>
+                <tr><td>Mbouda</td><td>haut-droite</td><td class="b">6,2</td><td class="b">4,2</td><td class="b">2,57</td><td class="b">21,1</td><td class="b">0,73</td><td class="b">17,3</td><td>44</td><td>40</td></tr>
+                <tr><td>Meiganga</td><td>gauche</td><td>6,4</td><td class="bn">0,8</td><td class="bn">0,73</td><td>10,8</td><td>0,29</td><td class="bn">5,8</td><td>21</td><td class="b">65</td></tr>
+                <tr><td>Ebolowa</td><td>bas-droite</td><td class="bn">4,9</td><td class="b">4,5</td><td class="b">2,50</td><td class="bn">7,3</td><td>0,30</td><td>14,3</td><td class="b">46</td><td>33</td></tr>
+                <tr><td>Moyenne</td><td></td><td>5,67</td><td>3,25</td><td>1,75</td><td>11,75</td><td>0,42</td><td>11,93</td><td>30,6</td><td>47,0</td></tr>
+              </tbody>
+            </table></div>
+            Mbouda est organique <em>et</em> très riche en P et K ; Meiganga très sableuse et pauvre ; Ebolowa organique et argileuse mais acide et pauvre en P. Les données brutes confirment les noms des axes.
+          </li>
+        </ol>
+      </li>
+
+      <li id="q7"><span class="qt">Les éléments supplémentaires.</span>
+        <ol class="sub">
+          <li><strong>Le rendement.</strong> \(r(\text{Rdt},F_1)=0{,}59\) et \(r(\text{Rdt},F_2)=0{,}47\) : la flèche pointe vers le <em>haut-droite</em>, du côté des Hauts plateaux. Les meilleurs rendements s'observent sur les sols à la fois organiques <em>et</em> riches en P et K, peu acides (3,2 à 3,6 t/ha à Bafoussam, Dschang, Mbouda, Foumban). Les sols de forêt, pourtant organiques, plafonnent (acidité, carence en P) ; savane et transition sont pauvres. C'est cohérent avec la boîte à moustaches. La flèche reste loin du cercle (\(\cos^2 = 0{,}57\)) : le sol n'explique qu'une partie du rendement.</li>
+          <li><strong>Barycentres et valeurs-test</strong> (|v.test| &gt; 2 : significatif) :
+            <div class="table-wrap"><table class="center">
+              <thead><tr><th>Zone</th><th>Dim 1</th><th>Dim 2</th><th>v.test 1</th><th>v.test 2</th></tr></thead>
+              <tbody>
+                <tr><td>Forêt</td><td>1,28</td><td>−1,34</td><td>1,58</td><td class="bn">−2,31</td></tr>
+                <tr><td>Hauts plateaux</td><td>1,97</td><td>1,66</td><td class="b">2,06</td><td class="b">2,43</td></tr>
+                <tr><td>Savane</td><td>−3,20</td><td>0,71</td><td class="bn">−2,79</td><td>0,86</td></tr>
+                <tr><td>Transition</td><td>−1,56</td><td>−0,69</td><td>−1,36</td><td>−0,83</td></tr>
+              </tbody>
+            </table></div>
+            Axe 1 : les Hauts plateaux sont significativement à droite, la Savane à gauche. Axe 2 : les Hauts plateaux significativement en haut, la Forêt en bas. La Transition n'est significative sur aucun axe (trois sites, position intermédiaire).
+          </li>
+          <li><strong>Description automatique des axes</strong> (<code>dimdesc</code>) :
+            <div class="table-wrap"><table>
+              <thead><tr><th></th><th>Axe 1</th><th>Axe 2</th></tr></thead>
+              <tbody>
+                <tr><td><code>$quanti</code></td><td>N (0,97), MO (0,96), CEC (0,86), Argile (0,80), <span class="hint-neg">Rdt (0,59, p = 0,02)</span> ; pH (−0,54), Sable (−0,88)</td><td>P (0,87), K (0,85), pH (0,73)</td></tr>
+                <tr><td><code>$quali</code> (Zone)</td><td>\(R^2 = 0{,}89\), \(p \approx 10^{-5}\)</td><td>\(R^2 = 0{,}65\), \(p \approx 0{,}008\)</td></tr>
+                <tr><td><code>$category</code></td><td>Hauts plateaux (+), Savane (−)</td><td>Hauts plateaux (+), Forêt (−)</td></tr>
+              </tbody>
+            </table></div>
+            Le rendement n'est significativement lié qu'à l'axe 1 (sa corrélation avec l'axe 2, \(r = 0{,}47\), n'est pas significative avec 15 sites, \(p \approx 0{,}08\)). La zone explique <strong>89 %</strong> de la variabilité des coordonnées sur l'axe 1 : la typologie des sols colle très étroitement à la zonation agro-écologique.
+          </li>
+        </ol>
+      </li>
+
+      <li id="q8"><span class="qt">Synthèse.</span>
+        <figure class="svgfig">
+          <svg viewBox="0 0 440 260" role="img" aria-label="Schéma de synthèse">
+            <rect x="220" y="20" width="200" height="110" fill="#d2821a" opacity=".10"/>
+            <rect x="220" y="130" width="200" height="110" fill="#2f8f3a" opacity=".10"/>
+            <rect x="20" y="20" width="200" height="110" fill="#c0392b" opacity=".08"/>
+            <rect x="20" y="130" width="200" height="110" fill="#2a6fb0" opacity=".08"/>
+            <line x1="12" y1="130" x2="430" y2="130" stroke="var(--muted)"/>
+            <line x1="220" y1="12" x2="220" y2="250" stroke="var(--muted)"/>
+            <text x="432" y="128" font-size="8.5" fill="var(--muted)">axe 1 : réserve organique</text>
+            <text x="224" y="20" font-size="8.5" fill="var(--muted)">axe 2 : P, K, pH</text>
+            <g text-anchor="middle" font-size="9">
+              <text x="320" y="60" fill="#d2821a" font-weight="700">Hauts plateaux</text>
+              <text x="320" y="73" fill="var(--ink)" font-size="8">organiques, riches en P/K</text>
+              <text x="320" y="85" fill="var(--ink)" font-size="8" font-weight="700">rendement le plus élevé</text>
+              <text x="320" y="185" fill="#2f8f3a" font-weight="700">Forêt</text>
+              <text x="320" y="198" fill="var(--ink)" font-size="8">organiques mais acides, pauvres en P</text>
+              <text x="120" y="60" fill="#c0392b" font-weight="700">Savane</text>
+              <text x="120" y="73" fill="var(--ink)" font-size="8">sableux, pauvres en MO</text>
+              <text x="120" y="185" fill="#2a6fb0" font-weight="700">Transition</text>
+              <text x="120" y="198" fill="var(--ink)" font-size="8">plutôt sableux et pauvres</text>
+            </g>
+            <line x1="220" y1="130" x2="270" y2="95" stroke="#c0392b" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#ar)"/>
+            <defs><marker id="ar" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#c0392b"/></marker></defs>
+            <text x="272" y="92" font-size="8" fill="#c0392b">rendement</text>
+          </svg>
+          <figcaption>Les deux gradients et la position des quatre zones.</figcaption>
+        </figure>
+        <div class="lecture"><span class="lab">Exemple de synthèse</span><p>Les sols des quinze sites s'organisent selon deux gradients qui résument 87 % de l'information. Le premier oppose les sols argileux et riches en matière organique de la forêt et des hauts plateaux aux sols sableux et pauvres des savanes de l'Adamaoua. Le second oppose les sols volcaniques des hauts plateaux, peu acides et riches en phosphore et potassium, aux sols acides et carencés en phosphore de la zone forestière. Le rendement du maïs suit surtout le premier gradient et il est maximal sur les hauts plateaux, qui cumulent les deux atouts. En zone forestière, la priorité serait la correction de l'acidité (chaulage) et l'apport de phosphore ; en savane, l'apport de matière organique et une fertilisation complète.</p><p><strong>Limites :</strong> quinze sites seulement, un seul prélèvement par site, des données fictives, et un rendement qui dépend aussi du climat et des pratiques ; l'ACP décrit des associations, elle ne prouve pas de causalité.</p></div>
+      </li>
+    </ol>
+
+    <p class="end">Mise en forme par Antoine Géré.</p>
+  </main>
+</div>
+<script src="../../../assets/app.js"></script>
+</body>
+</html>

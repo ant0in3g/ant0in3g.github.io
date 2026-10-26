@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Faire une ACP avec R — R Lab | Antoine Géré</title>
+<meta name="description" content="Travaux dirigés : réaliser une analyse en composantes principales (ACP) avec R et FactoMineR, sur données agronomiques. ISTOM.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../assets/site.css">
+<style>
+  .lead{font-size:1.05rem}
+  ol.qs{counter-reset:q;list-style:none;padding:0;margin:0}
+  ol.qs>li{counter-increment:q;position:relative;padding-left:40px;margin:26px 0;}
+  ol.qs>li::before{content:counter(q);position:absolute;left:0;top:-2px;width:27px;height:27px;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:.8rem;font-weight:600;color:#fff;background:var(--accent);border-radius:50%}
+  ol.qs>li>.qt{font-weight:600;color:var(--ink)}
+  ol.sub{list-style:lower-alpha;padding-left:20px;margin:8px 0}
+  ol.sub>li{margin:7px 0}
+  .rcode{position:relative;margin:14px 0}
+  .rcode::before{content:"R";position:absolute;top:0;right:0;font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.12em;color:#fff;background:var(--accent);padding:2px 9px;border-radius:0 10px 0 8px;z-index:1}
+  .rcode pre{margin:0}
+  .lecture{border-left:3px solid var(--accent);background:var(--accent-soft);border-radius:0 8px 8px 0;padding:12px 18px;margin:14px 0;font-size:.92rem}
+  .lecture .lab{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:5px}
+  .lecture p{margin:0}
+  .controle{display:flex;gap:10px;align-items:flex-start;background:rgba(31,143,90,.09);border:1px solid rgba(31,143,90,.32);border-radius:8px;padding:10px 14px;margin:12px 0;font-size:.9rem}
+  .controle .chk{color:#1f8f5a;font-weight:700;flex:none}
+  .controle .lab{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:#1f8f5a;display:block;margin-bottom:2px}
+  .databox{display:flex;gap:14px;align-items:center;border:1px dashed var(--accent);border-radius:10px;padding:13px 18px;margin:18px 0;background:var(--accent-soft)}
+  .databox .di{font-size:1.5rem;flex:none;line-height:1}
+  .databox .dmeta{font-size:.72rem;color:var(--muted);font-family:'IBM Plex Mono',monospace;margin-top:2px}
+  .mode{border-left:3px solid var(--line);background:var(--card);border-radius:0 8px 8px 0;padding:12px 18px;margin:16px 0;font-size:.9rem}
+  .mode .lab{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px}
+  .mode ul,.lecture ul{margin:6px 0 0;padding-left:20px}
+  .mono{font-family:'IBM Plex Mono',monospace;font-size:.92em}
+</style>
+<script>
+  window.MathJax = { tex:{ inlineMath:[['\\(','\\)']], displayMath:[['\\[','\\]']] }, svg:{ fontCache:'global' } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js" async></script>
+</head>
+<body>
+<button class="toggle" id="themeToggle" aria-label="Changer de thème">◑</button>
+<div class="layout">
+  <aside>
+    <a class="back" href="../td-R-lab.html">← R Lab</a>
+    <div class="brand-row">
+      <a href="../../../index.html" class="brand-link" aria-label="Retour à l'accueil"><p class="brand sm">Antoine<br>Géré</p>
+      <span class="globe" aria-hidden="true" style="width:42px;height:42px"><canvas id="globeCanvas"></canvas></span></a>
+    </div>
+    <p class="role">R Lab · ISTOM</p>
+    <nav>
+      <a href="#presentation">Présentation</a>
+      <a href="#ex1">Exercice 1 — guidé</a>
+      <a href="#ex2">Exercice 2 — autonomie</a>
+      <a href="#indications">Indications</a>
+      <a href="td-acp_R_correction.html">↳ Correction de l'exercice 1</a>
+    </nav>
+    <div class="side-contact">
+      <a href="td-acp_R.pdf" target="_blank" rel="noopener">↓ Télécharger le PDF</a><br>
+      <a href="mailto:a.gere@istom.fr">a.gere@istom.fr</a>
+    </div>
+  </aside>
+  <main>
+    <h1 class="page-title">Faire une ACP avec R</h1>
+    <p class="teacher">Analyse factorielle · R Lab — <a href="mailto:a.gere@istom.fr">Antoine Géré</a></p>
+
+    <section id="presentation">
+      <p class="lead">Ce TD comporte <strong>deux exercices</strong> à réaliser <strong>avec R sous RStudio</strong>, sur des données agronomiques réalistes :</p>
+      <ul>
+        <li><strong>Exercice 1 (guidé)</strong> : la fertilité des sols de quinze sites du Cameroun. Tout le code R est fourni ; à chaque étape, des encadrés <span style="color:var(--accent)"><strong>Lecture</strong></span> expliquent les sorties et des lignes <span style="color:#1f8f5a"><strong>✓ Contrôle</strong></span> permettent de vérifier ses résultats.</li>
+        <li><strong>Exercice 2 (en autonomie)</strong> : une typologie de 32 exploitations familiales au Burkina Faso. Aucun code n'est fourni : on choisit soi-même les fonctions et les réglages, et l'on justifie chaque choix.</li>
+      </ul>
+      <p>Les jeux de données sont fournis dans les fichiers Excel <code>data_stat-0109.xlsx</code> et <code>data_stat-0110.xlsx</code>, à placer dans le dossier <code>data_raw</code> de votre projet RStudio. On utilise les packages <code>readxl</code> et <code>FactoMineR</code>.</p>
+      <p>Ces exercices entraînent à mener une ACP comme on le fera en stage ou en mémoire : <strong>les choix</strong> (variables actives et supplémentaires, ACP normée, nombre d'axes à retenir) ; <strong>la lecture des sorties de R</strong> (valeurs propres, cercle des corrélations, carte des individus, \(\cos^2\), contributions, valeurs-test, description automatique des axes avec <code>dimdesc</code>) ; <strong>l'interprétation</strong> (nommer les axes, contrôler la fiabilité de la lecture, relier les résultats à la question agronomique et rédiger une synthèse).</p>
+    </section>
+
+    <h2 id="ex1">Exercice 1 (guidé) — ACP de la fertilité des sols de quinze sites du Cameroun</h2>
+    <p>Un projet d'appui à la filière maïs veut savoir <em>quels types de sols</em> on rencontre entre la zone forestière du Sud et les savanes de l'Adamaoua, et si ces types de sols expliquent les différences de rendement. Sur <strong>15 sites</strong>, on a analysé un échantillon composite de sol (horizon 0–20 cm). Le fichier <code>data_stat-0109.xlsx</code> contient, dans la feuille <code>donnees</code>, une ligne par site :</p>
+    <ul>
+      <li><strong>huit variables d'analyse de sol</strong> : <code>pH</code> (pH eau), <code>MO</code> (matière organique, %), <code>N</code> (azote total, g/kg), <code>P</code> (phosphore assimilable, mg/kg), <code>K</code> (potassium échangeable, cmol⁺/kg), <code>CEC</code> (capacité d'échange cationique, cmol⁺/kg), <code>Argile</code> et <code>Sable</code> (%) ;</li>
+      <li><code>Rdt_mais</code> : rendement moyen du maïs sur le site (t/ha) ;</li>
+      <li><code>Zone</code> : zone agro-écologique (Forêt, Hauts plateaux, Transition, Savane).</li>
+    </ul>
+    <p>La feuille <code>description</code> rappelle le sens et l'unité de chaque colonne (les données sont fictives).</p>
+
+    <div class="databox"><span class="di">📂</span><div><a href="data_raw/data_stat-0109.xlsx" target="_blank" rel="noopener"><strong>Récupérer les données</strong></a><div class="dmeta">data_stat-0109.xlsx — à placer dans <code>data_raw/</code></div></div></div>
+
+    <div class="mode"><span class="lab">Mode d'emploi</span>
+      <ul>
+        <li>Chaque question donne le code R à taper <em>dans un script</em> (<em>à enregistrer dans votre dossier OneDrive :</em> <code>STAT_Nom_Prenom</code>), pas dans la console : on garde ainsi une trace de tout ce que l'on fait. Pour exécuter une ligne, placer le curseur dessus et taper <code>Ctrl + Entrée</code>.</li>
+        <li>Après chaque bloc de code : exécuter le code, comparer la sortie aux lignes <span style="color:#1f8f5a"><strong>✓ Contrôle</strong></span>, lire les encadrés <span style="color:var(--accent)"><strong>Lecture</strong></span>, puis répondre aux questions.</li>
+        <li>Tout ce qui suit le signe <code>#</code> est un commentaire : R l'ignore.</li>
+      </ul>
+    </div>
+
+    <ol class="qs">
+      <li><span class="qt">Préparer la séance.</span>
+        <ol class="sub">
+          <li>Dans votre dossier de travail OneDrive, placer le fichier <code>data_stat-0109.xlsx</code> (encadré « Récupérer les données » ci-dessus) dans <code>data_raw</code>. Lancer RStudio à partir du fichier <code>_stat_Istom.Rproj</code>.</li>
+          <li>Installer les packages <code>readxl</code> et <code>FactoMineR</code> avec RStudio, puis les charger (<em>à chaque séance</em>) :
+            <div class="rcode"><pre><code>library(readxl)       # pour lire les fichiers Excel
+library(FactoMineR)   # pour l'ACP</code></pre></div>
+          </li>
+          <li>Importer les données :
+            <div class="rcode"><pre><code>sols &lt;- as.data.frame(read_excel("data_raw/data_stat-0109.xlsx", sheet = "donnees"))
+rownames(sols) &lt;- sols$Site       # les sites deviennent les noms de lignes
+sols$Site &lt;- NULL                 # on supprime la colonne devenue inutile
+sols$Zone &lt;- as.factor(sols$Zone) # la zone est une variable qualitative (facteur)
+str(sols)                         # structure du tableau
+head(sols)                        # les 6 premieres lignes</code></pre></div>
+            <div class="controle"><span class="chk">✓</span><div><span class="lab">Contrôle</span><code>str</code> affiche <code>15 obs. of 10 variables</code> ; les neuf premières colonnes sont <code>num</code> (numériques) et <code>Zone</code> est un <code>Factor w/ 4 levels</code>.</div></div>
+            Pourquoi faut-il mettre les noms des sites en noms de lignes, et non les laisser dans une colonne ? Quelle est maintenant la position (le numéro de colonne) de <code>Rdt_mais</code> ? de <code>Zone</code> ?
+          </li>
+        </ol>
+      </li>
+
+      <li><span class="qt">Regarder les données avant l'ACP.</span>
+        <ol class="sub">
+          <li>Afficher un résumé de chaque variable et les écarts-types :
+            <div class="rcode"><pre><code>summary(sols)
+round(apply(sols[, 1:9], 2, sd), 2)   # ecart-type de chacune des colonnes 1 a 9</code></pre></div>
+            <div class="lecture"><span class="lab">Lecture</span><p><code>apply(tableau, 2, fonction)</code> applique la fonction à chaque colonne (le <code>2</code> désigne les colonnes) ; <code>round(..., 2)</code> arrondit à deux décimales. Attention : <code>sd</code> divise par \(I-1\), alors que l'ACP utilise des variances « population » (division par \(I\)) ; la différence est ici faible.</p></div>
+            Les variables ont-elles la même unité ? le même ordre de grandeur de dispersion ? En déduire qu'il faut faire une ACP <em>normée</em> (sur données centrées réduites). Que se passerait-il sinon ?
+          </li>
+          <li>Afficher la matrice des corrélations des huit variables de sol :
+            <div class="rcode"><pre><code>round(cor(sols[, 1:8]), 2)</code></pre></div>
+            Repérer les quatre couples de variables les plus corrélés (en valeur absolue). Ces liaisons vous semblent-elles logiques pour un agronome ?
+          </li>
+          <li>Regarder le rendement selon la zone :
+            <div class="rcode"><pre><code>boxplot(Rdt_mais ~ Zone, data = sols, ylab = "Rendement (t/ha)")
+tapply(sols$Rdt_mais, sols$Zone, mean)   # rendement moyen par zone</code></pre></div>
+            Quelle zone a les meilleurs rendements ? Gardez ce résultat en tête : on cherchera à l'expliquer par les sols à la question&nbsp;7.
+          </li>
+        </ol>
+      </li>
+
+      <li><span class="qt">Lancer l'ACP.</span>
+        <ol class="sub">
+          <li>On veut construire les axes avec les <em>huit variables de sol</em> seulement, et utiliser le rendement et la zone pour <em>interpréter</em>. Taper :
+            <div class="rcode"><pre><code>res &lt;- PCA(sols, scale.unit = TRUE, quanti.sup = 9, quali.sup = 10,
+           graph = FALSE)</code></pre></div>
+            Expliquer le rôle de chacun des arguments <code>scale.unit = TRUE</code>, <code>quanti.sup = 9</code>, <code>quali.sup = 10</code> et <code>graph = FALSE</code>.
+          </li>
+          <li>Pourquoi est-il judicieux de mettre le rendement en variable <em>supplémentaire</em> plutôt qu'en variable active ?</li>
+          <li><strong>Que contient <code>res</code> ?</strong> Taper <code>names(res)</code>. L'objet <code>res</code> est une liste qui range tous les résultats de l'ACP ; on y accède avec le signe <code>$</code>. Les notations sont celles du cours et des exercices faits à la main :
+            <div class="table-wrap"><table>
+              <thead><tr><th>Dans R</th><th>Ce que c'est</th></tr></thead>
+              <tbody>
+                <tr><td><code>res$eig</code></td><td>valeurs propres \(\lambda_s\), % d'inertie, % cumulé</td></tr>
+                <tr><td><code>res$var$coord</code> (ou <code>$cor</code>)</td><td>coordonnées des variables : \(r(X_k,F_s)\)</td></tr>
+                <tr><td><code>res$var$cos2</code>, <code>res$var$contrib</code></td><td>\(\cos^2_s(X_k)=r^2(X_k,F_s)\) et contributions (%)</td></tr>
+                <tr><td><code>res$ind$coord</code></td><td>coordonnées des individus : \(F_s(i)\)</td></tr>
+                <tr><td><code>res$ind$cos2</code>, <code>res$ind$contrib</code></td><td>qualité de représentation et contributions (%)</td></tr>
+                <tr><td><code>res$ind$dist</code></td><td>distance au centre de gravité \(d(i,G)\)</td></tr>
+                <tr><td><code>res$quanti.sup</code>, <code>res$quali.sup</code></td><td>résultats des éléments supplémentaires</td></tr>
+              </tbody>
+            </table></div>
+            Dans ces tableaux, chaque ligne est un élément (variable ou site) et chaque colonne un axe (<code>Dim.1</code>, <code>Dim.2</code>, …). Ainsi <code>res$ind$coord[, 1:2]</code> donne les coordonnées de tous les sites sur les axes 1 et 2, et <code>res$ind$coord["Meiganga", 1]</code> la coordonnée de Meiganga sur l'axe 1. Que donne <code>summary(res)</code> ?
+          </li>
+        </ol>
+      </li>
+
+      <li><span class="qt">Combien d'axes faut-il regarder ?</span>
+        <div class="lecture"><span class="lab">Rappels</span><p>En ACP normée, chacune des \(K\) variables actives a une variance égale à \(1\) : l'inertie totale vaut \(K\). Le <strong>critère de Kaiser</strong> retient les axes tels que \(\lambda_s\ge 1\), c'est-à-dire ceux qui résument au moins autant qu'une variable de départ (ici, avec \(K=8\), au moins \(\tfrac18 = 12{,}5\,\%\) de l'inertie). Le <strong>critère du coude</strong> retient les axes situés <em>avant</em> la cassure de l'éboulis, là où les barres deviennent petites et à peu près de même hauteur.</p></div>
+        <ol class="sub">
+          <li>Afficher les valeurs propres et l'éboulis :
+            <div class="rcode"><pre><code>round(res$eig, 2)
+barplot(res$eig[, 2], names.arg = 1:nrow(res$eig),
+        ylab = "% d'inertie", xlab = "axe")</code></pre></div>
+            <div class="lecture"><span class="lab">Lecture</span><p>La première colonne de <code>res$eig</code> contient les valeurs propres, la deuxième le pourcentage d'inertie, la troisième le pourcentage cumulé.</p></div>
+            <div class="controle"><span class="chk">✓</span><div><span class="lab">Contrôle</span>\(\lambda_1 \approx 4{,}61\).</div></div>
+            Que vaut la somme des valeurs propres (<code>sum(res$eig[, 1])</code>) ? Pourquoi ?
+          </li>
+          <li>Quel pourcentage d'inertie le plan \((1,2)\) restitue-t-il ?</li>
+          <li>Combien d'axes retenez-vous selon le critère de Kaiser ? selon le critère du coude ?</li>
+        </ol>
+      </li>
+
+      <li><span class="qt">Le cercle des corrélations : interpréter les axes.</span>
+        <ol class="sub">
+          <li>Tracer le cercle et afficher les résultats des variables :
+            <div class="rcode"><pre><code>plot(res, choix = "var")          # cercle des correlations
+round(res$var$cor[, 1:2], 2)      # coordonnees = correlations avec les axes
+round(res$var$cos2[, 1:2], 2)     # qualite de representation
+round(res$var$contrib[, 1:2], 1)  # contributions (en %)</code></pre></div>
+            <div class="lecture"><span class="lab">À noter</span><p>Sur le cercle, la flèche en pointillés est celle du rendement, variable supplémentaire ; on l'utilisera à la question&nbsp;7.</p></div>
+            Tracer ensuite le cercle en coloriant les flèches selon leur qualité de représentation, puis selon leur contribution :
+            <div class="rcode"><pre><code>plot(res, choix = "var", habillage = "cos2")     # couleur = cos2 sur le plan
+plot(res, choix = "var", habillage = "contrib")  # couleur = contribution au plan</code></pre></div>
+            <div class="lecture"><span class="lab">Lecture</span><p>La couleur va du bleu (valeur faible) au rouge (valeur forte), selon l'échelle affichée à droite. Avec <code>"cos2"</code>, c'est la qualité de représentation sur le plan, \(\cos^2_1+\cos^2_2\). Avec <code>"contrib"</code>, c'est la contribution au <em>plan</em> \((1,2)\) : la moyenne des contributions aux axes 1 et 2, pondérée par \(\lambda_1\) et \(\lambda_2\).</p></div>
+          </li>
+          <li><strong>Axe 1.</strong> Quelles variables lui sont fortement corrélées (en valeur absolue, disons au-dessus de \(0{,}8\)) ? Dans quel sens ? Lesquelles y contribuent le plus (comparer à la contribution moyenne \(100/8 = 12{,}5\,\%\)) ? Proposer un nom pour cet axe.</li>
+          <li><strong>Axe 2.</strong> Mêmes questions.</li>
+          <li>Sur le cercle colorié selon le \(\cos^2\), quelle variable est la moins bien représentée sur le plan \((1,2)\) ? Calculer sa qualité de représentation \(\cos^2_1+\cos^2_2\), ou l'obtenir directement avec <code>round(rowSums(res$var$cos2[, 1:2]), 2)</code>. Sur quel axe se trouve le reste de son information ? (Regarder <code>round(res$var$cos2[, 3], 2)</code>.)</li>
+          <li>Sur le cercle colorié selon la contribution, lire l'échelle de couleurs : les contributions au plan sont-elles très différentes d'une variable à l'autre ? Comparer avec les contributions axe par axe affichées en a). Pourquoi vaut-il mieux lire les contributions <em>axe par axe</em> pour nommer les axes ?</li>
+          <li><strong>Faire le lien avec le calcul à la main.</strong> Pour la variable <code>MO</code>, vérifier avec les valeurs affichées que :
+            <ul>
+              <li>\(\cos^2_1(\text{MO}) = r^2(\text{MO},F_1)\) ;</li>
+              <li>\(\operatorname{contrib}_1(\text{MO}) = 100\times r^2(\text{MO},F_1)/\lambda_1\) ;</li>
+              <li>\(r(\text{MO},F_1) = \sqrt{\lambda_1}\,u_{1k}\), où \(u_{1k}\) est la coordonnée de <code>MO</code> dans le premier vecteur propre \(U_1\), donnée par <code>res$svd$V[, 1]</code> (<code>MO</code> est la 2ᵉ variable).</li>
+            </ul>
+          </li>
+          <li>Sur le cercle, les flèches de <code>P</code> et <code>K</code> sont presque confondues. Calculer le produit scalaire de leurs coordonnées sur le plan (\(r(\text{P},F_1)\,r(\text{K},F_1)+r(\text{P},F_2)\,r(\text{K},F_2)\)) et le comparer à leur corrélation \(r(\text{P},\text{K})\), calculée à la question&nbsp;2b. Pourquoi les deux valeurs sont-elles proches sans être égales ?</li>
+        </ol>
+      </li>
+
+      <li><span class="qt">La carte des sites.</span>
+        <ol class="sub">
+          <li>Tracer la carte des sites coloriée selon la zone, et afficher les résultats des sites :
+            <div class="rcode"><pre><code>plot(res, choix = "ind", habillage = 10)   # couleur = zone (10e colonne)
+round(res$ind$coord[, 1:2], 2)             # coordonnees F1, F2
+round(res$ind$cos2[, 1:2], 2)              # qualite de representation
+round(res$ind$contrib[, 1:2], 1)           # contributions (en %)</code></pre></div>
+            <div class="lecture"><span class="lab">À noter</span><p>Sur la carte, les petits carrés dont le nom est écrit en italique sont les barycentres des zones (la position moyenne des sites de chaque zone).</p></div>
+          </li>
+          <li>Décrire la position des quatre zones sur la carte. En vous aidant de la question&nbsp;5, caractériser les sols de chaque zone en une phrase.</li>
+          <li>Quels sont les deux sites qui contribuent le plus à l'axe 1 ? à l'axe 2 ? Comparer à la contribution moyenne \(100/15 \approx 6{,}7\,\%\). Un site domine-t-il à lui seul un axe ? Tracer ensuite la carte coloriée selon la contribution au plan :
+            <div class="rcode"><pre><code>plot(res, choix = "ind", habillage = "contrib")  # couleur = contribution au plan</code></pre></div>
+            Les sites en rouge sont-ils bien ceux que vous avez repérés ? Où se trouvent-ils sur la carte ?
+          </li>
+          <li>Afficher la qualité de représentation de chaque site sur le plan, tracer la carte coloriée selon le \(\cos^2\), puis ne tracer que les sites bien représentés :
+            <div class="rcode"><pre><code>round(rowSums(res$ind$cos2[, 1:2]), 2)            # cos2 sur le plan (1,2)
+plot(res, choix = "ind", habillage = "cos2")      # couleur = cos2 sur le plan
+plot(res, choix = "ind", select = "cos2 0.6")     # sites avec cos2 > 0.6</code></pre></div>
+            Quels sites disparaissent de la carte ? Quel est le plus mal représenté ? Peut-on interpréter sa position près du centre ?
+          </li>
+          <li><strong>Faire le lien avec le calcul à la main.</strong> Pour Meiganga, vérifier que
+            \[ \operatorname{contrib}_1 = 100\times\frac{F_1(i)^2}{I\,\lambda_1} \qquad\text{et}\qquad \cos^2_1 = \frac{F_1(i)^2}{d^2(i,G)}, \]
+            avec <code>res$ind$coord["Meiganga", 1]</code>, <code>res$eig[1, 1]</code> et <code>res$ind$dist["Meiganga"]</code>.
+          </li>
+          <li><strong>Retour aux données brutes.</strong> Afficher les lignes de trois sites situés à trois coins différents de la carte (par exemple Mbouda, Meiganga, Ebolowa) avec
+            <div class="rcode"><pre><code>sols[c("Mbouda", "Meiganga", "Ebolowa"), ]</code></pre></div>
+            et vérifier que leurs valeurs sont cohérentes avec les noms donnés aux axes.
+          </li>
+        </ol>
+      </li>
+
+      <li><span class="qt">Les éléments supplémentaires : et le rendement ?</span>
+        <ol class="sub">
+          <li>Afficher la corrélation du rendement avec les axes :
+            <div class="rcode"><pre><code>round(res$quanti.sup$cor[, 1:2], 2)
+round(res$quanti.sup$cos2[, 1:2], 2)</code></pre></div>
+            Où se trouve la flèche du rendement sur le cercle ? Est-elle bien représentée ? Quels sols semblent les plus favorables au maïs ? Est-ce cohérent avec la boîte à moustaches de la question&nbsp;2 ?
+          </li>
+          <li>Afficher les coordonnées des barycentres des zones et leurs <em>valeurs-test</em> :
+            <div class="rcode"><pre><code>round(res$quali.sup$coord[, 1:2], 2)
+round(res$quali.sup$v.test[, 1:2], 2)</code></pre></div>
+            <div class="lecture"><span class="lab">Lecture</span><p>Une valeur-test supérieure à \(2\) en valeur absolue indique que les sites de la zone ont, sur cet axe, une position moyenne significativement différente de \(0\) (au seuil d'environ \(5\,\%\)).</p></div>
+            Quelles zones sont significativement d'un côté ou de l'autre de chaque axe ?
+          </li>
+          <li>Obtenir la description automatique des axes :
+            <div class="rcode"><pre><code>dimdesc(res, axes = 1:2)</code></pre></div>
+            <div class="lecture"><span class="lab">Lecture</span><p>Pour chaque axe, <code>$quanti</code> liste les variables significativement corrélées à l'axe (de la plus positive à la plus négative) ; <code>$quali</code> donne le \(R^2\) de la zone, c'est-à-dire la part de la variabilité des coordonnées sur l'axe expliquée par la zone, avec sa \(p\)-valeur ; <code>$category</code> liste les zones significatives.</p></div>
+            Le rendement est-il significativement lié à un axe ? Quelle part de la variabilité de l'axe 1 la zone explique-t-elle ? Que peut-on en conclure ?
+          </li>
+        </ol>
+      </li>
+
+      <li><span class="qt">Synthèse.</span>
+        Rédiger, pour le chef de projet, une synthèse de l'ACP : les deux grands gradients qui structurent les sols, les zones qui s'opposent, le lien avec le rendement et ce que cela suggère pour la fertilisation du maïs. Préciser les limites de l'étude.
+      </li>
+    </ol>
+
+    <h2 id="ex2">Exercice 2 (en autonomie) — typologie d'exploitations familiales au Burkina Faso</h2>
+    <p>Dans l'Ouest du Burkina Faso, une fédération de coopératives de producteurs veut adapter les services qu'elle propose à ses membres (conseil agricole, crédit de campagne, approvisionnement en intrants, commercialisation). Ses conseillers agricoles ont conduit une enquête auprès de <strong>32 exploitations familiales</strong> de trois villages : Koumbia (zone cotonnière), Bondoukuy et Dano. Avant de discuter des services avec les producteurs, ils veulent savoir <em>quels grands types d'exploitations</em> coexistent dans la zone et ce qui les distingue.</p>
+    <p>Le fichier <code>data_stat-0110.xlsx</code> (feuille <code>donnees</code>) contient une ligne par exploitation et les colonnes suivantes ; la feuille <code>description</code> précise les unités. Les données sont fictives, construites pour l'exercice.</p>
+
+    <div class="table-wrap"><table>
+      <thead><tr><th>Colonne</th><th>Signification</th></tr></thead>
+      <tbody>
+        <tr><td><code>Exploitation</code></td><td>identifiant (E01 à E32)</td></tr>
+        <tr><td><code>Actifs</code></td><td>nombre d'actifs agricoles du ménage</td></tr>
+        <tr><td><code>Surface</code></td><td>surface cultivée (ha)</td></tr>
+        <tr><td><code>Bovins</code>, <code>Petits_rum</code></td><td>effectifs de bovins et de petits ruminants (têtes)</td></tr>
+        <tr><td><code>Part_coton</code></td><td>part de la surface cultivée en coton (%)</td></tr>
+        <tr><td><code>Engrais</code></td><td>dose moyenne d'engrais minéral (kg/ha)</td></tr>
+        <tr><td><code>Rdt_cereales</code></td><td>rendement moyen des céréales (kg/ha)</td></tr>
+        <tr><td><code>Dist_marche</code></td><td>distance au marché le plus proche (km)</td></tr>
+        <tr><td><code>Revenu</code></td><td>revenu agricole annuel du ménage (milliers de FCFA)</td></tr>
+        <tr><td><code>Village</code></td><td>Koumbia, Bondoukuy ou Dano</td></tr>
+        <tr><td><code>Credit</code></td><td>accès au crédit de campagne (oui/non)</td></tr>
+        <tr><td><code>Traction</code></td><td>équipement en traction animale (oui/non)</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="databox"><span class="di">📂</span><div><a href="data_raw/data_stat-0110.xlsx" target="_blank" rel="noopener"><strong>Récupérer les données</strong></a><div class="dmeta">data_stat-0110.xlsx — à placer dans <code>data_raw/</code></div></div></div>
+
+    <div class="mode"><span class="lab">En autonomie</span>
+      Cet exercice se fait sans code fourni : à vous de choisir les fonctions et les réglages, en vous appuyant sur l'exercice guidé précédent et sur le cours. <strong>Chaque choix doit être justifié</strong>, et chaque affirmation appuyée sur une sortie de R (valeur, graphique). Écrivez tout dans un script commenté.
+    </div>
+
+    <div class="lecture"><span class="lab">Boîte à outils</span><p class="mono">read_excel, as.factor, summary, cor, PCA, plot, dimdesc, tapply, boxplot.</p></div>
+
+    <ol class="qs">
+      <li><span class="qt">Préparer les données.</span> Importer le fichier, mettre les identifiants en noms de lignes, déclarer correctement le type de chaque variable et faire un premier résumé du tableau.</li>
+      <li><span class="qt">Choisir les variables.</span> Quelles variables mettez-vous en <em>actives</em> (celles qui définissent la ressemblance entre exploitations) ? Lesquelles en <em>supplémentaires</em> ? Justifier en particulier le statut du revenu. Faut-il réduire les variables ?</li>
+      <li><span class="qt">Réaliser l'ACP et choisir le nombre d'axes à interpréter,</span> en croisant au moins deux critères.</li>
+      <li><span class="qt">Interpréter les axes retenus</span> à l'aide du cercle des corrélations, des qualités de représentation, des contributions des variables et de la description automatique des axes. Donner un nom à chaque axe. Une variable est-elle liée à plusieurs axes à la fois ?</li>
+      <li><span class="qt">Décrire la carte des exploitations.</span> Situer les trois villages, l'accès au crédit et l'équipement en traction animale : lesquelles de ces variables sont liées à quel axe ? Pour chaque grand type d'exploitation que vous identifiez, citer une ou deux exploitations représentatives et vérifier leur profil sur les données brutes.</li>
+      <li><span class="qt">Le revenu.</span> Quels types d'exploitations ont les revenus les plus élevés ? les plus faibles ? La structure de l'exploitation suffit-elle à expliquer le revenu ?</li>
+      <li><span class="qt">Contrôler la fiabilité de la lecture.</span> Repérer les exploitations mal représentées sur le plan et celles qui pèsent le plus dans la construction des axes. Ces dernières posent-elles problème ? Le vérifier.</li>
+      <li><span class="qt">Note pour la fédération.</span> En une demi-page, à destination du conseil d'administration de la fédération, présenter la typologie obtenue et proposer, pour chaque type d'exploitation, des services adaptés à discuter avec les producteurs concernés. Indiquer les limites de l'analyse.</li>
+    </ol>
+
+    <h2 id="indications">Indications</h2>
+
+    <h3>Exercice 1</h3>
+    <ol>
+      <li>Si <code>read_excel</code> ne trouve pas le fichier, vérifier qu'il est bien dans le dossier <code>data_raw</code>, que RStudio a été lancé depuis le fichier <code>.Rproj</code> (<code>getwd()</code> affiche le dossier de travail) et que le chemin s'écrit avec une barre oblique <code>/</code>, jamais avec <code>\</code>. Les colonnes sont numérotées <em>après</em> la suppression de <code>Site</code>.</li>
+      <li>Comparer les écarts-types de <code>K</code> et de <code>Sable</code>. Les corrélations les plus fortes dépassent \(0{,}8\) en valeur absolue.</li>
+      <li>Une variable supplémentaire est projetée <em>après</em> le calcul des axes : elle ne les influence pas.</li>
+      <li>L'inertie totale d'une ACP normée vaut le nombre de variables actives.</li>
+      <li>Pour nommer un axe, partir des variables de corrélation supérieure à \(0{,}8\) en valeur absolue, en regardant leur signe. La qualité de représentation d'une variable sur le plan est la somme de ses \(\cos^2\) sur les axes 1 et 2.</li>
+      <li>La contribution moyenne d'un site vaut \(100/15\). <code>res$ind$dist</code> donne la distance \(d(i,G)\), pas son carré.</li>
+      <li>Une variable qualitative supplémentaire se lit sur la carte des sites (barycentres des zones), pas sur le cercle.</li>
+    </ol>
+
+    <h3>Exercice 2</h3>
+    <ol>
+      <li>Les trois variables oui/non et le village doivent être des facteurs.</li>
+      <li>Une variable que l'on cherche à <em>expliquer</em> (un résultat économique, par exemple) se met plutôt en supplémentaire : on construit la typologie sans elle, puis on regarde où elle se place. Comparer les unités et les écarts-types des variables.</li>
+      <li>Comparer les valeurs propres à \(1\) et regarder l'éboulis.</li>
+      <li>Une flèche « en diagonale » est liée aux deux axes à la fois. Un axe ne classe pas forcément les exploitations de la meilleure à la moins bonne : il peut opposer deux façons de produire.</li>
+      <li>Pour lier une variable qualitative à un axe, lire la rubrique <code>$quali</code> de <code>dimdesc</code>, ou les valeurs-test (<code>v.test</code>) des modalités.</li>
+      <li>La fonction <code>tapply</code> calcule une moyenne par groupe, par exemple le revenu moyen selon l'accès au crédit.</li>
+      <li>Avec 32 exploitations, la contribution moyenne vaut \(100/32 \approx 3{,}1\,\%\). L'argument <code>ind.sup</code> de <code>PCA</code> permet de refaire l'analyse sans quelques exploitations.</li>
+    </ol>
+
+
+    <p class="end">Mise en forme par Antoine Géré.</p>
+  </main>
+</div>
+<script src="../../../assets/app.js"></script>
+</body>
+</html>
