@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Faire une ACP avec R : le décathlon — R Lab | Antoine Géré</title>
+<meta name="description" content="Travaux dirigés : ACP guidée sous R et FactoMineR des performances de 41 décathloniens (2004). ISTOM.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../assets/site.css">
+<style>
+  .lead{font-size:1.05rem}
+  ol.qs{counter-reset:q;list-style:none;padding:0;margin:0}
+  ol.qs>li{counter-increment:q;position:relative;padding-left:40px;margin:26px 0;}
+  ol.qs>li::before{content:counter(q);position:absolute;left:0;top:-2px;width:27px;height:27px;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:.8rem;font-weight:600;color:#fff;background:var(--accent);border-radius:50%}
+  ol.qs>li>.qt{font-weight:600;color:var(--ink)}
+  ol.sub{list-style:lower-alpha;padding-left:20px;margin:8px 0}
+  ol.sub>li{margin:7px 0}
+  .rcode{position:relative;margin:14px 0}
+  .rcode::before{content:"R";position:absolute;top:0;right:0;font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.12em;color:#fff;background:var(--accent);padding:2px 9px;border-radius:0 10px 0 8px;z-index:1}
+  .rcode pre{margin:0}
+  .lecture{border-left:3px solid var(--accent);background:var(--accent-soft);border-radius:0 8px 8px 0;padding:12px 18px;margin:14px 0;font-size:.92rem}
+  .lecture .lab{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:5px}
+  .lecture p{margin:0}
+  .controle{display:flex;gap:10px;align-items:flex-start;background:rgba(31,143,90,.09);border:1px solid rgba(31,143,90,.32);border-radius:8px;padding:10px 14px;margin:12px 0;font-size:.9rem}
+  .controle .chk{color:#1f8f5a;font-weight:700;flex:none}
+  .controle .lab{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:#1f8f5a;display:block;margin-bottom:2px}
+  .databox{display:flex;gap:14px;align-items:center;border:1px dashed var(--accent);border-radius:10px;padding:13px 18px;margin:18px 0;background:var(--accent-soft)}
+  .databox .di{font-size:1.5rem;flex:none;line-height:1}
+  .databox .dmeta{font-size:.72rem;color:var(--muted);font-family:'IBM Plex Mono',monospace;margin-top:2px}
+  .mode{border-left:3px solid var(--line);background:var(--card);border-radius:0 8px 8px 0;padding:12px 18px;margin:16px 0;font-size:.9rem}
+  .mode .lab{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px}
+  .mode ul{margin:6px 0 0;padding-left:20px}
+  figure.svgfig{margin:4px auto 0;text-align:center}
+  figure.svgfig svg{max-width:100%;height:auto;border:1px solid var(--line);border-radius:10px;background:var(--card);padding:10px}
+  figure.svgfig figcaption{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted);margin-top:8px}
+  .figrow{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  @media(max-width:860px){.figrow{grid-template-columns:1fr}}
+  svg text{font-family:'IBM Plex Mono',monospace}
+</style>
+<script>
+  window.MathJax = { tex:{ inlineMath:[['\\(','\\)']], displayMath:[['\\[','\\]']] }, svg:{ fontCache:'global' } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js" async></script>
+</head>
+<body>
+<button class="toggle" id="themeToggle" aria-label="Changer de thème">◑</button>
+<div class="layout">
+  <aside>
+    <a class="back" href="../td-R-lab.html">← R Lab</a>
+    <div class="brand-row">
+      <a href="../../../index.html" class="brand-link" aria-label="Retour à l'accueil"><p class="brand sm">Antoine<br>Géré</p>
+      <span class="globe" aria-hidden="true" style="width:42px;height:42px"><canvas id="globeCanvas"></canvas></span></a>
+    </div>
+    <p class="role">R Lab · ISTOM</p>
+    <nav>
+      <a href="#presentation">Présentation</a>
+      <a href="#apercu">Aperçu de l'ACP</a>
+      <a href="#enonce">Exercice guidé</a>
+      <a href="#indications">Indications</a>
+      <a href="td-acp-decathlon_R_correction.html">↳ Correction</a>
+    </nav>
+    <div class="side-contact">
+      <a href="td-acp-decathlon_R.pdf" target="_blank" rel="noopener">↓ Télécharger le PDF</a><br>
+      <a href="mailto:a.gere@istom.fr">a.gere@istom.fr</a>
+    </div>
+  </aside>
+  <main>
+    <h1 class="page-title">Faire une ACP avec R : le décathlon</h1>
+    <p class="teacher">ACP guidée · R Lab — <a href="mailto:a.gere@istom.fr">Antoine Géré</a></p>
+
+    <section id="presentation">
+      <p class="lead">Le décathlon réunit <strong>dix épreuves</strong> d'athlétisme disputées sur deux jours : courses (100 m, 400 m, 110 m haies, 1500 m), sauts (longueur, hauteur, perche) et lancers (poids, disque, javelot). Chaque performance est convertie en points par un barème, et le classement se fait sur le <strong>total des points</strong>. Un entraîneur se demande quelles épreuves « vont ensemble », quelles qualités font gagner, et quels profils d'athlètes on rencontre.</p>
+      <p>Le fichier <code>decathlon.txt</code> (données du package <code>FactoMineR</code>) contient les performances de <strong>41 athlètes</strong> lors de deux compétitions de 2004 : le <em>Décastar</em> de Talence et les <em>Jeux olympiques</em> d'Athènes. Chaque ligne correspond à un athlète ; le nom de l'athlète sert de nom de ligne. Les colonnes sont :</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Colonne</th><th>Signification</th><th>Colonne</th><th>Signification</th></tr></thead>
+        <tbody>
+          <tr><td><code>100m</code></td><td>100 m (s)</td><td><code>Pole.vault</code></td><td>saut à la perche (m)</td></tr>
+          <tr><td><code>Long.jump</code></td><td>saut en longueur (m)</td><td><code>Javeline</code></td><td>lancer du javelot (m)</td></tr>
+          <tr><td><code>Shot.put</code></td><td>lancer du poids (m)</td><td><code>1500m</code></td><td>1500 m (s)</td></tr>
+          <tr><td><code>High.jump</code></td><td>saut en hauteur (m)</td><td><code>Rank</code></td><td>classement dans la compétition</td></tr>
+          <tr><td><code>400m</code></td><td>400 m (s)</td><td><code>Points</code></td><td>total des points</td></tr>
+          <tr><td><code>110m.hurdle</code></td><td>110 m haies (s)</td><td><code>Competition</code></td><td><code>Decastar</code> ou <code>OlympicG</code></td></tr>
+          <tr><td><code>Discus</code></td><td>lancer du disque (m)</td><td></td><td></td></tr>
+        </tbody>
+      </table></div>
+      <div class="databox"><span class="di">📂</span><div><a href="data_raw/decathlon.txt" target="_blank" rel="noopener"><strong>Récupérer les données</strong></a><div class="dmeta">decathlon.txt — à placer dans <code>data_raw/</code></div></div></div>
+      <div class="mode"><span class="lab">Mode d'emploi</span>
+        <ul>
+          <li>Chaque question donne le code R à taper <em>dans un script</em> (<em>à enregistrer dans votre dossier OneDrive :</em> <code>STAT_Nom_Prenom</code>), pas dans la console. Pour exécuter une ligne, placer le curseur dessus et taper <code>Ctrl + Entrée</code>.</li>
+          <li>Après chaque bloc : exécuter, comparer la sortie aux lignes <span style="color:#1f8f5a"><strong>✓ Contrôle</strong></span>, lire les encadrés <span style="color:var(--accent)"><strong>Lecture</strong></span>, puis répondre.</li>
+          <li>Tout ce qui suit le signe <code>#</code> est un commentaire : R l'ignore.</li>
+        </ul>
+      </div>
+    </section>
+
+    <h2 id="apercu">Aperçu de l'ACP</h2>
+    <p>Les deux sorties centrales de l'analyse : le <strong>cercle des corrélations</strong> (les épreuves) et la <strong>carte des individus</strong> (les 41 performances).</p>
+    <div class="figrow">
+      <figure class="svgfig">
+        <svg viewBox="0 0 330 320" role="img" aria-label="Cercle des corrélations des épreuves">
+  <defs>
+    <marker id="ahb" markerWidth="8" markerHeight="8" refX="5.5" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L6.5,3 L0,6 z" fill="var(--accent)"/></marker>
+    <marker id="ahr" markerWidth="8" markerHeight="8" refX="5.5" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L6.5,3 L0,6 z" fill="#c0392b"/></marker>
+  </defs>
+  <circle cx="160" cy="155" r="120" fill="var(--accent-soft)" stroke="var(--muted)"/>
+  <circle cx="160" cy="155" r="84.9" fill="none" stroke="var(--line)" stroke-dasharray="2 3"/>
+  <line x1="28" y1="155" x2="292" y2="155" stroke="var(--muted)"/>
+  <line x1="160" y1="23" x2="160" y2="287" stroke="var(--muted)"/>
+  <text x="294" y="153" font-size="9" fill="var(--muted)">axe 1</text>
+  <text x="164" y="21" font-size="9" fill="var(--muted)">axe 2</text>
+  <g stroke="var(--accent)" stroke-width="1.6" fill="var(--accent)">
+    
+<line x1="160" y1="155" x2="67.0" y2="132.6" marker-end="url(#ahb)"/>    <line x1="160" y1="155" x2="249.0" y2="196.4" marker-end="url(#ahb)"/>    <line x1="160" y1="155" x2="234.8" y2="83.2" marker-end="url(#ahb)"/>    <line x1="160" y1="155" x2="228.6" y2="113.0" marker-end="url(#ahb)"/>    <line x1="160" y1="155" x2="78.4" y2="86.7" marker-end="url(#ahb)"/>    <line x1="160" y1="155" x2="70.5" y2="127.5" marker-end="url(#ahb)"/>    <line x1="160" y1="155" x2="226.2" y2="82.3" marker-end="url(#ahb)"/>    <line x1="160" y1="155" x2="166.0" y2="176.6" marker-end="url(#ahb)"/>    <line x1="160" y1="155" x2="193.2" y2="117.0" marker-end="url(#ahb)"/>    <line x1="160" y1="155" x2="153.0" y2="98.1" marker-end="url(#ahb)"/>
+  </g>
+  
+<line x1="160" y1="155" x2="274.7" y2="157.0" stroke="#c0392b" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#ahr)"/>  <line x1="160" y1="155" x2="79.5" y2="148.9" stroke="#c0392b" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#ahr)"/>
+  <g><text x="61.0" y="129.6" text-anchor="end" font-size="8" fill="var(--ink)">X100m</text><text x="255.0" y="200.4" text-anchor="start" font-size="8" fill="var(--ink)">Long.jump</text><text x="240.8" y="80.2" text-anchor="start" font-size="8" fill="var(--ink)">Shot.put</text><text x="234.6" y="110.0" text-anchor="start" font-size="8" fill="var(--ink)">High.jump</text><text x="72.4" y="83.7" text-anchor="end" font-size="8" fill="var(--ink)">X400m</text><text x="64.5" y="124.5" text-anchor="end" font-size="8" fill="var(--ink)">X110m.hurdle</text><text x="232.2" y="79.3" text-anchor="start" font-size="8" fill="var(--ink)">Discus</text><text x="172.0" y="180.6" text-anchor="start" font-size="8" fill="var(--ink)">Pole.vault</text><text x="199.2" y="114.0" text-anchor="start" font-size="8" fill="var(--ink)">Javeline</text><text x="147.0" y="95.1" text-anchor="end" font-size="8" fill="var(--ink)">X1500m</text><text x="280.7" y="154.0" text-anchor="start" font-size="8.5" fill="#c0392b" font-style="italic">Points</text><text x="73.5" y="145.9" text-anchor="end" font-size="8.5" fill="#c0392b" font-style="italic">Rank</text></g>
+</svg>
+        <figcaption>Les épreuves — cercle des corrélations (bleu) ; en rouge pointillé : <em>Points</em> et <em>Rank</em> (variables supplémentaires).</figcaption>
+      </figure>
+      <figure class="svgfig">
+        <svg viewBox="0 0 360 300" role="img" aria-label="Carte des 41 performances">
+  <line x1="25" y1="150" x2="345" y2="150" stroke="var(--muted)"/>
+  <line x1="165" y1="18" x2="165" y2="282" stroke="var(--muted)"/>
+  <text x="347" y="146" font-size="9" fill="var(--muted)">axe 1</text>
+  <text x="169" y="18" font-size="9" fill="var(--muted)">axe 2</text>
+  <line x1="33" y1="146" x2="33" y2="154" stroke="var(--muted)"/><text x="33" y="165" font-size="8" fill="var(--muted)" text-anchor="middle">-4</text><line x1="66" y1="146" x2="66" y2="154" stroke="var(--muted)"/><text x="66" y="165" font-size="8" fill="var(--muted)" text-anchor="middle">-3</text><line x1="99" y1="146" x2="99" y2="154" stroke="var(--muted)"/><text x="99" y="165" font-size="8" fill="var(--muted)" text-anchor="middle">-2</text><line x1="132" y1="146" x2="132" y2="154" stroke="var(--muted)"/><text x="132" y="165" font-size="8" fill="var(--muted)" text-anchor="middle">-1</text><line x1="198" y1="146" x2="198" y2="154" stroke="var(--muted)"/><text x="198" y="165" font-size="8" fill="var(--muted)" text-anchor="middle">1</text><line x1="231" y1="146" x2="231" y2="154" stroke="var(--muted)"/><text x="231" y="165" font-size="8" fill="var(--muted)" text-anchor="middle">2</text><line x1="264" y1="146" x2="264" y2="154" stroke="var(--muted)"/><text x="264" y="165" font-size="8" fill="var(--muted)" text-anchor="middle">3</text><line x1="297" y1="146" x2="297" y2="154" stroke="var(--muted)"/><text x="297" y="165" font-size="8" fill="var(--muted)" text-anchor="middle">4</text><line x1="330" y1="146" x2="330" y2="154" stroke="var(--muted)"/><text x="330" y="165" font-size="8" fill="var(--muted)" text-anchor="middle">5</text>
+  <circle cx="191.1" cy="124.5" r="2.4" fill="#d2821a"/><circle cx="205.8" cy="131.0" r="2.4" fill="#d2821a"/><circle cx="209.8" cy="134.0" r="2.4" fill="#d2821a"/><circle cx="144.9" cy="178.9" r="2.4" fill="#d2821a"/><circle cx="145.7" cy="79.7" r="2.4" fill="#d2821a"/><circle cx="176.8" cy="205.6" r="2.4" fill="#d2821a"/><circle cx="174.0" cy="186.1" r="2.4" fill="#d2821a"/><circle cx="184.4" cy="142.4" r="2.4" fill="#d2821a"/><circle cx="99.2" cy="131.5" r="2.4" fill="#d2821a"/><circle cx="114.0" cy="133.9" r="2.4" fill="#d2821a"/><circle cx="120.7" cy="160.3" r="2.4" fill="#d2821a"/><circle cx="87.6" cy="214.9" r="2.4" fill="#d2821a"/><circle cx="33.7" cy="143.4" r="2.4" fill="#d2821a"/>
+  <circle cx="298.3" cy="104.9" r="2.4" fill="var(--accent)"/><circle cx="294.3" cy="122.4" r="2.4" fill="var(--accent)"/><circle cx="317.5" cy="148.7" r="2.4" fill="var(--accent)"/><circle cx="238.7" cy="115.6" r="2.4" fill="var(--accent)"/><circle cx="236.5" cy="209.5" r="2.4" fill="var(--accent)"/><circle cx="195.5" cy="111.4" r="2.4" fill="var(--accent)"/><circle cx="194.3" cy="170.4" r="2.4" fill="var(--accent)"/><circle cx="174.7" cy="201.0" r="2.4" fill="var(--accent)"/><circle cx="227.9" cy="152.8" r="2.4" fill="var(--accent)"/><circle cx="167.7" cy="194.6" r="2.4" fill="var(--accent)"/><circle cx="182.8" cy="124.6" r="2.4" fill="var(--accent)"/><circle cx="168.8" cy="151.3" r="2.4" fill="var(--accent)"/><circle cx="165.1" cy="138.1" r="2.4" fill="var(--accent)"/><circle cx="193.7" cy="115.1" r="2.4" fill="var(--accent)"/><circle cx="176.5" cy="201.4" r="2.4" fill="var(--accent)"/><circle cx="177.5" cy="175.5" r="2.4" fill="var(--accent)"/><circle cx="149.0" cy="185.0" r="2.4" fill="var(--accent)"/><circle cx="150.7" cy="160.8" r="2.4" fill="var(--accent)"/><circle cx="156.8" cy="251.7" r="2.4" fill="var(--accent)"/><circle cx="129.7" cy="80.9" r="2.4" fill="var(--accent)"/><circle cx="142.5" cy="132.3" r="2.4" fill="var(--accent)"/><circle cx="155.4" cy="189.5" r="2.4" fill="var(--accent)"/><circle cx="114.1" cy="135.9" r="2.4" fill="var(--accent)"/><circle cx="85.5" cy="202.2" r="2.4" fill="var(--accent)"/><circle cx="99.2" cy="159.7" r="2.4" fill="var(--accent)"/><circle cx="133.4" cy="81.8" r="2.4" fill="var(--accent)"/><circle cx="80.5" cy="141.9" r="2.4" fill="var(--accent)"/><circle cx="70.7" cy="24.7" r="2.4" fill="var(--accent)"/>
+  <g font-size="9">
+    <circle cx="40" cy="26" r="2.4" fill="#d2821a"/><text x="47" y="29" fill="var(--ink)">Décastar</text>
+    <circle cx="110" cy="26" r="2.4" fill="var(--accent)"/><text x="117" y="29" fill="var(--ink)">Jeux olympiques</text>
+  </g>
+</svg>
+        <figcaption>Les athlètes — carte des 41 performances : Décastar (orange), Jeux olympiques (bleu).</figcaption>
+      </figure>
+    </div>
+
+    <h2 id="enonce">Exercice guidé — les performances de 41 décathloniens</h2>
+    <ol class="qs">
+      <li><span class="qt">Préparer la séance.</span>
+        <ol class="sub">
+          <li>Dans votre dossier de travail OneDrive, placer <code>decathlon.txt</code> (encadré « Récupérer les données » ci-dessus) dans <code>data_raw</code>. Lancer RStudio à partir du fichier <code>_stat_Istom.Rproj</code>.</li>
+          <li>Installer les packages <code>FactoMineR</code>, <code>factoextra</code> et <code>corrplot</code>, puis les charger (<em>à chaque séance</em>) :
+            <div class="rcode"><pre><code>library(FactoMineR)   # pour l'ACP
+library(factoextra)   # pour les graphiques de l'ACP (fonctions fviz_...)
+library(corrplot)     # pour la matrice des correlations en couleurs</code></pre></div>
+          </li>
+          <li>Importer les données :
+            <div class="rcode"><pre><code>deca &lt;- read.table("data_raw/decathlon.txt", header = TRUE, sep = "\t")
+deca$Competition &lt;- as.factor(deca$Competition)  # variable qualitative (facteur)
+str(deca)                                         # structure du tableau
+head(deca)                                        # les 6 premieres lignes</code></pre></div>
+            <div class="lecture"><span class="lab">Lecture</span><p><code>header = TRUE</code> : la première ligne contient les noms de colonnes ; <code>sep = "\t"</code> : colonnes séparées par des tabulations. La ligne d'en-tête ayant une colonne de moins que les lignes de données, R comprend que la première colonne (le nom de l'athlète) donne les <em>noms de lignes</em>.</p></div>
+            <div class="controle"><span class="chk">✓</span><div><span class="lab">Contrôle</span><code>str</code> affiche <code>41 obs. of 13 variables</code> ; les douze premières colonnes sont numériques (<code>num</code>/<code>int</code>) et <code>Competition</code> est un <code>Factor w/ 2 levels</code>.</div></div>
+            R a renommé <code>100m</code> en <code>X100m</code> : pourquoi, à votre avis ? Quels sont les numéros de colonne de <code>Rank</code>, <code>Points</code> et <code>Competition</code> ? Combien d'individus et de variables compte le tableau ?
+          </li>
+        </ol>
+      </li>
+
+      <li><span class="qt">Les valeurs manquantes.</span>
+        En pratique, il y a presque toujours des valeurs manquantes ; il faut les repérer <em>avant</em> toute analyse.
+        <div class="rcode"><pre><code>colSums(is.na(deca))     # nombre de valeurs manquantes par colonne
+mean(is.na(deca))        # proportion de cases manquantes dans tout le tableau</code></pre></div>
+        <div class="lecture"><span class="lab">Lecture</span><p><code>is.na(deca)</code> remplace chaque case par <code>TRUE</code> si elle est manquante ; <code>colSums</code> compte les <code>TRUE</code> de chaque colonne. Pour une vue graphique, le package <code>VIM</code> propose <code>aggr(deca, numbers = TRUE, sortVars = TRUE)</code>.</p></div>
+        Le tableau contient-il des valeurs manquantes ? Pourquoi est-ce important pour l'ACP ?
+      </li>
+
+      <li><span class="qt">Décrire les données avant l'ACP.</span>
+        <ol class="sub">
+          <li>Afficher un résumé de chaque variable et les écarts-types des dix épreuves :
+            <div class="rcode"><pre><code>summary(deca)
+round(apply(deca[, 1:10], 2, sd), 2)   # ecart-type de chacune des colonnes 1 a 10</code></pre></div>
+            <div class="controle"><span class="chk">✓</span><div><span class="lab">Contrôle</span>la moyenne de <code>X100m</code> vaut \(10{,}998\) s et celle de <code>X1500m</code> \(279{,}0\) s.</div></div>
+            Les épreuves ont-elles la même unité ? Pour quelles épreuves une <em>petite</em> valeur correspond-elle à une <em>bonne</em> performance ?
+          </li>
+          <li>Tracer l'histogramme et la boîte à moustaches de chaque épreuve :
+            <div class="rcode"><pre><code>par(mfrow = c(2, 5))     # 10 graphiques sur 2 lignes et 5 colonnes
+for (v in names(deca)[1:10]) hist(deca[[v]], main = v, xlab = "", col = "steelblue")
+for (v in names(deca)[1:10]) boxplot(deca[[v]], main = v, col = "skyblue")
+par(mfrow = c(1, 1))     # retour a un seul graphique par fenetre</code></pre></div>
+            <div class="lecture"><span class="lab">Lecture</span><p>La boucle <code>for</code> répète la commande pour chacun des dix noms de colonnes ; <code>deca[[v]]</code> extrait la colonne dont le nom est dans <code>v</code>. Sur une boîte à moustaches, les points isolés sont les valeurs à plus de \(1{,}5\) fois l'écart interquartile de la boîte.</p></div>
+            Les distributions sont-elles à peu près symétriques ? Repérer les valeurs isolées, puis retrouver les athlètes correspondants :
+            <div class="rcode"><pre><code>deca[deca$X1500m &gt; 310, ]     # qui a couru le 1500 m en plus de 310 s ?</code></pre></div>
+            S'agit-il d'erreurs de saisie ? Faut-il retirer ces athlètes ?
+          </li>
+          <li>Décrire la variable <code>Competition</code> :
+            <div class="rcode"><pre><code>table(deca$Competition)
+round(prop.table(table(deca$Competition)), 3)
+barplot(prop.table(table(deca$Competition)), col = c("orange", "steelblue"))</code></pre></div>
+            Les deux compétitions sont-elles également représentées ? Afficher <code>rownames(deca)</code> : que remarque-t-on sur l'écriture des noms ? Certains athlètes apparaissent-ils deux fois ?
+          </li>
+        </ol>
+      </li>
+
+      <li><span class="qt">Les corrélations entre épreuves.</span>
+        On représente la matrice des corrélations des dix épreuves (coefficients en %) :
+        <div class="rcode"><pre><code>Matrice.Correlation &lt;- cor(deca[, 1:10])
+corrplot(Matrice.Correlation, method = "color", type = "upper", order = "hclust",
+         tl.col = "black", tl.srt = 45, addCoef.col = "black",
+         addCoefasPercent = TRUE, number.cex = 0.8)</code></pre></div>
+        <div class="lecture"><span class="lab">Lecture</span><p><code>order = "hclust"</code> réordonne les variables pour rapprocher celles qui sont corrélées : des blocs de couleur apparaissent le long de la diagonale.</p></div>
+        <div class="controle"><span class="chk">✓</span><div><span class="lab">Contrôle</span>\(r(\texttt{X100m},\texttt{X110m.hurdle}) \approx 0{,}58\) et \(r(\texttt{Shot.put},\texttt{Discus}) \approx 0{,}62\).</div></div>
+        <ol class="sub">
+          <li>Quels groupes d'épreuves sont corrélés entre eux ? Ces liaisons vous semblent-elles logiques pour un athlète ?</li>
+          <li>La corrélation entre <code>X100m</code> et <code>Long.jump</code> vaut \(-0{,}60\). Les bons sprinteurs sautent-ils donc moins loin ? Expliquer le signe.</li>
+          <li>Quelles épreuves sont peu corrélées à toutes les autres ? Qu'en attendre pour l'ACP ?</li>
+        </ol>
+      </li>
+
+      <li><span class="qt">Centrer et réduire les données.</span>
+        <div class="rcode"><pre><code>data.CR &lt;- scale(deca[, 1:10], center = TRUE, scale = TRUE)
+round(head(data.CR, 3), 2)</code></pre></div>
+        <ol class="sub">
+          <li>Vérifier à la main le coefficient de <code>SEBRLE</code> pour le 100 m, à l'aide de la moyenne et de l'écart-type de la question 3. Que signifie une valeur positive pour une épreuve chronométrée ?</li>
+          <li>Pourquoi faut-il faire une ACP <em>normée</em> ? Calculer la part de la variance totale due au 1500 m sans réduction (<code>v &lt;- apply(deca[, 1:10], 2, var)</code> puis <code>round(100 * v / sum(v), 1)</code>).</li>
+        </ol>
+      </li>
+
+      <li><span class="qt">Lancer l'ACP.</span>
+        <ol class="sub">
+          <li>On construit les axes avec les <em>dix épreuves</em> seulement, et l'on garde le classement, les points et la compétition pour <em>interpréter</em> :
+            <div class="rcode"><pre><code>res &lt;- PCA(deca, scale.unit = TRUE, quanti.sup = 11:12, quali.sup = 13,
+           graph = FALSE)
+names(res)</code></pre></div>
+            Expliquer le rôle de <code>scale.unit = TRUE</code>, <code>quanti.sup = 11:12</code>, <code>quali.sup = 13</code> et <code>graph = FALSE</code>.
+          </li>
+          <li>Pourquoi <code>Points</code> et <code>Rank</code> doivent-ils être des variables <em>supplémentaires</em> et non actives ?</li>
+          <li>On n'a pas donné <code>data.CR</code> à la fonction <code>PCA</code>. Est-ce un problème ?</li>
+        </ol>
+      </li>
+
+      <li><span class="qt">Combien d'axes faut-il regarder ?</span>
+        <div class="lecture"><span class="lab">Rappels</span><p>En ACP normée, chacune des \(K\) variables actives a une variance égale à 1 : l'inertie totale vaut \(K\). Le <strong>critère de Kaiser</strong> retient les axes tels que \(\lambda_s \ge 1\) (ici, avec \(K=10\), au moins \(10\,\%\) de l'inertie). Le <strong>critère du coude</strong> retient les axes situés <em>avant</em> la cassure de l'éboulis.</p></div>
+        <div class="rcode"><pre><code>round(res$eig, 2)
+fviz_eig(res, addlabels = TRUE)   # eboulis des valeurs propres (en %)</code></pre></div>
+        <div class="controle"><span class="chk">✓</span><div><span class="lab">Contrôle</span>\(\lambda_1 \approx 3{,}27\) et \(\lambda_2 \approx 1{,}74\).</div></div>
+        <ol class="sub">
+          <li>Que vaut la somme des valeurs propres (<code>sum(res$eig[, 1])</code>) ? Pourquoi ?</li>
+          <li>Quel pourcentage d'inertie le plan \((1,2)\) restitue-t-il ? Est-il élevé ? Le relier aux corrélations de la question 4.</li>
+          <li>Combien d'axes retenez-vous selon le critère de Kaiser ? selon le critère du coude ?</li>
+        </ol>
+      </li>
+
+      <li><span class="qt">Le cercle des corrélations : interpréter les axes.</span>
+        <div class="lecture"><span class="lab">Rappels</span><p>Une flèche <strong>longue</strong> (proche du cercle) est bien représentée ; une flèche <strong>courte</strong> ne s'interprète pas. Pour deux flèches bien représentées : angle proche de \(0^\circ\) → forte corrélation positive ; proche de \(90^\circ\) → absence de corrélation ; proche de \(180^\circ\) → forte corrélation négative.</p></div>
+        <ol class="sub">
+          <li>Tracer le cercle colorié selon la qualité de représentation, et afficher les résultats des variables :
+            <div class="rcode"><pre><code>fviz_pca_var(res, col.var = "cos2", repel = TRUE,
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"))
+round(res$var$coord[, 1:3], 2)     # coordonnees = correlations avec les axes
+round(res$var$cos2[, 1:3], 2)      # qualite de representation
+round(res$var$contrib[, 1:3], 1)   # contributions (en %)</code></pre></div>
+            <div class="lecture"><span class="lab">Lecture</span><p>Le \(\cos^2\) d'une variable sur le plan vaut \(\cos^2_1+\cos^2_2\) : le carré de la longueur de sa flèche. La contribution à l'axe \(s\) vaut \(100\times r^2(X_k,F_s)/\lambda_s\). La contribution moyenne vaut \(100/10 = 10\,\%\).</p></div>
+          </li>
+          <li>Afficher les contributions des variables aux deux premiers axes :
+            <div class="rcode"><pre><code>fviz_contrib(res, choice = "var", axes = 1)   # contributions a l'axe 1
+fviz_contrib(res, choice = "var", axes = 2)   # contributions a l'axe 2
+fviz_cos2(res, choice = "var", axes = 1:2)    # qualite sur le plan (1,2)</code></pre></div>
+            <div class="lecture"><span class="lab">Lecture</span><p>Les barres sont triées par ordre décroissant ; la ligne rouge pointillée indique la contribution moyenne (\(10\,\%\)).</p></div>
+          </li>
+          <li><strong>Axe 1.</strong> Quelles épreuves lui sont fortement corrélées ? Dans quel sens ? <em>Attention au sens des épreuves chronométrées !</em> Proposer un nom pour cet axe.</li>
+          <li><strong>Axe 2.</strong> Mêmes questions.</li>
+          <li>Quelles épreuves sont mal représentées sur le plan \((1,2)\) ? Sur quel axe se trouve leur information ?</li>
+          <li><strong>Faire le lien avec le cours.</strong> Pour <code>X100m</code>, vérifier que \(\cos^2_1 = r^2(\texttt{X100m},F_1)\) et \(\operatorname{contrib}_1 = 100\times r^2(\texttt{X100m},F_1)/\lambda_1\).</li>
+          <li>Le cercle confirme-t-il les groupes d'épreuves de la question 4a ? Quels conseils d'entraînement en tirer pour un décathlonien ?</li>
+        </ol>
+      </li>
+
+      <li><span class="qt">La carte des athlètes.</span>
+        <ol class="sub">
+          <li>Tracer la carte coloriée selon la qualité de représentation, et afficher les résultats :
+            <div class="rcode"><pre><code>fviz_pca_ind(res, col.ind = "cos2", repel = TRUE) +
+  scale_color_gradient2(low = "blue", mid = "white", high = "red", midpoint = 0.5)
+round(res$ind$coord[, 1:2], 2)                   # coordonnees F1, F2
+round(rowSums(res$ind$cos2[, 1:2]), 2)           # qualite sur le plan (1,2)
+round(sort(res$ind$contrib[, 1], decreasing = TRUE)[1:5], 1)  # 5 plus fortes contrib. axe 1
+round(sort(res$ind$contrib[, 2], decreasing = TRUE)[1:5], 1)  # idem pour l'axe 2</code></pre></div>
+            <div class="controle"><span class="chk">✓</span><div><span class="lab">Contrôle</span>Karpov a la plus forte coordonnée sur l'axe 1 : \(F_1 \approx 4{,}62\).</div></div>
+          </li>
+          <li>Quels athlètes ont les meilleurs profils d'ensemble ? les moins bons ? Quels athlètes contribuent le plus aux axes 1 et 2 (comparer à la contribution moyenne \(100/41 \approx 2{,}4\,\%\)) ?</li>
+          <li>Quel athlète est le plus mal représenté sur le plan ? Peut-on dire qu'il est « moyen dans toutes les épreuves » ?</li>
+          <li><strong>Retour aux données brutes.</strong> Afficher les performances de trois athlètes à trois coins différents de la carte :
+            <div class="rcode"><pre><code>deca[c("Karpov", "Casarsa", "Drews"), 1:10]</code></pre></div>
+            Leurs performances sont-elles cohérentes avec les noms donnés aux axes ?
+          </li>
+          <li>Tracer le <em>biplot</em> des athlètes et des variables bien représentés :
+            <div class="rcode"><pre><code>fviz_pca_biplot(res, select.ind = list(cos2 = 0.5), select.var = list(cos2 = 0.5),
+                repel = TRUE, col.ind = "blue", col.var = "red")</code></pre></div>
+            Quel lien fait-on entre la position d'un athlète et la direction des flèches ?
+          </li>
+        </ol>
+      </li>
+
+      <li><span class="qt">Les variables supplémentaires.</span>
+        <div class="lecture"><span class="lab">Rappel</span><p>Une variable <strong>supplémentaire</strong> n'intervient pas dans le calcul des axes : elle est projetée <em>après</em> coup. Quantitative, elle se lit sur le cercle ; qualitative, ses modalités se lisent sur la carte des individus (barycentres).</p></div>
+        <ol class="sub">
+          <li>Afficher la corrélation des points et du classement avec les axes :
+            <div class="rcode"><pre><code>round(res$quanti.sup$coord[, 1:2], 2)
+round(res$quanti.sup$cos2[, 1:2], 2)</code></pre></div>
+            Que confirme la position de <code>Points</code> sur le cercle ? Pourquoi <code>Rank</code> est-il nettement moins corrélé à l'axe 1 que <code>Points</code> ?
+          </li>
+          <li>Tracer la carte coloriée selon la compétition, et afficher les barycentres et leurs valeurs-test :
+            <div class="rcode"><pre><code>fviz_pca_ind(res, habillage = 13, addEllipses = TRUE, ellipse.level = 0.68,
+             repel = TRUE)
+round(res$quali.sup$coord[, 1:2], 2)
+round(res$quali.sup$v.test[, 1:2], 2)</code></pre></div>
+            <div class="lecture"><span class="lab">Lecture</span><p>La valeur-test mesure si les athlètes d'une compétition ont, sur un axe, une position moyenne significativement différente de 0 : lien significatif (seuil 5 %) si \(|\texttt{v.test}| &gt; 1{,}96\), soit environ 2.</p></div>
+            Les athlètes des Jeux olympiques ont-ils significativement de meilleurs profils que ceux du Décastar ?
+          </li>
+          <li>Neuf athlètes ont participé aux deux compétitions (ex. <code>SEBRLE</code> au Décastar et <code>Sebrle</code> aux Jeux olympiques) :
+            <div class="rcode"><pre><code>deca[c("SEBRLE", "Sebrle", "NOOL", "Nool"), ]
+res$ind$coord[c("SEBRLE", "Sebrle", "NOOL", "Nool"), 1:2]</code></pre></div>
+            Comment leur position évolue-t-elle entre les deux compétitions ? Cela nuance-t-il la conclusion précédente ?
+          </li>
+          <li>Obtenir la description automatique des axes :
+            <div class="rcode"><pre><code>dimdesc(res, axes = 1:2, proba = 0.05)</code></pre></div>
+            <div class="lecture"><span class="lab">Lecture</span><p>Pour chaque axe, <code>$quanti</code> liste les variables (actives ou supplémentaires) significativement corrélées, de la plus positive à la plus négative ; <code>$quali</code> et <code>$category</code> n'apparaissent que si une variable qualitative est significativement liée à l'axe.</p></div>
+            Quelles variables décrivent le mieux chaque axe ? Pourquoi la compétition n'apparaît-elle pas ?
+          </li>
+        </ol>
+      </li>
+
+      <li><span class="qt">Synthèse.</span>
+        Rédiger, pour l'entraîneur, une synthèse de l'ACP en une dizaine de lignes : les groupes d'épreuves, les deux grandes dimensions du décathlon, ce qui fait gagner, les profils d'athlètes remarquables et des pistes d'entraînement. Préciser les limites de l'analyse.
+      </li>
+    </ol>
+
+    <h2 id="indications">Indications</h2>
+    <ol>
+      <li>Si <code>read.table</code> ne trouve pas le fichier, vérifier qu'il est bien dans <code>data_raw</code>, que RStudio a été lancé depuis le <code>.Rproj</code> (<code>getwd()</code>) et que le chemin s'écrit avec <code>/</code>. En R, un nom de variable ne peut pas commencer par un chiffre.</li>
+      <li>Pour l'ACP, chaque individu doit avoir une valeur pour chaque variable active.</li>
+      <li>Un temps court est une bonne performance ; une distance ou une hauteur grande aussi. Les noms en majuscules correspondent à l'une des deux compétitions.</li>
+      <li>Comparer les corrélations entre épreuves de course, entre lancers, et entre courses et sauts. Penser au sens des performances avant d'interpréter un signe.</li>
+      <li>Une valeur centrée réduite vaut \((x-\overline{x})/s\). Le 1500 m varie d'une trentaine de secondes d'un athlète à l'autre.</li>
+      <li>Le total des points est calculé <em>à partir</em> des dix performances. <code>PCA</code> centre et réduit elle-même les variables actives quand <code>scale.unit = TRUE</code>.</li>
+      <li>L'inertie totale d'une ACP normée vaut le nombre de variables actives.</li>
+      <li>Pour une épreuve chronométrée, une flèche dirigée vers la gauche signifie que les athlètes situés à droite ont des temps <em>courts</em>. La qualité d'une variable sur le plan est la somme de ses \(\cos^2\) sur les axes 1 et 2.</li>
+      <li>La contribution moyenne d'un athlète vaut \(100/41\). Un athlète mal représenté peut être éloigné du centre dans d'autres dimensions.</li>
+      <li>Le classement est calculé <em>séparément</em> dans chaque compétition. Pour comparer les deux compétitions, regarder la valeur absolue de la valeur-test.</li>
+    </ol>
+
+    
+    <p class="end">Mise en forme par Antoine Géré.</p>
+  </main>
+</div>
+<script src="../../../assets/app.js"></script>
+</body>
+</html>
