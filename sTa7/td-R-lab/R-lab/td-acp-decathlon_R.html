@@ -72,7 +72,7 @@
 
     <section id="presentation">
       <p class="lead">Le décathlon réunit <strong>dix épreuves</strong> d'athlétisme disputées sur deux jours : courses (100 m, 400 m, 110 m haies, 1500 m), sauts (longueur, hauteur, perche) et lancers (poids, disque, javelot). Chaque performance est convertie en points par un barème, et le classement se fait sur le <strong>total des points</strong>. Un entraîneur se demande quelles épreuves « vont ensemble », quelles qualités font gagner, et quels profils d'athlètes on rencontre.</p>
-      <p>Le fichier <code>decathlon.txt</code> (données du package <code>FactoMineR</code>) contient les performances de <strong>41 athlètes</strong> lors de deux compétitions de 2004 : le <em>Décastar</em> de Talence et les <em>Jeux olympiques</em> d'Athènes. Chaque ligne correspond à un athlète ; le nom de l'athlète sert de nom de ligne. Les colonnes sont :</p>
+      <p>Le fichier <code>data_stat-0122.txt</code> (données du package <code>FactoMineR</code>) contient les performances de <strong>41 athlètes</strong> lors de deux compétitions de 2004 : le <em>Décastar</em> de Talence et les <em>Jeux olympiques</em> d'Athènes. Chaque ligne correspond à un athlète ; le nom de l'athlète sert de nom de ligne. Les colonnes sont :</p>
       <div class="table-wrap"><table>
         <thead><tr><th>Colonne</th><th>Signification</th><th>Colonne</th><th>Signification</th></tr></thead>
         <tbody>
@@ -85,7 +85,7 @@
           <tr><td><code>Discus</code></td><td>lancer du disque (m)</td><td></td><td></td></tr>
         </tbody>
       </table></div>
-      <div class="databox"><span class="di">📂</span><div><a href="data_raw/decathlon.txt" target="_blank" rel="noopener"><strong>Récupérer les données</strong></a><div class="dmeta">decathlon.txt — à placer dans <code>data_raw/</code></div></div></div>
+      <div class="databox"><span class="di">📂</span><div><a href="data_raw/data_stat-0122.txt" target="_blank" rel="noopener"><strong>Récupérer les données</strong></a><div class="dmeta">data_stat-0122.txt — à placer dans <code>data_raw/</code></div></div></div>
       <div class="mode"><span class="lab">Mode d'emploi</span>
         <ul>
           <li>Chaque question donne le code R à taper <em>dans un script</em> (<em>à enregistrer dans votre dossier OneDrive :</em> <code>STAT_Nom_Prenom</code>), pas dans la console. Pour exécuter une ligne, placer le curseur dessus et taper <code>Ctrl + Entrée</code>.</li>
@@ -142,14 +142,14 @@
     <ol class="qs">
       <li><span class="qt">Préparer la séance.</span>
         <ol class="sub">
-          <li>Dans votre dossier de travail OneDrive, placer <code>decathlon.txt</code> (encadré « Récupérer les données » ci-dessus) dans <code>data_raw</code>. Lancer RStudio à partir du fichier <code>_stat_Istom.Rproj</code>.</li>
+          <li>Dans votre dossier de travail OneDrive, placer <code>data_stat-0122.txt</code> (encadré « Récupérer les données » ci-dessus) dans <code>data_raw</code>. Lancer RStudio à partir du fichier <code>_stat_Istom.Rproj</code>.</li>
           <li>Installer les packages <code>FactoMineR</code>, <code>factoextra</code> et <code>corrplot</code>, puis les charger (<em>à chaque séance</em>) :
             <div class="rcode"><pre><code>library(FactoMineR)   # pour l'ACP
 library(factoextra)   # pour les graphiques de l'ACP (fonctions fviz_...)
 library(corrplot)     # pour la matrice des correlations en couleurs</code></pre></div>
           </li>
           <li>Importer les données :
-            <div class="rcode"><pre><code>deca &lt;- read.table("data_raw/decathlon.txt", header = TRUE, sep = "\t")
+            <div class="rcode"><pre><code>deca &lt;- read.table("data_raw/data_stat-0122.txt", header = TRUE, sep = "\t")
 deca$Competition &lt;- as.factor(deca$Competition)  # variable qualitative (facteur)
 str(deca)                                         # structure du tableau
 head(deca)                                        # les 6 premieres lignes</code></pre></div>
