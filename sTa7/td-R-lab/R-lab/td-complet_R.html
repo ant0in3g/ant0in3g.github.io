@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projet complet sous R : cacaoculture agroforestière — R Lab | Antoine Géré</title>
+<meta name="description" content="Travaux dirigés en autonomie : analyse complète sous R (nettoyage, statistique descriptive, tests, ACP, CAH, synthèse) de 600 parcelles cacaoyères du Centre Cameroun. ISTOM.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../assets/site.css">
+<style>
+  .lead{font-size:1.05rem}
+  ol.qs{list-style:none;padding:0;margin:0}
+  ol.qs>li{position:relative;padding-left:46px;margin:22px 0;}
+  ol.qs>li::before{content:attr(data-n);position:absolute;left:0;top:-2px;min-width:33px;height:27px;padding:0 4px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:.76rem;font-weight:600;color:#fff;background:var(--accent);border-radius:14px}
+  ol.qs>li>.qt{font-weight:600;color:var(--ink)}
+  .lecture{border-left:3px solid var(--accent);background:var(--accent-soft);border-radius:0 8px 8px 0;padding:12px 18px;margin:14px 0;font-size:.92rem}
+  .lecture .lab{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:5px}
+  .lecture p{margin:0}
+  .controle{display:flex;gap:10px;align-items:flex-start;background:rgba(31,143,90,.09);border:1px solid rgba(31,143,90,.32);border-radius:8px;padding:10px 14px;margin:12px 0;font-size:.9rem}
+  .controle .chk{color:#1f8f5a;font-weight:700;flex:none}
+  .controle .lab{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:#1f8f5a;display:block;margin-bottom:2px}
+  .databox{display:flex;gap:14px;align-items:center;border:1px dashed var(--accent);border-radius:10px;padding:13px 18px;margin:18px 0;background:var(--accent-soft)}
+  .databox .di{font-size:1.5rem;flex:none;line-height:1}
+  .databox .dmeta{font-size:.72rem;color:var(--muted);font-family:'IBM Plex Mono',monospace;margin-top:2px}
+  .mode{border-left:3px solid var(--line);background:var(--card);border-radius:0 8px 8px 0;padding:12px 18px;margin:16px 0;font-size:.9rem}
+  .mode .lab{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px}
+  .mode ul,.lecture ul{margin:6px 0 0;padding-left:20px}
+  .mono{font-family:'IBM Plex Mono',monospace;font-size:.92em}
+  .duree{font-family:'IBM Plex Mono',monospace;font-size:.7rem;font-weight:400;letter-spacing:.04em;color:var(--muted);margin-left:10px;white-space:nowrap}
+  table.extrait td,table.extrait th{font-size:.82rem;white-space:nowrap}
+</style>
+<script>
+  window.MathJax = { tex:{ inlineMath:[['\\(','\\)']], displayMath:[['\\[','\\]']] }, svg:{ fontCache:'global' } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js" async></script>
+</head>
+<body>
+<button class="toggle" id="themeToggle" aria-label="Changer de thème">◑</button>
+<div class="layout">
+  <aside>
+    <a class="back" href="../td-R-lab.html">← R Lab</a>
+    <div class="brand-row">
+      <a href="../../../index.html" class="brand-link" aria-label="Retour à l'accueil"><p class="brand sm">Antoine<br>Géré</p>
+      <span class="globe" aria-hidden="true" style="width:42px;height:42px"><canvas id="globeCanvas"></canvas></span></a>
+    </div>
+    <p class="role">R Lab · ISTOM</p>
+    <nav>
+      <a href="#presentation">Présentation</a>
+      <a href="#mission">Votre mission</a>
+      <a href="#partA">A — Importation et qualité</a>
+      <a href="#partB">B — Statistique descriptive</a>
+      <a href="#partC">C — Tests statistiques</a>
+      <a href="#partD">D — ACP</a>
+      <a href="#partE">E — CAH</a>
+      <a href="#partF">F — Synthèse</a>
+      <a href="#indications">Indications</a>
+    </nav>
+    <div class="side-contact">
+      <a href="td-complet_R.pdf" target="_blank" rel="noopener">↓ Télécharger le PDF</a><br>
+      <a href="mailto:a.gere@istom.fr">a.gere@istom.fr</a>
+    </div>
+  </aside>
+  <main>
+    <h1 class="page-title">Projet complet sous R : cacaoculture agroforestière du Centre Cameroun</h1>
+    <p class="teacher">Exercice complet · Promotion 115 · R Lab — <a href="mailto:a.gere@istom.fr">Antoine Géré</a></p>
+
+    <section id="presentation">
+      <p class="lead">Dans la région du Centre (Cameroun), le cacao est cultivé dans des systèmes très variés : vieilles <strong>agroforêts</strong> où les cacaoyers poussent sous un couvert dense d'arbres fruitiers et forestiers, et plantations plus récentes, plus denses et plus ensoleillées, conduites avec davantage d'intrants.</p>
+      <p>Une union de coopératives de producteurs, en lien avec un programme de recherche agronomique, a suivi <strong>600 parcelles cacaoyères</strong> (\(I = 600\)) pendant la campagne 2025-2026, réparties dans trois départements : la <strong>Lekié</strong> (bassin cacaoyer ancien, autour d'Obala), le <strong>Mbam-et-Inoubou</strong> et le <strong>Mbam-et-Kim</strong> (front pionnier plus récent). La question posée est double :</p>
+      <ul>
+        <li>quels sont les <strong>grands types de cacaoyères</strong> de la zone ?</li>
+        <li>quels <strong>compromis</strong> observe-t-on entre production, revenu et services environnementaux (biodiversité, carbone) ?</li>
+      </ul>
+      <p>Les données sont dans le fichier <code>data_stat-0125.xlsx</code> (feuille <code>parcelles</code> ; parcelles en lignes, variables en colonnes) :</p>
+
+      <div class="table-wrap"><table>
+        <thead><tr><th>Variable</th><th>Description</th><th>Type / unité</th></tr></thead>
+        <tbody>
+          <tr><td><code>Parcelle</code></td><td>identifiant de la parcelle</td><td>P001 à P600</td></tr>
+          <tr><td><code>Zone</code></td><td>département</td><td>Lekie, Mbam-et-Inoubou, Mbam-et-Kim</td></tr>
+          <tr><td><code>Cooperative</code></td><td>le producteur est membre d'une coopérative</td><td>Oui / Non</td></tr>
+          <tr><td><code>Certification</code></td><td>cacao vendu sous un label de certification</td><td>Oui / Non</td></tr>
+          <tr><td><code>Surface_ha</code></td><td>surface de la cacaoyère</td><td>ha</td></tr>
+          <tr><td><code>Age_ans</code></td><td>âge du verger</td><td>années</td></tr>
+          <tr><td><code>Densite_pieds_ha</code></td><td>densité de cacaoyers</td><td>pieds/ha</td></tr>
+          <tr><td><code>Ombrage_pct</code></td><td>couverture de la canopée d'ombrage</td><td>%</td></tr>
+          <tr><td><code>Nb_especes_arbres</code></td><td>nombre d'espèces d'arbres associés</td><td>espèces</td></tr>
+          <tr><td><code>Fongicide_trait_an</code></td><td>traitements fongicides par an</td><td>nombre</td></tr>
+          <tr><td><code>MO_hj_ha</code></td><td>main-d'œuvre</td><td>hommes-jours/ha/an</td></tr>
+          <tr><td><code>Pourriture_pct</code></td><td>cabosses atteintes de pourriture brune</td><td>%</td></tr>
+          <tr><td><code>Rdt_kg_ha</code></td><td>rendement en fèves sèches</td><td>kg/ha</td></tr>
+          <tr><td><code>Prix_FCFA_kg</code></td><td>prix moyen de vente bord-champ sur la campagne</td><td>FCFA/kg</td></tr>
+          <tr><td><code>Carbone_t_ha</code></td><td>stock de carbone aérien (cacaoyers + arbres)</td><td>t/ha</td></tr>
+        </tbody>
+      </table></div>
+
+      <p>Extrait (six premières parcelles) :</p>
+      <div class="table-wrap"><table class="extrait center">
+        <thead><tr><th>Parc.</th><th>Zone</th><th>Coop.</th><th>Certif.</th><th>Surf.</th><th>Âge</th><th>Dens.</th><th>Omb.</th><th>Esp.</th><th>Fong.</th><th>MO</th><th>Pourr.</th><th>Rdt</th><th>Prix</th><th>Carb.</th></tr></thead>
+        <tbody>
+          <tr><td>P001</td><td>Lekie</td><td>Oui</td><td>Oui</td><td>2,5</td><td>46</td><td>750</td><td>39</td><td>12</td><td>2</td><td>62</td><td>19</td><td>477</td><td>2720</td><td>46,2</td></tr>
+          <tr><td>P002</td><td>Mbam-et-Inoubou</td><td>Oui</td><td>Non</td><td>1,7</td><td>41</td><td>750</td><td>48</td><td>21</td><td>0</td><td>24</td><td>32</td><td>350</td><td>2340</td><td>55,2</td></tr>
+          <tr><td>P003</td><td>Mbam-et-Inoubou</td><td>Non</td><td>Non</td><td>1,6</td><td>44</td><td>1150</td><td>49</td><td>19</td><td>0</td><td>49</td><td>24</td><td>169</td><td>2315</td><td>79,5</td></tr>
+          <tr><td>P004</td><td>Lekie</td><td>Oui</td><td>Non</td><td>2,5</td><td>42</td><td>1020</td><td>33</td><td>21</td><td>3</td><td>34</td><td>29</td><td>370</td><td>2535</td><td>87,6</td></tr>
+          <tr><td>P005</td><td>Mbam-et-Inoubou</td><td>Oui</td><td>Non</td><td>2,2</td><td>30</td><td>1000</td><td>46</td><td>16</td><td>3</td><td>68</td><td>23</td><td>472</td><td>2670</td><td>63,4</td></tr>
+          <tr><td>P006</td><td>Lekie</td><td>Non</td><td>Non</td><td>2,2</td><td>23</td><td>1060</td><td>42</td><td>19</td><td>3</td><td>52</td><td>5</td><td>386</td><td>2250</td><td>68,0</td></tr>
+          <tr><td colspan="15">…</td></tr>
+        </tbody>
+      </table></div>
+      <p>Ce jeu de données est simulé à des fins pédagogiques.</p>
+
+      <div class="databox"><span class="di">📂</span><div><a href="data_raw/data_stat-0125.xlsx" target="_blank" rel="noopener"><strong>Récupérer les données</strong></a><div class="dmeta">data_stat-0125.xlsx — feuille <code>parcelles</code> — à placer dans <code>data_raw/</code> de votre projet RStudio</div></div></div>
+    </section>
+
+    <h2 id="mission">Votre mission</h2>
+    <div class="mode"><span class="lab">En autonomie</span>
+      <ul>
+        <li>Mener <strong>seul(e) et sous R</strong> l'analyse complète de ce jeu de données, depuis l'importation jusqu'à une note de synthèse.</li>
+        <li><strong>Aucun code n'est fourni</strong> : écrivez un script commenté et reproductible (<em>à enregistrer dans votre dossier OneDrive :</em> <code>STAT_Nom_Prenom</code>), justifiez chaque choix de méthode et interprétez chaque résultat en langage agronomique.</li>
+        <li><strong>Durée indicative</strong> : 3 heures pour les parties A à E ; la synthèse (partie F) se rédige en dehors de ce temps.</li>
+        <li><strong>À rendre</strong> : le script <code>.R</code> (ou un rapport R Markdown / Quarto) et la note de synthèse.</li>
+      </ul>
+    </div>
+
+    <h2 id="partA">Partie A — Importation et qualité des données <span class="duree">≈ 25 min</span></h2>
+    <ol class="qs">
+      <li data-n="A1"><span class="qt">Importer.</span> Importer le fichier, mettre les identifiants de parcelles en noms de lignes et vérifier la structure de l'objet obtenu (type de chaque colonne, effectifs).</li>
+      <li data-n="A2"><span class="qt">Nettoyer.</span> Le fichier brut n'est pas propre. Repérer et corriger les problèmes de saisie : modalités mal orthographiées des variables qualitatives, valeurs impossibles, données manquantes. Pour chaque problème, indiquer la ou les parcelles concernées et le traitement retenu, en le justifiant. Avec 600 lignes, pas question de parcourir le tableau à l'œil : <strong>tous les contrôles se font par le code</strong>. Distinguez aussi une valeur <em>impossible</em> d'une valeur <em>extrême mais plausible</em>.</li>
+      <li data-n="A3"><span class="qt">Préparer.</span> Transformer les variables qualitatives en facteurs, puis créer une nouvelle variable <code>Revenu_brut</code> (en milliers de FCFA/ha) à partir du rendement et du prix de vente.</li>
+    </ol>
+
+    <h2 id="partB">Partie B — Statistique descriptive <span class="duree">≈ 30 min</span></h2>
+    <ol class="qs">
+      <li data-n="B1"><span class="qt">Univarié.</span> Produire un tableau de synthèse des variables quantitatives (moyenne, écart-type, médiane, quartiles, coefficient de variation) et les tableaux d'effectifs et de fréquences des variables qualitatives. Quelles variables sont les plus dispersées ? Lesquelles présentent une distribution nettement asymétrique (histogrammes, boîtes à moustaches) ?</li>
+      <li data-n="B2"><span class="qt">Quanti × quali.</span> Représenter le rendement, l'ombrage et le stock de carbone selon la zone (boîtes à moustaches juxtaposées) et calculer les moyennes par zone. Commenter.</li>
+      <li data-n="B3"><span class="qt">Quanti × quanti.</span> Calculer la matrice des corrélations des variables quantitatives et la représenter graphiquement (<code>corrplot</code> ou équivalent). Repérer les groupes de variables fortement liées entre elles. Tracer le nuage rendement / ombrage.</li>
+      <li data-n="B4"><span class="qt">Quali × quali.</span> Construire le tableau croisé <code>Cooperative</code> × <code>Certification</code> (effectifs et profils-lignes) et le représenter par un diagramme en barres.</li>
+    </ol>
+
+    <h2 id="partC">Partie C — Tests statistiques classiques <span class="duree">≈ 50 min</span></h2>
+    <div class="lecture"><span class="lab">Pour chaque question</span>
+      <ul>
+        <li>formuler \(H_0\) et \(H_1\) ;</li>
+        <li>vérifier les conditions d'application (normalité, homogénéité des variances, effectifs théoriques…) ;</li>
+        <li>choisir le test en le justifiant, conclure au risque \(\alpha = 5\,\%\), puis traduire la conclusion en une phrase compréhensible par un responsable de coopérative.</li>
+      </ul>
+      <p style="margin-top:8px">Avec 600 parcelles, demandez-vous aussi si un écart <em>significatif</em> est pour autant <em>important</em> : donnez l'intervalle de confiance des écarts, et une taille d'effet en C2 (\(\eta^2\)) et en C4 (V de Cramér). Que valent les tests de normalité sur de si grands échantillons ? Enfin, combien de tests réalisez-vous dans cette partie, et qu'est-ce que cela implique pour le risque global de conclure à tort ?</p>
+    </div>
+    <ol class="qs">
+      <li data-n="C1"><span class="qt">Coopérative.</span> Le rendement moyen des membres de coopérative diffère-t-il de celui des non-membres ? Même question pour le prix de vente.</li>
+      <li data-n="C2"><span class="qt">Zones.</span> Le rendement moyen diffère-t-il entre les trois zones ? Si oui, quelles zones diffèrent deux à deux ? Proposer aussi une alternative non paramétrique et comparer les conclusions.</li>
+      <li data-n="C3"><span class="qt">Pourriture brune.</span> Le taux de pourriture brune suit-il une loi normale ? Comparer le taux de pourriture entre zones avec le test approprié.</li>
+      <li data-n="C4"><span class="qt">Indépendance.</span> L'adhésion à une coopérative et la certification sont-elles indépendantes ? Même question pour la zone et l'adhésion à une coopérative. Discuter la validité du test du \(\chi^2\) et proposer une alternative si nécessaire.</li>
+      <li data-n="C5"><span class="qt">Corrélations.</span> Tester la significativité de la corrélation entre l'ombrage et le rendement, puis entre l'ombrage et la pourriture brune (Pearson et Spearman). Une corrélation significative permet-elle de conclure que l'ombrage <em>cause</em> une baisse de rendement ? Argumenter.</li>
+    </ol>
+
+    <h2 id="partD">Partie D — Analyse en composantes principales <span class="duree">≈ 40 min</span></h2>
+    <ol class="qs">
+      <li data-n="D1"><span class="qt">Lancer l'ACP.</span> Réaliser une ACP sur les variables quantitatives décrivant les parcelles. Justifier : le choix d'une ACP normée, le choix des variables actives et des variables supplémentaires (quantitatives et qualitatives), le traitement des données manquantes.</li>
+      <li data-n="D2"><span class="qt">Nombre d'axes.</span> Combien d'axes retenir ? Argumenter à partir des valeurs propres (éboulis, critère de Kaiser, pourcentages d'inertie).</li>
+      <li data-n="D3"><span class="qt">Interpréter les axes.</span> Interpréter le ou les axes retenus en D2 : cercle des corrélations, variables les mieux représentées (\(\cos^2\)) et contributions. Donner un nom à chaque axe retenu.</li>
+      <li data-n="D4"><span class="qt">Carte des parcelles.</span> Représenter les parcelles sur le premier plan, colorées selon la zone, puis selon l'adhésion à une coopérative. Les modalités des variables supplémentaires sont-elles bien séparées (valeurs-tests) ? Repérer les parcelles atypiques.</li>
+    </ol>
+
+    <h2 id="partE">Partie E — Classification ascendante hiérarchique <span class="duree">≈ 35 min</span></h2>
+    <ol class="qs">
+      <li data-n="E1"><span class="qt">Construire l'arbre.</span> Réaliser une CAH (critère de Ward) sur les coordonnées des parcelles issues de l'ACP. Justifier le nombre d'axes conservés pour la classification, et expliquer pourquoi il peut différer du nombre d'axes interprétés en D2.</li>
+      <li data-n="E2"><span class="qt">Nombre de classes.</span> Choisir le nombre de classes à l'aide du dendrogramme et du diagramme des gains d'inertie ; confirmer par une autre méthode (silhouette, consolidation par k-means…). Si les critères ne concordent pas, trancher et justifier le choix.</li>
+      <li data-n="E3"><span class="qt">Caractériser les classes.</span> Caractériser chaque classe : variables quantitatives (moyennes par classe, valeurs-tests) et modalités qualitatives surreprésentées. Nommer les types de cacaoyères obtenus et identifier la parcelle la plus représentative (<em>parangon</em>) de chaque classe. Les valeurs-tests des variables actives ont-elles la même portée qu'un test de la partie C ?</li>
+      <li data-n="E4"><span class="qt">Tester avec prudence.</span> Serait-il légitime de tester si le rendement ou le revenu brut diffèrent entre les classes ? Testez en revanche la liaison entre la classe et les variables qui n'ont pas servi à la construire : zone, adhésion, certification et prix de vente (avec taille d'effet). Commenter.</li>
+    </ol>
+
+    <h2 id="partF">Partie F — Synthèse <span class="duree">hors temps, travail personnel</span></h2>
+    <ol class="qs">
+      <li data-n="F1"><span class="qt">Note de synthèse.</span> Rédiger une note d'une page à destination de l'union de coopératives : principaux types de cacaoyères, compromis observés entre rendement, revenu, pression sanitaire et services environnementaux (diversité d'arbres, carbone), et pistes d'accompagnement adaptées à chaque type.</li>
+      <li data-n="F2"><span class="qt">Limites.</span> Indiquer les limites de l'étude : taille et mode de constitution de l'échantillon, indépendance des observations, nature observationnelle des données, variables manquantes pour juger de la durabilité des systèmes (revenus des autres produits de l'agroforêt, coûts des intrants, fertilité du sol…).</li>
+    </ol>
+
+    <h2 id="indications">Indications</h2>
+    <div class="lecture"><span class="lab">Boîte à outils</span><p class="mono">read_excel (readxl), str, summary, table, is.na, factor, tapply, aggregate, boxplot, cor, corrplot ; shapiro.test, var.test, bartlett.test, leveneTest (car), t.test, wilcox.test, aov, oneway.test, TukeyHSD, pairwise.t.test, kruskal.test, chisq.test, fisher.test, cor.test ; PCA, dimdesc, HCPC (FactoMineR), imputePCA (missMDA) ; fviz_eig, fviz_pca_var, fviz_pca_ind, fviz_dend, fviz_cluster (factoextra) ; silhouette (cluster).</p></div>
+
+    <div class="controle"><span class="chk">✓</span><div><span class="lab">Contrôle</span>Après nettoyage : 3 zones (220, 200 et 180 parcelles), 292 membres de coopérative, 595 rendements exploitables et un ombrage moyen de 36 % environ. Le premier axe de l'ACP résume un peu plus de la moitié de l'inertie ; les axes suivants sont beaucoup plus faibles.</div></div>
+
+    <div class="mode"><span class="lab">Sources</span>
+      La démarche de cet exercice n'est pas originale. Elle reprend de nombreux exercices rencontrés, traités ou proposés dans de nombreux manuels, polycopiés et TD de statistique et d'analyse de données sous R. Le travail a surtout consisté ici à les remettre en contexte autour d'une thématique propre à l'ISTOM : la cacaoculture agroforestière du Centre Cameroun, et à les enchaîner sur un même jeu de données. Ce jeu de données est simulé à des fins pédagogiques.
+    </div>
+
+    <p class="end">Mise en forme par Antoine Géré.</p>
+  </main>
+</div>
+<script src="../../../assets/app.js"></script>
+</body>
+</html>
