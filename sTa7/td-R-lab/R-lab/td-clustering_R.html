@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Une analyse de clustering complète avec R — R Lab | Antoine Géré</title>
+<meta name="description" content="Travaux dirigés : analyse de clustering complète avec R (k-means et CAH, choix du nombre de classes, silhouette, valeurs-tests), sur données agro-économiques et variétales des pays du Sud. ISTOM.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../assets/site.css">
+<style>
+  .lead{font-size:1.05rem}
+  ol.qs{counter-reset:q;list-style:none;padding:0;margin:0}
+  ol.qs>li{counter-increment:q;position:relative;padding-left:40px;margin:26px 0;}
+  ol.qs>li::before{content:counter(q);position:absolute;left:0;top:-2px;width:27px;height:27px;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:.8rem;font-weight:600;color:#fff;background:var(--accent);border-radius:50%}
+  ol.qs>li>.qt{font-weight:600;color:var(--ink)}
+  ol.sub{list-style:lower-alpha;padding-left:20px;margin:8px 0}
+  ol.sub>li{margin:7px 0}
+  .rcode{position:relative;margin:14px 0}
+  .rcode::before{content:"R";position:absolute;top:0;right:0;font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.12em;color:#fff;background:var(--accent);padding:2px 9px;border-radius:0 10px 0 8px;z-index:1}
+  .rcode pre{margin:0}
+  .lecture{border-left:3px solid var(--accent);background:var(--accent-soft);border-radius:0 8px 8px 0;padding:12px 18px;margin:14px 0;font-size:.92rem}
+  .lecture .lab{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:5px}
+  .lecture p{margin:0}
+  .controle{display:flex;gap:10px;align-items:flex-start;background:rgba(31,143,90,.09);border:1px solid rgba(31,143,90,.32);border-radius:8px;padding:10px 14px;margin:12px 0;font-size:.9rem}
+  .controle .chk{color:#1f8f5a;font-weight:700;flex:none}
+  .controle .lab{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:#1f8f5a;display:block;margin-bottom:2px}
+  .databox{display:flex;gap:14px;align-items:center;border:1px dashed var(--accent);border-radius:10px;padding:13px 18px;margin:18px 0;background:var(--accent-soft)}
+  .databox .di{font-size:1.5rem;flex:none;line-height:1}
+  .databox .dmeta{font-size:.72rem;color:var(--muted);font-family:'IBM Plex Mono',monospace;margin-top:2px}
+  .mode{border-left:3px solid var(--line);background:var(--card);border-radius:0 8px 8px 0;padding:12px 18px;margin:16px 0;font-size:.9rem}
+  .mode .lab{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px}
+  .mode ul,.lecture ul{margin:6px 0 0;padding-left:20px}
+  .mono{font-family:'IBM Plex Mono',monospace;font-size:.92em}
+  .part{font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:46px 0 -6px}
+</style>
+<script>
+  window.MathJax = { tex:{ inlineMath:[['\\(','\\)']], displayMath:[['\\[','\\]']] }, svg:{ fontCache:'global' } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js" async></script>
+</head>
+<body>
+<button class="toggle" id="themeToggle" aria-label="Changer de thème">◑</button>
+<div class="layout">
+  <aside>
+    <a class="back" href="../td-R-lab.html">← R Lab</a>
+    <div class="brand-row">
+      <a href="../../../index.html" class="brand-link" aria-label="Retour à l'accueil"><p class="brand sm">Antoine<br>Géré</p>
+      <span class="globe" aria-hidden="true" style="width:42px;height:42px"><canvas id="globeCanvas"></canvas></span></a>
+    </div>
+    <p class="role">R Lab · ISTOM</p>
+    <nav>
+      <a href="#presentation">Présentation</a>
+      <a href="#ex1">Exercice 1 — guidé</a>
+      <a href="#ex2">Exercice 2 — autonomie</a>
+      <a href="#indications">Indications</a>
+      <a href="td-clustering_R_correction.html">↳ Correction de l'exercice 1</a>
+    </nav>
+    <div class="side-contact">
+      <a href="td-clustering_R.pdf" target="_blank" rel="noopener">↓ Télécharger le PDF</a><br>
+      <a href="mailto:a.gere@istom.fr">a.gere@istom.fr</a>
+    </div>
+  </aside>
+  <main>
+    <h1 class="page-title">Une analyse de clustering complète avec R</h1>
+    <p class="teacher">k-means, CAH et validation · R Lab — <a href="mailto:a.gere@istom.fr">Antoine Géré</a></p>
+
+    <section id="presentation">
+      <p class="lead">Ce TD comporte <strong>deux exercices</strong> à réaliser <strong>avec R sous RStudio</strong>. Il prolonge le TD <a href="td-cah_R.html">« La CAH de Ward avec R »</a> : on mène cette fois une <strong>analyse de clustering complète</strong>, de la préparation des données à la validation de la partition.</p>
+      <ul>
+        <li><strong>Exercice 1 (guidé)</strong> : typologie agro-alimentaire de 21 pays du Sud, par k-means <em>et</em> par CAH, avec choix du nombre de classes et validation par la silhouette. Tout le code R est fourni ; des encadrés <span style="color:var(--accent)"><strong>Lecture</strong></span> expliquent les sorties et des lignes <span style="color:#1f8f5a"><strong>✓ Contrôle</strong></span> permettent de vérifier ses résultats.</li>
+        <li><strong>Exercice 2 (en autonomie)</strong> : typologie de 18 variétés d'une céréale de zone sèche. Aucun code n'est fourni : on écrit son propre script et l'on justifie chaque choix.</li>
+      </ul>
+      <p>Les jeux de données sont fournis dans les fichiers Excel <code>data_stat-0123.xlsx</code> et <code>data_stat-0124.xlsx</code> (feuille <code>donnees</code> ; la feuille <code>description</code> rappelle le sens et l'unité de chaque colonne), à placer dans le dossier <code>data_raw</code> de votre projet RStudio. On utilise les packages <code>readxl</code>, <code>FactoMineR</code>, <code>factoextra</code>, <code>cluster</code> et <code>NbClust</code>.</p>
+      <p>Ces exercices entraînent à : <strong>choisir le nombre de classes</strong> en croisant plusieurs méthodes (coude, silhouette, statistique du gap, vote de <code>NbClust</code>) ; <strong>comparer deux algorithmes</strong> (k-means et CAH) par une table de confusion ; <strong>valider</strong> la partition par la silhouette ; <strong>caractériser et nommer</strong> les classes avec les valeurs-tests.</p>
+      <div class="lecture"><span class="lab">Le principe en deux lignes</span><p>On cherche des groupes d'individus <em>homogènes</em> (qui se ressemblent à l'intérieur d'une classe) et <em>bien séparés</em> (différents d'une classe à l'autre). L'inertie totale se décompose en inertie <strong>intra</strong>-classe et inertie <strong>inter</strong>-classe : une bonne partition a une inertie inter-classe forte, c'est-à-dire un rapport \(R^2 = \dfrac{\text{inertie inter}}{\text{inertie totale}}\) proche de \(1\).</p></div>
+    </section>
+
+    <h2 id="ex1">Exercice 1 (guidé) — typologie agro-alimentaire de pays du Sud</h2>
+    <p>Une agence de coopération veut regrouper les pays où elle intervient en quelques grands profils agro-alimentaires, pour adapter ses programmes de développement agricole. On dispose d'un jeu de données (fictif, inspiré d'indicateurs de type FAO) décrivant <strong>21 pays</strong> (\(I=21\)) par <strong>sept variables</strong> agro-économiques (\(K=7\)). Le fichier <code>data_stat-0123.xlsx</code> (feuille <code>donnees</code>) contient une ligne par pays :</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Colonne</th><th>Signification</th></tr></thead>
+      <tbody>
+        <tr><td><code>Pays</code></td><td>identifiant (P01 à P21)</td></tr>
+        <tr><td><code>Agri_PIB_pct</code></td><td>part de l'agriculture dans le PIB (%)</td></tr>
+        <tr><td><code>Pop_rurale_pct</code></td><td>part de la population rurale (%)</td></tr>
+        <tr><td><code>Terres_arables_hab</code></td><td>terres arables par habitant (ha/hab)</td></tr>
+        <tr><td><code>Rdt_cereales</code></td><td>rendement céréalier (kg/ha)</td></tr>
+        <tr><td><code>Sousalim_pct</code></td><td>prévalence de la sous-alimentation (%)</td></tr>
+        <tr><td><code>Engrais_ha</code></td><td>engrais minéraux (kg/ha)</td></tr>
+        <tr><td><code>PIB_hab</code></td><td>PIB par habitant (USD)</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="databox"><span class="di">📂</span><div><a href="data_raw/data_stat-0123.xlsx" target="_blank" rel="noopener"><strong>Récupérer les données</strong></a><div class="dmeta">data_stat-0123.xlsx — à placer dans <code>data_raw/</code></div></div></div>
+
+    <div class="mode"><span class="lab">Objectif</span>
+      Mener, <strong>pas à pas</strong>, une <em>analyse de clustering complète</em> : préparer les données, déterminer le bon nombre de classes par plusieurs méthodes, construire une partition par <strong>k-means</strong> <em>et</em> par <strong>CAH</strong>, les comparer, valider la partition, puis caractériser et nommer les types de pays. Le code est fourni.
+    </div>
+
+    <div class="mode"><span class="lab">Mode d'emploi</span>
+      <ul>
+        <li>Placer <code>data_stat-0123.xlsx</code> dans le dossier <code>data_raw</code> de votre dossier de travail OneDrive et lancer RStudio à partir du fichier <code>_stat_Istom.Rproj</code>.</li>
+        <li>Chaque question donne le code R à taper <em>dans un script</em> (<em>à enregistrer dans votre dossier OneDrive :</em> <code>STAT_Nom_Prenom</code>), pas dans la console. Pour exécuter une ligne, placer le curseur dessus et taper <code>Ctrl + Entrée</code>.</li>
+        <li>Après chaque bloc de code : exécuter le code, comparer la sortie aux lignes <span style="color:#1f8f5a"><strong>✓ Contrôle</strong></span>, lire les encadrés <span style="color:var(--accent)"><strong>Lecture</strong></span>, puis répondre aux questions.</li>
+        <li>Tout ce qui suit le signe <code>#</code> est un commentaire : R l'ignore.</li>
+        <li>La numérotation des classes (1, 2, 3) et l'ordre des feuilles du dendrogramme peuvent changer d'un ordinateur à l'autre : c'est la <em>composition</em> des classes qui compte.</li>
+      </ul>
+    </div>
+
+    <p>Installer une seule fois les packages utiles au TD :</p>
+    <div class="rcode"><pre><code>install.packages(c("readxl", "FactoMineR", "factoextra", "cluster", "NbClust"))  # une seule fois</code></pre></div>
+
+    <ol class="qs">
+      <li><span class="qt">Importer et explorer.</span>
+        <div class="rcode"><pre><code>library(readxl)
+pays &lt;- as.data.frame(read_excel("data_raw/data_stat-0123.xlsx", sheet = "donnees"))
+rownames(pays) &lt;- pays$Pays ; pays$Pays &lt;- NULL
+summary(pays)        # des unites et des ordres de grandeur tres differents</code></pre></div>
+        <ol class="sub">
+          <li>Comparez les ordres de grandeur (PIB/hab en milliers, part de l'agriculture en dizaines, terres arables en dixièmes). Pourquoi faut-il centrer-réduire avant de calculer des distances ?</li>
+        </ol>
+      </li>
+
+      <li><span class="qt">Centrer-réduire.</span>
+        <div class="rcode"><pre><code>pays.cr &lt;- scale(pays)     # moyenne 0, ecart-type 1 pour chaque variable
+round(head(pays.cr), 2)</code></pre></div>
+        <div class="controle"><span class="chk">✓</span><div><span class="lab">Contrôle</span>pour P02, <code>Terres_arables_hab</code> vaut \(2{,}19\) : P02 a beaucoup plus de terres par habitant que la moyenne.</div></div>
+      </li>
+
+      <li><span class="qt">Choisir le nombre de classes : trois regards, plus un vote.</span>
+        <div class="rcode"><pre><code>library(factoextra)
+set.seed(123)        # pour obtenir les memes resultats a chaque execution
+fviz_nbclust(pays.cr, kmeans, method = "wss", nstart = 25)        # methode du coude
+fviz_nbclust(pays.cr, kmeans, method = "silhouette", nstart = 25) # silhouette moyenne
+fviz_nbclust(pays.cr, kmeans, method = "gap_stat",
+             nstart = 25, nboot = 100)                            # statistique du gap
+
+library(NbClust)
+nb &lt;- NbClust(pays.cr, distance = "euclidean",
+              min.nc = 2, max.nc = 8, method = "kmeans", index = "all")
+table(nb$Best.nc[1, ])                     # nombre d'indices votant pour chaque k
+barplot(table(nb$Best.nc[1, ]), xlab = "nombre de classes k",
+        ylab = "nombre d'indices")         # regle de la majorite</code></pre></div>
+        <div class="lecture"><span class="lab">Trois regards sur le « bon » nombre de classes</span>
+          <ul>
+            <li>La <strong>méthode du coude</strong> trace l'inertie intra-classe en fonction de \(k\) : elle diminue toujours, et l'on cherche le \(k\) à partir duquel elle ne diminue plus beaucoup (le « coude »).</li>
+            <li>La <strong>silhouette moyenne</strong> mesure à la fois l'homogénéité et la séparation des classes : on retient le \(k\) qui la maximise.</li>
+            <li>La <strong>statistique du gap</strong> compare l'inertie intra observée à celle de données sans structure (simulées) : on retient le plus petit \(k\) dont le gap est proche du maximum (à une erreur-type près).</li>
+            <li><code>NbClust</code> calcule une trentaine d'indices et fait voter chacun pour un \(k\). On retient le \(k\) sur lequel ces méthodes convergent.</li>
+          </ul>
+          <p>L'argument <code>nstart = 25</code> relance chaque k-means 25 fois pour éviter une mauvaise solution due au hasard du départ. <code>NbClust</code> affiche beaucoup de texte et deux séries de graphiques : seul le bilan final (« <em>According to the majority rule…</em> ») nous intéresse ici. <code>nb$Best.nc</code> donne le \(k\) choisi par chaque indice ; les colonnes « 0 » ou « 1 » correspondent à des indices qui ne se prononcent pas ou qui se lisent graphiquement.</p></div>
+        <ol class="sub">
+          <li>Quel nombre de classes ces méthodes suggèrent-elles ? Concordent-elles ?</li>
+        </ol>
+      </li>
+
+      <li><span class="qt">Partition par k-means.</span>
+        <div class="rcode"><pre><code>set.seed(123)
+km &lt;- kmeans(pays.cr, centers = 3, nstart = 25)   # 25 initialisations, on garde la meilleure
+km$size                                            # effectif de chaque classe
+round(km$betweenss / km$totss, 3)                  # part de l'inertie expliquee (R2)
+fviz_cluster(km, data = pays.cr, repel = TRUE,
+             ellipse.type = "convex")              # classes sur le plan de l'ACP</code></pre></div>
+        <div class="lecture"><span class="lab">Lecture</span><p>Les k-means partent de \(k\) centres tirés au hasard, affectent chaque individu au centre le plus proche, recalculent les centres, et recommencent jusqu'à stabilité. Le résultat dépend des centres initiaux : <code>nstart = 25</code> relance l'algorithme depuis 25 tirages et conserve la solution d'inertie intra minimale. <code>fviz_cluster</code> projette les classes sur les deux premiers axes d'une ACP.</p></div>
+        <div class="controle"><span class="chk">✓</span><div><span class="lab">Contrôle</span><code>km$size</code> donne trois classes de \(7\) pays ; le rapport inertie inter / inertie totale vaut environ \(0{,}83\).</div></div>
+        <ol class="sub">
+          <li>Les trois classes sont-elles bien séparées sur le plan de l'ACP ? Quel pourcentage d'inertie ce plan restitue-t-il ?</li>
+        </ol>
+      </li>
+
+      <li><span class="qt">Partition par CAH (Ward).</span>
+        <div class="rcode"><pre><code>d     &lt;- dist(pays.cr)                      # distances euclidiennes
+arbre &lt;- hclust(d, method = "ward.D2")      # CAH, critere de Ward
+round(rev(arbre$height), 2)                 # hauteurs de fusion
+fviz_dend(arbre, k = 3, rect = TRUE, cex = 0.6)   # dendrogramme colore
+cah &lt;- cutree(arbre, k = 3)                 # on decoupe en 3 classes</code></pre></div>
+        <ol class="sub">
+          <li>Le dendrogramme et les hauteurs de fusion confirment-ils le découpage en \(3\) classes (grand saut) ?</li>
+        </ol>
+      </li>
+
+      <li><span class="qt">Comparer les deux partitions.</span>
+        <div class="rcode"><pre><code>table(kmeans = km$cluster, cah = cah)   # table de confusion entre les deux partitions</code></pre></div>
+        <div class="lecture"><span class="lab">Lecture</span><p>Les numéros de classes sont arbitraires : la classe 1 des k-means peut correspondre à la classe 3 de la CAH. Deux partitions sont identiques si chaque ligne et chaque colonne de la table ne contient qu'une seule case non nulle.</p></div>
+        <ol class="sub">
+          <li>Les deux méthodes donnent-elles (à l'étiquette près) les mêmes groupes ? Qu'en concluez-vous sur la robustesse de la typologie ?</li>
+        </ol>
+      </li>
+
+      <li><span class="qt">Valider : la silhouette.</span>
+        <div class="rcode"><pre><code>library(cluster)
+sil &lt;- silhouette(km$cluster, dist(pays.cr))
+summary(sil)                 # silhouette moyenne, par classe
+fviz_silhouette(sil)         # largeur de silhouette par pays et moyenne</code></pre></div>
+        <div class="lecture"><span class="lab">La silhouette</span><p>Pour chaque individu \(i\), on calcule \(a(i)\), sa distance moyenne aux autres membres de sa classe, et \(b(i)\), sa distance moyenne aux membres de la classe voisine la plus proche. Sa silhouette vaut \(s(i)=\dfrac{b(i)-a(i)}{\max\big(a(i),b(i)\big)}\), entre \(-1\) et \(1\) : proche de \(1\), l'individu est bien classé ; proche de \(0\), il est à la frontière ; négative, il serait mieux ailleurs. La <em>silhouette moyenne</em> mesure la qualité globale de la partition (au-dessus de \(0{,}5\) : structure nette).</p></div>
+        <ol class="sub">
+          <li>La silhouette moyenne est-elle élevée ? Quelle classe est la plus homogène ?</li>
+          <li>Des pays ont-ils une silhouette négative (classement douteux) ? Quels sont les pays les moins bien classés, et vers quelle classe hésitent-ils ? (Taper <code>sil[, 1:3]</code> : la colonne <code>neighbor</code> donne la classe voisine.)</li>
+        </ol>
+      </li>
+
+      <li><span class="qt">Caractériser et nommer les types.</span>
+        <div class="rcode"><pre><code>aggregate(pays, by = list(classe = km$cluster), FUN = mean)  # moyennes par classe
+
+library(FactoMineR)
+res.pca  &lt;- PCA(pays, scale.unit = TRUE, graph = FALSE)
+res.hcpc &lt;- HCPC(res.pca, nb.clust = 3, graph = FALSE)
+res.hcpc$desc.var$quanti      # valeurs-tests : variables caracteristiques de chaque classe</code></pre></div>
+        <ol class="sub">
+          <li>Pour chaque classe, repérez les variables les plus caractéristiques (valeurs-tests de module \(\ge 1{,}96\)).</li>
+          <li>Proposez un nom parlant pour chacun des trois types (par exemple selon le niveau d'intensification, de sous-alimentation et de revenu).</li>
+          <li>En trois ou quatre phrases, rédigez une synthèse : quels grands profils agro-alimentaires se dégagent, et en quoi une telle typologie peut-elle orienter des politiques de développement agricole ? Quelles en sont les limites ?</li>
+        </ol>
+      </li>
+    </ol>
+
+    <h2 id="ex2">Exercice 2 (en autonomie) — typologie de variétés d'une céréale de zone sèche</h2>
+    <p>Un programme de sélection variétale a évalué <strong>18 variétés</strong> d'une céréale de zone sèche (\(I=18\)) sur <strong>six traits agronomiques</strong> (\(K=6\)). Il souhaite regrouper les variétés en quelques types pour recommander, selon les contextes, les plus adaptées. Le fichier <code>data_stat-0124.xlsx</code> (feuille <code>donnees</code>) contient une ligne par variété ; les données sont fictives.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Colonne</th><th>Signification</th></tr></thead>
+      <tbody>
+        <tr><td><code>Variete</code></td><td>identifiant (V01 à V18)</td></tr>
+        <tr><td><code>Cycle_j</code></td><td>durée du cycle (jours)</td></tr>
+        <tr><td><code>Hauteur_cm</code></td><td>hauteur à maturité (cm)</td></tr>
+        <tr><td><code>Rdt_t_ha</code></td><td>rendement en grain (t/ha)</td></tr>
+        <tr><td><code>Proteines_pct</code></td><td>teneur en protéines du grain (%)</td></tr>
+        <tr><td><code>Tol_secheresse</code></td><td>tolérance à la sécheresse (note de 1 à 10)</td></tr>
+        <tr><td><code>P1000_g</code></td><td>poids de mille grains (g)</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="databox"><span class="di">📂</span><div><a href="data_raw/data_stat-0124.xlsx" target="_blank" rel="noopener"><strong>Récupérer les données</strong></a><div class="dmeta">data_stat-0124.xlsx — à placer dans <code>data_raw/</code></div></div></div>
+
+    <div class="mode"><span class="lab">En autonomie</span>
+      Mener <strong>seul(e) et sous R</strong> une analyse de clustering complète de ces variétés, puis l'interpréter. Vous vous inspirerez de la démarche de l'exercice&nbsp;1, mais <strong>sans code fourni</strong> : à vous d'écrire le script (commenté), de justifier chaque choix et de rédiger une synthèse.
+    </div>
+
+    <div class="lecture"><span class="lab">Boîte à outils</span><p class="mono">read_excel, scale, dist, hclust(..., method = "ward.D2"), cutree, kmeans ; fviz_nbclust, fviz_cluster, fviz_dend, fviz_silhouette (factoextra) ; silhouette (cluster) ; NbClust ; PCA, HCPC (FactoMineR).</p></div>
+
+    <ol class="qs">
+      <li><span class="qt">Préparer.</span> Importer le fichier, mettre les noms de variétés en noms de lignes, puis <em>centrer-réduire</em> les six traits. Justifier en une phrase.</li>
+      <li><span class="qt">Choisir le nombre de classes.</span> Le déterminer par <em>au moins deux</em> méthodes (coude, silhouette, gap, ou <code>NbClust</code>) et conclure sur le \(k\) retenu. Si les méthodes ne concordent pas, comparer les partitions candidates et choisir celle qui est la plus utile agronomiquement, en le justifiant.</li>
+      <li><span class="qt">Deux partitions.</span> Construire une partition par <strong>k-means</strong> (penser à <code>nstart</code> et à <code>set.seed</code>) <em>et</em> une par <strong>CAH de Ward</strong> (dendrogramme). Visualiser les classes sur le plan de l'ACP.</li>
+      <li><span class="qt">Comparer</span> les deux partitions (table de confusion) et commenter leur accord.</li>
+      <li><span class="qt">Valider</span> la partition retenue par la <strong>silhouette</strong> (moyenne et silhouettes individuelles).</li>
+      <li><span class="qt">Caractériser et nommer.</span> Calculer les moyennes par classe (ou les valeurs-tests de <code>HCPC</code>), décrire chaque groupe par ses traits marquants, nommer les types variétaux et rédiger une synthèse de cinq lignes : quel intérêt pour orienter le choix variétal selon les contextes (zones sèches, recherche de rendement, qualité du grain) ?</li>
+    </ol>
+    <div class="controle"><span class="chk">✓</span><div><span class="lab">Contrôle</span>un découpage en <strong>trois types</strong> se dégage : des variétés <em>précoces, courtes et très tolérantes à la sécheresse</em> mais peu productives ; des variétés <em>tardives, hautes et productives</em> mais pauvres en protéines et sensibles à la sécheresse ; et un type <em>intermédiaire, riche en protéines</em>. Une ou deux variétés « frontière » hésitent entre deux types : discutez-les à l'aide de leur silhouette.</div></div>
+
+    <h2 id="indications">Indications</h2>
+
+    <h3>Exercice 1</h3>
+    <ol>
+      <li>Comparer l'écart-type de <code>PIB_hab</code> à celui de <code>Terres_arables_hab</code>.</li>
+      <li>Une valeur centrée-réduite se lit en nombre d'écarts-types par rapport à la moyenne.</li>
+      <li>Sur le graphique du coude, chercher où la courbe « casse » ; sur celui de la silhouette, le maximum ; sur celui du gap, la ligne pointillée verticale indique le \(k\) choisi. Pour <code>NbClust</code>, lire le bilan « <em>Among all indices</em> ».</li>
+      <li><code>km$betweenss / km$totss</code> est le \(R^2\) de la partition. Le pourcentage d'inertie de chaque axe est écrit sur les axes de <code>fviz_cluster</code>.</li>
+      <li>Comparer les deux plus hautes fusions aux suivantes.</li>
+      <li>Chercher une correspondance une à une entre les lignes et les colonnes de la table.</li>
+      <li>Les pays de plus faible silhouette sont en bas de chaque bloc de <code>fviz_silhouette</code>.</li>
+      <li>Les numéros de classes de <code>HCPC</code>, des k-means et de la CAH ne sont pas forcément les mêmes : s'appuyer sur la composition des classes (<code>res.hcpc$data.clust</code>) ou sur les moyennes.</li>
+    </ol>
+
+    <h3>Exercice 2</h3>
+    <ol>
+      <li>Les traits sont en jours, centimètres, t/ha, %, notes et grammes.</li>
+      <li>Ici, toutes les méthodes ne donnent pas le même \(k\) : c'est fréquent. Regarder le dendrogramme : la partition en 2 classes se contente-t-elle de séparer les variétés tardives des autres ? Que gagne-t-on, agronomiquement, à passer à 3 classes ?</li>
+      <li>Utiliser <code>set.seed</code> avant <code>kmeans</code> pour que les résultats soient reproductibles.</li>
+      <li>Voir l'indication 6 de l'exercice&nbsp;1.</li>
+      <li>Une variété « frontière » a une silhouette faible (proche de \(0\)) ; <code>sil[, 1:3]</code> donne sa classe voisine. Retourner à ses valeurs brutes pour comprendre pourquoi elle hésite.</li>
+      <li>Penser aux compromis classiques du sélectionneur : précocité contre rendement, rendement contre teneur en protéines.</li>
+    </ol>
+
+    <div class="lecture"><span class="lab">Sources</span><p>Démarche adaptée (thématique ISTOM) à partir de : A.&nbsp;Kassambara, <em>Cluster Analysis in R</em>, <a href="https://www.datanovia.com/fr/blog/cluster-analysis-in-r-example" target="_blank" rel="noopener">Datanovia</a> ; DU-Bii, <em>TP Clustering</em>, <a href="https://du-bii.github.io/module-3-Stat-R/stat-R_2020/clustering/TP_clustering.html" target="_blank" rel="noopener">du-bii.github.io</a> ; J.&nbsp;Jacques, <em>TD Clustering</em>, Univ. Lyon&nbsp;2, <a href="https://eric.univ-lyon2.fr/jjacques/Download/Cours/DataMining-TDclustering.pdf" target="_blank" rel="noopener">eric.univ-lyon2.fr</a> ; M.&nbsp;Chica &amp; J.&nbsp;Torres, <em>TD Clustering</em>, INSA CVL, <a href="https://github.com/milleracero/Data-mining-INSA---TD-Clustering" target="_blank" rel="noopener">github.com/milleracero</a> ; B.&nbsp;Ndiaye, <em>Clustering TD</em>, <a href="https://rpubs.com/ben_ndiaye/451434" target="_blank" rel="noopener">RPubs</a>.</p></div>
+
+    <p class="end">Mise en forme par Antoine Géré.</p>
+  </main>
+</div>
+<script src="../../../assets/app.js"></script>
+</body>
+</html>
